@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.38800",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "Breaking the Shot-Noise Barrier: Cached Recycled Variance-Reduced Gradients for Quantum Optimization",
+  "authors": "Lam M. Nguyen, Sumanta Mukherjee, Dzung T. Phan",
+  "abstract": "Variational Quantum Algorithms (VQAs) rely heavily on classical optimization routines to navigate high-dimensional, noisy parameter landscapes. However, the evaluation of analytical gradients via the parameter-shift rule requires $\\mathcal{O}(p)$ circuit executions, rendering this approach computationally prohibitive for deep circuits. While simultaneous perturbation methods provide an $\\mathcal{O}(1)$ alternative, their gradient estimates suffer from severe $\\mathcal{O}(p)$ spatial variance, which impedes convergence. To resolve this tension, we introduce the Cached Recycled Variance-Reduced Gradient (CRVG) by leveraging variance reduction techniques. We formulate two variants: a 3-Circuit (1-Sided) Non-Recursive CRVG and a Recursive CRVG. By introducing a center-point caching mechanism, the 3-Circuit CRVG mathematically recycles quantum measurements to reduce the inner-loop circuit complexity by 25\\% across both variants. We establish a theoretical separation between the two routing paths to achieve an $ε^2$-stationary point: the non-recursive variant reaches a sample complexity of $\\mathcal{O}(\\max\\{p/ε^2, p^{2/3}/ε^{10/3}\\})$, while the recursive variant achieves an improved complexity of $\\mathcal{O}(\\max\\{p/ε^2, \\sqrt{p}/ε^3\\})$. Empirically, extensive evaluations on MaxCut and Maximum Independent Set (MIS) benchmarks validate these findings. While standard simultaneous perturbation remains a robust baseline across varying depths, CRVG demonstrates targeted advantages in specific amortizable regimes, such as the non-recursive variant on EfficientSU2 circuits and both variants on depth-three QAOA, yielding superior energy minimums and tighter output variances. Ultimately, CRVG establishes a principled bias-throughput trade-off for scaling near-term quantum optimization.",
+  "url": "http://arxiv.org/abs/2609.38800v1",
+  "pdf": "https://arxiv.org/pdf/2609.38800v1",
+  "type": "both",
+  "summary": "This paper introduces the Cached Recycled Variance-Reduced Gradient (CRVG) to overcome the computational cost and noise issues plaguing gradient estimation in Variational Quantum Algorithms. By implementing a center-point caching mechanism, CRVG reduces the required quantum circuit executions per step by 25% compared to standard methods. The method provides improved theoretical convergence rates and shows superior performance on benchmark problems like MaxCut and MIS.",
+  "main_problem": "Variational Quantum Algorithms (VQAs) are limited by the computational cost and high variance associated with estimating gradients in high-dimensional, noisy parameter landscapes.",
+  "main_result": "The proposed Cached Recycled Variance-Reduced Gradient (CRVG) method achieves a significant reduction in circuit complexity (25% reduction in inner-loop cost) while providing provable sample complexity bounds for convergence.",
+  "method": "CRVG leverages a one-sided estimator and a center-point caching mechanism to recycle quantum measurements, reducing the required number of circuit executions per optimization step.",
+  "model_or_system": "The work applies to general quantum optimization problems, minimizing an expectation value $f(\theta) = \\langle 0|U^\\dagger(\theta) H U(\theta)|0\rangle$ using parameterized quantum circuits $U(\theta)$ on NISQ devices.",
+  "key_observables": "Energy minimum achieved, output variance, and the sample complexity bounds for reaching an $\\epsilon^2$-stationary point.",
+  "important_parameters": "Circuit depth ($p$), desired accuracy ($\\epsilon$), and the number of parameters ($p$).",
+  "main_assumptions": "The analysis assumes the applicability of variance reduction techniques and the ability to cache the center-point measurement $f(\theta)$ using a one-sided estimator.",
+  "figures_summary": "Tables compare resource statistics (Calls, Time) and performance metrics (Best energy, Variance) for MaxCut and MIS benchmarks across SPSA, non-recursive CRVG, and recursive CRVG.",
+  "paper_structure": "The paper first identifies the computational bottleneck in VQAs, then introduces the CRVG technique via caching, develops two variants (non-recursive and recursive), provides theoretical complexity bounds, and finally validates these findings empirically on MaxCut and MIS benchmarks.",
+  "why_interesting": "It directly addresses the practical resource constraints of near-term quantum hardware by providing a concrete algorithmic improvement to the gradient estimation step, which is crucial for scaling VQAs.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.38800_figures/2609.38800_fig1.jpg",
+      "caption": "Figure 1: Selected EfficientSU2 MaxCut trajectories. Non-recursive CRVG reaches the lowest energy in the favorable 15-node example and concentrates the sampled output distribution, whereas recursive CRVG stalls. The instability of one CRVG variant and unequal logged endpoints make SPSA the more predictable baseline even though it is not best in this selected regime.",
+      "page": 13
+    },
+    {
+      "image": "2609.38800_figures/2609.38800_fig2.jpg",
+      "caption": "Figure 5b shows that both CRVG variants generally use fewer calls than SPSA (exhaustive resource tables are provided in Appendix E). The central selection tradeoff is therefore explicit: CRVG reduces sampled-objective exposure, but at three of four depths that reduction accompanies worse paired cost outcomes. When solution reliability across an unknown depth is prioritized over call count alone, the archive favors SPSA; when depth three is known to be representative, CRVG offers a favorable quality–resource combination.",
+      "page": 13
+    },
+    {
+      "image": "2609.38800_figures/2609.38800_fig3.jpg",
+      "caption": "Figure 2: Selected QAOA MaxCut trajectories. The optimizer ordering changes with the ansatz: recursive CRVG recovers, while SPSA and non-recursive CRVG are close in best energy on the 15-node case. Non-recursive CRVG no longer has the output-variance and entropy advantage seen with EfficientSU2.",
+      "page": 14
+    },
+    {
+      "image": "2609.38800_figures/2609.38800_fig4.jpg",
+      "caption": "Figure 3: Relative converged performance and stability under synthetic noise. Panel (a) spans the top row and shows best-CRVG-minus-SPSA energy margins across paired clean benchmark instances. Panels (b) and (c) compactly compare clean and synthetic-noise pools for EfficientSU2 and QAOA. Negative values favor CRVG; the lower, unpaired comparisons are descriptive rather than controlled estimates of noise sensitivity.",
+      "page": 15
+    },
+    {
+      "image": "2609.38800_figures/2609.38800_fig5.jpg",
+      "caption": "Figure 4: Complementary QAOA depth diagnostics. Panel (a) reports MaxCut method medians and interquartile ranges of best sampled approximation ratio (formerly Fig. 5a); panel (b) reports MIS final feasible-sample fractions from a separate 256-shot diagnostic resampling (formerly Fig. 7b). The shared view emphasizes SPSA’s comparatively stable behavior across depths and problem classes.",
+      "page": 15
+    }
+  ],
+  "figure": "2609.38800_figures/2609.38800_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

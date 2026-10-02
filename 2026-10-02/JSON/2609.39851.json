@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.39851",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.DC",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "EPR Count for Runtime Prediction in Distributed Quantum Computing",
+  "authors": "Fatih E. Bilgen, Ozgur B. Akan",
+  "abstract": "EPR-pair consumption is commonly used as a communication-cost objective in distributed quantum computing, but minimizing EPR cost does not necessarily minimize distributed execution time. Despite its widespread use, the reliability of EPR count as a runtime surrogate has received limited direct characterization across different workloads and communication conditions. This work addresses this gap by systematically evaluating the relationship between EPR cost and runtime over all balanced two-QPU mappings of QFT, QAOA, and CDKM circuits. The results show that mappings with identical EPR cost can have substantially different execution times, lower-EPR mappings can be slower, and minimum-EPR mappings can be runtime-suboptimal. The reliability of EPR count is strongly workload dependent and also changes with the communication operating regime: increasing EPR-generation latency amplifies runtime differences hidden by equal EPR cost, while increased communication concurrency can reduce the ability of EPR count to preserve runtime ordering. These results show that EPR count and execution time are related but distinct optimization objectives, and identify regimes in which explicit communication-aware runtime modeling is necessary.",
+  "url": "http://arxiv.org/abs/2609.39851v1",
+  "pdf": "https://arxiv.org/pdf/2609.39851v1",
+  "type": "theory",
+  "summary": "This paper rigorously tests the assumption that minimizing the required EPR pair count is equivalent to minimizing the runtime in distributed quantum computing. By analyzing several benchmark circuits under varying communication conditions, the authors demonstrate that the two metrics are distinct, showing that minimum-EPR mappings can be suboptimal and that runtime differences are highly sensitive to communication latency and concurrency.",
+  "main_problem": "The paper investigates whether the count of required EPR pairs (EPR cost) is a reliable proxy for the actual execution time in distributed quantum computing.",
+  "main_result": "EPR cost and execution time are distinct optimization objectives; minimizing EPR cost does not guarantee minimum runtime, and the reliability of the proxy depends strongly on the specific quantum workload and communication operating regime.",
+  "method": "The authors systematically evaluate mappings of benchmark quantum circuits (QFT, QAOA, CDKM) onto two Quantum Processing Units (QPUs) by comparing the minimum EPR cost against the calculated distributed execution time under various concurrency models.",
+  "model_or_system": "The model simulates Distributed Quantum Computing (DQC) executing circuits across two interconnected QPUs. The complexity is analyzed by mapping circuits and calculating both the entanglement demand (EPR cost) and the runtime based on circuit dependencies (DAG scheduling).",
+  "key_observables": "EPR Cost (CEPR), Distributed Execution Time (T_dist), Spearman's rank correlation ($\rho_s$), Strict Rank Reversal Fraction (Frev), and Runtime Regret.",
+  "important_parameters": "Circuit size ($N_q \\in \\{4, 6, 8, 10, 12\\}$), EPR-generation latency ($\rho_{\text{EPR}}$), and communication concurrency limit ($N_{\text{comm}}$).",
+  "main_assumptions": "The analysis assumes a baseline model where one EPR pair is consumed per non-local operation, ignoring entanglement reuse or advanced teleportation techniques.",
+  "figures_summary": "Figures illustrate the variation of the Strict Rank Reversal Fraction (Frev) across different circuits and qubit numbers, and show how the maximum runtime spread among equal-EPR mappings increases with EPR-generation latency.",
+  "paper_structure": "The paper establishes the problem by comparing EPR cost to runtime across three benchmark circuits (QFT, QAOA, CDKM). It then systematically analyzes the relationship by varying communication latency and concurrency, concluding that explicit communication-aware runtime modeling is necessary.",
+  "why_interesting": "This work is highly relevant as it provides critical theoretical constraints on resource estimation in large-scale quantum computation, guiding the development of more accurate compilation and scheduling tools for quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.39851_figures/2609.39851_fig1.jpg",
+      "caption": "Fig. 1. Relative runtime spread among mappings sharing the same EPR cost at ρEPR = 5. Each marker represents one EPR-cost group containing at least two mappings. A nonzero value indicates that mappings with identical EPR consumption produce different distributed execution times.",
+      "page": 5
+    },
+    {
+      "image": "2609.39851_figures/2609.39851_fig2.jpg",
+      "caption": "Fig. 2. Spearman rank correlation between EPR cost and distributed execution time at ρEPR = 5. Values closer to 1 indicate stronger agreement between the EPR-cost and runtime orderings of candidate mappings.",
+      "page": 5
+    },
+    {
+      "image": "2609.39851_figures/2609.39851_fig3.jpg",
+      "caption": "Fig. 3. Strict rank-reversal fraction between EPR cost and distributed execution time at ρEPR = 5. A reversal occurs when the mapping with lower EPR cost has the longer execution time. Ties in either quantity are excluded.",
+      "page": 6
+    },
+    {
+      "image": "2609.39851_figures/2609.39851_fig4.jpg",
+      "caption": "Fig. 4. Maximum relative runtime spread Sequal among mappings with equal EPR cost as a function of normalized EPR-generation latency. Subfigures (a)–(c) correspond to QFT, QAOA, and CDKM, respectively; curves denote circuit size Nq.",
+      "page": 7
+    },
+    {
+      "image": "2609.39851_figures/2609.39851_fig5.jpg",
+      "caption": "Fig. 5. Spearman rank correlation ρs between EPR cost and distributed execution time as a function of communication concurrency Ncomm at ρEPR = 5. Subfigures (a)–(c) correspond to QFT, QAOA, and CDKM, respectively; curves denote circuit size Nq.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.39851_figures/2609.39851_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

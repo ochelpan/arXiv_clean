@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.38939",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Defect-Aware Parallel Atom Reloading Protocol for Neutral-Atom Quantum Computers",
+  "authors": "Koki Aoyama, Fumihiko Ino",
+  "abstract": "In this work, we propose a defect-aware parallel atom reloading protocol that reloads atoms based on defect information to increase the atom filling rate. The proposed protocol is useful for neutral-atom quantum computers, where reloading atoms into the defects, or atom-loss positions, is mandatory for continuous operation against atom loss. Our protocol takes advantage of both parallelism and defect awareness to improve atom-reloading efficiency. The proposed protocol consists of the coherent atom reloading operation and the defect-aware planner. The former replenishes the defects with atoms preserving the quantum information coherently. This coherence allows us to adaptively choose the reloading strategy based on the current defect configuration. The latter determines the atom reloading pattern to efficiently replenish the defects. In numerical experiments assuming a low-noise environment, we confirmed that the average atom filling rate improved from 98.61% to 99.94% for a 36 x 90 atom array, matching the filling rate obtained with a mixed integer programming solver to within 0.001 percentage points while planning each reload in under 0.1 ms. These results demonstrate that defect-aware parallel reloading can achieve and sustain high atom filling rates while the performance of the defect-aware planner meets the real-time requirements of neutral-atom quantum computers.",
+  "url": "http://arxiv.org/abs/2609.38939v1",
+  "pdf": "https://arxiv.org/pdf/2609.38939v1",
+  "type": "theory",
+  "summary": "This work proposes a defect-aware parallel protocol to efficiently reload atoms into the defect sites of neutral-atom quantum computers. By combining coherent quantum operations with a fast, optimized planning algorithm, the authors demonstrate a substantial increase in atom filling rates. This research is crucial for realizing fault-tolerant, continuous quantum computation by addressing resource depletion.",
+  "main_problem": "The paper addresses the critical need to maintain high atom filling rates in neutral-atom quantum computers by developing an efficient protocol to reload atoms into defect sites.",
+  "main_result": "The proposed defect-aware protocol significantly improves the average atom filling rate (e.g., from 98.61% to 99.94% in low-noise conditions) while maintaining planning times fast enough for real-time operation.",
+  "method": "The method combines a coherent atom reloading operation, which preserves quantum information, with a defect-aware planner that determines the optimal atom reloading pattern.",
+  "model_or_system": "The system is a neutral-atom quantum computer utilizing a storage atom array and an entanglement atom array, connected by an optical tweezer array for atom transport.",
+  "key_observables": "Average atom filling rate, planning time.",
+  "important_parameters": "Array size (e.g., $36 \times 90$), noise level (low/high).",
+  "main_assumptions": "The protocol assumes a low-noise environment for peak performance demonstration; the planner's performance is compared against an exact Mixed Integer Programming (MIP) solver.",
+  "figures_summary": "Figure 1 schematically illustrates the system model, showing the Storage Array, Entanglement Array, and Tweezer Array, defining occupied sites and defects.",
+  "paper_structure": "The paper introduces the problem of atom loss, proposes the combined coherent operation and defect-aware planner, presents numerical results comparing performance against MIP solvers, and concludes on the feasibility of the protocol.",
+  "why_interesting": "It directly tackles a major engineering bottleneck for scalable quantum computation—maintaining qubit connectivity and resource availability—by optimizing the physical resource management layer.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.38939_figures/2609.38939_fig1.jpg",
+      "caption": "Figure 1 Schematic of the system model considered in this work. There are three components in the system: the storage atom array, the entanglement atom array, and the optical tweezer array. The storage array has Hs × Ws sites and holds atoms that store the intermediate computation data. Filled circles are sites occupied by atoms and open circles are defects, i.e., empty sites created by atom loss. The entanglement array consists of Hp × 2Wp sites grouped into Hp × Wp pairs. The two sites of a pair, referred to as the left site and the right site, are placed within the Rydberg blockade radius [18], whereas sites belonging to different pairs are placed outside the blockade radius. This...",
+      "page": 4
+    },
+    {
+      "image": "2609.38939_figures/2609.38939_fig2.jpg",
+      "caption": "Figure 2 Overview of the proposed defect-aware atom reloading protocol. In step 1, the atom loss detection procedure locates the defects and yields the state A′(t). In step 2, the defect-aware planner determines the operation parameters (I, J) based on the current state A′(t). The operation parameters (I, J) are the row and column indices of the storage array to be replenished. Only the defects in the storage array specified by I ×J are replenished with atoms because the tweezers are generated by AODs. In step 3, the coherent parallel atom reloading operation replenishes the defects in I × J with new atoms in the default state |0⟩. The sites in I × J that already hold an atom are replaced...",
+      "page": 9
+    },
+    {
+      "image": "2609.38939_figures/2609.38939_fig3.jpg",
+      "caption": "Figure 3 Overview of the coherent parallel atom-reloading operation. The operation takes two param- eters (I, J), which are the row and column indices of the storage array to be replenished. Each panel shows the state at the beginning of the corresponding operation, with the transport performed in that operation drawn as arrows. Step 1, the prepare operation, consists of the preparation operation followed by the H-gate operation and leaves a |+⟩atom on the right site of every pair. Steps 2 to 4 move the selected storage atoms into the left sites of the entanglement array, apply the parallel CZ-H-CZ sequence to transfer the data from the left sites to the right sites, and move the right-site...",
+      "page": 10
+    },
+    {
+      "image": "2609.38939_figures/2609.38939_fig4.jpg",
+      "caption": "Figure 4 Quantum circuit of the parallel logical state-transfer operation. Figures 4(a) and 4(b) show the cases where the left-site qubit is present and absent, respectively. In Figure 4(a), the gate sequence CZ-H-CZ maps |ψ⟩|+⟩to |+⟩|ψ⟩, transferring the left-site qubit state to the right site and resetting the left site to |+⟩. In Figure 4(b), both CZ gates act as the identity because the interaction partner is absent, and only the H gate is applied to the right-site qubit, leaving it in the default |0⟩state.",
+      "page": 11
+    },
+    {
+      "image": "2609.38939_figures/2609.38939_fig5.jpg",
+      "caption": "Figure 5 Step-by-step execution of the proposed defect-aware planner on a 6 × 5 instance with Hp = 3 and Wp = 2. Steps 1 to 5 show the greedy construction of Algorithm 1. Whether a row or a column is added is decided by the condition |I| · Wp < |J| · Hp, which yields the order column, row, row, column, row for this instance. In each step, the elements with the largest u(J) or v(I) are chosen to maximize the number of covered defects. In case of a tie, the algorithm selects the row or column with the largest total defect count, given by (g(Row) i ) or (g(Col) j ), respectively, to encourage greater defect coverage in subsequent steps. These steps yield the greedy solution I = {3, 4, 5}, J =...",
+      "page": 14
+    }
+  ],
+  "figure": "2609.38939_figures/2609.38939_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 2,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

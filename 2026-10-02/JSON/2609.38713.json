@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.38713",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "When Error Mitigation Makes Things Worse: Budget-Aware Evaluation, Extrapolation Failure, and the Calibration Trust Boundary",
+  "authors": "Guilin Zhang, Kai Zhao, Xiquan Cui, Henry Heng, Xu Chu, Aletta Johanna Blanken",
+  "abstract": "Error mitigation is expected to turn noisy quantum measurements into more useful estimates. We show that it can instead amplify error. Under control-offset miscalibration, the evaluated unconstrained zero-noise extrapolation (ZNE) estimators are worse than no mitigation on 38-63% of simulated instances and produce extreme tail errors. A small IBM Heron study finds worsening on 80-88% of 18 instances across two depths, with mean error 3.0-4.1 times the raw error. In simulation, the median changes little, so median-only monitoring misses the failures. We then compare methods at the same online shot budget per evaluation and report offline training cost separately. After that cost is amortized, a budget-conditioned neural corrector occupies the low-budget end of the simulated accuracy-cost frontier and falls back to the raw estimate when an ensemble disagrees; its hardware transfer remains unsuccessful. Finally, we treat provider-reported calibration as an input that is not bound to the execution-time device state. A white-box projected-gradient stress test on this metadata increases the corrector's error 8.1 times within the feature ranges used for training and evades the disagreement monitor on half of the worsened cases. Together, the results connect budget-aware evaluation, tail risk, and calibration integrity in near-term quantum learning pipelines.",
+  "url": "http://arxiv.org/abs/2609.38713v1",
+  "pdf": "https://arxiv.org/pdf/2609.38713v1",
+  "type": "both",
+  "summary": "This work critically evaluates error mitigation techniques for near-term quantum computers, showing that methods like Zero-Noise Extrapolation can amplify errors, especially under miscalibration. The authors introduce budget-aware evaluation and demonstrate that the entire pipeline is vulnerable to attacks on calibration metadata. It serves as a crucial warning for the field regarding the need for robust, cost-aware validation protocols.",
+  "main_problem": "The paper investigates the reliability and potential pitfalls of error mitigation techniques in near-term quantum computing, demonstrating that these methods can sometimes amplify errors or fail under specific conditions.",
+  "main_result": "Error mitigation techniques like ZNE can significantly amplify errors, and learned correctors are vulnerable to metadata attacks, necessitating budget-aware evaluation and rigorous calibration integrity checks.",
+  "method": "The authors compare multiple error mitigation strategies (ZNE, CDR, learned neural correctors) by evaluating them under fixed online shot budgets, analyzing tail risk, and stress-testing the calibration metadata using projected gradient descent.",
+  "model_or_system": "The study uses simulated quantum circuits (VQA ansatzes) on $n=4-16$ qubits, tested against both simulated noise and a small IBM Heron hardware platform. The core focus is on estimating expectation values $\\langle H \rangle$ in the presence of noise.",
+  "key_observables": "Mean error, median error, $p_{95}$ error, and the fraction of instances where the mitigation method performs worse than the raw, unmitigated estimate.",
+  "important_parameters": "Online shot budget, offline training cost, coherent offset ($\\delta$), and the integrity of provider-reported calibration metadata.",
+  "main_assumptions": "The analysis assumes that the mitigation layer is a classical post-processing step, and the study highlights the gap between simulation results and real-world hardware transfer.",
+  "figures_summary": "Figures summarize comparisons of various pipelines across budgets and stress conditions; one figure illustrates the budget-conditioned neural error mitigation approach, and others show error vs. qubit count or miscalibration strength.",
+  "paper_structure": "The paper progresses by first establishing the problem of error amplification, then comparing various mitigation methods under fixed budgets, detailing the performance of a learned corrector, and finally conducting a security analysis via metadata stress testing.",
+  "why_interesting": "It provides critical, practical guidelines for quantum algorithm development, warning practitioners that simply applying standard mitigation techniques without understanding their failure modes or cost implications can lead to worse results.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.38713_figures/2609.38713_fig1.jpg",
+      "caption": "Figure 1: Study design. Four mitigation pipelines share one online shot budget and a frozen noise snapshot. Three simulated regimes and a small IBM Heron run support the accuracy–cost, ZNE tail-risk, and metadata-attack analyses.",
+      "page": 2
+    },
+    {
+      "image": "2609.38713_figures/2609.38713_fig2.jpg",
+      "caption": "Figure 1 summarizes the study. We contribute three pieces of evidence. First, we map the tail-risk boundary of ZNE under coherent offset error and reproduce the failure pattern in a small real- hardware study. Second, we compare raw execution, learned correction, ZNE, and CDR at the same online shot budget, while keeping the learned model’s offline simulation cost visible. Third, we formalize provider-reported calibration as an execution-unbound input and evaluate a projected- gradient metadata attack. The learned corrector is a test case rather than an architectural contribution: CDR remains more accurate when its larger online budget is affordable.",
+      "page": 2
+    },
+    {
+      "image": "2609.38713_figures/2609.38713_fig3.jpg",
+      "caption": "Figure 2: Equal-online-budget comparison at n = 8 (100 instances; median |error|, IQR shaded). Each method splits the same inference budget B across its required executions (Table 1); NEM’s offline simulation cost is reported separately. NEM is below the raw baseline at B ≤214 in both regimes, CDR crosses over at the largest budget, and ZNE medians track the raw line while its mean diverges.",
+      "page": 5
+    },
+    {
+      "image": "2609.38713_figures/2609.38713_fig4.jpg",
+      "caption": "Figure 2 compares online inference after the learned model has been trained; Table 4 reports every value. Under coherent miscalibration, NEM reduces mean error by 72–81% across B = 210–216.",
+      "page": 5
+    },
+    {
+      "image": "2609.38713_figures/2609.38713_fig5.jpg",
+      "caption": "Figure 3: Median |error| versus miscalibration strength δ at n = 8 (80 instances per point, 8,192 shots per execution). ZNE medians coincide with the unmitigated baseline at every δ; NEM matches CDR at small δ at 1/32 the quantum cost and declines smoothly as the unlearnable coherent share grows.",
+      "page": 6
+    }
+  ],
+  "figure": "2609.38713_figures/2609.38713_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

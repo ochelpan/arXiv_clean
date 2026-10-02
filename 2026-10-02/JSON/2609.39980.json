@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.39980",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Logical information localisation in stabiliser codes via single-qubit measurements",
+  "authors": "Jelena Mackeprang, Hemant Sharma, Jonas Helsen",
+  "abstract": "Stabiliser path finding (SPF) has previously been introduced as a method to localise logical information in a stabiliser code undergoing loss onto a single pre-specified target qubit, using only one round of single-qubit measurements. When working with limited resources and flying qubits, this fast read-out of logical information is a helpful tool for fault-tolerant communication. In this work, we provide a broad analytical and computational study of localisation via SPF. We introduce $g$-SPF, where the task is to localise the logical information onto a set of at most $g$ unspecified target qubits. Through analytical arguments based on percolation theory and the disjointness of stabiliser codes, we prove that for i.i.d. qubit loss with probability $p<1/2$ and sufficiently large planar surface codes, localisation via $g$-SPF for constant $g$ succeeds with a probability converging to one, which establishes a localisation threshold. Furthermore, we propose and implement two algorithms to solve SPF. The first is exact and formulates SPF as an integer linear program, whereas the second is heuristic and formulates SPF as a decoding problem. We validate both algorithms by numerically reproducing the localisation threshold for the surface code and demonstrate that the heuristic algorithm is considerably faster. Our work significantly reduces the time required to solve SPF compared to current state-of-the-art algorithms, allowing us to study localisation in substantially larger stabiliser codes than previously considered in the literature. Together, these theoretical and computational results open the door to various applications, such as fault-tolerant teleportation and efficient logical fusion.",
+  "url": "http://arxiv.org/abs/2609.39980v1",
+  "pdf": "https://arxiv.org/pdf/2609.39980v1",
+  "type": "theory",
+  "summary": "This paper provides a comprehensive study of localizing logical information in stabilizer codes after qubit loss using a generalized method called g-SPF. The authors derive a theoretical threshold for this process and introduce two novel, highly efficient algorithms—one exact (ILP) and one heuristic (decoding)—to solve the problem. These advances significantly improve the feasibility of studying fault-tolerant quantum computation in large, noisy systems.",
+  "main_problem": "The paper addresses the challenge of localizing logical information within a stabilizer code that has undergone qubit loss, a critical step for fault-tolerant quantum communication.",
+  "main_result": "The authors establish a localization threshold for g-SPF, proving that localization succeeds with high probability for loss rates below 1/2 on planar surface codes, and they introduce significantly faster algorithms to solve this problem.",
+  "method": "They develop and compare two algorithms, D-LoFi (exact, ILP-based) and H-LoFi (heuristic, decoding-based), to find the minimal support Pauli pair defining the logical operators.",
+  "model_or_system": "The work is set in the context of stabilizer codes, using the planar surface code as a primary example. The mathematical framework involves the symplectic representation of the Pauli group and analyzing the code structure after qubit loss.",
+  "key_observables": "The success probability of localization, the minimum support size of the logical operators, and the computational runtime of the proposed algorithms.",
+  "important_parameters": "The probability of i.i.d. qubit loss ($p$), the maximum number of target qubits ($g$), and the code distance.",
+  "main_assumptions": "The analysis relies on percolation theory arguments and the assumption of i.i.d. qubit loss. The algorithms assume the problem can be formulated as an ILP or a decoding problem.",
+  "figures_summary": "Figures compare the success rate of g-SPF versus loss probability $p$, and show runtime comparisons between the new algorithms (D-LoFi, H-LoFi) and prior state-of-the-art methods.",
+  "paper_structure": "The paper presents a broad analytical study establishing the theoretical threshold, followed by the proposal and implementation of two distinct algorithms (ILP-based and decoding-based) to solve the localization problem, concluding with validation on known codes.",
+  "why_interesting": "This work provides concrete algorithmic and theoretical tools for understanding how quantum information survives noisy channels, which is fundamental to building scalable quantum computers and quantum networks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.39980_figures/2609.39980_fig1.jpg",
+      "caption": "Figure 1: Success rate at which a g-SPF pair is found for the rotated surface code (see for example Ref. [32]) and g = 1. For every loss probability p we Monte Carlo sample at least 5000 loss configurations and estimate the success rate of g-SPF.",
+      "page": 4
+    },
+    {
+      "image": "2609.39980_figures/2609.39980_fig2.jpg",
+      "caption": "Fig. 2(a) compares the average runtime of H-LoFi with the average runtime of D-LoFi for a fixed loss probability p = 0.1. We observe that H-LoFi is orders of magnitude faster than D-LoFi. Moreover, Fig. 2(b) compares the relative increase of the total support size |support(X) ∪support(Z)| of the g-SPF pairs (X, Z) found by the two algorithms. It shows that while H-LoFi is considerably faster than D-LoFi, we do not sacrifice much in terms of its performance. D-LoFi returns a g-SPF pair (X, Z) that requires a minimal number of single-qubit measurements for subsequent localisation and the solution found by H-LoFi does not significantly increase this required number of measurements.",
+      "page": 4
+    },
+    {
+      "image": "2609.39980_figures/2609.39980_fig3.jpg",
+      "caption": "Figure 2: In (a) we plot the average runtime of D-LoFi and H-LoFi with increasing code distance for a fixed single-qubit loss probability p = 0.1. We average the runtime over 5000 Monte Carlo samples taken at p = 0.1 during the experiment to obtain the g-SPF thresholds in Fig. 1. In (b) we plot the average relative increase of the support of the g-SPF pair (X, Z) that D-LoFi and H-LoFi found, for the fixed loss probability p = 0.15.",
+      "page": 5
+    },
+    {
+      "image": "2609.39980_figures/2609.39980_fig4.jpg",
+      "caption": "Figure 3: We plot the runtime comparison of D-LoFi with the algorithm from Ref. [24] (labelled as Morley-Short et al.). We sample either all possible loss configurations (for small codes) or 1000 unique ones for each lattice parameter and run both algorithms. Both algorithms find the minimal Target-SPF pair for one of the graph codes from Ref. [24], parametrised by the lattice parameter l. The number of qubits n is given by n = l2 + 2. The algorithm from Ref. [24] consists of three steps, which we explain in more detail in Section 7. To find an SPF pair one needs to perform all steps; thus the total runtime is the sum of the three runtimes plotted here. We do not plot the runtimes of the...",
+      "page": 6
+    },
+    {
+      "image": "2609.39980_figures/2609.39980_fig5.jpg",
+      "caption": "Figure 4: The triangular graph and the crazy graph (4 × 4, i.e. 18 qubits) from Ref. [24]. The input qubit is qubit 0 and the red node is the target qubit.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.39980_figures/2609.39980_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

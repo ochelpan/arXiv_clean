@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.39172",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "A Width-Matched Comparison of Hybrid Quantum-Classical Self-Supervised Learning for Fingerprint Recognition",
+  "authors": "Maria S. Edwards, Kidwell Dlamini, Pin-An Lin, Wen-Hsien Hsu, Wen-Chieh Fang",
+  "abstract": "Fingerprint recognition is a widely deployed biometric, but supervised training requires large labeled enrollment sets. Self-supervised learning (SSL) removes this requirement, and hybrid quantum-classical models have been proposed to enrich the learned representations. Prior quantum SSL studies consider a single contrastive objective, so it is unclear whether reported benefits depend on the objective or can be attributed to the quantum circuit. We insert the QuFeX quantum feature-extraction module into three SSL frameworks, the contrastive SimCLR and MoCo v2 and the non-contrastive BYOL, and compare each hybrid with its classical counterpart at matched representation width (8 features, equal to 8 qubits) on the SOCOFing fingerprint dataset, with a CIFAR-10 control, using k-nearest-neighbor identification on encoder features. In single-run experiments the hybrid scores clearly higher for both contrastive objectives, whereas for BYOL a multi-seed analysis shows no reliable difference, suggesting that any benefit depends on the SSL objective. A hardware-efficient circuit (QNet) does not show the same gain. We examine whether the gains can be attributed to the quantum circuit, considering circuit architecture, trainable parameter count, nonlinearity, and the classical simulability of 8-qubit circuits.",
+  "url": "http://arxiv.org/abs/2609.39172v1",
+  "pdf": "https://arxiv.org/pdf/2609.39172v1",
+  "type": "both",
+  "summary": "This work explores using hybrid quantum-classical neural networks for fingerprint recognition via Self-Supervised Learning. By inserting a quantum feature-extraction module (QuFeX) into established SSL frameworks, the authors show consistent, albeit modest, performance gains over purely classical models. The study aims to delineate whether these gains stem from the quantum circuit itself or are artifacts of the specific SSL objective used.",
+  "main_problem": "The paper investigates whether integrating a quantum feature-extraction module into Self-Supervised Learning (SSL) encoders can improve biometric recognition performance compared to purely classical counterparts.",
+  "main_result": "The hybrid quantum-classical models consistently achieved higher Top-5 recognition accuracy than their classical baselines across multiple SSL objectives, though the benefit is modest and dependent on the specific SSL objective used.",
+  "method": "The authors compared three SSL frameworks (SimCLR, MoCo v2, BYOL) by inserting a quantum module (QuFeX) into the representation layer, comparing the results against width-matched classical counterparts.",
+  "model_or_system": "The system uses a hybrid quantum-classical neural network architecture for fingerprint recognition. The quantum component is the QuFeX module, which processes an 8-dimensional feature vector derived from a ResNet-18 backbone.",
+  "key_observables": "Top-5 k-nearest-neighbor (KNN) identification accuracy on the SOCOFing fingerprint dataset, and comparison of training loss (InfoNCE).",
+  "important_parameters": "Representation width ($w=8$ features/qubits), number of qubits (8), and the choice of SSL objective (contrastive vs. non-contrastive).",
+  "main_assumptions": "The comparison is performed under a width-matched condition, and the observed gains are analyzed for dependence on the SSL objective rather than solely the quantum circuit structure.",
+  "figures_summary": "Figures compare the training loss and Top-5 accuracy of hybrid vs. classical models across different SSL objectives (SimCLR, MoCo v2, BYOL) at various epoch lengths.",
+  "paper_structure": "The paper establishes the problem (SSL for biometrics), details the hybrid architecture (QuFeX insertion), presents comparative results across multiple SSL objectives and datasets, and concludes by analyzing the source of the observed performance gains.",
+  "why_interesting": "While the application is in biometrics, the methodology involves embedding quantum circuits into deep learning representations, which touches upon the intersection of quantum information processing and complex pattern recognition, relevant to ML-physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.39172_figures/2609.39172_fig1.jpg",
+      "caption": "Fig. 1. Overall architecture. Each preprocessed ﬁngerprint xi (Gabor + Canny) is augmented into two views x1 i , x2 i and passed through a shared encoder: a CNN (ResNet- 18) backbone followed by a representation network that is either a classical MLP or the quantum module (QuFeX / QNet). A projection head g maps representations to z1 i , z2 i for the self supervised objective. For SimCLR and MoCo v2, the objective is contrastive with weight sharing; In BYOL, the target branch is an EMA target, the online branch adds a predictor q, and a stop gradient (sg) is applied to the EMA target. The KNN monitor evaluates the representation y1 i before the projection head.",
+      "page": 6
+    },
+    {
+      "image": "2609.39172_figures/2609.39172_fig2.jpg",
+      "caption": "Fig. 2. MoCo v2 on ﬁngerprints (SOCOFing, 50 epochs), classical vs. hybrid (QuFeX) at width 8. The hybrid separates from the classical baseline within the ﬁrst ten epochs and stays above it for the whole run on validation Top-5, so the advantage is not an artefact of the single best epoch. Markers are single-run values (seed 0); error bars show ±1 s.d. of the metric over a forward window of a few consecutive epochs, i.e. within-run epoch-to-epoch volatility, not conﬁdence intervals, across-seed variance, or the signiﬁcance of the hybrid–classical gap.",
+      "page": 10
+    },
+    {
+      "image": "2609.39172_figures/2609.39172_fig3.jpg",
+      "caption": "Fig. 3. MoCo v2 training loss (InfoNCE) on ﬁngerprints, classical vs. hybrid (QuFeX). The hybrid loss is consistently lower, so loss and recognition (Fig. 2) agree. Markers are single-run values (seed 0); error bars show ±1 s.d. of the loss over a forward window of ≈20 consecutive batches, i.e. within-run batch-to-batch volatility inﬂated by the training-curve slope, not conﬁdence intervals or across-seed variance.",
+      "page": 11
+    },
+    {
+      "image": "2609.39172_figures/2609.39172_fig4.jpg",
+      "caption": "Fig. 4. BYOL validation Top-5 kNN, classical vs. hybrid (QuFeX). (a) On ﬁngerprints, the hybrid rises smoothly while the classical model dips to about 13% near epoch 15 before recovering. (b) On the CIFAR-10 control both saturate near 97.5%, but the hybrid reaches the plateau earlier. Markers are single-run values (seed 0); error bars show ±1 s.d. over a forward window of a few consecutive epochs (within-run volatility), not conﬁdence intervals, across-seed variance, or gap signiﬁcance.",
+      "page": 11
+    },
+    {
+      "image": "2609.39172_figures/2609.39172_fig5.jpg",
+      "caption": "Fig. 5. Hybrid Quantum-Classical accuracy versus loss for SimCLR models with one QuFex layer injected at diﬀerent epoch sizes.",
+      "page": 14
+    }
+  ],
+  "figure": "2609.39172_figures/2609.39172_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

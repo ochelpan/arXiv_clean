@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.38734",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Exact Diagonal Completion on Reachable Subspaces: Application to QAOA Placement",
+  "authors": "Owen Friedewald, Ali Shiri Sichani, Chi-Ren Shyu",
+  "abstract": "Unused encoding states offer opportunities to simplify quantum circuits. For algorithms restricted to reachable subspaces, unspecified diagonal-operator entries can be optimized without changing ideal computation. We investigate exact diagonal completion for the quantum approximate optimization algorithm (QAOA) applied to placement, using permutation-preserving register swaps. We construct exact Manhattan-distance operators through weighted-$\\ell_1$ optimization of Walsh coefficients and a sparse recurrence requiring $O(\\sqrt{m})$ terms on balanced rectangles, avoiding $O(m^4)$ dense constraint storage.   Across 160 geometries, weighted-$\\ell_1$ completion reduces controlled-NOT (CX) counts relative to four alternative extensions in all 96 cases with unused binary codes under Gray-code synthesis. On an independently specified 60-case cohort, median reductions relative to virtual-coordinate extension are 28.0\\%, 53.9\\%, and 21.6\\% at six, nine, and twelve sites. Under generic diagonal synthesis, reductions decrease to 10.9\\%, 1.3\\%, and 0.7\\%, demonstrating compiler dependence. Additional ancillas reduce mixer serialization, but token circuits remain deeper than one-hot baselines. Ideal placement simulations show baseline-dependent solution quality, with classical search performing better. OpenROAD integration takes 72 QAOA and 216 classical placements across six RTL designs through clock-tree synthesis and global routing with zero overflow. Completion improves phase construction; no end-to-end advantage is established.",
+  "url": "http://arxiv.org/abs/2609.38734v1",
+  "pdf": "https://arxiv.org/pdf/2609.38734v1",
+  "type": "theory",
+  "summary": "This paper develops a method called 'exact diagonal completion' to simplify quantum circuits used in QAOA for placement problems by optimizing unused diagonal operator entries. Using weighted-$\\ell_1$ optimization, the authors significantly reduced gate counts in simulations, demonstrating a powerful tool for quantum circuit compilation. However, the study concludes that while the circuit optimization is effective, it does not translate into a clear, end-to-end quantum advantage over classical solvers.",
+  "main_problem": "The paper investigates optimizing quantum circuits by performing 'exact diagonal completion' on unreachable subspaces, specifically applying this to the Quantum Approximate Optimization Algorithm (QAOA) for placement problems.",
+  "main_result": "Weighted-$\\ell_1$ completion successfully reduced Controlled-NOT (CX) counts in many tested geometries, though no end-to-end advantage was established over classical search methods in full integration.",
+  "method": "The authors construct exact Manhattan-distance operators using weighted-$\\ell_1$ linear programming and a sparse recurrence relation to simplify the required quantum cost phases.",
+  "model_or_system": "The model involves quantum circuits used for solving placement problems, utilizing token permutation encoding and distance phases derived from weighted pairwise nets. The state preparation involves sequences of unitary operators.",
+  "key_observables": "Controlled-NOT (CX) gate counts, circuit depth, and percentage reduction in gate counts compared to alternative circuit extensions.",
+  "important_parameters": "The number of sites (e.g., 6, 9, or 12 sites) and the structure of the underlying geometry (e.g., 160 geometries tested).",
+  "main_assumptions": "The primary assumption is that optimizing unspecified diagonal entries on unreachable states does not alter the ideal computation, and the structured completion methods provide exact results for certain coordinate systems.",
+  "figures_summary": "Figure 1 illustrates the prepared token circuit and the gate-level expansion of its mixer block using controlled register swaps. Other figures likely compare gate counts or circuit structures across different encoding methods.",
+  "paper_structure": "The paper progresses by defining the problem (QAOA placement), developing the mathematical tools (weighted-$\\ell_1$ completion, sparse recurrence), demonstrating the technique's efficacy through multiple simulations (160 geometries, 60-case cohort), and concluding with an integration study (OpenROAD) showing feasibility but limited quantum advantage.",
+  "why_interesting": "While focused on quantum computation, the techniques for optimizing circuit structure via linear programming and sparse recurrence relations are mathematically rich and could inspire novel circuit optimization techniques applicable to other quantum information problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.38734_figures/2609.38734_fig1.jpg",
+      "caption": "Fig. 1. Prepared token circuit and gate-level expansion of its mixer block. Each controlled register swap is 𝑘Fredkin gates sharing the indicated ancilla. The first cost phase is absent because preparation is a basis state.",
+      "page": 4
+    },
+    {
+      "image": "2609.38734_figures/2609.38734_fig2.jpg",
+      "caption": "Fig. 2. CX reductions from L1 completion relative to zero extension. The initial cohort uses fixed mask order (20 cases per size); the replication cohort uses beam search and Gray synthesis (12 per size). Boxes show medians and quartiles; whiskers reach the most extreme values within 1.5 IQR, with other observations shown individually. Powers of two have no completion freedom and hence zero reduction.",
+      "page": 11
+    },
+    {
+      "image": "2609.38734_figures/2609.38734_fig3.jpg",
+      "caption": "Fig. 3. Same-size cohort sensitivity. Points pair token with complete-XY within each four-cell/six-site instance; black squares and whiskers are cohort means and 20,000-draw instance-bootstrap 95% intervals. Cohorts are unpaired. Development uses two starts, two seeds, six original parameters and a 40-call cap; confirmation/transfer use three starts, four/two seeds and five free parameters. Their geometries and generators also differ.",
+      "page": 20
+    },
+    {
+      "image": "2609.38734_figures/2609.38734_fig4.jpg",
+      "caption": "Fig. 4. Depth sensitivity under fixed 𝜆= 5, three starts, two seeds and the same 200-call COBYLA cap. Points are twelve-instance mean optimum probabilities; whiskers are family-stratified bootstrap 95% intervals. Additional selected Row depths are included; the random token schedule is a separately seeded 𝑝= 3 control. Different depths are different ansatzes.",
+      "page": 21
+    },
+    {
+      "image": "2609.38734_figures/2609.38734_fig5.jpg",
+      "caption": "Fig. 5. Numbers of two-register Walsh terms by Pauli weight (mask popcount) after the 10−10 numerical threshold. Bars average 20 initial-cohort or 12 replication-cohort cases at each site count. These are coefficient supports before net aggregation and synthesis; they are not final CX counts. Zero, joint L1 and coordinate-separated L1 use the retained coordinate-control vectors.",
+      "page": 23
+    }
+  ],
+  "figure": "2609.38734_figures/2609.38734_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

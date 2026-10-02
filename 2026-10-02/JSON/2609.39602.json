@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.39602",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Warm-Start Iterative QITE for Distribution Network Reconfiguration via Branch-Exchange Encoding",
+  "authors": "Noah Crum, Pete Pritchard, Tanner Rase, Phillip C. Lotshaw, Shaked Regev, Claudio Girotto, Ananth Kaushik, Paul Smith",
+  "abstract": "We present a hybrid quantum-classical algorithm for distribution network reconfiguration, a combinatorial optimization problem on power distribution networks, that combines a radiality preserving branch-exchange encoding with iterative warm-start quantum imaginary-time evolution to minimize active line losses. The encoding uses a fixed-width binary representation of sequential branch-exchange actions, ensuring that every register outcome decodes to a radial configuration. The quantum subroutine is informed by a surrogate model fit to classically-solved alternating current power flow (ACPF) labels. After a set budget of ACPF solves and circuit samples is exhausted, the algorithm returns the lowest-loss configuration seen. We employ our algorithm on ten test cases, including seven commonly-used benchmark cases and three cases we modified from these and similar standard systems. We include two methods to reduce problem size, which enable extensions of the algorithm to larger networks. We successfully reach minimal-loss configurations for six cases and find configurations with losses from 0.2 percent to 2.18 percent above the reported reference minimal loss for the other four.",
+  "url": "http://arxiv.org/abs/2609.39602v1",
+  "pdf": "https://arxiv.org/pdf/2609.39602v1",
+  "type": "theory",
+  "summary": "This paper presents a novel hybrid quantum-classical algorithm to solve the distribution network reconfiguration problem, aiming to minimize power line losses. It uses Iterative Quantum Imaginary-Time Evolution (QITE) guided by a surrogate model trained on classical power flow data. The method successfully finds near-optimal loss configurations across various test cases, demonstrating the potential of quantum computation for complex engineering optimization.",
+  "main_problem": "The paper addresses the combinatorial optimization problem of finding the optimal radial configuration in an electrical distribution network that minimizes total active line losses.",
+  "main_result": "The hybrid quantum-classical algorithm successfully reached minimal-loss configurations for six out of ten tested cases, achieving losses within 2.18% of the reference minimum for the remaining four.",
+  "method": "It employs a hybrid approach combining Iterative Quantum Imaginary-Time Evolution (QITE) with a surrogate model trained on classical Active Current Power Flow (ACPF) results to guide quantum sampling.",
+  "model_or_system": "The system is an electrical power distribution network, modeled using a branch-exchange encoding to represent switch configurations. The optimization objective is minimizing active line losses, $L(z)$.",
+  "key_observables": "Total active line losses $L(z)$ (kW), and the quantum expectation values $\\langle Z_\\Lambda \rangle_\tau$ used in the QITE update.",
+  "important_parameters": "The surrogate model parameters $\theta$, the warm-start angle $\\phi_r$, and the imaginary-time step $\\Delta\tau$.",
+  "main_assumptions": "The algorithm assumes the branch-exchange encoding covers all radial topologies, and the QITE update is an approximation of the true imaginary-time evolution.",
+  "figures_summary": "Figure 1 illustrates the entire workflow: a surrogate-assisted QITE acquisition loop involving initialization, QITE evolution, candidate ranking, and full ACPF evaluation. Other figures detail the encoding and convergence trends.",
+  "paper_structure": "The paper details the formulation of the DNR problem, introduces the branch-exchange encoding, develops the surrogate model fitting procedure, and finally derives the specific finite QITE update rule necessary for the iterative quantum optimization process.",
+  "why_interesting": "The core methodology—using quantum imaginary-time evolution guided by a classical surrogate model to solve a complex combinatorial optimization problem—is a direct application of quantum algorithms to a real-world engineering challenge, relevant to quantum computation applications.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.39602_figures/2609.39602_fig1.jpg",
+      "caption": "FIG. 1. Surrogate-assisted quantum imaginary-time evolution (QITE) for distribution network reconfiguration using branch- exchange encoding. The workflow begins with a radial default configuration, from which the branch-exchange register is constructed, while initial ACPF evaluations establish the loss-label set and incumbent configuration. In each subsequent round, the surrogate is fitted to the available labels, and the warm-start and QITE parameters are determined classically. The quantum circuit then prepares a fresh warm-start state, applies one QITE update, and samples the register. Measured bits x are unpacked into actions a and decoded into configurations z; aliases are merged, and...",
+      "page": 3
+    },
+    {
+      "image": "2609.39602_figures/2609.39602_fig2.jpg",
+      "caption": "FIG. 2. Branch-exchange encoding for Test Case 1. The ordered ties (t0, t1, t2) require stage widths (3, 4, 4), giving an 11-qubit register with 211 = 2,048 branch-exchange codes that decode to 190 distinct radial configurations. (a) The default configuration is radial; the star marks the source bus. (b) Closing t0 forms one temporary cycle. The ordered path between its endpoints is P0 = (e8, e6, e5, e1, e2). (c) Opening e8 restores radiality. The action tuples (1, 0, 0) and (6, 0, 0) both produce this exchange: actions 1 and 6 select the first entry of the five-entry path through modulo indexing. The zero actions leave the configuration unchanged at the remaining stages. These two tuples...",
+      "page": 5
+    },
+    {
+      "image": "2609.39602_figures/2609.39602_fig3.jpg",
+      "caption": "FIG. 3. Warm-start QITE circuit for a three-qubit register. (a) In this example, the incumbent representative is the state |x⋆⟩= |101⟩, with basis order q2q1q0. Each qubit receives Ry(2ϕr), followed by X when its incumbent bit is one, preparing the tensor-product state |ψ0,r⟩. The pair-wise unitaries then act from left to right in the order (0, 1), (0, 2), (1, 2), before computational-basis measurement returns the register bits. The identity I1 marks the unchanged middle qubit during U02. (b) The two commuting Pauli terms in Aij give the exact factorization of Uij into the rotations shown, each with angle 2µij. The parameters are computed classically through expectation matching under the...",
+      "page": 8
+    },
+    {
+      "image": "2609.39602_figures/2609.39602_fig4.jpg",
+      "caption": "FIG. 4. Results for Case 1. Panels (a) and (b) show incumbent loss and overall rank as configurations are evaluated, with the noisy simulation median and interquartile range (IQR) shown in blue and the single hardware trajectory in red. Dotted horizontal lines indicate the optimum. Panel (c) shows the fraction of final-round samples that decode into the k lowest-loss configurations; boxes summarize the noisy simulation distribution, and triangles indicate the hardware result.",
+      "page": 10
+    },
+    {
+      "image": "2609.39602_figures/2609.39602_fig5.jpg",
+      "caption": "FIG. 5. Cases 2 and 3 are based off the same network, shown above. In Case 2 all lines are switchable, while for Case 3 the lines marked red are fixed closed.",
+      "page": 12
+    }
+  ],
+  "figure": "2609.39602_figures/2609.39602_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

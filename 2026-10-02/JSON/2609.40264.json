@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.40264",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Two-Stage Quantum-Classical Distribution Network Reconfiguration via Cycle-Edge Encoding",
+  "authors": "Nowar Alashkar, Cade Kennedy, Phillip C. Lotshaw, Shaked Regev, Miguel Angel Lopez-Ruiz, Ananth Kaushik, Paul Smith, Claudio Girotto, Martin Roetteler",
+  "abstract": "Distribution network reconfiguration (DNR) is a combinatorial optimization problem that seeks a low-loss network topology subject to topological and electrical operating constraints. In this work, we propose a two-stage quantum-classical method for DNR. First, an iterative linear-ramp Quantum Alternating Operator Ansatz (LR-QAOA) searches topologically feasible subspaces constructed using a novel cycle-edge encoding. The encoding guarantees that every represented configuration is a spanning tree while allowing the size and coverage of each subspace to be adjusted to the available qubit budget. Second, the resulting sample distribution is used to guide a mixed-integer second-order-cone programming (MISOCP) solver. The method is evaluated on six distribution networks ranging from 33 to 417 buses through simulation and execution on trapped-ion quantum hardware. Across all six test systems, the MISOCP solver guided by hardware-derived distributions reaches an incumbent within 1\\% of the best-known solution in less median solver time than the corresponding unguided solver.",
+  "url": "http://arxiv.org/abs/2609.40264v1",
+  "pdf": "https://arxiv.org/pdf/2609.40264v1",
+  "type": "both",
+  "summary": "This work proposes a novel two-stage quantum-classical method to solve the difficult problem of optimizing power distribution network topology. It uses an LR-QAOA algorithm, constrained by a cycle-edge encoding, to sample promising network configurations, which then guide a classical optimization solver. The approach shows promise by significantly speeding up convergence on large test networks.",
+  "main_problem": "The paper addresses the combinatorial optimization problem of Distribution Network Reconfiguration (DNR) to find a low-loss network topology.",
+  "main_result": "The quantum-guided classical solver significantly reduces the median solver time compared to unguided methods, especially for larger networks, although quantum overhead limits end-to-end speedup on tested systems.",
+  "method": "A two-stage quantum-classical approach is used: Stage 1 employs an iterative LR-QAOA using a novel cycle-edge encoding to sample feasible spanning-tree subspaces; Stage 2 guides a MISOCP solver with these samples.",
+  "model_or_system": "The problem is modeled on electrical power distribution networks, constrained by topological requirements (spanning trees). The quantum computation is implemented on a trapped-ion quantum hardware platform.",
+  "key_observables": "Active power losses (minimized objective function), solver time (guided vs. unguided), and the quality of the resulting network topology.",
+  "important_parameters": "The qubit budget (fixed at 29 qubits for testing), the size of the distribution network (33 to 417 buses), and the QAOA circuit parameters ($\beta_j, \\gamma_j$).",
+  "main_assumptions": "The method assumes that the quantum sampling can effectively guide the classical solver, and the comparison is an empirical trend, not an asymptotic scaling claim.",
+  "figures_summary": "Figures illustrate the cycle-edge basis for the 33-bus network, the LR-QAOA circuit structure, and comparisons of solver runtimes and line-loss trajectories for different network sizes.",
+  "paper_structure": "The paper introduces DNR as an MISOCP problem, proposes the cycle-edge encoding to restrict the search space to spanning trees, details the LR-QAOA quantum sampling stage, and concludes by evaluating the full two-stage quantum-classical workflow against unguided classical solvers.",
+  "why_interesting": "The integration of graph theory constraints (spanning trees) into a quantum optimization framework, coupled with the use of trapped-ion hardware for implementation, provides a concrete example of applying quantum computation to a complex, real-world engineering optimization problem.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.40264_figures/2609.40264_fig1.jpg",
+      "caption": "Fig. 1. Illustration of a fundamental-cycle basis for the 33-bus network. Solid connections are edges of the reference spanning tree, while dashed connections are open tie lines whose addition forms the cycles C1, . . . , C5. Multiple colored curves along the same edge indicate that it belongs to more than one cycle; they do not represent additional physical lines.",
+      "page": 3
+    },
+    {
+      "image": "2609.40264_figures/2609.40264_fig2.jpg",
+      "caption": "Fig. 2. Block-level LR-QAOA circuit. The initial state |Ψ0⟩is prepared by applying Wi to the register associated with each partition block C′ i. Each of the p LR-QAOA layers consists of a cost unitary UC followed by partition-block mixers UMi. The mixers act independently on each register to preserve the partition constraint in Eq. (8). The final state |Ψ⟩is measured in the computational basis.",
+      "page": 4
+    },
+    {
+      "image": "2609.40264_figures/2609.40264_fig3.jpg",
+      "caption": "Fig. 3. High level overview of the two-stage quantum-classical workflow. Starting from the current spanning-tree configuration Tt, a fundamental- cycle basis is constructed and converted into the cycle-edge partition C′ t which ultimately defines the LR-QAOA search space. The resulting sample distribution is filtered for feasibility and ranked using the quadratic surrogate, with the top-ranked candidates being evaluated by BFS PF to obtain Tt+1. After the final iteration the sampled information is passed to the MISOCP formulation as a MIP start and variable hints.",
+      "page": 5
+    },
+    {
+      "image": "2609.40264_figures/2609.40264_fig4.jpg",
+      "caption": "Fig. 4. Line-loss distributions of DNR-feasible samples obtained from LR-QAOA simulation for the six distribution-network test systems: (a) 33-bus, (b) 69-bus, (c) 85-bus, (d) 118-bus, (e) 136-bus, and (f) 417-bus. Each panel shows the distributions obtained at selected iterations of the iterative LR-QAOA procedure, with the dashed vertical line indicating the best-known solution for the corresponding system. Each LR-QAOA circuit used p = 2 layers and 1000 shots. Across the test networks, later iterations generally yield more samples in the lower-loss range, illustrating the progression of the iterative LR-QAOA procedure.",
+      "page": 6
+    },
+    {
+      "image": "2609.40264_figures/2609.40264_fig5.jpg",
+      "caption": "Fig. 5. Line-loss distributions of DNR-feasible samples obtained from LR-QAOA execution on the IonQ Forte Enterprise QPU for the six distribution-network test systems: (a) 33-bus, (b) 69-bus, (c) 85-bus, (d) 118-bus, (e) 136-bus, and (f) 417-bus. Each panel shows the distributions obtained at selected iterations of the iterative LR-QAOA procedure, with the dashed vertical line indicating the best-known solution for the corresponding system. Each LR-QAOA circuit used p = 2 layers and 1000 shots.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.40264_figures/2609.40264_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

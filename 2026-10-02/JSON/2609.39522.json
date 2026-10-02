@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.39522",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Layer codes as quantum memories: syndrome extraction, thresholds and idle robustness",
+  "authors": "Zhu Sun, Zhenyu Cai",
+  "abstract": "Layer codes are three-dimensional local CSS codes of check weight at most six, obtained by quasi-concatenating a CSS input code with unrotated surface code patches. What is established about them describes the code, not the circuit that measures it. In this work, we evaluate them as active memories under circuit-level noise. Doing so first requires a syndrome extraction circuit, and the junction stabilizers that couple the patches rule out borrowing a surface code patch's CNOT schedule. We present a decoder-free scheduler that constrains hook propagation first and compresses depth afterwards, generate circuits for eighteen layer codes across four input codes, and compare them with surface codes of the same distance, simulated and decoded in the same way. The circuits lose no distance to hook errors on [[4,2,2]]-input codes wherever a circuit-distance proof is affordable, and reach a lower logical error rate than those of a general-purpose scheduler for CSS codes at roughly half its CNOT depth per round. Our primary family built from a [[4,2,2]] input code reaches a circuit-level threshold of $5.06(7)\\times 10^{-3}$. The layer code outperforms the surface code in terms of idle robustness: at the same distance it tolerates an interval between syndrome extraction rounds 1.7-3.0 times longer than the rotated surface code. This comes at the cost of 1.7-5.0 times more operations per unit time and approximately five times more physical qubits, both per logical qubit. Finally, we model the cost of the beyond-2D cross-plane CNOTs that the construction demands, and find that their speed matters far more than their fidelity.",
+  "url": "http://arxiv.org/abs/2609.39522v1",
+  "pdf": "https://arxiv.org/pdf/2609.39522v1",
+  "type": "theory",
+  "summary": "This work analyzes layer codes as advanced quantum memories by simulating their performance under realistic circuit-level noise. The authors introduce a novel scheduling technique that improves circuit depth and achieves superior idle robustness compared to surface codes. The findings suggest layer codes are highly competitive, provided the associated hardware overheads are manageable.",
+  "main_problem": "The paper evaluates layer codes as active quantum memories under realistic circuit-level noise, focusing on the complex syndrome extraction circuit required for repeated measurements.",
+  "main_result": "Layer codes achieve lower logical error rates than general-purpose schedulers at half the CNOT depth per round and significantly outperform surface codes in idle robustness, though this comes with higher overhead.",
+  "method": "The authors developed a novel, decoder-free scheduler that constrains hook propagation first and compresses depth afterward, comparing the resulting circuits against standard surface code implementations.",
+  "model_or_system": "The system utilizes layer codes, which are 3D local CSS codes formed by quasi-concatenating a CSS input code with unrotated surface code patches, for quantum error correction.",
+  "key_observables": "Logical error rate (LER), circuit depth (CNOT depth per round), idle robustness (sustainable idle interval), and physical overhead (qubits, gates per logical qubit).",
+  "important_parameters": "Circuit-level noise threshold ($p_{th}$), distance ($d$), and the ratio of idle time tolerance (1.7-3.0 times longer than rotated surface code).",
+  "main_assumptions": "The analysis focuses on active circuit-level fault-tolerance, and the cost analysis emphasizes that the speed of beyond-2D cross-plane CNOTs is more critical than their fidelity.",
+  "figures_summary": "The notes reference tables comparing metrics (ticks/round, CNOTs/round) for layer codes and surface codes, and figures illustrating the code structure with input codes like [[4,2,2]].",
+  "paper_structure": "The paper progresses by first establishing the challenge of syndrome extraction circuits, proposing a two-phase scheduler (constraining hook propagation, then compressing depth), and finally comparing the resulting performance metrics (LER, robustness) against established codes.",
+  "why_interesting": "It provides concrete, quantitative benchmarks for next-generation QEC hardware by rigorously analyzing circuit overheads and noise resilience beyond simple code distance arguments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.39522_figures/2609.39522_fig1.jpg",
+      "caption": "FIG. 1. The layer code with input code [[4, 2, 2]] in its two constructions. Left: the WB24 3D local code – grey data planes interleaved with the blue X-check and red Z-check planes; the coloured lines mark the one-dimensional junctions where planes intersect. Plain and bumped plane edges denote smooth and rough surface code boundaries, respectively. Right: the YBW26 form of the same code (shown with χ = (4, 4, 4)) – a 2D array of surface code patches, one grey data patch per input qubit and one blue (red) check patch per X-type (Z-type) input check, with patch dimensions set by χ = (χX, χQ, χZ) as annotated. Solid and dashed patch boundaries denote smooth and rough surface code boundaries,...",
+      "page": 4
+    },
+    {
+      "image": "2609.39522_figures/2609.39522_fig2.jpg",
+      "caption": "FIG. 2. Logical error rate of our SEC (red) versus the LRC scheduler (blue) on the YBW26 [[4, 2, 2]] layer code family, χ = (d, d, d), d = 4, 6, 8 (columns): X-basis memory, d rounds, mid-circuit detectors on memory-basis stabilizers only (CSS- marginal convention), decoded with a global BP+LSD decoder on the raw detector error model. Top row: depth-aware per-tick idle noise (default noise model); bottom row: depth-agnostic per-round idle noise. Error bars are Wilson 95% intervals. Points with fewer than five observed logical errors are omitted. The two circuits are sampled independently (unpaired comparison). Each circuit uses its scheduler’s own (equivalent) logical representative;...",
+      "page": 7
+    },
+    {
+      "image": "2609.39522_figures/2609.39522_fig3.jpg",
+      "caption": "FIG. 3. Cost of each successive noise layer for our SEC, on the YBW26 [[4, 2, 2]] layer code family with χ = (d, d, d), d = 4, 5, 6 (panels): X-basis memory, d rounds, decoded with a global BP+OSD decoder on the raw detector error model (CSS-marginal detector convention). Each curve isolates one noise regime on a shared physical depolarizing parameter p: code capacity (data errors only), phenomenological (code capacity plus measurement errors), and circuit level (full circuit-level depolarizing noise) in two idle-noise variants: per-round (depth-agnostic) and per-tick (depth-aware, the default model). Successive layers shift the threshold down (pth ≈0.15, 0.040, 7.3×10−3, 5.3×10−3,...",
+      "page": 8
+    },
+    {
+      "image": "2609.39522_figures/2609.39522_fig4.jpg",
+      "caption": "FIG. 4. Memory threshold of the [[4, 2, 2]] family, χ = (d, d, d), d = 4–8 (dX = dZ = d): d rounds of our SEC, circuit-level depolarizing noise with per-tick (depth-aware) idle, CSS-marginal detector convention, decoded with global BP+LSD on the raw DEM. Rates are normalized by the saturation value 1 −2−k throughout. (a),(c): logical error rate versus physical error rate p across the crossing region for X and Z memory, respectively, one curve per distance d; error bars are Wilson 95% intervals, and the dotted vertical line marks the fitted pth. (b),(d): the same data against the rescaled variable (p −pth) d1/ν",
+      "page": 9
+    },
+    {
+      "image": "2609.39522_figures/2609.39522_fig5.jpg",
+      "caption": "FIG. 5. Idle robustness of the sustained memory. (a) Sustainable idle interval t∗(budget λ = 0.01 per refresh cycle) versus refresh depth r, at p = 10−3, X-basis memory: colour denotes code family and marker shape the distance, and error bars propagate the 95% interval on λ(t) through the crossing. The full ordering (rotated < unrotated < layer at equal distance) holds at every r, and for the layer codes t∗(r) increases with r over r = 1, 2, 3. The single-window benchmark of Table I is a separate experiment and is not shown here. (b) The qeff collapse on the single-window experiment, which establishes the accumulated-noise axis (logical error rate normalized by its large-noise saturation...",
+      "page": 11
+    }
+  ],
+  "figure": "2609.39522_figures/2609.39522_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

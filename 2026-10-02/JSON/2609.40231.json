@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "2609.40231",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Quantum Algorithm for $st$-Transport on Flat Connection Graphs",
+  "authors": "Stacey Jeffery, Tobias J. Osborne, Galina Pass",
+  "abstract": "We study a generalization of undirected $st$-connectivity to graphs whose edges carry quantum operations. Let $G=(V,E)$ be an undirected graph on $n$ vertices in which each edge $\\{u,v\\}$ is labeled by a unitary $U_{uv}\\in\\mathbb{C}^{k\\times k}$, with $U_{vu}=U_{uv}^\\dagger$. We assume the labels form a \\emph{flat} connection: the ordered product of labels along any path between a pair of vertices $u$ and $v$ is independent of the path. Equivalently, the connection is pure gauge, i.e., gauge-equivalent to the trivial connection; such graphs are exactly the consistent connection graphs of spectral graph theory and the noiseless instances of group synchronization. Consequently, whenever $s$ and $t$ are connected, transporting a state from $s$ to $t$ defines a unique unitary $U_s(t)$. Given states $|ψ_s\\rangle,|ψ_t\\rangle\\in\\mathbb{C}^k$ and an oracle that returns the neighbours of a vertex while coherently applying the corresponding edge unitaries, the \\emph{$st$-transport problem} is to decide whether $s$ and $t$ are connected and, if so, to estimate the squared overlap between $U_s(t)|ψ_s\\rangle$ and $|ψ_t\\rangle$ to additive error $\\varepsilon$. When $k=1$ and all labels are trivial, this is exactly undirected $st$-connectivity. We give a bounded-error quantum algorithm for $st$-transport that runs in time $\\widetilde{O}(n/\\varepsilon)$ and uses $O(\\log n+\\log k+\\log(1/\\varepsilon))$ space. We do this by designing a transducer and applying a Metropolis-Hastings reweighting to the input graph. We also prove an $Ω(n)$ quantum query lower bound that holds even when $s$ and $t$ are promised to be connected, so for constant $\\varepsilon$ our algorithm is optimal up to polylogarithmic factors.",
+  "url": "http://arxiv.org/abs/2609.40231v1",
+  "pdf": "https://arxiv.org/pdf/2609.40231v1",
+  "type": "theory",
+  "summary": "This paper develops a quantum algorithm to solve the $st$-transport problem on graphs whose edges carry unitary quantum operations, provided these operations form a 'flat connection.' The algorithm achieves near-optimal time complexity, and the authors prove an $\\Omega(n)$ quantum query lower bound, confirming its efficiency for simulating quantum transport phenomena.",
+  "main_problem": "The paper addresses the $st$-transport problem on graphs where edges are labeled by unitary quantum operations, requiring the determination of connectivity and the estimation of the state overlap between source and target states.",
+  "main_result": "A bounded-error quantum algorithm for $st$-transport is developed with time complexity $\\widetilde{O}(n/\\varepsilon)$ and space complexity $O(\\log n + \\log k + \\log(1/\\varepsilon))$.",
+  "method": "The algorithm utilizes quantum transducers and extends the Metropolis-Hastings reweighting technique from classical $st$-connectivity problems to the unitary-labeled setting.",
+  "model_or_system": "The model is an undirected graph $G=(V,E)$ where each edge $\\{u,v\\}$ is labeled by a unitary $U_{uv} \\in \\mathbb{C}^{k \times k}$. The crucial assumption is that these labels form a 'flat connection,' meaning path products are path-independent.",
+  "key_observables": "The primary observable is the squared overlap $|\\langle\\psi_t|U_{s \to t}|\\psi_s\rangle|^2$, which quantifies the fidelity of state transport from $s$ to $t$.",
+  "important_parameters": "Key parameters include $n$ (number of vertices), $k$ (dimension of the unitaries), and $\\varepsilon$ (the required additive error for the overlap estimation).",
+  "main_assumptions": "The analysis critically relies on the assumption that the edge labels define a flat connection (pure gauge).",
+  "figures_summary": "One figure illustrates the $st$-transport instance on an unweighted path graph, where edge labels are unitaries $X_{x_i}$ designed to encode a parity check, demonstrating the $\\Omega(n)$ lower bound.",
+  "paper_structure": "The paper first defines the $st$-transport problem on unitary-labeled graphs under the flatness assumption. It then presents the quantum algorithm using transducers and Metropolis-Hastings reweighting to achieve an upper bound. Finally, it establishes an $\\Omega(n)$ quantum query lower bound by reducing the parity problem to this transport problem.",
+  "why_interesting": "This work provides a quantum algorithmic framework for simulating physical processes modeled by gauge theories (like lattice gauge theory) on quantum computers, connecting quantum complexity theory to fundamental physics structures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.40231_figures/2609.40231_fig1.jpg",
+      "caption": "Figure 1: Local indexing of neighbours in a graph. For an ordinary edge {u, v}, the same edge has two local indices: i at u and j at v, meaning that fu(i) = v and fv(j) = u; and iu,v = i and iv,u = j. The gray edges indicate the other incident edges, whose indices range from 0 to du −1 at u, and from 0 to dv −1 at v, excluding i and j correspondingly. For a boundary vertex b ∈{s, t}, the ordinary graph edges are indexed by 0, . . . , db −1, while the dashed boundary edge has the special index ⊥.",
+      "page": 11
+    },
+    {
+      "image": "2609.40231_figures/2609.40231_fig2.jpg",
+      "caption": "Figure 2: The Metropolis-Hastings construction for an edge {u, v} such that u < v. The original edge of weight 1 and unitary label Uuv is replaced by two edges through a new vertex xu,v. The edge {xu, xu,v} has weight 1/du and unitary label I, while the edge {xu,v, xv} has weight 1/dv and unitary label Uuv.",
+      "page": 23
+    },
+    {
+      "image": "2609.40231_figures/2609.40231_fig3.jpg",
+      "caption": "Figure 3: The st-transport instance used in the lower bound. The graph is the unweighted path v0, v1, . . . , vn, with s = v0 and t = vn. For every i ∈{0, . . . , n −1}, the edge {vi, vi+1} is labeled by the unitary Xxi. Thus, transporting the state |0⟩from s to t applies X Ln−1 i=0 xi.",
+      "page": 30
+    }
+  ],
+  "figure": "2609.40231_figures/2609.40231_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

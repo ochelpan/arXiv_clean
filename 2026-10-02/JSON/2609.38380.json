@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2609.38380",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.NI",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Priority-Aware Routing for Quantum Networks:Integrating Coherence-Time Constraints into Scheduling",
+  "authors": "Sadhgun Ram Dasi, Aswath Babu H",
+  "abstract": "Quantum networks face a fundamental challenge absent in classical networks; finite memory coherence times mean that queuing delay directly degrades information quality, causing decoherence that has no classical analog. Existing routing protocols optimize for hop count or channel fidelity while treating scheduling delays as a secondary concern, leaving fidelity vulnerable to congestion-induced decoherence. We present a coherence-aware routing protocol that integrates decoherence constraints into path selection via a priority-modulated aging model derived analytically from Weighted Fair Queueing theory, where high-priority traffic receives compressed effective queue delay. We build a custom discrete-event simulator verified against NetSquid (across 104 states), and evaluate across two structurally diverse topology classes under identical physical parameters, isolating topology structure as the sole independent variable. In all experiments, our protocol is benchmarked against loss-only Dijkstra routing and FIFO scheduling as baselines. On topologies, P2 traffic achieves 96.08% fidelity under a 9x load increase with only 0.04 percentage point degradation, versus a 13.51 percentage point collapse for the loss-only baseline; P2 tail latency holds stable at 0.055 ms while Dijkstra degrades 5.5x. On Barabasi-Albert scale-free topologies, our protocol delivers a +4.12 percentage point fidelity advantage with 97.8% higher aggregate throughput at operational loads over the baseline, with a clearly characterized hub-saturation boundary at 160k QPS. FIFO scheduling provides negligible priority differentiation on both topology classes, providing strong evidence that coherence-aware routing-not scheduling alone is responsible for the observed QoS gains.",
+  "url": "http://arxiv.org/abs/2609.38380v1",
+  "pdf": "https://arxiv.org/pdf/2609.38380v1",
+  "type": "both",
+  "summary": "This paper introduces a novel, coherence-aware routing protocol for quantum networks that explicitly accounts for decoherence caused by queuing delays. By integrating principles from Weighted Fair Queueing theory, the protocol prioritizes traffic to mitigate fidelity loss under high network load. The results demonstrate substantial improvements in quantum fidelity and throughput compared to existing loss-only or FIFO scheduling methods.",
+  "main_problem": "Quantum networks suffer from decoherence due to finite memory coherence times, which is exacerbated by queuing delays in classical routing protocols.",
+  "main_result": "The proposed coherence-aware routing protocol significantly maintains quantum fidelity and throughput under high load compared to standard routing methods, especially on scale-free topologies.",
+  "method": "The protocol integrates decoherence constraints into path selection using a priority-modulated aging model derived from Weighted Fair Queueing theory.",
+  "model_or_system": "The system is a quantum network modeled as a directed graph where nodes are quantum repeaters with finite memory, and edges are optical links subject to photon loss and propagation latency.",
+  "key_observables": "Fidelity (e.g., 96.08% under 9x load increase), aggregate throughput, and tail latency (P2 P95).",
+  "important_parameters": "Coherence time ($T_{mem} = 400 \\mu s$), minimum fidelity threshold ($F_{min} = 0.70$), and network load (up to 180k QPS).",
+  "main_assumptions": "The fidelity decay is modeled using an exact simplification for pure dephasing ($F(t) = 1 - e^{-t/T_{mem}^2}$), and the queue estimation uses an EWMA model.",
+  "figures_summary": "The results compare the protocol's performance against loss-only Dijkstra and FIFO scheduling across ER and BA topologies, showing quantitative gains in fidelity and throughput.",
+  "paper_structure": "The paper introduces the physical problem (decoherence in queuing), develops the theoretical framework (WFQ-derived aging model and composite cost function), presents the custom simulator, and validates the protocol's performance across different network topologies under stress.",
+  "why_interesting": "It directly addresses the practical limitations of quantum communication by quantifying the impact of classical network congestion (queuing delay) on fundamental quantum information metrics like fidelity.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.38380_figures/2609.38380_fig1.jpg",
+      "caption": "Fig. 1. Per-priority fidelity vs. offered load (Suite I, ER topology). CA fidelity is highly load-stable across all priority classes while Dijkstra collapses under congestion and FIFO provides zero priority differentiation.",
+      "page": 6
+    },
+    {
+      "image": "2609.38380_figures/2609.38380_fig2.jpg",
+      "caption": "Fig. 2. Per-priority fidelity: Coherence-Aware vs. Dijkstra Baseline (5 seeds, mean ± SEM, ER topology). Dijkstra P0 fidelity falls below Fmin = 0.70 at 5k and 8k QPS (marked ⋆), rendering low-priority traffic quantum-inviable.",
+      "page": 7
+    },
+    {
+      "image": "2609.38380_figures/2609.38380_fig3.jpg",
+      "caption": "Fig. 3. BA topology load sweep: P2 fidelity vs. offered load. CA maintains fidelity advantage up to 160k QPS before hub saturation causes collapse beyond the operational envelope.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.38380_figures/2609.38380_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

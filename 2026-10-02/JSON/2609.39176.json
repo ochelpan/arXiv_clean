@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.39176",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Computing electron overlap integrals for Gausslet orbitals on cubic lattices",
+  "authors": "Xianrui Yin, Fereshteh Ghasempour, Christian B. Mendl",
+  "abstract": "Gausslet orbitals on a cubic lattice, introduced in [Steven R. White, J. Chem. Phys. 147, 244102 (2017)], represent a localized, smooth, and systematically refineable basis set featuring a \"diagonal\" approximability of the electron repulsion integral tensor. The present work develops efficient algorithms for evaluating overlap integrals required for electronic-structure simulations using these Gausslets, specifically the kinetic, nuclear, and electron repulsion integrals (both with and without the diagonal approximation). Computational efficiency improvements rest on the exploitation of translation, permutation, and octahedral symmetries, a reordering and precomputation of nested sums, as well as an early truncation of small coefficients. Our algorithms reduce the number of electron repulsion integrals on a $5 \\times 5 \\times 5$ grid from $125^4 = 244140625$ to $324275$ due to symmetries, and achieve a wall-clock runtime for evaluating the remaining integrals with a truncation tolerance of $10^{-5}$ in under 2 seconds on a laptop computer. We apply the developed methodology to compute the ground state of the hydrogen atom and molecule as a demonstration.",
+  "url": "http://arxiv.org/abs/2609.39176v1",
+  "pdf": "https://arxiv.org/pdf/2609.39176v1",
+  "type": "theory",
+  "summary": "This paper presents advanced numerical algorithms for calculating electron overlap integrals required for quantum electronic structure simulations using Gausslet orbitals on a cubic lattice. By rigorously exploiting lattice symmetries, the authors achieve massive computational reductions in the number of integrals needed. This efficient methodology is demonstrated by accurately calculating the ground state energies of the hydrogen atom and molecule.",
+  "main_problem": "The primary goal is developing highly efficient algorithms to compute the necessary overlap integrals (kinetic, nuclear, and electron repulsion) for electronic structure simulations using Gausslet orbitals on cubic lattices.",
+  "main_result": "The authors successfully developed symmetry-exploiting algorithms that drastically reduce the number of required electron repulsion integrals on a $5 \times 5 \times 5$ grid from $244$ million to under $330$ thousand, achieving rapid computation times.",
+  "method": "The methodology relies heavily on exploiting translational, permutation, and octahedral symmetries inherent in the Gausslet basis set to systematically reorder and precompute nested summations for the various integral types.",
+  "model_or_system": "The work focuses on electronic structure calculations using Gausslet orbitals defined on a cubic lattice ($\\mathbb{Z}^3$). Demonstrations include calculating the ground state energy of the hydrogen atom and the hydrogen molecule.",
+  "key_observables": "Overlap integrals ($k_{i,j}$, $nZ_{i,j}(R)$, $(ij|k\\ell)$), ground state energy ($E_0$), and the rank of the resulting wavefunction coefficient matrix.",
+  "important_parameters": "The grid size (e.g., $5 \times 5 \times 5$), the truncation tolerance ($10^{-5}$), and the scaling factor ($s$) used for basis set rescaling are key parameters.",
+  "main_assumptions": "The primary approximations include using the Integral Diagonal Approximation (IDA) for the electron repulsion integral tensor and assuming the factorized form of the Gausslet orbitals.",
+  "figures_summary": "Figures illustrate the asymptotic decay of ERIs, showing expected scaling, and show the ground state energy curves for the H atom and molecule as a function of the grid scaling factor $s$.",
+  "paper_structure": "The paper first introduces the physical problem and the Gausslet basis. It then details the mathematical derivation and reorganization of the three types of overlap integrals, heavily emphasizing the symmetry reduction techniques (Algorithm 1). Finally, it applies the developed framework to benchmark calculations for the H atom and H molecule.",
+  "why_interesting": "This work provides a highly optimized, scalable computational framework for quantum chemistry calculations, which is crucial for applying advanced electronic structure methods to larger, more complex molecular or solid-state systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.39176_figures/2609.39176_fig1.jpg",
+      "caption": "FIG. 1. Exploiting translational symmetry of an ERI term (ij|kℓ) (shown for a two-dimensional grid for visual clarity). The bounding box of the four points is translated such that its center is as close as possible to the origin. Only the integral of the translated points needs to be evaluated.",
+      "page": 3
+    },
+    {
+      "image": "2609.39176_figures/2609.39176_fig2.jpg",
+      "caption": "FIG. 2. (a) Number of dense and symmetry-reduced ERI ten- sor entries as a function of the number of grid points |Λd|, as listed in Table I. (b) The reduction factor due to symmetries. The fitted curve indicates that the number of entries after symmetry reduction grows approximately as ∼|Λd|3.2.",
+      "page": 8
+    },
+    {
+      "image": "2609.39176_figures/2609.39176_fig3.jpg",
+      "caption": "FIG. 3. Asymptotic decay behavior of the electron repulsion integrals based on the integral diagonal approximation. The Cartesian and diagonal directions refer to difference vectors of the form i −j = (ℓ, 0, 0) and i −j = (ℓ, ℓ, ℓ), respectively, for ℓ∈Z. (a) shows the integral values on a log-log scale, and (b) the deviation from 1/∥i −j∥on a semilogarithmic scale.",
+      "page": 11
+    },
+    {
+      "image": "2609.39176_figures/2609.39176_fig4.jpg",
+      "caption": "FIG. 4. Numerical approximation of the ground state energy and the corresponding wavefunction using Gausslet orbitals, for increasing grid length d and as a function of the grid scal- ing factor s, see Sec. III. The calculations use atomic units. The orange dashed curve shows the analytically exact solu- tion. The green markers in (a) denote the respective minima of each curve; the wavefunctions shown in (b) are the corre- sponding eigenstates at the minimal energies and are evalu- ated in real space along the path (x, 0, 0) for x ∈R.",
+      "page": 12
+    },
+    {
+      "image": "2609.39176_figures/2609.39176_fig5.jpg",
+      "caption": "FIG. 5. Numerical approximation of the ground state en- ergy of the hydrogen molecule at equilibrium nuclear distance 1.4 bohr using Gausslet orbitals, as a function of the grid scal- ing factor s. The orange dashed line shows the reference value from [6]. In (a), the solid curves are based on the full ERI ten- sor, and the dotted curves show calculations based on the in- tegral diagonal approximation for comparison. (b) shows the energy curves obtained with the integral diagonal approxima- tion for larger grid dimensions. Note that the two subfigures use different axes ranges.",
+      "page": 13
+    }
+  ],
+  "figure": "2609.39176_figures/2609.39176_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

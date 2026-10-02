@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2609.39367",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.stat-mech",
+    "cs.LG",
+    "math.PR",
+    "math.ST"
+  ],
+  "is_primary_archive": true,
+  "title": "A Dynamical Theory of LoRA in Continual Learning",
+  "authors": "Théo Marchetta, Filippo Alessandroni, Alessandro Breccia, Alessandro Ingrosso, Federica Gerace",
+  "abstract": "Despite the widespread use of Low-Rank Adaptation (LoRA), little is known about its dynamics in continual learning and the mechanisms by which low-rank updates affect catastrophic forgetting. We provide an asymptotically exact dynamical characterization of LoRA in a solvable two-task teacher-student model. In the high-dimensional online-learning limit, we derive a closed system of ordinary differential equations for a finite set of macroscopic order parameters, yielding exact expressions for the generalization errors throughout both the initial Task 1 learning phase and the subsequent LoRA fine-tuning on Task 2. The theory quantitatively matches finite-dimensional simulations and exposes two characteristic effects of LoRA: low-rank adaptation reduces interference with features learned on the first task, but its initialization slows adaptation to the second task. Building on this mechanistic picture, we analyze a state-dependent masking strategy that freezes hidden units carrying the strongest first-task representations and restricts adaptation to the complementary subspace. This structural partitioning markedly reduces forgetting, while preserving plasticity on the new task. Our framework further clarifies the role of adapter rank: transfer improves only up to the intrinsic dimensionality of the target task and saturates beyond it, while forgetting continues to grow with rank. These results provide a dynamical and geometric account of how low-rank adaptation organizes information across sequential tasks and are qualitatively reproduced on a sequential MNIST benchmark.",
+  "url": "http://arxiv.org/abs/2609.39367v1",
+  "pdf": "https://arxiv.org/pdf/2609.39367v1",
+  "type": "theory",
+  "summary": "This paper provides a dynamical, geometric theory for understanding how Low-Rank Adaptation (LoRA) functions during continual learning. By deriving a closed system of ODEs, the authors show that LoRA manages interference but slows adaptation, proposing a masking strategy that explicitly protects crucial features to minimize catastrophic forgetting.",
+  "main_problem": "The paper investigates the dynamics of Low-Rank Adaptation (LoRA) in the context of continual learning, aiming to understand how low-rank updates affect catastrophic forgetting.",
+  "main_result": "LoRA reduces interference with previously learned features but slows adaptation to new tasks; furthermore, a state-dependent masking strategy can significantly mitigate forgetting by protecting task-specific representations.",
+  "method": "The authors derive a closed system of ordinary differential equations (ODEs) by analyzing the high-dimensional online-learning limit of a solvable two-task teacher-student model.",
+  "model_or_system": "The model is a two-layer fully connected network trained sequentially on Task 1 and then fine-tuned on Task 2 using LoRA updates ($\\Delta J = BA$). The analysis tracks macroscopic order parameters (overlaps) between the student, the frozen Task 1 representation, and the two task teachers.",
+  "key_observables": "Generalization errors ($\\epsilon^*$) on both tasks, and various macroscopic order parameters (overlaps) quantifying feature retention and transfer.",
+  "important_parameters": "Task similarity ($c$), adapter rank ($L$), and the masking strategy parameters derived from feature importance.",
+  "main_assumptions": "The analysis is performed in the high-dimensional online-learning limit ($N \to \\infty$), and some sections assume a symmetric regime for mathematical tractability.",
+  "figures_summary": "Figures compare generalization and overlap dynamics for LoRA versus full fine-tuning, demonstrating that LoRA and structured masking methods maintain better Task 1 retention while adapting to Task 2.",
+  "paper_structure": "The paper establishes the theoretical framework by deriving ODEs for the system dynamics, analyzes the performance differences between standard fine-tuning and LoRA, and then introduces and validates a state-dependent masking strategy to further reduce forgetting.",
+  "why_interesting": "The mathematical framework of deriving deterministic ODEs from complex, high-dimensional neural network dynamics mirrors techniques used in analyzing mean-field behavior in complex physical systems, such as spin glasses or neural quantum states.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.39367_figures/2609.39367_fig1.jpg",
+      "caption": "Figure 1: Generalization and representation dynamics under LoRA and full fine-tuning for a sequential training. a) Schematic of the sequential training setting. We first train the first-layer weights and a readout head on a synthetic dataset corresponding to Task 1. We then train on a correlated dataset corresponding to Task 2, where we either update the first-layer weights or freeze them and instead train a low-rank adapter. In both cases, we train a second readout head. b) Task 1 (dark) and Task 2 (light) generalization errors for full fine-tuning and LoRA. The gray dashed line marks the task switch. c–d) Student overlaps with teachers as defined in Eqs. (18)-(19) after the task switch...",
+      "page": 5
+    },
+    {
+      "image": "2609.39367_figures/2609.39367_fig2.jpg",
+      "caption": "Figure 2: State-dependent masking reduces forgetting. a) Generalization dynamics for full fine-tuning, LoRA, and their SDGM-constrained variants. Parameters: N = 103, K = 10, M = 5, L = 5, κ = 5, c = 0.5, α = 50. b) Corresponding results on a real experiment on the MNIST dataset sequential training (see Appendix G for details). SDGM improves Task 1 retention while preserving comparable Task 2 performance. For the experiment, the curves are averaged over 10 independent training realizations.",
+      "page": 8
+    },
+    {
+      "image": "2609.39367_figures/2609.39367_fig3.jpg",
+      "caption": "Figure 3: Impact of LoRA on the Stability-Plasticity Trade-off. a) Task 1 Forgetting and b) Task 2 Transfer as a function of teacher similarity c. Solid lines denote theoretical predictions and markers simulation. c) Forgetting versus Transfer as the LoRA rank L varies from light (L = 1) to dark marker (L = 10) for c = 0.5. Vanilla LoRA gains transfer at the cost of increased forgetting, whereas LoRA+SDGM maintains greater stability. Transfer gains saturate as L approaches the teacher width M. For SDGM, κ = K −L. We average over 10 different seeds. Lines in panel c are shown to guide the eyes. Parameters: N = 103, K = 10, M = 5, α = 50. In panel a and b we used L = 5.",
+      "page": 10
+    },
+    {
+      "image": "2609.39367_figures/2609.39367_fig4.jpg",
+      "caption": "Figure 4: Ablation of the selection protocol via Inverse SDGM. Generalization error trajectories on Task 1 and Task 2 under the inverse selection protocol, where student hidden units corresponding to the smallest Task 1 readout magnitudes are frozen during Task 2 training. Comparing this control to standard SDGM disentangles the effect of purely architectural capacity constraints from targeted feature protection. Parameters: N = 103 K = 10, M = 5, L = 5, c = 0.5, α = 50, κ = 5.",
+      "page": 25
+    },
+    {
+      "image": "2609.39367_figures/2609.39367_fig5.jpg",
+      "caption": "Figure 5: Validation of SDGM under unbounded ReLU activations. Generalization error dynamics on Task 1 and Task 2 when both teacher and student networks employ ReLU as the activation function. The lower error on Task 1 confirms that the proposed selection rule mitigates catastrophic forgetting independently of activation saturation. Parameters: N = 103, K = 10, M = 5, L = 5, c = 0.5, α = 50. Results shown here are experiment-only.",
+      "page": 25
+    }
+  ],
+  "figure": "2609.39367_figures/2609.39367_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

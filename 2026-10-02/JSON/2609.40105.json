@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.40105",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Harnessing problem structure for end-to-end quantum speed-ups",
+  "authors": "Qifan Jiang, Xiao-Ming Zhang, Debin Xiang, Xiao Yuan, Liqiang Lu, Jianwei Yin",
+  "abstract": "Quantum algorithms can offer substantial computational speed-ups, yet these advantages may disappear once the cost of structure-agnostic classical data encoding is taken into account. Real-world problem instances, however, often possess rich internal structure. This raises a fundamental question: can such structure be harnessed to make quantum speed-ups survive end-to-end cost accounting? Here we show that it can. We introduce a general framework for structure-aware quantum data encoding that compiles compact recursive descriptions of problem structure into efficient state-preparation circuits, translating structural information directly into reduced encoding complexity. For the uncapacitated facility-location problem, structure-agnostic encoding admits a classical dequantization that eliminates the quadratic quantum speed-up, whereas exploiting the underlying problem structure restores this advantage even when state-preparation costs are included. More broadly, the same framework prepares structured quantum states for combinatorial optimization that capture non-trivial relations among constraints, including group balance, conflicts and synergistic rewards, extending previously reported super-polynomial quantum advantages to broader classes of objectives. These results establish exploitable problem structure as a computational resource for quantum algorithms and provide a systematic route towards realizing quantum advantage in data-intensive problems.",
+  "url": "http://arxiv.org/abs/2609.40105v1",
+  "pdf": "https://arxiv.org/pdf/2609.40105v1",
+  "type": "theory",
+  "summary": "This work introduces a novel framework to make quantum speed-ups robust by encoding the inherent structure of real-world problems into quantum circuits. By translating structural information into efficient state preparation, the authors demonstrate that previously lost quantum advantages can be recovered for combinatorial optimization tasks. This establishes problem structure as a quantifiable computational resource for quantum algorithms.",
+  "main_problem": "To determine if quantum speed-ups persist in real-world applications when the full overhead cost of encoding classical data is accounted for (end-to-end cost accounting).",
+  "main_result": "By introducing structure-aware quantum data encoding, the authors show that exploiting the problem's inherent structure can restore quantum speed-ups that were otherwise eliminated by encoding overhead.",
+  "method": "They propose a general, recursive framework that compiles compact recursive descriptions of problem structure directly into efficient state-preparation circuits, reducing encoding complexity.",
+  "model_or_system": "The framework is applied to combinatorial optimization problems, such as the uncapacitated facility-location problem, and general structured state preparation $|\\psi_\\pi\rangle = \\sum_{x \\in F} \\sqrt{\\pi(x)} |x\rangle$.",
+  "key_observables": "The quantum speed-up factor, the circuit depth, and the gate count scaling relative to the problem structure's expansion dimension $d$.",
+  "important_parameters": "The expansion dimension $d$, which governs the complexity of the structural description; the size of the feasible set $F$.",
+  "main_assumptions": "The analysis relies on the strong exponential time hypothesis for proving asymptotic speed-ups, and for some applications, the assumption of non-negative costs is made.",
+  "figures_summary": "Figures illustrate the construction of state preparation circuits for various structured sets (e.g., fixed Hamming weight, Rydberg blockade chains) and detail the search space reduction for the UFLP using Grover-style search.",
+  "paper_structure": "The paper first establishes the general framework for structure-aware encoding, demonstrating its success on UFLP. It then details the resource scaling for six representative structured data families using a local-update principle. Finally, it extends the concept to incorporate structural preferences into quantum sampling via a grouped Overlap Probability Inference (OPI) approach.",
+  "why_interesting": "The explicit use of structured state preparation circuits, particularly those involving Rydberg-blockade chains, directly connects theoretical quantum complexity with physical implementations in AMO platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.40105_figures/2609.40105_fig1.jpg",
+      "caption": "FIG. 1. Recursive interfaces guide state preparation without enumeration. a, Exact support sizes for the full 𝑛-bit search space, fixed Hamming weight with 𝑘= 16 ones, a Rydberg blockade chain, and the bounded-width divergence ladder used as our benchmark. The structured feasible sets may be exponentially smaller than the full search space. b, An interface stores the information needed to decide whether two child blocks can be joined. For fixed Hamming weight, (𝑚, 𝑟) labels a recursive block containing 𝑚bits and requiring exactly 𝑟ones. A split labeled 𝑞gives child weights 𝑞and 𝑟−𝑞. For a Rydberg blockade chain, compatibility depends on the occupations beside the split. For bounded-width...",
+      "page": 3
+    },
+    {
+      "image": "2609.40105_figures/2609.40105_fig2.jpg",
+      "caption": "FIG. 2. Circuit benchmarks are consistent with the analytical resource scalings. Orange squares show gate counts and blue circles show circuit depths after decomposition into the {𝑅𝑧, 𝑆𝑋, 𝑋, CX} basis, where 𝑆𝑋is the square-root-of-𝑋gate. The benchmarks use 𝑘= 16, the bounded-width divergence ladder, 𝑆= ⌈√𝑛⌉, the width-three divisibility-by-three decision diagram and an 𝑟= 2 even-parity Schmidt tree. Dashed curves show least-squares fits using forms fixed by the analytical bounds. The legends display the leading fitted terms, and complete models and coefficients are provided in Source Data.",
+      "page": 4
+    },
+    {
+      "image": "2609.40105_figures/2609.40105_fig3.jpg",
+      "caption": "FIG. 3. Facility-set search reduces the uncapacitated facility location problem (UFLP) search space. a, UFLP with 𝑎facilities and 𝑏 demands. Each demand is assigned to one open facility, and the objective is to minimize total opening and service cost. b, Binary encoding with one opening bit and 𝑏assignment bits per facility, giving 𝑎+ 𝑎𝑏bits. In the displayed basis state, each demand is assigned to one open facility and every open facility is used. c, Grover-style search. 𝐴prepares the search state, 𝑆𝜒marks feasible solutions below the current cost threshold, and 𝐷= 𝐴𝑆0𝐴† performs diffusion, with 𝑆0 the zero-state reflection. Each iteration applies 𝑆𝜒followed by 𝐷, giving 𝐺= 𝐷𝑆𝜒. d,...",
+      "page": 5
+    },
+    {
+      "image": "2609.40105_figures/2609.40105_fig4.jpg",
+      "caption": "FIG. 4. Structured initial states favor greater group balance among equal-score polynomials. a, Optimal polynomial intersection (OPI) scores a polynomial 𝑄by the number 𝑓(𝑄) of evaluation constraints it satisfies. The group scores 𝑆1(𝑄) and 𝑆2(𝑄) define 𝐽(𝑄) = 𝑆1(𝑄)𝑆2(𝑄), which measures balance at fixed total score. Standard decoded quantum interferometry (DQI) starts from a weighted superposition of Dicke states. Each Dicke state is uniform over constraint subsets of a fixed size, and the weights define the score-weighting function 𝑃. These weights are chosen to raise the expected score. The circuit produces amplitudes proportional to 𝑃( 𝑓(𝑄)) and therefore cannot distinguish equal-score...",
+      "page": 7
+    }
+  ],
+  "figure": "2609.40105_figures/2609.40105_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

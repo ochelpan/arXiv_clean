@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.39941",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fast and Sure-ious Quantum Process Tomography",
+  "authors": "A. Afham, Sayantan Sen, Marco Tomamichel",
+  "abstract": "Quantum process tomography (QPT) protocols are often designed by lifting quantum state tomography (QST) protocols through the Choi-Jamiolkowski isomorphism, at the cost of an extra step enforcing the trace-preserving (TP) constraint. Existing approaches fall into two classes. The folklore partial normalization, which sandwiches the density estimate between inverse square roots of its input marginal, has a closed form but is used as a heuristic, its only analyses being asymptotic and losing a factor polynomial in the dimension. Projection-based methods are principled but have no closed forms and scale poorly with dimension. We resolve this dichotomy by showing that the partial normalization is the exact projection onto the Choi states of quantum channels in fidelity (equivalently in Bures or purified distance). Consequently, any QST algorithm with guarantees in fidelity lifts to a QPT algorithm that inherits its sample complexity, through a single closed-form congruence that preserves the Choi rank and is computed in Kraus form without any eigendecomposition of Choi dimension. We lift two single-copy protocols and prove that the non-adaptive one (Fidelity Projected Least Squares) recovers the Choi rank and reaches infidelity $\\varepsilon$ from a number of channel uses proportional to $1/\\varepsilon$. Numerically, for channels of low Choi rank, it improves on the state-of-the-art projected least squares in accuracy, and by orders of magnitude in the time and memory of the TP-regularization step and of the returned estimate.",
+  "url": "http://arxiv.org/abs/2609.39941v1",
+  "pdf": "https://arxiv.org/pdf/2609.39941v1",
+  "type": "theory",
+  "summary": "This paper develops a theoretically rigorous and computationally efficient method for Quantum Process Tomography (QPT). It proves that a simple, closed-form partial normalization heuristic is mathematically equivalent to the optimal fidelity projection onto the set of physical quantum channels. This breakthrough allows QPT algorithms to inherit the favorable sample complexity guarantees of state tomography while avoiding the computational bottlenecks of traditional semidefinite programming methods.",
+  "main_problem": "The paper addresses the challenge of Quantum Process Tomography (QPT), which requires estimating an unknown quantum channel while enforcing the trace-preserving (TP) constraint.",
+  "main_result": "The authors prove that the standard 'folklore partial normalization' heuristic is mathematically equivalent to the exact projection onto the set of valid Choi states using fidelity, allowing QST algorithms to be directly lifted to QPT with inherited sample complexity.",
+  "method": "The core method involves establishing the mathematical equivalence between the partial normalization and the fidelity projection, enabling the use of closed-form, computationally efficient regularization techniques for QPT.",
+  "model_or_system": "The system under study is an unknown quantum channel $\\Phi: \\mathcal{L}(A) \to \\mathcal{L}(B)$, which is characterized by its Choi state $C(\\Phi)$. The estimation process involves reconstructing this state from measurement data.",
+  "key_observables": "Fidelity ($F$), Choi Rank, Sample Complexity ($N$), and computational runtime/memory usage.",
+  "important_parameters": "The dimension of the systems ($d_A, d_B$), the target infidelity ($\\epsilon$), and the required number of channel uses ($N \\propto 1/\\epsilon$).",
+  "main_assumptions": "The primary assumption is that the fidelity projection is the correct regularization method, which is shown to be equivalent to the partial normalization formula.",
+  "figures_summary": "Figures compare the runtime of various TP regularization methods (Fidelity projection vs. SDP vs. HIP) against Choi dimension, showing the fidelity projection is significantly faster. Other figures compare rank recovery and infidelity vs. shot count.",
+  "paper_structure": "The paper first establishes the theoretical equivalence between partial normalization and fidelity projection. It then applies this result to lift QST protocols to QPT, demonstrating improved performance over existing projection-based methods in terms of speed and accuracy.",
+  "why_interesting": "This work provides a computationally tractable and theoretically sound method for characterizing open quantum systems (channels), which is fundamental for quantum process characterization in quantum computing and quantum optics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.39941_figures/2609.39941_fig1.jpg",
+      "caption": "Figure 1: From state to process tomography. Left, QST: inside the affine space of Hermitian trace-one matrices (rectangle) lies the set of density matrices D(A) (disc). A QST protocol returns an estimate in a small neigh- borhood (red outline) of the true state ρ intersected with density matrices (shaded region). Right, QPT on the bipartite space A ⊗B: the matrices whose A-marginal is maximally mixed form an affine subspace through the maximally mixed state IAB/dAB (green line, dotted outside D(A⊗B)), and its intersection with D(A⊗B) (dashed chord) is the set CA,B of Choi states of channels. A lifted QPT protocol must regularize a QST output to CA,B.",
+      "page": 2
+    },
+    {
+      "image": "2609.39941_figures/2609.39941_fig2.jpg",
+      "caption": "Figure 2: (Left) Runtime of different TP regularization methods against Choi dimension: the iterative Hyper- plane Intersection Projection (“HIP”) [SKKG22], our fidelity projection (theorem 5), and the diamond-distance projection SDP [MB26]. All three regularize the same instance, the QST output obtained from a Haar-random isometry. The SDP curve is the solver’s own solve time, which understates its cost (Appendix D.1). (Right) Recovered Choi rank and Choi infidelity with the true channel, for Fidelity Projected Least Squares (FPLS, this work) against PLS [SKKG22], both applied to the same least-squares estimate of a rank-2 channel at dAB = 28. The dashed line at N = 106 marks the...",
+      "page": 4
+    },
+    {
+      "image": "2609.39941_figures/2609.39941_fig3.jpg",
+      "caption": "Figure 3: Rank preservation in practice, at dAB = 28. Top row: the rank-2 channel of Fig. 2; bottom row: independent amplitude damping on two of the four qubits, Choi rank 4; both at N = 108. Left: ordered spectrum of the density estimate, Algorithm 3 at τ = βN/2, which corresponds to a CP but not TP map. Middle and right: the channel estimates obtained by TP regularizing this same density estimate with fidelity projection and with HIP. The black line marks the true eigenvalues, the bars those of the estimate, and the inset F is the fidelity of the estimate with the true Choi state.",
+      "page": 5
+    },
+    {
+      "image": "2609.39941_figures/2609.39941_fig4.jpg",
+      "caption": "Figure 4: Iterations required by HIP [SKKG22], run as described in Appendix D.1, against Choi dimension, every instance calibrated approximately to a common fidelity F from CA,B, at four levels colored from dark (closest to CA,B) to light (farthest) and labeled by the corresponding fidelity. True channels are (a) a Haar-random isometry, Choi rank 1, and (b), (c) random channels of Choi rank log2 dAB and dAB, a Wishart matrix normalized by its input marginal [BCSŻ09]; ten measurement draws each. Translucent markers are single instances, opaque markers their median. Solid lines are log–log power-law fits to the medians.",
+      "page": 13
+    },
+    {
+      "image": "2609.39941_figures/2609.39941_fig5.jpg",
+      "caption": "Figure 5: Reconstruction accuracy against the shot count for a rank-2 channel of Fig. 2 at dAB = 28, one panel per metric. FPLS at the Bernstein threshold τ = βN (purple) and at βN/2 (blue) against PLS at τ = −λmin (red); geometric means and [min, max] bands over 10 trials. The dotted guides carry N −1/2 and N −1 with fixed, never fitted exponents, drawn as in Fig. 2 (Appendix D.2).",
+      "page": 15
+    }
+  ],
+  "figure": "2609.39941_figures/2609.39941_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

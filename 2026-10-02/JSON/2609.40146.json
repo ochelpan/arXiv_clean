@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.40146",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QuLoC: Photonic Quantum-Assisted Low-Rank LLM Compression",
+  "authors": "Xiao-Hui Ni, Yu-Han Yao, Yu-Ze Zhu, Hang Song, Xiang Zhao, Lin Yang, Xian-Min Jin",
+  "abstract": "As LLMs grow in size, compression becomes increasingly important for efficient deployment. SVD-based low-rank compression reduces parameter counts but can degrade downstream performance. To improve performance after compression, we introduce QuLoC, a photonic quantum-assisted LLM compression algorithm that uses quantum circuit outputs to gate the retained low-rank components during training. Model performance is recovered through local functional reconstruction followed by end-to-end knowledge distillation. After training, the gating coefficients are absorbed into the low-rank factors, allowing the compressed model to run on classical hardware without executing quantum circuits during inference. Experiments on Qwen3.5-4B show that QuLoC achieves a 9.73\\% relative improvement in average accuracy over state-of-the-art baselines across multiple downstream tasks, demonstrating its effectiveness. We further evaluate QuLoC on LLaMA-7B at different parameter compression ratios. It consistently achieves higher average downstream accuracy than state-of-the-art baselines, supporting its applicability to a larger model across different compression settings. Notably, experiments using the photonic quantum hardware retain these benefits with a small accuracy loss relative to simulation, suggesting robustness to hardware noise. These results motivate further exploration of photonic quantum-assisted compression for larger models and more complex agentic tasks.",
+  "url": "http://arxiv.org/abs/2609.40146v1",
+  "pdf": "https://arxiv.org/pdf/2609.40146v1",
+  "type": "both",
+  "summary": "This paper introduces QuLoC, a novel method for compressing large language models by using photonic quantum circuits to generate trainable gating coefficients. These gates modulate the low-rank components during training, allowing the resulting model to achieve state-of-the-art performance gains on classical hardware. It bridges quantum computation with practical AI deployment challenges.",
+  "main_problem": "The primary challenge is efficiently deploying large language models (LLMs) by compressing their parameters while minimizing the degradation of downstream performance.",
+  "main_result": "The proposed QuLoC method achieves significant relative accuracy improvements (e.g., 9.73% on Qwen3.5-4B) over state-of-the-art baselines, even when running on physical photonic quantum hardware.",
+  "method": "QuLoC introduces a quantum-assisted training mechanism where quantum circuit outputs generate trainable gating coefficients that modulate the contributions of low-rank components during training.",
+  "model_or_system": "The work applies to compressing large transformer-based LLMs (like Qwen3.5-4B and LLaMA-7B) by targeting their MLP blocks. The quantum aspect utilizes photonic quantum circuits (e.g., MZI structures) to generate quantum response features used for gating.",
+  "key_observables": "Relative improvement in average downstream accuracy, Perplexity (PPL), and the fidelity of reconstruction compared to state-of-the-art methods.",
+  "important_parameters": "The low-rank dimension ($r$), the compression ratio, and the number of compressed layers are key parameters varied in the experiments.",
+  "main_assumptions": "The final, deployed model runs entirely on classical hardware, as the quantum gating coefficients are absorbed into the low-rank factors after training, eliminating the need for quantum circuits during inference.",
+  "figures_summary": "Figures illustrate the process flow: quantum circuits generate features that modulate low-rank factors during training (Stage I), followed by end-to-end knowledge distillation (Stage II). Tables summarize performance gains vs. compression depth and rank.",
+  "paper_structure": "The paper details a multi-stage training process: first, local functional reconstruction using quantum-derived gates to supervise the low-rank approximation; second, end-to-end knowledge distillation to refine the model's overall behavior.",
+  "why_interesting": "It provides a concrete, applied example of integrating quantum computation (photonic circuits) into a classical machine learning optimization loop (LLM compression), demonstrating a pathway for quantum-enhanced AI hardware acceleration.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.40146_figures/2609.40146_fig1.jpg",
+      "caption": "Figure 1: Photonic quantum-assisted low-rank compression of large language models. (a) A pro- grammable photonic quantum processor produces photon-counting statistics that form a reusable bank of quantum response features Ms(ϕ). (b) These responses are converted by lightweight classical mappings into input-independent low-rank gates, which modulate the compressed projection factors during training. Layer-wise reconstruction and teacher–student distillation align the gated student with the original model. After optimization, the gates are folded into the low-rank factors, enabling fully classical inference without quantum-hardware access.",
+      "page": 5
+    },
+    {
+      "image": "2609.40146_figures/2609.40146_fig2.jpg",
+      "caption": "Figure 2: Architecture of the double-Clements single-photon feature circuit used in each compressed projection module. An input-independent phase encoding is processed by two cascaded trainable Clements interferometer meshes, separated by a trainable inter-mesh phase layer. The photon-number probabilities at the output modes form the feature vector used to generate the low-rank channel gates. The gate, up, and down projection modules employ independent copies of this circuit.",
+      "page": 10
+    },
+    {
+      "image": "2609.40146_figures/2609.40146_fig3.jpg",
+      "caption": "Figure 3: Convergence of the Stage I local reconstruction loss for the four compressed MLPs in the last four Transformer blocks of Qwen3.5-4B. Each curve reports Llocal for one target layer. Lower values indicate better local reconstruction.",
+      "page": 13
+    },
+    {
+      "image": "2609.40146_figures/2609.40146_fig4.jpg",
+      "caption": "Figure 4: Stage II optimization with and without Stage I local reconstruction. Panels (a)–(c) show the total, CE, and KD losses, respectively, where LE2E = 0.5LCE + 0.5LKD. Faint and solid curves denote step-wise losses and 25-step moving averages, respectively.",
+      "page": 13
+    },
+    {
+      "image": "2609.40146_figures/2609.40146_fig5.jpg",
+      "caption": "Figure 3 shows that the local reconstruction loss decreases consistently for all four target layers. Most of the reduction occurs during the early optimization steps, followed by slower convergence toward the end of Stage I. The layers converge to different loss levels, indicating that their sensitivity to low-rank replacement is layer dependent. Nevertheless, the consistent reduction across all four layers confirms that Stage I adapts each compressed MLP toward the input–output mapping of its uncompressed counterpart.",
+      "page": 13
+    }
+  ],
+  "figure": "2609.40146_figures/2609.40146_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 1,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

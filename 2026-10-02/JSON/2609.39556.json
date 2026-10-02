@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.39556",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Exact Maximum Likelihood Decoding beyond Treewidth via Rank-Decomposition Dynamic Programming",
+  "authors": "Bin Cheng, Feng Pan",
+  "abstract": "Maximum-likelihood decoding provides an optimal decoding strategy for quantum error correction under stochastic Pauli noise. However, computing logical-class probabilities is challenging, and the leading exact tensor-network contraction requires time exponential in treewidth. In this work, we introduce a new decoding algorithm based on rank-decomposition dynamic programming (Rank DP). We express decoding partition functions with independent local fault factors as quadratic sums of powers and apply Rank DP. The resulting exact evaluator has arithmetic complexity polynomial in the input size and exponential in the Tanner graph's rank-width with respect to the fault partition, including decomposition construction. After Gaussian elimination, it gives polynomial-time decoding for punctured quantum Reed-Muller codes and a Steane-concatenated family with growing distance under independent single-qubit Pauli noise. Standard contraction of the corresponding tensor networks requires superpolynomial time. A nonnegative realization gives relative floating-point error bounds under explicit arithmetic assumptions. Numerical experiments demonstrate runtime advantages over the tested tensor-network implementations on selected code-capacity and circuit-level instances, with full likelihood evaluation for Reed-Muller codes up to $1{,}023$ qubits. We further use these likelihoods to learn circuit noise parameters from syndromes, evaluate rare postselection probabilities, and quantify decoder optimality gaps. Our work opens new avenues for exploiting algebraic structure in quantum decoding and noise characterization.",
+  "url": "http://arxiv.org/abs/2609.39556v1",
+  "pdf": "https://arxiv.org/pdf/2609.39556v1",
+  "type": "theory",
+  "summary": "This paper presents a novel decoding algorithm, Rank-Decomposition Dynamic Programming (Rank DP), to calculate exact maximum-likelihood probabilities for quantum error correction. By exploiting the algebraic structure of the problem, it bypasses the exponential time complexity associated with standard tensor network contractions based on treewidth. This breakthrough allows for polynomial-time decoding for several important quantum codes, significantly advancing the field of quantum noise characterization.",
+  "main_problem": "The core challenge is computing the exact maximum-likelihood decoding probabilities for quantum error correction codes, which is computationally intractable due to exponential scaling with the treewidth of the associated tensor network.",
+  "main_result": "The authors introduce Rank-Decomposition Dynamic Programming (Rank DP), an algorithm that evaluates the decoding partition function in time exponential only in the rank-width, which is superior to the standard treewidth-based contraction.",
+  "method": "The method reformulates the decoding problem as evaluating a partition function expressed as a quadratic sum of powers (SOPs) and applies Rank DP, which leverages the algebraic structure related to the rank-width of the Tanner graph.",
+  "model_or_system": "The work analyzes quantum error correction under stochastic Pauli noise, focusing on stabilizer codes like Reed-Muller and Steane-concatenated families. The complexity is analyzed using graph parameters like treewidth and rank-width.",
+  "key_observables": "Decoding likelihoods (partition functions), conditional failure probabilities, and the comparison between computational complexities derived from rank-width versus treewidth.",
+  "important_parameters": "The rank-width ($\text{rw}$) of the Tanner graph, the noise model (stochastic Pauli noise), and the size of the code (e.g., up to 1,023 qubits for RM codes).",
+  "main_assumptions": "The approach assumes independent local fault factors for the Rank DP formulation, and the complexity bounds are derived within an arithmetic model.",
+  "figures_summary": "The notes do not detail specific figures, but mention tables comparing failure probabilities and numerical enclosures for various codes and error rates.",
+  "paper_structure": "The paper develops by first establishing the difficulty of exact MLD via TN contraction, then introducing the Rank DP framework by mapping the problem to SOPs, proving the complexity improvement using rank-width, and finally demonstrating its application to specific quantum codes.",
+  "why_interesting": "It provides a powerful algebraic tool (Rank DP) to tackle classically hard problems in quantum information theory, offering a path to simulating quantum error correction performance beyond the limits of standard tensor network contraction methods.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.39556_figures/2609.39556_fig1.jpg",
+      "caption": "Figure 1: Reed–Muller structural separation and practical inference. (a) Width of the explicit physical-block decomposition after check elimination and a proved treewidth lower bound for the specified original graph. Every cut is checked through m = 17. (b) CPU FP64 evaluation of all four logical-sector likelihoods for 7–1023 qubits under depolarizing noise p = .03, with relative-ℓ1 error at most 10−10. The TN controls include algebraically preprocessed representations. Each size uses 12 IID queries with three repetitions; markers are medians of per-query medians and bars show their observed range. Times measure reused evaluation under the conventions stated above. The code distance is...",
+      "page": 22
+    },
+    {
+      "image": "2609.39556_figures/2609.39556_fig2.jpg",
+      "caption": "Figure 2: CPU code-capacity inference on open 3 × 3 × Lz surface codes under depolarizing noise p = .03. (a) Rank DP and nonnegative TN both return all four logical-sector masses in FP64; TN evaluation uses opt einsum. Markers show median reused evaluation time; bars show the observed range of per-query median times. (b) Forecast Rank DP scalar work on the selected rank decompositions, whose width remains 18 and whose live numeric-array forecast stays near 18 MiB. Work and memory forecasts exclude implementation overhead. The tested distances are five, seven, and nine.",
+      "page": 23
+    },
+    {
+      "image": "2609.39556_figures/2609.39556_fig3.jpg",
+      "caption": "Figure 3: Signed Fourier precision on four fixed queries per color circuit. Values enclose the larger of the two sector relative errors, using independent positive Rank DP reference intervals. Crosses establish error above 10−8; downward triangles mark upper bounds with intervals that include zero. Open squares show positive Rank DP FP64 bound resolution. The MP96 and MP128 upper bounds reach the resolution of the reference intervals. All methods use the same stored models; Fourier precisions share a saved TN path and Rank DP uses its saved positive tree. MP128 values come from the completed batch comparison.",
+      "page": 24
+    },
+    {
+      "image": "2609.39556_figures/2609.39556_fig4.jpg",
+      "caption": "Figure 4: Syndrome-only calibration of the color (7, 3) circuit. (a) Mean absolute relative error of the 782 DEM event priors against the generating model, in percent. Curves show every optimizer update; filled markers identify checkpoints selected by validation NLL. (b) Held-out NLL improvement from initialization to each selected fit. The approximate 95% paired intervals quantify test-sample uncertainty conditional on that fitted model. Each point uses its own independent test set.",
+      "page": 26
+    },
+    {
+      "image": "2609.39556_figures/2609.39556_fig5.jpg",
+      "caption": "Figure 5: Static postselection under code-capacity depolarizing noise. (a) Zero-syndrome acceptance probability. (b) Conditional probability of a nontrivial logical class under identity recovery. Positive summation separately evaluates acceptance and accepted-bad probability; panel (b) shows their ratio. Supplemental Section E.9 gives the channel grid, interval construction, and representative numerical enclosures.",
+      "page": 27
+    }
+  ],
+  "figure": "2609.39556_figures/2609.39556_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

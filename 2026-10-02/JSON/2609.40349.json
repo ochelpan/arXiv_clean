@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.40349",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Calculation of Equilibrium Correlation Functions",
+  "authors": "Yizhi Shen, Roel Van Beeumen, Wibe A. de Jong, Efekan Kökcü",
+  "abstract": "A majority of measurable dynamic quantities of a physical system is described as an equilibrium correlation function of the form $G_{AB}(t-t') = \\left<A(t)B(t')\\right>$, where $t'$ represents the impact time and $t$ represents the response time. Conventional quantum algorithms to compute such quantities via Hamiltonian simulation such as the Hadamard test, variational methods, or linear-response-based algorithms share one feature in common: each time point $t-t'$ is calculated by a different quantum circuit, leading to at least $O(N_t)$ total shots, and at least $O(N_t^2)$ total quantum gates. Here, we provide a different approach: utilizing $O(\\log N_t)$ ancilla qubits to store time as a quantum variable, and effectively parallelize the computation of an equilibrium correlation function by requiring only a single quantum circuit for all time points. We show that this circuit needs to be run only $O(\\log N_t)$ times, which in total requires $O(N_t \\log N_t)$ quantum resources in the large system size limits. We prove that this scaling is optimal, and demonstrate our algorithm calculating the Green's function of a one-dimensional spinless Hubbard model.",
+  "url": "http://arxiv.org/abs/2609.40349v1",
+  "pdf": "https://arxiv.org/pdf/2609.40349v1",
+  "type": "theory",
+  "summary": "This paper introduces a quantum algorithm to calculate equilibrium correlation functions by encoding time into a quantum clock register. This technique allows all time lags to be computed simultaneously using a single circuit run, achieving an optimal resource scaling of $O(N_t \\log N_t)$. This drastically improves upon previous methods, making the simulation of dynamic properties in many-body systems much more efficient.",
+  "main_problem": "The paper addresses the challenge of efficiently calculating equilibrium correlation functions, $G_{AB}(t-t') = \\langle A(t)B(t') \rangle$, which are crucial for describing measurable dynamic quantities in many-body physics.",
+  "main_result": "The authors propose a novel quantum algorithm that achieves an optimal resource scaling of $O(N_t \\log N_t)$ quantum resources, significantly outperforming conventional methods that require $O(N_t^2)$ gates.",
+  "method": "The core method involves encoding the time evolution history into a quantum 'clock register' using $\\mathcal{O}(\\log N_t)$ ancilla qubits, allowing all time lags to be computed simultaneously via a single circuit run followed by a Quantum Fourier Transform (QFT).",
+  "model_or_system": "The method is demonstrated using the Green's function calculation for a one-dimensional spinless Hubbard model, applicable to any system in a stationary state.",
+  "key_observables": "Equilibrium correlation functions, $G_{AB}(t-t')$, autocorrelation functions, and the spectral function derived from the QFT measurement.",
+  "important_parameters": "The time window size $N_t$ (number of time points) and the required accuracy $\\epsilon$. The scaling advantage is most pronounced for large $N_t$.",
+  "main_assumptions": "The method relies on the time-translational invariance of equilibrium correlation functions (Toeplitz form) and assumes the system is in a stationary state.",
+  "figures_summary": "Figure 1 compares the circuit structures for the Hadamard test versus the clock circuit. Figure 3 compares the maximum estimation error for both protocols, showing the clock approach's superior scaling for large $N_t$.",
+  "paper_structure": "The paper first establishes the computational bottleneck of conventional methods. It then introduces the clock-register approach, detailing the circuit structure and the use of QFT for readout. Finally, it rigorously compares the resource scaling and demonstrates the superior performance using the Hubbard model.",
+  "why_interesting": "This work provides a significant algorithmic improvement for calculating fundamental quantities in condensed matter theory, directly impacting how quantum simulations of thermal or equilibrium dynamics can be performed on near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.40349_figures/2609.40349_fig1.jpg",
+      "caption": "FIG. 1. Comparison of circuits for the equilibrium two-point correlation function GAB(tj) = ⟨ψ| A(tj)†B |ψ⟩on the time grid tj = j∆t, with U = e−i∆tH. (a) Hadamard test circuit. The ancilla selects which operator acts, i.e., A on the |0⟩branch (open circle) and B on the |1⟩branch (filled circle), and its X or Y expectation value recovers the real or imaginary part of GAB(tj) for the single time tj fixed by the circuit. (b) Clock circuit for the autocorrelation function GAA(tj) = ⟨ψ| A(tj)†A |ψ⟩. A clock register of b = log2 Nt qubits in an equal superposition sets the insertion time: the boxed value r on the clock wire conditions the insertion of A on the clock value r, and the system...",
+      "page": 3
+    },
+    {
+      "image": "2609.40349_figures/2609.40349_fig2.jpg",
+      "caption": "FIG. 2. Ratio of the qubitization-based Hamiltonian simulation costs of the clock and Hadamard-test algorithms, QClk QSP/QHT QSP, as a function of αT. The panels show simulation accuracies (a) ε = 10−6, (b) ε = 10−12, and (c) ε = 10−100. Different curves correspond to different values of Nt. Each ratio initially follows the O(1/(αT)) scaling in the L(ε) ≪αT ≪NtL(Nt/ε) regime, and eventually converges to the 4/Nt scaling in the αT ≫NtL(Nt/ε) regime. At ε = 10−6 and ε = 10−12, we observe that the clock algorithm reduces the quantum simulation resources by up to two orders of magnitude for αT ≳104.",
+      "page": 9
+    },
+    {
+      "image": "2609.40349_figures/2609.40349_fig3.jpg",
+      "caption": "Fig. 2 plots the estimated quantum resource ratios for ε = 10−6, 10−12,10−100 within panels (a)-(c) respectively, across Nt = 24, 25, . . . , 220. For each Nt and ε, the ratio of clock-algorithm resources to Hadamard-test resources, QClk QSP/QHT QSP, exhibits an initial O(1/(αT)) scaling and then approaches an O(∆t/T) asymptote at large αT. To understand this behavior, we distinguish the three limits defined by the interplay of evolution-time and precision- overhead terms αT, L(ε), and NtL(Nt/ε). Case 1: αT ≫NtL(Nt/ε). Here, the cost is dominated by evolution time. The clock scales as O(Nt) per round while the Hadamard test scales as O(N 2 t ), yielding",
+      "page": 9
+    },
+    {
+      "image": "2609.40349_figures/2609.40349_fig4.jpg",
+      "caption": "FIG. 3. Theoretical and numerical errors of Gγγ(t) calculated with the clock and Hadamard-test protocols. The two approaches are compared using an equal qubitization query budget, with M total shots for the clock algorithm and 2M total shots for the Hadamard test. We choose M = 105 in panel (a), M = 106 in panel (b), and M = 107 in panel (c). Both the Hadamard test and the clock algorithm were evaluated over 10 independent runs. The solid lines indicate the mean error, and the top (bottom) boundaries of the shaded regions indicate minimum (maximum) error. The dashed lines mark the theoretical precision given in Eq. (46). The Hadamard-test error increases much more rapidly with Nt, while the...",
+      "page": 11
+    },
+    {
+      "image": "2609.40349_figures/2609.40349_fig5.jpg",
+      "caption": "Fig. 3 shows values of the maximum estimation error, max|t|≤T/2 | ˆGγγ(t)−Gγγ(t)|, for the clock algorithm and the Hadamard test, together with their theoretical upper bounds. We notice that the numerical errors consistently track the predicted Nt-dependence in the upper bounds ϵClk and ϵHT, although these bounds appear conservative. Across simulation, the Hadamard-test error is on average ∼0.6ϵHT, while the clock error is ∼0.2ϵClk. The actual",
+      "page": 11
+    }
+  ],
+  "figure": "2609.40349_figures/2609.40349_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

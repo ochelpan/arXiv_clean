@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.40327",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Enhanced Deep Reinforcement Learning for Distribution Network Reconfiguration",
+  "authors": "Daniel Germain, Mason Blanchard, Audrey Versteegen, Nora Bauer, Jonathan Mei, Claudio Girotto, Paul Smith, Martin Roetteler",
+  "abstract": "Modern smart grids generate increasingly rich operational data and deploy greater numbers of remotely controlled switching assets than ever before, creating new opportunities for data-driven distribution network reconfiguration (DNR). DNR optimizes grid topology to improve efficiency, reduce power losses, and maintain operational constraints, but finding optimal switch configurations remains a computationally demanding combinatorial problem. In this paper, we propose a deep reinforcement learning (DRL) framework for static DNR to systematically investigate how the Q-network architecture affects both solution quality and learning performance. We evaluate multiple architectures within a controlled DRL framework, varying only the Q-network to isolate the contribution of each architectural choice. Our results show that quantum-enhanced Q-networks can achieve higher rewards with fewer parameters than their classical counterpart, suggesting that such architectures are a promising direction for combinatorial power systems optimization.",
+  "url": "http://arxiv.org/abs/2609.40327v1",
+  "pdf": "https://arxiv.org/pdf/2609.40327v1",
+  "type": "both",
+  "summary": "This paper tackles the computationally hard problem of optimizing smart grid distribution networks using Deep Reinforcement Learning. They propose a novel quantum-enhanced DRL approach, replacing classical network layers with quantum circuits. The results show that this hybrid quantum-classical model can solve the optimization problem effectively while requiring fewer parameters than purely classical deep learning models.",
+  "main_problem": "Optimizing the complex, NP-hard combinatorial problem of Distribution Network Reconfiguration (DNR) in smart grids.",
+  "main_result": "Quantum-enhanced Deep Reinforcement Learning (DRL) networks can achieve competitive performance with significantly fewer trainable parameters compared to classical counterparts.",
+  "method": "A hybrid Double DQN framework is employed, replacing the classical MLP backbone of the Q-network with a Parameterized Quantum Circuit (PQC).",
+  "model_or_system": "The system modeled is an electrical distribution network (IEEE 33 and 69 bus systems) whose optimal topology must be found by sequentially modifying switch states.",
+  "key_observables": "Mean final reward, line loss (MW), voltage profiles, and the number of trainable parameters.",
+  "important_parameters": "Learning rate, discount factor, exploration parameters, and the number of qubits/circuit width (e.g., 12-qubit model).",
+  "main_assumptions": "The performance comparison is made between simulated and hardware-executed results on a trapped-ion quantum processor (IonQ Forte Enterprise-1).",
+  "figures_summary": "Figures illustrate the DRL training procedure (replay buffer, Bellman target) and compare initial vs. post-reconfiguration voltage profiles on both ideal simulation and IonQ hardware.",
+  "paper_structure": "The paper establishes DNR as an RL problem, details the DQL/DDQN framework, proposes the quantum enhancement, and evaluates performance metrics (reward, parameters) across different network sizes and hardware platforms.",
+  "why_interesting": "The work directly applies quantum computation (PQC) to solve a complex, real-world optimization problem, demonstrating a potential quantum advantage in parameter efficiency for hybrid ML models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.40327_figures/2609.40327_fig1.jpg",
+      "caption": "Fig. 1. The deep reinforcement learning training procedure used in this work. Transitions are generated through interaction with a simulated distribution network and are stored in the replay buffer. The replay buffer is sampled to train the online Q-network. The online and target networks are used to construct the Bellman target, which is compared with the predicted action value to compute the training loss.",
+      "page": 3
+    },
+    {
+      "image": "2609.40327_figures/2609.40327_fig2.jpg",
+      "caption": "Fig. 2. IEEE 33-bus distribution system in its initial radial configuration. Each line is modeled as switchable, with five switches initially open and the remaining switches closed.",
+      "page": 5
+    },
+    {
+      "image": "2609.40327_figures/2609.40327_fig3.jpg",
+      "caption": "Fig. 3. Double decision-head architecture used to implement the branch-exchange operation. The shared backbone representation is first passed to the closing head to score candidate closing actions. The closing-head output is then combined with the shared representation and passed to the opening head, allowing the opening decision to depend on the preceding closing decision.",
+      "page": 6
+    },
+    {
+      "image": "2609.40327_figures/2609.40327_fig4.jpg",
+      "caption": "Fig. 4. Parameterized quantum circuit (PQC) architecture used for each quantum layer of the quantum MLP. Each PQC consists of a data-embedding stage followed by a variational ansatz with four layers in all experiments. The complete quantum backbone consists of four sequential PQC layers of this form.",
+      "page": 7
+    },
+    {
+      "image": "2609.40327_figures/2609.40327_fig5.jpg",
+      "caption": "Fig. 5. Power-flow reward (voltage and loss terms, no exploration bonus) against line loss for 22 radial IEEE 33-bus configurations. Reward parameters for this curve are listed in Table II of the Appendix.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.40327_figures/2609.40327_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

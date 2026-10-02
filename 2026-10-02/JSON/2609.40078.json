@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.40078",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Oscillator-Qubit Primitives for a Molecular Quantum Dynamics Simulator",
+  "authors": "Jungsoo Hong, Joonsuk Huh",
+  "abstract": "Molecular quantum dynamics simulations that treat both electrons and nuclei quantum mechanically are crucial for predicting chemical reactions. With classical computation, a full wave-function representation of both types of particles requires resources that grow exponentially with their number. Oscillator-qubit processors, including trapped-ion and circuit QED devices, represent electronic states with qubits and nuclear vibrations with oscillators. Their native operations produce linear vibronic interactions, from which programmable anharmonic interactions can be built. Product-formula approaches build the corresponding phase gates by repeating small noncommuting phase steps, and quantum signal processing (QSP) approaches approximate each gate directly with a Fourier series. Simulations apply many such gates in sequence, so accumulated cost and error limit how long the dynamics can be followed. We propose near-optimal quantum primitives for molecular quantum dynamics simulation, covering the representations of both types of particles and their interactions. We synthesize nonlinear and multimode bosonic phase gates using generalized Jacobi-Anger (GJA) expansions within QSP, with a cost that grows near-optimally in both interaction strength and precision. Our interaction model and gate synthesis each have their own accuracy setting. Chosen together, these settings make our multimode benchmark circuits about one-third shorter than those of the previous direct QSP approach. We then simulate energy exchange between the stretching and bending vibrations of a simplified carbon dioxide model. With circuit-QED noise, a short simulation narrowly misses our accuracy criteria at qubit and oscillator lifetimes near 2 ms and 5 ms. These lifetimes mark a concrete checkpoint on the way to simulating anharmonic multimode molecular quantum dynamics on near-term oscillator-qubit processors.",
+  "url": "http://arxiv.org/abs/2609.40078v1",
+  "pdf": "https://arxiv.org/pdf/2609.40078v1",
+  "type": "theory",
+  "summary": "This paper develops optimized quantum circuit primitives for simulating molecular quantum dynamics using oscillator-qubit architectures. By employing generalized Jacobi-Anger expansions within QSP, the authors create efficient gates for modeling complex vibronic interactions. The work sets a crucial benchmark for near-term quantum processors aiming to simulate chemical reactions.",
+  "main_problem": "The primary challenge is simulating molecular quantum dynamics that requires treating both electronic and nuclear degrees of freedom quantum mechanically, which is exponentially hard classically.",
+  "main_result": "The authors propose near-optimal quantum primitives for this simulation, achieving benchmark circuits significantly shorter than previous direct QSP approaches.",
+  "method": "They synthesize nonlinear and multimode bosonic phase gates using generalized Jacobi-Anger (GJA) expansions within the Quantum Signal Processing (QSP) framework.",
+  "model_or_system": "The system is a molecular quantum dynamics problem modeled using Oscillator-Qubit (OQ) processors, where electronic states are qubits and nuclear vibrations are bosonic oscillators. The Hamiltonian includes electron-nuclear and electron-electron interactions.",
+  "key_observables": "Energy exchange between stretching and bending vibrations of a simplified CO2 model; joint-state error ($\text{e}_{\text{joint}}$); trace distance $\text{D}(t)$.",
+  "important_parameters": "Qubit and oscillator lifetimes (e.g., 2 ms and 5 ms); interaction strength and precision settings.",
+  "main_assumptions": "The simulation is limited by current qubit and oscillator coherence lifetimes; the model uses approximations for the full molecular Hamiltonian.",
+  "figures_summary": "Figure 1 illustrates the mapping from molecular interactions to OQ circuits, showing how coordinate-dependent terms are compiled into bosonic phase gates.",
+  "paper_structure": "The paper first establishes the need for OQ processors for molecular dynamics. It then details the gate synthesis methods (Product-formula vs. QSP) and proposes the GJA-OQ-QSP compiler. Finally, it applies this to simulate energy exchange in a simplified CO2 model.",
+  "why_interesting": "This work directly addresses the quantum computational implementation of fundamental chemical physics problems, providing concrete, optimized quantum circuits for simulating complex molecular interactions.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.40078_figures/2609.40078_fig1.jpg",
+      "caption": "FIG. 1. From molecular interactions to oscillator–qubit circuits. The interactions among electrons and nuclei (left) are expressed in an electronic basis, where each matrix element Cab( ˆ Q) is a sum of sinusoidal functions of the nuclear coordinates (center). The contour plot sketches one such element, and the colored arrows indicate the origin of each term only schematically, because the electronic basis mixes the microscopic interactions. Each term is then compiled into an oscillator–qubit circuit (right). Terms without coordinate dependence become electronic-only operations, and coordinate-dependent terms become bosonic phase gates that are either conditioned on the electronic state or...",
+      "page": 2
+    },
+    {
+      "image": "2609.40078_figures/2609.40078_fig2.jpg",
+      "caption": "FIG. 2. Single-tone circuit, ideal-state illustration, and error comparison. Panels (b) and (c) use separate parameter choices. (a) A product formula (TGIFS [14–16]) repeats a weak cell within one phase gate. JA uses 2K balanced queries and compiled Z rotations for the paired ancilla target exp[−iΛσ(a) z cos(µQ)], with electronic P = I. (b) Ideal vacuum-output Wigner function for the opposite ancilla branch, exp[+iΛ cos(µQ)], at (Λ, µ) = (6, 2). The vertical axis P is the momentum conjugate to Q. It is not the electronic Pauli string. The dashed line is P = −Λµ sin(µQ). (c) Sampled paired-unitary errors at Λ = 2 for first-order (Lie–Trotter) and second-order (Strang) product formulas. The...",
+      "page": 9
+    },
+    {
+      "image": "2609.40078_figures/2609.40078_fig3.jpg",
+      "caption": "FIG. 3. Approximation stages and coherent serial cost. (a) Hamiltonian-first (HF) and unitary-first (UF) routes in the complex plane, with representation error εrep, HF synthesis error εsyn, and UF approximation error εUF; zero HF synthesis phase error is shown schematically. (b) Best-found sampled joint-unitary error over all 48 block prefixes versus CD time for 16 repetitions of three distinct groups. Each point uses the same 513×513 coordinate grid and completion convention. The dotted line marks error 0.1. These finite-search curves are not global optima or continuum error certificates.",
+      "page": 13
+    },
+    {
+      "image": "2609.40078_figures/2609.40078_fig4.jpg",
+      "caption": "FIG. 4. Recovered compiler costs. (a) Single-tone target with coordinate scale LQ = 10 and offset ϕ0 = 0.025, common full- circle paired-unitary error tolerance 10−2. The vertical axis is the CD time in units of one balanced query, τbase. Rings mark ties and the dashed guide marks the first strict saving on this grid. (b) Dense harmonics 1–8 [Eq. (49)], eleven scales, common full-circle paired-unitary error tolerance 10−3. Grouped GJA is compared with serial JA and first- and second-order product formulas (TGIFS). A harmonic-m query costs |m|τbase. Each panel uses one common criterion across its families. Rotation and electronic-control durations are excluded. These reference costs are not...",
+      "page": 14
+    },
+    {
+      "image": "2609.40078_figures/2609.40078_fig5.jpg",
+      "caption": "FIG. 5. Dynamics of the simplified carbon dioxide model from |0⟩a |1, 0⟩with one persistent ancilla and no postselection or reset. (a) Fermi dyad with schematic levels. The bounded interaction κRdreg couples |1, 0⟩and |0, 2⟩with κ ⟨0, 2| Rdreg |1, 0⟩= |WF|, and the near-resonant detuning is δ = ωs −2ωb = −7.87 cm−1. (b) Noiseless 1 ps populations near resonance (orange) and off resonance (blue, δ = −256.16 cm−1): reference lines and grouped-GJA markers. (c) Near-resonant populations of the rule-based (3, 3, 5) circuit at noise-rate multiplier ηn = 0.03 over 160 fs, with the noiseless circuit (gray) for comparison. Black lines show the reference populations. Noise acts throughout the 160 fs....",
+      "page": 14
+    }
+  ],
+  "figure": "2609.40078_figures/2609.40078_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
