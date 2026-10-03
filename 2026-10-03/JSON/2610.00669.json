@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2610.00669",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Circuit Pruning: From NISQ Architectures to Fault-Tolerant Operations",
+  "authors": "Pau Escofet, Carmen G. Almudéver, Sergi Abadal, Eduard Alarcón",
+  "abstract": "We present a routing-aware pruning strategy for quantum circuits that selectively removes parametric two-qubit gates whose computational contribution is outweighed by the fidelity cost of their execution, and assess it across both Noisy Intermediate-Scale Quantum (NISQ) and fault-tolerant quantum computing (FTQC) architectures. Each two-qubit gate of a circuit is evaluated by comparing an architecture-independent lower bound on the fidelity cost of omitting the gate against a hardware-specific model for the routing execution cost in each setting. We additionally provide an analytical characterization of the pruning boundary as a function of rotation angle, qubit distance, and hardware noise. Simulations on benchmark circuits demonstrate gate count reductions of up to 48.6% and fidelity improvements of up to 47.7% in the NISQ regime, while a feasibility analysis on FT hardware indicates that pruning is expected to remain relevant across a range of code distances and physical error rates. These results establish routing-aware pruning as a practical and unified compilation strategy across the quantum computing stack.",
+  "url": "http://arxiv.org/abs/2610.00669v1",
+  "pdf": "https://arxiv.org/pdf/2610.00669v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, routing-aware method to prune unnecessary two-qubit gates from quantum circuits by comparing the gate's computational benefit against the fidelity cost incurred during physical execution. The strategy is shown to be effective and unified, providing significant performance gains for both current NISQ devices and future fault-tolerant quantum computers.",
+  "main_problem": "The paper addresses the need for a routing-aware strategy to selectively prune parametric two-qubit gates in quantum circuits.",
+  "main_result": "The proposed pruning strategy achieves significant gate count reductions (up to 48.6%) and fidelity improvements (up to 47.7%) in the NISQ regime, and remains relevant for FTQC architectures.",
+  "method": "It compares an architecture-independent lower bound on the fidelity cost of omitting a gate against hardware-specific models for execution routing costs in both NISQ and FTQC settings.",
+  "model_or_system": "The analysis covers both Noisy Intermediate-Scale Quantum (NISQ) architectures and Fault-Tolerant Quantum Computing (FTQC) using surface codes and lattice surgery. The cost models involve SWAP chains for NISQ and Logical Error Rates (LER) for FTQC.",
+  "key_observables": "Gate count reduction, final state fidelity improvement, and the critical distance ($d^*$) defining the pruning boundary.",
+  "important_parameters": "Rotation angle ($\theta$), qubit distance ($d$), physical error rates ($p^2$), and code distances ($d_{\text{code}}$).",
+  "main_assumptions": "The comparison relies on modeling the execution cost (e.g., SWAP chains or LER growth) and assumes the fidelity bound $\\cos^2(\theta/2)$ is a valid measure of computational contribution.",
+  "figures_summary": "Figures illustrate the pruning decision process for controlled rotations in both NISQ and FT settings, showing the threshold set by the fidelity bound, and characterizing the critical distance $d^*$ dependence on noise and angle.",
+  "paper_structure": "The paper introduces the pruning concept, develops the unified criterion comparing omission benefit vs. execution cost, and then applies this framework to benchmark circuits in both NISQ and FT regimes, concluding with scalability analysis.",
+  "why_interesting": "This work provides a practical, unified compilation strategy that directly addresses hardware constraints (routing overhead) when optimizing quantum circuits, which is crucial for implementing complex quantum algorithms on near-term and future hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.00669_figures/2610.00669_fig1.jpg",
+      "caption": "Fig. 1. Routing-aware pruning decision for a parametric controlled rotation gate (b) in both the NISQ and FT settings. (a) NISQ case: the compiler evaluates the physical distance between the two qubits. The blue path is too long and the gate is pruned; the red path is short enough and the gate is retained. (c) FT case: logical qubits occupy the top and bottom rows, while the middle row contains ancilla patches used to mediate the merge-split path. The blue path is too long and the gate is pruned; the red path is short enough and the gate is retained. In both cases, the pruning threshold is set by the same bound cos2 (θ/2).",
+      "page": 3
+    },
+    {
+      "image": "2610.00669_figures/2610.00669_fig2.jpg",
+      "caption": "Fig. 2. Analytical characterisation of the pruning boundary in the NISQ setting. The color map shows Fswap as a function of the two-qubit gate error rate p2 and the qubit routing distance. Dashed lines indicate the critical distance d∗for parametric gates with angles from π/2 to π/1024. Gates whose interacting qubits are separated by a distance above the corresponding dashed line will be pruned, while those below will be maintained.",
+      "page": 3
+    },
+    {
+      "image": "2610.00669_figures/2610.00669_fig3.jpg",
+      "caption": "Fig. 3. Two-qubit gate count (top) and circuit fidelity (bottom) for the selected circuits containing between 4 and 14 qubits, when compiled with (hatched bars) and without (solid bars) the proposed pruning strategy. The percentage improvement in fidelity achieved by pruning is indicated above each bar.",
+      "page": 4
+    },
+    {
+      "image": "2610.00669_figures/2610.00669_fig4.jpg",
+      "caption": "Fig. 4. LER of two logical CNOT gates implemented via lattice surgery as a function of patch separation, for three depolarizing noise regimes and surface code distances dcode ∈{3, 5, 7, 9, 11}. LER grows with patch separation as longer merge-split paths accumulate more errors. Horizontal dashed lines indicate the logical infidelity threshold 1 −cos2(θ/2) for parametric gates with rotation angles θ.",
+      "page": 4
+    }
+  ],
+  "figure": "2610.00669_figures/2610.00669_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

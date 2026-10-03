@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2610.01068",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.IT"
+  ],
+  "is_primary_archive": true,
+  "title": "Learned Parallel Bit-Flipping Sequential Belief Propagation Decoding of Quantum LDPC Codes",
+  "authors": "Mohsen Moradi, Taejoon Kim, Remi A. Chou",
+  "abstract": "Quantum low-density parity-check (QLDPC) codes are promising candidates for low-overhead fault-tolerant quantum computation, but their practical use requires fast, low-complexity, and reliable decoders. Belief propagation (BP) is attractive because of its local message-passing structure, yet standard flooding BP often suffers from convergence failures on QLDPC codes due to short cycles, degeneracy, and symmetric decoding trajectories. Learned sequential BP improves convergence by using a reinforcement-learning policy to choose variable-node update orders, but a single learned trajectory can still be sensitive to unfavorable local Pauli decisions. We propose a learned parallel bit-flipping sequential BP decoder with a new quaternary score combining syndrome gain, a quantized Pauli log-likelihood penalty, and Q-table lookahead at hypothetical post-flip states. Our decoder first runs learned sequential BP for a fixed number of iterations. If the syndrome is not satisfied, it constructs quaternary bit-flipping candidates, each corresponding to changing the current Pauli decision of one qubit. The selected candidates initialize independent learned sequential BP continuations from the same decoder state. Since these continuations are independent, they can be executed in parallel, so testing several candidates mainly increases parallel hardware resources rather than sequential decoding latency. Simulations on representative QLDPC codes over the depolarizing channel show that the proposed decoder improves the reliability of learned sequential BP while having a parallel low-latency structure.",
+  "url": "http://arxiv.org/abs/2610.01068v1",
+  "pdf": "https://arxiv.org/pdf/2610.01068v1",
+  "type": "theory",
+  "summary": "This paper introduces a learned parallel bit-flipping sequential BP decoder for QLDPC codes, designed to overcome the convergence limitations of standard belief propagation. By running an initial learned sequence followed by parallel testing of single-qubit Pauli-flip candidates, the decoder achieves high reliability with significantly reduced decoding depth compared to purely sequential methods.",
+  "main_problem": "Developing fast, low-complexity, and reliable decoders for Quantum Low-Density Parity-Check (QLDPC) codes to enable fault-tolerant quantum computation.",
+  "main_result": "The proposed parallel bit-flipping decoder significantly improves the reliability of learned sequential BP compared to standard methods, achieving comparable performance to much deeper decoders with a much lower decoding depth.",
+  "method": "It combines an initial learned sequential BP run with a controlled search mechanism that evaluates multiple independent, parallel continuation branches initiated by single-qubit Pauli-flip candidates.",
+  "model_or_system": "The work focuses on quantum error correction using QLDPC codes, analyzed under the depolarizing channel, involving Pauli error estimation over the quaternary Pauli symbols {I, X, Y, Z}.",
+  "key_observables": "Block Error Rate (BER), syndrome mismatch weight ($\\|\\delta_X\\|_1 + \\|\\delta_Z\\|_1$), and local Pauli log-likelihood scores.",
+  "important_parameters": "Channel noise probability ($p$), initial RL-S iterations ($T_0$), continuation iterations ($T_{br}$), and the number of parallel candidates tested ($K$).",
+  "main_assumptions": "The core assumption is that independent continuation branches can be executed in parallel, allowing the search to increase hardware resources rather than sequential latency.",
+  "figures_summary": "Figures compare the BER performance of the proposed RL-S-BF decoder against standard BP, BPGD, and RL-S across various QLDPC codes (e.g., $[[288, 12, 18]]$ BB code) at different noise levels.",
+  "paper_structure": "The paper builds from standard BP to learned sequential BP (RL-S), identifying RL-S's weakness to local decisions. It then proposes the RL-S-BF decoder, which runs RL-S initially, followed by a parallel search over bit-flipping candidates, each initiating an independent RL-S continuation.",
+  "why_interesting": "The combination of advanced decoding theory (BP/QLDPC) with machine learning (RL) and parallel hardware considerations makes it highly relevant for quantum computing hardware implementation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01068_figures/2610.01068_fig1.jpg",
+      "caption": "Fig. 1. Block error rate of the proposed RL-S-BF decoder for the [[180, 10, 15 ≤d ≤18]] A5 code over the depolarizing channel. The proposed decoder is compared with BP, BPGD, RL-S, and BP-OSD-0.",
+      "page": 5
+    },
+    {
+      "image": "2610.01068_figures/2610.01068_fig2.jpg",
+      "caption": "Fig. 2. Block error rate of our proposed RL-S-BF decoder for the [[288, 12, 18]] BB code over the depolarizing channel. The proposed decoder is compared with BP, BPGD, and RL-S.",
+      "page": 5
+    },
+    {
+      "image": "2610.01068_figures/2610.01068_fig3.jpg",
+      "caption": "Fig. 3. Block error rate of our proposed RL-S-BF decoder for the [[144, 12, 12]] BB code over the depolarizing channel. The proposed decoder is compared with BP, BPGD, and RL-S.",
+      "page": 6
+    }
+  ],
+  "figure": "2610.01068_figures/2610.01068_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

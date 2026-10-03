@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.00537",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.mes-hall",
+    "cond-mat.mtrl-sci",
+    "hep-th"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Krylov Learning",
+  "authors": "Shunji Matsuura, Yoji Kawamura, Joseph Salfi, Satoshi Iso",
+  "abstract": "The Hamiltonian of a natural quantum system is usually determined indirectly, by proposing microscopic models and comparing their predicted observables with experiment. A more direct approach is to extract information about the Hamiltonian from measurements on the system itself. In many settings, however, direct access to the full system is unavailable and measurements can be performed only through controllable probes, as in quantum sensing and boundary spectroscopy. Existing Hamiltonian learning protocols under such restricted access typically require a special symmetry, a known parametric form, or controlled operations beyond free evolution. We introduce Quantum Krylov Learning (QKL), a restricted-access framework that avoids these requirements. QKL uses single temperature probe autocorrelators and their operator Krylov structure to extract model-independent spectral information about the unknown system. Rather than fitting a parametrized Hamiltonian, it reconstructs the operator Krylov Jacobi matrix representing the dynamical modes accessible to the probe. The method assumes that the unobserved system is at, or near, infinite temperature. Under this condition, the Jacobi matrix can be reconstructed directly from the autocorrelation of a probe observable, without oracle access to the Hamiltonian. The required operations are free evolution under the unknown $H$, together with probe state preparation and measurement. The learning core therefore requires no symmetry, no parametric model, and no controlled-unitary gates. We show a Lieb--Robinson bound for the operator Krylov chain and derive a data-driven criterion for the required observation window. We also establish an end-to-end sample complexity guarantee: under generic conditions on the spectral gaps and weights, the number of measurement shots required to achieve spectral precision $\\varepsilon$ is polynomial in $1/\\varepsilon$.",
+  "url": "http://arxiv.org/abs/2610.00537v1",
+  "pdf": "https://arxiv.org/pdf/2610.00537v1",
+  "type": "theory",
+  "summary": "This paper introduces Quantum Krylov Learning (QKL), a novel technique to deduce the spectral properties of an unknown quantum Hamiltonian using only measurements from a controlled probe coupled to the system. By analyzing the probe's autocorrelation function, QKL reconstructs the system's dynamical structure without requiring any assumptions about the Hamiltonian's form or symmetry. This makes it a highly general and powerful tool for quantum characterization in experimental settings.",
+  "main_problem": "To develop a model-independent method for extracting the spectral information of an unknown quantum Hamiltonian from limited measurements performed via a controllable probe.",
+  "main_result": "Quantum Krylov Learning (QKL) reconstructs the operator Krylov Jacobi matrix representing the system's accessible dynamical modes directly from probe autocorrelators, requiring no prior knowledge of the Hamiltonian's symmetry or parametric form.",
+  "method": "The method uses the single-temperature probe autocorrelator and its operator Krylov structure, applying the Lanczos process to the Liouvillian superoperator to generate a tridiagonal Jacobi matrix.",
+  "model_or_system": "The system consists of an unknown total Hamiltonian H governing a quantum system, which is decomposed into a controllable probe coupled to an unmeasured bath. The analysis is performed in the Liouville space using the probe's time evolution.",
+  "key_observables": "Probe autocorrelator C_alpha(t), the operator Krylov Jacobi matrix (J_op), and the spectral measure mu_alpha.",
+  "important_parameters": "Spectral precision epsilon (achieving polynomial scaling in 1/epsilon), and the assumption of infinite temperature for the bath.",
+  "main_assumptions": "The unobserved bath is assumed to be at or near infinite temperature (k_B T >> Delta E), and the required operations are limited to probe state preparation, free evolution under H, and probe measurement.",
+  "figures_summary": "Figure 1 illustrates the QKL pipeline, showing the flow from physical access (probe coupled to bath) to the time trace (C_alpha(t)) and finally to the model-free learning of the Jacobi matrix (J_op).",
+  "paper_structure": "The paper introduces QKL, details the mathematical framework using the operator Krylov subspace and the Lanczos process, establishes the model-independent nature of the reconstruction, and concludes with theoretical bounds (Lieb-Robinson) and sample complexity guarantees.",
+  "why_interesting": "This work provides a powerful, general framework for quantum characterization that bypasses the need for specific symmetries or known model Hamiltonians, which is crucial for analyzing complex, unknown quantum materials or sensing environments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.00537_figures/2610.00537_fig1.jpg",
+      "caption": "Figure 1: Overview of Quantum Krylov Learning (QKL). Physical access. A fully controlled probe is coupled to an uncontrolled and unmeasured bath. The probe-bath system evolves under an unknown total Hamiltonian H. The bath is assumed to be at effectively infinite temperature. More precisely it is in the regime kBT ≫∆E, where ∆E denotes the characteristic internal energy scale of the bath. Probe time trace. For a chosen probe operator σα, the autocorrelation Cα(t) is extracted from measurements of the probe after free time evolution. Appropriate initial probe states are chosen according to σα, so that only single-probe measurements are required. Model- free learning. The measured...",
+      "page": 4
+    },
+    {
+      "image": "2610.00537_figures/2610.00537_fig2.jpg",
+      "caption": "Figure 2: Oracle construction of the operator Krylov Jacobi structure (N = 6, ∆= 0.2). Left, heatmap of |Jop m | (20 × 20) for gx = 0.2. The exactly tridiagonal pattern confirms Theorem 1, with off-tridiagonal entries at machine precision (≲10−15). Center, subdiagonal coefficients βop n versus Lanczos step n for gx = 0.2 (the diagonal αop n is omitted since it is zero at machine precision). Right, βop n profiles for gx ∈{0, 0.2, 0.4}. Larger gx gives larger βop n for n ≲10, reflecting faster operator spreading under stronger symmetry breaking. Beyond the peak the ordering is no longer monotonic in gx. The peak near n ≈10 reflects operator spreading before finite-size saturation.",
+      "page": 18
+    },
+    {
+      "image": "2610.00537_figures/2610.00537_fig3.jpg",
+      "caption": "Figure 5 verifies Theorem 3 numerically. For the model above (Eq. (24)), we construct the same op- erator Krylov Jacobi matrix Jop m in three ways and compare them. (A) The oracle is the ordinary op- erator Lanczos that applies the commutator L = [H, · ] directly to the seed σα p in the D2-dimensional Liouville space, assuming full knowledge of H. It cannot be used in a restricted-access experiment but gives the numerical ground truth. (B) Exact diagonalization of H builds the exact spectral measure µα from the true Bohr frequencies ωjk = Ej −Ek and weights |⟨Ej|σα p |Ek⟩|2/(D∥σα p ∥2 HS), and applies the Stieltjes/Lanczos procedure to it. (B) is not built from a time series and is...",
+      "page": 18
+    },
+    {
+      "image": "2610.00537_figures/2610.00537_fig4.jpg",
+      "caption": "Figure 3: Direct round-trip verification of the operator transport formula (14) (N = 6, ∆= 0.2, ϵop m (T) = maxs≤T |Cα(s) −C(m) α (s)|, the truncation error of the operator autocorrelation Cα(t) = (Q0|eiJop m t|Q0) itself, i.e., the state-independent return element bounded by Eq. (33)). Left, heatmap of ϵop m (T) for gx = 0.2 with the break time top ∗(m) (white) at threshold 0.1, tracking τ op(m) (black) closely. Right, top ∗(m) versus τ op(m) with the affine fit top ∗= a τ op +b for gx ∈{0, 0.2, 0.4}, yielding (a, R2) = (1.00, 0.997), (0.96, 0.998), (0.96, 0.999), respectively, with the intercept b ≈0 in all cases. The round-trip slope recovers a ≈1, matching the state Krylov result of...",
+      "page": 19
+    },
+    {
+      "image": "2610.00537_figures/2610.00537_fig5.jpg",
+      "caption": "Figure 4: Accuracy of the oracle-free τ op across gx (N = 6, ∆= 0.2, m = 10, TC = 160). Oracle (solid) versus oracle-free (dashed) τ op(m) for gx ∈{0, 0.2, 0.4}. The curves closely track each other over the whole Krylov depth shown. Final relative errors at m = 10 are 0.9% (gx = 0), 3.2% (gx = 0.2), and 6.6% (gx = 0.4).",
+      "page": 19
+    }
+  ],
+  "figure": "2610.00537_figures/2610.00537_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.01874",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fourier Symmetrization for Geometric Quantum Machine Learning",
+  "authors": "Letao Wang, Abdel Lisser, Sreejith Sreekumar, Zeno Toffano",
+  "abstract": "Geometric quantum machine learning incorporates symmetry into quantum models, but how symmetry shapes their expressivity and guides effective model design remains insufficiently understood. We address this question through the Fourier representation of quantum Fourier models (QFMs). Symmetry organizes the frequency spectrum into orbits and sums the Fourier coefficients within each orbit into a symmetrized coefficient. When QFM trainable layers form independent exact 2-designs, the variance of each symmetrized coefficient equals the sum of the coefficient variances in its orbit. For single-layer QFMs with $\\varepsilon$-approximate 2-design trainable layers, we bound the deviation from this identity. The resulting bound for individual Fourier coefficients can be exponentially tighter than an existing bound. The hyperoctahedral group provides an example of orbit growth that can mitigate vanishing expressivity of the symmetrized coefficients. Symmetrization of QFMs over an elementary abelian 2-group also yields pure multivariate Chebyshev polynomial basis functions. We introduce randomized encoding, which implements invariant models without ancilla qubits or the additional circuit depth for quantum twirling. We evaluate the models as quantum physics-informed neural networks (QPINNs) on two-dimensional screened Poisson and stationary viscous Hamilton-Jacobi equations. Under hard boundary constraints, QPINNs using exact symmetrization and randomized encoding achieve the lowest mean errors in the two benchmarks, respectively.",
+  "url": "http://arxiv.org/abs/2610.01874v1",
+  "pdf": "https://arxiv.org/pdf/2610.01874v1",
+  "type": "both",
+  "summary": "This work develops a rigorous framework for incorporating symmetry into Quantum Fourier Models (QFMs) for machine learning. By analyzing the Fourier spectrum, the authors derive tight bounds showing how symmetry constrains model expressivity. They validate this approach by demonstrating that symmetry-aware QPINNs achieve superior accuracy when solving complex physical PDEs.",
+  "main_problem": "The paper addresses how symmetry constrains and shapes the expressivity of Quantum Fourier Models (QFMs) used in Geometric Quantum Machine Learning (GQML). It seeks to provide rigorous theoretical bounds on the performance of symmetry-enforced models.",
+  "main_result": "Randomized encoding, which avoids deep circuits, achieves the lowest mean errors when using QPINNs to solve 2D PDEs like the screened Poisson and Hamilton-Jacobi equations.",
+  "method": "The authors use Fourier analysis to decompose symmetry-invariant QFMs, deriving tight theoretical bounds on coefficient variances by analyzing the deviation from ideal 2-design assumptions.",
+  "model_or_system": "The model is a Quantum Fourier Model (QFM) used as a Quantum Physics-Informed Neural Network (QPINN) to solve continuous Partial Differential Equations (PDEs) in 2D space.",
+  "key_observables": "Mean error in solving PDEs (Screened Poisson, Stationary Viscous Hamilton-Jacobi), and the variance of symmetrized Fourier coefficients.",
+  "important_parameters": "The approximation parameter $\\epsilon$, the size of the symmetry group, and the dimensionality of the PDEs (2D).",
+  "main_assumptions": "The analysis relies on the QFM viewpoint, the assumption of 2-design properties for trainable layers, and the use of randomized encoding to implement symmetry invariance without deep circuits.",
+  "figures_summary": "Not specified, but the notes reference figures illustrating Fourier orbit decomposition and the comparison of various QPINN performance metrics.",
+  "paper_structure": "The paper progresses from defining the symmetry problem in QFMs, developing the Fourier orbit decomposition theory, deriving tight mathematical bounds on coefficient variances, and finally validating the approach by applying it to solve specific 2D PDEs using randomized encoding.",
+  "why_interesting": "The explicit connection between group theory (symmetry), spectral analysis (Fourier decomposition), and physical modeling (PDEs) provides a powerful, structured inductive bias for quantum machine learning applied to physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01874_figures/2610.01874_fig1.jpg",
+      "caption": "FIG. 1. Illustration of the orbit notation. The original fre- quency spectrum is Ω= {ω1, ω2, ω3}, and the average opera- tor completes the orbit by adding ω4 /∈Ω. The frequencies ω1 and ω2 belong to one orbit, while ω3 and ω4 belong to another orbit. We choose ν1 and ν2 as orbit frequencies representing ω1 and ω3, respectively, so the two orbits are denoted by [ν1] and [ν2]. The orbit frequencies ν1 and ν2 together form the orbit frequency spectrum ˜Ω.",
+      "page": 4
+    },
+    {
+      "image": "2610.01874_figures/2610.01874_fig2.jpg",
+      "caption": "FIG. 2. Fourier coefficient variances reorganized into frequency orbits with respect to the hyperoctahedral group under the exact 2-design assumption. The circuit in the lower left is the QFM used in this numerical example, and its output is obtained by measuring the global observable ˆO = (|0⟩⟨0|)⊗2. The x-axis uses two rows of labels: the lower row lists the original frequencies ω, and the upper row labels each orbit by its orbit frequency ν. For example, under the coordinate permutations and independent sign flips in the hyperoctahedral group, the orbit frequency (0, 1) represents the orbit containing frequencies (−1, 0), (0, −1), (0, 1), and (1, 0). The blue curve shows the variance of...",
+      "page": 6
+    },
+    {
+      "image": "2610.01874_figures/2610.01874_fig3.jpg",
+      "caption": "FIG. 3. Fourier coefficient variance analysis for exponential encoding QFMs. We consider an n-qubit, n-variable QFM under the hyperoctahedral group Bn, with L = 1 or L = 2. The l-th encoding layer is Nn j=1 RZ(3l−1xj), and the output is obtained by measuring the local observable ˆOL defined in Eq. (38). Each trainable layer uses five repetitions of the Strongly Entangling Ansatz for the exact 2-design reference and one repetition for the ε-approximate 2-design setting. The variances are estimated from 104 random parameter samples. For L = 1, we select νn = (1, . . . , 1). For L = 2, we select νn = (1, . . . , n) for n = 1, 2, 3, 4 and ν5 = (1, 1, 2, 3, 4). (a) Red curves show Var(aνn), and...",
+      "page": 9
+    },
+    {
+      "image": "2610.01874_figures/2610.01874_fig4.jpg",
+      "caption": "Figure 3b shows the corresponding variance ratio to- gether with the selected orbit size. For L = 1, the ratio in the exact 2-design setting nearly coincides with the se- lected orbit size, numerically confirming Eq. (27) in The- orem 8. The ratio in the ε-approximate 2-design setting also nearly coincides with the selected orbit size, indi- cating that the cross covariance terms are small for the ansatz considered. For L = 2, the ratios in both settings also remain close to the selected orbit size. Although Theorem 11 is restricted to L = 1, this observation sug- gests that the same variance gain may persist for practi- cal ansatzes with L > 1 and continue to mitigate vanish- ing...",
+      "page": 9
+    },
+    {
+      "image": "2610.01874_figures/2610.01874_fig5.jpg",
+      "caption": "FIG. 4. Comparison between the existing ε-approximate 2- design bound in Eq. (40) and the bound in Corollary 12. Dashed curves show the existing bound, and solid curves show our bound.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.01874_figures/2610.01874_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

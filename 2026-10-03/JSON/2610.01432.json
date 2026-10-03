@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.01432",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.mtrl-sci",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning ab initio phase-field models",
+  "authors": "Mengyi Chen, Peichen Zhong, Zihan Zhang, Qianxiao Li",
+  "abstract": "Simulating microstructure evolution requires quantum-mechanical accuracy and mesoscopic reach in length and time scales, a combination that no current method achieves. Classical phase-field models provide this reach, but their accuracy is limited by phenomenological free energies and mobilities. Here we develop a framework for learning ab initio phase-field models, where the mesoscopic equation is not postulated but derived from a Mori-Zwanzig projection of molecular dynamics onto species-density fields under explicit assumptions. The nonlocal free energy and mobility left unspecified by this equation are parametrized by neural networks and learned from short molecular dynamics trajectories generated with machine-learning interatomic potentials of ab initio accuracy. We demonstrate the framework on an iron-boron melt and on hydrogen-helium mixtures under planetary conditions. For iron-boron, the model shows that the melt at the FeB$_4$ composition is spinodally unstable at ambient pressure but stabilized at 10 GPa, offering a thermodynamic rationale for why FeB$_4$ has been synthesized only under high pressure. For hydrogen-helium, the model predicts the immiscibility boundary and captures droplet nucleation and growth in helium-rain simulations of a column corresponding to 2.2 million atoms, far beyond the scale of atomistic modeling at comparable accuracy. Trained across compositions and conditions, such models could provide a mesoscopic counterpart to ab initio molecular dynamics.",
+  "url": "http://arxiv.org/abs/2610.01432v1",
+  "pdf": "https://arxiv.org/pdf/2610.01432v1",
+  "type": "theory",
+  "summary": "This work introduces a novel framework to create *ab initio* phase-field models by learning the necessary free energy and mobility parameters directly from molecular dynamics simulations. By deriving the mesoscopic equation from quantum-informed projections, the method overcomes the limitations of both purely classical and purely atomistic simulations. This allows for the prediction of complex phase behavior and microstructure evolution under extreme conditions.",
+  "main_problem": "Simulating microstructure evolution requires combining quantum-mechanical accuracy with mesoscopic reach in length and time scales, a combination currently unachievable by existing methods.",
+  "main_result": "The developed framework successfully predicts the spinodal instability of the FeB4 melt at ambient pressure but stabilization at 10 GPa, and captures droplet nucleation in H-He mixtures far beyond atomistic limits.",
+  "method": "The authors develop a framework to learn mesoscopic phase-field models by deriving the governing equation from a Mori-Zwanzig projection of molecular dynamics, parameterizing the free energy and mobility using neural networks trained on short MD trajectories.",
+  "model_or_system": "The model describes species-density field evolution ($\rho$) governed by a mesoscopic equation derived from the Generalized Langevin Equation (GLE). The free energy functional and mobility are learned via neural networks from MD simulations using MLIPs.",
+  "key_observables": "Spinodal instability, immiscibility boundary, domain size evolution, thermodynamic factor ($\\Gamma$), and apparent mobility.",
+  "important_parameters": "High pressure (e.g., 10 GPa for FeB4), specific compositions (Fe-B, H-He), and simulation scales (mesoscopic reach).",
+  "main_assumptions": "The derivation relies on approximations such as Markovian dynamics, local mobility dependence, and Gaussian fluctuating forces, simplifying the full GLE.",
+  "figures_summary": "Figures illustrate the hierarchy of free-energy functionals, the overall framework (MD $\rightarrow$ Coarse-graining $\rightarrow$ NN learning), and results for Fe-B and H-He systems.",
+  "paper_structure": "The paper introduces the fundamental problem, details the derivation of the mesoscopic equation via Mori-Zwanzig projection, outlines the neural network learning procedure using MD data, and validates the framework on complex systems like Fe-B and H-He mixtures.",
+  "why_interesting": "The methodology bridges the gap between high-accuracy quantum simulations (MLIPs) and large-scale mesoscopic dynamics (Phase-Field), providing a powerful tool for studying non-equilibrium phase transitions relevant to condensed matter physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01432_figures/2610.01432_fig1.jpg",
+      "caption": "Figure 1. Ab initio phase-field models. a, The proposed ab initio phase-field (AIPF) model is ab initio in both its derivation and its learning, which start from quantum mechanics. The derivation proceeds from quantum mechanics to molecular dynamics under the Born–Oppenheimer approximation, then to a generalized Langevin equation through the Mori–Zwanzig formalism, and finally to the ab initio phase-field model under the stated assumptions. For the learning process, the AIPF model is trained on molecular dynamics trajectories generated with a machine-learning interatomic potential (MLIP) of ab initio accuracy. The free energy and mobility of the density field are parametrized by neural...",
+      "page": 2
+    },
+    {
+      "image": "2610.01432_figures/2610.01432_fig2.jpg",
+      "caption": "Figure 2. Framework for learning ab initio phase-field models. In the simulation stage, molecular dynamics with an MLIP propagates a configuration xt over a short interval δt. In the learning stage, each configuration is coarse-grained into species density fields ρ, from which neural networks with trainable parameters θ output the local mobility Mθ and the free-energy functional Fθ. At inference, the thermodynamics follows from minimizing the learned functional and the dynamics from integrating the mesoscopic equation.",
+      "page": 3
+    },
+    {
+      "image": "2610.01432_figures/2610.01432_fig3.jpg",
+      "caption": "Figure 3. Binary Lennard-Jones mixture. a, Phase di- agrams from the AIPF model and the Landau (upper small panel) and Flory–Huggins (lower small panel) baselines, com- pared with MD [32]. All models are trained on the same data using the same loss function and mobility parametriza- tion, differing only in the form of the free-energy functional. b, Domain size L(t) at T = 1.20 (3 seeds each), compared between MD and the three models, with L(t) defined in Sup- plemental Material, Section S3 A. Fits to L ∝tβ give effective exponents βMD = 0.225 ± 0.022 and βAIPF = 0.217 ± 0.008.",
+      "page": 4
+    },
+    {
+      "image": "2610.01432_figures/2610.01432_fig4.jpg",
+      "caption": "Figure 4. Iron–boron melt. a, The predicted thermodynamic factor Γ(xB, T) at 0, 5 and 10 GPa is shown with the MD classification of the sampled states. For each state, ΓMD is obtained from a 50–500 ps trajectory by extrapolating the concentration structure factor Scc(k) to k = 0 using the Ornstein–Zernike form. States are classified as stable when ΓMD ≥1, Scc(0) is converged to within 10 % and composition fluctuations show no growth, and as spinodal when ΓMD ≤0.35 and the melt coarsens. All remaining states are classified as unresolved. b, The spinodal regions predicted by the AIPF model at the three pressures. The star marks the FeB4 composition at 1500 K, inside the spinodal region at 0...",
+      "page": 5
+    },
+    {
+      "image": "2610.01432_figures/2610.01432_fig5.jpg",
+      "caption": "Figure 5. Hydrogen–helium mixture. The AIPF model is trained at 200, 400, 600 and 800 GPa, with predictions in d,e extending to 150–900 GPa. a, Binodal surface in (xHe, P, T) with the critical line Tc(P). b, Isobaric sections of a at 200, 400, 600 and 800 GPa, with the predicted critical temperatures. Circles denote binodal compositions measured from MD at 800 GPa. c, Schematic of helium demixing from metallic hydrogen and settling toward the center of a gas giant. d, Predicted binodal (solid) and spinodal (dashed) at the protosolar composition xHe = 0.089, compared with published binodals from Sch¨ottler and Redmer [33], Morales et al. [34] and Lorenzen et al. [35], and the spinodal from...",
+      "page": 6
+    }
+  ],
+  "figure": "2610.01432_figures/2610.01432_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

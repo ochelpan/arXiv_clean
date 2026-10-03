@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.00841",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural Fourier Surrogates for Data Reuploading Quantum Neural Networks",
+  "authors": "Oliver Knitter, Jonathan Mei, Sang Hyub Kim, Chi Chen, Masako Yamada, Martin Roetteler",
+  "abstract": "For quantum machine learning, the exact boundary between classical and quantum advantage is still poorly understood. Direct comparison between quantum neural networks (QNNs) and existing classical models, which encompass fundamentally different function classes, often fails to provide broader insight into the difference between the two. Inspired by the techniques of Neural Quantum States and Random Fourier Features, this work introduces Neural Fourier Surrogates (NFS), a stochastic classical neural network architecture for efficiently learning coefficients over the same finite Fourier series support as quantum neural networks. Testing on a selection of tabular benchmark datasets, we find that NFS is an effective classifier architecture broadly competitive with established classical baselines, including a comparable Random Fourier Features model, and possessing comparable performance to data-reuploading QNNs; combined with additional analysis comparing the learned Fourier spectra of QNNs and NFS on synthetic data, these results establish NFS as a natural classical baseline for evaluating QNN performance.",
+  "url": "http://arxiv.org/abs/2610.00841v1",
+  "pdf": "https://arxiv.org/pdf/2610.00841v1",
+  "type": "both",
+  "summary": "This paper introduces Neural Fourier Surrogates (NFS), a classical neural network designed to mimic the Fourier structure of Quantum Neural Network (QNN) outputs. By achieving performance comparable to QNNs while representing a broader function class, NFS establishes itself as a powerful and theoretically grounded classical baseline for benchmarking quantum machine learning models.",
+  "main_problem": "The boundary between classical and quantum advantage in quantum machine learning is poorly understood due to the fundamental differences in function classes between QNNs and classical models.",
+  "main_result": "The proposed Neural Fourier Surrogates (NFS) architecture is shown to be a highly effective classical baseline, achieving performance comparable to data-reuploading QNNs while representing a broader function class.",
+  "method": "NFS is a stochastic classical neural network that approximates the Fourier series coefficients of a QNN's expectation value by sampling random frequencies, bypassing the curse of dimensionality.",
+  "model_or_system": "The work focuses on Quantum Neural Networks (QNNs) that encode classical data via a unitary evolution $U(x) = \\exp(ixH)$, resulting in an expectation value expressible as a finite Fourier series. NFS is designed to model this same Fourier structure using a transformer-based architecture.",
+  "key_observables": "Test accuracy on 15 benchmark datasets, Pearson correlation ($r$) between learned and true Fourier spectra, and performance comparison against established classical baselines (MLP, RFF, etc.).",
+  "important_parameters": "Encoding depth ($f_{\text{max}}$), training set size, and hyperparameters for the NFS network (e.g., Gaussian prior coefficient).",
+  "main_assumptions": "The primary assumption is that NFS can serve as a natural classical baseline because its function class is broader than the constrained function class of the QNN measurement observable.",
+  "figures_summary": "Figures compare NFS/QNN test accuracy vs. training set size and encoded dimension; Figure 5 shows the Pearson correlation between the learned frequency distribution of NFS and the true QNN spectrum.",
+  "paper_structure": "The paper introduces NFS to approximate QNN outputs, details the stochastic approximation and architecture (using autoregressive sampling), compares its performance against various classical baselines and QNNs on benchmark datasets, and analyzes capacity scaling.",
+  "why_interesting": "While the focus is on ML, the mathematical machinery—approximating quantum expectation values via Fourier series and comparing classical surrogates to quantum constraints—is highly relevant to understanding the limitations and expressivity of quantum simulation techniques.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.00841_figures/2610.00841_fig1.jpg",
+      "caption": "Figure 1. Basic architecture of an NFS. A sampler iteratively queries the modulus to generate a weighted set of frequencies. The modulus, phase, and scaling values are combined with the frequen- cies and model inputs to produce weighted averages approximating both the model output values and the corresponding gradients.",
+      "page": 2
+    },
+    {
+      "image": "2610.00841_figures/2610.00841_fig2.jpg",
+      "caption": "Figure 2. Test accuracy, as a function of training set size, for a Neural Fourier Surrogate with encoding depth L = 4, an equivalent QNN, and a Random Fourier Features (RFF) baseline on six benchmark datasets. Shaded regions show ±1 standard deviation across 5 seeds.",
+      "page": 4
+    },
+    {
+      "image": "2610.00841_figures/2610.00841_fig3.jpg",
+      "caption": "Figure 3. Test accuracy as a function of encoded dimension (qubit number) for an NFS and a QNN with encoding depth L = 1, trained on up to 500 samples across 3 datasets. Shaded regions show ±1 standard deviation across 5 seeds.",
+      "page": 6
+    },
+    {
+      "image": "2610.00841_figures/2610.00841_fig4.jpg",
+      "caption": "Figure 4. (a) NFS test accuracy as a function of training set size on a synthetic Fourier target function with cutoff fmax = 3. Curves shown for encoding depth choices between 1 and 6, alongside Random Forest and MLP baselines. (b) NFS test accuracy across all combinations of encoding depth and Fourier cutoff L, fmax ∈{1, . . . , 6}, averaged across 5 seeds. Higher choices of L provide diminishing returns beyond the target’s spectral complexity.",
+      "page": 7
+    },
+    {
+      "image": "2610.00841_figures/2610.00841_fig5.jpg",
+      "caption": "Figure 5. Pearson r between the learned frequency distribution of an NFS and the Fourier spectrum of a fixed random QNN, at matched encoding depths, averaged over 25 trials. Error bars show the mean ±1 standard deviation. NFS was trained to match randomly sampled QNN output. The bimodal distribution indicates NFS either recovers the QNN distribution or learns an altogether different one.",
+      "page": 7
+    }
+  ],
+  "figure": "2610.00841_figures/2610.00841_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

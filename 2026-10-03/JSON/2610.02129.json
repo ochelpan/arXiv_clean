@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.02129",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.NE"
+  ],
+  "is_primary_archive": true,
+  "title": "Spiking neural networks for streaming qubit readout",
+  "authors": "Barry M. Dillon, Aqib Javed, Jim Harkin, Patryk Dabkowski, Benjamin Lienhard",
+  "abstract": "Fast and accurate qubit-state assignment is essential for feedback, calibration, and error correction in quantum processors. In superconducting platforms, frequency-multiplexed readout makes this task intrinsically multivariate as measured traces can encode crosstalk, qubit-state relaxation events, and other transient nonidealities that are not fully captured by conventional matched filtering. Here, we introduce spiking neural network (SNN) discriminators for superconducting qubit readout. By processing the measurement window in successive time chunks, the networks exploit temporal structure and update classification scores as data arrive, rather than waiting until the end of the readout window. The spiking networks outperform matched-filter discrimination and approach the accuracy of a full-trace artificial neural network. Beyond reaching the performance of artificial neural networks, the key advantage of SNNs is that they provide a streaming, time-resolved estimate of the qubit state that evolves as the readout signal is acquired. Using quantisation-aware training and hls4ml synthesis, we further demonstrate that each FPGA inference update can be completed before the next readout chunk arrives. These results establish spiking neural networks as a promising route to low-latency, real-time qubit readout on FPGA hardware, with broader implications for time-critical quantum-control and scientific-inference applications.",
+  "url": "http://arxiv.org/abs/2610.02129v1",
+  "pdf": "https://arxiv.org/pdf/2610.02129v1",
+  "type": "both",
+  "summary": "This paper introduces Spiking Neural Networks (SNNs) as a solution for real-time, high-fidelity readout of superconducting qubits. By processing measurement data in streaming chunks, the SNNs overcome the latency limitations of traditional methods, achieving performance comparable to full-trace ANNs while being optimized for low-latency deployment on FPGA hardware.",
+  "main_problem": "Achieving fast and accurate qubit-state assignment is critical for real-time feedback, calibration, and error correction in quantum processors.",
+  "main_result": "Spiking Neural Networks (SNNs) provide a streaming, time-resolved estimate of the qubit state that matches the accuracy of full-trace ANNs while offering low-latency, real-time performance on FPGA hardware.",
+  "method": "The authors propose using SNN discriminators that process the frequency-multiplexed readout measurement window in successive time chunks, exploiting temporal structure.",
+  "model_or_system": "The work focuses on superconducting qubits, specifically a five-qubit transmon processor, whose state is read out via frequency-multiplexed IQ traces. The analysis is performed on the time-resolved IQ data over the first $1 \\mu s$ of acquisition.",
+  "key_observables": "Geometric-mean assignment fidelity ($F_{geom}$), single-qubit assignment fidelity ($F_q$), and cross-fidelity matrix ($F_{ij}^{CF}$) to quantify crosstalk.",
+  "important_parameters": "The analysis uses time-resolved IQ traces sampled at $\\Delta t = 2 \text{ ns}$ over a $1 \\mu s$ window.",
+  "main_assumptions": "The primary assumption is that SNNs can effectively capture the temporal dynamics of the readout signal, overcoming the latency bottleneck of traditional methods.",
+  "figures_summary": "Figure 1 illustrates the real-time update process of the SNN measuring qubits over time steps, showing how predictions evolve as new data chunks arrive.",
+  "paper_structure": "The paper first establishes the necessity of fast readout for quantum control, details the physical measurement setup and data processing (IQ demodulation), compares SNNs against Matched Filtering and ANNs, and concludes with hardware implementation results on FPGAs.",
+  "why_interesting": "This work directly addresses the engineering bottleneck of quantum computing—the need for fast, real-time measurement feedback—by integrating advanced neuromorphic computing techniques with superconducting hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.02129_figures/2610.02129_fig1.jpg",
+      "caption": "Figure 1: This figure depicts the real-time updates of the SNN measuring qubits in the 01110 state over 200ns timesteps. The coloured lines represent the demodulated traces for each qubit. These are then averaged and fed directly to the SNN, which updates its internal neuron states and predictions for the qubit readout classes.",
+      "page": 4
+    },
+    {
+      "image": "2610.02129_figures/2610.02129_fig2.jpg",
+      "caption": "Figure 2: Local L5 feature values (top) and cumulative C5 feature values (bottom) for q5, comparing T =5 and T =10 readout summaries over the 1 µs acquisition window. Solid lines show the I component and dashed lines show the Q component.",
+      "page": 10
+    },
+    {
+      "image": "2610.02129_figures/2610.02129_fig3.jpg",
+      "caption": "Figure 3: In the plot, we compare ANN models using the geometric mean assignment fidelity. In the plot below, we compare SNN models with a 64-dim hidden layer using the geometric mean assignment fidelity.",
+      "page": 13
+    },
+    {
+      "image": "2610.02129_figures/2610.02129_fig4.jpg",
+      "caption": "Figure 4: Cross-fidelity matrices for MF baseline (top left), the ANN baseline (top right), the 32-dim SNN (bottom left), and 64-dim SNN (bottom right). All models use T =10 and the L5 + C5 feature set.",
+      "page": 14
+    },
+    {
+      "image": "2610.02129_figures/2610.02129_fig5.jpg",
+      "caption": "Figure 5: Mid-readout fidelity for the 64-dim SNN trained on L5 + C5 features. The final- loss-only model is compared with a model trained with equal loss terms at 600 ns and 1 µs. The dotted vertical line marks the auxiliary-loss timestep.",
+      "page": 15
+    }
+  ],
+  "figure": "2610.02129_figures/2610.02129_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

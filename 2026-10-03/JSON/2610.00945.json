@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.00945",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "TATVA: A Reinforcement Learning Framework for Quantum Circuit Synthesis",
+  "authors": "Om Bhamare, Aryan Jadhav, Manas Shinde, Prithvi Shinde",
+  "abstract": "One of the most important initial steps in quantum computing is high-fidelity quantum state preparation, because errors in it can affect the final computational result. Therefore, one of the major challenges is to design a quantum circuit that can achieve the desired target state accurately with a smaller number of gates. Traditionally, circuits are designed using predefined rules and mathematical decompositions, but this makes it difficult to design circuits for different and complex target states. This paper presents TATVA, a reinforcement learning (RL) system for synthesizing quantum circuits. TATVA views circuit synthesis as a sequential decision problem in which the agents select one gate at a time and calculate the fidelity after each applied gate, with the gate producing the highest fidelity selected for the circuit. The system introduces a parallel architecture that uses two RL agents, Deep Q-Network (DQN) and Proximal Policy Optimization (PPO), along with Qiskit's statevector simulator. The system can synthesize up to 5 qubits while achieving a fidelity of 0.999999 and producing compact circuits. After achieving the desired fidelity, it performs a post-hoc optimization step that reduces the circuit depth while preserving the achieved fidelity. The circuit is finalized using fidelity, success rate, gate count, and circuit depth. Target states that are not used during training are used to test whether the system has learned effectively and can generalize beyond the training states. This approach aims to enable automatic quantum circuit synthesis with high fidelity using reinforcement learning.",
+  "url": "http://arxiv.org/abs/2610.00945v1",
+  "pdf": "https://arxiv.org/pdf/2610.00945v1",
+  "type": "theory",
+  "summary": "This paper introduces TATVA, an RL framework that treats quantum circuit synthesis as a sequential decision problem to prepare target quantum states. By employing parallel DQN and PPO agents, the system selects gates to maximize fidelity, followed by an optimization step to ensure the resulting circuit is both accurate and compact. This advances the field by enabling automatic, high-fidelity quantum circuit design.",
+  "main_problem": "The core challenge is automatically synthesizing quantum circuits to prepare a desired target quantum state with the highest possible fidelity while minimizing the number of gates.",
+  "main_result": "The proposed TATVA framework successfully synthesizes high-fidelity circuits (achieving $F \\geq 0.999999$) for up to 5 qubits, significantly compacting the circuit depth and gate count compared to classical methods.",
+  "method": "It employs a Reinforcement Learning (RL) approach, utilizing parallel DQN and PPO agents to treat circuit synthesis as a sequential decision process, followed by a post-hoc optimization step.",
+  "model_or_system": "The system operates on $n$-qubit quantum circuits, simulated using Qiskit's statevector simulator. The process starts from the initial state $|0\rangle^{\\otimes n}$ and iteratively applies gates selected by the RL agents.",
+  "key_observables": "Fidelity ($F$), Success Rate, Gate Count ($\text{N}_g$), and Circuit Depth ($D$).",
+  "important_parameters": "The fidelity threshold is set at $F > 0.999999$. The system is tested up to 5 qubits.",
+  "main_assumptions": "The initial design relies on predefined rules, which motivates the need for an RL approach to handle complex, hard-to-design target states.",
+  "figures_summary": "Figures illustrate the end-to-end pipeline: system architecture (Fig 1), input/target state preparation (Fig 2), the RL environment workflow (Fig 3), parallel agent operation (Fig 4), fidelity evaluation (Fig 5), and final circuit optimization (Fig 6).",
+  "paper_structure": "The paper details the TATVA pipeline: first, target state preparation; second, the RL-based gate selection using DQN/PPO; third, quantum simulation and fidelity checking; and finally, a post-hoc optimization stage to reduce circuit depth.",
+  "why_interesting": "While focused on circuit synthesis, the reliance on advanced RL techniques (DQN/PPO) for sequential decision-making in quantum systems provides a generalizable algorithmic framework relevant to optimizing quantum control pulses or state preparation in AMO experiments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.00945_figures/2610.00945_fig1.jpg",
+      "caption": "Figure 1. System architecture of TATVA, showing the interaction between the RL environment, the DQN/PPO agent-processing block, the configuration and storage layer, and the circuit-optimization stage that produces the final output.",
+      "page": 3
+    },
+    {
+      "image": "2610.00945_figures/2610.00945_fig2.jpg",
+      "caption": "Figure 3. Reinforcement Learning environment workflow, from episode start through gate application, fidelity/reward computation, and episode logging.",
+      "page": 3
+    },
+    {
+      "image": "2610.00945_figures/2610.00945_fig3.jpg",
+      "caption": "Figure 2. Input and target-state preparation layer: dimension validation, L2 normalization, and conversion to a Qiskit Statevector object.",
+      "page": 3
+    },
+    {
+      "image": "2610.00945_figures/2610.00945_fig4.jpg",
+      "caption": "Figure 4. DQN and PPO agent workflow, run in parallel on the same environment state and reward signal, each producing an updated gate-selection policy.",
+      "page": 4
+    },
+    {
+      "image": "2610.00945_figures/2610.00945_fig5.jpg",
+      "caption": "Figure 5. Quantum simulation and fidelity-evaluation flow: circuit execution, fidelity computation, and the success/continue decision at F > 0.999999.",
+      "page": 4
+    }
+  ],
+  "figure": "2610.00945_figures/2610.00945_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

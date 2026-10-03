@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.00504",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Graph Neural Post-selection for Quantum Error Correction",
+  "authors": "Conor Carty, Tamas Noszko, Joschka Roffe, Roberto Bondesan",
+  "abstract": "Post-selection improves the logical reliability of quantum computation by rejecting shots which are likely to result in logical failure. We introduce graph neural networks that predict decoder failure without additional decoder executions, using only syndromes, and for high-rate quantum low-density parity-check (qLDPC) codes, existing belief-propagation posteriors. We evaluate rotated surface and bivariate bicycle (BB) code memories under uniform depolarising circuit-level noise. Retaining 90% of shots gives approximately 3700x and 740x reductions in logical error rates for [[72,12,6]] and [[144,12,12]] BB codes at realistic physical error rates. For the distance 5 surface code at physical noise p=0.003, our neural post-selector achieves logical error suppression comparable to the leading complementary gap method without running the decoder.",
+  "url": "http://arxiv.org/abs/2610.00504v1",
+  "pdf": "https://arxiv.org/pdf/2610.00504v1",
+  "type": "theory",
+  "summary": "This paper introduces graph neural networks to enhance quantum error correction by implementing intelligent post-selection. The GNNs predict whether a quantum computation shot will fail based only on syndrome measurements, avoiding full decoding. This results in massive reductions in logical error rates for surface and qLDPC codes, significantly boosting the practical viability of fault-tolerant quantum computation.",
+  "main_problem": "The paper addresses the challenge of improving the logical reliability of quantum computation by implementing post-selection techniques to reject noisy computational shots.",
+  "main_result": "The proposed graph neural network post-selectors achieve substantial logical error rate suppression (e.g., 3700x reduction for one code) while maintaining a reasonable yield compared to existing methods.",
+  "method": "The core method involves training Graph Neural Networks (GNNs)—specifically MPNN and FMPNN—to classify syndrome measurements as either successful or likely to fail, thereby guiding post-selection.",
+  "model_or_system": "The work analyzes Quantum Error Correction (QEC) codes, including rotated surface codes and high-rate qLDPC codes (like BB codes), operating under depolarizing circuit-level noise.",
+  "key_observables": "Logical Error Rate (LER), Yield (fraction of accepted shots), and the syndrome vector ($\\sigma$).",
+  "important_parameters": "Physical error rates ($p$), code distances ($d$), and the rejection threshold ($\tau$).",
+  "main_assumptions": "The models are trained on online circuit-noise samples, and the performance relies on the assumption that the GNN can accurately predict failure without full decoder execution.",
+  "figures_summary": "Figures compare the performance of neural post-selection against established methods like $Q(2)$ LLR and 3R-LEC for various code types and noise levels.",
+  "paper_structure": "The paper introduces the problem, details the two main GNN architectures (MPNN for surface codes, FMPNN for qLDPC), describes the training process using various loss functions and objectives, and concludes with performance comparisons across different code families.",
+  "why_interesting": "This work directly tackles the resource overhead problem in fault-tolerant quantum computing by proposing machine learning methods to filter out low-quality computations before expensive decoding steps.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.00504_figures/2610.00504_fig1.jpg",
+      "caption": "FIG. 1. Neural post-selection on the [[72, 12, 6]] bivariate bi- cycle code under uniform depolarising circuit-level noise at a physical error rate p = 0.001, contrasted with popular benchmarks for quantum low-density parity-check code post- selection: Q(2) LLR [11] and the three-round logical-error crite- rion (3R-LEC) [12]. LER per-cycle is defined as 1 −(1 − LER) 1 T , for T cycles.",
+      "page": 1
+    },
+    {
+      "image": "2610.00504_figures/2610.00504_fig2.jpg",
+      "caption": "FIG. 2. Factor-graph MPNN (FMPNN). (a) Detector and fault nodes carry syndrome, circuit and belief-propagation features. (b) Message passing combines local and global context. (c) Fault embeddings are pooled over their logical supports; overlapping supports can share nodes (highlighted). A shared multilayer perceptron produces per-observable logits, which are used to produce the final confidence score.",
+      "page": 4
+    },
+    {
+      "image": "2610.00504_figures/2610.00504_fig3.jpg",
+      "caption": "FIG. 3. Surface-code MPNN. (a) Detector graph labelled by the syndrome. (b) Message passing combines local and global context. (c) Attention pooling and a multilayer perceptron produce a confidence score from the final embeddings of the detectors.",
+      "page": 6
+    },
+    {
+      "image": "2610.00504_figures/2610.00504_fig4.jpg",
+      "caption": "FIG. 4. Post-selected logical error rate against rejection rate for the (a) [[72, 12, 6]] and (b) [[144, 12, 12]] bivariate bicycle codes under uniform depolarising circuit-level noise at physical error rates p = 0.001 and p = 0.003 respectively.",
+      "page": 8
+    },
+    {
+      "image": "2610.00504_figures/2610.00504_fig5.jpg",
+      "caption": "FIG. 5. Post-selected logical error rate against rejection rate for the rotated surface codes under uniform depolarising circuit- level noise at distances 5, 7, 9 and physical noise p = 0.001 and p = 0.003. Each (d, p) configuration uses a separately fine-tuned MPNN; see Appendix A 5 b.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.00504_figures/2610.00504_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

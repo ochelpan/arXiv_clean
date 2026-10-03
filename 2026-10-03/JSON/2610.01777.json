@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.01777",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR"
+  ],
+  "is_primary_archive": true,
+  "title": "QUFIG: GNN-Based Prediction of Quantum Fault Injection Vulnerabilities with Gate-Level Precision",
+  "authors": "Shihan Zhao, Qiying Li, Ben Dong, Qian Wang, Yuntao Liu",
+  "abstract": "The growing scale and accessibility of quantum hardware exposed new reliability and security challenges in the quantum computing workflow, such as the run-time fault injection attacks in cloud-based quantum computing platforms. However, existing works fail to identify vulnerabilities with gate-level precision or adapt to run-time environments. In this work, we formulate gate-level fault analysis as a learning-guided prioritization problem under restricted fidelity budgets. The framework uses a circuit-DAG-based GNN backbone to predict the vulnerability score of each gate to each type of injected fault, defined as the impact of the gate-fault pair on circuit fidelity. The gate-fault pairs are then ranked by their vulnerability score. Experiments on QASMbench and HamLib MaxCut show that QUFIG recovers high-impact vulnerable gate-fault pairs with fewer inspections than random and depth-based heuristics. Our results show that QUFIG can reduce the number of gates requiring inspection by 2.9--19.8% while maintaining effective fault identification, allowing quantum circuit designers to identify vulnerabilities and apply targeted defenses more efficiently.",
+  "url": "http://arxiv.org/abs/2610.01777v1",
+  "pdf": "https://arxiv.org/pdf/2610.01777v1",
+  "type": "both",
+  "summary": "QUFIG is a novel GNN-based framework designed to predict which specific gates in a quantum circuit are most vulnerable to fault injection attacks. By learning from circuit structure and fault impact, it allows quantum designers to prioritize fault simulation and auditing, drastically reducing the computational cost required to ensure quantum circuit reliability.",
+  "main_problem": "The paper addresses the critical challenge of identifying quantum fault injection vulnerabilities at gate-level precision in large-scale, cloud-based quantum computing workflows.",
+  "main_result": "The proposed framework, QUFIG, significantly reduces the number of gates requiring manual inspection (by 2.9%–19.8%) while maintaining the ability to identify high-impact vulnerable gate-fault pairs compared to random or depth-based heuristics.",
+  "method": "It formulates the problem as a learning-guided prioritization task, using a Graph Neural Network (GNN) backbone trained to predict a vulnerability score for every potential gate-fault pair.",
+  "model_or_system": "The system analyzed is a quantum circuit, represented abstractly as a Directed Acyclic Graph (DAG) where nodes are quantum gates and edges represent qubit dependencies. Faults are modeled using realistic NISQ error mechanisms (decoherence, Pauli-type, etc.).",
+  "key_observables": "Vulnerability Score (predicted impact on circuit fidelity), Fidelity Loss ($\\Delta F$), and Application-level Output Deviation ($\\Delta E$).",
+  "important_parameters": "The inspection budget ($B$) and the target percentage ($q\\%$) of the most vulnerable gates to recover.",
+  "main_assumptions": "The core assumption is that prioritizing inspection based on the predicted vulnerability score is sufficient to guide fault analysis, avoiding prohibitively expensive exhaustive simulation.",
+  "figures_summary": "Figures compare the target-recovery cost (inspection cost vs. percentage of vulnerable gates identified) for QUFIG against random and depth-based baselines on QASMbench and MaxCut, showing superior performance for QUFIG.",
+  "paper_structure": "The paper introduces the problem, details the formulation of fault impact using fidelity loss and application deviation, proposes the GNN-based QUFIG framework trained via a hybrid loss function, and validates its efficiency by comparing inspection costs against established heuristics on standard quantum benchmarks.",
+  "why_interesting": "This work directly tackles the practical security and reliability challenges of near-term quantum hardware, which is crucial for any theoretical physicist working on quantum algorithms or open quantum systems that must be implemented on noisy devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01777_figures/2610.01777_fig1.jpg",
+      "caption": "Fig. 1: An overview of the quantum-circuit vulnerability pre- diction framework, which uses a GNN to identify potentially vulnerable gates.",
+      "page": 1
+    },
+    {
+      "image": "2610.01777_figures/2610.01777_fig2.jpg",
+      "caption": "Fig. 2: Overview of the proposed learning-guided fault-site prioritization framework. A compiled quantum circuit is converted into a circuit DAG, where each gate node is encoded using gate-level structural features. A GNN backbone estimates per-fault impact scores through fault-specific prediction heads, and the top-ranked gate-fault pairs are selected under a fixed budget for detailed fault simulation, mitigation, or security auditing.",
+      "page": 5
+    },
+    {
+      "image": "2610.01777_figures/2610.01777_fig3.jpg",
+      "caption": "Fig. 3: Gate-level fidelity distribution under single-gate fault injection. The x-axis groups injected gate–error cases by the output fidelity between the faulty and ideal circuits, and the y- axis reports the percentage of cases in each bin. Lower fidelity indicates stronger output degradation. For example, only 0.1% and 0.5% cases reduce the output fidelity to lower than 10%, showing that severe faults are concentrated in a small subset.",
+      "page": 6
+    },
+    {
+      "image": "2610.01777_figures/2610.01777_fig4.jpg",
+      "caption": "Fig. 3 shows the distribution of gate-level output fidelity under high-strength fault injection. The results reveal that fault sensitivity is highly non-uniform across both gates and datasets, rather than being evenly distributed throughout the circuit. As expected, only a small subset of gates causes substantial output degradation after noise injection, whereas most gates remain relatively stable and exhibit only minor fidelity fluctuations even under strong perturbations. The gates that can truly overturn the circuit outcome are rare, while the majority of gates are robust. To further examine whether vulnerable gates are associated with specific depth regions, we identify, for each...",
+      "page": 6
+    },
+    {
+      "image": "2610.01777_figures/2610.01777_fig5.jpg",
+      "caption": "Fig. 4: Position distribution of the most vulnerable gates. For each circuit, The x-axis shows 10% position bins which compute most vulnerable gate normalized position as gate index/total gates. The y-axis reports the the percentage of circuits whose most vulnerable gate falls into each bin. Numbers above bars indicate circuit counts. The dataset- dependent distribution shows that simple position-based traver- sal is insufficient for reliable vulnerable-gate detection.",
+      "page": 7
+    }
+  ],
+  "figure": "2610.01777_figures/2610.01777_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

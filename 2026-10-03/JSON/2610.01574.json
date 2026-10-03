@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2610.01574",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adversarial Robustness in Fake Quantum Simulators",
+  "authors": "Marc Maußner, Volker Reers",
+  "abstract": "This paper investigates the performance scalability and adversarial robustness of Quantum Machine Learning (QML) models deployed on noise-model-based fake simulators. We conduct a dual-phased study, first benchmarking the computational throughput of Qiskit's Aer simulation engine across varying hardware architectures, and second, evaluating the effectiveness of Projected Gradient Descent (PGD) attacks and adversarial retraining strategies under realistic noise conditions. Our results quantify the runtime tradeoffs and scaling behavior for medium-scale simulations (projected up to 8 qubits) and demonstrate that high adversarial-to-benign retraining ratios (50/50) are essential for achieving practical model robustness for 4-qubit classifiers under realistic noise conditions.",
+  "url": "http://arxiv.org/abs/2610.01574v1",
+  "pdf": "https://arxiv.org/pdf/2610.01574v1",
+  "type": "both",
+  "summary": "This work assesses the reliability of QML models running on noisy quantum simulators by testing their performance under adversarial attacks. The authors benchmark simulation efficiency and demonstrate that robust defense requires balancing adversarial training data with clean data (50/50 ratio). This highlights critical engineering requirements for deploying quantum machine learning in the NISQ era.",
+  "main_problem": "The paper investigates how Quantum Machine Learning (QML) models perform in terms of scalability and robustness when run on simulated noisy quantum hardware.",
+  "main_result": "Achieving practical robustness for 4-qubit classifiers requires a balanced adversarial-to-benign retraining ratio (50/50), significantly improving accuracy over sparse retraining.",
+  "method": "The study combines performance benchmarking of quantum simulators with adversarial attack simulations using Projected Gradient Descent (PGD) and subsequent adversarial retraining.",
+  "model_or_system": "The system uses a hybrid classical-quantum neural network (QNN) classifier trained on a 4-qubit circuit ansatz, simulated using Qiskit's fake backends mimicking NISQ devices.",
+  "key_observables": "Benign Accuracy, Adversarial Accuracy, Robust Accuracy, and simulation runtime scaling factors.",
+  "important_parameters": "The adversarial constraint is set by the $\\ell_\\infty$-norm ($\\epsilon=0.1$), and the study scales up to 8 qubits.",
+  "main_assumptions": "The fidelity of the noise models is assumed to be accurate based on real system snapshots, and the threat model assumes white-box access for the adversary.",
+  "figures_summary": "Figures illustrate the full workflow, performance benchmarking comparing automatic vs. MPS simulation methods, and the quantitative recovery of robust accuracy when using 50/50 adversarial retraining.",
+  "paper_structure": "The paper follows a structure of benchmarking simulation performance (throughput/scaling) first, followed by a detailed adversarial robustness evaluation comparing various defense strategies (retraining ratios, regularization) against PGD attacks.",
+  "why_interesting": "It provides concrete, quantitative results on the practical limitations of current QML models when exposed to realistic noise and targeted attacks, which is crucial for designing fault-tolerant quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01574_figures/2610.01574_fig1.jpg",
+      "caption": "Fig. 1. Experimental workflow for noise-aware adversarial evaluation. The pipeline consists of: (1) Acquisition and reduction of the plus-minus dataset, (2) Backend benchmarking to optimize simulation threads and methods, (3) QNN construction using Strongly Entangling Layers, (4) Model training on benign data, (5) Adversarial example generation via Projected Gradient Descent (PGD), and (6) Robustness analysis using accuracy and confusion matrices.",
+      "page": 5
+    },
+    {
+      "image": "2610.01574_figures/2610.01574_fig2.jpg",
+      "caption": "Fig. 2. Benchmarking of simulation methods in Qiskit Aer on the FakeGuadalupeV2 backend. The automatic method (blue) identifies the optimal solver for specific circuit configurations, significantly outperforming the matrix_product_state (MPS) approach as the qubit count scales from 4 to 8 qubits.",
+      "page": 6
+    },
+    {
+      "image": "2610.01574_figures/2610.01574_fig3.jpg",
+      "caption": "Fig. 3. Comprehensive comparison of simulation runtimes via the PennyLane interface across multiple noisy backends (FakeGuadalupeV2, FakeLimaV2, FakeJakartaV2). The plots illustrate the impact of parallelization configurations (max_parallel_threads) and highlight the communication overhead introduced by the PennyLane-Qiskit bridge.",
+      "page": 7
+    },
+    {
+      "image": "2610.01574_figures/2610.01574_fig4.jpg",
+      "caption": "Fig. 4. Comparison of model performance on FakeGuadalupeV2 after balanced (50/50) adversarial retraining. This strategy results in a substantial recovery of robustness, increasing robust accuracy from 44% (sparse 10% ratio) to 84%, demonstrating that dataset balance is critical for security in hardware-mimicking environments.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.01574_figures/2610.01574_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.01578",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "The hidden advantage of mask resampling: a theory of masked autoencoders",
+  "authors": "Jorge Medina Moreira, Lorenzo Bardone, Lenka Zdeborová",
+  "abstract": "Why can masked prediction learn useful representations that unmasked reconstruction misses? We study this question in a high-dimensional model of a masked autoencoder (MAE) trained on data with shared latent structure and heterogeneous noise. We prove that masked linear reconstruction can recover the latent feature at linear sample complexity in regimes where unmasked linear reconstruction, equivalent to PCA, fails. The analysis also quantifies the statistical advantage of mask resampling, an established ingredient of masked pretraining. By introducing a fixed collection of $K$ masks per sample, we characterize its effect on feature recovery and downstream performance, identifying regimes where greater mask diversity lowers sample complexity. Guided by this prediction, we find that random cropping and flipping in standard image-training pipelines can obscure the advantage of mask resampling by renewing the prediction task even when the patch mask is fixed. Removing these transformations reveals a downstream advantage for dynamic over static masking in CNN autoencoders and vision transformers. A complementary BERT pilot finds benefits from greater mask diversity on downstream language tasks. Our results separate the benefit of the masked prediction objective from that of mask diversity, and show how a tractable theory can guide experiments that uncover advantages hidden by standard training practices.",
+  "url": "http://arxiv.org/abs/2610.01578v1",
+  "pdf": "https://arxiv.org/pdf/2610.01578v1",
+  "type": "theory",
+  "summary": "This work provides a rigorous theoretical analysis demonstrating that masked prediction objectives are statistically superior to standard reconstruction methods for learning useful representations. It quantifies that increasing the diversity of masks used during training significantly improves feature recovery and reduces the required data sample size. The findings guide practitioners by separating the benefit of the prediction task itself from the benefit of mask diversity.",
+  "main_problem": "The paper theoretically investigates why masked prediction (MAE) learns superior representations compared to unmasked reconstruction, and quantifies the statistical advantage gained from using diverse masks (mask resampling).",
+  "main_result": "Masked linear reconstruction can recover a shared latent feature at sample complexities where unmasked reconstruction (PCA) fails, and increasing mask diversity significantly lowers the required sample complexity.",
+  "method": "The authors develop a high-dimensional statistical theory, employing replica calculations to analyze feature recovery and downstream performance in a structured data model.",
+  "model_or_system": "The analysis uses a high-dimensional data model featuring a shared latent direction corrupted by heterogeneous, coordinate-wise nuisance noise, mimicking modern deep learning architectures like MAEs.",
+  "key_observables": "Latent feature recovery (cosine similarity $\theta_{u^\\star}$), sample complexity ($\\alpha = n/d$), and downstream classification accuracy.",
+  "important_parameters": "Masking ratio ($\rho$), mask diversity ($K$), and the ratio of samples to dimensions ($\\alpha$).",
+  "main_assumptions": "The theory is developed for a specific high-dimensional model with a shared latent structure and heterogeneous noise, and comparisons are made in the proportional limit $n, d \to \\infty$.",
+  "figures_summary": "Figures compare downstream accuracy vs. masking ratio, showing dynamic masking's advantage; other figures track MSE and accuracy across different masking protocols and training schedules.",
+  "paper_structure": "The paper progresses from establishing the theoretical advantage of masked prediction over unmasked reconstruction, to quantifying the benefit of mask diversity, and finally to empirically testing these findings across various augmentation and training protocols.",
+  "why_interesting": "While focused on ML, the rigorous theoretical framework for separating signal recovery from noise structure, especially in high dimensions, shares mathematical parallels with understanding order parameters and signal extraction in complex physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01578_figures/2610.01578_fig1.jpg",
+      "caption": "Figure 1: Isolating mask resampling reveals its contribution to representation learning. Downstream accuracy versus masking ratio ρ for dynamic masking (blue), static masking (yellow), and unmasked reconstruction (red). (a) Shallow autoencoder on spiked model (Sec. 2); curves are theory and markers are simulations. (b) CNN autoencoder on CIFAR-10 (test top-1). (c) ViT-Base on ImageNet-100 (validation top-5). In (b,c), blue and yellow curves use no stochastic cropping or flipping. The purple reference includes cropping and flipping with dynamic mask resampling at ρ = 0.625 (b) and ρ = 0.75 (c). At suitable masking ratios, resampling alone reaches comparable accuracy. Bars and shading show ±1...",
+      "page": 2
+    },
+    {
+      "image": "2610.01578_figures/2610.01578_fig2.jpg",
+      "caption": "Figure 2: Masking recovers a feature that PCA misses. Cosine similarity versus sample complexity α = n/d, for (a) homogeneous noise, γ = 1; (b) bounded heterogeneous noise, γ = 1",
+      "page": 6
+    },
+    {
+      "image": "2610.01578_figures/2610.01578_fig3.jpg",
+      "caption": "Figure 3: Replica predictions track learning across mask diversity. Cosine similarity (top) and downstream classification accuracy (bottom) versus sample complexity α = n/d under bounded heterogeneous noise (variance distribution of Fig. 2(b)), for linear, ReLU, ELU, and tanh activations. Colors distinguish K =1(static), 2, 4 and the dynamic masking limit. Solid curves are replica predictions and markers are finite-dimensional simulations. Green curves show the Bayes-optimal pretraining reference, evaluated with the same logistic probe for the lower row; green diamonds show AMP results (Apps. F.5 and H.14). Error bars show ±1 SD. See App. H for experimental details.",
+      "page": 7
+    },
+    {
+      "image": "2610.01578_figures/2610.01578_fig4.jpg",
+      "caption": "Fig. 3 compares these predictions with numerical training at finite dimension. Across the tested activations, increasing mask diversity K lowers the weak recovery threshold and improves alignment above the transition in the settings shown. The replica predictions capture not only these threshold shifts, but also the magnitude and α-dependence of the cosine similarity over the displayed range. The theory also captures training and test errors (Fig. 10). Thus the analysis quantifies how mask resampling changes the representation learned from a given number of examples.",
+      "page": 7
+    },
+    {
+      "image": "2610.01578_figures/2610.01578_fig5.jpg",
+      "caption": "Figure 4: Finite mask diversity interpolates between static and dynamic training. Downstream accuracy versus masking ratio for (a) the solvable model, with theoretical curves and simulation markers, and (b) a CNN autoencoder on CIFAR-10. Increasing K improves accuracy in the settings shown, and the curves approach the dynamic masking reference. The number of training samples is held fixed. Bars and shading show ±1 SD across seeds; see App. H for details.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.01578_figures/2610.01578_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

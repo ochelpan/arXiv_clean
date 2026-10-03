@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.01446",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Unflattening by Flattening -- How Input Distributions Shape Output Variance in Angle-Encoded Circuits",
+  "authors": "Melvin Strobl, Gabriel Mejia, Eileen Kuehn, Achim Streit",
+  "abstract": "Barren plateaus hinder training of parameterized quantum circuits by making loss gradients exponentially small in the number of qubits. For angle-encoded product states, we show how the input distribution affects output variation through algebraic input purity, i.e. the input's overlap with the circuit's dynamical Lie algebra. With the specified readouts and Haar or exact group 2-design sampling, matchgate circuits on $n$ qubits retain output variance of order $1/n$ for every pure product input. The off-diagonal family instead has zero output on computational-basis inputs at any depth and for every parameter choice. Independent uniform angles yield mean variance of the same order as matchgates. A count of diagonal Pauli strings identifies these zero-output endpoints. For any fixed dataset of nonzero inputs with at least $2n$ coordinates, we construct a classical preprocessing certificate. A shared random rotation is accepted only when the dataset's mean purity passes a computable threshold. This certifies mean output variance of order $1/n$ for the off-diagonal family before circuit execution, with a constant expected number of trials. Binary and ternary weighted encodings also recover the independent-angle mean purity from one uniform scalar input. Numerical experiments examine training behavior and extensions to larger algebras. The guarantee concerns output variance averaged over inputs, while successful learning also depends on the task and information preserved by the encoding.",
+  "url": "http://arxiv.org/abs/2610.01446v1",
+  "pdf": "https://arxiv.org/pdf/2610.01446v1",
+  "type": "theory",
+  "summary": "This work investigates how the choice of input data distribution influences the output variance of parameterized quantum circuits, a key factor in training stability. By analyzing the overlap between the input state and the circuit's Lie algebra, the authors derive conditions under which the output variance remains polynomially small in the number of qubits. This provides a theoretical framework for mitigating barren plateau issues in quantum machine learning.",
+  "main_problem": "The paper addresses the challenge of 'Barren plateaus' in training parameterized quantum circuits (PQCs) by analyzing how the input data distribution affects the output variance.",
+  "main_result": "The output variance can be shown to scale as $1/n$ for certain circuit ansätze (like matchgates) when averaged over inputs, provided the input distribution passes a computable purity threshold.",
+  "method": "The analysis uses algebraic tools, specifically relating output variance to the input's overlap with the circuit's dynamical Lie algebra (g-purity).",
+  "model_or_system": "The model involves angle-encoded product states $|\\psi(\\phi)\rangle$ evolved by quantum circuits $U(\theta)$ on $n$ qubits. Comparisons are drawn between 'matchgate' and 'off-diagonal' circuit ansätze.",
+  "key_observables": "Output variance ($\text{Var}_\theta[f_\theta]$), algebraic input purity ($\text{PHS}_g$), and the mean sample-wise output variance.",
+  "important_parameters": "Number of qubits ($n$), circuit depth ($L$), and the nature of the input prior distribution (e.g., uniform vs. clustered).",
+  "main_assumptions": "The guarantee on variance holds only when averaged over inputs, and the analysis relies on the DLA being reductive.",
+  "figures_summary": "Figures compare purity responses for matchgate vs. other examples, show the effect of shared random rotations on angle uniformity, and plot mean variance vs. re-uploading depth for different input priors.",
+  "paper_structure": "The paper builds from establishing the variance formula based on g-purity, comparing the scaling behavior of different ansatzes (matchgate vs. off-diagonal), developing a classical preprocessing certificate based on input purity thresholds, and finally analyzing the effect of input clustering and circuit depth.",
+  "why_interesting": "The rigorous mathematical analysis connecting input statistics (purity) to the training landscape's gradient behavior (variance) provides deep theoretical insight into the limitations of variational quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01446_figures/2610.01446_fig1.jpg",
+      "caption": "Fig. 1: Left: A shared random rotation and polar-angle extraction produce encoding angles. A classical acceptance test checks their empirical mean off-diagonal purity before the quantum circuit is run. Right: Schematic purity responses to the angle spread, without a numerical scale. The matchgate family (solid) stays in a narrow band while the floor-free examples (dashed and dash-dotted) approach zero at computational-basis inputs. Their output variances additionally depend on the simple-component dimensions and observable projections in Eq. 1.",
+      "page": 2
+    },
+    {
+      "image": "2610.01446_figures/2610.01446_fig2.jpg",
+      "caption": "Fig. 2: Under the uniform prior, the empirical mean of Pg(ρ(ϕ)) matches n −1 + 2−n and stays within [n −1, n], for sizes up to n = 18 qubits.",
+      "page": 4
+    },
+    {
+      "image": "2610.01446_figures/2610.01446_fig3.jpg",
+      "caption": "Fig. 3: Purity and output-variance response to angle clustering at n = 10 under the Ry encoding. As the angle spread σ shrinks toward the computational basis, the mean matchgate purity stays in [n −1, n], whereas the mean off-diagonal purity approaches zero. The right axis (dashed) traces the mean sample-wise output variance Eϕ[Varθ[fθ]] = 2Eϕ[Pg]/ dim g for the in- algebra observable XiXi+1 + YiYi+1 under the ensemble of Eq. 1. Accordingly, the matchgate variance changes little, while the off-diagonal variance approaches zero with its purity.",
+      "page": 4
+    },
+    {
+      "image": "2610.01446_figures/2610.01446_fig4.jpg",
+      "caption": "Fig. 3 contrasts the matchgate purity band with the collapse of the off-diagonal purity as angles approach the computational basis. c) Floor-Free Polynomial Regime: By contrast, the off- diagonal ansatz has polynomial dimension but no Z-diagonal string, so it satisfies dZ(god) = 0 under Ry encoding. Its Pauli basis contains XX and Y Y endpoints at odd separation and XY and Y X endpoints at even separation, joined by interior Z factors [29]. Since ⟨Yk⟩= 0 for the Ry product encoding, only the XX strings contribute, giving",
+      "page": 4
+    },
+    {
+      "image": "2610.01446_figures/2610.01446_fig5.jpg",
+      "caption": "Fig. 4: Mean purity and sample-wise output variance for the off-diagonal algebra god ∼= so(n) ⊕so(n), which has dZ = 0. On the left axis, the closed form Eq. 3 agrees with brute-force values (markers) and gives linear growth under the uniform prior, whereas clustering near {0, π} suppresses the mean by about five orders of magnitude. The dashed curves on the right axis show the corresponding mean variance 2Eϕ[Pgod]/ dim god for n ≥3. At n = 2 the algebra is abelian, so its zero output variance is omitted from the logarithmic axis.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.01446_figures/2610.01446_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

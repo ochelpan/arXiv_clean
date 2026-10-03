@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.01466",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Zero- Versus Infinite-Temperature Damping in Variational Quantum Circuits: Feature Scale, Sampling Cost, and Frame Gauge",
+  "authors": "Vu-Quoc-Minh Nguyen, Tuan-Vu Truong, Hoang-Long Nguyen, Trung-Khanh Le",
+  "abstract": "The Pauli twirl of amplitude damping (AD) is generalized amplitude damping at infinite temperature: it keeps the contraction of AD and removes its non-unital term, so comparing the two in variational circuits isolates the zero-temperature bias, which acts mainly through the scale of the features. For random parameters, features under AD settle on a floor, which at strong damping is set by the last layer, has a closed form, and at fixed $T_1$ falls with temperature as $\\tanh(\\hbarω/2k_BT)$; under the twirls they shrink by a constant factor per layer, up to eight qubits. A trainable output scale removes most of the resulting accuracy differences, leaving AD ahead of its twirls by at most about three percentage points in our simulations; what it removes reappears as a cost in measurement shots: trained and tested with $10^3$ shots per image, a four-qubit classifier under AD at $p=0.3$ stays within 1.5 points of noiseless accuracy, while the twirled classifiers lose up to 33. At weaker damping the separation depth grows roughly as $(np)^{-1}\\ln(1/p)$. The damping direction is a gauge when the damping follows complete entangling layers and the circuit boundaries are trainable; in an eigensolver it becomes physical inside a decomposed two-qubit gate.",
+  "url": "http://arxiv.org/abs/2610.01466v1",
+  "pdf": "https://arxiv.org/pdf/2610.01466v1",
+  "type": "theory",
+  "summary": "This work rigorously compares amplitude damping (zero-temperature noise) against its Pauli twirl counterpart (infinite-temperature noise) in Variational Quantum Circuits. The study finds that while the noise models look similar in theory, the practical impact on measurement fidelity is vastly different, with AD maintaining significantly better performance in finite-shot simulations. This highlights the critical importance of understanding the precise thermal nature of noise in quantum computation.",
+  "main_problem": "The paper compares the effects of zero-temperature amplitude damping (AD) versus infinite-temperature Pauli twirl noise on the performance of Variational Quantum Circuits (VQC). It investigates how this noise affects feature scale, sampling cost, and the underlying gauge structure.",
+  "main_result": "While a trainable output scale can mitigate accuracy differences in ideal simulations, the noise difference reappears as a significant cost in finite-shot measurements, with AD performing substantially better than its twirled counterpart. The damping direction is shown to be a gauge under specific circuit conditions.",
+  "method": "The authors use theoretical analysis and numerical simulations to compare noise channels (AD vs. Pauli twirl) applied to VQCs used for tasks like classification and eigensolving.",
+  "model_or_system": "The core model is the Variational Quantum Circuit (VQC), applied to tasks such as 4-qubit classification (on MNIST data) and quantum eigensolvers. Noise is modeled using Amplitude Damping (AD) and its infinite-temperature counterpart, the Pauli twirl.",
+  "key_observables": "Test accuracy retention, operational shot cost ($\\kappa(N)$), feature scale, and the relative error in eigensolver calculations.",
+  "important_parameters": "Damping parameter ($p$), circuit depth ($L$), number of qubits ($n$), and the number of measurement shots ($N_s$).",
+  "main_assumptions": "The analysis compares AD to the Pauli twirl approximation, and some results rely on specific averaging assumptions for the final circuit block.",
+  "figures_summary": "Figures compare performance metrics (like accuracy vs. depth) under different noise channels, demonstrating the quantitative difference in performance between AD and Pauli twirls, especially when considering measurement shot costs.",
+  "paper_structure": "The paper systematically compares AD and Pauli twirl noise, first analyzing feature scale differences, then quantifying the performance gap in finite-shot simulations, and finally discussing the gauge nature of the damping direction in different circuit contexts.",
+  "why_interesting": "The explicit comparison between zero-temperature (AD) and infinite-temperature (Pauli twirl) noise provides deep insight into the physical origin of noise biases in quantum machine learning algorithms, which is crucial for designing robust quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01466_figures/2610.01466_fig1.jpg",
+      "caption": "FIG. 1. The classifier at n = 4, drawn for one layer and the final block. Each RZRY RZ triple carries three trainable angles; the encoding column re-uploads the angle vector a in each of the L layers. The channel acts on every qubit after the entangler, after the encoding, and after the final block, giving 2L + 1 insertions per qubit. The features zj = ⟨Zj⟩enter a trainable linear readout.",
+      "page": 4
+    },
+    {
+      "image": "2610.01466_figures/2610.01466_fig2.jpg",
+      "caption": "FIG. 2. Single-qubit re-uploading fits of Ref. [22] (200 targets). (a) Largest converging output range of the raw model f = ⟨Z⟩, with a free target offset as in Ref. [22]. (b) Fraction of targets of range R = 1 that converge within 1000 steps when an output scale s and offset b are trained. (c) Shot factor κ = (s/sNone)2 from the median fitted scale; the dotted line is the exact depolarizing value λ−10 d . Bars are 95% confidence intervals of the mean over targets in (a) and Wilson 95% intervals in (b).",
+      "page": 6
+    },
+    {
+      "image": "2610.01466_figures/2610.01466_fig3.jpg",
+      "caption": "FIG. 3. Four-qubit classifier on MNIST against the number of re-uploading layers. (a) Test accuracy with the raw readout and (b) with the standardized readout, both after 100 steps. (c) Input sensitivity and (d) shot factor κ of Eq. (30) with the standardized readout. Panels (a)–(c) show the median and interquartile range over eight initializations, with each run as a hollow marker; one Pauli run at L = 1 in (b) diverged and lies below the axis.",
+      "page": 7
+    },
+    {
+      "image": "2610.01466_figures/2610.01466_fig4.jpg",
+      "caption": "FIG. 4. Relative energy error of the three-qubit eigensolver against the noise strength, for AD, reversed AD (hollow markers), and the Pauli twirl (logarithmic vertical axis). Points are the median of 50 initializations and bars the interquartile range. (a) The channel acts after the complete RZZ; AD and reversed AD coincide. (b) The channel acts after each CNOT inside RZZ, as in Ref. [22].",
+      "page": 10
+    },
+    {
+      "image": "2610.01466_figures/2610.01466_fig5.jpg",
+      "caption": "FIG. 5. Feature scale σ before training against the number of re-uploading layers for (a) four, (b) six, and (c) eight qubits, with n principal components as inputs. Markers are the root-mean-square scale over five parameter draws, the same at every depth, and 300 training images; lines are the exact average over parameters for the noiseless circuit, AD, and the Pauli twirl (Appendix D).",
+      "page": 11
+    }
+  ],
+  "figure": "2610.01466_figures/2610.01466_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

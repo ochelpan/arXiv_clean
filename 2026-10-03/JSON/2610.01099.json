@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.01099",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Constant-Per-Layer-Depth MPS-Pretrained Ansatz for Noisy Distributed Quantum Processors",
+  "authors": "Seongpyo Hong, Woodo Lee, Yong-Su Kim, Seung-Sup B. Lee, Junghyun Lee",
+  "abstract": "Distributed quantum processors could scale variational algorithms beyond single devices, but circuit depth, communication overhead, and noise limit their performance. We compare ladder, mixed-canonical, and brick-wall realizations of matrix-product-state (MPS) pretraining with matched per-layer two-qubit-block resources. Despite comparable ideal variational quantum eigensolver performance and gradient scales, the shallower brick-wall architecture reduces circuit duration, idle-time decoherence, and zero-noise-extrapolation (ZNE) overhead, yielding superior noisy and ZNE-assisted performance. We then extend MPS-pretrained circuits to modular processors with one communication qubit per quantum processing unit (QPU); a nearest-neighbor QPU-path schedule keeps the per-layer depth constant as QPUs are added. Distributed circuits whose inter-QPU links realize long-range interactions of the target Hamiltonian match or outperform the single-processor brick-wall under noise when communication idle time is short compared with the coherence time. These results establish hardware-aware co-design of tensor-network pretraining, circuit scheduling, and communication topology as a principle for variational quantum computation on noisy modular hardware.",
+  "url": "http://arxiv.org/abs/2610.01099v1",
+  "pdf": "https://arxiv.org/pdf/2610.01099v1",
+  "type": "theory",
+  "summary": "This work establishes a framework for designing variational quantum circuits on modular quantum hardware by co-designing the ansatz, circuit scheduling, and communication topology. By comparing different MPS-based ansatzes, the authors show that depth-efficient architectures like the brick-wall are superior under noise. The results provide critical guidelines for scaling VQE to multi-QPU systems.",
+  "main_problem": "The paper addresses the challenge of scaling variational quantum algorithms on noisy, distributed quantum processors by developing hardware-aware co-design principles.",
+  "main_result": "The shallower brick-wall ansatz outperforms other circuit realizations under noise, and distributed circuits can match or exceed this performance if inter-QPU links realize relevant long-range interactions.",
+  "method": "The study compares different structured ansatzes (ladder, mixed-canonical, brick-wall) for encoding Matrix Product States (MPS) and extends this comparison to modular processors using VQE simulations.",
+  "model_or_system": "The system involves distributed quantum processors composed of multiple Quantum Processing Units (QPUs) connected by quantum links, simulating a target Hamiltonian like the twisted Heisenberg chain.",
+  "key_observables": "Relative energy error, gradient variance, circuit depth, and state fidelity ($F$).",
+  "important_parameters": "Noise strength, inter-QPU communication cost factor ($r$), and two-qubit gate duration ($t_{2q}$).",
+  "main_assumptions": "The advantage of distribution relies on the inter-QPU links realizing long-range interactions of the target Hamiltonian, and the comparison assumes matched per-layer two-qubit-block resources.",
+  "figures_summary": "Figures illustrate the comparison of ansatzes (depths, convergence) and the performance of distributed architectures under varying communication costs and noise levels.",
+  "paper_structure": "The paper first compares ansatzes on a single QPU, establishing the brick-wall's advantage; it then extends this to modular processors, analyzing the impact of nearest-neighbor scheduling and inter-QPU links on overall performance.",
+  "why_interesting": "It provides concrete, hardware-aware guidelines for designing variational quantum circuits, which is crucial for realizing algorithms on near-term, noisy quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01099_figures/2610.01099_fig1.jpg",
+      "caption": "Fig. 1 Overview of tensor-network–assisted circuit design and the impact of depth-dependent deco- herence. (a) Schematic workflow: a classically optimized tensor-network state (illustrated here for an MPS) is mapped onto a gate-based parametrized circuit and deployed on a distributed quantum processor comprising multiple QPUs. (b) Illustration of a noisy quantum circuit, and representative trends showing purity decay with an increasing number of layers and the resulting degradation of variational optimization. The purity plot reports the mean over 10,000 random-circuit realizations, with error bars indicating one standard deviation, whereas the ideal and noisy optimization curves show...",
+      "page": 3
+    },
+    {
+      "image": "2610.01099_figures/2610.01099_fig2.jpg",
+      "caption": "Fig. 2 Illustration of the three structured ansatzes considered in this work: ladder, mixed-canonical, and brick-wall. Each layer comprises N −1 two-qubit unitary blocks, but the parallelization strategy differs, resulting in distinct per-layer circuit depths: D = N −1 (ladder), D = ⌈N/2⌉(mixed- canonical), and D = 2 (brick-wall), where each brick-wall layer consists of one odd and one even sublayer.",
+      "page": 5
+    },
+    {
+      "image": "2610.01099_figures/2610.01099_fig3.jpg",
+      "caption": "Fig. 3 Ideal-circuit benchmarks of energy convergence and gradient-variance diagnostics of the three structured ansatzes. Left: Noise-free VQE convergence of the relative energy error |(E −Eg)/Eg| for the (a) ladder, (b) mixed-canonical, (c) brick-wall ansatzes with a fixed total layer number L = 4. Results are shown for different combinations of the number of pretrained layers K and the MPS bond dimension χ (see legend). Solid lines denote the mean over 20 independent random initializations, and shaded regions indicate the corresponding min–max range (see Methods for initialization details). Right: Gradient-variance diagnostics, computed as the unbiased sample variance over 100 independent...",
+      "page": 6
+    },
+    {
+      "image": "2610.01099_figures/2610.01099_fig4.jpg",
+      "caption": "Fig. 4 Ideal MPS-to-circuit encoding infidelity for the twisted Heisenberg target MPS. (a) State infidelity, 1 −F, as a function of system size for fixed χ = 8 and K = 4. (b) State infidelity as a function of the number of encoding layers K for fixed χ = 8 and N = 50. The fidelity is computed between the target MPS and the corresponding circuit-prepared state for the three structured circuit layouts. Markers show the mean over six restarts of the encoding optimization and error bars the min–max range (Supplementary Information). Here, K denotes the number of circuit layers optimized to encode the target MPS; the same layers serve as the pretrained layers in the VQE calculations.",
+      "page": 7
+    },
+    {
+      "image": "2610.01099_figures/2610.01099_fig5.jpg",
+      "caption": "Fig. 5 Gate noise model and its impact on variational optimization. (a) Schematic of the noise model used in this work: after each decomposed gate G, the biased Pauli channel EP and the thermal- relaxation channel ET are applied, while idle intervals are modeled by ET alone. (b) Representative noisy VQE convergence of the relative energy error, |(E −Eg)/Eg|, for the three structured ansatzes. The dotted horizontal line indicates the mean endpoint relative energy error over 20 noiseless VQE runs of the ladder ansatz at the same (L, K, χ) = (3, 2, 8) setting, with each noiseless run optimized for 20,000 Adam iterations.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.01099_figures/2610.01099_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

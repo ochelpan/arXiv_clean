@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.01839",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Toward Optimal Circuit Depth for Geometrically Local Hamiltonian Simulation",
+  "authors": "Zhenyu Shen, Yusen Wu, Penghui Yao, Xiao Yuan, Yukun Zhang",
+  "abstract": "Understanding the dynamics of interacting quantum systems is a central goal of quantum simulation. For geometrically local Hamiltonians, locality suggests that digital simulation should retain much of the parallelism of the underlying dynamics. For a target accuracy $ε$, we construct a nearest-neighbor quantum circuit that simulates the dynamics of an $n$-qubit, time-independent, finite-range Hamiltonian with normalized local interaction strength on a fixed-dimensional lattice for time $T\\ge1$, with circuit depth $O(T\\log(nT/ε))$ and gate count $O(nT\\log(nT/ε))$. This reduces the polylogarithmic overhead of Haah, Hastings, Kothari, and Low to a single logarithm. On logarithmic-scale blocks from the Lieb--Robinson decomposition, a shallow but highly accurate implementation is essential for reducing the circuit depth. Our key observation is that spatial localization also controls the cost of high precision. In each block, the error of a constant-order product formula is compensated for by a correction, yielding exponential accuracy. The correction can be implemented with depth proportional to the block diameter, introducing no additional asymptotic depth scale beyond that required by spatial localization.   Furthermore, we prove an unconditional circuit-depth lower bound for uniform XXZ Hamiltonians: at fixed evolution time $T$ in the stated regime and sufficiently small fixed error $ε$, any nearest-neighbor quantum circuit simulating these dynamics requires depth $Ω(\\log n/\\log\\log n)$. This matches our $O(\\log n)$ upper bound up to a doubly logarithmic factor, establishing near-optimal circuit depth for lattice Hamiltonian simulation in this regime. Together, these results clarify the role of locality and precision in determining the circuit complexity of quantum dynamics and suggest broader principles for spatially constrained quantum computation.",
+  "url": "http://arxiv.org/abs/2610.01839v1",
+  "pdf": "https://arxiv.org/pdf/2610.01839v1",
+  "type": "theory",
+  "summary": "This paper develops a method to simulate quantum dynamics for local Hamiltonians by decomposing the evolution into short-time steps on small spatial blocks. It achieves an upper bound on the circuit depth that is near-optimal, matching a proven lower bound for specific systems like the XXZ model. This work clarifies the role of spatial locality in determining the computational cost of quantum simulation.",
+  "main_problem": "The paper aims to determine the optimal circuit depth required to simulate the time evolution of interacting quantum systems governed by geometrically local Hamiltonians.",
+  "main_result": "The authors establish an upper bound of $O(T \\log(nT/\\epsilon))$ for circuit depth and prove a lower bound of $\\Omega(\\log n / \\log \\log n)$ for uniform XXZ Hamiltonians, showing near-optimality.",
+  "method": "The approach involves decomposing the simulation into short-time evolutions on small, overlapping spatial blocks using Lieb-Robinson bounds and applying advanced product formulas with error compensation.",
+  "model_or_system": "The system is an $n$-qubit, time-independent, finite-range Hamiltonian ($H$) defined on a fixed-dimensional lattice. The simulation targets the unitary evolution $e^{-iHT}$ to a specified accuracy $\\epsilon$.",
+  "key_observables": "Circuit depth, gate count, and simulation accuracy ($\\epsilon$).",
+  "important_parameters": "Evolution time $T$, number of qubits $n$, lattice dimension $D$, and local interaction strength $J$.",
+  "main_assumptions": "The analysis relies on the spatial locality of the Hamiltonian and the ability to decompose the evolution into blocks whose error can be controlled by the block diameter.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper first introduces the problem of simulating local dynamics, then details the construction of the circuit using spatial decomposition and error correction techniques, culminating in the proof of the near-optimal circuit depth bounds by matching upper and lower bounds.",
+  "why_interesting": "It provides concrete, near-optimal complexity bounds for simulating lattice Hamiltonians, which is crucial for designing efficient quantum algorithms for many-body physics simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01839_figures/2610.01839_fig1.jpg",
+      "caption": "Figure 1: Block encoding and distribution of its controls. (a) Gates act from left to right. PREPARE creates the labels and phase qubits; Cpre computes prefix values, D0 applies source phases, and N applies local phases and ordered data gates. Temporary distribution work is cleared before the prefix computation and preparation are reversed. The work wire includes both source and geometric ancillas. (b) A basis record is distributed to the shared words Rg, used without changing its control values, and returned for uncomputation. Solid and dashed arrows distinguish forward and return paths on separate qubits. The omitted tree levels and their local connections are specified in Appendix A;...",
+      "page": 15
+    },
+    {
+      "image": "2610.01839_figures/2610.01839_fig2.jpg",
+      "caption": "Figure 2: Addresses and local registers. (a) Each subblock Ωg contains v0 = Θ(w) data sites. (b) A nearest-neighbor snake orders the sites by j; the circled site has j = 0. (c) The dashed table indexes classical triples (cλ, ωλ, Pλ), whereas the dots and solid boxes denote quantum registers. Here qrec = 4, aµ abbreviates ag,qrecj+µ, and Rg[j] is the part of the shared word near data register Dg,j. The selectors and additional work bits together form Wg. The address is λ = gT0 + i, with i = qrecj + µ and T0 = qrecv0. Equation (165) places the distinct qubits at distinct physical sites.",
+      "page": 28
+    },
+    {
+      "image": "2610.01839_figures/2610.01839_fig3.jpg",
+      "caption": "Figure 3: Local phase operations in a fixed pair-swap network; the subblock index g is suppressed. (a) Four selector pairs Ai = (ai, 0) cross the two phase-field pairs B0 = (Sχ, 0) and B1 = (Sω 0 , J0). Columns denote fixed pair positions and lines track their contents through five rounds. Each circle marks a phase operation immediately before a pair exchange. (b) At a frequency encounter, a Toffoli computes aiJβ into the clean bit; that bit controls Dph(zi,β), and a second Toffoli clears it. Reversing the pair exchanges restores every field while retaining the phases.",
+      "page": 32
+    },
+    {
+      "image": "2610.01839_figures/2610.01839_fig4.jpg",
+      "caption": "Figure 4: Propagation probes for the lower bound, illustrated in two dimensions. (a) A source xs is at the center of a cube of radius bpr. The receiver Bs is the transverse slice at displacement ℓpr; the dashed diamond is the circuit causal ball of radius acone < ℓpr. The reference Hamiltonian deletes vxy on every edge crossing a probe boundary and retains the original one-body terms; the marked cuts are examples. (b) Disjoint probes lie in the middle half of the lattice, away from the physical boundary. Their centers form S and their receiver slices form B. The reference output factorizes across probes, and Eq. (144) bounds its difference from the interacting output. The buffer ratio...",
+      "page": 45
+    },
+    {
+      "image": "2610.01839_figures/2610.01839_fig5.jpg",
+      "caption": "Figure 5: Dyadic regions and workspaces for D = 2 and K = 2. (a) Coordinates are in units of b after doubling the data coordinates. A level-k region has original side b2k, coarse side 2b2k, and workspace Bν = c(ν) + {0, . . . , b/2 −1}2. Dark, gray, and pale blue squares show levels 2, 1, 0; their workspaces are disjoint across levels. (b) The inclusion tree has child index (k −1, 2m + ϵ), where ϵ ∈{0, 1}2. The labels r, c, l mark the same root, child, and leaf in both panels, at coarse centers (4b, 4b), (6b, 2b), and (5b, 3b). Leaves are subblocks.",
+      "page": 51
+    }
+  ],
+  "figure": "2610.01839_figures/2610.01839_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

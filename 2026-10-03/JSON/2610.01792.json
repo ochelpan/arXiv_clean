@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.01792",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR",
+    "cs.IT",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Learnt Attacks on Quantum Key Distribution under Channel Noise and Device Drift",
+  "authors": "Marcel Mordarski, Benjamin Gras, Abdelrahman Shehata, Daniel Budina, Roberto Bondesan",
+  "abstract": "Quantum key distribution (QKD) links are provisioned from security analyses of stationary channels, whereas the devices that determine the channel drift between recalibrations. Whether an eavesdropper who cannot alter the channel's own noise gains by following that drift has not been quantified. Adaptive eavesdropping is posed here as a constrained Markov decision process in which the attacker selects one circuit per round while the noise level follows an Ornstein--Uhlenbeck process and the abort condition is a budget over each block of rounds. The value of adaptation is bounded by the best fixed circuit and a dynamic-programming upper bound. The actions are learnt attacks. Whereas Decker et al. trained a parametrised circuit on a fixed gate template against a fixed channel, here the gate structure and rotation angles are searched jointly. This yields circuits compact enough to form a discrete action set, extending the construction to noise models lacking a known template, including the amplitude damping channel. On device-independent E91 under bilateral depolarising noise, a reinforcement-learning attacker raises her Holevo information from $0.135$ for the best fixed circuit to $0.348$ at zero detection, $98\\%$ of the upper bound. On BB84 under a drifting bit-flip channel, she exceeds a conservative noise-indexed rule by $0.024$ in fidelity, reaching $99\\%$ of the upper bound. Under stationary noise, the attacker's gain from basis asymmetry changes sign between an averaged and a per-basis error-rate constraint. The search, started from random gate sequences, recovers the analytical cloners and the collective-attack key rate, and meets the lower bound of the Winick--Lütkenhaus--Coles objective from above.",
+  "url": "http://arxiv.org/abs/2610.01792v1",
+  "pdf": "https://arxiv.org/pdf/2610.01792v1",
+  "type": "theory",
+  "summary": "This paper develops a framework to analyze eavesdropping attacks on QKD when the quantum channel noise drifts over time. By modeling the attack as a constrained Markov decision process and using reinforcement learning, the authors show that adaptive attackers can exploit channel drift to gain significantly more information than previously assumed. This work advances the security understanding of QKD in real-world, non-stationary environments.",
+  "main_problem": "The paper addresses the security of Quantum Key Distribution (QKD) links when the underlying quantum channel drifts over time, a scenario not adequately covered by standard security analyses that assume stationary channels.",
+  "main_result": "Using reinforcement learning, the authors demonstrated that an adaptive eavesdropper can significantly increase their information gain (Holevo information) compared to the best fixed attack, reaching values close to the theoretical upper bound.",
+  "method": "The problem is modeled as a constrained Markov decision process, solved using reinforcement learning to train an adaptive eavesdropping strategy that optimizes circuit selection round-by-round.",
+  "model_or_system": "The system involves QKD protocols (BB84, E91) transmitted over channels whose noise follows an Ornstein–Uhlenbeck process, simulating channel drift between recalibrations.",
+  "key_observables": "Holevo information ($\\chi$), Fidelity ($F$), and the achievable Key Rate, which are used to quantify the eavesdropper's information gain.",
+  "important_parameters": "The noise level ($\text{pt}$), the rate of channel drift ($\\kappa$), and the budget over the rounds of the attack.",
+  "main_assumptions": "The primary gap addressed is the lack of quantification regarding the attacker's gain specifically due to channel drift, moving beyond the assumption of stationary noise.",
+  "figures_summary": "The notes mention comparing the separation between attainable FAE and the noiseless cloning envelope across various noise weights, and showing the evolution of the noise level over time in the drift analysis.",
+  "paper_structure": "The work progresses by first framing the problem as an adaptive MDP, then applying RL to find optimal attack circuits, and finally demonstrating quantitative gains on specific protocols (E91 and BB84) under simulated channel drift.",
+  "why_interesting": "It provides a rigorous, computationally intensive framework for assessing the security margins of quantum communication links against sophisticated, time-varying adversaries, which is crucial for practical quantum network deployment.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01792_figures/2610.01792_fig1.jpg",
+      "caption": "Figure 1. Attainable attacks under stationary channel noise at an abort threshold of FAB ⩾0.87. (a) The maximum at- tainable FAE under the trusted-noise convention as the chan- nel’s total honest error weight, ε, increases. This is plotted for two scenarios: a channel concentrating all its error in a single basis, and one splitting the error evenly. Because both channels produce the same observed disturbance, the noise- less closed-form solution (dashed line) assigns them identical values. The shaded region highlights the gap between this theoretical limit and the actual attainable FAE. Each data point represents the best outcome from three random seeds, with a cross-seed spread of...",
+      "page": 5
+    },
+    {
+      "image": "2610.01792_figures/2610.01792_fig2.jpg",
+      "caption": "Figure 2. Disturbance versus information in the device- independent setting. At p = 0, the discovered attacks trace the noiseless Acín envelope [27, 28], demonstrating that the search successfully saturates the analytical frontier where one exists. However, when averaged over the drifting noise, the attainable value (marked by the star) drops to χ ≈0.35, fall- ing short of the 0.607 permitted by the theoretical envelope at the threshold. This gap occurs for two reasons: the the- oretical envelope assumes a strictly noiseless channel (p = 0) while the attainable value averages over active noise (p > 0), and the constructed attacks are restricted to a fixed three- qubit preparation.",
+      "page": 8
+    },
+    {
+      "image": "2610.01792_figures/2610.01792_fig3.jpg",
+      "caption": "Figure 3. Adaptive attack on BB84 under a drifting device. Upper panel: attacker information FAE during evaluation, reaching the greedy oracle (dashed) at its best checkpoints and well above the passive baseline (dotted). Lower panel: detection rate, which stays at zero at those checkpoints.",
+      "page": 9
+    },
+    {
+      "image": "2610.01792_figures/2610.01792_fig4.jpg",
+      "caption": "Figure 4. BB84 under a drifting bit-flip channel: final evalu- ation FAE across policies, strict-feasibility variants only. The value-based agent matches the greedy oracle at 0.7434, un- masked policy-gradient methods plateau around 0.02 below it, and the noise-indexed conservative lookup (“Static safe”) reaches 0.7197.",
+      "page": 10
+    },
+    {
+      "image": "2610.01792_figures/2610.01792_fig5.jpg",
+      "caption": "Figure 6. E91/DIQKD: final evaluation χ across policies. The masked value-based agent reaches 0.3484 against a greedy or- acle at 0.3507 and a coarse-grid dynamic-programming run at 0.3540 with 7% detection, whereas unmasked policy-gradient methods collapse to χ ≈0.26–0.28 by confining themselves to three or four distinct actions.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.01792_figures/2610.01792_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

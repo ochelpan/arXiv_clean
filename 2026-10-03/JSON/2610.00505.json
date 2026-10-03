@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.00505",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Walshness: an intrinsic neural-network representability metric for quantum states",
+  "authors": "Nisarga Paul, Kehuang Chen, Jessica K. Jiang, Haimeng Zhao, Di Luo",
+  "abstract": "Neural quantum states (NQS) have emerged as powerful representations of quantum states with rapidly expanding applications across quantum many-body physics. Yet our understanding of when neural networks can efficiently represent physical quantum states remains limited, in part due to the nonlinear parameterization of NQS, the intricate sign structure of quantum states, and the sensitive dependence on basis choice. We introduce Walshness, a complexity metric of a quantum state which quantifies whether it admits a compact neural-network representation. We rigorously prove that a general quantum many-body state admits an efficient NQS representation if and only if it has bounded Walshness for various NQS architectures. We provide an algorithm for finding the optimal basis by minimizing the energy of a corresponding classical spin model. This allows us to empirically improve the learnability of various physical quantum states, including ground states of the transverse-field Ising model and mixed-field toric code, often reducing infidelity by orders of magnitude, and recovers and generalizes the basis choice given by the well-known Marshall sign rule in frustrated antiferromagnets. Our results provide an intrinsic complexity metric for quantum states with provable connections to their neural-network representability.",
+  "url": "http://arxiv.org/abs/2610.00505v1",
+  "pdf": "https://arxiv.org/pdf/2610.00505v1",
+  "type": "theory",
+  "summary": "The paper introduces Walshness, a novel, intrinsic metric quantifying the complexity of a quantum state's structure relative to its potential representation by a neural network. It rigorously proves that low Walshness guarantees efficient representability by MLPs, providing a theoretical benchmark for quantum state learnability. This framework is successfully applied to analyze ground states of lattice models like the Toric Code, revealing deep connections between quantum phase transitions and information-theoretic complexity.",
+  "main_problem": "The paper addresses the fundamental question of when and how efficiently quantum many-body states can be represented by Neural Quantum States (NQS), given challenges from nonlinear parameterization and basis dependence.",
+  "main_result": "It introduces Walshness, a complexity metric, and proves that a state has an efficient NQS representation if and only if it has bounded Walshness, providing a rigorous link between quantum state structure and machine learning capacity.",
+  "method": "The authors define Walshness using the Walsh-Hadamard transform and establish its intrinsic form by minimizing over local unitaries. They connect this metric to the learnability of MLPs and RBMs via theoretical bounds and variational minimization.",
+  "model_or_system": "The analysis focuses on general quantum many-body states on $n$ qubits, tested on models like the Transverse-Field Ising Model (TFIM) and the mixed-field Toric Code. The representation tool is the Neural Quantum State (NQS) parameterized by MLPs.",
+  "key_observables": "Walshness ($W_\\alpha$), Intrinsic Walshness ($W_\\alpha$), Infidelity ($\\epsilon$), and the energy of a corresponding classical spin model.",
+  "important_parameters": "The system size $n$, the parameter $\\alpha$ in Walshness, and the coupling strengths ($h_X, h_Z$) in the Hamiltonian.",
+  "main_assumptions": "The connection between low Walshness and efficient MLP representation is established for a truncated state $|\text{e}\\psi\rangle$. The analysis often relies on asymptotic scaling arguments.",
+  "figures_summary": "Figures illustrate that low Walshness correlates with low training infidelity across various bases (e.g., TFIM, Toric Code). Specific comparisons show that the intrinsic Walshness reveals underlying structural properties, such as divergences related to phase transitions in the 2D Ising model.",
+  "paper_structure": "The paper first defines Walshness and proves its connection to NQS representability. It then applies this to specific models (TFIM, Toric Code), deriving closed-form expressions for Walshness related to known statistical physics models (like the 2D Ising model). Finally, it compares the performance of NQS trained using different bases (computational vs. Walshness-optimized) on complex systems.",
+  "why_interesting": "This work provides a powerful, intrinsic complexity measure that bridges quantum information theory, condensed matter physics, and machine learning theory. For AMO physicists, it offers a quantitative diagnostic tool to predict the feasibility of simulating complex quantum phases using modern neural network architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.00505_figures/2610.00505_fig1.jpg",
+      "caption": "Figure 1. Walshness. (a) For a quantum state |ψ⟩on n qubits, low Walshness implies the existence of an efficient neural quantum state (NQS) representation in some basis. Conversely, a compact NQS has low Walshness. (b) We pro- vide an algorithm for finding Walshness-minimizing bases and numerically show that they ease NQS training.",
+      "page": 2
+    },
+    {
+      "image": "2610.00505_figures/2610.00505_fig2.jpg",
+      "caption": "Figure 2. NQS learning. (a) Fixed-basis Walshness den- sity of |+x⟩, |+z⟩, and |−x⟩ferromagnets. All three have zero intrinsic Walshness. (b) Loss during a common training budget for MLP-NQS fits of these states, using infidelity as loss. Ordering of losses follows that of WZ α. (c) Fixed-basis Walshness density and intrinsic Walshness density at α = 1 for the TFIM ground state. Insets show Wα-minimizing bases (ˆnj,x, ˆnj,z) at g = 0.2 and 1.2. (d) Minimum infidelity per qubit for learning the g = 0.2 TFIM ground state over many trials (with varying MLP architectures, hyperparameters, and epochs [56]) for Walshness minimizing (blue) and computa- tional (black) bases. These data demonstrate...",
+      "page": 4
+    },
+    {
+      "image": "2610.00505_figures/2610.00505_fig3.jpg",
+      "caption": "Figure 3. Walshness and the Marshall sign rule. (a,c) Walshness WZ 1 [U|ψ⟩] in the computational (black), Marshall (purple dashed), and numerically optimized (blue) bases. (a,b) Results for HXY [Eq. (11)], with varying anisotropy g, in the parity-even ground state. (c,d) Results for HXYZ [Eq. (12)], with varying frustration g. Within the exact ground state manifold, we select the state maximizing ⟨X⟩on a corner site of the finite lattice. (b,d) Optimized basis axes at the indicated couplings. Arrows show the xy projections of ˆnj, defined by U † j XjUj = ˆnj · σj.",
+      "page": 5
+    },
+    {
+      "image": "2610.00505_figures/2610.00505_fig4.jpg",
+      "caption": "Figure 4. Mixed-field toric code. (a,b) Z-basis (dashed) and numerically minimized (solid) Walshness at α = 1, along hX = 0 and hX = hZ for the L = 3 torus [n = 18, inset in (b)]. (c,d) Median best infidelity per qubit during 2 · 104",
+      "page": 9
+    },
+    {
+      "image": "2610.00505_figures/2610.00505_fig5.jpg",
+      "caption": "Figure 5. Multiplicative Walshness and RBM learning. (a) W∗ α for α = 1 and (b) infidelity versus global basis rotation angle θ in the TFIM. Curves show the lowest-energy retained trial after 1000 SR steps, with hidden-unit density ρ = M/n. Data in part reproduced from [45] (see [56]). Increase in W∗ 1 tracks increase in infidelity across θ.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.00505_figures/2610.00505_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

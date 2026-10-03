@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.00521",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "First-quantized quantum simulation with non-local potentials by matrix-product-state encoding",
+  "authors": "Kazuki Tsuoka, Taichi Kosugi, Masari Watanabe, Hirofumi Nishi, Yu-ichiro Matsushita",
+  "abstract": "Quantum simulations based on first-quantized approaches can offer lower space and gate complexities than second-quantized approaches. The gate requirements for these simulations can be further reduced by employing pseudopotentials, a technique widely used in classical quantum chemistry calculations to decrease the number of simulated electrons. However, implementing pseudopotentials in quantum circuits remains challenging due to their non-local nature. In this study, we proposed a method to efficiently implement non-local potentials using matrix product state (MPS) encoding. MPS encoding allows us to efficiently implement a Trotter step operator with a circuit depth of $O(\\mathrm{deg}(V_{\\mathrm{loc}}) n^{\\mathrm{deg}(V_{\\mathrm{loc}})} + 8Lnn_{\\mathrm{atom}}χ^2 + 2n^2)$, where $\\mathrm{deg}(V_{\\mathrm{loc}})$ is the degree of the polynomial local potential, $n_{\\mathrm{atom}}$ is the number of atoms in the system, $L$ is the maximum number of projector functions across all atoms, and $n$ is the number of qubits used to represent the binary-encoded wave function in one-dimensional space. We demonstrated the effectiveness of this approach by applying it to a model of the ionization of a one-dimensional hydrogen atom driven by an ultrashort laser pulse. Our results showed that MPS encoding significantly reduces the required circuit depth compared to a direct unitary decomposition, providing a pathway for practical first-quantized simulations.",
+  "url": "http://arxiv.org/abs/2610.00521v1",
+  "pdf": "https://arxiv.org/pdf/2610.00521v1",
+  "type": "theory",
+  "summary": "This paper presents a novel method to efficiently encode and simulate non-local potentials within quantum circuits using Matrix Product State (MPS) encoding. By applying this to the ionization of a 1D hydrogen atom, the authors show that their approach drastically reduces the required circuit depth compared to standard unitary decompositions. This provides a practical pathway for performing complex first-quantized quantum simulations.",
+  "main_problem": "The core challenge is developing an efficient quantum circuit implementation for simulating systems governed by non-local potentials, which are difficult to encode directly into quantum circuits.",
+  "main_result": "The authors propose and demonstrate a method using Matrix Product State (MPS) encoding that significantly reduces the required circuit depth for implementing the non-local potential propagator during a Trotter step.",
+  "method": "The simulation uses first-quantized approaches, representing the state via MPS encoding to efficiently implement the time evolution operator, particularly the non-local potential term, $e^{-iV_{\text{nonl}}\\Delta t}$.",
+  "model_or_system": "The study models the ionization of a one-dimensional hydrogen atom driven by an ultrashort laser pulse. The Hamiltonian includes kinetic energy ($T_{kin}$) and potentials ($V$), where the non-local potential ($V_{\text{nonl}}$) is decomposed into a sum of separable projectors.",
+  "key_observables": "Circuit depth (a measure of computational resource cost) and the accuracy of the simulation relative to direct unitary decomposition.",
+  "important_parameters": "The circuit depth scales with $\text{deg}(V_{\text{loc}})$, $L$ (max projector functions), $n_{\text{atom}}$, and the MPS bond dimension $\\chi$.",
+  "main_assumptions": "The time evolution is approximated using first-order Trotterization, and the state is efficiently represented by an MPS.",
+  "figures_summary": "Figure 8 analyzes the Schmidt decomposition of state vectors, showing that the required bond dimension for MPS representation is governed by the Gaussian component of the state.",
+  "paper_structure": "The paper details the necessity of simulating non-local potentials, derives the structure of the non-local propagator using separable projectors, and then introduces the MPS encoding technique to achieve an efficient circuit depth for the full Trotter step operator.",
+  "why_interesting": "This work directly addresses the computational bottleneck of simulating complex quantum dynamics (like those involving pseudopotentials) by mapping the physics onto an efficient quantum information structure (MPS), which is crucial for fault-tolerant quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.00521_figures/2610.00521_fig1.jpg",
+      "caption": "FIG. 1. An example 4-qubit quantum circuit diagram implementing a single Trotter step operator using a full-rank MPS representation of the non-local potential. We omit the translation operator T(Rν). P(ϕ) = |0⟩⟨0| + eiϕ |1⟩⟨1| is a phase gate, and “QFT” represents the quantum Fourier transform circuit, which implements the discrete Fourier transform F.",
+      "page": 5
+    },
+    {
+      "image": "2610.00521_figures/2610.00521_fig2.jpg",
+      "caption": "FIG. 2. The temporal evolution of the ground-state popula- tion |⟨ϕ0|ψ(t)⟩|2 of a one-dimensional hydrogen atom inter- acting with an 8-cycle ultrashort laser pulse with peak inten- sity of Ipeak = 4.0 × 1014 W/cm2 and angular frequency of ω = 0.057 a.u., simulated by the split-operator method with the single-separable potential given in Eq. (38).",
+      "page": 6
+    },
+    {
+      "image": "2610.00521_figures/2610.00521_fig3.jpg",
+      "caption": "FIG. 3. An example 4-qubit quantum circuit diagram implementing a single Trotter step operator for a one-dimensional hydrogen atom interacting with an ultrashort laser pulse using a full-rank MPS representation of the single non-local separable potential. The first segment (filled with red) of the circuit implements e−iVloc(t)∆t as a tensor product of single-qubit phase gates, the second segment (filled with green) implements e−iVnonl∆t using a state-preparation unitary Uv0 and an (n −1)- controlled phase gate, and the third segment (filled with blue) implements e−i ˜ Tkin∆t as a tensor product of single-qubit phase gates followed by a series of controlled-phase gates. ϕ(Vloc) k = −2kτ1∆p...",
+      "page": 8
+    },
+    {
+      "image": "2610.00521_figures/2610.00521_fig4.jpg",
+      "caption": "FIG. 6. The temporal evolution of infidelity when us- ing the MPS-encoded non-local potentials (a) V (p, p′) = −v0(p)v∗ 0(p′) and (b) V (p, p′) = −v1(p)v∗ 1(p′) −v2(p)v∗ 2(p′), compared with the split-operator method over the same 10,000 time steps for each bond dimension.",
+      "page": 8
+    },
+    {
+      "image": "2610.00521_figures/2610.00521_fig5.jpg",
+      "caption": "FIG. 4. Maximum bond dimension of the MPS representa- tions of (a) |v0⟩, (b) |v1⟩, and (c) |v2⟩for each number of qubits.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.00521_figures/2610.00521_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.01954",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hardware-Efficient Ground-State Preparation using Variational Imaginary-Time Majorana Evolution",
+  "authors": "Federico Santona, Manuel G. Algaba, Aeishah Ameera Anuar, Anna M. Wernbacher, Prachi Sharma, Fedor Šimkovic",
+  "abstract": "Compact ground-state preparation circuits are essential for early fault-tolerant quantum chemistry. We introduce Variational Imaginary-time Majorana Evolution (VIME), a classical pre-training algorithm that extends operator-projected variational quantum imaginary-time evolution (OVQITE) to molecular electronic structure using a single compiled Majorana-propagation (MP) surrogate graph. We pair VIME with a compressed tiled Unitary Product State (c-tUPS) ansatz that we develop to reduce both classical simulation and quantum state-preparation costs. In the strongly correlated ruthenium complex TLD-1411, active-space calculations requiring up to 52 qubits achieve chemical precision against DMRG reference energies, with energy errors approximately $400\\times$ smaller than those from ADAPT-VQE-based variational Majorana-propagation (ADAPT-VMPE). Across the strongly multireference acene series up to heptacene (60 qubits), VIME matches or improves on the MP-reported energy accuracy of the ADAPT-VMPE comparison points with up to $26\\times$ fewer CNOTs and $167\\times$ lower two-qubit depth. These results establish imaginary-time classical pre-training of compressed variational ansätze as a promising route to resource-efficient molecular ground-state preparation.",
+  "url": "http://arxiv.org/abs/2610.01954v1",
+  "pdf": "https://arxiv.org/pdf/2610.01954v1",
+  "type": "theory",
+  "summary": "This paper introduces Variational Imaginary-time Majorana Evolution (VIME), a novel classical pre-training technique for quantum chemistry. VIME is used to prepare ground states for large, strongly correlated molecules, achieving high accuracy while drastically reducing the required quantum circuit depth and gate count compared to existing state-of-the-art methods.",
+  "main_problem": "The core problem is developing compact and resource-efficient quantum circuits for accurately preparing the ground state of molecular electronic structure, which is crucial for fault-tolerant quantum chemistry.",
+  "main_result": "The proposed Variational Imaginary-time Majorana Evolution (VIME) combined with a compressed ansatz significantly reduces circuit resources (CNOTs, depth) while achieving chemical precision energy estimates for large, strongly correlated molecular systems compared to prior methods.",
+  "method": "The authors introduce VIME, a classical pre-training algorithm that extends OVQITE using Majorana Propagation (MP) as a surrogate for variational quantum imaginary-time evolution.",
+  "model_or_system": "The study applies these methods to molecular electronic structure, benchmarking against strongly correlated systems like the ruthenium complex TLD-1411 and the acene series (up to 60 qubits) using an active-space approach.",
+  "key_observables": "Ground-state energy ($\\langle \\hat{H} \rangle$), CNOT count, two-qubit depth, and energy error relative to DMRG reference energies.",
+  "important_parameters": "System size (up to 60 qubits), imaginary time ($\tau$), and the Tikhonov regularization parameter ($\\lambda$).",
+  "main_assumptions": "The methods rely on classical pre-training (VIME) to guide the variational ansatz, and the MP framework requires various truncations (length, sine-order, orbital) to manage exponential growth.",
+  "figures_summary": "Figures compare energy error trajectories (VIME vs. VMPE) across various qubit counts, demonstrating resource scaling advantages for VIME. Tables list system parameters and reference energies.",
+  "paper_structure": "The paper builds from the general framework of imaginary-time evolution (OVQITE/MP) to introduce VIME, followed by detailed benchmarking on specific molecular systems (TLD-1411, acenes) to quantify resource savings and accuracy improvements.",
+  "why_interesting": "This work directly addresses the resource bottleneck in simulating strongly correlated electron systems on near-term quantum hardware by providing a classical pre-training mechanism to guide variational quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01954_figures/2610.01954_fig1.jpg",
+      "caption": "FIG. 1. Overview of VIME. (a) The active-space Hamiltonian is expressed in the Majorana basis, with its constituent monomials defining the operator pool Sτ = SH. (b) A chosen parameterised circuit and Fock reference define the variational ansatz. (c) The IT velocity v and Jacobian J are evaluated at each iteration. (d) A single Majorana surrogate graph is compiled for ˆU †(θ) ˆH ˆU(θ), with length truncation at fermionic-block boundaries. (e) Each iteration reuses this graph: a backward pass evaluates the energy (1), and a joint forward pass evaluates the pool expectation values, anticommutator expectation values, and Jacobian (2). These quantities define the regularized linear system,...",
+      "page": 6
+    },
+    {
+      "image": "2610.01954_figures/2610.01954_fig2.jpg",
+      "caption": "FIG. 2. The c-tUPS ansatz. (a) Circuit for six spatial orbitals, with alternating doubly occupied and empty reference orbitals and staggered half-layers of nearest-neighbor tiles. Blue brackets indicate circuit depths L = 0.5, 1, and 1.5. The green box denotes the active-space orbital rotation unitary ˆUorb, which can be absorbed into the Hamiltonian for quantum execution once its parameters have been classically determined. (b) Each tile combines outer one-body rotations with a central factor eθ2( ˆ KP ± ˆ KF ). The + and −signs define cp-tUPS and cm-tUPS, respectively.",
+      "page": 9
+    },
+    {
+      "image": "2610.01954_figures/2610.01954_fig3.jpg",
+      "caption": "FIG. 3. Convergence of VIME update quantities with MP truncation length. Relative errors against statevector benchmarks for (a) the IT velocity vector v (Euclidean norm) and (b) the Jacobian J (Frobenius norm), for H4, H6, H8, and H10 hydrogen chains in the STO-6G basis. Circuits contain 100 random length-four Majorana rotations with independent angles drawn from U[0, 2π] and truncation after each rotation. Markers show medians over five random seeds, error bars span the minimum and maximum values, and lines connect the medians.",
+      "page": 10
+    },
+    {
+      "image": "2610.01954_figures/2610.01954_fig4.jpg",
+      "caption": "FIG. 4. Wall-time scaling of VIME at w⋆= 6. (a,c) System-size scaling for Hn/STO-6G (n = 8, 10, . . . , 32), with 100 length-2 and 100 length-4 Majorana rotations. (b,d) Circuit-size scaling for H8, with a fixed active-rotation prefix and Ng independently parameterised length-4 rotations. Top: graph-compilation and complete VIME-step times. Bottom: IT velocity (v) and Jacobian (J) evaluation times. Markers and error bars indicate medians and 10th–90th percentiles across circuit seeds. Dashed lines extrapolate power-law fits to the large-size regime: 32–64 qubits in (a,c) and Ng = 256, 512, 1024 in (b,d); legends report the fitted exponents p.",
+      "page": 11
+    },
+    {
+      "image": "2610.01954_figures/2610.01954_fig5.jpg",
+      "caption": "FIG. 5. MP energy accuracy during VIME convergence. VIME convergence curves for one-layer tUPS and c-tUPS circuits on H8/STO-6G, using w⋆= 6 and truncation at block boundaries. The MP-truncation error δk = EMP,k −ESV,k is plotted against the statevector energy error εk = ESV,k −Eref, where Eref is the exact active-space ground-state energy. Each point gives the median of each error over 20 runs at a successive optimization step, progressing generally from right to left; filled symbols mark the last step reached by all runs. The gray band marks |δk| ≤1.6 mEh. The dashed line marks δk = −εk, corresponding to EMP,k = Eref for an individual run.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.01954_figures/2610.01954_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

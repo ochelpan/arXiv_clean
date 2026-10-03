@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.01699",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficiently Optimizing the Quantum Value of Bell Inequalities using Batched Gradient Descent",
+  "authors": "Xinyu Xu, Ping Zhu, Weikang Li, Pierre Pocreau, Dalu Ding, Dawei Ding",
+  "abstract": "Exploring the world of Bell inequalities requires numerical methods that scale effectively with the number of parties, inputs, and outputs. Such methods can be used to study large-scale Bell inequalities beyond the reach of analytic methods, to design experiments for violating more complicated Bell inequalities, and to enable applications of Bell inequality violation. Such applications include randomness generation and multi-agent coordination with restricted communication. However, current general purpose optimizers such as the see-saw method struggle to handle Bell inequalities with only a dozen inputs and outputs. We introduce an optimizer for the quantum value of a Bell inequality based on batched gradient descent (BGD). More precisely, our BGD optimizer is a differentiable search over feasible quantum strategies in which states and projective measurements are generated from unconstrained variables. The Bell expression is evaluated by a direct tensor contraction without forming the prohibitively large Bell operator. This formulation makes parallel random restarts inexpensive and is thus naturally implemented by a GPU. We evaluate our optimizer against the see-saw method and find a significant speedup for a wide variety of Bell inequality families. Implemented on a GPU, our BGD optimizer can optimize Bell inequalities in our numerical experiments with more than a thousand inputs or outputs within minutes. For these large-scale Bell inequalities, we also efficiently compute the classical value by enumerating possible strategies using a GPU or expressing the optimization as a mixed-integer linear program. Our optimizers can serve as numerical evaluation tools for Bell experiments and multi-agent coordination problems modeled by Bell inequalities with many inputs and outputs, a common feature of real-world scenarios such as high frequency trading and distributed systems.",
+  "url": "http://arxiv.org/abs/2610.01699v1",
+  "pdf": "https://arxiv.org/pdf/2610.01699v1",
+  "type": "theory",
+  "summary": "This paper presents a novel Batched Gradient Descent (BGD) optimizer designed to efficiently calculate the quantum value of complex Bell inequalities. By using direct tensor contraction, BGD overcomes the scaling limitations of previous methods, allowing analysis of systems with thousands of inputs or outputs. This tool is vital for both fundamental quantum testing and practical applications like multi-agent coordination.",
+  "main_problem": "Developing scalable numerical methods to compute the quantum value of Bell inequalities, which are constraints on correlations in local hidden variable theories.",
+  "main_result": "The authors introduce a Batched Gradient Descent (BGD) optimizer that efficiently computes the quantum value for large-scale Bell inequalities, achieving significant speedups over existing methods.",
+  "method": "The BGD optimizer is a differentiable search over feasible quantum strategies, evaluating the Bell expression via direct tensor contraction suitable for GPU implementation.",
+  "model_or_system": "The study focuses on Bell inequalities, which quantify the violation of local realism in nonlocal games involving multiple parties. The quantum value ($\\omega_q$) is the maximum quantum violation of these inequalities.",
+  "key_observables": "The quantum value ($\\omega_q$) and the classical value ($\\omega_c$) of the Bell inequality, representing the maximum expected utility of a nonlocal game.",
+  "important_parameters": "The number of parties, inputs, and outputs ($n_p, n_{in}, n_{out}$); the learning rate and conditioning ratio used in BGD.",
+  "main_assumptions": "The BGD approach provides a lower bound on $\\omega_q$, and the analysis sometimes assumes rank-one projective measurements for tractability.",
+  "figures_summary": "The notes reference figures showing time vs. dimension sweeps and schematic representations of nonlocal games.",
+  "paper_structure": "The paper progresses from defining the problem (Bell inequalities/nonlocal games) to detailing existing methods (See-saw), introducing the scalable BGD optimizer, and finally providing rigorous mathematical proofs for specific bounds (e.g., CHSH inequality).",
+  "why_interesting": "The development of scalable optimization tools for Bell inequalities is crucial for testing fundamental principles of quantum mechanics and designing quantum communication protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.01699_figures/2610.01699_fig1.jpg",
+      "caption": "Figure 1: A nonlocal game with parties 1, . . . , np. Each party i receives input si and produces output ai.",
+      "page": 5
+    },
+    {
+      "image": "2610.01699_figures/2610.01699_fig2.jpg",
+      "caption": "Figure 2: Amortized single-core BGD time to reach within 1% of ωq over the MaxEnt grid (nin, nout) ∈{2, . . . , 15}2. Each cell reports the wall-clock time for a batch of 100 independent restarts divided by 100; all cells reach the target. The color scale is logarithmic.",
+      "page": 22
+    },
+    {
+      "image": "2610.01699_figures/2610.01699_fig3.jpg",
+      "caption": "Figure 3: Mean single-core see-saw time to reach within 1% of ωq over the MaxEnt grid (nin, nout) ∈ {2, . . . , 15}2. Each cell reports the mean first-hit time over successful restarts from at most 10 attempts, each limited to 10 s. Black denotes either an instance for which no restart reached the target within the time limit or an instance left untested because a smaller instance along the corresponding parameter sweep had already failed. The color scale is logarithmic.",
+      "page": 23
+    },
+    {
+      "image": "2610.01699_figures/2610.01699_fig4.jpg",
+      "caption": "Figure 4: Best value against wall-clock time for BGD and see-saw on three solved-family instances under matched, dedicated single-core conditions. Each curve is the mean over 10 independent restarts, the shading spans the minimum and maximum, and the dashed line is the analytic quantum value ωq. Each panel gives the game shape (np, nin, nout).",
+      "page": 23
+    },
+    {
+      "image": "2610.01699_figures/2610.01699_fig5.jpg",
+      "caption": "Figure 5: Best value against wall-clock time for BGD and see-saw on four unsolved-family instances. Each curve is the mean over 10 independent restarts, the shading spans the minimum and maximum, and the dashed line is the feasible numerical reference q↓. Each panel gives the game shape (np, nin, nout).",
+      "page": 28
+    }
+  ],
+  "figure": "2610.01699_figures/2610.01699_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

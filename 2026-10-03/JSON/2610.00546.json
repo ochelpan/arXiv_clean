@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.00546",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cs.LG",
+    "hep-lat"
+  ],
+  "is_primary_archive": true,
+  "title": "Generative Modeling of Stochastic Dynamics for Long-Time Evolution",
+  "authors": "Yang-yang Tan, Jinyang Li, Lingxiao Wang",
+  "abstract": "Exact stochastic equations for non-equilibrium dynamics are rarely accessible. We show that the long-time evolution of stochastic dynamics can be predicted from configuration pairs at a fixed short time lag, without knowledge of the equation of motion. Generative diffusion models learn the finite-time transition kernel from these pairs, and iterating it propagates the dynamics far beyond the training lag. For two-dimensional Model B, the diffusive dynamics of a conserved order parameter, the learned kernels reproduce dynamic critical scaling and self-similar $t^{1/3}$ coarsening. Agreement with direct simulations persists on lattices twice the largest training size and for initial ensembles absent from training. For driven colloids in a periodic optical potential, ten minutes of measured trajectories suffice to predict the particle current and mean passage time over the next twenty minutes within experimental uncertainty. Short-time observations thus contain the information needed to predict emergent non-equilibrium dynamics at much longer times.",
+  "url": "http://arxiv.org/abs/2610.00546v1",
+  "pdf": "https://arxiv.org/pdf/2610.00546v1",
+  "type": "both",
+  "summary": "This paper demonstrates that generative diffusion models can predict the long-time evolution of complex stochastic physical systems using only short-time measurements. By learning the finite-time transition kernel, the models accurately reproduce universal scaling laws observed in lattice models and predict transport properties in experimental colloidal systems. This establishes a powerful, data-driven methodology for studying non-equilibrium statistical mechanics.",
+  "main_problem": "The core problem is predicting the long-time, non-equilibrium evolution of stochastic physical systems when the underlying equation of motion is unknown, using only short-time configuration data.",
+  "main_result": "Generative diffusion models successfully learn the finite-time transition kernel, allowing accurate prediction of dynamic critical scaling, coarsening dynamics, and particle transport over much longer timescales than the training data.",
+  "method": "The authors train conditional diffusion models on pairs of configurations separated by a short time lag ($\\delta t$) to learn the transition kernel, which is then iterated using the Chapman-Kolmogorov equation for long-time prediction.",
+  "model_or_system": "The work tests this approach on several systems: 2D lattice models (e.g., Model B for conserved order parameters), and experimental data from driven colloidal particles in a periodic optical potential.",
+  "key_observables": "Dynamic critical exponents ($z$), coarsening exponents ($t^{1/3}$), particle current ($\bar{v}$), and mean passage times.",
+  "important_parameters": "The training lag ($\\delta t$) is the key input, while the prediction time can be orders of magnitude longer; the system parameters include diffusion coefficients and potential strengths.",
+  "main_assumptions": "The dynamics are assumed to be autonomous, meaning the transition law depends only on the time interval $\\Delta t$, not the absolute time $t$.",
+  "figures_summary": "Figures compare the long-time prediction of the learned kernel against direct simulations (SOSRA) for lattice models, showing agreement in scaling laws. Other figures compare predicted particle currents and mean-square displacements for driven colloids against experimental data.",
+  "paper_structure": "The paper develops the general framework for stochastic dynamics, applies it to lattice models to reproduce critical scaling, and then validates the method using high-precision measurements of driven colloidal particle transport.",
+  "why_interesting": "This work provides a powerful, data-driven tool for characterizing non-equilibrium dynamics, which is crucial for understanding relaxation and phase ordering in complex quantum or classical many-body systems where analytical solutions are intractable.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.00546_figures/2610.00546_fig1.jpg",
+      "caption": "FIG. 1. Conditional transition kernel. The upper row shows the physical trajectory from ϕ0 to ϕt and onward in steps of δt. In the lower row, the present field ϕt conditions a score network that guides reverse diffusion from Gaussian noise at s = 1 to an increment ∆ϕs=0 ∼pθ(∆ϕ | ϕt). Adding this increment to ϕt yields ϕt+δt. Repeated sampling generates ϕt+nδt. The snapshots illustrate coarsening deep in the bro- ken phase.",
+      "page": 1
+    },
+    {
+      "image": "2610.00546_figures/2610.00546_fig2.jpg",
+      "caption": "FIG. 2. Long-time prediction of the learned kernel from the diffusion model (DM) against a high-precision stochastic equation solver (SOSRA [22]) for Model B at the critical point (κ = 0.34034, λ = 1, L = 32, and δt = 10). (a) Field configurations at t = 0, 10, 50, 100, 500, and 2000 for equilibrium HMC (upper pair) and non-equilibrium Gaussian (lower pair, with the spatial mean of the paired HMC field) initial ensembles. Within each pair, SOSRA and DM are shown above and below, respectively, and start from the same field at t = 0. (b) Equal-time power G1(t) of the smallest diagonal mode. Dotted lines with bands show SOSRA, and points show DM. (c) Mean-field drift ⟨|M(t) −M(0)|⟩. Both...",
+      "page": 2
+    },
+    {
+      "image": "2610.00546_figures/2610.00546_fig3.jpg",
+      "caption": "FIG. 3. Critical relaxation at κ = 0.34034, λ = 1, and L = 32. The diagonal-mode correlations collapse when plotted against x = ∆t/τn. Colored markers show the DM results, with error bars denoting standard errors. The dotted black curve and the dashed blue curve show fits of Eq. (11) to the SOSRA and DM data, respectively. The gray dash-dotted curve is e−x. The inset shows the relaxation times versus lattice momentum, yielding effective exponents z = 3.792(19) for the DM and z = 3.812(20) for SOSRA.",
+      "page": 3
+    },
+    {
+      "image": "2610.00546_figures/2610.00546_fig4.jpg",
+      "caption": "FIG. 4. Coarsening deep in the broken phase (κ = 0.85, λ = 1). The kernel was trained only on synthetic field config- urations at L ≤64 and applied at L = 128 from a disordered initial state. (a) DM configurations at t = 10, 100, and 1000. (b) Collapse of the sign-field correlation C(r, t) for t = 100– 1000. The insets compare the domain size L(t), defined by the first zero of C(r, t), with the direct SOSRA result and show their ratio. The black dotted line shows SOSRA, and blue open circles show DM. The gray dashed line denotes the t1/3 growth law. The SOSRA and DM ensembles contain 128 and 32 trajectories, respectively.",
+      "page": 4
+    },
+    {
+      "image": "2610.00546_figures/2610.00546_fig5.jpg",
+      "caption": "FIG. 5. DM predictions for undriven (upper row) and driven (lower row) colloidal motion in a periodic potential [29, 50]. Black circles show the experimental data. Blue solid lines show DM and orange dashed lines the Langevin reference based on Ref. [29]. (a,e) Mean position ⟨x(t)⟩. Shading shows the standard error of the mean displacement from t = 0. The dotted line at t = 10 min marks the end of training. (b,f) Distributions of the net displacement over 50 min of undriven motion and 20 min of driven motion, both measured from t = 10 min. (c,g) Mean displacement rate ⟨∆x | u0⟩/∆t at ∆t = δt = 10 s as a function of the initial phase u0. Gray dashed lines show the instantaneous Langevin...",
+      "page": 9
+    }
+  ],
+  "figure": "2610.00546_figures/2610.00546_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 1,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 4,
+    "scars & prethermalization": 1,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

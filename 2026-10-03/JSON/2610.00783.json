@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.00783",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "eess.SP"
+  ],
+  "is_primary_archive": true,
+  "title": "Real-Time Adaptive Filtering and the Boxcar Limit in Superconducting Qubit Readout",
+  "authors": "Hans Johnson, Tanay Roy, Leonardo Bove, David van Zanten, Silvia Zorzetti, Jafar Saniie",
+  "abstract": "In dispersive readout of superconducting qubits, the common baseline is a boxcar averager: a uniformly weighted average over a fixed window followed by threshold-based state assignment. We ask when additional digital processing improves fidelity. We evaluated an adaptive finite-impulse-response (FIR) filter trained in real time by the least-mean-squares (LMS) algorithm on an FPGA quantum controller, and analyzed measured readout shots offline to compare the frozen filter with boxcar averaging and to test per-sample weighting and sequential detection.   For the fixed FIR filters tested, summing the filtered samples gives the boxcar sum multiplied by one complex number, apart from a small edge correction (the kernel collapse). This scales state separation and noise equally, so discrimination cannot improve (the boxcar limit).   The frozen LMS filter reduces trace noise without a resolved fidelity improvement at the tested readout lengths. Replayed on the same shots offline, each filtered shot carries 99.4% of the boxcar shot's discrimination signal-to-noise ratio at the 8 $μ$s operating point of the 2D transmon qubit (Q1).   On Q1, optimizing the readout window's start and duration improves contrast readout fidelity by +2.4% to +5.6% across four readout lengths. Per-sample weighting adds up to +3.0% over full-window integration, and only +0.33% beyond the tuned window at 8 $μ$s.   Remaining results are from a 3D ancilla qubit (Q2), which sits above the early-decision crossover that Q1 sits below. Hardware sweeps locate the crossover window near 1 $μ$s. Offline, the sequential test decided most shots early, with fidelity within 0.5 percentage points of the boxcar. About 30 labeled shots per class build a matched-filter template nearly as good as one from hundreds.   The results form an operating-point record that separates waveform denoising from decision improvement.",
+  "url": "http://arxiv.org/abs/2610.00783v1",
+  "pdf": "https://arxiv.org/pdf/2610.00783v1",
+  "type": "experiment",
+  "summary": "This work analyzes the limits of superconducting qubit readout fidelity by comparing adaptive filtering techniques against standard boxcar averaging. The key finding is that while filtering reduces noise, the fundamental measurement process imposes a 'boxcar limit,' meaning advanced digital processing alone cannot significantly improve state discrimination beyond optimized fixed-window averaging.",
+  "main_problem": "The paper investigates whether advanced digital signal processing, such as adaptive filtering, can improve the readout fidelity of superconducting qubits beyond the performance achievable with standard boxcar averaging.",
+  "main_result": "The study found that while adaptive filtering successfully reduced trace noise, it did not lead to a resolved improvement in the state discrimination signal-to-noise ratio ($\text{SNR}_{\text{disc}}$) compared to optimized boxcar averaging.",
+  "method": "The authors compared the performance of a real-time trained LMS filter against boxcar averaging and sequential detection methods on superconducting qubit readout signals.",
+  "model_or_system": "The experiment uses superconducting qubits, specifically 2D transmon qubits (Q1) and 3D ancilla qubits (Q2), read out via dispersive coupling. The readout process involves digitizing the resonator response signal.",
+  "key_observables": "Fidelity (contrast readout fidelity), Signal-to-Noise Ratio ($\text{SNR}_{\text{disc}}$), and mean decision time ($\text{E}[t_{\text{decide}}]$).",
+  "important_parameters": "Readout window length (e.g., 8 $\\mu$s), the boxcar limit, and the LMS filter's performance relative to the theoretical matched-filter ceiling.",
+  "main_assumptions": "The analysis distinguishes between waveform denoising (which can be improved) and the actual decision improvement, suggesting the boxcar limit constrains the achievable discrimination gain.",
+  "figures_summary": "Figures illustrate the kernel collapse identity, comparing the spectral power distribution of the signal difference, and showing fidelity accrual over integration time for different readout methods.",
+  "paper_structure": "The paper establishes the baseline (boxcar averaging), tests the adaptive filter (LMS) for noise reduction, and then compares the resulting discrimination SNR against theoretical limits and optimized windowing/sequential detection methods.",
+  "why_interesting": "It provides a rigorous, quantitative analysis of the fundamental limits imposed by the measurement process itself, separating hardware noise mitigation from the actual decision-making capability of the readout circuit.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.00783_figures/2610.00783_fig1.jpg",
+      "caption": "Fig. 1. The kernel collapse on the deployed instrument [Q1 (transmon) at Readout Length (RL) 8 µs; 50,000 shots per class, half held out for testing]. (a) The frozen 64-tap coefficient vector, trained on-fabric with the qubit prepared in |g⟩and read back over DMA in Q27.16 fixed-point format. The running-sum overlay accumulates the taps to the collapse scalar W, with |W| = 0.037 and arg W = −0.242 rad [exp.]. (b) The scalar approximation of Eq. 5, tested on held-out shots from both classes. Each shot’s filtered window sum YFIR is plotted against WXtotal, with W from the taps in (a) and Xtotal the raw boxcar statistic of Eq. 5; nothing was fitted. The points lie close to the identity line,...",
+      "page": 3
+    },
+    {
+      "image": "2610.00783_figures/2610.00783_fig2.jpg",
+      "caption": "Fig. 2. The instrument in the QICK readout chain. The Zynq Processing System (PS) accesses the readout and control blocks in the Programmable Logic (PL). These blocks connect the converters (ADC, DAC), two read- out channels, timed processor (tProc), signal generators, and digital I/O. The expanded readout-1 path shows DDS downconversion, FIR filtering, and decimation by eight (axis_readout_v2) feeding the LMS filter (axis_lms_v1, teal; Fig. 3). Its output enters the accumulate-and-buffer stage (axis_avg_buffer), and the windowed sum feeds the tProc. The buffers transfer data to the host by Direct Memory Access (DMA). Blue arrows mark PS-side access. Panels redrawn from [17] with the...",
+      "page": 6
+    },
+    {
+      "image": "2610.00783_figures/2610.00783_fig3.jpg",
+      "caption": "Fig. 3. Adaptive filter (axis_lms_v1) firmware block diagram. The averager forms the reference di[n] across pulses (z−1 i : a one-pulse delay at fixed sample position n). The FIR filter and the LMS blocks share one tapped delay line. The LMS block conjugates the regressor, scales the gradient, and integrates it into the weight registers. A pulse-boundary gate releases the updated weights to the FIR, closing the adaptation loop. A reciprocal Finite- State Machine (FSM) forms the per-pulse step α in the normalization block (Eq. 16). Black lines indicate AXI4-Stream (AXIS) datapaths, red lines denote run-time user input via AXI4-Lite (AXI), blue lines are DMA PS-side access, and purple denotes...",
+      "page": 6
+    },
+    {
+      "image": "2610.00783_figures/2610.00783_fig4.jpg",
+      "caption": "Fig. 4. Packaged adaptive-filter IP in the Vivado block-design integrator. AXI4-Stream ports carry readout samples input/output and coefficient trans- fers with an external DMA. AXI4-Lite provides user-defined variables via reg- ister access during experiments. The tProc trigger coordinates pulse-boundary operations. Stream and configuration interfaces have separate clock/reset pairs.",
+      "page": 7
+    },
+    {
+      "image": "2610.00783_figures/2610.00783_fig5.jpg",
+      "caption": "Fig. 5. The convergence regime of the transmon (Q1) training sweep [exp.]. (a) Regime map over step size µ and total shift Sb + Sg, each configuration classed as converged, dead-zone (the amplitude-floor regime of Eq. 20), dead- zone-skip, diverged, or error. The 1514 dead-zone-skip configurations were not measured, and the floor’s monotonicity in total shift records them as dead. Every configuration below the cropped axis range (total shift 15–33) diverged. (b) Contrast readout fidelity Fc of the 657 configurations classified as converged.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.00783_figures/2610.00783_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
