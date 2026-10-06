@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.03114",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Circuit growth and subspace read-out in quantum-selected configuration interaction: Separating the Hartree-Fock determinant",
+  "authors": "Ayaka Fujimoto, Norifumi Matsumoto, Shota Kanasugi, Kazunori Maruyama, Hirotaka Oshima",
+  "abstract": "Predicting many molecular properties requires accurate ground-state energies of molecular Hamiltonians. Quantum-selected configuration interaction (QSCI) obtains such energies by measuring an input state to select important electronic configurations and classically diagonalizing the Hamiltonian in the subspace they span. ADAPT-QSCI, an adaptive extension of QSCI, improves the input state through iterative circuit growth. For single-reference molecules, the sampling distribution is dominated by the Hartree-Fock (HF) configuration, so most measurements reproduce a configuration already known. We reduce this redundancy by placing the HF configuration in the diagonalization subspace classically, before any measurement. This invalidates the operator-selection criterion of ADAPT-QSCI, and we derive a consistent replacement with energy and gradient in closed form, adding no query to the quantum device. At the per-iteration shot budgets previously used for ADAPT-QSCI, the proposed scheme reaches chemical accuracy with approximately $63\\%$ and $43\\%$ of the CNOT gates for $\\mathrm{H}_4$ and $\\mathrm{H}_6$, and $44\\%$ and $40\\%$ of the total shots. The advantage depends on the budget, however: in the infinite-shot limit the $\\mathrm{H}_4$ CNOT count increases to $125\\%$ of that of ADAPT-QSCI. These results identify the per-iteration shot budget as a key design variable governing resource savings in QSCI-based algorithms.",
+  "url": "http://arxiv.org/abs/2610.03114v1",
+  "pdf": "https://arxiv.org/pdf/2610.03114v1",
+  "type": "theory",
+  "summary": "This paper improves the Quantum-selected Configuration Interaction (QSCI) algorithm by recognizing and removing measurement redundancy caused by the dominant Hartree-Fock configuration. By classically supplying the HF determinant, the authors derive a more efficient selection criterion. The results show significant resource savings in terms of quantum circuit depth and measurement shots compared to existing adaptive methods for calculating molecular ground-state energies.",
+  "main_problem": "Predicting accurate ground-state energies of molecular Hamiltonians, which is central to electronic structure theory.",
+  "main_result": "The proposed scheme achieves chemical accuracy with significantly fewer CNOT gates and fewer measurement shots compared to ADAPT-QSCI at comparable shot budgets.",
+  "method": "The authors modify the Quantum-selected Configuration Interaction (QSCI) approach by classically incorporating the Hartree-Fock determinant into the diagonalization subspace, thereby reducing measurement redundancy.",
+  "model_or_system": "The study focuses on molecular Hamiltonians, specifically applied to small hydrogen molecules ($\\mathrm{H}_4$ and $\\mathrm{H}_6$), using electronic structure theory concepts.",
+  "key_observables": "Ground-state energy, CNOT gate count, total measurement shots, and the required number of iterations ($k^*$) to reach chemical accuracy.",
+  "important_parameters": "The per-iteration shot budget ($N_s$) is identified as a key design variable governing resource savings; the comparison's advantage depends on this budget.",
+  "main_assumptions": "The advantage of the new scheme is contingent on the per-iteration shot budget, and the comparison is made assuming no device noise.",
+  "figures_summary": "Figure 1 schematically compares the circuit structure of the proposed scheme against ADAPT-QSCI, highlighting added and inherited gates.",
+  "paper_structure": "The paper first identifies the redundancy in standard QSCI/ADAPT-QSCI methods due to the HF determinant. It then proposes the classical separation of the HF determinant and derives a new, consistent selection criterion. Finally, it compares the resource costs (gates/shots) against ADAPT-QSCI for $\\mathrm{H}_4$ and $\\mathrm{H}_6$.",
+  "why_interesting": "This work directly addresses resource scaling and algorithmic efficiency for simulating strongly correlated electronic systems, which is a major bottleneck in quantum chemistry.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03114_figures/2610.03114_fig1.jpg",
+      "caption": "FIG. 1. Schematic of one iteration of the scheme. Orange boxes mark the parts that differ from ADAPT-QSCI, blue boxes the parts it inherits unchanged, and green boxes the two operations that append gates to the quantum circuit, namely the preparation of the initial state and the update of the circuit in the loop. Here dx is the first-order perturbation coefficient of configuration x and M0 the set of the m0 configurations with the largest |dx| excluding the Hartree–Fock determinant, Gl and γ∗ l are the generator and angle of the lth preparation rotation, and Uk is the circuit that prepares |Φk⟩.",
+      "page": 2
+    },
+    {
+      "image": "2610.03114_figures/2610.03114_fig2.jpg",
+      "caption": "FIG. 2. Energy error against the cumulative CNOT count. Top row: noiseless sampler, a single deterministic trajectory per method. Bottom row: the budgets of Ref. [12], Ns = 105 for H4 and 5 × 106 for H6, median over 20 trials with the interquartile range shaded, each trial run to a fixed number of iterations, 12 on H4 and 40 on H6, chosen to cover the point at which the baseline reaches chemical accuracy; every trial reached it. Dashed horizontal lines: chemical accuracy, 1.6 mHa. Dotted vertical lines and labels: the total CNOT count at k∗. The curves of the present scheme begin at 12 CNOTs, the cost of preparing the m0 = 2 initial state.",
+      "page": 8
+    },
+    {
+      "image": "2610.03114_figures/2610.03114_fig3.jpg",
+      "caption": "FIG. 3. Shot counts required to reach a target coverage αGS, for the state produced by ADAPT-QSCI at k∗and for the same state with the Hartree–Fock outcome removed from the sampler and supplied classically. The targets lie below αGS(TR), which is 0.999920 for H4 and 0.999904 for H6. Dashed lines: the prediction rpred of Eq. (25). 200 trials.",
+      "page": 9
+    },
+    {
+      "image": "2610.03114_figures/2610.03114_fig4.jpg",
+      "caption": "FIG. 4. (a) Probability pchem that a single run achieves chemical accuracy, for the four frozen states compared at a matched iteration, against the number of shots drawn from each. 400 trials. (b) Post-selected probabilities of the two H6 states at k = 13, ordered by decreasing probability. Triangles: the smallest probability carried by TR. Dotted line: 1/Ns at the budget of Ref. [12].",
+      "page": 9
+    },
+    {
+      "image": "2610.03114_figures/2610.03114_fig5.jpg",
+      "caption": "FIG. 5. Iterations k∗to chemical accuracy against the number of shots per iteration, median over 20 trials with the interquartile range shaded. Annotations give the number of trials that failed to converge, those trials being entered at the iteration limit. Insets: the ratio of total shot counts Ntot, with unity marked. Dashed vertical lines: the budgets of Ref. [12].",
+      "page": 11
+    }
+  ],
+  "figure": "2610.03114_figures/2610.03114_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

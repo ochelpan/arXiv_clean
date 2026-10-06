@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.03064",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Analytical controls for dispersive multi-qubit interactions in mediator-coupled quantum registers",
+  "authors": "Bora Baran, Tommaso Calarco, James O'Sullivan, Matthias M. Müller, Felix Motzoi",
+  "abstract": "Fast control of long-lived quantum registers often relies on an auxiliary degree of freedom, a mediator, but real mediator excitation can introduce decoherence, leakage, or loss when the mediator is not the coherence-optimized component. We introduce dispersive interaction via analytical linear inversion (DIAL), an analytical control construction for excitation-suppressed interaction engineering in mediator-coupled quantum registers. In the dispersive regime, we show that off-resonant driving of an effective two-level mediator transition yields a diagonal Hamiltonian whose Pauli-\\(Z\\) interaction rates depend linearly on the drive intensities through a transfer matrix determined by the register-resolved transition spectrum. This establishes a direct linear map from experimentally accessible controls to induced multi-qubit interactions, enabling control design without iterative propagation of the full driven dynamics. We turn this structure into the target-aware DIAL algorithm, which selects favorable off-resonant tones and determines their drive intensities for a prescribed target interaction. We benchmark the resulting controls across 100 register realizations for each register size \\(n=2,3,4,5\\), targeting the highest-order interaction \\(Z_1\\cdots Z_n\\) with an interaction phase of magnitude \\(π/4\\), which generates an \\(n\\)-qubit GHZ state up to local equivalence. Propagation under the full driven mediator-register dynamics yields typical gate fidelities above \\(0.997\\), while the maximum transient mediator excitation remains near \\(1\\%\\) on average, far below what is typically possible with resonant Rabi drives. The manuscript is accompanied by an open-source Python package implementing the target-aware DIAL algorithm and the associated numerical validation workflow.",
+  "url": "http://arxiv.org/abs/2610.03064v1",
+  "pdf": "https://arxiv.org/pdf/2610.03064v1",
+  "type": "theory",
+  "summary": "This paper introduces the Dispersive Interaction via Analytical Linear Inversion (DIAL) technique to engineer controlled multi-qubit gates in quantum registers coupled to a mediator. By operating in the dispersive regime, the method achieves high gate fidelities while minimizing unwanted mediator excitation. The work is significant because it provides an analytical, non-iterative control design that is robust against practical imperfections like basis mismatch.",
+  "main_problem": "The challenge is to engineer fast, controlled multi-qubit interactions in quantum registers coupled to a mediator while simultaneously suppressing decoherence and leakage associated with exciting the mediator.",
+  "main_result": "The proposed DIAL algorithm achieves high gate fidelities (>0.997) while keeping transient mediator excitation very low (<1%), demonstrating a robust, analytically derived control scheme.",
+  "method": "The authors introduce Analytical Linear Inversion (DIAL), which exploits the linear dependence of interaction rates on drive intensities in the dispersive regime to map control pulses directly to desired multi-qubit interactions.",
+  "model_or_system": "The system involves a quantum register coupled to an auxiliary mediator degree of freedom. The control is implemented via off-resonant driving, operating in the dispersive regime to induce state-dependent Pauli-Z interactions.",
+  "key_observables": "Gate fidelities (target >0.997), maximum transient mediator excitation (target <1%), and the resulting multi-qubit interaction phase.",
+  "important_parameters": "Dispersive regime condition ($\\Omega \\ll \\Delta$), the mismatch parameter ($\\eta$), and the target interaction order ($Z_1...Z_n$).",
+  "main_assumptions": "The primary assumptions are operating in the dispersive, configuration-preserving regime ($\\eta=0$) and that the interaction rates exhibit a direct linear dependence on drive intensities.",
+  "figures_summary": "Figures illustrate the performance of the controls under basis mismatch ($\\eta \neq 0$), showing a clear degradation of fidelity while mediator excitation remains low, and plot the trade-off between spectral crowding and required gate time.",
+  "paper_structure": "The paper first introduces the DIAL method for achieving controlled interactions. It then benchmarks this method across multiple register sizes and targets. Subsequent sections analyze the robustness of the controls by testing performance under controlled basis mismatches ($\\eta \neq 0$) and spectral crowding.",
+  "why_interesting": "This work provides a powerful, non-iterative analytical tool for designing quantum gates in complex, open quantum systems, directly addressing the practical limitations of decoherence and leakage in solid-state and atomic quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03064_figures/2610.03064_fig1.jpg",
+      "caption": "FIG. 1: Schematic of a register-dependent mediator transition. The register configurations α imprint themselves on the mediator transition, producing configuration-dependent transition frequencies Λα and thereby enabling conditional manipulation through the mediator spectrum.",
+      "page": 5
+    },
+    {
+      "image": "2610.03064_figures/2610.03064_fig2.jpg",
+      "caption": "FIG. 2: Schematic of the desired DIAL control situation for a favorable combination of tone frequencies. (1) A suitably chosen set of off-resonant tone frequencies {ωk} defines the available controls. (2) Together with the register-resolved transition spectrum, this tone set determines the transfer matrix G, which encodes how the available controls contribute across the Pauli-Z interaction channels. (3) The non-negative drive-intensity vector x = (x1, . . . , xM)T weights the selected tones within the admissible intensity range. (4) For a favorable tone set, the available tone intensities can generate a phase-rate spectrum ˙Φ ∝Gx with a strong target channel and suppressed spectator...",
+      "page": 11
+    },
+    {
+      "image": "2610.03064_figures/2610.03064_fig3.jpg",
+      "caption": "FIG. 3: Direct DIAL synthesis across random register spectra and different register sizes. (a) Full-dynamics infidelity 1 −F of the DIAL controls for n = 2, 3, 4, 5, shown on a logarithmic scale. Each point represents one sampled register spectrum and targets the highest-order interaction Z1 · · · Zn at |Φtar Z1···Zn| = π/4. The higher-infidelity outlier can be explained by an exceptionally crowded register spectrum. (b) Maximum transient mediator excitation P max med for the same controls, with the individual realizations retained. (c) Gate duration normalized by the Rabi period of the strongest applied tone, T max Rabi = 2π/Ωmax, with Ωmax = maxk |Ωk|. Horizontal bars indicate medians and...",
+      "page": 14
+    },
+    {
+      "image": "2610.03064_figures/2610.03064_fig4.jpg",
+      "caption": "FIG. 4: Distribution of the n = 3 transition spectra used in the direct DIAL benchmark, shown as a two-dimensional example of the normalized n-spin benchmark ensemble. The relative spectral contributions are normalized by A1 = 1 and ordered as 1 = A1 ≤A2 ≤A3 ≤10. Both axes are logarithmic, matching the sampling of the relative spectral contributions. The region A3 < A2 is permutation redundant: the ratios A2/A1 and A3/A1 specify the relative spectral contributions that determine the transition spectrum, so exchanging register-spin labels 2 ↔3 only swaps these ratios and does not produce a physically distinct system.",
+      "page": 20
+    },
+    {
+      "image": "2610.03064_figures/2610.03064_fig5.jpg",
+      "caption": "FIG. 5: Normalized gate duration Tgate/T max Rabi versus the relative minimum transition spacing ∆min/ ¯∆for the random n = 2, 3, 4, 5 realizations used in the direct DIAL benchmark. Both axes are logarithmic. Small relative minimum spacing identifies spectra containing an unusually close pair of register-resolved transition lines. Spectrally crowded realizations extend toward longer normalized gate durations, connecting the spectral resolution of the register transitions to the interaction rate achieved by the selective dispersive construction.",
+      "page": 21
+    }
+  ],
+  "figure": "2610.03064_figures/2610.03064_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 1,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

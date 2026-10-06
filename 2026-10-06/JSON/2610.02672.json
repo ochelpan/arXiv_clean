@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.02672",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "math.NA",
+    "math-ph",
+    "nlin.PS",
+    "physics.flu-dyn"
+  ],
+  "is_primary_archive": false,
+  "title": "Inferring constitutive forces from noisy Allen-Cahn movies with moment equations",
+  "authors": "Soobeen Jung, Hyunju Kim",
+  "abstract": "Inferring an Allen-Cahn constitutive force from images requires more than an accurate optimizer: nonlinear observation noise alters the mean of force features, shared noise couples instruments to the response, and a temporal balance borrowed from another solver can remain biased even on clean data. We develop observation-aware, noise-adjusted moment equations that address these effects before inversion. The surface-tension-calibrated constitutive transformer (SCCT) couples the resulting moments to a positive Bernstein inverse and can adapt its prior and precision from images and moments. A conditional stability bound separates moment residuals from prior error. Synthetic tests show that correcting the estimating equation matters more than increasing regularizer flexibility; the benefit of learned adaptation is smaller and depends on the training comparison. Forces inferred from planar movies predict unseen planar and three-dimensional evolutions. A ring-cage breakup shows why diffuse-interface accuracy distinguishes forces even when their topological predictions agree, while external surface tension sets the energy scale separately.",
+  "url": "http://arxiv.org/abs/2610.02672v1",
+  "pdf": "https://arxiv.org/pdf/2610.02672v1",
+  "type": "both",
+  "summary": "This work tackles the difficult inverse problem of determining the constitutive force driving phase transitions from noisy Allen-Cahn simulation movies. It introduces noise-adjusted moment equations and a specialized transformer (SCCT) to correct for various sources of measurement bias. The results demonstrate that the method accurately recovers the underlying physics, even distinguishing forces based on fine-scale interface details.",
+  "main_problem": "The paper addresses the challenging inverse problem of inferring the unknown constitutive force governing a phase-field evolution from noisy, time-series image data.",
+  "main_result": "The developed noise-adjusted moment equations and the SCCT successfully infer the force, showing that accurate estimation of the underlying equation structure is more critical than increasing regularization flexibility.",
+  "method": "The methodology involves developing observation-aware moment equations to correct for nonlinear observation noise, instrument coupling, and temporal biases, which are then used in a constrained Bernstein inverse for force reconstruction.",
+  "model_or_system": "The system is governed by the Allen-Cahn dynamics, which describes the evolution of an order parameter $u$ as an $L^2$ gradient flow of an energy functional. The force $G(u)$ is parameterized within an admissible family.",
+  "key_observables": "Noisy phase observations ($y_{n,i}$), topological invariants ($b_0, b_1, b_2$), and the inferred constitutive force $G(u)$.",
+  "important_parameters": "The surface tension ($\\sigma$) sets the energy scale, and the force $G(u)$ is parameterized by five coefficients ($c_j$).",
+  "main_assumptions": "The noise is assumed to be i.i.d. Gaussian for bias correction, and the method requires separating the force inference from the external energy scale.",
+  "figures_summary": "Figure 1 illustrates the method hierarchy, detailing how Hermite polynomials and paired views correct distinct noise effects, while the observation source dictates the temporal balance choice.",
+  "paper_structure": "The paper builds logically: Section 2 establishes the identifiability of the force; Section 3 develops the noise-adjusted moment equations and the constrained inverse; and Section 4 validates the entire pipeline using synthetic and physical test cases.",
+  "why_interesting": "While focused on classical phase transitions, the rigorous treatment of noise, bias correction, and inverse problem solving using moment methods and advanced regularization techniques is highly relevant to reconstructing quantum dynamics from noisy measurements.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.02672_figures/2610.02672_fig1.jpg",
+      "caption": "Figure 1: Method hierarchy. Hermite polynomials and paired views address distinct noise effects. The observation source determines the discrete or weak balance. Each regularizer uses the same moment system and positive constrained inverse; the dashed path supplies image context only to SCCT. External surface tension sets the energy scale after force inference and does not alter forecasts.",
+      "page": 4
+    },
+    {
+      "image": "2610.02672_figures/2610.02672_fig2.jpg",
+      "caption": "Figure 2: Transfer to an unseen topology-rich geometry. Blue and red in (a)–(d) denote the negative and positive phase. The dashed black line in (d) is the exact-law zero contour. All fields use the same exact initial condition on a 5122 grid and Fourier Crank–Nicolson/second-order Adams–Bashforth (CNAB2) solver [37]; only the force differs. The previously inferred SCCT force comes from the separate noisy wobble trajectory and has 100eG = 0.096% on the phase grid. Panel (f) compares 100eu(t) = 100∥umodel(t) −u⋆(t)∥2/∥u⋆(t)∥2 with the 3% force-rescaling control on a logarithmic error axis. The signed difference in (e) uses units of 10−4.",
+      "page": 8
+    },
+    {
+      "image": "2610.02672_figures/2610.02672_fig3.jpg",
+      "caption": "Figure 3: Three-dimensional transfer and a force-sensitivity control. Panels (a)–(c) render the SCCT u = 0 isosurface at t = 0.004 for one law of each degree on a different geometry. The same three laws are reused on the seven-handle ring cage, not counted as additional independent laws: (d) and (f) compare the exact and SCCT isosurfaces at the same time, t = 0.008, for the degree-four law. Both have six positive components. Panel (e) compares the SCCT and global inverses with a 3% rescaling of the exact force on that same ring cage at t = 0.008; its horizontal error axis is logarithmic. Each comparison starts from the same exact initial field: the 1283 grid is used in (a)–(c), and the 1923",
+      "page": 9
+    },
+    {
+      "image": "2610.02672_figures/2610.02672_fig4.jpg",
+      "caption": "Figure 4: Bias and realization spread after retraining on a separate 24-law set with five realizations at η = 0.03; spread uses divisor five. Diagonal and cross hatching distinguish bias and realization spread in grayscale.",
+      "page": 10
+    },
+    {
+      "image": "2610.02672_figures/2610.02672_fig5.jpg",
+      "caption": "Figure 5: Generator-by-balance crossover for SCCT at η = 0.01 on 24 laws. Each pair of hatched bars uses the same observations; lower mean force error is better. The preferred balance reverses between IMEX- and ETDRK4-generated trajectories. The smoothness inverse follows the same ordering (Table 2).",
+      "page": 11
+    }
+  ],
+  "figure": "2610.02672_figures/2610.02672_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

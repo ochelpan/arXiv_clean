@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.03624",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Symmetry-preserving quantum compilation",
+  "authors": "Maryam Mudassar, Zhi-Yuan Wei, Alexander Schuckert, Michael J. Lawler, Michael J. Gullans, Daniel Gottesman",
+  "abstract": "Fault-tolerant quantum simulation requires compiling symmetry-preserving time evolutions into discrete gate sets. Standard Clifford+T synthesis can break continuous symmetries even when the target evolution preserves them, causing compiled simulations to lose essential features of the original system. We develop a fault-tolerant compilation framework that preserves SU(2) symmetry exactly. We characterize the number-theoretic obstruction preventing symmetry-preserving unitary Clifford+T circuits from approximating arbitrary SU(2)-symmetric evolutions and circumvent it using measurement and feed-forward. The resulting synthesis confines compilation errors to the symmetry-preserving operator algebra rather than introducing symmetry-breaking perturbations.   We demonstrate the algorithm by simulating transport in the one-dimensional Heisenberg model. At a lower matched T-count, for instance, 54 T gates per two-site Trotter step, standard synthesis yields an incorrect transport exponent, whereas our symmetry-preserving compilation reproduces the expected exponent for the same expected T-count. If instead each approach is allocated whatever resources are necessary to estimate this exponent to the same accuracy, our construction reduces the T-count by approximately a factor of five. We further extend the framework to gauge symmetries in lattice gauge theories and to particle-number and spin symmetries in fermionic models relevant to quantum chemistry and the Fermi-Hubbard model.   These results show that symmetry-preserving fault-tolerant compilation can qualitatively change the effects of synthesis error while substantially reducing the resources required for quantum simulation.",
+  "url": "http://arxiv.org/abs/2610.03624v1",
+  "pdf": "https://arxiv.org/pdf/2610.03624v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, fault-tolerant compilation framework designed to simulate quantum dynamics while rigorously preserving continuous symmetries, such as SU(2). By circumventing theoretical obstructions using measurement and feed-forward, the method significantly reduces the required gate resources (T-count) compared to standard synthesis techniques. This has major implications for accurately simulating complex models like the Heisenberg chain and Fermi-Hubbard model.",
+  "main_problem": "The core problem is developing fault-tolerant quantum compilation methods that can accurately simulate time evolutions while strictly preserving underlying continuous symmetries.",
+  "main_result": "The proposed symmetry-preserving compilation framework successfully reproduces expected physical exponents (like the transport exponent) for the 1D Heisenberg model at lower gate counts compared to standard, symmetry-agnostic synthesis methods.",
+  "method": "The authors develop a framework that circumvents number-theoretic obstructions by using measurement and feed-forward techniques within a Linear-Combination-of-Unitaries (LCU) protocol to maintain exact symmetry preservation.",
+  "model_or_system": "The primary testbed is the one-dimensional isotropic Heisenberg model, whose Hamiltonian possesses a global SU(2) rotational symmetry. The framework is also extended to lattice gauge theories and fermionic models like the Fermi-Hubbard model.",
+  "key_observables": "Transport exponent (KPZ exponent), T-count (gate resource cost), and final-state fidelity.",
+  "important_parameters": "The required T-count, the simulation time $t$, and the error tolerance $\\epsilon$.",
+  "main_assumptions": "The simulation relies on approximating the time evolution $U(t) = e^{-iHt}$ via Trotterization, which is then compiled into the discrete Clifford+T gate set.",
+  "figures_summary": "Not specified, but the notes reference comparisons of gate costs and fidelity between different synthesis methods.",
+  "paper_structure": "The paper progresses from establishing the need for symmetry preservation in Trotterization, characterizing the number-theoretic obstruction, developing the LCU construction, benchmarking the method on the Heisenberg model, and finally extending the results to gauge and fermionic symmetries.",
+  "why_interesting": "This work directly addresses the resource scaling and accuracy limitations of quantum simulation for strongly correlated systems by ensuring that the computational error does not corrupt fundamental physical symmetries like SU(2).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03624_figures/2610.03624_fig1.jpg",
+      "caption": "FIG. 2. Expected RUS T-count per CPHASE gate for the BRS 2015 and LCU methods at a common CPHASE- angle tolerance, |θ′ CPHASE −θCPHASE| ≤10−3. At each target angle, we select the candidate with the minimum expected T-count satisfying this tolerance. LCU has lower expected T-count at every sampled angle. Over the displayed range, the mean expected T-counts are 36.9 for LCU and 80.3 for BRS 2015, giving a ratio of 2.18. For this plot and the rest of paper, we fix L and C as 20.",
+      "page": 8
+    },
+    {
+      "image": "2610.03624_figures/2610.03624_fig2.jpg",
+      "caption": "FIG. 3. Pure, fully polarized domain-wall state obtained in the limit µ →∞at t = 0, followed by its melt- ing under symmetric Heisenberg evolution. Profiles are shown every 40 time steps from t = 0 to t = 200 δt with δt = 0.08, corresponding to the physical snapshot times t = 0, 3.2, 6.4, 9.6, 12.8, and 16.",
+      "page": 9
+    },
+    {
+      "image": "2610.03624_figures/2610.03624_fig3.jpg",
+      "caption": "FIG. 4. Comparable T-count, different transport exponents. (a) We choose synthesis precisions ϵ = 2×10−2 for both the default and BRS 2015 methods, while the LCU cost uses ϵLCU = 4 × 10−5. At these values, the T-count is nearly the same, but the exponent is different for the symmetry breaking and symmetry preserving methods: 1.202 ± 0.002 for the default method, 0.667 ± 0.002 for BRS 2015, and 0.663 ± 0.002 for LCU, which is extracted as power law fit from the log-log plots (b) Synthesis precisions are chosen so that all three methods have similar T counts. The simulations use N = 100, δt = 0.08, and total evolution time T = 15. We plot time on a log scale.",
+      "page": 12
+    },
+    {
+      "image": "2610.03624_figures/2610.03624_fig4.jpg",
+      "caption": "FIG. 5. Similar exponents, different T-count (a) Independent matched-accuracy simulations give 1/z = 0.672 ± 0.002 for the default method at ϵdef = 2 × 10−3, 0.667 ± 0.002 for BRS 2015 at ϵBRS = 2 × 10−2, and 0.663 ± 0.002 for LCU at requested ϵLCU = 2 × 10−2, where the exponent is plotted using a power law fit on the log-log plot. (b) At these precisions, BRS 2015 has roughly 60 percent T count compared to default, and LCU has 20 percent T count compared to the default method. Note that these numbers are obtained for the desired δt, and T cost may depend on the chosen step size. The simulations use N = 100, δt = 0.08, and total evolution time T = 15. We plot time on a log scale.",
+      "page": 12
+    },
+    {
+      "image": "2610.03624_figures/2610.03624_fig5.jpg",
+      "caption": "FIG. 6. Deviation of the fitted transport slope m = 1/z from 2/3 as a function of inverse synthesis tolerance. At lower 1/ϵ (lower precision), the default method deviates significantly from m, while both symmetry preserving methods have much smaller errors. At higher 1/ϵ, sym- metry preserving and violating methods converge.",
+      "page": 13
+    }
+  ],
+  "figure": "2610.03624_figures/2610.03624_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

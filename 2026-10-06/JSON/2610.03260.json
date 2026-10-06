@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.03260",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR",
+    "eess.SY"
+  ],
+  "is_primary_archive": true,
+  "title": "Compiling Together: High-Throughput Distributed Quantum Computing via Multi-Compilation",
+  "authors": "Yipei Liu, Sen Zhang, Zebo Yang, Lei Yang",
+  "abstract": "Quantum computing is a promising paradigm for problems that are challenging for classical machines, but realizing that promise requires far more qubits than a single processor can offer. Distributed quantum computing (DQC) scales out by connecting multiple quantum processing units (QPUs), at the cost of making entanglement the scarce resource: every remote gate consumes a Bell pair, and inter-QPU links generate Bell pairs at finite rates orders of magnitude slower than local gates. Since quantum programs are executed repeatedly, this rate bounds how fast shots complete and thus how fast results are obtained. Existing DQC compilers emit a single implementation per circuit, so throughput is capped by its busiest link while other links stay idle. We observe that alternative compilations of the same circuit are logically equivalent yet stress different links; executing them concurrently and pooling their samples converts idle Bell pairs into additional shots. We formulate the joint selection of compilations and allocation of shots under per-link Bell-pair capacities as Candidate-Constrained Max-Shot Allocation (CMA), prove it NP-hard, and solve it with a dynamic program and its approximate variant AppDP, a compact MILP, and a greedy heuristic Effi. In simulation on six-QPU networks, multi-compilation raises throughput by 2-4.5* over the single compilation and correspondingly improves output fidelity under equal Bell-pair budgets. On hardware, it increases measured fidelity by up to 93% and reaches the single-compilation fidelity in up to 10* less time. Scaling to 36 QPUs and 144-qubit circuits, MILP improves throughput over the single compilation by 76.8% on average across 48 configurations while Effi allocates in milliseconds.",
+  "url": "http://arxiv.org/abs/2610.03260v1",
+  "pdf": "https://arxiv.org/pdf/2610.03260v1",
+  "type": "both",
+  "summary": "This paper tackles the throughput bottleneck in Distributed Quantum Computing by proposing 'multi-compilation,' which runs several logically equivalent circuit compilations simultaneously. By optimizing the joint selection and allocation of these candidates under limited entanglement resources, the authors significantly boost computational throughput and improve result fidelity. The solution is formulated as an NP-hard optimization problem solved using advanced techniques like MILP.",
+  "main_problem": "The primary challenge is maximizing the throughput of quantum computation on a Distributed Quantum Computing (DQC) network limited by the finite, rate-constrained generation of entanglement (Bell pairs) across communication links.",
+  "main_result": "By employing multi-compilation—running logically equivalent circuits concurrently—the method significantly boosts throughput (up to 4.5x in simulation) and improves output fidelity compared to using a single compilation.",
+  "method": "The problem is formulated as Candidate-Constrained Max-Shot Allocation (CMA), an NP-hard optimization problem, solved using dynamic programming, MILP, and a greedy heuristic.",
+  "model_or_system": "The model is a DQC network connecting multiple Quantum Processing Units (QPUs) via communication links, where the resource bottleneck is the rate at which Bell pairs can be generated on these links.",
+  "key_observables": "Throughput (shots/s), output fidelity, and Bell-pair utilization across inter-QPU links.",
+  "important_parameters": "Bell-pair generation rate ($R_e$) per link, number of QPUs (up to 36), and circuit size (up to 144 qubits).",
+  "main_assumptions": "The model assumes a per-link communication constraint, and the allocation is modeled using a discretized rate model (integer units of shots/s).",
+  "figures_summary": "Figures demonstrate that multi-compilation increases fidelity significantly (e.g., 93.3% improvement for TFIM-20) and reduces the time needed to reach a target fidelity by up to 10x compared to single-compilation baselines.",
+  "paper_structure": "The paper introduces the DQC throughput bottleneck, formulates the CMA optimization problem, details the NP-hardness proof, and then presents and compares solutions using dynamic programming, MILP, and greedy heuristics, validating results on simulations and hardware.",
+  "why_interesting": "The work directly addresses resource management and scaling limitations in distributed quantum architectures, which is crucial for realizing fault-tolerant quantum computation across modular hardware platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03260_figures/2610.03260_fig1.jpg",
+      "caption": "Figure 1. Remote 2-qubit gate (telegate) between data qubits on two QPUs using a Bell pair and classical commu- nication.",
+      "page": 2
+    },
+    {
+      "image": "2610.03260_figures/2610.03260_fig2.jpg",
+      "caption": "Figure 2. Comparison of local two-qubit gate latency and Bell-pair generation time for remote quantum operations.",
+      "page": 3
+    },
+    {
+      "image": "2610.03260_figures/2610.03260_fig3.jpg",
+      "caption": "Figure 3. A four-QPU example illustrating complementary compilations and the ﬁdelity improvement obtained by merging their measurement results. Under the same Bell-pair capacities, a single compilation exploits only part of the DQC resources and executes 30 shots, whereas multiple compilations achieve 60 shots with higher ﬁdelity.",
+      "page": 4
+    },
+    {
+      "image": "2610.03260_figures/2610.03260_fig4.jpg",
+      "caption": "Figure 4. Fidelity under diﬀerent Bell-pair budgets for single- and multi-compilation execution. Bars show mean ± standard deviation over 20 independent replicates.",
+      "page": 4
+    },
+    {
+      "image": "2610.03260_figures/2610.03260_fig5.jpg",
+      "caption": "Figure 6. Simulation ﬁdelity versus time budget for six 10-qubit circuit workloads. Colors denote allocation methods, markers denote six-QPU topologies.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.03260_figures/2610.03260_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

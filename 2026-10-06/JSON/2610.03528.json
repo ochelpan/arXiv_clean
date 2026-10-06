@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.03528",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Breaking the chain: geometry-native state preparation with ASPIRE",
+  "authors": "Fredrik Hasselgren, Matthew L. Sims-Goh",
+  "abstract": "Loading data into quantum computers is a key bottleneck that threatens end-to-end quantum advantage. Quantum-circuit compilers for structured states like matrix product states (MPS) are a critical enabler to manage this in quantum chemistry, finance, and many-body quantum simulation. Approximate preparation of MPS typically relies on layered sequential staircases of nearest-neighbour gates. We present Adaptive State Preparation by Iterative Removal of Entanglement (ASPIRE), an algorithm that approximately compiles state-preparation circuits by selecting gates based on the state's underlying entanglement geometry and the available connectivity of the target quantum processor. Our protocol scores candidate qubit pairs on the removability of their entanglement and identifies layers of parallelised long-ranged gates that remove the most entanglement. We demonstrate our protocol empirically across a range of settings, illustrating its success for preparing Hamiltonian ground states and multivariate amplitude-encoded functions, and accounting for qubit connectivity, hardware noise, and both NISQ and early fault-tolerant settings. Throughout, ASPIRE typically achieves higher fidelities and shallower circuits than existing methods for states with long-ranged entanglement, even when classical optimisation is accounted for. Our investigation positions ASPIRE as a competitive, resource-frugal state-preparation protocol, with particular promise for applications tolerant to imperfect fidelity such as preparation of guide states for quantum phase estimation.",
+  "url": "http://arxiv.org/abs/2610.03528v1",
+  "pdf": "https://arxiv.org/pdf/2610.03528v1",
+  "type": "theory",
+  "summary": "This paper introduces ASPIRE, a novel algorithm for preparing complex quantum states by intelligently selecting gates based on the state's entanglement geometry. It overcomes the limitations of sequential gate application by enabling parallel, long-ranged gate operations. This makes it a resource-frugal protocol highly relevant for near-term quantum hardware simulations.",
+  "main_problem": "Loading quantum states into quantum computers efficiently remains a major bottleneck threatening end-to-end quantum advantage.",
+  "main_result": "The proposed ASPIRE protocol achieves higher fidelities and shallower circuits than existing methods for preparing states with long-ranged entanglement, while accounting for hardware connectivity.",
+  "method": "ASPIRE is a greedy classical algorithm that iteratively selects gates by scoring candidate qubit pairs based on the state's underlying entanglement geometry, aiming to remove entanglement in parallel layers.",
+  "model_or_system": "The focus is on preparing structured quantum states, particularly Matrix Product States (MPS), which are relevant for quantum chemistry and many-body simulation.",
+  "key_observables": "Fidelity (ft), circuit depth, entanglement geometry (measured via Quantum Mutual Information, QMI), and gate count.",
+  "important_parameters": "Bond dimension ($\\chi$), hardware connectivity, and noise models (NISQ/fault-tolerant).",
+  "main_assumptions": "The protocol assumes that minimizing entanglement measures (like QMI) guides the construction of the state-preparation circuit, and it is designed to handle non-1D hardware connectivity.",
+  "figures_summary": "Figure 1 compares ASPIRE's circuit structure to existing methods (like MPD), showing ASPIRE's ability to generate parallel layers that target long-ranged entanglement more efficiently.",
+  "paper_structure": "The paper introduces ASPIRE as an improvement over sequential nearest-neighbor gate application (like MPD), detailing the use of QMI to guide gate placement and demonstrating its resource-frugal nature across various hardware constraints.",
+  "why_interesting": "The focus on geometry-native state preparation directly addresses practical hardware limitations (connectivity and depth) that are crucial when simulating complex quantum systems relevant to AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03528_figures/2610.03528_fig1.jpg",
+      "caption": "FIG. 1. Overview of the ASPIRE protocol. (a) Comparison of circuit structure for the MPD [16] (blue) and ASPIRE (orange) at identical budget. The MPD produces sequential ‘staircase’ layers, whereas ASPIRE selects pairs optimised to reduce long-ranged entanglement, parallelised at shallower depth. (b) Pairwise quantum mutual information Equation 8 for the ground state of a 4 × 3 Heisenberg model Equation 26, snake-mapped to an MPS and used to select pairs. Each pair scored is a cell at its MPS site (horizontal) and gate range (vertical); only the bottom row is accessible by standard MPD methods, while the six starred cells are connections only targetable by ASPIRE at ranges 3, 5 and 7 in...",
+      "page": 3
+    },
+    {
+      "image": "2610.03528_figures/2610.03528_fig2.jpg",
+      "caption": "FIG. 2. A toy model for the impact of better connectivity. Top row: the remaining correlation T is shown as a function of (a) circuit depth for a GHZ64 system and of (b) native gate count for an Lx ×Ly = 6×6 lattice carrying a Bell pair on each vertical bond. For (a) the shaded region is unreachable by nearest-neighbour circuits, with the MPD’s performance shown in dashed blue and ASPIRE at different connectivity radii shown as solid coloured lines. For (b) the Bell pair lattice’s entanglement becomes long-ranged when snake mapped to an MPS, seeing all the Bell pairs only when the connectivity radius reaches 2Lx −1. (c) Depth to exact preparation of the GHZ64, requiring ⌈log2 N⌉layers at...",
+      "page": 8
+    },
+    {
+      "image": "2610.03528_figures/2610.03528_fig3.jpg",
+      "caption": "FIG. 3. Toy model of the energy refinement. A N = 8 critical TFIM ground state is prepared with 21 two-qubit gates via the unitary disentangler protocol from a deliberately crude χ = 2 single-sweep DMRG state. Comparing against E0 from exact diagonalisation (a) Energy error per site, rel- ative to E0 from exact diagonalisation, against optimisation sweep; at sweep 10 the protocol switches from Algorithm 3 to energy refinement. (b) shows the infidelity with respect to the true ground state (red) and the DMRG state (blue), with the same optimisation switch halfway.",
+      "page": 10
+    },
+    {
+      "image": "2610.03528_figures/2610.03528_fig4.jpg",
+      "caption": "FIG. 4. 2D TFIM lattice ground-state preparation with MPD and ASPIRE. (a) The MPD (blue) versus AS- PIRE (orange) preparing the 10 × 10 2D TFIM ground state (N = 100 sites, h = 2), both gate-matched at 2376 two-qubit gates and cast onto a fault-tolerant T-gate count with the TRASYN synthesis model [118], the specialised U3 synthesis of Ref. [111], total synthesis error 10−3. Dashed lines are the un- optimised constructions. Solid lines refine the circuit at each marked gate count with Algorithm 3, each point separately and with the same budget of 5 × 1012 bond-resolved χ3 op- erations for both protocols. ASPIRE’s solid line ends at 999 two-qubit gates, beyond which the budget buys less than...",
+      "page": 12
+    },
+    {
+      "image": "2610.03528_figures/2610.03528_fig5.jpg",
+      "caption": "FIG. 5. Optimisation effectiveness of MPD and AS- PIRE. The infidelity of the protocols optimised to conver- gence at a gate budget of 2 to 5 MPD layers is compared for the 7 × 2 Heisenberg (a) and TFIM (b) ground states, and the N = 14 random MPS with χ = 64 (c), the last a geo- metric mean over three seeds. Hollow markers stopped at the optimiser’s cap of 3 × 104 sweeps and bound the converged infidelity from above.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.03528_figures/2610.03528_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

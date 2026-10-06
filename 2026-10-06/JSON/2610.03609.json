@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.03609",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.ins-det"
+  ],
+  "is_primary_archive": true,
+  "title": "The QICK Box: A Modular RF Front-End System for Quantum Control and Readout",
+  "authors": "L. Arnaldi, D. Martin, S. Sussman, S. Uemura, K. Treptow, N. Wilcer, A. Colón Cesaní, O. Seidel, K. Anyang, G. Bratrud, F. Abouzahr, J. Christiansen-Salameh, D. Baxter, G. Cancelo",
+  "abstract": "The QICK (Quantum Instrumentation Control Kit), first introduced in 2022, is a standalone open source control system for quantum information science. Since then, QICK has been migrated to new hardware platforms, expanded its functionality for applications with different types of qubits (superconducting, atomic, ion-trapped, and spin defects), as well as quantum sensors, and quantum networks. QICK is a highly optimized control kit, with a library of functions that can be used for more than one application. In particular, the software and firmware are customized to minimize latency and maximize control performance and throughput. In this white paper, we describe hardware details and performance of the QICK Box. The QICK Box features up to 16 outputs, up to 8 inputs, and 8 20-bit DC biases. Modular output and input daughtercards give the choice of signal chains optimized for fast DC-coupled signals or RF signals up to 10 GHz. Power levels, step attenuation, and bandpass filtering are controlled by software. We demonstrate the system's performance through single-shot readout measurements of a six-transmon device at the Quantum Underground Instrumentation Experimental Testbed (QUIET) at Fermilab, achieving (91.7 +/- 0.4)% readout fidelity limited by T1 decay during the readout. The single shot readout signal-to-noise ratio (SNR) is 4.4 +/- 0.1 without a quantum amplifier, confirming that the QICK Box is suitable for high-fidelity quantum control and measurement applications. Advances in firmware and software will be described in a separate paper.",
+  "url": "http://arxiv.org/abs/2610.03609v1",
+  "pdf": "https://arxiv.org/pdf/2610.03609v1",
+  "type": "experiment",
+  "summary": "This paper introduces and characterizes the QICK Box, a modular, high-speed RF front-end system for quantum control. By performing single-shot readout measurements on a transmon qubit, the authors demonstrated that the system achieves high fidelity and signal-to-noise ratios. This confirms the QICK Box as a robust, versatile platform essential for advancing quantum information science experiments.",
+  "main_problem": "To detail the hardware specifications and measure the performance of the QICK Box, a modular RF front-end system designed for high-fidelity quantum control and readout.",
+  "main_result": "The QICK Box successfully demonstrated high-fidelity single-shot readout of a transmon qubit, achieving 91.7% fidelity and an SNR of 4.4, confirming its suitability for advanced quantum experiments.",
+  "method": "The performance was validated through single-shot dispersive readout measurements on a transmon device, utilizing programmable filtering and signal conditioning chains.",
+  "model_or_system": "The system centers on the QICK Box, an open-source, modular RF front-end built around an RFSoC FPGA, capable of interfacing with superconducting qubits (like transmon devices) for control and measurement.",
+  "key_observables": "Readout Fidelity (91.7% $\\pm$ 0.4%), Single-Shot SNR (4.4 $\\pm$ 0.1), Noise Temperature, and DC Bias Noise Floor.",
+  "important_parameters": "RF bandwidth up to 10 GHz, 20-bit DC biasing, and the qubit relaxation time ($T_1$) which limits the fidelity.",
+  "main_assumptions": "The readout fidelity is primarily limited by the qubit's $T_1$ decay during the measurement window, rather than the electronic noise floor of the QICK Box.",
+  "figures_summary": "Figures illustrate the comparison of Power Spectral Density (PSD) with and without Bandpass Filters (BPF), demonstrating noise floor reduction, and show I-Q scatter plots used to quantify state separation and readout fidelity.",
+  "paper_structure": "The paper describes the hardware architecture (QICK Board, daughtercards), details the signal conditioning chains (RF/DC), presents the experimental methodology using single-shot readout, and concludes with performance metrics and limitations.",
+  "why_interesting": "This work provides a critical, high-performance piece of infrastructure for quantum computing experiments, directly impacting the feasibility of implementing complex quantum algorithms by ensuring high-quality measurement data.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03609_figures/2610.03609_fig1.jpg",
+      "caption": "FIG. 1. QICK Box 2U front-panel assembly. The internal RF Main board hosts the modular daughter cards, which are connected to the front-panel SMA interfaces via high-performance coaxial cables. This 2U rack-mount configuration provides a shielded environment for the RFSoC and signal-conditioning electronics, ensuring robust connectivity for large-scale quantum experiments.",
+      "page": 2
+    },
+    {
+      "image": "2610.03609_figures/2610.03609_fig2.jpg",
+      "caption": "FIG. 2. System integration of the QICK Box. The architecture is split between the AMD ZCU216 RFSoC (left), which performs digital synthesis and high-speed data conversion, and the companion RF Main board (right). The RF Main board hosts the modular daughter cards responsible for analog signal conditioning, including low-noise amplification, programmable filtering, and power leveling across the 0.1–9GHz range.",
+      "page": 2
+    },
+    {
+      "image": "2610.03609_figures/2610.03609_fig3.jpg",
+      "caption": "FIG. 3. RF output daughter card block diagram. The chain uti- lizes a 10 GHz balun for differential-to-single-ended conversion, fol- lowed by an ADMV8818 digitally programmable bandpass filter to suppress Nyquist images and out-of-band spurs across the 100 MHz to 9 GHz range. The final stage comprises two PMA3-83LN+ gain stages and two PE43705 digital step attenuators.",
+      "page": 3
+    },
+    {
+      "image": "2610.03609_figures/2610.03609_fig4.jpg",
+      "caption": "FIG. 4. RF input daughter card block diagram. The receiver chain is optimized for high sensitivity, featuring a MAAL-011130 LNA as the primary stage to achieve a 1.4dB noise figure. Signal condi- tioning is managed via pSemi digital step attenuators and an Analog Devices ADMV8818 tunable bandpass filter, providing up to 90dB of total gain and robust out-of-band rejection for quantum readout applications.",
+      "page": 3
+    },
+    {
+      "image": "2610.03609_figures/2610.03609_fig5.jpg",
+      "caption": "FIG. 5. DC-coupled output daughter card block diagram. The ar- chitecture features a Texas Instruments LMH5401 in a single-ended configuration with the negative output terminated to 50Ω. A 1.8GHz low-pass filter (LPF) ensures suppression of high-frequency images and clock feedthrough.",
+      "page": 3
+    }
+  ],
+  "figure": "2610.03609_figures/2610.03609_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

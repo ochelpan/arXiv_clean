@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2610.03103",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.class-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Orbital-Rotation Shadow Tomography Reduces the Classical Cost of Quantum-Classical Auxiliary-Field Quantum Monte Carlo",
+  "authors": "Luning Zhao, Joshua Goings, Evgeny Epifanovsky, Martin Roetteler",
+  "abstract": "Quantum-classical auxiliary-field quantum Monte Carlo (QC-AFQMC) is a promising route to using quantum computers for strongly correlated electronic structure problems, but its scalability is limited by a classical post-processing bottleneck: the measured quantum trial state must be used to evaluate overlaps, force biases, and local energies for many walkers throughout the AFQMC propagation. Existing matchgate-shadow approaches avoid the exponential cost of generic classical shadows, but their post-processing remains expensive for large systems. In this work, we show that particle-number-preserving fermionic shadows, implemented as orbital-rotation shadows, are able to drastically reduce QC-AFQMC post-processing costs. We derive efficient estimators for overlaps and their derivatives, giving $O(N^3)$ scaling for overlaps and force biases and $O(N^4)$ scaling for local energies per shadow and walker and with $O(N)$ Cholesky vector. For fixed normalized target determinants, we also prove that the overlap estimator is unbiased with variance upper bounded by $O(η)$, where $η$ is the particle number, yielding a sufficient budget of $O(η/ε^2)$ ideal independent measurements for additive overlap error $ε$. We combine these estimators with a novel virtual-correlation-energy treatment and a GPU implementation and demonstrate QC-AFQMC using orbital-rotation shadows. Performance projections for $π$-conjugated molecules up to pentacene with a (22e, 22o) active space and 356 total orbitals show that the full classical post-processing workflow can be completed in slightly more than two days on 8$\\times$A100 graphics processing units (GPUs). These results significantly reduce classical post-processing costs for QC-AFQMC and motivate further improvements in preparation and measurement of the trial state on quantum hardware.",
+  "url": "http://arxiv.org/abs/2610.03103v1",
+  "pdf": "https://arxiv.org/pdf/2610.03103v1",
+  "type": "theory",
+  "summary": "This paper introduces orbital-rotation shadows to drastically reduce the classical computational cost associated with Quantum-Classical Auxiliary-Field Quantum Monte Carlo (QC-AFQMC). By developing efficient estimators for key observables like overlaps, the authors make the simulation of strongly correlated electronic structure problems, such as those in $\\pi$-conjugated molecules, significantly more feasible on classical hardware coupled with quantum measurements.",
+  "main_problem": "The paper addresses the classical post-processing bottleneck in Quantum-Classical Auxiliary-Field Quantum Monte Carlo (QC-AFQMC) simulations for strongly correlated electronic structure problems.",
+  "main_result": "They demonstrate that using orbital-rotation shadows significantly reduces the computational cost of calculating necessary overlaps and energy estimators, achieving polynomial scaling ($O(N^3)$ to $O(N^4)$) compared to previous exponential costs.",
+  "method": "The core method involves deriving efficient estimators for quantum overlaps and local energies by implementing particle-number-preserving fermionic shadows (orbital-rotation shadows) and combining them with advanced trace evaluation techniques.",
+  "model_or_system": "The work applies to strongly correlated electronic structure problems in molecules and materials, specifically using the framework of QC-AFQMC to evaluate properties of the quantum trial state $|\\Psi_T\rangle$ relative to a target determinant $|\\phi\rangle$.",
+  "key_observables": "Overlaps ($\\langle\\Psi_T|\\phi\rangle$), force biases, and local energies, which are crucial for the AFQMC propagation.",
+  "important_parameters": "The scaling analysis depends on system size ($N$), the number of ancillary modes ($\\eta$), and the desired error tolerance ($\\epsilon$).",
+  "main_assumptions": "The analysis relies on the properties of fermionic shadows, the ability to efficiently evaluate traces using Grassmann integration, and the assumption that the orbital-rotation shadow technique correctly captures the necessary quantum information.",
+  "figures_summary": "Not specified in the notes, but the analysis involves deriving complex mathematical expressions for expectation values and variances related to Gaussian random matrices.",
+  "paper_structure": "The paper builds from identifying the QC-AFQMC bottleneck, introducing orbital-rotation shadows as a solution, deriving specific unbiased estimators for overlaps and derivatives, and finally demonstrating the feasibility and performance projections for large molecules.",
+  "why_interesting": "This work provides a concrete, scalable computational pathway to simulate complex quantum many-body systems that are otherwise intractable due to classical overhead, directly impacting the feasibility of quantum simulation in chemistry and materials science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03103_figures/2610.03103_fig1.jpg",
+      "caption": "FIG. 1. Mean absolute overlap error from orbital-rotation shadows for hydrogen chains with 4 and 6 atoms at a spacing of 1Å. The trial state is the UpCCD state with MP2 parame- ters. The overlaps are computed with respect to 100 randomly sampled Slater determinants.",
+      "page": 11
+    },
+    {
+      "image": "2610.03103_figures/2610.03103_fig2.jpg",
+      "caption": "FIG. 2. QC-AFQMC energy trajectory for N2 using orbital- rotation shadows with an UpCCD trial state initialized from MP2 parameters. The dashed horizontal line indicates the reference CCSD(T) energy.",
+      "page": 11
+    },
+    {
+      "image": "2610.03103_figures/2610.03103_fig3.jpg",
+      "caption": "FIG. 3. Measured and fitted QC-AFQMC times for 1 block with 10 steps for orbital-rotation shadows across the π-conjugated benchmark series. Points show measured timings and solid lines show the fitted physical scaling model as a function of the number of shadows for different walker counts.",
+      "page": 12
+    },
+    {
+      "image": "2610.03103_figures/2610.03103_fig4.jpg",
+      "caption": "Figure 3 shows the measured timings and fitted curves used to calibrate the performance model and Table II shows the corresponding predicted QC-AFQMC run- times for the four larger π-conjugated systems using 65,536 orbital-rotation shadows, 1024 walkers and 150 blocks with 10 steps per block. We assume perfect strong scaling with the number of GPUs and that an NVIDIA H200 is 1.4× faster than an NVIDIA A100. Under these assumptions, pentacene with a (22e, 22o) active space is predicted to require slightly more than two days on 8 NVIDIA A100 GPUs and less than an hour on 320 NVIDIA H200 GPUs. To illustrate the significance of performance improve- ments, we turn to a comparison of runtime...",
+      "page": 12
+    }
+  ],
+  "figure": "2610.03103_figures/2610.03103_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

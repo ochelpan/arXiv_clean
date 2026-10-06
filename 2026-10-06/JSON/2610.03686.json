@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.03686",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Block Encoding of Structured Hamiltonians by Separating Where and What",
+  "authors": "Alessandro Summer, François Jamet",
+  "abstract": "Fault-tolerant block encodings of structured Hamiltonians can reduce their non-Clifford cost in SELECT by selecting where an operator acts separately from what is applied. We construct permute-act-unpermute circuits whose CSWAP networks exploit the support geometry: a selected support is brought to a fixed target register, a shared local circuit acts there, and the permutation is undone. For supports of fixed size, the $T$ count of SELECT then grows with the system size rather than with the number of terms, without requiring translational symmetry or factorised coefficients. For two-site supports, we establish and attain the minimum CSWAP count within address-controlled networks of site transpositions. Compiled for Pauli terms, these circuits use $8SN+O(\\log N)$ $T$ gates with $O(\\log N)$ permutation work qubits, where $N$ is the number of system qubits and $S$ is determined by the support geometry, with $S=1$ for nearest-neighbour interactions and $S=3/2$ for all-to-all pairs. We also introduce a bridged CSWAP that retains and repairs a temporary AND across the target action. When the repair is Clifford, it halves the $T$ count of a matched forward-inverse CSWAP pair at the cost of one retained work qubit. For a Heisenberg ring, the complete block-encoding query reduces the $T$ count by a factor approaching 3 as the system size grows. For a five-orbital Anderson impurity model, which combines nearest-neighbour and all-to-all support geometries, the reduction is about 1.7 at large bath sizes. Both comparisons use the lowest-cost compiled baselines considered, at unchanged block-encoding normalisation and comparable peak ancilla counts.",
+  "url": "http://arxiv.org/abs/2610.03686v1",
+  "pdf": "https://arxiv.org/pdf/2610.03686v1",
+  "type": "theory",
+  "summary": "This paper details a method to efficiently encode structured Hamiltonians for quantum simulation by separating the spatial support of an interaction from the local operation applied. This 'permute-act-unpermute' circuit structure significantly reduces the required non-Clifford gate count (T gates) by changing the cost scaling from multiplicative to additive. The results show substantial cost reductions for models like the Heisenberg ring, advancing the practical simulation of complex quantum materials.",
+  "main_problem": "The primary goal is to reduce the non-Clifford gate cost associated with fault-tolerant block encodings of structured Hamiltonians.",
+  "main_result": "By separating the action ('what') from the support geometry ('where') using permute-act-unpermute circuits, the T-gate count scales additively with system size rather than multiplicatively with the number of terms.",
+  "method": "The authors construct specialized quantum circuits utilizing permute-act-unpermute sequences and introduce a 'bridged CSWAP' gate to optimize the gate count, especially for Pauli terms.",
+  "model_or_system": "The work applies to simulating quantum many-body systems described by structured Hamiltonians, exemplified by nearest-neighbour interactions (Heisenberg ring) and all-to-all couplings (Anderson impurity model).",
+  "key_observables": "T count (non-Clifford cost), CSWAP count, and the scaling factor of the cost relative to system size N.",
+  "important_parameters": "Support geometry (determining the CSWAP density S), system size N, and the number of impurities/orbitals ($n_{\text{imp}}$).",
+  "main_assumptions": "The approach assumes that the coefficients of the Hamiltonian terms do not require translational symmetry or factorized coefficients, and comparisons use the lowest-cost compiled baselines.",
+  "figures_summary": "Figures illustrate the permute–act–unpermute block encoding structure, the use of swap trees for different support geometries (nearest-neighbor, all-to-all), and cost comparisons between various comparator constructions.",
+  "paper_structure": "The paper develops the theory by first establishing the permute-act-unpermute framework, then optimizing the permutation cost based on support geometry, and finally applying this to specific models like the Heisenberg ring and Anderson impurity model to quantify the cost reduction.",
+  "why_interesting": "This work provides concrete, resource-aware quantum circuit techniques for simulating complex Hamiltonians relevant to strongly correlated materials, directly impacting the feasibility of quantum simulation algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03686_figures/2610.03686_fig1.jpg",
+      "caption": "FIG. 1. Permute–act–unpermute block encoding of a structured Hamiltonian. Prepare encodes the support address j and operator label b. The address-controlled per- mutation Πj brings the selected support to the fixed target register T , where the shared target action P applies the oper- ator labelled by b. Finally Π−1 j restores the system register. Thus, the permutation selects where the term acts, while the target action selects what is applied.",
+      "page": 1
+    },
+    {
+      "image": "2610.03686_figures/2610.03686_fig2.jpg",
+      "caption": "FIG. 2. Site groups that fix the permutation. Sites of one group share a colour, and one selected support is highlighted as the target register T . (a) Nearest-neighbour ring, χ = 2 and nT = 2. (b) Square-lattice plaquettes, χ = 4 and nT = 4. (c) All-to-all pairs, χ = N and nT = 2, drawn for N = 6. (d) One swap tree per group gathers the selected site of that group at its root. For the four groups of (b), the roots form T itself, where P applies P (b) T . When χ exceeds the support size, a second network moves the roots that hold the selected support onto T .",
+      "page": 4
+    },
+    {
+      "image": "2610.03686_figures/2610.03686_fig3.jpg",
+      "caption": "FIG. 4. Permute–act–unpermute block encoding of the Heisenberg ring for even N. The alias sampler Aµ prepares the operator label (f, ξ, ζ), while the control generator GH prepares the position j and the auxiliary controls consumed by the permutation. The odd and even swap trees, connected by the address toggle Tog, bring the selected nearest-neighbour pair to the fixed target register T = (q0, q1). The target action PH applies the operator specified by the label, after which the permutation is reversed. The Clifford diagonal Dclass supplies the remaining Pauli phases and coefficient signs. Figs. 12, 13 and 16 to 19 give the circuit decompositions of the corresponding blocks. All circuits...",
+      "page": 7
+    },
+    {
+      "image": "2610.03686_figures/2610.03686_fig4.jpg",
+      "caption": "FIG. 3. Closed and bridged CSWAP pairs. (a) In a closed pair, the temporary work bit is erased after the forward CSWAP and recomputed for the inverse one, requiring two 4 T openings. (b) In a bridged pair, the work bit is retained across the target action and updated by the repair Xcδ ω before being reused by the inverse CSWAP. The pair therefore requires only one opening when the repair is Clifford. (c) Permute– act–unpermute Select with bridged CSWAPs. The forward permutation leaves its work bits live across the target action. The repair predicates, derived from the prepared address and label, update them before the inverse permutation consumes them.",
+      "page": 7
+    },
+    {
+      "image": "2610.03686_figures/2610.03686_fig5.jpg",
+      "caption": "FIG. 5. Resources for one uncontrolled block-encoding query of the Heisenberg ring at even N. (a) Total T count, with the Nrot arbitrary rotations synthesised at εsynth = 10−3 and alias precision µ = 10. (b) Peak ancilla count Apeak, excluding the N system qubits, with µ = 10. (c) Leading resource expressions, up to O(log N) corrections in T and O(1) corrections in Apeak; the key beside each row identifies its curves in (a) and (b). Curves in (a) and (b) evaluate the corresponding resource expressions at every even N; markers show compiled counts for this work, the flat walk, and the product-wise walk at the sizes indicated, while the remaining constructions use the gate inventories of...",
+      "page": 8
+    }
+  ],
+  "figure": "2610.03686_figures/2610.03686_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.03379",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Degree-conditioned anneal offsets reshape certified-optimum sampling for minimum vertex cover",
+  "authors": "Jiwan Kang, Namshik Han",
+  "abstract": "Quantum annealers can sample degenerate optima unevenly, so the composition of finite-read output matters when multiple solutions are sought. We investigate whether problem structure can steer this output through node-dependent anneal offsets for Minimum Vertex Cover (MVC). In MVC, vertex degree equals the number of incident edge-cover constraints and therefore measures local constraint participation. We use this relation to define degree-conditioned offset-scheduled quantum annealing (DC-OSQA), a static rule assigning more negative offsets to vertices with larger max-normalized degree. Experiments used a D-Wave Advantage2 system1 quantum processing unit (QPU). For each graph, DC-OSQA was compared with a zero-offset baseline using the same MVC encoding, fixed physical embedding, majority-vote chain decoding, and 1000-read budget. A sampled bitstring was counted as a certified candidate only if it represented a feasible vertex cover and its cardinality matched the minimum independently certified by integer linear programming. Across 120 paired comparisons on sparse Barabasi-Albert graphs with two attachments per added vertex and graph sizes N = 70-150, DC-OSQA increased the mean number of distinct certified candidates from 171.7 to 455.8 and the mean number of complete-linkage Hamming-distance families from 22.5 to 80.0; paired gains were positive at every tested size. These shifts, together with lower empirical concentration, indicate a change in the composition of the observed certified support. At N = 150, the degree-aligned assignment exceeded the within-instance mean over 20 random reassignments of the same offset values in 19 of 20 graphs for certified-support size and all 20 graphs for Hamming families. Within the tested ensemble, these results show that an MVC-specific degree rule changes the certified optima observed within a fixed QPU read budget.",
+  "url": "http://arxiv.org/abs/2610.03379v1",
+  "pdf": "https://arxiv.org/pdf/2610.03379v1",
+  "type": "experiment",
+  "summary": "This paper demonstrates that tailoring the quantum annealing schedule using vertex degrees—a structural property of the Minimum Vertex Cover problem—can significantly increase the diversity and count of certified optimal solutions found on a quantum annealer. By implementing degree-conditioned offsets, the authors show they can steer the sampling process to explore a richer set of degenerate optima within a fixed computational budget.",
+  "main_problem": "The study investigates how incorporating problem-specific structural information, derived from vertex degrees, can steer the composition of certified optimal solutions sampled by quantum annealers for the Minimum Vertex Cover (MVC) problem.",
+  "main_result": "Degree-conditioned annealing offsets (DC-OSQA) significantly increased the mean number of distinct certified candidates and Hamming-distance families compared to a zero-offset baseline on sparse Barabási–Albert graphs.",
+  "method": "The authors implemented DC-OSQA by assigning anneal offsets proportional to the vertex degree, comparing its performance against a standard zero-offset quantum annealing baseline.",
+  "model_or_system": "The work uses quantum annealers, specifically the D-Wave Advantage2 QPU, to solve the MVC problem encoded as a QUBO. The core technique involves modifying the annealing Hamiltonian via degree-dependent offsets.",
+  "key_observables": "Mean number of distinct certified candidates, mean number of complete-linkage Hamming-distance families, and the difference in effective support ($\\Delta S_{\text{eff}}$).",
+  "important_parameters": "Graph size N (70-150), offset scale $\\alpha$, and the fixed QPU read budget.",
+  "main_assumptions": "The analysis is restricted to sparse Barabási–Albert graphs and assumes a fixed, finite QPU read budget.",
+  "figures_summary": "Figures summarize the gains of DC-OSQA over baselines in unique certified candidates and Hamming families, showing positive gains across tested sizes.",
+  "paper_structure": "The paper develops the DC-OSQA protocol based on vertex degrees, compares its performance against a zero-offset baseline using quantitative metrics (certified support size), and concludes that the degree rule successfully alters the observed set of optimal solutions.",
+  "why_interesting": "The explicit manipulation of the quantum annealing schedule using problem structure (degree) to control the sampling distribution of degenerate ground states is highly relevant to understanding the limitations and potential enhancements of quantum optimization algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03379_figures/2610.03379_fig1.jpg",
+      "caption": "Figure 1: Workflow of degree-conditioned offset-scheduled quantum annealing (DC-OSQA). (a) Sparse Barab´asi–Albert m = 2 graph with heterogeneous vertex degrees; node size reflects degree, and unique node colors identify logical vertices across panels (a)–(c). (b) Per-vertex degree-conditioned offset assignment, δi = −αdi/dmax, with α = 0.1; each bar retains the color of its logical vertex. (c) Minor embedding of the logical graph into a Zephyr hardware graph, with each physical chain shown in the color of its logical vertex. (d) Offset-dependent schedules for the four degree classes; solid curves show Ai(s), dashed curves show Bi(s), and marker shapes distinguish degree classes...",
+      "page": 5
+    },
+    {
+      "image": "2610.03379_figures/2610.03379_fig2.jpg",
+      "caption": "Figure 2: Degree-conditioned anneal offsets broaden the certified support in sparse Barab´asi–Albert MVC instances. (a) Mean number of unique certified candidates discovered by QA-Base and DC-OSQA. (b) Mean number of complete-linkage Hamming families with threshold τ = 0.1N. (c,d) Instance-paired DC-OSQA minus QA-Base gains for the same two metrics in the larger-size subset, N = 70–150. In (a,b), shaded bands show ± standard error of the mean (s.e.m.) across graph instances. In (c,d), small blue circles show individual paired gains and diamonds with error bars show the mean ± s.e.m. at each graph size. All counts use certified-candidate validation: candidates must both match Kexact and...",
+      "page": 11
+    },
+    {
+      "image": "2610.03379_figures/2610.03379_fig3.jpg",
+      "caption": "Figure 3: Observed certified-sample concentration diagnostics for BA m = 2, N = 70–150. Each line connects a matched graph instance for QA-Base and DC-OSQA. The panels show normalized entropy, Simpson effective-support fraction, top-decile occurrence share, and the Gini coefficient over the observed certified occurrences. Large diamonds mark protocol means across the 118 matched instances. Higher entropy and effective-support fraction, together with lower top-decile share and Gini coefficient, indicate lower concentration in the observed certified occurrences.",
+      "page": 13
+    },
+    {
+      "image": "2610.03379_figures/2610.03379_fig4.jpg",
+      "caption": "Figure 4: Degree-aligned offset placement compared with random reassignments of the same offset multiset at N = 150. For each of 20 BA m = 2 graph instances, light points show 20 hardware-valid shuffled assignments, open circles show the within-instance shuffle median, and dark squares show the original degree-aligned DC-OSQA assignment. The graph, QUBO, read budget, embedding, offset-value multiset, and certified-candidate rule are held fixed within each instance. (a) Unique certified candidates. (b) Complete-linkage Hamming families at threshold τ = 0.1N. The degree-aligned assignment generally lies above the within-instance shuffle median.",
+      "page": 14
+    },
+    {
+      "image": "2610.03379_figures/2610.03379_fig5.jpg",
+      "caption": "Figure 5: QPU read-budget extension at N = 150 on the same 20 BA m = 2 graph instances. (a) Unique certified candidates. (b) Complete-linkage Hamming families at threshold τ = 0.1N. Each point summarizes the cumulative acquisition-order prefix at the stated read budget. Lines show across-instance means, and shaded regions show the s.e.m. QA-Base is shown by gray dashed lines with circles, and DC-OSQA by blue solid lines with squares.",
+      "page": 15
+    }
+  ],
+  "figure": "2610.03379_figures/2610.03379_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.02734",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "SMP: A General Hyperedge-Based Framework for Circuit-Level Quantum Error Correction",
+  "authors": "Siying Wang, Yue Yan, Zhixin Xia, Canwei Shi, Hannuo Yuan, Xiang-Bin Wang",
+  "abstract": "Hyperedge faults remain a major challenge in circuit-level quantum error correction. Accurately exploiting hyperedge correlations often requires substantial computational resources, which complicates real-time decoding. Matching-based decoders are fast and scalable, but their pairwise graph representation limits the use of higher-order fault information. Here, we introduce Syndrome Motif Projection (SMP), a general framework for incorporating hyperedge information into matching-based decoding. The key idea is that a hyperedge fault produces a characteristic local syndrome motif. Observing such a motif provides evidence for the corresponding fault. SMP extracts this information directly from the measured syndrome with linear-complexity preprocessing while preserving the matching backend. It can therefore serve as a lightweight front end to existing scalable and real-time matching decoders. We demonstrate SMP across surface code memories, color code memories, and logical gate circuits. On Google's Willow experimental surface code data, SMP improves both standard and correlated matching and outperforms the tested belief matching baseline. For color code memories, SMP combined with Chromobius reduces logical failure probabilities by up to 77.8\\%. For logical gate circuits, SMP reduces the failure probability of a six-CNOT circuit by 35.5\\% relative to logical observable matching while achieving performance comparable to iterative belief matching. These results demonstrate that SMP provides a lightweight and transferable approach to hyperedge decoding, with a clear path toward integration into scalable real-time decoding architectures for fault-tolerant quantum computation.",
+  "url": "http://arxiv.org/abs/2610.02734v1",
+  "pdf": "https://arxiv.org/pdf/2610.02734v1",
+  "type": "theory",
+  "summary": "This paper introduces Syndrome Motif Projection (SMP), a novel, lightweight framework designed to incorporate complex hyperedge fault information into existing, scalable matching-based quantum error correction decoders. By extracting local syndrome motifs, SMP enhances the ability to detect and correct correlated errors in surface and color codes. The results demonstrate that SMP provides a highly transferable method to boost fault tolerance in real-time quantum computation architectures.",
+  "main_problem": "The primary challenge addressed is accurately decoding hyperedge faults in circuit-level quantum error correction (QEC), as existing fast decoders are limited by pairwise representations.",
+  "main_result": "The proposed Syndrome Motif Projection (SMP) framework significantly improves error correction performance across surface and color codes, achieving reductions in logical failure probabilities up to 77.8% and 35.5% compared to baselines.",
+  "method": "SMP is a lightweight front-end that extracts characteristic local syndrome motifs directly from measured syndromes, allowing this higher-order fault information to be incorporated into existing, scalable matching-based decoding algorithms.",
+  "model_or_system": "The work focuses on circuit-level QEC using stabilizer measurements on physical systems modeled by surface codes and color codes, aiming for fault-tolerant quantum computation.",
+  "key_observables": "Logical failure probabilities ($P_L$), performance improvement over belief matching, and the detection of specific syndrome motifs.",
+  "important_parameters": "Physical error probability ($p$), code distance ($d$), and the structure of the fault (edge vs. hyperedge).",
+  "main_assumptions": "The core assumption is that the local syndrome motif provides sufficient evidence to effectively update the weights in the matching backend, allowing for a linear-complexity preprocessing step.",
+  "figures_summary": "Figure 1 illustrates the structure of hyperedges and the resulting syndrome motifs from circuit-level faults in a surface code patch. Other figures compare the logical failure probabilities of various decoding methods.",
+  "paper_structure": "The paper introduces the SMP framework by defining the problem of hyperedge faults, details the mechanism of motif extraction and weight interpolation ($\\eta_h$), and validates the approach by demonstrating performance improvements across surface codes, color codes, and logical gate circuits.",
+  "why_interesting": "While focused on QEC, the development of lightweight, information-theoretic preprocessing steps (like motif extraction) that bridge complex physical phenomena (hyperedge faults) into computationally tractable graph structures is relevant to designing efficient control protocols for open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.02734_figures/2610.02734_fig1.jpg",
+      "caption": "FIG. 1. Four-detector hyperedges induced by circuit-level faults. (a) Rotated surface code patch. Green and red plaquettes denote X- and Z-type stabilizers, respectively; diamonds denote data qubits and circles denote measurement qubits. The four CNOT gates used to measure the highlighted X-type stabilizer are labeled CNOT-1 through CNOT-4. (b) Circuit for one syndrome extraction round (round 0). The measurement qubit qm at spatial coordinate (0, 0) interacts sequentially with data qubits q1, q2, q3, and q4 at (1, 0), (0, 1), (0, −1), and (−1, 0), respectively. The four ZX markers are alternative single-fault locations: after CNOT-i, a Z error acts on qm and an X error acts on qi, while the...",
+      "page": 3
+    },
+    {
+      "image": "2610.02734_figures/2610.02734_fig2.jpg",
+      "caption": "FIG. 2. Local motif evidence does not determine a complete correction. The labels s1, . . . , s5 denote detector locations with observed detection events. The shaded region highlights a candidate syndrome motif on s1, . . . , s4. Committing those four events to one local correction leaves s5 to be explained by other events or a boundary, neither of which is shown. The connection between s4 and s5 illustrates a competing use of a detector inside the motif. The drawing is schematic and assigns no numerical edge costs.",
+      "page": 4
+    },
+    {
+      "image": "2610.02734_figures/2610.02734_fig3.jpg",
+      "caption": "FIG. 3. Overlapping clusters generated by a single correlated circuit fault. (a) Detector outcomes from a distance-5 sur- face code circuit with r = 5 syndrome extraction rounds. The panels show rounds 2 and 3 under zero-based index- ing. A correlated Z3X12 fault is inserted after the second CX layer of round 2. It triggers D61, D66, D101, and D105. These events form a complete four-detector syndrome motif. (b) The matching graph edge sets defining the two clusters identified by SMP. Their detector graph coordinates (2, 1, 3), (3, 0, 2), (3, 0, 3), and (4, 1, 2) correspond to D105, D61, D101, and D66, respectively. Cluster A has the four-detector sup- port SA = {(2, 1, 3), (3, 0, 2), (3, 0,...",
+      "page": 6
+    },
+    {
+      "image": "2610.02734_figures/2610.02734_fig4.jpg",
+      "caption": "FIG. 4. Logical error rates per round for MWPM and SMP-MWPM on the Willow data. The panels use the reinforcement- learning-optimized (RL) prior and the SI1000 noise model prior. At each distance, the logical failure probability per memory experiment PL(r) is measured after r = 10, 13, 30, 50 extraction rounds, and the per-round rate ϵ is extracted from Eq. (21). Logical-X and logical-Z data are fitted separately and the resulting rates are averaged. Error bars show 95% intervals obtained from 5,000 parametric bootstrap resamples. Shading marks the gap between the two curves, and labels give the relative reduction R = 1 −ϵSMP/ϵbase, expressed as a percentage. Each input round count contains...",
+      "page": 8
+    },
+    {
+      "image": "2610.02734_figures/2610.02734_fig5.jpg",
+      "caption": "FIG. 5. Logical error rates per round for correlated MWPM and SMP-correlated MWPM on the Willow data. The panels use the reinforcement-learning-optimized (RL) prior and the SI1000 noise model prior with input round counts r = 10, 13, 30, 50. The per-round rate ϵ is extracted independently for each distance, prior, logical basis, and decoder using Eq. (21). Logical- X and logical-Z rates are averaged after fitting. Error bars show 95% intervals obtained from 5,000 parametric bootstrap resamples. Shading marks the gap between the two curves, and labels give the relative reduction R = 1−ϵSMP/ϵbase, expressed as a percentage. Each input round count contains 50,000 shots per logical basis.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.02734_figures/2610.02734_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

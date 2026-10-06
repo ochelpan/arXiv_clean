@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.03672",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Ordering-Aware Theory of Trotter Error",
+  "authors": "Zhenning Liu, Zhi-Yuan Wei, Michael Foss-Feig, Alexey V. Gorshkov, Andrew M. Childs",
+  "abstract": "Product formulas are a basic tool for simulating quantum many-body dynamics, but a fundamental degree of freedom in their application---the ordering of Hamiltonian terms---has remained largely unexplored. Here we systematically study such ordering effects, quantifying their impact on simulation accuracy and exploiting them to design more accurate product-formula simulations. We develop an efficiently computable, ordering-sensitive bound on the finite-step-size Trotter error for geometrically local Hamiltonians for arbitrarily high-order product formulas. For translation-invariant one-dimensional chains, our bounds are close to exact second-, fourth-, and sixth-order Trotter errors in small-system tests, while on large-scale systems they improve on previous higher-order analytical bounds by orders of magnitude. We further use the local structure of the error bounds and estimates to optimize ordering efficiently, reducing the long-chain problem to a minimum-mean-weight-cycle problem on a weighted de Bruijn graph. For random translation-invariant chains, sequential (staircase-like) orderings consistently outperform standard brickwall circuits; when circuit depth is restricted, the optimizer instead favors wave-like parallel-sequential orderings, which preserve much of the accuracy advantage over brickwall circuits. These results establish ordering as a useful degree of freedom for both understanding and improving product-formula simulation.",
+  "url": "http://arxiv.org/abs/2610.03672v1",
+  "pdf": "https://arxiv.org/pdf/2610.03672v1",
+  "type": "theory",
+  "summary": "This paper introduces an ordering-aware theory to analyze and improve the accuracy of Trotterization for simulating quantum many-body dynamics. By quantifying how the sequence of Hamiltonian terms affects the error bound, the authors show that specific orderings, like sequential or wave-like, yield significantly more accurate simulations than standard methods. This establishes term ordering as a critical, exploitable degree of freedom in quantum simulation.",
+  "main_problem": "The paper systematically studies the impact of the ordering of Hamiltonian terms on the accuracy of product-formula simulations (Trotterization) for quantum many-body dynamics.",
+  "main_result": "The authors developed an ordering-sensitive bound on the Trotter error that is nearly optimal, showing that sequential or wave-like orderings significantly outperform standard brickwall circuits.",
+  "method": "They develop an efficiently computable, ordering-sensitive bound on the finite-step-size Trotter error by organizing error contributions by spatial support and employing graph-theoretic algorithms to optimize the term ordering.",
+  "model_or_system": "The study focuses on simulating the time evolution of quantum many-body systems governed by geometrically local, translation-invariant Hamiltonians, initially on 1D nearest-neighbor chains.",
+  "key_observables": "Trotter Error, Optimality Ratio, Mean Optimality Ratios.",
+  "important_parameters": "Product formula order ($p=2, 4, 6$), step size ($\tau$), chain length ($n$).",
+  "main_assumptions": "The analysis focuses on 1D translation-invariant nearest-neighbor Hamiltonians, and the error bound is derived from the nondegenerate part of the leading-order error.",
+  "figures_summary": "Figures illustrate different term orderings (e.g., brickwall vs. sequential) and compare Trotter errors for various models, while later figures compare performance metrics like the optimality ratio across different optimization strategies.",
+  "paper_structure": "The paper progresses from establishing the core problem—the role of ordering—to developing the error bound based on spatial support, optimizing the ordering using de Bruijn graphs, and finally validating the findings by comparing sequential, wave-like, and brickwall orderings on random chains.",
+  "why_interesting": "This work provides crucial theoretical tools for improving the efficiency and accuracy of quantum simulation algorithms, directly impacting how quantum dynamics are modeled in quantum computing and AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03672_figures/2610.03672_fig1.jpg",
+      "caption": "FIG. 1. Term ordering and Trotter error. (a) Illustration of different term orderings within a first-order product formula. The same local evolutions e−iHjτ can be arranged into different circuit geometries. Shown are representative examples, including brickwall and sequential circuits, together with an intermediate circuit from the parallel-sequential family [11]. (b,c) Trotter errors for the Heisenberg and the transverse-field Ising model, respectively, with n = 8 and τ = 0.5. The relative accuracy of brickwall and sequential orderings depends on both the Hamiltonian and the Suzuki order.",
+      "page": 2
+    },
+    {
+      "image": "2610.03672_figures/2610.03672_fig2.jpg",
+      "caption": "FIG. 2. Illustration of the consecutive-label ordering pattern and its properties. Plot (a) shows how to compute c(π), according to Definition 1; plot (b) shows how to read out the relative ordering between 2, 3, 4 from c(π), according to Definition 2 and Lemma 1; plot (c) shows a typical translation- invariant permutation with m = 3, according to Definition 3.",
+      "page": 4
+    },
+    {
+      "image": "2610.03672_figures/2610.03672_fig3.jpg",
+      "caption": "FIG. 3. Construction of the ordering-aware Trotter error bound by adding one Hamiltonian term at a time. (a) Circles represent qubits and bonds represent nearest-neighbor Hamiltonian terms. The operators Uk = e−iH[1,k]τ and Sk are the exact and product-formula evolutions of the first k terms. The orange bond is the newly added term. Blue shading marks the last L terms (the slice) used to approximate the increment. The red bond, corresponding to Hk−L in the middle row, connects this slice to the rest of the chain. The dashed blue lines show the slice shifting by one term. The exact and circuit increments, Fk = U † k−1Uk and Ck = S† k−1Sk, give ∥Uk −Sk∥≤∥Uk−1 −Sk−1∥+ ∥Ck −Fk∥. (b) Each...",
+      "page": 9
+    },
+    {
+      "image": "2610.03672_figures/2610.03672_fig4.jpg",
+      "caption": "FIG. 4. Part of the de Bruijn graph corresponding to p = 6. Every vertex is a (p −1)-bit string, every edge corresponds to a p-bit string c′ with weight fH,6(c′), and every longer bit string corresponds to a unique walk in the graph. The example presented in the graph is a walk of 8 bits (i.e., a walk corresponding to an 8-bit ordering pattern) with corresponding edges shown in red.",
+      "page": 13
+    },
+    {
+      "image": "2610.03672_figures/2610.03672_fig5.jpg",
+      "caption": "FIG. 5. Part of the de Bruijn graph corresponding to p = 4 based on the q = 2 Trotter-error bound. Every vertex is a p-bit string, every edge is a (p + q)-bit string c′ with weight determined by f geo,q H,p,L(τ; c′), and every longer bit string corresponds to a unique walk in the graph. The example presented in the graph is an 8-bit walk with corresponding edges shown in red.",
+      "page": 14
+    }
+  ],
+  "figure": "2610.03672_figures/2610.03672_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

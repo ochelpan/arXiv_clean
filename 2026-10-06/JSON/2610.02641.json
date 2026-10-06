@@ -1,0 +1,63 @@
+{
+  "arxiv_id": "2610.02641",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "When Normalization Selects the Sign: Auditing Robustness Ablations in Quantum Attention",
+  "authors": "Owen Friedewald, Srikar Alla, Ali Shiri Sichani, Chi-Ren Shyu",
+  "abstract": "Removing an input-scaling module changes both a classifier and the perturbations reaching its encoder. A robustness difference can therefore reflect the comparison rule as well as the module. We demonstrate this problem in a four-qubit quantum-attention detector on generated power-grid trajectories. A learned scaling module appears beneficial at a fixed physical attack budget, but matching an upper bound on perturbations at the encoder reverses the ordering. Neither comparison alone establishes a robustness benefit caused by the module. The initial test also perturbs clean examples into attacked examples while retaining their original labels; tests restricted to already attacked examples do not establish a benefit. Replacing a trained model's input scales disrupts detection. Retraining its linear classification layer restores the detection rate, but changes individual predictions, leaving the comparison descriptive rather than causal. Two further design checks explain why the input quantum Fisher information regularizer cannot train this model's query parameters, and why removing confidence bounds does not establish a larger certified radius. The evidence is limited to ten seeds, exact simulation, synthetic data, and a restricted set of attacks; classical baselines achieve better clean prediction. The practical lesson is to specify which perturbation budget is fixed, check that attacks preserve labels and interventions preserve predictions, and distinguish exploratory controls from confirmatory evidence.",
+  "url": "http://arxiv.org/abs/2610.02641v1",
+  "pdf": "https://arxiv.org/pdf/2610.02641v1",
+  "type": "both",
+  "summary": "This paper investigates the robustness of a quantum attention network used for power-grid anomaly detection against adversarial attacks. The core finding is that the perceived benefit of removing specific network modules depends entirely on the mathematical comparison rule used for auditing. The authors caution that these results are descriptive, not causal, highlighting the need for careful experimental design in quantum machine learning security analysis.",
+  "main_problem": "The study audits the robustness of quantum attention mechanisms against adversarial attacks, focusing on how the choice of normalization or comparison rule dictates the perceived benefit of ablating specific modules.",
+  "main_result": "The observed robustness benefits from module ablation are found to be dependent on the comparison rule used, suggesting the comparison is descriptive rather than establishing a true causal benefit.",
+  "method": "The authors employ module ablation studies (e.g., removing EBG, FGQA) on a quantum attention detector, comparing performance metrics under various normalization and comparison schemes.",
+  "model_or_system": "The model is a quantum self-attention classifier (SEQFORMER) applied to detect false-data-injection attacks on power-grid trajectories using a four-qubit quantum attention block.",
+  "key_observables": "AURA (Area Under Robust Accuracy), clean prediction accuracy, detection rates under paired knockouts, and the ordering of performance metrics across different ablation conditions.",
+  "important_parameters": "Attack budget ($\\epsilon$), number of seeds (10), number of qubits (4), and specific regularization parameters ($\\lambda_{in}, \\lambda_{out}$).",
+  "main_assumptions": "The evidence is limited to synthetic data, exact simulation, and a restricted set of attacks; the comparison is shown to be descriptive, not causal.",
+  "figures_summary": "The notes reference multiple tables comparing paired contrasts (Table 3, 7) and showing accuracy decay vs. attack budget (Table 4, 5, 6) across various module knockouts.",
+  "paper_structure": "The paper structure involves defining the QML model and attack setup, followed by systematic ablation studies of components (EBG, FGQA, NACH), rigorous comparison of results based on normalization rules, and concluding with diagnostic checks on the limitations of the observed benefits.",
+  "why_interesting": "While focused on ML, the rigorous auditing of robustness and the explicit dependence on comparison rules mirrors challenges in characterizing stability in complex, non-equilibrium quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.02641_figures/2610.02641_fig1.jpg",
+      "caption": "Figure 1: Mean stress-test accuracy over ten paired seeds. Full and −FGQA coincide at recorded precision. Curves take the worst loss over implemented PGD/SPSA candidates and all previously evaluated smaller-budget candidates. Standard deviations are in Appendix C.",
+      "page": 7
+    },
+    {
+      "image": "2610.02641_figures/2610.02641_fig2.jpg",
+      "caption": "Figure 2: Controls on all 30 attacked test examples. Matched −EBG uses physical budget 0.39187472ϵ; other curves use ϵ. Gain replacement disrupts detection; refitting restores the un- perturbed detection rate but changes both gain and classification head.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.02641_figures/2610.02641_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.03254",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.plasm-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum approaches for particle-in-cell codes",
+  "authors": "Ryan J. J. Connor, Andrew J. Daley, Callum W. Duncan, Preetma Soin",
+  "abstract": "Solving the high-dimensional, nonlinear partial differential equations that govern the rich physics of plasmas remains a major computational challenge. In fluid dynamics, quantum-inspired methods based on tensor-network techniques have recently emerged as a promising new paradigm, offering large degrees of data compression on conventional hardware and a natural pathway towards solving exponentially large problems on quantum computers. Early studies suggest that tensor-network methods may also help overcome key bottlenecks in computational plasma dynamics, particularly for industry-relevant scenarios where conventional simulations remain costly. In this work, we present recent progress in developing tensor-network methods compared to standard particle-in-cell codes and discuss their capability to overcome the bottlenecks of conventional approaches. We further extend the tensor-network formulation to support the insertion of electromagnetic fields at arbitrary spatial locations. This capability is demonstrated through the injection of a laser field to accelerate a plasma, providing a key step towards tensor-network-based simulation of externally driven plasma systems.",
+  "url": "http://arxiv.org/abs/2610.03254v1",
+  "pdf": "https://arxiv.org/pdf/2610.03254v1",
+  "type": "theory",
+  "summary": "This paper presents a novel approach to simulating complex plasma physics by replacing traditional Particle-in-Cell codes with tensor-network methods, specifically using Matrix Product States. This allows for solving the governing equations in high-dimensional phase space while mitigating issues like statistical noise and improving computational scaling. The framework is extended to model external drivers, such as injected laser fields, marking a significant step toward quantum-inspired plasma simulation.",
+  "main_problem": "The primary challenge is solving the high-dimensional, nonlinear partial differential equations governing plasma physics, which is computationally intensive using standard methods.",
+  "main_result": "The authors successfully demonstrated that tensor-network methods can model complex plasma phenomena, such as instabilities and laser-plasma interactions, while maintaining favorable computational scaling.",
+  "method": "They propose using tensor-network representations, specifically Matrix Product States (MPS), to discretize the full phase space grid, allowing for the simulation of the Vlasov equation.",
+  "model_or_system": "The model is plasma dynamics governed by the Vlasov-Maxwell kinetic equations. The simulation involves tracking particle distributions in phase space and coupling this to electromagnetic field evolution.",
+  "key_observables": "Electron distribution snapshots in phase space, current density, and the propagation of electric field components ($E_y$).",
+  "important_parameters": "The simulation involves parameters like Debye length constraints, time steps ($\\Delta t = 0.0014$), and bond dimensions ($\\chi$) required for MPS accuracy.",
+  "main_assumptions": "The key assumption is that the physics can be accurately captured by the tensor-network representation, and the method relies on careful boundary condition handling when injecting external fields (TFSF approach).",
+  "figures_summary": "Figures illustrate the comparison of time complexity (PIC vs. Tensor Network), the MPS encoding structure, snapshots of electron distributions during instabilities, convergence tests for wave problems, and the setup for laser field injection.",
+  "paper_structure": "The paper first establishes the computational bottleneck of plasma simulations using PIC codes. It then introduces tensor-networks as a solution, detailing the MPS encoding of the Vlasov equation. Finally, it extends this framework to incorporate external electromagnetic fields using the Total Field Scattered Field (TFSF) approach for advanced simulations.",
+  "why_interesting": "This work directly applies advanced tensor-network techniques, which are central to quantum information and many-body physics, to a classical, non-equilibrium field theory problem (plasma dynamics). The successful adaptation of MPS to handle complex field coupling is a significant methodological advance.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03254_figures/2610.03254_fig1.jpg",
+      "caption": "Fig. 1. Illustration of time complexity. Conventional PIC approaches (solid blue line) are informed by runs of real problems, and show the emergence of the linear scaling with particle number with initial offset set by the grid resolution. The desired scaling of tensor network approaches (dashed red line) is logarithmic with a larger initial offset. The shaded region is to indicate the uncertainty in the offset, which is problem and implementation dependent.",
+      "page": 2
+    },
+    {
+      "image": "2610.03254_figures/2610.03254_fig2.jpg",
+      "caption": "Fig. 2. Illustration of two tensor-network encodings of f(x, y, vx, vy) on an 29×27×28×28 phase space grid into an a) MPS and b) comb tensor-network geometry. We choose to label each tensor according to which dimension it belongs to, and the corresponding length scale of that dimension. E.g. x1 encodes the coarsest length scale of the x dimension, and vy8 encodes the finest length scale of the vy dimension. Bond indices are shown as black lines connecting two tensors, whilst the physical indices are shown in red emerging diagonally upwards from each tensor.",
+      "page": 2
+    },
+    {
+      "image": "2610.03254_figures/2610.03254_fig3.jpg",
+      "caption": "Fig. 3. Snapshots of a cut of the electron distribution fe(x, v1) through phase space for the bump-on-tail instability reproduced from [14]. We show a slice through the v2 = 0 plane, resulting in a 2D function in x and v1, at various simulation times of a)t = 7, b)t = 14, c)t = 18 and d)t = 22. These simulations where conducted on a 28 × 28 × 28 phase space grid, resulting in a 24 site MPS encoding, and evolved via a fixed time-step 4th order Runge-Kutta scheme with a time-step of dt = 0.0014. A truncation cutoff of 10−15 was used to adaptively control the bond dimension χ.",
+      "page": 3
+    },
+    {
+      "image": "2610.03254_figures/2610.03254_fig4.jpg",
+      "caption": "Fig. 4. Demonstration of convergence of MPS simulations of the beat wave problem reproduced from [14]. We plot a cut along the x-y plane at y = Lx/2 of the current density from the electrons, Je y(x, y) at a fixed simulation time of t = 0.14. We show convergence of the MPS simulations for bond dimensions of χ = 150 (dash dotted black), χ = 200 (dashed red) and χ = 512 (solid blue).",
+      "page": 3
+    },
+    {
+      "image": "2610.03254_figures/2610.03254_fig5.jpg",
+      "caption": "Fig. 6. Snapshot of the Ey electric field component from an injected laser field at times of a)t = Lx/6c and b)t = Lx/c making use of the TFSF approach. We choose the total field region as the central region, with the scattered field regions consisting of the 32 grid-points nearest the boundaries at x = 0 and x = Lx. The lasers by definition are injected at the boundaries between the total and scattered field regions. These simulations were conducted entirely within the MPS framework using the technique outlined in the text.",
+      "page": 4
+    }
+  ],
+  "figure": "2610.03254_figures/2610.03254_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

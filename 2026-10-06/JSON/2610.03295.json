@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2610.03295",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DS"
+  ],
+  "is_primary_archive": true,
+  "title": "Hamiltonian Eigenvalue Transformation by Tridiagonal Gadgets",
+  "authors": "Arthur Braida, Joseph Cunningham, Jérémie Roland",
+  "abstract": "An analog device implements a local Hamiltonian H, but a polynomial P (H) is in general not local, so the device cannot implement it. We carry P (H), to any prescribed accuracy, as the action of a single time-independent local Hamiltonian on an explicitly described invariant subspace. Short chains of ancilla qubits are attached to H. A chain of 2m sites has a unique isolated eigenvalue that is an analytic function of the input vanishing to order exactly 2m, because the input must cross the chain and come back before it can shift the energy at the far end. Chains of different lengths therefore form a triangular family, and a weighted sum of them reproduces a prescribed polynomial term by term. Even chains give the even part and odd chains the odd part, so any polynomial is reached. We prove uniqueness, analyticity and coefficient bounds uniform in the chain length for inputs H of norm below any r < 1. Where the circuit model pays degree 2l in 2l sequential oracle calls, the result here is one Hamiltonian of locality two more than that of H, which pays the degree in O(l^2 + log2^(1/eps)) ancillas and in energy scale. As an application we filter a marked eigenstate of a local Hamiltonian. Composing a synthesised square along the Chebyshev doubling identity works, but its energy scale grows quasi-polynomially with the degree. Iterating instead the exact eigenvalue branch of the two-site chain k times gives a filter on k + 1 ancilla qubits whose error decays geometrically in k, at an energy scale polynomial in the inverse passband width and independent of k, the locality growing by one per stage. In adiabatic optimisation with a rank-one driver, the construction replaces that non-local driver, by a Hamiltonian with O(log n) ancillas and O(log n)- body terms, at an energy scale polynomial in n. Simulations including every ancilla reproduce the spectrum of the ideal algorithm.",
+  "url": "http://arxiv.org/abs/2610.03295v1",
+  "pdf": "https://arxiv.org/pdf/2610.03295v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel 'gadget' construction using ancilla qubits attached to a local Hamiltonian $H$ to simulate non-local operations like $P(H)$. By analyzing the unique, analytic eigenvalues of these gadgets, the authors show they can synthesize any polynomial or filter specific eigenstates with controlled error decay. This offers a significant resource advantage over existing circuit-based methods.",
+  "main_problem": "The primary challenge is realizing a polynomial function $P(H)$ of a local Hamiltonian $H$ using a single, time-independent, local Hamiltonian operator, since $P(H)$ is generally non-local.",
+  "main_result": "The authors demonstrate a gadget construction using ancilla qubits that synthesizes any polynomial $P(H)$ or filters a marked eigenstate with controlled error decay, achieving this with improved locality compared to standard circuit models.",
+  "method": "The method involves attaching short, structured chains of ancilla qubits (tridiagonal gadgets) to the input Hamiltonian $H$. The polynomial is synthesized by taking a weighted sum of the unique, analytic eigenvalues derived from these chains.",
+  "model_or_system": "The model is an analog quantum device implementing a local Hamiltonian $H$. The core computational element is the 'gadget,' which is a short chain of ancilla qubits whose isolated eigenvalue $\\lambda_0(x)$ is an analytic function of the input $x$ (representing $H$).",
+  "key_observables": "The isolated eigenvalue $\\lambda_0(x)$ of the gadget, which is an analytic function of the input $H$. The fidelity of the state filter or the accuracy of the polynomial reproduction are key diagnostics.",
+  "important_parameters": "The degree of the polynomial ($\\ell$), the locality of the input Hamiltonian ($H$), the required accuracy ($\\epsilon$), and the number of ancilla qubits ($O(\\ell^2)$).",
+  "main_assumptions": "The construction relies on the existence of a unique, analytic eigenvalue branch $\\lambda_0(x)$ for the gadget, and the ability to synthesize the polynomial via a weighted sum of these branches.",
+  "figures_summary": "Figure 1 illustrates the structure of the even gadget $E_{2m}(x)$ for $m=3$. Table 1 compares the resource costs (ancillas vs. depth) of the gadget approach versus Quantum Singular Value Transformation (QSVT).",
+  "paper_structure": "The paper establishes the problem of non-locality, introduces the gadget gadget based on eigenvalue analysis (Theorem A), proves the ability to synthesize any polynomial (Theorem B), and details a superior, iterative method for state filtering (Theorem C).",
+  "why_interesting": "This work provides a powerful, resource-efficient alternative to standard quantum signal processing techniques for implementing complex functions of local Hamiltonians, directly impacting the feasibility of quantum simulation and quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03295_figures/2610.03295_fig1.jpg",
+      "caption": "Figure 1: The even gadget E2m(x) for m = 3. Thick bonds carry the input x and become the operator H when the scalar is replaced by a Hamiltonian. Thin bonds are unit couplings, and the last site carries the detuning −∆. The quantity of interest is the eigenvalue branch λ(m) 0 (x) that vanishes at x = 0.",
+      "page": 3
+    },
+    {
+      "image": "2610.03295_figures/2610.03295_fig2.jpg",
+      "caption": "Figure 2: The construction of Theorem 3. Every chain is attached to the same system register through its x-bonds, so on an eigenvector |vx⟩it reduces to the matrix E2j(x) of Figure 1 and contributes λ(j) 0 (x). The chains occupy disjoint sets of ancillas, so the summands of Σ = P j αjE2j(H) commute, their branch eigenvalues add, and W intertwines Σ with P e L(H) exactly, which is (53). The image of W is invariant under Σ.",
+      "page": 18
+    },
+    {
+      "image": "2610.03295_figures/2610.03295_fig3.jpg",
+      "caption": "Figure 3: Filters at σ = 1 and d = 0.1 (dotted verticals), each normalised to 1 at the marked energy x = 0. In both panels the black curve is the Chebyshev filter R16 of Definition 1, which the synthesised square of Appendix A approximates. (a) The iterated block bR4 of Proposition 9, at depth k = 4, for the three detunings ∆/σ given in the legend. The smallest one is close to the tent map, and the block approaches R16 as ∆/σ grows. (b) The last option of this section, the entry stage Σ0 followed by one chain E2m with 2m = 2k = 16 sites. The legend gives the detuning ∆/σ of the entry stage. The chain has detuning ∆′ = 10, and its input is rescaled so that the marked point sits at r′ = 0.8....",
+      "page": 23
+    },
+    {
+      "image": "2610.03295_figures/2610.03295_fig4.jpg",
+      "caption": "Figure 4: Analog search with the gadget Hamiltonian, H(s) = (1 −s)H0 ⊗I + s Σk/|fk(0)| as in (63), simulated with every ancilla qubit, at σ = 0.5, ∆= 10σ, d = δ = σ/n and stopband at most 5 · 10−2. (a) At n = 12 and k = 5, the spectrum of (63) compressed to the encoded subspace, an operator on the system register (dashed), against that of (1 −s)H0 −s |m⟩⟨m| (solid). (b) Gap at the anticrossing against n, for the projector, for the scalar filter bRk(H1) substituted on the system register, and for the encoded eigenvalue of the gadget Hamiltonian in the full space, whose gap also closes as s →0, where H(0) = H0 ⊗I is degenerate.",
+      "page": 24
+    }
+  ],
+  "figure": "2610.03295_figures/2610.03295_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

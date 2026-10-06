@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.03307",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning Noise-Robust Stabilizer Structure via Bell Sampling",
+  "authors": "Letian Tang, Thomas Steckmann",
+  "abstract": "Bell sampling efficiently learns the stabilizer group, and hence the stabilizer nullity, of pure states with little magic, a primitive underlying tomography and certification of low-magic states. Real devices, however, only prepare noisy images of the target, which we model as a Pauli channel acting on the ideal state; the resulting noisy state generically has no exact Pauli stabilizers. Existing structure learners for mixed states rely on such exact stabilizers. Agnostic tomography does not, but its guarantees scale exponentially in the nullity $t$. We show that the ideal stabilizer group remains encoded in the noisy state as the set of Pauli operators under which it is invariant. We give Bell-sampling algorithms that learn the group to accuracy $\\varepsilon$ for states of nullity at most $t$. The difficulty is that noisy samples break the group structure pure-state learners rely on, so more samples can erase structure rather than reveal it. We resolve this with a finder-verifier scheme that extracts stabilizer structure from partially corrupted sample batches while certifying proposed updates. For sufficiently weak global depolarizing noise, both samples and runtime are $\\mathrm{poly}(n,t,1/\\varepsilon)$ when the channel's total error probability is at most of order $\\varepsilon n/t$. Up to a constant total error probability ($\\approx 0.16$), samples remain polynomial while classical processing costs $2^t$, and for any error probability below one a $4^t$ overhead suffices. Arbitrary Pauli channels exhibit the same three regimes, with more restrictive thresholds. For weak Pauli noise, this closes much of the gap between agnostic learners such as stabilizer bootstrapping and polynomial pure-state algorithms.",
+  "url": "http://arxiv.org/abs/2610.03307v1",
+  "pdf": "https://arxiv.org/pdf/2610.03307v1",
+  "type": "theory",
+  "summary": "This paper addresses the challenge of determining the stabilizer structure of a quantum state when measurements are corrupted by noise. The authors introduce a finder-verifier algorithm that leverages Bell sampling to estimate this structure accurately. The result shows that under weak noise, the required samples and computational time scale polynomially with system size and inverse accuracy, closing a gap between theoretical and practical quantum characterization methods.",
+  "main_problem": "The core problem is learning the stabilizer structure of a pure quantum state when the state is corrupted by noise modeled as a Pauli channel.",
+  "main_result": "The authors develop Bell-sampling algorithms that can learn the stabilizer group to accuracy $\\epsilon$ for states of low nullity, achieving polynomial sample and runtime complexity under weak noise conditions.",
+  "method": "They propose a finder-verifier scheme that iteratively extracts the stabilizer structure from partially corrupted Bell difference samples while certifying the purity loss.",
+  "model_or_system": "The system involves an $n$-qubit pure state $|\\psi\rangle$ whose noisy realization $\rho$ is modeled by a Pauli channel. The structure is characterized by the stabilizer group $\text{Stab}(\\psi)$ and its nullity.",
+  "key_observables": "Stabilizer Group ($\text{Stab}(\\psi)$), Stabilizer Nullity ($\nu(\\psi)$), Weak Stabilizer ($S$), Purity Loss ($\\Delta\\gamma(\tilde{S})$).",
+  "important_parameters": "Nullity $t$, accuracy $\\epsilon$, total error probability $\\lambda$, and the noise strength relative to $n$ and $t$.",
+  "main_assumptions": "The analysis assumes the noise is sufficiently weak (e.g., global depolarizing noise) to allow the weak stabilizer structure to remain encoded in the noisy state.",
+  "figures_summary": "Figure 1 illustrates the iterative loop involving the Verifier (using reusable samples) and the Finder (using fresh batches) to reconstruct the stabilizer structure.",
+  "paper_structure": "The paper progresses from defining the problem (learning structure from noisy states) to proposing the finder-verifier scheme. It then provides detailed mathematical derivations concerning the probability of Bell difference samples belonging to specific Pauli subgroups, culminating in complexity bounds for the different operational regimes (clean, intermediate, noisy).",
+  "why_interesting": "This work provides a concrete, resource-efficient quantum algorithm for characterizing the underlying symmetries of a quantum state, which is crucial for quantum error correction and quantum tomography protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03307_figures/2610.03307_fig1.jpg",
+      "caption": "FIG. 1. The two subroutines and the loop they form. The verifier draws Mver Bell samples once at initialization and reuses them for every query, so its sample cost is fixed before the finder starts; the finder draws a fresh batch of M Bell difference samples each time. Each batch is post-selected onto C( ˜S), spanned, and reduced to its radical R, from which an increment ∆˜S is proposed. The verifier must approve when the true purity drop falls below ∆ε−and must reject when it exceeds ∆ε+; between the two thresholds, which bracket the accuracy spent on a single update, either answer is allowed, and the algorithm decides by comparing its estimate ̂ ∆γ with the midpoint. An approved increment...",
+      "page": 5
+    },
+    {
+      "image": "2610.03307_figures/2610.03307_fig2.jpg",
+      "caption": "FIG. 2. Leading-order illustration of the three regimes under global depolarizing noise, as a function of noise strength λ and accuracy ε, for n = 2000 and t = 30. In the clean regime both time and samples are polynomial; in the intermediate regime samples stay polynomial but time carries a 2t factor. The boundary between the two depends on ε, λ, t and n, and to leading order in 1 ≪t ≪n and weak noise λ ≪1 lies at λ ≈nε/4t. Beyond the plotted boundary λ⋆= 1 −( n+t",
+      "page": 7
+    },
+    {
+      "image": "2610.03307_figures/2610.03307_fig3.jpg",
+      "caption": "FIG. 3. The Bell sampling protocol. Two copies of ρ are measured jointly in the transversal n-qubit Bell basis: a CNOT and a Hadamard act on each pair of corresponding qubits, followed by a computational-basis measurement. The 2n measured bits form the Bell-sample label i.",
+      "page": 9
+    },
+    {
+      "image": "2610.03307_figures/2610.03307_fig4.jpg",
+      "caption": "FIG. 4. The decision requirements of Algorithm 3, on the axis of the true purity drop ∆γ. Below ∆ε−the verifier must approve, above ∆ε+ it must reject, and in the gap between them either answer is allowed. The algorithm decides by comparing its estimate ̂ ∆γ with the midpoint of the two thresholds, and on the uniform event of Lemma V.3 that estimate is accurate to ∆εgap/2. The two ranges shown are therefore the worst cases: a true ∆γ sitting on either threshold can only move as far as the decision line, never across it, which is exactly Theorem V.4.",
+      "page": 15
+    },
+    {
+      "image": "2610.03307_figures/2610.03307_fig5.jpg",
+      "caption": "FIG. 5. We consider fixing ε ≪1 and increasing λ starting from λ = 0. Inside the diagram of Fig. 2, this corresponds to traversing a horizontal line from left to right: starting from no noise at λ = 0, we pass through the clean regime, the intermediate regime, and finally the noisy regime. In each regime, the behavior of Bell difference samples changes qualitatively, requiring a different propose strategy if applicable.",
+      "page": 20
+    }
+  ],
+  "figure": "2610.03307_figures/2610.03307_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

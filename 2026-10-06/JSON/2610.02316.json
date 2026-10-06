@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.02316",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "math.NA",
+    "cond-mat.other",
+    "hep-lat",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "A Polynomial-Scaling PDE Solver with Entanglement-Basis Tensor Networks",
+  "authors": "Abhijatmedhi Chotrattanapituk, Michael J. Landry, Chu-Liang Fu, Mingda Li",
+  "abstract": "We develop a finite element method (FEM) for partial differential equation (PDE) solver based on the entanglement-basis representation introduced in our companion work. By lifting non-linear finite-element equations into an augmented coefficient space, the governing PDE together with boundary, initial, and inter-element constraints can be expressed through a unified quadratic residual minimization. Although this augmented space grows exponentially with the number of elements, its tensor-product structure allows it to be represented efficiently using tensor networks. Using the matrix product state (MPS) as a concrete example, we show that density matrix renormalization group (DMRG) sweeps enable element-by-element optimization without explicitly constructing the full augmented space. For bounded bond dimension, the resulting computational cost scales polynomially with the number of finite elements. We extend the framework to time-dependent problems through implicit temporal discretization and demonstrate convergence under both mesh and polynomial refinement using diffusion equations.",
+  "url": "http://arxiv.org/abs/2610.02316v1",
+  "pdf": "https://arxiv.org/pdf/2610.02316v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel Tensor Network Finite Element (TN-FE) method to solve PDEs with polynomial scaling. It reformulates the PDE residual minimization into a tensor network structure, allowing the use of efficient algorithms like DMRG sweeps. This makes solving large, complex PDEs tractable by exploiting the assumed locality of correlations in the underlying physics.",
+  "main_problem": "The paper aims to develop a computationally efficient solver for Partial Differential Equations (PDEs) that overcomes the exponential scaling inherent in traditional methods.",
+  "main_result": "They achieve polynomial scaling in the number of finite elements by representing the PDE residual minimization problem within a Tensor Network (TN) framework.",
+  "method": "The core method combines the Finite Element Method (FEM) with Tensor Networks (TNs), mapping the PDE residual into a TN structure and using DMRG sweeps for efficient, element-by-element optimization.",
+  "model_or_system": "The framework is general, applicable to analytic operator equations (OEs) and demonstrated on a 1D diffusion equation. It handles general PDEs by reducing them to OEs.",
+  "key_observables": "The weighted residual norm J(c), the solution u(x, t), and the convergence of the solution with respect to basis order and element count.",
+  "important_parameters": "The computational cost scales polynomially with the number of elements, controlled by the bond dimension (S) and correlation order.",
+  "main_assumptions": "The primary assumption is that the underlying physics admits a compact Tensor Network representation, implying a locality of correlation.",
+  "figures_summary": "Figures illustrate the TN representation of the residual term, the choice of TN ansatzes (MPS, PEPS), and the convergence of the solver for the diffusion equation compared to standard methods.",
+  "paper_structure": "The paper builds from the general mathematical formulation of PDEs as OEs, introduces the TN-FE framework for residual minimization, details the implementation of building block operators (derivatives, multiplication), and finally demonstrates convergence using a time-dependent diffusion equation example.",
+  "why_interesting": "This work provides a powerful, scalable numerical tool for simulating complex quantum or condensed matter dynamics described by PDEs, directly bridging quantum many-body simulation techniques (TNs) with continuum physics (PDEs).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.02316_figures/2610.02316_fig1.jpg",
+      "caption": "FIG. 2. TN with locality ansatzes of coefficient tensor under different geometric restriction. Here, σ’s indicate tensor in- dices responsible for each local correlation. (a) No locality assumption: same coefficient tensor as in Fig. 1. (b) Matrix product state (MPS): elements align in one-dimensional chain with correlation only between neighbors. (c) Projected en- tangled pair state (PEPS):elements align in two-dimensional grid with correlation between adjacent nodes along the grid lines. (d) Higher-order TN assumption where shaded regions represent index hyper-contraction. (Adapted from [24])",
+      "page": 3
+    },
+    {
+      "image": "2610.02316_figures/2610.02316_fig2.jpg",
+      "caption": "FIG. 3. TN representation of building block operations: (a) spatial derivative, (b) multiplication, (c) constant factor, and (d) projection of element n to boundary with ◦. Here, β’s are basis and χ’s are non-basis indices. (a and b are adapted from [24])",
+      "page": 5
+    },
+    {
+      "image": "2610.02316_figures/2610.02316_fig3.jpg",
+      "caption": "FIG. 4. Summation of TNs with the same structure. (a) Diagram representing summation of two TNs with the same structure which can be replace with a single TN with the same structure with each node be the tensor block direct sum of each original node at the same position in the structure, i.e., Ci = Ai ⊞σ Bi. (b) Simple example of a where each node represent a vector. (c) Slightly more complicated example of a where each node represent a matrix and there are two bonding indices completely contract matrices to scalar, i.e., Ci = Ai ⊞στ Bi.",
+      "page": 6
+    },
+    {
+      "image": "2610.02316_figures/2610.02316_fig4.jpg",
+      "caption": "Figure 4b also demonstrates this for the case when all nodes are vectors. It might seems like using space di- rect sum works here as well, but block version is needed when the bonding has more than one index such as in the case of Fig. 4c where all nodes are matrices that got completely contracted to a scalar. Note that, this anal- ysis also applies when the bond under consideration is connecting two indices of the same tensor.",
+      "page": 6
+    },
+    {
+      "image": "2610.02316_figures/2610.02316_fig5.jpg",
+      "caption": "FIG. 6. TN representation of summation building block. (a) Summation of two TNs that has a common part C and the different parts A and B. (b) Building block representation of a. As shown in Eq. (37), the common part can be factor out reducing the task to be the summation of the different parts. Here, F represents filter contracting to A and B. The block direct sum augmentation is implicitly assumed for cleanliness. (c) Specialization for the cases where A and B contract to the same indices of C where the filter is assumed in the branching and merging of contracting edges. (d) Specialization for the cases where A and B contract to the different indices of C.",
+      "page": 7
+    }
+  ],
+  "figure": "2610.02316_figures/2610.02316_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}
