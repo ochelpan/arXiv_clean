@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2610.03893",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Quantum Monte Carlo through Cluster Expansions",
+  "authors": "Jorge Sánchez-Segovia, Álvaro M. Alhambra",
+  "abstract": "The sign problem remains a major obstacle to extending the success of Monte Carlo methods to generic quantum many-body systems. A powerful alternative relies on cluster expansions, which provide convergent representations of free energies and related quantities, with applications ranging from tensor network contractions to quantum dynamics and circuits. Within their convergence regime, these expansions often yield deterministic polynomial-time algorithms. However, such methods require exhaustive enumeration of connected clusters, leading to a computational overhead of $(N\\varepsilon^{-1})^{\\mathcal{O}(\\logΔ)}$, where $N$ is the system size, $\\varepsilon$ the desired precision, and $Δ$ the interaction-graph degree. This becomes particularly severe in long-range systems, where $Δ\\equiv N$, resulting in quasi-polynomial runtimes. Here, we introduce a Markov chain algorithm that samples cluster expansions directly in the space of connected clusters, replacing deterministic enumeration by Monte Carlo sampling. Because sampling occurs in an abstract cluster space rather than a physical configuration space, the conventional exponential sign problem is absent within the convergence regime. For general polymer models, we establish an FPRAS with runtime $\\tilde{\\mathcal{O}}(N^4\\varepsilon^{-3})$. For quantum partition functions at temperatures $β\\leqβ_{\\mathrm{sampling}}\\equiv\\mathcal{O}(1)$, this improves to $\\tilde{\\mathcal{O}}(N^{3+1/D}\\varepsilon^{-3})$, where $D$ is the lattice dimension. The framework directly applies to long-range quantum systems with interactions $\\propto1/r^α$, including $2$-local models with $α>2D$.",
+  "url": "http://arxiv.org/abs/2610.03893v1",
+  "pdf": "https://arxiv.org/pdf/2610.03893v1",
+  "type": "theory",
+  "summary": "This paper presents a novel Markov Chain Monte Carlo approach to calculate quantum partition functions by sampling cluster expansions directly. By operating in the abstract cluster space rather than the physical configuration space, it successfully bypasses the notorious sign problem plaguing traditional Quantum Monte Carlo methods. This results in significantly improved, polynomial-time algorithms for a wide range of quantum many-body models.",
+  "main_problem": "The primary challenge is overcoming the sign problem in Quantum Monte Carlo methods and improving the computational scaling for calculating quantum partition functions in many-body systems.",
+  "main_result": "The authors introduce a Markov Chain Monte Carlo algorithm that samples cluster expansions directly, circumventing the sign problem and achieving improved polynomial scaling, such as $\tilde{\\mathcal{O}}(N^{3+1/D\\epsilon-3})$ for low-temperature quantum partition functions.",
+  "method": "The core method replaces deterministic, exhaustive enumeration of connected clusters with a specialized MCMC sampling algorithm operating in the abstract cluster space.",
+  "model_or_system": "The work applies to quantum many-body systems on a D-dimensional lattice, calculating the partition function $Z_\beta = \text{Tr}[e^{-\beta H}]$ using cluster expansion techniques.",
+  "key_observables": "The quantum partition function $Z_\beta$ and its logarithm, $\\log Z$, are the key observables.",
+  "important_parameters": "System size ($N$), desired precision ($\\varepsilon$), temperature ($\beta$), and the interaction decay rate ($\\alpha$).",
+  "main_assumptions": "The method assumes the convergence regime of the cluster expansion and requires specific conditions on the inverse temperature ($\beta \\le \beta_{\text{sampling}}$) to ensure efficient sampling.",
+  "figures_summary": "Figure 1 illustrates the sign-problem-free cluster sampling framework, comparing it to deterministic enumeration and showing the polymer model representation.",
+  "paper_structure": "The paper develops the theory by relating the partition function to a sum over connected polymers, establishing convergence conditions (like Condition 3 and 4), and then introducing a specialized Polymer Sampler algorithm to achieve efficient, sign-problem-free sampling.",
+  "why_interesting": "This work provides a powerful algorithmic tool for calculating thermal properties of complex quantum systems, which is highly relevant for simulating quantum materials or lattice models where exact diagonalization is impossible.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03893_figures/2610.03893_fig1.jpg",
+      "caption": "FIG. 1: Illustration of our sign-problem-free cluster sampling framework. (a) Polymer model representation on a host graph G(V, E) ≡Gint(V, E) for a quantum many-body system on a lattice Λ, where vertices correspond to local Hamiltonian terms hi and polymers are connected subgraphs of G(V, E). Top: A cluster Γ ∈GC (connected multiset of polymers). Bottom: An admissible configuration Γ ∈G (mutually disconnected polymers). Note different polymers are depicted by different colors. (b) Typical approaches such as Glauber dynamics sample physical configurations targeting Z, suffering from the exponential sign problem, whereas sampling connected clusters targeting log Z is sign-problem-free for...",
+      "page": 3
+    },
+    {
+      "image": "2610.03893_figures/2610.03893_fig2.jpg",
+      "caption": "FIG. 2: Illustration of the Cluster Markov chain PMC. Here the clusters are depicted in the lattice Λ rather that in the graph G(V, E) as in Fig. 1a.",
+      "page": 12
+    },
+    {
+      "image": "2610.03893_figures/2610.03893_fig3.jpg",
+      "caption": "FIG. 3: Example of decomposition of a cluster Γ which contains γ∗as a set of sub-clusters ˜Γi.",
+      "page": 23
+    },
+    {
+      "image": "2610.03893_figures/2610.03893_fig4.jpg",
+      "caption": "FIG. 4: Illustration of the three phases of the canonical path PXY between initial cluster X and target cluster Y . (a) A step in the peeling phase, where the intermediate cluster uX remains strictly contained within X (uX ⊆X). (b) A step in the transport phase, where the intermediate state contains at most two polymers propagating along the geodesic in the connected covering graph ˜G( ˜V , ˜E) between the roots rX and rY . (c) A step in the construction phase, where the intermediate cluster uY is assembled such that it remains strictly contained within Y (uY ⊆Y ). In panels (a) and (c), the inactive polymers—those already removed from X or yet to be added to Y —are shaded in gray to...",
+      "page": 26
+    }
+  ],
+  "figure": "2610.03893_figures/2610.03893_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

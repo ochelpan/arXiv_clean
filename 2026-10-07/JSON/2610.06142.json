@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2610.06142",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "When Equivalent Quantum Circuits Lose Synthesis Choices",
+  "authors": "Boshuai Ye, Peng Liang, Arif Ali Khan",
+  "abstract": "Quantum compilers synthesize high-level operations, such as the quantum Fourier transform and multi-controlled X gates, into gate-level circuits. Across compilation stages, a circuit may be serialized, exchanged as OpenQASM, converted between compilers, or lowered to gates. These representation changes can preserve computation while removing the high-level operation itself, leaving the receiving compiler unable to apply a requested synthesis method. We call this loss synthesis availability. We study synthesis availability in Qiskit, TKET, and Cirq through controlled experiments, repository analysis, circuits captured from project tests, and a Munich Quantum Toolkit pipeline. Synthesis availability survives serialization when deserialization restores the high-level operation and survives compiler conversion only when the receiving compiler supports that operation. It does not survive the evaluated OpenQASM routes. After a direct OpenQASM 3 round trip, requested synthesis has no effect in all 360 delivered conditions even though compilation succeeds. In the MQT pipeline, OpenQASM 2 interchange increases the two-qubit gate count by 37.2 percent for an eight-qubit Grover circuit. We also introduce Verified, which records high-level operations before a representation change and reconstructs them only when a check confirms that the record still matches the delivered circuit. Verified restores requested synthesis in all 830 recovery runs, with median verification times from 2.0 to 638 ms per operation family. The check rejects every stale record but also some valid records. These results show that preserving functional equivalence alone is insufficient when later synthesis choices depend on retained high-level structure.",
+  "url": "http://arxiv.org/abs/2610.06142v1",
+  "pdf": "https://arxiv.org/pdf/2610.06142v1",
+  "type": "theory",
+  "summary": "This paper investigates how quantum circuits lose access to high-level synthesis optimizations when their representation changes across different compilers or formats. The authors demonstrate that merely ensuring the computation remains mathematically equivalent is insufficient, as this loss can lead to significantly suboptimal gate counts. They introduce 'Verified,' a novel mechanism that tracks and restores these lost synthesis choices, improving compiler robustness.",
+  "main_problem": "Quantum compilers can lose the ability to apply high-level synthesis optimizations when quantum circuits undergo representation changes (like serialization or format conversion).",
+  "main_result": "Functional equivalence is insufficient; the loss of synthesis availability can significantly increase circuit costs, and a new 'Verified' mechanism is proposed to restore these lost synthesis choices.",
+  "method": "The authors conducted controlled experiments and repository analyses across major quantum SDKs (Qiskit, TKET, Cirq) by simulating various representation change routes.",
+  "model_or_system": "The study focuses on abstract quantum circuits and the compilation process itself, using high-level operations like QFT and MCX gates as test cases.",
+  "key_observables": "Synthesis availability, two-qubit gate count, circuit depth, and the success rate of operation record reconstruction.",
+  "important_parameters": "The specific quantum compilers (Qiskit, TKET, Cirq) and the type of representation change (OpenQASM 3 round trip, QPY serialization, etc.).",
+  "main_assumptions": "The primary assumption is that preserving functional equivalence is not enough; the compiler must also preserve the *potential* for high-level synthesis.",
+  "figures_summary": "Figures illustrate how direct OpenQASM 3 round trips lose synthesis availability, while the proposed 'Verified' mechanism successfully restores it, often showing a reduction in gate count compared to unverified routes.",
+  "paper_structure": "The paper identifies the problem of synthesis loss during representation changes, analyzes this loss across multiple compiler toolchains and routes, quantifies the resulting circuit cost increases, and finally introduces and validates the 'Verified' recovery mechanism.",
+  "why_interesting": "It highlights a critical, practical gap in quantum software stacks: the gap between mathematical equivalence and compiler optimization potential, which is vital for designing efficient quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06142_figures/2610.06142_fig1.jpg",
+      "caption": "Fig. 1. The QFT example. (A) A direct OpenQASM 3 round trip preserves the computation but removes synthesis availability. (B) Verified reconstructs the operation only if the record matches the delivered circuit.",
+      "page": 3
+    },
+    {
+      "image": "2610.06142_figures/2610.06142_fig2.jpg",
+      "caption": "Fig. 2. Synthesis availability in the representation-route study. For cell labels, see Section 4.2.2; within-family fractions use the attempted instances, the rightmost availability denominator counts only instances delivered at that step, and Refused marks delivery failures. Each Cirq cell summarizes widths 4, 6, 8, and 10 qubits, which have identical outcomes.",
+      "page": 12
+    },
+    {
+      "image": "2610.06142_figures/2610.06142_fig3.jpg",
+      "caption": "Fig. 3. Optimization opportunity. (A) Two-qubit reduction relative to the early-synthesis reference; points are the 36 conditions, boxes show quartiles and median, and the dashed line marks the median reduction of the best-observed reference. (B) Fraction of MCX conditions with an opportunity in the resource sweep.",
+      "page": 15
+    }
+  ],
+  "figure": "2610.06142_figures/2610.06142_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

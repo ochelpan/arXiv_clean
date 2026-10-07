@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.03869",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Modular Neural Decoder for Surface Code Memory and Logic on Superconducting Processors",
+  "authors": "Moritz Lange, Ole Fjeldså, Gustaf Jonasson Johansson, Mats Granath",
+  "abstract": "Neural decoders for quantum error correction have achieved high accuracy on surface code memory experiments, but practical fault-tolerant computation requires decoders that transfer across devices, noise conditions, and logical operations. We introduce a modular graph-recurrent decoder designed for this setting. Built from reusable local syndrome encoders, it is pretrained in simulation and fine-tuned to hardware using a common pipeline, with only lightweight spatial aggregation adapted between experiments. The decoder performs competitively on conventional memory benchmarks, outperforming minimum-weight perfect matching (MWPM) at distances 3 and 5 on an IBM Nighthawk-generation processor and closely approaching AlphaQubit on Google's below-threshold hardware data. We then test the framework in two settings beyond memory decoding on the same IBM device. First, in an $X$-type stability experiment, we continuously tune the effective measurement error rate using a variable pre-readout rotation and train a single decoder jointly across the resulting noise range. It matches or outperforms MWPM across the sweep without requiring a separately calibrated decoder for each setting. Second, we decode a $ZZ$-merge lattice-surgery experiment between two distance-3 surface-code patches, improving the decoded correlation between the merge outcome and the final $ZZ$ parity relative to MWPM on real hardware. Together, these experiments demonstrate neural decoding that is portable not only across hardware, but also across qualitatively different surface code observables and logical operations, using models trainable on single-GPU academic resources.",
+  "url": "http://arxiv.org/abs/2610.03869v1",
+  "pdf": "https://arxiv.org/pdf/2610.03869v1",
+  "type": "both",
+  "summary": "This paper presents a modular neural decoder designed to solve the challenge of making quantum error correction decoders portable across different hardware and logical operations. By using a reusable graph-recurrent architecture, the decoder successfully outperforms classical methods like MWPM on real superconducting hardware for memory, stability, and lattice surgery tasks. This demonstrates a significant step toward fault-tolerant quantum computation.",
+  "main_problem": "Developing a quantum error correction (QEC) decoder that is portable across different hardware platforms, noise conditions, and various logical operations beyond standard memory decoding.",
+  "main_result": "The modular decoder outperforms Minimum-Weight Perfect Matching (MWPM) on real superconducting hardware for memory, stability, and lattice surgery tasks, demonstrating portability across different code observables.",
+  "method": "The authors introduce a modular graph-recurrent decoder architecture, which is pretrained in simulation and fine-tuned to hardware using a common pipeline.",
+  "model_or_system": "The work focuses on superconducting processors implementing the surface code. The decoder is designed to handle syndrome measurements from memory tracking, X-type stability checks, and ZZ-merge lattice surgery.",
+  "key_observables": "Logical observable preservation ($Z_L$), inferred stabilizer products ($\\prod X$-stabilizers), and the decoded correlation outcome of lattice surgery (ZZ parity).",
+  "important_parameters": "Code distances ($d=3, 5, 9$), measurement error rates (tunable), and the specific type of logical operation being measured.",
+  "main_assumptions": "The decoder assumes a renormalization-style decomposition of the lattice and that the input syndrome graph structure can be kept consistent across different experimental settings.",
+  "figures_summary": "Figures illustrate the surface code patches and their spacetime representations for Memory-Z, X-type Stability, and ZZ-merge lattice surgery, showing how the single decoder handles these different physical scenarios.",
+  "paper_structure": "The paper progresses by first establishing the need for portable decoders, introducing the modular GNN-RNN architecture, and then validating its performance across three increasingly complex tasks: basic memory decoding, continuous stability monitoring, and complex lattice surgery operations.",
+  "why_interesting": "The focus on hardware-agnostic, modular decoding techniques is crucial for scaling quantum computation, providing a blueprint for robust error mitigation across diverse physical implementations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03869_figures/2610.03869_fig1.jpg",
+      "caption": "FIG. 1. Surface code patches (a,c) and their spacetime pictures (b,d,e) [29]. Orange (blue) faces are Z(X)-type boundaries and logical surfaces; the latter represent the tracked logical observable. (a,b) Memory-Z experiment: the Z-basis initialization and measurement form Z-type temporal boundaries, and the tracked ZL surface spans the full duration of the experiment (top and front Z-faces omitted for clarity). (c,d) Stability experiment: the patch has X-type boundary stabilizers on all four spatial sides, and the tracked surface is instead an X-stabilizer product lying flat in space, at a single round (front X-face omitted for clarity). (e) ZZ-merge: two patches, each initialized in |+⟩and...",
+      "page": 2
+    },
+    {
+      "image": "2610.03869_figures/2610.03869_fig2.jpg",
+      "caption": "FIG. 2. Modular neural decoder for (a) a d = 5 memory experiment, (b) a d = 9 memory experiment, (c) a stability experiment, and (d) a ZZ merge. Colors distinguish the overlapping d = 3 tiles. Within each ∆t = 2 temporal window, the detection events of each tile form a graph, which a shared GNN encodes into a single vector (colored bars). (a) A 2 × 2 convolution (CNN) aggregates the four tile encodings into one embedding per window; an RNN (GRU) integrates these over time, and a linear head predicts the logical-flip probability (black nodes: support of ZL). (b) At d = 9 the construction is nested: four d = 5 modules as in (a), each covering four d = 3 tiles, produce embeddings that a second...",
+      "page": 5
+    },
+    {
+      "image": "2610.03869_figures/2610.03869_fig3.jpg",
+      "caption": "FIG. 3. Placement of the surface code patches on the ibm berlin qubit grid, numbered by physical index. White circles: data qubits; orange/blue tiles: Z/X-type measure qubits. Dashed purple lines mark couplers found dead or de- graded during our hardware runs. Shaded regions: the d = 5 memory patch (q85) (pink boundary, its inner-core d = 3 memory patch omitted for clarity), the independent d = 3 memory patch (q36) (green boundary), and the d = 3 stabil- ity patch (blue boundary). Qubits on which we define and measure the logical Z are marked in orange.",
+      "page": 6
+    },
+    {
+      "image": "2610.03869_figures/2610.03869_fig4.jpg",
+      "caption": "FIG. 4. Logical error rate versus experiment duration for surface code memory experiments on IBM hardware (ibm berlin), GNN-RNN (solid, triangles) versus MWPM (dotted, circles) on the identical held-out hardware shots, for three patches: d = 3 (q36), d = 3 (q85), and d = 5 (q85).",
+      "page": 7
+    },
+    {
+      "image": "2610.03869_figures/2610.03869_fig5.jpg",
+      "caption": "FIG. 5. (a) Logical error probability pL versus QEC cycles t and (b) logical error per round ε versus code distance d on the Google surface code memory data (Z basis), after the full Stage-1/2/3 fine-tuning pipeline, against an MWPM baseline (patch mean, decoded on the same calibrated pij detector error models) and Google’s own AlphaQubit numbers.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.03869_figures/2610.03869_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

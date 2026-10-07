@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.06622",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cs.DC",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "GPU-Initiated Discrete Simulated Bifurcation: Low-Latency Requests and Streaming Dense Couplings",
+  "authors": "Yaocheng Chen",
+  "abstract": "GPU-based optimization faces two communication bottlenecks: coordinating frequent requests and delivering dense models that exceed device memory. We present a discrete simulated bifurcation (dSB) architecture that addresses both through NVIDIA DOCA GPUNetIO. For resident models, a persistent service receives field updates, executes each solve within one GPU thread block, and returns the result. Exact integer coupling sums, GPU work queues, and batched transmission keep the receive--solve--reply path on the device without a dedicated CPU data-path core. In comparisons with socket-based servers using the same solver, the largest latency gains occur under concurrent load. As the offered load increases from 400 to 800 thousand requests per second, median round-trip latency rises by only 6\\%. At the highest tested load, median and 99th-percentile latencies are 189 and 218~$μ$s, compared with 288 and 609~$μ$s for the tuned persistent CPU proxy across repeated runs. For models larger than device memory, a streaming solver retains dynamical state on the GPU and reuses incoming coupling tiles across replicas. It evaluates ten-million-variable dense binary matrices at approximately 307~Gb/s, consuming a 12.5-TB logical matrix through a 64-MiB packet buffer. Ground-state recovery on planted instances and agreement with reference executions verify the computation. Together, the two modes scale dSB to concurrent requests and dense models beyond GPU memory.",
+  "url": "http://arxiv.org/abs/2610.06622v1",
+  "pdf": "https://arxiv.org/pdf/2610.06622v1",
+  "type": "both",
+  "summary": "This paper presents a novel GPU-initiated architecture for solving discrete simulated bifurcation problems, designed to overcome communication bottlenecks in large-scale optimization. By keeping the entire data path—from network reception to computation and reply—on the GPU, it achieves significantly lower latency and enables the simulation of models far exceeding the device's physical memory capacity.",
+  "main_problem": "The paper addresses communication bottlenecks in GPU-based optimization, specifically coordinating frequent requests and handling dense models that exceed device memory.",
+  "main_result": "The proposed GPU-initiated architecture significantly reduces latency under high concurrent load and enables the simulation of extremely large, dense coupling matrices by streaming coefficients.",
+  "method": "It introduces a discrete simulated bifurcation (dSB) architecture utilizing NVIDIA DOCA GPUNetIO, keeping the entire request-solve-reply data path on the GPU to bypass the CPU data path.",
+  "model_or_system": "The system solves Ising or QUBO formulations, characterized by an energy function $E_\\ell(\\mathbf{s}) = -\frac{1}{2}\\mathbf{s}^\top\\mathbf{J}_\\ell\\mathbf{s} - \\mathbf{h}^\top\\mathbf{s}$. It supports both resident models and streaming solvers for massive coupling matrices.",
+  "key_observables": "Median and 99th-percentile round-trip latencies (e.g., 189/218 $\\mu$s at 800k req/s) and streaming throughput ($\\approx 307$ Gb/s).",
+  "important_parameters": "Load rates up to 800 thousand requests per second; model sizes up to 12.5-TB logical matrices; GPU memory capacity (64-MiB packet buffer).",
+  "main_assumptions": "The design assumes raw Ethernet frames are used, and the core advancement relies on keeping the entire I/O and computation pipeline on the GPU.",
+  "figures_summary": "Figure 1 compares three server architectures (Launch Per Request, CPU-Proxied, GPU-Initiated), illustrating the data flow paths and highlighting the advantage of the GPU-initiated approach.",
+  "paper_structure": "The paper first identifies communication bottlenecks in GPU optimization. It then details the dSB architecture, presenting two modes: a persistent service for resident models and a streaming solver for out-of-memory models. Performance is analyzed by comparing the GPU-initiated server against CPU-proxied and socket-based benchmarks.",
+  "why_interesting": "The work demonstrates state-of-the-art hardware acceleration for solving complex optimization problems common in quantum physics (like finding ground states), providing crucial insights into scaling computational bottlenecks for quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06622_figures/2610.06622_fig1.jpg",
+      "caption": "FIGURE 1. The three servers. All share the wire format, the client and the per-request solver; they differ only in how a frame reaches a worker block and how the reply leaves. Blue: CPU; green: GPU; orange: NIC.",
+      "page": 5
+    },
+    {
+      "image": "2610.06622_figures/2610.06622_fig2.jpg",
+      "caption": "FIGURE 2. Launch-path overhead (H2D + launch + D2H minus the in-kernel solve) against the solve time, one point per configuration, no network. The overhead is 10–19 µs for every configuration.",
+      "page": 7
+    },
+    {
+      "image": "2610.06622_figures/2610.06622_fig3.jpg",
+      "caption": "FIGURE 3. Mean per-request timing components for the reference request. Means are used because they add to the mean RTT; component medians do not generally sum to the median RTT. The residual includes uninstrumented communication and endpoint work.",
+      "page": 9
+    },
+    {
+      "image": "2610.06622_figures/2610.06622_fig4.jpg",
+      "caption": "FIGURE 4. Distribution of the unloaded round-trip time (left) and of the round trip minus the server’s residence (right) for the reference configuration, 100,000 requests per server. On the default host the proxy’s residual lies in its higher-latency mode for 95% of the requests of this run; on the tuned host both CPU-mediated servers have a single mode near 10.5 µs. The GPU-initiated distribution is shown for comparison.",
+      "page": 10
+    },
+    {
+      "image": "2610.06622_figures/2610.06622_fig5.jpg",
+      "caption": "FIGURE 5. Median unloaded round-trip time versus integration steps K (left: INT8, n = 128, B = 8) and problem size n (right: PM1, B = 8, K = 100). Dashed lines and open markers denote default-host CPU-mediated servers; solid lines and filled markers denote tuned CPU-mediated servers and GPUNetIO. Both axes use logarithmic scales.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.06622_figures/2610.06622_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

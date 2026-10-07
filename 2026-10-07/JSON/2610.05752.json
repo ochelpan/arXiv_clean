@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.05752",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "hep-th"
+  ],
+  "is_primary_archive": true,
+  "title": "An efficient Hamiltonian-based quantum algorithm for characters of the symmetric group",
+  "authors": "Dikshant Rathore, Leo Zhou",
+  "abstract": "Consider a quantum state vector proportional to any given column of the character table of the symmetric group ($S_n$), corresponding to a superposition over the irreps weighted by the character values. It was recently argued that sampling from this state is classically hard under reasonable complexity-theoretic assumptions, while there exists an efficient quantum algorithm for preparing this character state using the quantum Fourier transform (QFT) over $S_n$ [arXiv:2501.12579]. We give an alternative, simpler algorithm to prepare this character state with a sequence of Hamiltonian evolutions, as well as an efficient implementation with reconfigurable qubits that uses only nearest-neighbor gates in 1D. The gate complexity, accounting for Hamiltonian simulation errors, depends on the choice of the column: For fixed target state error, the estimated sufficient total gate count ranges from as few as $O(n)$ gates for the $n$-cycle column, to $\\widetilde O(n^{1.75})$ gates near the conjecturally classically hard parameter regime, to provably $\\widetilde O(n^{2.5})$ gates in the worst case. In contrast, the QFT subroutine in the prior approach uses $\\widetilde O(n^3)$ gates. Our gate count estimates come from leading-order state-dependent Trotter error analysis, and the proven worst-case bound relies on a QSVT-based Hamiltonian simulation method; numerical benchmarks of the Trotter-based protocol suggest that the estimates are conservative. Furthermore, we generalize our protocol to give an explicit algorithm for the quantum character transform (QCT) over $S_n$ using $\\widetilde O(n^{2.5})$ gates and $O(n)$ qubits. An application to entanglement entropy of symmetric orbifold conformal field theories is also discussed.",
+  "url": "http://arxiv.org/abs/2610.05752v1",
+  "pdf": "https://arxiv.org/pdf/2610.05752v1",
+  "type": "theory",
+  "summary": "This paper presents an alternative, Hamiltonian-based quantum algorithm to prepare quantum states encoding characters of the symmetric group ($S_n$). It achieves better gate complexity bounds than prior QFT methods, providing an explicit algorithm for the Quantum Character Transform (QCT). This work advances the field by offering concrete, resource-aware quantum implementations for mathematically complex quantum states.",
+  "main_problem": "Developing efficient quantum algorithms to prepare quantum states whose amplitudes encode the characters of the symmetric group ($S_n$).",
+  "main_result": "The authors propose a Hamiltonian-based approach achieving gate complexities up to $\\widetilde O(n^{2.5})$ for the full Quantum Character Transform (QCT), improving upon prior QFT-based estimates of $\\widetilde O(n^3)$.",
+  "method": "The state preparation is achieved by simulating the evolution governed by a specific Hamiltonian ($H_s$) using Trotterization or Quantum Singular Value Transformation (QSVT).",
+  "model_or_system": "The system is based on the symmetric group $S_n$, utilizing fermionic operators and current operators ($J_s$) acting on a product state to encode character table columns.",
+  "key_observables": "Character column state $|\\chi^\nu\rangle$, Quantum Character Transform (QCT), and entanglement entropy ($\\Delta S_\\lambda$) in CFTs.",
+  "important_parameters": "The gate complexity scales depend on the cycle type $\nu$, ranging from $O(n)$ to $\\widetilde O(n^{2.5})$ in the worst case.",
+  "main_assumptions": "Gate count estimates rely on leading-order state-dependent Trotter error analysis, and the worst-case bound uses a QSVT-based Hamiltonian simulation.",
+  "figures_summary": "The notes reference figures illustrating the Hamiltonian evolution (Fig. 1(b) for Trotterization and Fig. 1(c) for QSVT) used for state preparation.",
+  "paper_structure": "The paper progresses from defining the character state preparation problem, contrasting it with prior QFT methods, detailing the Hamiltonian simulation approach, deriving state-dependent error bounds, and finally presenting the full QCT algorithm.",
+  "why_interesting": "The focus on Hamiltonian simulation techniques (Trotter/QSVT) to achieve polynomial gate complexity for a fundamental mathematical structure like group characters is highly relevant to developing practical quantum algorithms for quantum information processing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.05752_figures/2610.05752_fig1.jpg",
+      "caption": "Figure 1: (a) Our CSP circuit: ℓ(ν) exactly timed Hamiltonian evolutions by Hνk in (1.8), each followed by an iX gate on the ancilla. (b) One Trotterized transfer on reconfigurable qubits: after the regrouping Ps, the 2n −s bond terms are nearest-neighbor, and the ancilla is swapped along the chain so that each bond gate acts on three adjacent qubits. (c) Block encoding of Hs: V puts the register |i, β⟩in uniform superposition over the Pauli-string labels, and site k receives the Pauli σk ∈{I, X, Y, Z} the register selects: X or Y at i and i + s, Z in between, I elsewhere.",
+      "page": 6
+    },
+    {
+      "image": "2610.05752_figures/2610.05752_fig2.jpg",
+      "caption": "Figure 2: The encoding (2.10) for λ = (3, 1) at n = 4. The boundary of the Young diagram inside the 4×4 box is traced from the bottom left corner to the top right corner. Each step up is recorded as a 1 and each step to the right as a 0, giving a bit string of length 2n and Hamming weight n. The ones sit at the modes λj + n −j + 1, here {1, 2, 4, 7} after padding λ to (3, 1, 0, 0). The empty partition gives |seed⟩= |1n0n⟩.",
+      "page": 11
+    },
+    {
+      "image": "2610.05752_figures/2610.05752_fig3.jpg",
+      "caption": "Figure 3: Chain decomposition (4.1) of the current operator Js, shown for 2n = 10 and s = 3. On the full chain Js hops each mode to the one s sites to its right. Grouping modes by residue class modulo s splits Js into s independent chains J(µ) s , here the residue classes {1, 4, 7, 10}, {2, 5, 8} and {3, 6, 9}, each a nearest-neighbor hopping chain of length Lµ ≈2n/s. The figure shows the decomposition at the level of mode couplings. In the physical ordering, each bond still carries a Jordan–Wigner string over the intervening modes, which the permutation Ps in (4.2) removes.",
+      "page": 15
+    },
+    {
+      "image": "2610.05752_figures/2610.05752_fig4.jpg",
+      "caption": "Figure 4: Circuit for a single bond rotation e−iθhq,a = T † q,a V (θ) Tq,a on the ancilla a and two site qubits q, q+1. The compression Tq,a of (4.7) maps the active subspace onto span{|000⟩, |010⟩}, where V (θ) performs the rotation (4.8), after which T † q,a uncomputes.",
+      "page": 17
+    },
+    {
+      "image": "2610.05752_figures/2610.05752_fig5.jpg",
+      "caption": "Figure 5: Total Trotter steps Mtot = ℓ(ν)M∗needed for the complete CSP circuit to reach final- state error 10−2, Eq. (4.28), for 8 ≤n ≤30. Markers are data, dashed lines are least-squares fits Mtot ∝np. Left: uniform cycle types (sn/s), s = 1, . . . , 4. The fits give p = 1.20–1.24, far below the operator-norm bound (4.14), which scales as n3 log n, and the leading-order state-dependent bound (4.23), which scales as n2 at fixed s. Right: cycle types whose lengths grow with n. Bal(n, c) has c cycles whose lengths differ by at most one, and Spike(n, c) = (n −c + 1, 1c−1) has one long cycle and c −1 fixed points. The fits give |p| ≤0.16 at fixed cycle count and p = 0.77 and 0.90 for...",
+      "page": 21
+    }
+  ],
+  "figure": "2610.05752_figures/2610.05752_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

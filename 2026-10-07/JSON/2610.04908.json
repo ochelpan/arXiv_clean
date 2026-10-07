@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2610.04908",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Custom Penalty QAOA via Walsh-Hadamard Transform",
+  "authors": "Xin Wei LEE, Siong Thye GOH, Hoong Chuin LAU",
+  "abstract": "Inequality constraints in combinatorial optimization are conventionally handled by introducing slack variables and quadratic penalties, which increase the qubit count and distort the optimization landscape. Slack-free formulations instead apply a nonlinear custom penalty function directly to the constraint, which are difficult to be implemented in quantum approximate optimization algorithm (QAOA). We show that the Walsh--Hadamard transform (WHT) removes this obstruction for any penalty function: a penalty applied to a linear constraint is exactly a weighted sum of Pauli-$Z$ strings. We propose this framework as the Walsh custom penalty QAOA (WCP-QAOA). Truncating the expansion at Walsh degree $k$ costs $\\mathcal{O}(n^k)$ Pauli terms and leaves the qubit count untouched. The truncation is the optimal degree-$k$ approximation of the penalty in $L^2$, and we give a condition on the discarded Walsh coefficients under which the truncated Hamiltonian still ranks every feasible solution below every infeasible one. Since evaluating a Walsh coefficient from its definition requires all $2^n$ penalty values, we give an algorithm that returns any coefficient in sub-exponential time, so that the degree-$k$ Hamiltonian is obtained in time polynomial in $n$ for fixed $k$. We show that for the exponential penalty, there exists a closed product form of WHT, and hence a closed form expression to calculate the Walsh coefficients. We identify structural shortcuts that shorten the exact spectrum. We also tested WCP-QAOA in solving a 6-qubit knapsack problem.",
+  "url": "http://arxiv.org/abs/2610.04908v1",
+  "pdf": "https://arxiv.org/pdf/2610.04908v1",
+  "type": "theory",
+  "summary": "This paper proposes the Walsh custom penalty QAOA (WCP-QAOA) to solve constrained optimization problems in quantum computing. It leverages the Walsh-Hadamard transform to encode complex inequality penalties directly into the QAOA phase separator as a product of commuting Pauli-Z operators. This method avoids the qubit overhead and approximation errors associated with traditional penalty methods, offering a theoretically sound and computationally efficient approach for quantum constraint handling.",
+  "main_problem": "The paper addresses the difficulty of implementing inequality constraints in combinatorial optimization within the QAOA framework without increasing the qubit count or distorting the optimization landscape.",
+  "main_result": "They introduce the Walsh custom penalty QAOA (WCP-QAOA), showing that the Walsh-Hadamard transform allows the penalty term to be exactly represented as a weighted sum of commuting Pauli-Z strings.",
+  "method": "The core method involves using the Walsh-Hadamard transform to convert a non-linear penalty function into a diagonal operator form, enabling the phase separator in QAOA to be implemented exactly as a product of single-term phase gates.",
+  "model_or_system": "The model is the QAOA algorithm applied to constrained binary optimization problems. The Hamiltonian is modified by a custom penalty term derived from the penalty function $\\phi(\\mathbf{x})$ via the WHT.",
+  "key_observables": "The Walsh coefficients $\\hat{\\phi}(S)$ of the penalty function, and the resulting energy spectrum of the constrained Hamiltonian.",
+  "important_parameters": "The truncation degree $k$ of the Walsh expansion, and the penalty strength $\\eta$ (e.g., for the exponential penalty).",
+  "main_assumptions": "The primary assumption is that the penalty function can be efficiently represented by its Walsh coefficients, and the approximation error from truncation must be managed to preserve the feasible-infeasible ordering.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper first establishes the limitations of standard QUBO formulations. It then introduces the WHT as the solution, detailing how the penalty term factorizes into Pauli-Z strings. Key sections cover the efficient computation of Walsh coefficients and analyze the approximation quality of the resulting truncated Hamiltonian.",
+  "why_interesting": "The technique provides a powerful, resource-efficient way to encode complex physical constraints (like inequalities) into quantum circuits without resorting to ancilla qubits or Trotter approximations, which is highly relevant for building practical quantum optimization hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04908_figures/2610.04908_fig1.jpg",
+      "caption": "FIG. 2. Comparison of the penalty values given by the truncated Walsh spectrum Tkϕ with the original penalty function ϕ. First, second and third column correspond to k = 2, 4, 6 respectively. (a)–(c) Heaviside step penalty in Eq. (14); (d)–(f) Hyperbolic tangent penalty 1 2(tanh(y) + 1); (g)–(i) Exponential penalty exp(0.1y); (j)–(l) ReLU in Eq. (54). The vertical dashed line shows a⊤x −b = 0 the boundary between feasible and infeasible constraint values.",
+      "page": 9
+    },
+    {
+      "image": "2610.04908_figures/2610.04908_fig2.jpg",
+      "caption": "FIG. 3. The fraction of retained power Πk of the truncated Walsh series against the truncation degree k Eq. (38). Differ- ent functions require different degree to achieve the full spec- tral power. The exponential and ReLU achieved full spectral power at k = 3, whereas Heaviside and hyperbolic tangent only achieved full spectral power at k = 6 (the full spectrum).",
+      "page": 10
+    },
+    {
+      "image": "2610.04908_figures/2610.04908_fig3.jpg",
+      "caption": "Fig. 4(d) shows the loss gap, which is defined as",
+      "page": 10
+    },
+    {
+      "image": "2610.04908_figures/2610.04908_fig4.jpg",
+      "caption": "FIG. 4. Evaluation metrics for a 6-qubit Knapsack problem. WCP-QAOA is tested at different localities k (truncation) and QAOA depths. We use the bit-string with the highest probability as the solution from QAOA. Each box shows the result for 10 random initializations. The gaps have values with 0 closest to the target and larger magnitudes further to the target. (a) The objective gap with the ground truth (GT). (b) The probability of sampling the GT. (c) The gap of the final loss value with the GT. (d) The gap of the final loss value with the lowest eigenvalue in the Hamiltonian. The lowest eigenvalue of the Hamiltonian is not necessarily (in fact, most of the cases) the GT for k < n.",
+      "page": 11
+    }
+  ],
+  "figure": "2610.04908_figures/2610.04908_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

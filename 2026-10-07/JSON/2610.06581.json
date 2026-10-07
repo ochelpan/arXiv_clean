@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.06581",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Shaping double descent in quantum extreme learning through model design",
+  "authors": "Sabri Meyer, Ege Yilmaz, Aurelien Lucchi, Francesco Tacchino, Francesco Scala",
+  "abstract": "Increasing capacity can induce a machine learning model to generalize worse until it perfectly interpolates the training data, and better once it moves beyond interpolation. This inversion, known as \\emph{double descent}, is well understood for independent features. For correlated features, its shape is governed by the spectrum of the feature covariance, but existing analyses typically yield only implicit equations. We first close this gap for classical linear regression, analytically characterizing the entire risk curve through two quantities, namely the condition number of the feature population covariance and a spectral measure of correlation strength. Then, we apply this theory on quantum models, focusing on quantum extreme learning machines (QELMs). We show that three tunable design knobs, \\textit{i.e.,} encoding strength, input reuploads, and measurement shots, each regularize the QELM output covariance, and derive conditions under which the interpolation threshold remains stable. Finite measurement shot noise can be leveraged to guarantee this stability. Numerical experiments confirm each prediction, yielding concrete design principles for QELMs that generalize well beyond interpolation.",
+  "url": "http://arxiv.org/abs/2610.06581v1",
+  "pdf": "https://arxiv.org/pdf/2610.06581v1",
+  "type": "theory",
+  "summary": "This work develops a comprehensive theory for analyzing the double descent phenomenon within Quantum Extreme Learning Machines (QELMs). By treating the QELM readout as a feature map, the authors show that three controllable architectural parameters—encoding strength, re-uploads, and shot noise—can be used to engineer the generalization performance. This yields concrete design guidelines for building quantum machine learning models that generalize well beyond simple data interpolation.",
+  "main_problem": "The paper addresses understanding the double descent phenomenon in quantum machine learning when the underlying features are correlated, extending classical theory to quantum models.",
+  "main_result": "It derives concrete design principles for Quantum Extreme Learning Machines (QELMs), showing that tunable architectural knobs (encoding strength, re-uploads, shot noise) can control the generalization risk curve shape.",
+  "method": "The analysis combines classical linear regression theory for correlated features with quantum circuit theory, mapping the QELM readout to a controllable trigonometric polynomial structure.",
+  "model_or_system": "The model is the Quantum Extreme Learning Machine (QELM), which uses a classical linear readout on features extracted from a quantum circuit involving data-dependent encoding layers. The analysis also draws parallels to classical linear regression with correlated features.",
+  "key_observables": "Double descent curve, condition number of the feature covariance ($\\kappa(\\Sigma_U)$), and the generalization risk bound.",
+  "important_parameters": "Input encoding strength ($s$), number of input re-uploads ($L$), and measurement shot noise ($m_0$).",
+  "main_assumptions": "The analysis relies on asymptotic limits ($n, d \to \\infty$) and assumes the existence of a true weight vector $w^*$ for generalization bounds.",
+  "figures_summary": "Figure 1 provides a graphical overview linking classical double descent to QELMs, highlighting the three tunable knobs. Figure 2 illustrates the effects of the three hyperparameters on the risk bound.",
+  "paper_structure": "The paper first establishes a general theory for classical linear regression with correlated features. It then applies this theory to QELMs, deriving how the three architectural knobs regularize the population covariance and stabilize the interpolation threshold.",
+  "why_interesting": "It provides a rigorous, theoretically grounded link between the physical structure of quantum measurements (via QELMs) and fundamental concepts from statistical learning theory, particularly generalization bounds.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06581_figures/2610.06581_fig1.jpg",
+      "caption": "Figure 1: A graphical overview of our approach. First, we establish general results about double descent in linear regression models with correlated features (left panel). Then, we leverage these results in the context of QELMs. By representing the population covariance in the Fourier picture (right panel), we identify three tunable design-specific knobs that determine the shape of the double descent curve (central panel). Input strength, data re-uploadings and shot noise can reduce the risk. In addition, shot noise can also reduce feature correlations, making the interpolation threshold predictable.",
+      "page": 2
+    },
+    {
+      "image": "2610.06581_figures/2610.06581_fig2.jpg",
+      "caption": "Figure 2: Conditioning and empirical risk of the QELM features. Panels (a)–(c) show log10 κ(eΣU) for different N, with each distinct empirical estimate of the population covariance computed from 8′192 randomized Sobol input points. Panel (a) varies s at L = 4, while panel (b) varies L at s = 1. Panel (c) varies m0 at s = 1 and L = 4 by reusing the corresponding 8′192-sample matrix and applying the analytical shot-noise transformation. Panels (d)–(f) show log10 eR(d/n) for N = 16, varying input strength, number of input reuploads, and number of measurement shots, respectively. All empirical-risk panels use the Moore–Penrose minimum-norm least-squares estimator. Panel (g) compares weakly and...",
+      "page": 5
+    },
+    {
+      "image": "2610.06581_figures/2610.06581_fig3.jpg",
+      "caption": "Figure 3: A flowchart representing the structure in the appendix. First, we classically analyse the expected risk of arbitrary linear regression models. Then, we specifically leverage these results to QELM feature maps. The technical details used to prove our results are compiled at the end of the appendix.",
+      "page": 17
+    },
+    {
+      "image": "2610.06581_figures/2610.06581_fig4.jpg",
+      "caption": "Figure 4: A path γ propagates through the accessible qubits of the unitary U(x) in a layer-wise. Along this path, we calculate the vector-valued, spectral accumulation Λγ of the matrix {H(ℓ) η : (η, ℓ) ∈[p] × [L]} of generators by summing all eigenvalues λ(ℓ) γℓ,1 ∈Spec(H(ℓ) η ) over the layers ℓ∈[L], component-wise in the coordinates η ∈[p]. Notably, the path is used to index this accumulation in a very certain manner.",
+      "page": 34
+    },
+    {
+      "image": "2610.06581_figures/2610.06581_fig5.jpg",
+      "caption": "Figure 4 graphically depicts the concept of paths γ propagating through the circuit, and how the spectral accumulation of the generators along this path is calculated. Observe that for each layer ℓ∈[L], the elements γℓ,η path component γℓ= (γℓ,1, . . . , γℓ,p) is used specifically to choose one of the 2nη possible eigenvalues of the generator H(ℓ) η . On a high level, all the path γ may look like the same as depicted in red in Figure 4, however, each path-component γℓis the key which determines which eigenvalue to choose for each generator in that layer. For a fixed generator H(ℓ) η , the process of choosing such an eigenvalue is represented as a branch in the previously mentioned quantum...",
+      "page": 34
+    }
+  ],
+  "figure": "2610.06581_figures/2610.06581_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

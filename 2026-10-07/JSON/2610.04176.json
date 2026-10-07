@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.04176",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Parallelizing Dissipative Quantum Algorithms",
+  "authors": "Sudatta Hor, Nathan Wiebe, Yongshan Ding",
+  "abstract": "Inspired by classical Markov Chain Monte Carlo (MCMC) methods, dissipative quantum algorithms are an emerging class of methods for preparing quantum states on a quantum computer. They operate by simulating a dissipative process governed by a mathematical operator known as the Lindbladian. The performance of these algorithms can be limited by the sequential implementation of the Lindbladian's constituent jump operators, which leads to high circuit depth. To address this issue, this work analyzes a parallelization scheme to implement jump operators simultaneously. We leverage the structure of geometric locality to show that individual jump operators remain spatially localized. This exponentially reduces the circuit depth per time step, resulting in an overall polynomial improvement. Numerical experiments demonstrate a 53x reduction in query depth for a 1D benchmark system of 100 qubits. The reduced circuit depth makes dissipative algorithms more practical for near-term quantum computing.",
+  "url": "http://arxiv.org/abs/2610.04176v1",
+  "pdf": "https://arxiv.org/pdf/2610.04176v1",
+  "type": "theory",
+  "summary": "This paper introduces a parallelization scheme to significantly reduce the circuit depth required for dissipative quantum algorithms. By exploiting the geometric locality of the system, the authors enable the simultaneous application of multiple jump operators governing the system's evolution. This results in a substantial, polynomial improvement in the feasibility of running these algorithms on near-term quantum hardware.",
+  "main_problem": "The primary challenge is mitigating the high circuit depth associated with sequentially implementing the jump operators required for dissipative quantum algorithms.",
+  "main_result": "The authors propose a parallelization scheme leveraging geometric locality that achieves an exponential reduction in the circuit depth per time step, leading to overall polynomial improvements in feasibility.",
+  "method": "The work analyzes a parallelization scheme for simulating Lindbladian evolution by executing jump operators simultaneously, contrasting this with sequential and single-jump dissipation methods.",
+  "model_or_system": "The model involves open quantum systems whose dynamics are governed by the Lindbladian master equation. The system Hamiltonian is assumed to possess geometric locality, allowing the use of Lieb-Robinson bounds.",
+  "key_observables": "Circuit Depth (primary metric), Mixing Time, Total Depth, and Gate Complexity.",
+  "important_parameters": "System size (e.g., 100 qubits in 1D), error tolerances ($\\epsilon, \\epsilon'$), and time step parameters ($\\Delta\tau, s_M$).",
+  "main_assumptions": "The Hamiltonian is assumed to be geometrically local, enabling the use of Lieb-Robinson bounds. The analysis also relies on specific approximations like the first-order Trotter formula for simplicity on near-term hardware.",
+  "figures_summary": "Table 1 compares the asymptotic query depth scaling for different dissipation methods, showing the benefit of parallelization. Figure 1 illustrates the quantum circuit used for ground state preparation via bulk dissipation.",
+  "paper_structure": "The paper progresses by defining the problem (Lindbladian simulation), proposing the parallelization strategy based on locality, deriving theoretical bounds on the resulting circuit depth, and validating the improvement with numerical experiments.",
+  "why_interesting": "This work directly addresses the practical implementation bottleneck of simulating open quantum systems, which is crucial for quantum simulation in AMO physics and quantum optics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04176_figures/2610.04176_fig1.jpg",
+      "caption": "Figure 1: Quantum circuit used to simulate bulk dissipation for preparing the ground state ρ0 of H. Given input state ρ, the circuit approximates eLt[ρ]. Each dissipative part eLaτ is simulated using Stinespring dilation using an ancilla qubit, whose measurement result is discarded. Thus, it is not required to post-select on the measurement outcome.",
+      "page": 7
+    },
+    {
+      "image": "2610.04176_figures/2610.04176_fig2.jpg",
+      "caption": "Figure 2: Circuit diagrams of Q",
+      "page": 11
+    },
+    {
+      "image": "2610.04176_figures/2610.04176_fig3.jpg",
+      "caption": "Figure 3: Filter function used in our numerical experiments. Left: The Fourier transform of the filter function ˆf(ω) in frequency space. It goes to 0 for positive ω to ensure that the jump operator maps to lower energy eigenstates. ˆf(ω) starts to decay at −∆so that any energy difference has a strong transition amplitude. Right: The magnitude of the filter function |f(t)| in time space. Its tails decay rapidly as |t| →∞.",
+      "page": 14
+    },
+    {
+      "image": "2610.04176_figures/2610.04176_fig4.jpg",
+      "caption": "Figure 4: Theoretical upper bounds on query depth. Left: Comparisons on different localization radius r = 4, 10, 16. For relative energy error 10−3, the r = 4 implementation has query depth that is 53x lower than that in the sequential implementation. Notice that the stationary state deviates for lower values of r. Right: Query depth comparisons for single, boundary, and bulk dissipation. While the single and boundary dissipation methods have a lower circuit cost per simulation step, its mixing time is so large that the total cost is infeasible. Parallel bulk dissipation has the lowest query depth out of all of the implementations.",
+      "page": 14
+    },
+    {
+      "image": "2610.04176_figures/2610.04176_fig5.jpg",
+      "caption": "Figure 5: Plot of different filter functions with varying δb parameter. Notice that larger values of δb give faster decay of |f(t)| but",
+      "page": 18
+    }
+  ],
+  "figure": "2610.04176_figures/2610.04176_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 3,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

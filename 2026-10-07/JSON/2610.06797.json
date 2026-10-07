@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.06797",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "From Quantum Tunneling to Classical Optimization through Instantons",
+  "authors": "Jiayu Shen, Dylan Herman, Guneykan Ozgul, Akshay Seshadri, Junhyung Lyle Kim, Shree Hari Sureshbabu, Shouvanik Chakrabarti, Niraj Kumar",
+  "abstract": "We use an instanton-based analysis to show that Path Integral Stochastic Gradient Descent (PISGD), a classical optimization algorithm instantiated from path integral Monte Carlo (PIMC), can inherit the quantum tunneling mechanism. Quantum tunneling is the phenomenon in which a quantum particle passes through a potential barrier that a classical trajectory cannot cross in the same way. This mechanism can contribute to the performance of quantum optimization algorithms, since a common bottleneck in optimization is that the solution becomes trapped in a local minimum, separated from better solutions by a potential barrier. Classical noise-driven optimizers, such as stochastic gradient descent (SGD), have escape times that scale exponentially with the potential barrier height. For quantum tunneling, the escape time is instead exponential in the bounce action, which equals twice the Agmon distance between the two basins. When the barrier is tall but thin, quantum tunneling can allow escaping local minima faster than such classical methods. Remarkably, this scaling is not exclusive to algorithms with genuine quantum dynamics. For PISGD applied to classical nonconvex global optimization, we adapt Kramers' escape-rate theory to path space and obtain the same exponential scaling as quantum tunneling, in terms of the bounce action rather than the barrier height. We confirm this scaling numerically by implementing PISGD for both separable and nonseparable potentials. That said, PISGD retains only incoherent tunneling, since coherence among multiple tunneling paths is absent. Our analysis therefore does not rule out a potential quantum advantage for quantum-tunneling-based algorithms over classical ones in general.",
+  "url": "http://arxiv.org/abs/2610.06797v1",
+  "pdf": "https://arxiv.org/pdf/2610.06797v1",
+  "type": "theory",
+  "summary": "This paper analyzes how Path Integral Stochastic Gradient Descent (PISGD) can leverage quantum tunneling concepts to accelerate optimization. By adapting instanton theory, the authors demonstrate that PISGD's escape time scales with the 'bounce action' rather than the classical barrier height. This suggests a potential classical advantage over standard gradient descent methods in overcoming local minima traps.",
+  "main_problem": "The paper addresses the challenge of finding the global minimum of a nonconvex objective function, which is often hindered by local minima separated by potential barriers.",
+  "main_result": "The authors show that Path Integral Stochastic Gradient Descent (PISGD) inherits an escape time scaling governed by the 'bounce action' ($B_V$), mirroring quantum tunneling, rather than the classical barrier height ($H_V$).",
+  "method": "The analysis adapts Kramers' escape-rate theory and instanton analysis to the path space associated with PISGD, providing a theoretical comparison to classical noise-driven optimization.",
+  "model_or_system": "The model compares classical optimization algorithms like SGD with PISGD, which uses Path Integral Monte Carlo (PIMC) formalism to simulate quantum tunneling effects in the context of global optimization.",
+  "key_observables": "Escape time scaling ($\\exp(-\\lambda B_V)$ vs $\\exp(-\\lambda H_V)$), bounce action ($B_V$), and barrier height ($H_V$).",
+  "important_parameters": "The ratio between the bounce action and the barrier height determines whether PISGD offers an advantage over SGD.",
+  "main_assumptions": "PISGD only retains incoherent tunneling, meaning the analysis does not rule out a potential quantum advantage for genuinely quantum-tunneling-based algorithms.",
+  "figures_summary": "Figures contrast the escape mechanisms of SGD (climbing $H_V$) versus PISGD (crossing $B_V$) in 1D potentials, mapping parameter regimes where PISGD is theoretically favored.",
+  "paper_structure": "The paper progresses by introducing the optimization bottleneck, detailing PISGD, analyzing the scaling laws using Kramers' theory, confirming results numerically for various potentials, and concluding with limitations regarding true quantum advantage.",
+  "why_interesting": "It provides a powerful theoretical bridge, showing how classical optimization methods can mimic the exponential advantages associated with quantum tunneling phenomena, which is relevant for understanding escape rates in complex quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06797_figures/2610.06797_fig1.jpg",
+      "caption": "Figure 1: Barrier-escape mechanisms of SGD and PISGD for a one-dimensional potential V. In (a), SGD evolves a single point x and must climb a potential barrier of height HV. In (b), PISGD instead evolves an entire path. Along the schematic slice of the path-integral action shown here, the relevant barrier is the bounce action BV. The four path configurations marked on this action profile are shown explicitly in (c). Here, P1 is the constant path at the metastable local minimum x•, while P2 is the critical bounce, the labeled instanton–anti-instanton pair, at the top of the action barrier. After this barrier is crossed, P3 undergoes downhill relaxation, and P4 is the constant path at the...",
+      "page": 6
+    },
+    {
+      "image": "2610.06797_figures/2610.06797_fig2.jpg",
+      "caption": "Figure 2: Concentration-adjusted PISGD- and SGD-favored parameter regimes for the separable variant quartic potential. In the orange PISGD-favored region, BV < 2HV/ω⋆, so PISGD has the smaller leading exponent. In the blue SGD-favored region, BV > 2HV/ω⋆, so SGD has the smaller leading exponent. The small open circle marks the setting (α, ¯ω⋆) = (0.9, 0.1) used in our variant-quartic numerical experiments. The dashed gray curve is the normalized-curvature curve ¯ω⋆ q(α) of the standard pure quartic and lies en- tirely in the SGD-favored regime. Although the pure quartic is not literally a quartic branch joined to a quadratic branch, the same comparison applies.",
+      "page": 9
+    },
+    {
+      "image": "2610.06797_figures/2610.06797_fig3.jpg",
+      "caption": "Figure 3: Comparison of PISGD and SGD to solution for different potentials across different dimensions d, measured in terms of the number of gradient steps times the learning rate. Figure 3(a) is for the single component of a quartic potential in equation (6). Figure 3(b) is for the Gaussian spike in equation (7). Figure 3(c) is for a non-separable example detailed in Section 5.3. For separable potential cases, the dashed lines show the theoretically predicted scalings in the large d asymptotic limit.",
+      "page": 10
+    },
+    {
+      "image": "2610.06797_figures/2610.06797_fig4.jpg",
+      "caption": "Figure 4: Event-aligned escape dynamics in numerical PISGD (upper row) and SGD (lower row) runs on the one-dimensional variant quartic potential with α = 0.9, c = 100, and ¯ω⋆= 0.1. Thin curves show the individual runs included in each panel, thick curves show their mean, and the dashed profile in the upper row is the bounce profile. In the central PISGD panel, the aligned mean path closely follows the bounce, displaying the predicted instanton–anti-instanton transition profile. The full path subsequently relaxes toward x⋆. By contrast, SGD crosses the barrier as a single scalar, plotted as a constant path. Because the runs are aligned to run-specific reference events, the panels compare...",
+      "page": 37
+    },
+    {
+      "image": "2610.06797_figures/2610.06797_fig5.jpg",
+      "caption": "Figure 5: Numerical comparison of the PISGD one-slice marginal with the quantum ground-state den- sity for the one-dimensional variant quartic potential with α = 0.9, ¯ω⋆= 0.1, and c = 100. The main panel shows the single-component potential U(x) −U(x⋆) on the left vertical axis. The right vertical axis corresponds to the density of the PISGD slice x0 (orange histogram) from numerics, an Gaussian kernel- density estimate (orange curve), and the normalized ground-state density |ψ0(x)|2 (blue curve). The left inset zooms into the metastable minimum x•, saddle x◦, and turning point xtp. The right inset zooms in for the density comparison near the global minimum. The observed agreement between...",
+      "page": 38
+    }
+  ],
+  "figure": "2610.06797_figures/2610.06797_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

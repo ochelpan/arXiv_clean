@@ -1,0 +1,74 @@
+{
+  "arxiv_id": "2610.03972",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Probabilistic Algorithms for Ising Machines from Optimization to Generative AI",
+  "authors": "Corentin Delacour, Xiuqi Zhang, Abdelrahman S. Abdelrahman, Saleh Bunaiyan, Kyle Lee, Shuvro Chowdhury, Kerem Y. Camsari",
+  "abstract": "Ising machines have emerged as promising hardware accelerators for intractable optimization and sampling problems, yet their practical impact increasingly hinges on the co-design of algorithms and hardware, where algorithmic demands shape new architectures and new hardware capabilities inspire entirely new algorithms. In this Review, we survey probabilistic algorithms designed for portability across diverse Ising platforms, advocating a top-down perspective that prioritizes principled methods with provable guarantees. We cover foundational methods such as simulated annealing and parallel tempering, including two-dimensional extensions that natively encode hard constraints, and examine approaches that expand the scale of solvable problems from cluster mean-field methods to variational samplers. We highlight the Probabilistic Approximate Optimization Algorithm (PAOA), a classical analog of QAOA that emerged directly from probabilistic hardware development, and explore how generative AI and Ising machines might reinforce each other: learned models propose global moves to accelerate optimization, while probabilistic techniques improve inference in large language models. Much as quantum computing has seen algorithms co-evolve with hardware, probabilistic and Ising computing stand at a similar inflection point. We outline a co-design framework for accelerating the capabilities and adoption of next-generation Ising machines.",
+  "url": "http://arxiv.org/abs/2610.03972v1",
+  "pdf": "https://arxiv.org/pdf/2610.03972v1",
+  "type": "theory",
+  "summary": "This review surveys probabilistic algorithms for Ising machines, advocating for a top-down, principled approach to ensure provable guarantees. It details methods ranging from Simulated Annealing to advanced generative AI integrations, positioning Ising computing at a critical co-evolutionary point with hardware. The work provides a framework for accelerating the use of these powerful, yet complex, computational platforms.",
+  "main_problem": "The paper addresses the need for portable and provably guaranteed probabilistic algorithms for Ising machines, bridging the gap between optimization problems and generative AI.",
+  "main_result": "It proposes a co-design framework where advanced probabilistic algorithms, like PAOA, can accelerate the capabilities and adoption of next-generation Ising hardware.",
+  "method": "The review surveys and synthesizes multiple algorithmic approaches, including Simulated Annealing, Parallel Tempering, and generative model integration, all applied to the Ising Hamiltonian.",
+  "model_or_system": "The core model is the Ising machine, governed by the Ising Hamiltonian, which is used to encode intractable combinatorial optimization and sampling problems. The system can be generalized to include higher-order interactions and multi-state variables.",
+  "key_observables": "The primary observable is the ability to sample from a prescribed probability distribution, crucial for tasks like Bayesian inference and generative model training.",
+  "important_parameters": "Key parameters include the inverse temperature ($\beta$), constraint penalty strengths, and the number of replicas used in advanced sampling techniques.",
+  "main_assumptions": "The review contrasts physics-driven methods lacking formal guarantees with MCMC-based approaches that provide necessary convergence guarantees.",
+  "figures_summary": "Figure 1 illustrates the Ising machine workflow and the co-design loop, mapping tasks to energy functions and pairing algorithm families with hardware requirements.",
+  "paper_structure": "The review progresses logically from foundational annealing methods to advanced techniques like Parallel Tempering, variational approaches, and finally explores the synergistic relationship between generative AI and Ising computing.",
+  "why_interesting": "The focus on co-design, where algorithmic demands shape hardware, is highly relevant as it suggests new avenues for simulating complex, non-equilibrium dynamics using programmable classical hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03972_figures/2610.03972_fig1.jpg",
+      "caption": "Figure 1: Ising machine workflow and probabilistic algorithm-hardware co-design. (a) Top: an optimization or sampling task is encoded as an Ising problem with energy E and Boltzmann distribu- tion S ∼exp(−E/T) with T the temperature parameter. Middle: the algorithm and Ising machine co-design loop, where algorithmic demands set hardware parameters and hardware constraints shape al- gorithm choice. Bottom: the Ising machine explores the energy landscape over time and returns samples S. (b) Three families of probabilistic algorithms surveyed in this Review, paired with their hardware requirements. Simulated annealing requires time-modulation of temperature via a scheduler. Paral- lel...",
+      "page": 2
+    },
+    {
+      "image": "2610.03972_figures/2610.03972_fig2.jpg",
+      "caption": "Figure 2: Cluster mean-field theory for hardware capacity scaling. (a) An original interaction graph whose size exceeds the capacity of a single Ising-machine chip. (b) Balanced partitioning of the graph into clusters sized to fit within hardware limits. (c) Serial CMFT workflow: the active cluster is updated on the Ising machine while remaining clusters stay frozen. Boundary interactions are approximated by mean-field values computed on a classical processor. (d) CPU results for L = 6 (216 spins): residual energy versus Monte Carlo sweeps for different cluster counts (100 instances, 20 runs). Fewer clusters yield steeper power-law decay, where κ denotes the log–log slope (exact graph: κ =...",
+      "page": 8
+    },
+    {
+      "image": "2610.03972_figures/2610.03972_fig3.jpg",
+      "caption": "Figure 3: Overview of PAOA. A classical processor (left) evaluates a cost function using independent samples returned by an Ising machine or probabilistic sampler (right). The resulting objective is used to update variational parameters, such as effective couplings, fields, or annealing schedules, that define the stochastic dynamics for the next layer. Repeating this sample-and-update loop produces a learned non-equilibrium trajectory. In the illustrated ansatz, an M × M weight matrix and M × 1 bias vector parameterize the sampling distribution over N problem spins, where M ≥N.",
+      "page": 9
+    },
+    {
+      "image": "2610.03972_figures/2610.03972_fig4.jpg",
+      "caption": "Figure 4: Synergies between generative AI and Ising machines. Left: Equilibrium samples collected from MCMC chains after burn-in serve as training data for a generative model. In this setup, a decoder- only Transformer (IsingFormer) is trained to produce equilibrium-like samples in fewer steps, effectively bypassing mixing times. Right: A Generator-Verifier scheme employing Transformer-Augmented Par- allel Tempering (TAPT). Conditioned on the inverse temperature β, the IsingFormer acts as a generator to accelerate PT exploration via global moves along the temperature ladder. PT functions as a verifier, accepting or rejecting moves based on a Metropolis criterion to enforce detailed balance....",
+      "page": 12
+    }
+  ],
+  "figure": "2610.03972_figures/2610.03972_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

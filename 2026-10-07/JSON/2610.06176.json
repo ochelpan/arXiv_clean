@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.06176",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CL",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "What Does It Cost to Simulate a Quantum Sentence Classifier? An Energy and Compute Perspective on Near-Term QNLP",
+  "authors": "Kishlay Kashyap, Sandipan Ganguly",
+  "abstract": "Near-term quantum natural language processing (QNLP) experiments often run on classical simulators, so simulator cost is part of the field's practical compute burden, yet accuracy tables do not show it. We measure that cost for a variational quantum classifier (VQC) on binary SST-2 sentiment classification, using PennyLane's state-vector simulator over a controlled grid of 27 configurations: three balanced training-set sizes (N = 200, 500, 1000), three qubit counts (4, 6, 8), and three circuit depths. Each VQC is compared with logistic regression on the same PCA-reduced input; full TF-IDF logistic regression gives an uncompressed reference. The VQC beats its matched baseline in 6 of 27 single-seed comparisons. After reruns at two further seeds, only 1 of these 6 keeps a positive mean advantage larger than its paired seed-to-seed variability, and paired tests on the fixed validation set do not establish it. VQC training is 886-21,127 times slower in measured wall-clock time than the matched classical fit (median 3,158 times); going from 4 to 8 qubits roughly doubles simulator time, and within the tested range per-step cost is well approximated by a linear function of the parameter count. CodeCarbon energy and CO2 estimates are secondary: they imply an almost constant power of about 41 W, so they add little beyond runtime, and we do not build an energy ratio from them. The study is narrow (one dataset, representation, ansatz, simulator, and CPU environment) and is a reproducible feasibility measurement, not a general verdict on QNLP.",
+  "url": "http://arxiv.org/abs/2610.06176v1",
+  "pdf": "https://arxiv.org/pdf/2610.06176v1",
+  "type": "both",
+  "summary": "This paper rigorously measures the computational cost of running a Variational Quantum Classifier for sentiment analysis, comparing it to classical methods. The key finding is that the VQC training is vastly slower than the classical baseline without providing a reliable, statistically significant accuracy improvement. The work serves as a cautionary feasibility study on the current resource overhead of QNLP simulations.",
+  "main_problem": "The paper assesses the practical computational cost (energy and compute) associated with running near-term Quantum Natural Language Processing (QNLP) experiments on classical simulators.",
+  "main_result": "The Variational Quantum Classifier (VQC) training is found to be significantly slower (thousands of times) than its matched classical baseline, and this increased cost is not offset by a reliable, statistically significant accuracy advantage.",
+  "method": "The authors measured wall-clock time and estimated energy/CO2 for training a VQC on SST-2 sentiment classification across a grid of 27 configurations, comparing results against classical logistic regression baselines.",
+  "model_or_system": "The model is a Variational Quantum Classifier (VQC) implemented using PennyLane's state-vector simulator. It processes text features (via TF-IDF/PCA) encoded into qubits, followed by a parameterized quantum circuit structure.",
+  "key_observables": "Wall-clock time, Time ratio (VQC time / classical time), Accuracy ($\\Delta$), and CodeCarbon estimated energy/CO2 emissions.",
+  "important_parameters": "Qubit counts (4, 6, 8), Circuit depths (1-3 layers), Training set sizes ($N=200, 500, 1000$).",
+  "main_assumptions": "The study is limited to a single dataset, representation, ansatz, simulator, and CPU environment, making it a feasibility measurement rather than a general verdict on QNLP.",
+  "figures_summary": "Figures compare VQC validation accuracy vs. training set size, and show the training loss over epochs, illustrating the performance gap between VQC and classical methods.",
+  "paper_structure": "The paper establishes the need to measure simulator cost in QNLP, details the experimental setup (VQC vs. classical baselines on SST-2), presents the quantitative results on cost scaling and accuracy comparison, and concludes with limitations.",
+  "why_interesting": "While focused on NLP, the detailed analysis of resource scaling (time vs. qubits/depth) and the explicit comparison of simulation overhead against classical computation is highly relevant to understanding the resource requirements for any quantum algorithm implementation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06176_figures/2610.06176_fig1.jpg",
+      "caption": "Figure 1: Validation accuracy against measured wall- clock time (log scale). Configurations with additional seeds are plotted as three-seed means; VQC error bars show ±1 sample standard deviation across those seeds, and the remaining points are single-seed. Horizontal lines mark random chance (0.5) and the validation ma- jority baseline (0.5092). The VQC sits at the far right of the time axis at accuracies comparable to its matched classical baselines, while the uncompressed full-TF-IDF model is both more accurate and far cheaper.",
+      "page": 5
+    },
+    {
+      "image": "2610.06176_figures/2610.06176_fig2.jpg",
+      "caption": "Figure 2 and Table 2 decompose VQC training time by qubit count, depth, and training-set size. Three",
+      "page": 5
+    },
+    {
+      "image": "2610.06176_figures/2610.06176_fig3.jpg",
+      "caption": "Figure 2: VQC simulator cost scaling with qubit count. Columns correspond to N = 200, 500, and 1000; colors identify circuit depth. The top row shows CodeCarbon-estimated energy and the bottom row measured wall-clock time; the rows carry nearly the same information because estimated energy is close to a constant power times elapsed time. Points are means over available seeds, and error bars (visible only for the seed-checked configurations) show ±1 standard deviation. These are within-VQC measurements for the tested simulator and CPU, not hardware- independent scaling laws.",
+      "page": 6
+    },
+    {
+      "image": "2610.06176_figures/2610.06176_fig4.jpg",
+      "caption": "Figure 3: Validation accuracy against training-set size, one panel per qubit count. Each panel shows the full-TF-IDF reference, the PCA-matched classical baseline at that qubit count, and the three VQC depths; configurations with additional seeds are three-seed means with ±1 SD bars. The dashed line marks chance (0.5) and the dotted line the majority baseline (0.5092).",
+      "page": 7
+    },
+    {
+      "image": "2610.06176_figures/2610.06176_fig5.jpg",
+      "caption": "Figure 4: Per-epoch mean training loss for the 27 seed-42 VQC runs, one panel per qubit count (all three training-set sizes and depths in each panel; the N = 200, medium-depth run is highlighted). The y-axis is shared across panels. The dotted line is the loss of a constant-zero predictor on balanced ±1 labels; across all 39 VQC rows the final-epoch loss lies between 0.93 and 1.01.",
+      "page": 7
+    }
+  ],
+  "figure": "2610.06176_figures/2610.06176_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

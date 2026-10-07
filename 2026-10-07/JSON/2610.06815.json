@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.06815",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DS"
+  ],
+  "is_primary_archive": true,
+  "title": "CV-QAOA: Efficient Low-Depth Quantum Optimization of Continuous Variables",
+  "authors": "Sriram Bharadwaj, Di Luo, Leo Zhou",
+  "abstract": "We study a Continuous-Variable Quantum Approximate Optimization Algorithm (CV-QAOA) for high-dimensional continuous optimization. Our formulation extends an earlier CV-QAOA proposal with a variationally optimized initial state and recovers the convergence guarantees of Quantum Hamiltonian Descent (QHD) in the high-depth limit. We prove rigorous performance guarantees of CV-QAOA on several families of cost functions. First, we show $d$-step CV-QAOA minimizes any $d$-dimensional strictly convex quadratic function with $2d$ quantum queries to the cost function. We then analyze a family of nonconvex \"Rotated Double Well\" (RDW) functions with $2^d$ local minima introduced by arXiv:2311.00811. While prior work showed QHD reaches its global minimum with $\\tilde O(d^3)$ queries, we prove that 1-step CV-QAOA solves RDW with just two quantum queries. Although general-purpose classical solvers need superpolynomial time for RDW and structure-awareness can reduce the cost to polynomial time, we show that the 1-step CV-QAOA protocol can be efficiently dequantized, and that a gradient-aligned line search succeeds with $O(d)$ queries, nearly matching the information-theoretic $Ω(d/\\log d)$ query lower bound. To move beyond the dequantizable regime, we introduce a ``Rotated Square Well'' (RSW) problem, whose globally flat landscape suppresses useful local gradient information. For this family, we show that an adiabatic evolution simulated by CV-QAOA can reach the global minimum using $d^{o(1)}$ queries. On the other hand, any classical algorithm that learn the hidden rotation in RSW provably requires $Ω(d^2/\\log d)$ queries, a bound we nearly match with an explicit $Θ(d^2\\log d)$-query classical algorithm.Numerical simulations on deflected corrugated spring and Easom functions illustrate the promising performance of CV-QAOA on more general problems.",
+  "url": "http://arxiv.org/abs/2610.06815v1",
+  "pdf": "https://arxiv.org/pdf/2610.06815v1",
+  "type": "theory",
+  "summary": "This paper introduces and rigorously analyzes the Continuous-Variable QAOA (CV-QAOA) for solving high-dimensional continuous optimization problems. It proves that CV-QAOA achieves significant query complexity advantages over existing quantum and classical methods for structured problems like the RDW. The findings establish a strong theoretical case for the utility of CV-QAOA in quantum computation.",
+  "main_problem": "The paper develops and analyzes a Continuous-Variable Quantum Approximate Optimization Algorithm (CV-QAOA) designed to efficiently find the minimum of high-dimensional continuous cost functions.",
+  "main_result": "CV-QAOA demonstrates superior query complexity compared to Quantum Hamiltonian Descent (QHD) for specific hard problems like the Rotated Double Well (RDW), achieving near-optimal scaling for certain landscapes.",
+  "method": "The analysis involves rigorous theoretical proofs comparing the query complexity of CV-QAOA against classical and quantum lower bounds for various cost function families.",
+  "model_or_system": "The optimization is performed on continuous-variable cost functions $C(\\mathbf{x}): \\mathbb{R}^d \to \\mathbb{R}$, implemented using bosonic modes and the $p$-step CV-QAOA Hamiltonian structure.",
+  "key_observables": "Query complexity (number of quantum/classical queries) required to reach the global minimum for specific cost functions (e.g., RDW, RSW).",
+  "important_parameters": "Depth $d$ (dimension), number of QAOA steps $p$, and the structure of the cost function (convex, RDW, RSW).",
+  "main_assumptions": "The analysis relies on a defined query model for quantum and classical oracle access to the cost function, and specific assumptions about the landscape structure (e.g., global flatness for RSW).",
+  "figures_summary": "Figure 1 compares query complexities for RDW and RSW, contrasting classical upper bounds with quantum lower/upper bounds.",
+  "paper_structure": "The paper progresses by defining the CV-QAOA framework, proving performance guarantees for convex quadratics, analyzing the RDW case (showing improvement over QHD), and finally tackling the challenging RSW case to establish query complexity separations.",
+  "why_interesting": "The work provides concrete, theoretically proven quantum advantages for optimization problems in continuous variable settings, which is highly relevant for developing practical quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06815_figures/2610.06815_fig1.jpg",
+      "caption": "Figure 1: Summary of the CV-QAOA framework and the main quantum advantages established in this work. The figure compares two complementary optimization regimes controlled by the initial width parameter σ. The top panels show the rotated double well family: a two-dimensional slice of the rotated high-dimensional landscape and a hidden-coordinate slice revealing the underlying one-dimensional double well structure. The bottom panels show the rotated square well family: a two-dimensional view and a hidden-coordinate slice, illustrating a flat staircase-like landscape whose global optimum lies in the overlap of the hidden wells. The displayed classical query complexities are upper bounds: O(d)...",
+      "page": 5
+    },
+    {
+      "image": "2610.06815_figures/2610.06815_fig2.jpg",
+      "caption": "Figure 2: The optimized analytical expectation value minβ,γ ⟨w⟩as a function of the initial width σ for the one-dimensional Styblinski-Tang function. The red dashed line marks the false minimum, while the green dashed line marks the true minimum.",
+      "page": 14
+    },
+    {
+      "image": "2610.06815_figures/2610.06815_fig3.jpg",
+      "caption": "Figure 3: A plot of the mean number of oracle queries Q versus dimension for the two structure- aware classical algorithms (log-log axes). The error bars are 95% confidence intervals (100 runs per dimension for the tomography; 50 runs for the random walk). The random ray tomography (orange) follows the parameter-free theoretical curve Q ∝d2 ln d with leading constant 2CptCdir = 160 (from Cpt = 10 points and Cdir = 8 directions per dimension), whereas the adaptive random walk (blue) follows a steeper Q ∝d3/ ln d (R2 = 0.993, fit for d ≥3).",
+      "page": 28
+    },
+    {
+      "image": "2610.06815_figures/2610.06815_fig4.jpg",
+      "caption": "Figure 4: Effective-evaluation time-to-solution for classical baselines on the rotated square well problem. Left: We plot the lower-envelope TTS0.90 over the algorithmic tuning parameter θ for each dimension d. The baselines are simulated annealing, simulated annealing with local search, basin hopping, and path integral Monte Carlo with M = 1 and M = 64 beads. For the M = 64 PIMC curve, bead evaluations are counted in the effective batched convention, so that 64 bead evaluations are charged as one effective evaluation. All methods are run on randomly rotated and shifted instances with L = 1 and δ = 0.1. Error bars are obtained by propagating a 95% binomial confidence interval for the...",
+      "page": 29
+    },
+    {
+      "image": "2610.06815_figures/2610.06815_fig5.jpg",
+      "caption": "Figure 5: The above plot shows the final probability distributions after 1-step and depth-two CV- QAOA respectively, and the initial distribution is displayed on the left-most panel. The red cross denotes the location of the minimum. We consider the function F(x, y) = 1",
+      "page": 31
+    }
+  ],
+  "figure": "2610.06815_figures/2610.06815_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

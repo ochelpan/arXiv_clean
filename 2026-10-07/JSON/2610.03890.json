@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.03890",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-Assisted Optimization Guided by Machine-Learned Risk Maps for Aerial Surveillance Routing",
+  "authors": "Dorian Lauwerier, Alexis Vieloszynski, Yves Bérubé-Lauzière, Victor Drouin-Touchette",
+  "abstract": "Analog quantum computing with neutral atom computers is rapidly evolving into a promising way to perform combinatorial optimization tasks at scale. As technology matures, exploring real use cases leveraging such unique information processors becomes warranted; one example is logistics management where vehicles are assigned routes to perform a given task. Autonomous aerial vehicles (drones) are increasingly used for surveillance over a given territory. In this paper, we propose an innovative framework integrating classical machine learning forecasts and quantum annealing to find the best combination of tours for a given surveillance criterion. The risk maps produced by machine learning are used to find possible surveillance tours, while a quantum-assisted heuristic chooses the best combination, producing a full surveillance plan. By modelling our decision problem for drone paths as a Team Orienteering Problem (TOP) with additional constraints, we construct a new heuristic using quantum annealing to find good solutions. We apply this framework to wildfire prevention, where finding tours most likely to detect a starting fire has clear benefits. We study the effect of larger quantum resources on heuristic performance and compare those results to the use of classical resources.",
+  "url": "http://arxiv.org/abs/2610.03890v1",
+  "pdf": "https://arxiv.org/pdf/2610.03890v1",
+  "type": "both",
+  "summary": "This paper proposes an innovative framework for optimizing aerial surveillance routes, such as for wildfire prevention, by combining machine learning risk forecasting with quantum annealing. The core methodology models the routing problem as finding a Maximum Independent Set on a conflict graph, which is then solved using the hardware capabilities of neutral atom quantum computers. It demonstrates a practical 'predict-then-optimize' pipeline for complex decision support systems.",
+  "main_problem": "The paper develops a framework to optimize aerial surveillance routing for tasks like wildfire prevention by integrating classical risk forecasting with quantum optimization.",
+  "main_result": "The proposed quantum-assisted heuristic can find good solutions for the complex Team Orienteering Problem, demonstrating the potential of integrating ML forecasts with quantum annealing for real-world decision support.",
+  "method": "It uses a two-phase pipeline: first, classical ML (XGBoost) generates risk maps, and second, quantum annealing is applied to solve the resulting Maximum Independent Set (MIS) problem derived from the logistics model.",
+  "model_or_system": "The physical platform utilized is analog quantum computing with neutral atom computers (NAQC). The optimization problem is modeled as a Team Orienteering Problem (TOP) reduced to finding an MIS on a conflict graph, which maps naturally onto the Ising Hamiltonian of NAQC.",
+  "key_observables": "The resulting full surveillance plan, which maximizes the total probability coverage of the area under surveillance.",
+  "important_parameters": "The problem scale is tested up to 20 qubits; key parameters include the overlap threshold (T) and the desired number of tours (K).",
+  "main_assumptions": "The approach assumes that the problem can be decomposed into a classical forecasting step followed by a quantum optimization step; for current scales, classical methods are noted to be faster than available quantum hardware.",
+  "figures_summary": "Figure 1 illustrates the overall framework integrating terrain prediction (ML) and quantum decision-making. Figure 2(a) shows candidate tour generation using an intermediate graph, and Figure 2(b) illustrates the conflict graph connecting overlapping tours.",
+  "paper_structure": "The paper follows a pipeline structure: defining the logistics problem (TOP/ILP) $\rightarrow$ generating candidate tours (TSP approximation) $\rightarrow$ building the conflict graph $\rightarrow$ applying quantum annealing to solve MIS $\rightarrow$ reconstructing the final optimal surveillance plan.",
+  "why_interesting": "The direct application of quantum annealing to solve a graph-based combinatorial optimization problem (MIS) derived from a physical logistics scenario (drone routing) showcases a tangible use case for neutral atom quantum processors.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.03890_figures/2610.03890_fig1.jpg",
+      "caption": "Fig. 1 Our framework (purple) insert into a complete aerial surveillance workflow and help the decision making task of routing the drone fleet based on the predicted ”reward” map.",
+      "page": 4
+    },
+    {
+      "image": "2610.03890_figures/2610.03890_fig2.jpg",
+      "caption": "Fig. 2 (a) Illustration of the method to generate candidate tours. We first attributes to each node a weight ϕi which is the predicted ignition probability. A new edge weight that is the inverse of the sum of the ignition probability of the two vertices composing the edge is constructed ˜dij = (ϕi + ϕj)−1. We then select randoms nodes in the grid; each pair of those nodes corresponds to a shortest path using weight ˜dij as a metric. We then obtain a candiate tour using a randomized heuristic approach to the TSP on the resulting complete graph. The final tour is reconstructed from the individual paths - such a construction favours tours where the sum of total observed ignition probability is...",
+      "page": 9
+    },
+    {
+      "image": "2610.03890_figures/2610.03890_fig3.jpg",
+      "caption": "Fig. 3 Description of the quantum heuristic. Additional steps of register design and pulse shaping are added; these respectively seek to find a faithful representation of the classical graph data in the quantum system and a good quantum protocol to obtain its solution. We create a conflict graph with incompatible candidates tours, then postprocess the resulting independent sets obtained with a quantum sampler to find a K-independent set proposed solution.",
+      "page": 14
+    },
+    {
+      "image": "2610.03890_figures/2610.03890_fig4.jpg",
+      "caption": "Fig. 4 (a) The map of Québec is divided into grid cells, each measuring 0.25◦in both latitude and longitude. Over 91% of wildfires occur within the area outlined in green. However, our dataset only considers cells containing an orange dot, as the blue and black cells are either located in the ocean or in regions outside Québec. (b) A solution for 3 tours (maximum length of 500km) within a day (June 1st, 2021) and a threshold of at most 3 commons points between tours in the conflict graph construction. In light blue is the set of candidates tours, while in black, green and blue is the set of selected tours. We can see that both spatial diversity and likelihood observation are respected.",
+      "page": 17
+    },
+    {
+      "image": "2610.03890_figures/2610.03890_fig5.jpg",
+      "caption": "Fig. 5 (a) Comparison of the heuristic’s objective value (sum of local ignition probabilities along the proposed drone tours) for September 2021 as a function of the quantum resources we allow to the conflict graphs (10, 15, 20 qubits). On average, more resources leads to better results. (b) Comparison of the average of the heuristic’s objective value over a month, for the six month of 2021 with active fire risks. all months with a finite wildfire risk depending on the quantum resources we allow to the conflict graphs (10, 15, 20 qubits). The bars display the average (center point), minimum (lower bracket) and maximum (upper bracket) for each month. Though the quantum resources are limited,...",
+      "page": 18
+    }
+  ],
+  "figure": "2610.03890_figures/2610.03890_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

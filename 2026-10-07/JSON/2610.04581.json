@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.04581",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Decoy-state optical quantum information processing with coherent states",
+  "authors": "Wenyuan Wang, H. F. Chau",
+  "abstract": "Photonic qubits play an important role in quantum information processing. However, to date, efficient high-speed single photon sources and photon number resolving (PNR) detectors are still difficult to make. Here, we use phase-randomized coherent states and threshold detectors, combined with decoy-state post-processing, to simulate single photon sources and PNR detectors and perform various quantum information processing tasks. We propose a simple linear regression method to predict Fock state statistics based on observable statistics from coherent-state probes, combined with random/structured sampling of probe settings. Compared with traditional decoy-state post-processing based on linear programming and Cartesian product grid sampling, our method enables drastically improved accuracy and much reduced probe resources. It works particularly well for unknown unitary circuits of interest with fixed-size Hilbert space dimensions. For instance, it can accurately simulate 4-photon interference in linear optics with just 32 input/output probe settings and 6-photon interference with 256 probe settings. Moreover, it also works for non-unitary (such as lossy, nonlinear, or arbitrary) quantum channels. This enables a wide variety of applications that can be implemented with easily attainable coherent light sources and threshold detectors, such as characterization of small-scale linear optical quantum computing circuits or quantum sensing/metrology devices.",
+  "url": "http://arxiv.org/abs/2610.04581v1",
+  "pdf": "https://arxiv.org/pdf/2610.04581v1",
+  "type": "theory",
+  "summary": "This paper introduces a robust linear regression technique to estimate the true Fock state statistics of quantum channels when using imperfect hardware. By mapping measured observable statistics from coherent light probes, the method accurately simulates the function of ideal single-photon sources and PNR detectors. This advancement allows for the characterization of complex quantum processes, including lossy or nonlinear channels, with significantly fewer experimental measurements.",
+  "main_problem": "The paper addresses the challenge of simulating ideal single-photon sources and Photon Number Resolving (PNR) detectors using imperfect, readily available hardware like coherent states and threshold detectors.",
+  "main_result": "A novel linear regression method is proposed that significantly improves the accuracy and reduces the required probe resources compared to traditional linear programming or grid sampling techniques for estimating quantum yields.",
+  "method": "The core method involves formulating the problem as estimating unknown Fock state statistics ($\\vec{Y}$) from measured observable statistics ($\\vec{Q}$) using a linear regression approach ($\\vec{Y} \\approx A^{-1} \\vec{Q}$).",
+  "model_or_system": "The system models optical quantum information processing using phase-randomized coherent states as inputs and threshold detectors as outputs. The analysis framework is general, applicable to both unitary and non-unitary quantum channels.",
+  "key_observables": "Fock state statistics, observed gain ($Q_{\\vec{\\mu},\\vec{\\eta},\\vec{p}}$), input/output photon number distributions ($\\vec{n}, \\vec{m}$).",
+  "important_parameters": "Input coherent state intensities ($\\vec{\\mu}$), output attenuators ($\\vec{\\eta}$), and the required number of probe settings (e.g., 32 settings for 4-photon interference).",
+  "main_assumptions": "The primary assumption is that the underlying quantum channel can be accurately modeled by a linear relationship between observable statistics and the target yields, which is then solved via linear regression.",
+  "figures_summary": "Figures illustrate the experimental setup using decoy states (WCPs and threshold detectors) and compare the performance of the proposed linear regression method against traditional methods across various interference orders.",
+  "paper_structure": "The paper develops the problem formulation by relating measured observables to unknown yields, identifies the numerical instability of direct linear programming solutions, and then proposes and validates the linear regression technique as a superior, generalized alternative.",
+  "why_interesting": "It provides a practical, computationally stable framework for characterizing complex quantum optical circuits (like linear optical quantum computing) using only standard, accessible components, which is crucial for experimental quantum information science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04581_figures/2610.04581_fig1.jpg",
+      "caption": "FIG. 1. (a) A photonic information processing setup. The optical circuit usually needs Fock states as input and photon- counting detectors on the output to achieve desired function, such as optical quantum computing or quantum metrology. (b) A full input/output decoy-state setup where input Fock states are replaced with weak coherent pulses (WCPs) with varying intensities and the output detectors are replaced with threshold detectors with varying attenuations before them. Combined with post-processing (decoy state analysis), we can estimate the statistics coming from the events where desired photon numbers enter and leave the circuit in question.",
+      "page": 3
+    },
+    {
+      "image": "2610.04581_figures/2610.04581_fig2.jpg",
+      "caption": "FIG. 2. (a) A setup where only input ports carry de- coy states while output ports have fixed detector efficien- cies and only report click/no-click. In this case we are estimating the Fock state statistics for input ports only, Yη1,η2,η3,p1,p2,p3(∗, ∗, ∗|n1, n2, n3). (b) A setup with mix- tures of ports with decoy states and fixed ports. For in- stance, here Alice can iterate over intensity settings for two ports and keep one port at constant (or vacuum) intensity. She can also choose to implement detector decoy on some output ports, such as for her local detectors for heralding, while keeping the other ports free-running, such as for ports going through an open quantum channel into Bob’s...",
+      "page": 4
+    },
+    {
+      "image": "2610.04581_figures/2610.04581_fig3.jpg",
+      "caption": "FIG. 3. The data flow for the training. We can generate ran- dom channels (arbitrary or unitary, depending on target user scenario) and calculate the simulated observables and theoret- ical yield for each one, which can then be used as labeled data to train a machine learning model (which can be as simple as a linear regression model) to learn the mapping. Importantly, this mapping is channel-independent and is determined only by the decoy settings chosen prior to an experiment. Once the model is trained, it can be used to read in new observ- ables from coherent light sources obtained from an unknown channel and predict the corresponding Fock state yield with high accuracy.",
+      "page": 6
+    },
+    {
+      "image": "2610.04581_figures/2610.04581_fig4.jpg",
+      "caption": "FIG. 4. (a) Synchronized intensity choices at ports A and B can be viewed equivalently as intensity choices at a com- mon virtual source S (phase-randomized by a global phase ϕS) and a randomized relative phase ϕBA between A and B, which does not affect photon numbers. Therefore, as shown in (b), performing decoy analysis with intensity settings of fixed ratios across ports can only tell the Fock state statistics of n photons at port S, in other words a total of nA + nB = n photons in ports A and B, but not the specific Fock state statistics for nA, nB.",
+      "page": 7
+    },
+    {
+      "image": "2610.04581_figures/2610.04581_fig5.jpg",
+      "caption": "FIG. 5. Full Cartesian product grid (left) versus Latin Hyper- cube Sampling (right). LHS is akin to the ”8 rook problem” in chess (place every rook piece such that each row and each col- umn contains exactly one rook), which creates a structured pseudo-random sampling across all dimensions with drasti- cally smaller sample size.",
+      "page": 7
+    }
+  ],
+  "figure": "2610.04581_figures/2610.04581_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

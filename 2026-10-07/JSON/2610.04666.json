@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.04666",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Correlations decide a shallow-circuit advantage",
+  "authors": "Zijian Gong, Zhaobin Lyu, Jingjing Hu, Dengfeng Li, Shuoming An",
+  "abstract": "Quantum computers are claimed to produce samples ordinary classical computers cannot reproduce. The sharpest such claim known pits constant-depth quantum circuits, given one entangled state per run, against shallow classical circuits of few-input gates and limited randomness. No efficient test was known that certifies such a claim from classical samples alone. Here we show that what such a test must read is decided by the classical class's pattern of single-bit and pair correlations, not by a distance. The test rests on one inequality: any machine producing the samples sits no further from the target than the fraction it mislabels plus the deviation of its string half, the bits beyond the label, from uniform. A collapse theorem, machine-checked in the Lean~4 proof assistant, confines that second term, one setting of the sampler's random input bits at a time. Four natural checks provably fail; a fifth, reading those same correlations, catches a far-from-target construction they cannot reach, and is exact on the class of few-input gates. The label test is proven and sample-optimal in its own tolerance up to a logarithmic factor; the fifth check is sound, not only effective, on the bounded pinned-residue class, pairwise-uniform samplers whose residue, the string's weight modulo the prime, is pinned by few seeds and whose seed sharing is bounded. What binds an experiment is the $43$-qubit entangled resource state at fidelity near $0.99$, not the readout. What remains are two named open problems; a positive answer to the first would extend the guarantee to the full class.",
+  "url": "http://arxiv.org/abs/2610.04666v1",
+  "pdf": "https://arxiv.org/pdf/2610.04666v1",
+  "type": "theory",
+  "summary": "This paper rigorously analyzes the boundary between quantum and classical computation for shallow circuits. It proves that the quantum advantage is detectable not by measuring distance, but by analyzing specific patterns in the single-bit and pair correlations of the generated samples. The work establishes a powerful, sample-optimal test that is formally verified using advanced proof assistants.",
+  "main_problem": "To determine what classical correlations (single-bit and pair correlations) are necessary and sufficient to certify the computational advantage of constant-depth quantum circuits over shallow classical circuits.",
+  "main_result": "The advantage is decided by the classical class's pattern of correlations, not by a simple distance measure, and a specific fifth check based on these correlations is shown to be sound and effective.",
+  "method": "The authors use an inequality relating Total Variation distance to the violation rate ($\beta$) and the deviation of the string half from uniformity, leading to a dichotomy test.",
+  "model_or_system": "The comparison is between quantum circuits utilizing a 43-qubit entangled resource state and shallow classical circuits with few-input gates and limited randomness.",
+  "key_observables": "Single-bit and pair correlations, the functional-violation rate ($\beta$), and the Total Variation distance ($\text{TV}$).",
+  "important_parameters": "The resource state size (43 qubits) and fidelity ($\\approx 0.99$); the operating point $\\epsilon = 3/8$.",
+  "main_assumptions": "The current guarantee is proven for the bounded pinned-residue class, leaving two named open problems for full class coverage.",
+  "figures_summary": "Figure 1 illustrates the residue pattern of the target tag $F(r)$ for small primes, showing dependence on $|z| \bmod 2p$.",
+  "paper_structure": "The paper establishes a dichotomy test based on an inequality, presents five natural checks (four of which are shown to be insufficient), and proves the fifth check is sound and effective on a restricted class of samplers.",
+  "why_interesting": "It provides a rigorous, information-theoretic characterization of quantum advantage for shallow circuits, moving beyond simple distance metrics and focusing on structural correlations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04666_figures/2610.04666_fig1.jpg",
+      "caption": "FIG. 1. Residue pattern of the target tag, the pattern a sample’s tag is read from. One panel per prime, p = 3, 5, 7. The horizontal axis is the residue, the Hamming weight |z| of the sample’s string half z reduced modulo 2p; the vertical axis is the tag F(r), the answer the sample is meant to carry. Hollow markers are F = 1 and filled markers F = 0. The tag sees z only through this pattern, which jumps at 2p −4 of the 2p adjacent residues, and that jump count is the influence 1−2/p the rest of the paper reads: flipping one bit of z changes the tag with exactly that probability.",
+      "page": 4
+    },
+    {
+      "image": "2610.04666_figures/2610.04666_fig2.jpg",
+      "caption": "FIG. 2. The verifier as a map of where an imposter lands. Three coordinates place it: how often its answer is wrong, β = Pr[b ̸= f(z)]; how far its string half is from uniform, TV(Pz, Un−1); and whether a structure check fires, a schematic coordinate that orders the regions and carries no scale. Here Dn = (X, f(X)) is the target law, X uniform on the string cube and f the tag of Fig. 1, P the imposter’s law, Pz its string half and Un−1 the uniform law. Test 1 rejects the wrong-answer region above its level 13/72; Test 2 rejects the wrong-shape region; and a device whose string half is near uniform passes. The heavy-edged region, few wrong answers together with a string half far from uniform...",
+      "page": 5
+    },
+    {
+      "image": "2610.04666_figures/2610.04666_fig3.jpg",
+      "caption": "FIG. 3. On this class a low violation rate goes with rank deficiency. Each point is one of 405 random d-local samplers, d ∈{1, 2, 3}, at 42 z-bits and p = 3, each output bit an XOR of d seed bits, each locality drawn with its own color and marker shape, plus the 2p-block sampler, the construction of Sec. IV, as a triangle. The horizontal axis is the F2-rank of the sampler’s z-sample matrix; the vertical axis is its violation rate against the best member of the 172-predictor pool of App. C, a cheap stand-in for the true β whose members are the constants, the single seeds and their pairwise XORs over the first 18 seeds, rather than against the target tag f. Random samplers sit at ranks 23–42...",
+      "page": 9
+    },
+    {
+      "image": "2610.04666_figures/2610.04666_fig4.jpg",
+      "caption": "FIG. 4. The collapse theorem, measured. The horizontal axis is m, the number of live groups whose increment moves the residue |z| mod 2p, a live group being the set of output bits toggled by one free seed bit and its increment the weight change that toggle causes; the vertical axis is the best violation rate β = Pr[b ̸= f(z)] the cascade construction reaches. The sweep is at 112 z-bits, p = 3, t = 14 independent single-seed groups and locality d = 2. Measured β = 0 while m ≤d, rising to 0.118 at m = 3, the knee. Dotted: the general parity-free smoothing bound 1",
+      "page": 14
+    },
+    {
+      "image": "2610.04666_figures/2610.04666_fig5.jpg",
+      "caption": "FIG. 5. What the collapse theorem prices. Main panel: the Fourier coefficients |ˆck| of the tag’s sign (−1)F at mode k on Z/2p, one curve per prime p = 3, 5, 7, 11, 13, with F the tag of Fig. 1. The support lies entirely on odd k, and the coefficient at k = p is exactly 1/p, circled, against the dashed 1/k guide: that coefficient is the parity leak, the one term of the spectrum that survives when every other character decays. Inset: the sum of the coefficients against p, dashed at the machine-checked bound √2p, which is loose since the growth is logarithmic in p. The parity-aligned even-weight example of Sec. V is measured in Fig. S1.",
+      "page": 15
+    }
+  ],
+  "figure": "2610.04666_figures/2610.04666_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.06701",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "A Solvable Model of Adaptive Learning Rate Rescaling: Acceleration, Stability & Scaling",
+  "authors": "Itay Lavie, Clarissa Lauditi, Cengiz Pehlevan",
+  "abstract": "A recurring design principle in modern optimizers is to decouple update magnitude from the raw gradient norm, yet its consequences for learning-curve and resource scaling remain unclear. We isolate this mechanism by studying normalized SGD in a random-feature model with power-law teacher and data covariance. Fixed-norm updates induce an effective learning rate that grows as gradients shrink. We derive a dynamical mean-field theory (DMFT) describing the joint dependence of the loss on training time, model width and batch size. Normalization initially accelerates SGD, mapping the power-law exponent $r_{\\rm SGD}<1$ to $2r_{\\rm SGD}/(1-r_{\\rm SGD})$, with exponential convergence at $r_{\\rm SGD}=1$ and formal finite-time convergence for $r_{\\rm SGD}>1$. At finite step size, however, the same feedback ultimately breaks the acceleration and leads to marginal stability. The late-time theory yields width-limited, edge-of-stochastic-stability (EoSS), and deterministic edge-of-stability (EoS) regimes. These phases determine when larger batches or wider models reduce serial training time at comparable compute. We quantify in which of these phases increased batch size or width can compensate the excess compute use per step by fewer optimization steps to target loss. Linearized ResNet experiments on CIFAR-5M support the predicted acceleration, breakdown, and resource-scaling trends. Together, these results connect normalization-induced acceleration, EoS effects, and width--batch allocation within a solvable theory.",
+  "url": "http://arxiv.org/abs/2610.06701v1",
+  "pdf": "https://arxiv.org/pdf/2610.06701v1",
+  "type": "theory",
+  "summary": "This theoretical work analyzes the dynamics of normalized SGD, showing that while normalization initially accelerates learning, this benefit degrades at finite step sizes. By deriving a DMFT, the authors map out distinct stability regimes (EoSS and EoS) that govern how model width and batch size must scale relative to each other to achieve efficient training time.",
+  "main_problem": "The paper investigates how modern adaptive optimizers, which decouple update magnitude from raw gradient norm, affect the learning curve and resource scaling of deep learning models.",
+  "main_result": "Normalization initially accelerates SGD, but this acceleration breaks down at finite step sizes, leading to distinct late-time regimes (EoSS and EoS) that dictate resource trade-offs for training.",
+  "method": "The authors derive a Dynamical Mean-Field Theory (DMFT) to model the joint dependence of the loss on training time, model width, and batch size in the proportional limit.",
+  "model_or_system": "The study analyzes Normalized Stochastic Gradient Descent (SGD) applied to a random-feature model characterized by power-law teacher and data covariance.",
+  "key_observables": "Effective learning rate ($\\eta_{\text{eff}}$), convergence exponents ($r_{\text{SGD}}$), and width/batch scaling efficiency ($Q_\nu, Q_\\alpha$).",
+  "important_parameters": "Model width ($\nu=N/d$), batch size ($\\alpha=B/d$), and the power-law exponents of the teacher and data covariance.",
+  "main_assumptions": "The analysis relies on the proportional limit ($d, N, B \to \\infty$ at fixed ratios) and uses DMFT approximations to simplify high-dimensional dynamics.",
+  "figures_summary": "Figures illustrate transient convergence regimes, the existence of three late-time phases (width-limited, EoSS, EoS), and the scaling of width efficiency ($Q_\nu$) across different parameter regimes.",
+  "paper_structure": "The paper progresses from establishing the core problem with adaptive optimizers to deriving the DMFT, characterizing the convergence rates, identifying the stability regimes (EoSS/EoS), and finally quantifying the resource scaling trade-offs across these phases.",
+  "why_interesting": "The mathematical framework developed—using DMFT and analyzing stability edges—is highly relevant to understanding non-equilibrium dynamics in complex, high-dimensional systems, mirroring techniques used in quantum many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06701_figures/2610.06701_fig1.jpg",
+      "caption": "FIG. 1. Three transient convergence regimes. Loss (top) and effective learning rate (bottom) at large α, ν. Before tstab, simulations and DMFT follow the continuous-time prediction: formal finite-time convergence for a > 1/2 (left), exponential for a = 1/2 (center), and accelerated power-law convergence for a < 1/2 (right). SGD uses ηSGD = ηeff(0) to match the initial update norm. At tstab, ηeff reaches 2/λmax and the discrete dynamics depart from the flow prediction.",
+      "page": 3
+    },
+    {
+      "image": "2610.06701_figures/2610.06701_fig2.jpg",
+      "caption": "FIG. 2. Three late-time regimes: width limited, EoSS, and EoS. Left: DMFT phase diagram in the (α, ν) plane. Color denotes η∞ eff, solid curves phase boundaries, and perforated circles denote norm-SGD simulations; colors that blend well indicate a good match to the theory. Increasing ν removes the width bottleneck, while increasing α suppresses minibatch noise and drives the EoSS–EoS transition; within EoS, the stability threshold depends weakly on ν. Center: η∞ eff versus ν, showing width-limited behavior and the phase boundary between batch-dependent EoSS branches to the common EoS branch as α increases. Right: ηt eff at ν = 1. Dots are simulations, dashed curves are DMFT, and horizontal...",
+      "page": 4
+    },
+    {
+      "image": "2610.06701_figures/2610.06701_fig3.jpg",
+      "caption": "FIG. 3. Spectral control of batch-size scaling and saturation. Left: Stationary effective learning rate η∞ eff versus batch ratio α = B/d, at fixed width ratio ν = N/d. Solid curves show DMFT predictions and circles show simulations. Dashed lines indicate the small-batch linear approximation 2α/µ1, with µ1 = ⟨λk⟩k, and dotted lines indicate the curvature ceiling 2/λmax(ν). Stars mark the EoSS–EoS transition; the vertical line marks B = 1. Flatter spectra support a more extended increase in effective learning rate before saturation. Center: Training different batch sizes α on a = 0.45, b = 0.2 data. With equal compute, a larger batch size achieves the same level of performance faster (fewer...",
+      "page": 5
+    },
+    {
+      "image": "2610.06701_figures/2610.06701_fig4.jpg",
+      "caption": "FIG. 4. Spectral dependence of width efficiency. Stationary effective time per unit compute, quantified by Qν = η∞ eff/ν. Left: Width dependence of Qν at fixed b = 3, for different teacher exponents a. Solid curves show DMFT predictions before EoS, dashed curves indicate the EoS branch, and markers show simulations. Increasing Qν corresponds to superlinear growth of the effective learning rate with width; a maximum identifies an optimal width according to this stationary efficiency measure. Center: Dependence of Qν on the teacher and data exponents at fixed ν = 0.1. The background shows DMFT predictions, while circles show simulation estimates using the same logarithmic color scale. Dotted...",
+      "page": 7
+    },
+    {
+      "image": "2610.06701_figures/2610.06701_fig5.jpg",
+      "caption": "FIG. 5. Theory predicts training curves exponents for training with linearized networks. Loss (top) and effective learning rate (bottom). Before ηeff hits its ceiling η∞ eff, the loss decreases with an accelerated power law, after the ceiling is reached the power law degrades to the standard SGD power law. Throughout the narrowest width and smallest batch size are optimal, as predicted in the previous section for these a, b. (left) Loss as a function of images seen, Bt, for different batch sizes and fixed w = 128, η = 0.1 (proportional to compute). (right) Loss as a function of compute, calculated as 6NBt, for different widths and fixed B = 1, 000, η = 0.01",
+      "page": 8
+    }
+  ],
+  "figure": "2610.06701_figures/2610.06701_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 3,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

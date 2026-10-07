@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.04897",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.CR",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "WLPA: A Network Management Framework for Allocating Scarce Quantum-Safe Link Postures under Weakest-Link Exposure",
+  "authors": "Bhanwar Gupta, Sanjeev Rana",
+  "abstract": "Network operators migrating distributed systems to post-quantum and quantum-safe cryptography face a resource-management problem: quantum key distribution (QKD) gives the strongest guarantee available but is hardware-scarce and costly, so only a fraction of a deployment's links can receive it. Default practice -- ranking links by traffic or centrality and upgrading the top scorers -- optimizes each link in isolation, while a distributed job's real security is set by whichever active link ends up weakest. We present WLPA (Weakest-Link Posture Assignment), an implementation-ready decision framework and algorithm for allocating scarce quantum-safe postures under hardware, latency, and compliance constraints. WLPA computes the optimal weakest-link posture in closed form and returns an assignment in O(|E| log |E|) time -- 125 ms for a 20,000-link network on a laptop -- with a breach-aware refinement matching an exact integer program under common conditions. Our central contribution is a dichotomy telling operators exactly when existing per-link heuristics already match this optimum and when they systematically fail: under constant upgrade cost and uniform traffic-driven risk the two coincide exactly; once costs vary or an adversary concentrates on weak targets, heuristics leave the weakest link unprotected, unboundedly. We validate WLPA across 19 experiments: four microservice topologies, a real enterprise network (SNAP email-Eu-core), a post-quantum latency benchmark, a Qiskit BB84 simulation and a real-hardware BB84 run on IBM's ibm_marrakesh processor, checks against real production traffic traces, a CVE-calibrated correlated-compromise study, Bayesian uncertainty quantification, and seven baseline methods. A concrete-security reduction grounds the framework as theoretical foundation, not primary contribution.",
+  "url": "http://arxiv.org/abs/2610.04897v1",
+  "pdf": "https://arxiv.org/pdf/2610.04897v1",
+  "type": "both",
+  "summary": "This paper introduces WLPA, a novel, efficient framework for optimally allocating scarce quantum-safe resources like QKD across large networks. It moves beyond simple per-link security assessments by recognizing that system security is limited by the weakest link. The framework provides a mathematically rigorous, implementable solution that outperforms standard industry heuristics, especially under sophisticated, targeted attack models.",
+  "main_problem": "Network operators must allocate scarce, high-security quantum-safe link postures (like QKD) across a distributed system, where overall security is dictated by the single weakest link.",
+  "main_result": "The authors present WLPA, an algorithm that computes the optimal weakest-link posture assignment in polynomial time, providing a rigorous framework superior to simple per-link heuristics when costs or attack models vary.",
+  "method": "The core method is developing a closed-form, optimal decision framework (WLPA) that solves a constrained resource allocation problem, validated against integer programming models and various network topologies.",
+  "model_or_system": "The system is a distributed network modeled as a graph where links ($e \\in ED$) require upgrading to specific quantum-safe postures (Level 1, 2, or 3) constrained by a total QKD budget ($B$) and latency limits ($L$).",
+  "key_observables": "System security (minimum link posture), Breach Probability $B(Q)$, and the optimal achievable security level $S^\\star(B, L)$.",
+  "important_parameters": "QKD Budget ($B$), Latency Budget ($L$), Link Compliance Cap ($c_e$), and the three discrete Link Posture Levels.",
+  "main_assumptions": "The security derivation relies on a standard hybrid-argument bound, and the framework assumes a specific model for exploit probability schedules ($p(\\ell)$) which are model-calibrated.",
+  "figures_summary": "Figures illustrate the comparison of job breach probability between WLPA and heuristic methods under varying QKD budgets, and show the near-linear runtime scaling of the WLPA algorithm.",
+  "paper_structure": "The paper establishes the weakest-link security principle, introduces WLPA as the optimal allocation algorithm, proves its correctness and complexity, presents a dichotomy showing when heuristics fail, and validates the framework across 19 diverse experimental scenarios.",
+  "why_interesting": "While focused on network engineering, the underlying mathematical structure—optimizing a global minimum subject to local resource constraints—is analogous to finding the weakest point in a quantum computation or communication chain, making the resource allocation theory relevant to quantum network security.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04897_figures/2610.04897_fig1.jpg",
+      "caption": "Figure 1: WLPA’s operational loop: identify active links and volumes, assign compliance caps, run the closed-form allocator, deploy starting from the binding link, and re-run on topology or budget change. The allocation step is implemented and validated (Sections 4–5.7); the deploy/enforce step is architected but not built or measured on a live system (Section 6.2)",
+      "page": 3
+    },
+    {
+      "image": "2610.04897_figures/2610.04897_fig2.jpg",
+      "caption": "Figure 1 summarizes the framework: topology and compliance caps feed a closed-form ceiling computation, which sets the system-wide target posture; a floor-raising pass brings every active link to that target; and a breach-aware refinement spends any remaining QKD budget where it reduces breach probability most. This computational pipeline — the part inside the dashed box in Figure 1 — is what we implement and validate throughout this paper (Sections 4–5.7): it runs in O(|E| log |E|) and is fast enough to re-run whenever topology, budget, or compliance requirements change. Embedding it into a live network means closing the loop around it:",
+      "page": 3
+    },
+    {
+      "image": "2610.04897_figures/2610.04897_fig3.jpg",
+      "caption": "Figure 2: Job breach probability versus QKD budget under the adaptive attacker. WLPA stays below Greedy-Traffic at every interior budget",
+      "page": 7
+    },
+    {
+      "image": "2610.04897_figures/2610.04897_fig4.jpg",
+      "caption": "Figure 3: Runtime versus active links against an O(|E| log |E|) reference",
+      "page": 9
+    },
+    {
+      "image": "2610.04897_figures/2610.04897_fig5.jpg",
+      "caption": "Figure 4: Four-round BB84 session circuit (sifting annotated), the protocol structure underlying both the simulated and real-hardware runs used to sanity-check p(3)",
+      "page": 9
+    }
+  ],
+  "figure": "2610.04897_figures/2610.04897_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

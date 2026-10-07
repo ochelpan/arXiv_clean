@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.04024",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CE",
+    "physics.app-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Accelerated search for global extrema in structured quantum signals",
+  "authors": "Sachin S. Bharadwaj, Katepalli R. Sreenivasan",
+  "abstract": "Extreme values of a physical system are rare by definition, yet they can govern some of its most consequential and anomalous behavior. Their sparsity makes them particularly costly to identify in large data sets. Quantum computation offers a potential way to reduce this cost. The challenge is that quantum amplitudes cannot simply be read, copied, compared, or marked using conventional search oracles. Here we introduce an algorithm for searching amplitude-encoded quantum signals that exploits their underlying structure. Through a nonlinear amplitude transformation, the algorithm identifies and certifies a global extremum while exponentially reducing the effective search space for structured signals. We establish a polylogarithmic query complexity in the data size $N$, together with global completeness, efficient classical verification, and a measurable criterion for quantifying exploitable structure. We demonstrate the framework using computational turbulence data. Applied to line cuts of velocity gradients from a $1024^3$ simulation containing more than one billion grid points, the algorithm consistently isolates the extreme tail and reduces the median search space to $O(\\log N)$. The clustered structure characteristic of turbulence further accelerates the search. These results establish a direct connection between physical structure and quantum advantage in extreme-value search. For accessibility, the main text emphasizes the central ideas and results, while the theoretical derivations are provided in the Appendices.",
+  "url": "http://arxiv.org/abs/2610.04024v1",
+  "pdf": "https://arxiv.org/pdf/2610.04024v1",
+  "type": "theory",
+  "summary": "This work presents a quantum algorithm to efficiently locate global extrema in highly structured quantum signals, such as those found in turbulent fluid dynamics. By employing a nonlinear amplitude transformation, the search complexity is reduced to polylogarithmic scaling, demonstrating a direct quantum advantage derived from the physical structure of the data. This advances the field by connecting physical structure to quantum computational resource bounds.",
+  "main_problem": "The paper addresses the challenge of finding global extrema in structured quantum signals when the data are encoded in quantum amplitudes that cannot be read or compared conventionally.",
+  "main_result": "An algorithm is proposed that achieves polylogarithmic query complexity in the data size N by exploiting the underlying structure of the signal via a nonlinear amplitude transformation.",
+  "method": "The core method involves a two-stage quantum process: an approximate filtering stage using a Chebyshev-walk nonlinear transformation to suppress background noise, followed by a certification stage to locate the extremum.",
+  "model_or_system": "The framework is tested on signals derived from computational turbulence data (Navier-Stokes equations), where the data are represented by normalized amplitudes of an n-qubit quantum state.",
+  "key_observables": "Structure Factor ($S_{in}$), Query Complexity ($Q_{e2e} = \text{polylog}(N)$), and the probability mass retained in the filtered tail ($P_R$).",
+  "important_parameters": "The complexity scales polylogarithmically with N, significantly beating classical O(N) and standard quantum O(sqrt(N)) search bounds.",
+  "main_assumptions": "The algorithm assumes access only to state-preparation circuits and relies on the physical structure being sufficiently rare and concentrated to allow for effective filtering.",
+  "figures_summary": "Figures illustrate the end-to-end workflow, showing the sequence from calibration through the nonlinear filtering stage to the final candidate recovery and certification.",
+  "paper_structure": "The paper details the theoretical framework, introducing the nonlinear amplitude transformation (QG1) for filtering, establishing the complexity bounds for global completeness, and providing appendices for detailed theoretical derivations related to PDE-to-Extremum mapping.",
+  "why_interesting": "While focused on quantum algorithms, the connection between physical structure (like turbulence intermittency) and the required quantum resources provides a novel theoretical link between condensed matter/fluid dynamics and quantum computation complexity.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04024_figures/2610.04024_fig1.jpg",
+      "caption": "FIG. 1. End-to-end workflow of the quantum extrema-search algorithm – The input amplitude state is first calibrated to determine the threshold λ and finite filter threshold width ΓN. QG1 then applies the Chebyshev-walk polynomial filter, suppressing the background while retaining the extreme-event tail. Repeated successful measurements recover O(log N) candidate addresses, after which only these candidates are compared and the extremal address, along with its value and sign, is certified. QG2a optionally enhances extrema that stand out from their local surroundings by subtracting a neighborhood average before filtering, while QG2b optionally localizes a dominant candidate using the binary...",
+      "page": 5
+    },
+    {
+      "image": "2610.04024_figures/2610.04024_fig2.jpg",
+      "caption": "FIG. 2. Register-level construction of QG1. The signal register is prepared as |Ψ⟩= US|0n⟩. The amplitude-observable construction exposes the unknown amplitudes through DΨ, and the Chebyshev walk generates the operators Tℓ(DΨ). The history register H is prepared with amplitudes p",
+      "page": 7
+    },
+    {
+      "image": "2610.04024_figures/2610.04024_fig3.jpg",
+      "caption": "FIG. 3. QG2b hierarchical candidate localization. (a) Candidate probability is compared recursively across binary prefix blocks. At each level, the more strongly weighted child is recorded when the evidence is sufficient, progressively iden- tifying the prefix containing the dominant candidate. (b) Controlled swaps implement the recorded reorientations, while the inverse sequence restores the original address ordering after localization. (c) The hierarchical search follows the sta- tistically favored child at successive binary levels and retains both branches when the evidence is inconclusive. Under the path-bias condition of Proposition 3, this procedure recovers the full log2 N-bit...",
+      "page": 8
+    },
+    {
+      "image": "2610.04024_figures/2610.04024_fig4.jpg",
+      "caption": "FIG. 4. Representative extrema filtering and local-background subtraction. (a) Normalized N = 1024 turbulent velocity-gradient signal. The dashed line marks the calibrated candidate threshold, red markers denote the retained leading candidates, and the orange marker identifies the true maximum. (b) Degree-192 bounded Chebyshev multiplier used by QG1. The broad background is strongly suppressed, while amplitudes beyond the finite transition region are retained. (c) Probability distribution conditioned on successful filtering. The leading candidate set carries qK = 0.906 of the output probability and the true maximum becomes the dominant sampling outcome, illustrating the reduction from a...",
+      "page": 9
+    },
+    {
+      "image": "2610.04024_figures/2610.04024_fig5.jpg",
+      "caption": "Figure 4 shows the mechanism on one representa- tive signal. The original line contains a broad inter- mittent background surrounding a few intense events. The bounded polynomial suppresses this background without resolving the ordering of amplitudes inside the transition region. After successful filtering, most of the probability is concentrated on only a few locations and the probability of directly sampling the true maxi- mum is strongly increased.To make the action of QG2a transparent, Fig. 4d–f uses a physically motivated syn- thetic model rather than a DNS realization. We take g(x) = b(x) + PKe k=1 Ak sech2[(x −xk)/δk] + η(x), where b(x) is a slowly varying background, the localized...",
+      "page": 9
+    }
+  ],
+  "figure": "2610.04024_figures/2610.04024_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

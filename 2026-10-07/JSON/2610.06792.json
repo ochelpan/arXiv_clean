@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.06792",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Error Mitigation From a Single Unmodified Error-Corrected Circuit",
+  "authors": "Maor Shutman, Dorit Aharonov, Itai Arad, Yosi Atia, Eyal Bairey, Zvika Brakerski, Barak A. Katzir, Netanel H. Lindner, Omri Golan, Ilya Gurwich",
+  "abstract": "Recent work has shown that syndrome information obtained during error-corrected quantum computation can be utilized for logical error mitigation (LEM), yielding exponential reductions in runtime overhead compared to external'' LEM methods, which do not make use of syndrome data. However, these syndrome-aware LEM methods (SALEM) generally require adaptive circuit operations based on real-time processing of syndromes. Here, we introduce syndrome-based offline logical error mitigation (SOLEM), a framework that utilizes syndrome data entirely in post-processing, without any modification to the given error-corrected circuit. In this sense, SOLEM is built into'' error-corrected circuits, and is in fact simpler to implement than external LEM protocols. The basic idea of SOLEM is to use naturally occurring syndrome-conditioned logical error channels in place of deliberate circuit modifications. We develop unbiased and heuristic estimators within this framework, including offline logical versions of probabilistic error cancellation (PEC) and zero-noise extrapolation (ZNE), as well as a global-regression estimator. SOLEM's fully offline nature leads to three significant advantages. First, SOLEM can post-process syndromes with a more powerful decoder than the one used in real time. Second, multiple estimators can be constructed from the same measured data and optimized using empirical statistical errors and related performance metrics. Third, logical error characterization is needed only in post-processing, allowing characterization data to be collected during circuit execution and reducing sensitivity to hardware drift. Remarkably, SOLEM estimators can achieve these advantages while attaining a runtime overhead which is exponentially lower than that of external LEM and is comparable to that of corresponding SALEM estimators.",
+  "url": "http://arxiv.org/abs/2610.06792v1",
+  "pdf": "https://arxiv.org/pdf/2610.06792v1",
+  "type": "theory",
+  "summary": "This paper introduces Syndrome-Based Offline Logical Error Mitigation (SOLEM), a novel framework for improving quantum computation fidelity. SOLEM processes syndrome data entirely in post-processing, avoiding the need to modify the error-corrected circuit itself. This approach offers significant advantages in implementation simplicity and performance, achieving state-of-the-art error mitigation overheads.",
+  "main_problem": "Developing efficient methods for Logical Error Mitigation (LEM) in error-corrected quantum computation that do not require modifying the underlying error-corrected circuit.",
+  "main_result": "The proposed Syndrome-Based Offline LEM (SOLEM) framework achieves error mitigation with an overhead exponentially lower than external methods and comparable to adaptive methods.",
+  "method": "SOLEM utilizes syndrome data entirely in post-processing to construct estimators (like SOLEM-PEC, SOLEM-ZNE, SOLEM-GR) that estimate ideal logical expectation values from measured syndrome records.",
+  "model_or_system": "The work is situated in the context of error-corrected quantum computation, specifically using circuits based on the Steane code, [[7, 1, 3]].",
+  "key_observables": "Ideal logical expectation values ($\\langle O \rangle$), syndrome records ($s$), and final measurement outcomes ($o$).",
+  "important_parameters": "Physical error rate ($\\epsilon$), syndrome-averaged logical error rate ($\\epsilon_L$), and the sampling overhead ($\\lambda$).",
+  "main_assumptions": "SOLEM assumes that syndrome-conditioned expectation values can estimate ideal logical expectation values, and the estimators are shown to be unbiased in certain solvable models.",
+  "figures_summary": "Figure 1 conceptually compares ExtLEM, SALEM, and SOLEM protocols. Figure 2 shows circuit-level simulations comparing SOLEM estimators against ideal values using Physical-to-Logical Characterization. Figure 3 compares the workflow of SOLEM against ExtLEM and SALEM.",
+  "paper_structure": "The paper introduces SOLEM as a post-processing framework, develops specific estimators (PEC, ZNE, GR), and validates them through circuit-level simulations and analytical modeling of error channels.",
+  "why_interesting": "It provides a practical, implementable, and theoretically robust method for improving quantum computation fidelity by leveraging syndrome data without incurring the overhead or complexity of real-time adaptive circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06792_figures/2610.06792_fig1.jpg",
+      "caption": "Figure 1. Conceptual overview of SOLEM. We compare syndrome-based offline logical error mitigation (SOLEM), in- troduced here, with the previously proposed external LEM (ExtLEM) and syndrome-aware LEM (SALEM). As an example, logical versions of probabilistic error cancellation (PEC) are shown. In an error-corrected circuit (EC circuit), each faulty layer G can be described as an ideal logical layer g followed by a logical error channel ΛL (see Sec. II). Conditioned on the syndrome s measured within G (and, implicitly, also in past layers) the relevant channel is ΛL|s, occurring with probability ps. Purple indicates syndromes s and their usage, while yellow indicates circuit modifications,...",
+      "page": 2
+    },
+    {
+      "image": "2610.06792_figures/2610.06792_fig2.jpg",
+      "caption": "Figure 2. Circuit-level simulations of SOLEM. (a) We consider deep logical memory circuits based on the Steane code, [[7, 1, 3]]. D ≫1 flagged EC cycles [41] are applied to the initial logical state |0⟩L, followed by a measurement of ZL. Each cycle ECj is subjected to a circuit-level noise model with physical error rate ϵ = 4 × 10−4. Every shot produces a syndrome record s and a final measurement outcome o ∈{−1, 1}. (b) We use physical-to-logical characterization (P2LC) [30] to map the given circuit-level noise model to local logical error channels ΛL|kj, associated with individual EC cycles ECj, and conditioned on a syndrome-class index kj ∈{0, 1, 2, 3}. For simplicity, we suppress here...",
+      "page": 3
+    },
+    {
+      "image": "2610.06792_figures/2610.06792_fig3.jpg",
+      "caption": "Figure 3. Complete SOLEM workflow, and comparison to ExtLEM and SALEM. Each panel is divided into a central step in which mitigation circuits are prepared and executed, with large boxes abstracting the detailed description at the top of Fig. 1, as well as additional classical logic (dashed boxes) and quantum logic (full boxes) occurring before execution and in post-processing. The latter includes a final estimation step, abstracting the bottom of Fig. 1. Stage widths are adjusted for readability. (a) ExtLEM obtains its characterization before execution and uses it to prepare modified EC circuits, exposing the resulting estimator to biases due to changes in physical errors (drifts) in the...",
+      "page": 5
+    },
+    {
+      "image": "2610.06792_figures/2610.06792_fig4.jpg",
+      "caption": "Figure 4. Iterative construction of predictive logical er- ror channels; syndrome-averaged case. Faulty EC layers (pink) are successively replaced by ideal logical operations and logical error maps (white). The gradient input-error map connects the logical prefix to the remaining physical circuit; braces identify the output-error factorization Λ(j) out = Λ(j+1) in Λ(j) L . Reproduced from Ref. [30, Fig. 4].",
+      "page": 8
+    },
+    {
+      "image": "2610.06792_figures/2610.06792_fig5.jpg",
+      "caption": "Figure 5. SOLEM-PEC bias–overhead tradeoff and mitigation performance. (a) Relative residual-channel Frobenius norm versus the local sampling-overhead exponent for syndrome partitions of size K, including the fine-grained K = 448 partition. We define ∆(j) hj := P",
+      "page": 14
+    }
+  ],
+  "figure": "2610.06792_figures/2610.06792_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

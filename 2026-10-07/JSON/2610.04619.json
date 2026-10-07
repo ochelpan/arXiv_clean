@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.04619",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "physics.comp-ph",
+    "physics.data-an"
+  ],
+  "is_primary_archive": true,
+  "title": "MUTACO: Simulator-Efficient Response Matching in Stochastic Nonlinear Systems via Compatibility-Aware Sequential Design",
+  "authors": "Ege Karadeniz, İlter Onat Korkmaz, Umut Can Turhan, Cem Tekin, Aydın Cem Keser",
+  "abstract": "Many physical inverse problems are mediated by expensive stochastic simulators for which response gradients, adjoint sensitivities, or a differentiable simulator interface are unavailable. We introduce Multiple Target-based Confident Acquisition (MUTACO), an uncertainty-aware sequential-design method for response matching that requires only noisy forward evaluations and learns the multicomponent response together with its predictive uncertainty. We develop and evaluate MUTACO for a disordered network of stochastic phase oscillators. The inverse task is to infer statistical properties of the local potential and interactions from macroscopic rotation and synchronization curves under multiple driving conditions. Rather than requiring unique recovery of these statistical properties, MUTACO searches for parameter configurations whose predicted rotation and synchronization responses are compatible with the target response while accounting for predictive uncertainty. This response-centered formulation is appropriate when experimentally accessible observables characterize ensemble statistics rather than a particular microscopic realization. Under strictly limited simulation budgets, MUTACO achieves the lowest held-out response error among the tested adaptive-search, space-filling, and simulation-based inference methods, while also yielding lower parameter-recovery error than the compared methods. These results demonstrate that response-targeted sequential design is a simulator-efficient approach to inverse modeling from finite noisy forward evaluations and suggest broader applicability to stochastic physical systems with correlated multicomponent responses and weakly constrained parameter directions.",
+  "url": "http://arxiv.org/abs/2610.04619v1",
+  "pdf": "https://arxiv.org/pdf/2610.04619v1",
+  "type": "theory",
+  "summary": "This paper introduces MUTACO, a novel, uncertainty-aware sequential design method for solving inverse problems in stochastic nonlinear systems. It infers underlying statistical parameters by matching predicted macroscopic responses to target responses, requiring only noisy forward simulations. The results show MUTACO is highly simulator-efficient, proving that response-matching is a robust approach for complex physical modeling.",
+  "main_problem": "The paper addresses inverse problems in nonlinear dynamical systems where the forward dynamics are governed by expensive stochastic simulators and gradients are unavailable.",
+  "main_result": "The proposed MUTACO method achieves the lowest held-out response error compared to other adaptive search and inference methods, demonstrating the efficiency of response-targeted sequential design.",
+  "method": "MUTACO is an uncertainty-aware sequential-design method that builds a correlated multitask Gaussian-process surrogate to learn the full response vector and its predictive uncertainty.",
+  "model_or_system": "The study is applied to a disordered network of stochastic nonlinear phase oscillators, which is a minimal phenomenological model extending Kuramoto-type coupling with local potentials and disorder.",
+  "key_observables": "Macroscopic rotation and synchronization curves (the response vector $\\mathbf{y}$), and the final held-out physical response error.",
+  "important_parameters": "Ensemble parameters $\\theta$ (e.g., means and variances of local potentials and couplings), and the simulation budget.",
+  "main_assumptions": "The formulation is appropriate when experimentally accessible observables characterize ensemble statistics rather than a single microscopic realization.",
+  "figures_summary": "Figure 1 illustrates the general inverse problem setup ($\\mathbf{y}(\\hat{\\theta}) \\approx \\mathbf{y}^\\*$). Other figures compare the performance of MUTACO against other methods in terms of response error.",
+  "paper_structure": "The paper introduces the problem, details the stochastic oscillator model and the inverse task, presents the MUTACO methodology, compares its performance against state-of-the-art methods under limited simulation budgets, and concludes with implications for response-targeted inference.",
+  "why_interesting": "While focused on classical stochastic dynamics, the core methodology—using Gaussian Processes and uncertainty quantification to efficiently explore parameter spaces based on observable responses—is highly relevant to parameter estimation in complex, non-linear quantum systems where direct simulation is costly.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04619_figures/2610.04619_fig1.jpg",
+      "caption": "FIG. 1. Simulator-mediated inverse problem. A common con- trolled bias protocol is applied to the physical system and the stochastic simulator. The ensemble parameters θ determine the simulated macroscopic response y(θ), which is compared with the prescribed target response y⋆. Distinct parameter configurations may satisfy the response-matching objective. See main text for further definitions.",
+      "page": 2
+    },
+    {
+      "image": "2610.04619_figures/2610.04619_fig2.jpg",
+      "caption": "FIG. 2. Forward response of the coupled network of N = 10 stochastic oscillators for the ensemble-parameter configuration θ⋆= (µW , µK, µA, CVK) = (1.91, 1.12, 1.16, 0.88), at simulation temperature T = 0.15 and phase-bias setting Φ = 0. Here, µW , µK, and µA denote the ensemble means of the restoring strength, pairwise coupling, and bias scale, respectively, while CVK denotes the coefficient of variation of the coupling strength. This response provides the illustrative target reconstructed in Fig. 3. (a) Mean angular velocity ⟨¯ω⟩and (b) time-averaged Kuramoto order-parameter magnitude ⟨M⟩as functions of the driving force F. Faint gray traces show 80 disorder realizations, each averaged...",
+      "page": 4
+    },
+    {
+      "image": "2610.04619_figures/2610.04619_fig3.jpg",
+      "caption": "FIG. 3. MUTACO reconstruction for the illustrative benchmark instance introduced in Fig. 2, at phase-bias setting Φ = 0. (a) Mean angular velocity ⟨¯ω⟩and (b) time-averaged Kuramoto order-parameter magnitude ⟨M⟩as functions of the driving force F. The black curve reproduces the target response shown in Fig. 2, while the blue curve is the response obtained from the simulator at the B = 40 MUTACO recommendation bθ = (1.95, 1.18, 1.13, 0.41), with parameter ordering defined in Eq. (10). The gray band denotes the ±1σ variability of the target response across 80 disorder realizations, each averaged over two independent stochastic repeats. Markers indicate the five driving-force values F = 0,...",
+      "page": 4
+    },
+    {
+      "image": "2610.04619_figures/2610.04619_fig4.jpg",
+      "caption": "FIG. 5. Flowchart of the MUTACO target-matching search. After an initial design is used to fit the GP surrogate, se- quential candidates are selected through either compatibility- guided barrier refinement or uncertainty-driven exploration. Each selected candidate is evaluated with the stochastic simu- lator and the surrogate is updated until the evaluation budget is exhausted, after which the final parameter configuration ˆθ is recommended. See the main text and Appendix B 4 for details.",
+      "page": 8
+    },
+    {
+      "image": "2610.04619_figures/2610.04619_fig5.jpg",
+      "caption": "FIG. 6. Held-out physical response error, defined in Eq. (31), across the 120-target benchmark cohort at simulation budgets B = 40 and B = 100. MUTACO is compared with scalar qLogNEI and nonadaptive scrambled-Sobol search. Each point corresponds to one of the 120 frozen target instances. The response error is the component-mean absolute difference between the held-out simulated response at the recommended parameter vector and the prescribed target response. Lower values indicate better response reconstruction. Boxes show the interquartile range with the median indicated by the central line. Whiskers extend to the most extreme observations within 1.5 times the interquartile range, and all...",
+      "page": 11
+    }
+  ],
+  "figure": "2610.04619_figures/2610.04619_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

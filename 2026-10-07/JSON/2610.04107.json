@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2610.04107",
+  "category": "other",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "PyCC: A Reference Quantum Chemistry Python Package for Education, Validation, and Rapid Prototyping",
+  "authors": "T. Daniel Crawford, Benjamin G. Peyton, Zhe Wang, Aparna Krishnan, Brendan M. Shumberger, Jose Madriaga, Joshua Atta-Kumi, Aaron De Clercq, Ritvik Prabhu",
+  "abstract": "PyCC is a Python-based quantum chemistry package that emphasizes coupled cluster and related methods. Developed over the last five years, PyCC's purpose is to provide a clear reference implementation that will serve as a validation suite for production code, a platform for rapid prototyping and testing of new methods, and an educational resource for newcomers to the field. The package covers both closed- and open-shell single-determinant references in spatial- and spin-orbital formulations for the coupled cluster hierarchy through triples-including methods such as CC3, as well as for MP2 and CI methods. PyCC provides a broad range of molecular properties such as analytic first and second energy derivatives including gradients, Hessians, polarizabilities and atomic polar tensors, as well as non-energy-derivative properties, such as velocity-gauge atomic polar tensors and diagonal Born-Oppenheimer corrections, plus dynamic linear response functions, and excitation energies. The package includes a number of unique capabilities, such as real-time CC propagation (up through CC3), atomic axial tensors for simulating vibrational circular dichroism spectra at the MP2 and CI levels, and local correlation methods including perturbation-aware correlation domains. The code is designed around a shared Wavefunction base and a method-agnostic derivative layer that enables a new method to inherit the full property set once it supplies its reduced densities and their first-order responses. PyCC is fully open source and available on GitHub under the BSD 3-clause license.",
+  "url": "http://arxiv.org/abs/2610.04107v1",
+  "pdf": "https://arxiv.org/pdf/2610.04107v1",
+  "type": "theory",
+  "summary": "This paper introduces PyCC, a new open-source Python package for quantum chemistry, designed to be a reference tool for testing and teaching complex electronic structure methods like Coupled Cluster. It provides a vast array of calculated properties, including derivatives and response functions, by employing a highly modular and extensible software architecture. PyCC aims to lower the barrier to entry for developing and validating advanced quantum chemical algorithms.",
+  "main_problem": "The core challenge addressed is the inherent complexity of developing highly optimized, validated software for wave-function-based quantum chemistry methods like Coupled Cluster theory.",
+  "main_result": "The authors introduce PyCC, a comprehensive, open-source Python package designed to serve as a reference implementation, validation suite, and educational tool for quantum chemistry calculations.",
+  "method": "The package implements various electronic structure methods (CC, MP2, CI) using a modular, method-agnostic structure built around a shared Wavefunction base and a derivative layer.",
+  "model_or_system": "The package models quantum chemical systems using single-determinant references (closed- and open-shell) and handles calculations in both spatial and spin-orbital formalisms.",
+  "key_observables": "Energy gradients, Hessians, polarizabilities (static and dynamic), Atomic Polar Tensors (APT), Atomic Axial Tensors (AAT), and excitation energies.",
+  "important_parameters": "The package supports calculations up to CC3 and includes capabilities for real-time CC propagation and local correlation methods.",
+  "main_assumptions": "The structure assumes that a new method can inherit the full property set by supplying its reduced densities and their first-order responses.",
+  "figures_summary": "A summary table (Table I) details the availability of various analytic derivative properties across different quantum chemical methods and references.",
+  "paper_structure": "The paper describes the package's architecture, detailing components like the Wavefunction base, DeviceManager, Hamiltonian, and CPHF solver, emphasizing modularity and efficiency through lazy loading and persistent storage.",
+  "why_interesting": "While focused on general quantum chemistry, the emphasis on analytic derivatives, response functions, and the structure for rapid prototyping of complex many-body calculations is highly relevant for developing advanced theoretical tools in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04107_figures/2610.04107_fig1.jpg",
+      "caption": "FIG. 1. Wavefunction base class overview. In addition to common components described in the text, such as the reference wave function, the Wavefunction object creates and uses several helper classes including a DeviceManager for selecting CPU/GPU, arithmetic precision, and tensor-contraction handling (ContractionBackend) a Hamiltonian/SpinOrbitalHamiltonian object for molecular integrals and other quantities, Derivatives and DerivStore objects for lazy construction and storage of derivative integrals and wave function parameters, and a CPHF object for handling orbital response to external perturbations. Upstream packages such as Psi4 and NumPy provide essential data or tools, while derived...",
+      "page": 4
+    },
+    {
+      "image": "2610.04107_figures/2610.04107_fig2.jpg",
+      "caption": "FIG. 2. Collaborating classes of CCwfn, including the similarity-transformed Hamiltonian (cchbar), the ground-state Lagrange multipliers (cclambda), electronically excited states (cceom), the ground-state one- and two-electron densities (ccdensity), dynamic response functions (ccresponse), and real-time coupled cluster propagation (rtcc).",
+      "page": 7
+    },
+    {
+      "image": "2610.04107_figures/2610.04107_fig3.jpg",
+      "caption": "FIG. 3. Derivative-Property Pipeline: Method-specific classes (CCderiv, MPderiv, and CIderiv) provide unperturbed and perturbed densities to the CorrelatedDerivs class, which computes the required first- and/or second-derivatives of the energy for a given property. For properties such as AATs, VG-APTs, and DBOCs, which are not formulated as energy derivatives, method-specific functions are provided",
+      "page": 7
+    }
+  ],
+  "figure": "2610.04107_figures/2610.04107_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

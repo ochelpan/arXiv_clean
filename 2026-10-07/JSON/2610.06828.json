@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.06828",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "The practical cost of magic state cultivation",
+  "authors": "Rohan Mehta, Varun Menon, Hengyun Zhou, Mikhail D. Lukin, J. Pablo Bonilla Ataides",
+  "abstract": "Magic state cultivation is a promising method for preparing high-fidelity non-Clifford resource states - a central component of fault-tolerant quantum computing - with low spacetime overhead. In benchmarking cultivation, existing resource estimates assume access to noiseless transversal measurement of the output magic state to allow for postselection during the final escape stage of the cultivation process. However, such measurements would destroy the magic state and are therefore unavailable during computation. We develop an open-boundary postselection method, Caliper, that uses only nondestructive mid-circuit syndrome information and substantially outperforms existing methods operating under these constraints. In some regimes, our postselection method uniquely recovers the resource efficiency of prior estimates. However, in other cases, we observe a tradeoff. At spacetime costs reported in previous works, the achievable logical error rates can be orders of magnitude higher, and recovering the reported logical error rate requires substantially larger codes and longer escape stages. Our results highlight how practical considerations involving mid-circuit postselection can impact the design and performance of magic state cultivation protocols.",
+  "url": "http://arxiv.org/abs/2610.06828v1",
+  "pdf": "https://arxiv.org/pdf/2610.06828v1",
+  "type": "theory",
+  "summary": "This work tackles the practical limitations of magic state cultivation by developing the Caliper decoder, which uses only mid-circuit syndrome measurements. It demonstrates that while Caliper significantly improves performance over naive methods, the achievable error rates and resource costs differ substantially from idealized theoretical estimates. This highlights the critical impact of measurement constraints on quantum computation design.",
+  "main_problem": "The paper addresses the challenge of developing efficient postselection protocols for magic state cultivation when only nondestructive, mid-circuit syndrome information is available, unlike idealized theoretical models.",
+  "main_result": "A novel decoder, Caliper, substantially outperforms existing heuristics by leveraging available syndrome information, though a performance tradeoff exists compared to ideal closed-boundary measurements.",
+  "method": "The authors develop and analyze the Caliper decoder, which approximates the likelihood of logical error by searching the hidden syndrome space using minimum-weight matching techniques.",
+  "model_or_system": "The context is magic state cultivation, a process used to generate high-fidelity non-Clifford resource states essential for fault-tolerant quantum computation, modeled using surface and color codes.",
+  "key_observables": "Logical error rate ($P_L$), spacetime volume (resource overhead), and the achievable suppression factor of the error rate.",
+  "important_parameters": "Fault distance ($f=3, 5$), physical error rate ($p=10^{-3}$), and the degree of postselection (discard rate).",
+  "main_assumptions": "The core assumption is that the decoder must operate using only nondestructive mid-circuit syndrome information ($\\sigma_v$) at the time of decision (open-boundary postselection).",
+  "figures_summary": "Figures illustrate the stages of cultivation comparing open-boundary vs. closed-boundary postselection, and show quantitative comparisons of achievable logical error rates and resource volumes for different code types.",
+  "paper_structure": "The paper progresses from identifying the limitations of existing resource estimates (assuming noiseless measurements) to proposing Caliper, detailing its mechanism, and finally presenting quantitative comparisons showing its performance relative to closed-boundary and other heuristic protocols.",
+  "why_interesting": "The focus on open-boundary syndrome measurements and the development of a practical, low-latency decoder like Caliper provides crucial, realistic constraints for designing fault-tolerant quantum computation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06828_figures/2610.06828_fig1.jpg",
+      "caption": "Figure 1. Magic state cultivation with mid-circuit postselection. (a) Stages of the fold-transversal cultivation protocol on the surface code from Ref. [28], which targets a logical error rate of 2 × 10−6. Full error detection is used in the injection and cultivation stages (left). The escape stage (center) involves growing to a d = 7 surface code and repeating r = 3 rounds of error correction. Readout (right) is depicted by a transversal measurement, though it is more accurately described by a noise-free QEC round, which provides even more information. As readout cannot be performed in practice, access to σh is unphysical; the gap must be predicted from σv alone. (b) A cross-sectional view...",
+      "page": 2
+    },
+    {
+      "image": "2610.06828_figures/2610.06828_fig2.jpg",
+      "caption": "Figure 2. Overview of Caliper. (a) Caliper builds on top of the complementary gap, which when applied to the open- boundary setting returns an initial guess for the hidden syndrome ˆσh0 and the gap. It then traverses the landscape of other possible hidden syndromes ˆσh to find low-weight complementary corrections, w1, pruning locally suboptimal directions from the search frontier. (b) A step-by-step walkthrough of this process. In steps 1-3, Caliper finds ˆσh0 and its first guess at the gap, w1 −w∗ 0. It then iteratively explores the syndrome space (steps 4-6), preferentially expanding predictions with low w1, until the frontier is exhausted or the expansion limit is reached. (c) The...",
+      "page": 3
+    },
+    {
+      "image": "2610.06828_figures/2610.06828_fig3.jpg",
+      "caption": "Figure 3. Achievable suppression of logical error rate with open-boundary postselection. We compare the logical error rate achieved under closed-boundary postselection at a tunable discard rate for the escape stage (gray) with those achieved by various open-boundary postselection protocols, including Caliper (blue), string splitting (red) [48], the frozen gap (green) [49, 54], and cluster-based confidence (purple) [43, 55] for the protocols in Refs. [26, 28, 56]. Target LERs of 2 × 10−6 for fault distance 3 (f = 3) cultivation and 10−9 for distance 5 (f = 5) cultivation are annotated. Our reproduction of closed-boundary postselection matches the data in Refs. [26, 28] to within error bars,...",
+      "page": 4
+    },
+    {
+      "image": "2610.06828_figures/2610.06828_fig4.jpg",
+      "caption": "Figure 4. Logical error rates under various escape stages. The escape distance d and number of escape rounds r parameterize the volume of the escape stage. We evaluate the resulting LERs at 68% escape-stage acceptance fraction, matching the rate reported in Ref. [28] to reach 2 × 10−6 for their f = 3 surface code cultivation protocol. The outlined cells at d = 7, r = 3 correspond to the escape stage circuit proposed therein.",
+      "page": 5
+    },
+    {
+      "image": "2610.06828_figures/2610.06828_fig5.jpg",
+      "caption": "Figure 5. Thresholded postselection latency. Distribu- tions of the time per shot for the closed-boundary complemen- tary gap (gray) and Caliper (blue), grouped by the closed- boundary gap, for (a) f = 3 surface code cultivation and (b) f = 5 color code cultivation. Both methods determine whether their score meets an acceptance threshold. Vertical marks indicate the median within each group.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.06828_figures/2610.06828_fig1.jpg",
+  "highlighted": [
+    "Mikhail D. Lukin"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

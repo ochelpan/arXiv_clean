@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.05928",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Evaluating the performance of QEC primitives on quantum processors at large width and depth",
+  "authors": "J. A. Montanez-Barrera; Kristel Michielsen",
+  "abstract": "Quantum error correction (QEC) relies on repeated parity extraction, mid-circuit measurement (MCM), reset, feed-forward, and scheduling, yet these primitives are usually assessed either in isolation or through resource-demanding experiments. We introduce a few-sample benchmark of QEC-relevant primitives based on an MCM implementation of the quantum approximate optimization algorithm (QAOA) with a fixed set of linear parameters (LR-QAOA). For a chosen code, the QAOA Hamiltonian is constructed from its check structure, such that the resulting circuit mimics the syndrome-extraction connectivity and MCM pattern while producing a direct algorithmic signal, the approximation-ratio r. The LR-QAOA depth, defined by the number of QAOA layers, plays a role analogous to the number of repeated syndrome-extraction rounds in a QEC experiment. From QPU executions, the decay of r with depth defines an effective hardware error, which we map to an equivalent two-qubit depolarizing rate λeff. We compare direct and MCM-mediated implementations across 10 QPUs from IBM, IQM, and Quantinuum, with circuits containing up to 2950 MCM operations. On Quantinuum's Helios-1 and H2-1, we run code-structured LR-QAOA benchmarks for surface-code, triangular color-code, and bivariate-bicycle qLDPC Hamiltonians up to 81, 91, and 48 data qubits, respectively, using up to 480 MCM operations. On IBM ibm_phoenix, we implement the surface-code structure and compare the LR-QAOA response with logical-memory experiments, observing a correlation between the benchmark and the logical performance across different regions of the QPU. Its construction and low resource requirements provide a practical benchmark for comparing hardware generations and QEC implementations before full logical-memory experiments are performed.",
+  "url": "http://arxiv.org/abs/2610.05928v1",
+  "pdf": "https://arxiv.org/pdf/2610.05928v1",
+  "type": "both",
+  "summary": "This paper introduces a novel, resource-efficient benchmark using the Linear Ramp QAOA (LR-QAOA) to test Quantum Error Correction (QEC) primitives on real quantum hardware. By mapping the QAOA structure onto syndrome extraction circuits, the authors quantify hardware errors and demonstrate that the benchmark's performance strongly correlates with the actual logical error rates measured in full memory experiments. This provides a practical tool for comparing quantum hardware generations before running prohibitively expensive full QEC circuits.",
+  "main_problem": "The paper addresses the challenge of evaluating Quantum Error Correction (QEC) performance on real quantum processors, particularly concerning resource-intensive primitives like mid-circuit measurement (MCM). It aims to provide a practical, scalable benchmark that bridges component-level testing and full logical memory experiments.",
+  "main_result": "The proposed Linear Ramp QAOA (LR-QAOA) benchmark successfully correlates with the logical error probabilities measured in full surface-code memory experiments across multiple hardware platforms. This demonstrates that LR-QAOA offers a resource-efficient method for benchmarking QEC readiness.",
+  "method": "The authors adapt the QAOA algorithm to mimic the connectivity and MCM patterns of syndrome extraction for various QEC codes. They characterize hardware error by observing the decay of an algorithmic signal (the approximation ratio $r$) with increasing circuit depth.",
+  "model_or_system": "The study utilizes various QEC codes, including the surface-code, triangular color-code, and qLDPC codes. The experiments are performed on commercial QPUs from IBM, IQM, and Quantinuum, comparing direct gate implementations against those mediated by MCM operations.",
+  "key_observables": "Approximation ratio ($r$), effective two-qubit depolarizing rate ($\\lambda_{\text{eff}}$), logical error probability ($P_L$), and the Spearman rank correlation ($\rho_s$) between benchmark performance and logical outcomes.",
+  "important_parameters": "Code distance ($d$), number of qubits ($N_q$), circuit depth (number of QAOA layers/syndrome rounds), and the number of MCM operations.",
+  "main_assumptions": "The primary assumption is that the decay of the algorithmic signal $r$ accurately reflects the hardware error accumulation during syndrome extraction, allowing for extrapolation to full logical failure rates.",
+  "figures_summary": "Figures illustrate Hamiltonian structures for various codes and compare the decay of the LR-QAOA signal versus logical memory results. Table I quantifies the resource overhead (two-qubit gates and MCM operations) required for different codes.",
+  "paper_structure": "The paper introduces the LR-QAOA benchmark, details its construction for multiple QEC codes, compares direct vs. MCM implementations to quantify hardware error ($\\lambda_{\text{eff}}$), and finally validates this benchmark by correlating its performance metrics with measured logical error probabilities from full memory experiments on specific QPUs.",
+  "why_interesting": "For theorists working on open quantum systems, this work provides a concrete, measurable protocol to estimate complex error accumulation (like those in QEC) using simpler, more accessible algorithmic measurements, which is crucial for designing fault-tolerant quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.05928_figures/2610.05928_fig1.jpg",
+      "caption": "FIG. 1. Hamiltonians generation. (a) 1D-Chain (b) d = 5 color-code with Zb 4-body terms F(4) bdry and Zf 6-body terms F(6) bulk (c) d = 5 surface-code with 2-body terms C(2) bdry and Zf 4-body terms C(4) bulk. (d) BB[[18, 4, 3]] bivariate-bicycle qLDPC code; its independent X- and Z-checks all have the same weight, so they form a single set C(5) of 5-body Z-terms Zl. The long-range edges are the couplings that wrap around the ℓ× m torus.",
+      "page": 3
+    },
+    {
+      "image": "2610.05928_figures/2610.05928_fig2.jpg",
+      "caption": "FIG. 2. Circuit representation of the direct and MCM-mediated implementations of the cost Hamiltonian for (a) the 1D chain and (b) the d = 3 surface code (SC). The LR-QAOA circuit shows the MCM implementation of one representative Hamiltonian term. (c) Distribution of the d = 3 experiments on ibm phoenix, comparing memory and LR-QAOA experiments in both the Z and X bases.",
+      "page": 7
+    },
+    {
+      "image": "2610.05928_figures/2610.05928_fig3.jpg",
+      "caption": "FIG. 3. 2-qubit MCM experiment on different QPUs. (a) Layouts of iqm garnet (upper right) and iqm emerald (lower left), with different colors indicating pairs of qubits between which a MCM can be applied. (b) IBM Heron heavy-hex layout. Highlighted qubits indicate those used in one of the triplet experiments. The filled circle denotes the ancilla qubit on which the MCM is applied, while the connected qubits are the other qubits involved in the experiment. (c) r distribution of the different triplets used on each QPU for the MCM implementation of LR-QAOA at p = 3. (d) average results at different circuit depths for the same QPUs. Error bars represent one standard deviation. (e) Best triplet...",
+      "page": 8
+    },
+    {
+      "image": "2610.05928_figures/2610.05928_fig4.jpg",
+      "caption": "FIG. 4. 1D-Chain experiments used to construct an equivalent depolarizing-noise model. (a) rovl as a function of depolarizing- noise strength, LR-QAOA depth, and problem size. The inset shows the fitted κ for each problem size; the dotted curve is the scaling κ0/Nq. (b) rovl versus accumulated error for the 10-qubit problem. Gray background points show the depolarizing- noise simulations. Hardware data from ibm boston and quantinuum helios-1E are shown for p ∈{10, 15, 20, 30, 40, 50}, for both direct and MCM implementations. The solid black curve corresponds to the fitted approximation-ratio susceptibility κr = 3.69/Nq. The inset shows the success-probability overlap for the same...",
+      "page": 10
+    },
+    {
+      "image": "2610.05928_figures/2610.05928_fig5.jpg",
+      "caption": "FIG. 5. 1D-chain MCM experiments performed at different times on IBM and Quantinuum QPUs. The labels indicate the month and day of 2026 on which each experiment was sub- mitted. For ibm boston, the data shown in green correspond to a different subset of qubits, and the other two datasets use the same qubit chain. Experiments on ibm boston were per- formed with 1000 shots, while those on quantinuum helios-1 used 50 shots.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.05928_figures/2610.05928_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

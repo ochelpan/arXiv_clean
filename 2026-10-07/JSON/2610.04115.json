@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.04115",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "Distilling universal machine-learning potentials for moiré lattices across one million atoms",
+  "authors": "Thomas Huang, Yueyao Fan, Kaichen Xie, Bolun Li, Kaijie Yang, Jenna A. Bilbrey, Eric Bylaska, Peter V. Sushko, Di Xiao, Ting Cao",
+  "abstract": "Atomic reconstruction reshapes moiré materials across multiple scales, from local structure and polarization textures to global electronic topology, yet direct \\textit{ab initio} modeling becomes prohibitive for large superstructures such as marginal-twist-angle moirés and moiré-of-moirés. We develop MoiréMLIP by fine-tuning a universal atomistic model on the density functional theory labeled Moiré Kaleidoscope dataset, which spans transition metal dichalcogenide compositions, symmetries, stackings, and twist angles. MoiréMLIP reproduces \\textit{ab initio} reconstruction with force errors of 6--8\\,meV/Å and transfers to smaller twist angles and unseen structures. Knowledge distillation yields MoiréMLIP-mini, which retains this accuracy while extending single-GPU inference to one million atoms. Applied to an alternate-twist MoTe$_2$ trilayer, it reveals a hierarchical polarization network spanning tens of nanometers arising from large moiré-cell distortions sharply localized along the moiré-of-moiré domain walls. These results overcome key accuracy, transferability, and scaling bottlenecks of existing atomistic models and enable predictive simulations across emergent moiré length scales.",
+  "url": "http://arxiv.org/abs/2610.04115v1",
+  "pdf": "https://arxiv.org/pdf/2610.04115v1",
+  "type": "theory",
+  "summary": "This work introduces MoiréMLIP, a machine-learned potential trained specifically on moiré materials to overcome the computational barriers of simulating large, twisted superstructures. By fine-tuning and compressing this model, the authors created a highly accurate potential capable of simulating systems up to one million atoms. This enables predictive simulations of complex phenomena, such as hierarchical polarization networks, in emergent moiré systems.",
+  "main_problem": "Direct ab initio modeling of large, complex moiré superstructures is computationally prohibitive due to the high dimensionality of structural degrees of freedom.",
+  "main_result": "The authors developed MoiréMLIP, a fine-tuned machine-learning potential, which accurately reproduces DFT reconstructions and scales to one million atoms using knowledge distillation.",
+  "method": "They fine-tuned a universal MLIP on a specialized dataset (Moiré Kaleidoscope) and employed knowledge distillation to create a highly accurate, yet computationally efficient, student model.",
+  "model_or_system": "The study focuses on moiré lattices formed by twisted transition metal dichalcogenides (TMDs) like MoTe2. The model aims to capture complex structural reconstructions arising from moiré supercells.",
+  "key_observables": "Force Root-Mean-Square Error (RMSE), interlayer distance differences (e.g., $\\Delta d_{\text{MM}-\text{MX}}$), and the emergent polarization network.",
+  "important_parameters": "Twist angles (e.g., 7.34$^\\circ$, 5.09$^\\circ$, 3.48$^\\circ$), system size (up to one million atoms), and force error thresholds (e.g., 6--8 meV/Å).",
+  "main_assumptions": "The primary assumption is that fine-tuning a universal MLIP on a comprehensive dataset can overcome the limitations of existing potentials when applied to novel moiré geometries.",
+  "figures_summary": "Figures illustrate the workflow of dataset construction, the learning curves showing force RMSE reduction with training data volume, and the comparison of reconstruction profiles across different models.",
+  "paper_structure": "The paper first establishes the computational bottleneck of moiré materials, introduces the MoiréMLIP methodology via dataset curation and fine-tuning, validates its accuracy against DFT benchmarks, and finally applies the model to predict emergent physical properties like polarization in large-scale systems.",
+  "why_interesting": "The development of highly accurate, scalable MLIPs for moiré systems provides a powerful tool for simulating emergent electronic and structural phenomena in 2D materials, which is crucial for understanding correlated electron physics in these systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04115_figures/2610.04115_fig1.jpg",
+      "caption": "FIG. 1. Workflow and dataset overview. (a) Construction of the Moir´e Kaleidoscope dataset. (b) Fine-tuning uMLIP and knowledge distillation. (c) Dataset coverage across composition and twist angle. Each cell is a category. Cell colors correspond to the total atom count summed over all supercell configurations in a category. The number inside a cell is the count of supercell configurations in that category.",
+      "page": 2
+    },
+    {
+      "image": "2610.04115_figures/2610.04115_fig2.jpg",
+      "caption": "FIG. 2. Fine-tuning learning curves across twist angles. Force RMSE as a function of the number of fine-tuning structures N. Models are fine-tuned using only the 7.34◦structures and evaluated at 7.34◦as well as on the held-out 5.09◦and 3.48◦",
+      "page": 3
+    },
+    {
+      "image": "2610.04115_figures/2610.04115_fig3.jpg",
+      "caption": "FIG. 3. Reconstruction of H-type bilayers along a line cut through the stacking registries. (a) Top view of H-type MoTe2 at 4.41◦in its DFT-relaxed geometry, the same structure measured in (b) and (c). The gray parallelogram is a moir´e cell and the dashed diagonal with arrows is the line cut of the XX-MM-MX-XX path used in (b) and (c). Circles mark the three stacking registries with zoomed-in top and side views. (b),(c) In-plane displacement magnitude |uxy| of metal atoms (b) and interlayer distance d (c), with the DFT-relaxed reference drawn as open circles. (d) Interlayer distance along the XX-MM-MX-XX path in H-type MoS2 at 4.41◦, using the same convention as (c). The inset shows the MM...",
+      "page": 4
+    },
+    {
+      "image": "2610.04115_figures/2610.04115_fig4.jpg",
+      "caption": "FIG. 4. Inference cost of Moir´eMLIP-mini, Moir´eMLIP, and three selected uMLIPs in logarithmic scale. (a) Peak GPU memory usage during inference (the lower the better) and (b) inference steps completed per second (the higher the better), on a single NVIDIA H200, versus system size N (number of atoms) of MoTe2 homobilayer moir´e supercells, with full FP32 precision. Moir´eMLIP-mini (solid) predicts forces directly through a force prediction head. The other four models (dashed) are conservative, with forces differentiated from the energy. Each curve ends at the largest benchmarked size at its memory ceiling. The horizontal lines in (a) mark 141 GB of an H200 (dotted) and the 80 GB of an A100...",
+      "page": 5
+    },
+    {
+      "image": "2610.04115_figures/2610.04115_fig5.jpg",
+      "caption": "FIG. 5. Moir´e patterns and interlayer distance of the alternate-twist MoTe2 trilayer moir´e-of-moir´e (θ12 = −4.15◦, θ23 = +3.89◦). (a) MM-site positions at the top (layers 1 and 2, blue) and bottom (layers 2 and 3, red) moir´e interfaces before relaxation. (b) MM-site positions after relaxation. (c) Color map of the relaxed Mo–Mo distance between the outer layers, d13 = z1 −z3. The parallelograms outline one moir´e-of-moir´e cell. Insets in (a) and (b) show the MM sites at each interface separately for the boxed regions. The left and right inset pairs in (a) and (b) show the regions that form an MM-aligned domain and a domain wall, respectively, before (a) and after (b) relaxation. Red...",
+      "page": 6
+    }
+  ],
+  "figure": "2610.04115_figures/2610.04115_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

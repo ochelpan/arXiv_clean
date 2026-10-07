@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.06709",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.IT",
+    "cs.LG",
+    "physics.atom-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Out-of-control Hamiltonian Learning",
+  "authors": "Weiyuan Gong, Muzhou Ma, Sitan Chen, Jordan Cotler, Hsin-Yuan Huang",
+  "abstract": "Learning the Hamiltonian of a many-body system from its dynamics is a central task in quantum science, yet the algorithms with the strongest provable guarantees assume some level of quantum control--fast, arbitrary single-qubit gates interleaved with time evolution, and measurements in arbitrary bases--that is beyond the capabilities of near-term analog quantum simulators. Motivated by analog atom- and ion-based platforms, we study Hamiltonian learning under minimal access models.   Uniform state preparation and measurements: We first consider the setting where in every experiment, one can rotate each qubit to the same state, perform short-time evolution, and measure every qubit in the same basis. Surprisingly, we show that for generic 2-local Hamiltonians on any interaction graph, all of the parameters can be reconstructed from such experiments.   Computational basis state preparation and measurements: We then consider a similarly constrained setting, but where state preparation and measurement are restricted to the computational basis. For nearest-neighbor Hamiltonians with only Pauli $X/Z$ interactions, a class which captures contemporary Rydberg atom platforms, we show that over 1D and 2D rectangular lattices, all of the parameters can be reconstructed from such experiments up to unavoidable gauges.   Our protocols introduce new techniques for solving structured polynomial systems over an extensive number of parameters. Taken together, our results suggest that one can learn a great deal from the dynamics of quantum many-body systems even under the most stringent experimental constraints.",
+  "url": "http://arxiv.org/abs/2610.06709v1",
+  "pdf": "https://arxiv.org/pdf/2610.06709v1",
+  "type": "theory",
+  "summary": "This paper tackles the challenge of determining a quantum system's Hamiltonian using only limited experimental measurements, mimicking real-world analog quantum simulators. It proves that even with severe constraints on state preparation and measurement, the Hamiltonian parameters can be robustly recovered. This work provides crucial theoretical guarantees for the characterization of complex quantum many-body physics.",
+  "main_problem": "The central task is learning the unknown Hamiltonian of a many-body quantum system solely from measurements of its time evolution dynamics.",
+  "main_result": "The authors prove that even under highly restricted experimental access models (like uniform or Z-basis measurements), the Hamiltonian parameters can be fully reconstructed for generic 2-local Hamiltonians.",
+  "method": "The problem is mathematically reduced to solving highly structured systems of polynomial equations derived from short-time evolution probabilities, utilizing advanced algebraic techniques and numerical refinement methods.",
+  "model_or_system": "The focus is on 2-local Hamiltonians on arbitrary interaction graphs, motivated by programmable analog quantum simulators such as Rydberg atom and trapped-ion platforms.",
+  "key_observables": "Transition probabilities $p^{\\hat{a}, \\hat{b}}_{z\to z'}(t)$ measured from short-time evolution, which encode the Hamiltonian parameters.",
+  "important_parameters": "The reconstruction is shown to be possible for generic Hamiltonians, with complexity scaling related to $O(\\epsilon^{-2})$ in the time required for measurements.",
+  "main_assumptions": "The results rely on the Hamiltonian being 'generic' (coefficients perturbed by small noise) and the ability to perform measurements under specific, constrained access models.",
+  "figures_summary": "Figure 1 and Table 1 summarize the learnability results based on the specific access model (Uniform vs. Z-basis) and the type of Hamiltonian considered.",
+  "paper_structure": "The paper is structured by analyzing different access models: first, the uniform control model, showing full parameter recovery; second, the Z-basis access model, showing recovery for specific lattice Hamiltonians up to unavoidable gauges.",
+  "why_interesting": "This work directly addresses the feasibility of characterizing complex, interacting quantum systems using near-term, resource-constrained quantum hardware, which is a major bottleneck in quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06709_figures/2610.06709_fig1.jpg",
+      "caption": "Figure 1: (a) Uniform control ( ˆ𝑎-to-ˆ𝑏model): all qubits are prepared along one common direction ˆ𝑎, |0𝑛 ˆ𝑎⟩= (𝑈|0⟩)⊗𝑛, and measured along one common direction ˆ𝑏. (b) 𝑍-basis access (𝑍-to-𝑍′ model; 0-to-𝑍′ for |0𝑛⟩input): the qubits start in a computational basis state |𝑧⟩and are measured in the computational basis. (c) From the data of (a), all parameters can be learned, for any interaction graph. (d) From the data of (b), a generic NN IXZ Hamiltonian on a 1D chain or square lattice can be learned up to unavoidable Pauli-𝑍conjugation and time-reversal gauges.",
+      "page": 5
+    },
+    {
+      "image": "2610.06709_figures/2610.06709_fig2.jpg",
+      "caption": "Figure 2: Three-round reconstruction under uniform control. (a) Local data: Taylor coefficients 𝐿𝑆, 𝑄𝑆and W𝑆 (orders one to three) of the Fourier coefficients 𝑚ˆ𝑎, ˆ𝑏 𝑆 (𝑡) on sets 𝑆of at most four sites, with 𝐽𝑒= 𝑇𝑒+ 𝐴𝑒+ 𝜆𝑒𝐼for 𝐴𝑒= [d𝑒]×. (b)–(d): checks denote what is learned in that round, crimson and question marks denote the remaining ambiguities. (b) Round 1: first-order data identifies 𝑇𝑒, h𝑣, as well as 𝐴𝑒up to a global curl gauge. (c) Round 2: Second-order terms 𝑅𝑢𝑣𝑤of three-site cumulants determine the skew-symmetric components 𝐴𝑒for edges on induced paths. For the remaining edges, we use observables adapted to the local graph structure (see Figure 6). (d) Round 3: Third-order...",
+      "page": 10
+    },
+    {
+      "image": "2610.06709_figures/2610.06709_fig3.jpg",
+      "caption": "Figure 3: Local reconstruction of a generic NN IXZ Hamiltonian from 𝑍-to-𝑍′ data. (a) For transitions that flip the marked site (ring), vary the neighboring input bits (double arrows) and extract the second- and fourth-order coefficients of the local transition probabilities 𝑝𝑧→𝑧′ (𝑡). (b) Stage 1: Second-order data recover each transverse field and its incident mixed couplings up to a common site sign (±). Fourth-order tests on nonadjacent pairs resolve the chain-endpoint ambiguities and determine relative 𝐽𝑋𝑋signs along the shaded paths, leaving one common sign. (c) Stage 2: Subtracting the fourth-order contribution from evolution under the recovered off-diagonal Hamiltonian 𝐾gives local...",
+      "page": 14
+    },
+    {
+      "image": "2610.06709_figures/2610.06709_fig4.jpg",
+      "caption": "Figure 4: Experimental access to the unknown Hamiltonian 𝐻. (a) Uniform control ( ˆ𝑎-to-ˆ𝑏): Prepare every qubit along a common direction ˆ𝑎, evolve once under 𝐻, and measure along a common direction ˆ𝑏. Uniform rotations implement the preparation and readout, and the two directions may vary between experiments. (b) Computational-basis access (𝑍-to-𝑍′): Prepare |𝑧⟩in the computational basis, evolve once under 𝐻, and measure in the computational basis, obtaining 𝑧′ with probability 𝑝𝑧→𝑧′ (𝑡). Arbitrary inputs require site-resolved bit flips, and the all-zero-input model fixes 𝑧= 0𝑛. Our protocols vary input bits and measure output probabilities on constant-size regions (Remark 1). Neither...",
+      "page": 24
+    },
+    {
+      "image": "2610.06709_figures/2610.06709_fig5.jpg",
+      "caption": "Figure 5: First-order reconstruction under uniform control. (a) Single-site and two-site responses determine the local fields h𝑣and the symmetric traceless parts 𝑇𝑒of the couplings. The skew-symmetric parts 𝐴𝑒enter only through their divergence at each vertex. (b) The trace terms 𝜆𝑒𝐼are invisible at first order, leaving one undetermined parameter per edge. (c) Adding a skew-symmetric matrix around a cycle, with signs following the edge orientations, preserves these divergences: the incoming and outgoing contributions cancel at every vertex. The illustrated graph has two independent cycles, supporting the circulations Γ and Γ′. Together, the trace and circulation ambiguities account for |𝐸|...",
+      "page": 33
+    }
+  ],
+  "figure": "2610.06709_figures/2610.06709_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 5,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

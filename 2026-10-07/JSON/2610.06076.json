@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.06076",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum data loading from the learned shared structure of real signals",
+  "authors": "Pablo Herrero Gómez, Antonio Jimeno Morenilla, David Muñoz-Hernández, Higinio Mora Mora",
+  "abstract": "Preparing quantum states from classical data can cost more than the computation they serve; most loaders tailor a circuit to each input. Here we show that the signals of a real dataset share structure that can be learned once and reused. Our quantum-native loader learns a low-dimensional description of a dataset and prepares every signal with one fixed circuit set by a few numbers. Across seven views of five public datasets it meets the targets of the strongest structured loader at equal gate cost with several times fewer numbers per signal. These numbers can be inferred from a random subset: in a preregistered blind replication the subset needed to come within ten per cent of full-signal accuracy stayed constant within a prespecified margin as signals grew sixteenfold, whereas the structured loader needed ever more. It declines what it cannot represent, covering fewer cases than that baseline and no electrocardiogram.",
+  "url": "http://arxiv.org/abs/2610.06076v1",
+  "pdf": "https://arxiv.org/pdf/2610.06076v1",
+  "type": "theory",
+  "summary": "This paper introduces a quantum-native loader (QNL) designed to efficiently prepare quantum states from classical data by exploiting the shared underlying structure of real-world signals. By learning a low-dimensional representation, QNL requires far fewer input parameters than existing methods, demonstrating superior scalability and resource efficiency for quantum data encoding tasks.",
+  "main_problem": "The primary challenge addressed is the high cost of preparing quantum states from classical data, which can negate any potential quantum speed-up.",
+  "main_result": "The proposed quantum-native loader (QNL) significantly outperforms established structured loading methods by requiring a constant, small number of input parameters regardless of the signal size, while maintaining high fidelity.",
+  "method": "The method learns a low-dimensional, shared structure (manifold) from the entire dataset, allowing it to prepare any new signal using a single, fixed quantum circuit topology parameterized by a few inferred coordinates.",
+  "model_or_system": "The system involves encoding real-world time-series signals (like ECG) into quantum states using a fixed circuit structure derived from a learned shared basis, contrasting with per-sample circuit tailoring.",
+  "key_observables": "State-preparation error ($\text{Estate}$), the number of required input coordinates/coefficients ($r$), and the two-qubit gate count (CX cost) needed to achieve target fidelities.",
+  "important_parameters": "Target fidelities (e.g., 99.50%), signal dimension ($D$), and the scaling exponent ($\\alpha$) describing resource growth with dimension.",
+  "main_assumptions": "The core assumption is that the source of the real signals occupies a low-dimensional family that is simultaneously statistical and physical, allowing for effective structure learning.",
+  "figures_summary": "Figures compare the loading pipeline, showing QNL vs. shared Walsh support. They also compare error rates and resource requirements (like CX ratio) across varying sample sizes and fidelities.",
+  "paper_structure": "The paper introduces the QNL approach, details the offline learning (fitting an affine decoder) and online inference process, and rigorously compares its performance against state-of-the-art structured loaders across multiple datasets and scaling regimes.",
+  "why_interesting": "While focused on data loading rather than Hamiltonian simulation, the concept of learning a low-dimensional manifold to parameterize complex quantum operations is highly relevant for efficient quantum circuit design and resource estimation in quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06076_figures/2610.06076_fig1.jpg",
+      "caption": "Fig. 1 | A learned family turns a window into a few coordinates of one fixed circuit. a, Loading pipeline. A shared Walsh support (top) takes k free coefficients from the complete window; QNL (bottom) takes r latent coordinates z and evaluates the coefficients through the affine decoder c = b + Az. Both paths end in one circuit whose topology is fixed for the whole dataset and whose phase gadgets differ between windows only in their angles, so both circuits receive one coefficient per support term: what differs is how many numbers each window has to supply. The counts shown are means over the deployed models at the central target fidelity (99.50%). b, Why that interface is narrower. The...",
+      "page": 4
+    },
+    {
+      "image": "2610.06076_figures/2610.06076_fig2.jpg",
+      "caption": "Fig. 2 | One shared decoder describes a window with a fraction of the numbers a Walsh support needs. a, State-preparation error Estate = √",
+      "page": 5
+    },
+    {
+      "image": "2610.06076_figures/2610.06076_fig3.jpg",
+      "caption": "Fig. 3 | The circuit is no more expensive than the strongest Walsh baseline and far cheaper than per-sample and exact loaders. a, Paired ratio of two-qubit gate count, QNL-pruned over the searched shared Walsh support, one row per dataset and window length D, one panel per target fidelity. Points are geometric means over the seeds in which both methods deploy; bars are 95% Student intervals taken on the log scale. Cells with fewer than three paired cases are drawn as open points without an interval. The shaded band is the declared equivalence band [0.95, 1.05] and the line is parity. PTB-XL has no row because QNL-pruned deploys on none of its cases. b, Paired CX ratio of QNL-pruned to the...",
+      "page": 7
+    },
+    {
+      "image": "2610.06076_figures/2610.06076_fig4.jpg",
+      "caption": "Fig. 4 | Shared supports scale sublinearly with window length, and their saving over exact loading survives gate noise. a, Two-qubit gate count against window length D, both axes logarithmic, at the central target fidelity (99.50%); points are geometric means over each method’s deployed cases and the upper axis gives the qubit count n = log2 D. The fitted exponent α of CX ∝Dα and its 95% interval are given in the legend for each method. The D = 2048 point uses 17 of 18 runs; PTB-XL has no D = 2048 view. b, Estimated total fidelity against two-qubit gate error p at the central target, for QNL-pruned, the searched shared Walsh support and the exact diagonal, using each method’s mean gate...",
+      "page": 9
+    },
+    {
+      "image": "2610.06076_figures/2610.06076_fig5.jpg",
+      "caption": "Fig. 5 | With random observations, the number of positions QNL needs to approach its full-window accuracy is constant within a prespecified margin as the window grows, while the shared Walsh support’s grows. a, Preregistered blind replication (Supplementary Note 5): the number of randomly observed positions each method needs for its error to come within 10% of its own error with the whole window, against the window length D, both axes logarithmic; selected on VALIDATION from recordings never used as TEST before, central target fidelity (99.50%). Points are geometric means over the cases where both methods deploy; lines are the mean per-unit slopes, given in the legend with the 90% interval...",
+      "page": 11
+    }
+  ],
+  "figure": "2610.06076_figures/2610.06076_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

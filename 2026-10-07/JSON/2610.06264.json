@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.06264",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Suppressing Frequency Collisions in a Quantum Processor",
+  "authors": "Kuljeet Kaur, Xuexin Xu, Mohammad H. Ansari",
+  "abstract": "Frequency crowding, the close spacing of qubit transitions, limits superconducting quantum processors through crosstalk, leakage, and spectator dependent errors. We introduce a Hamiltonian based framework that maps two- and three-body collision mechanisms onto a Max-k-Cut problem on qubit frequency allocation. In order to make larger lattices tractable, we introduce a cluster-stitching protocol that decomposes larger lattices into overlapping subgraphs and reconciles their local frequency assignments into globally consistent configurations. We tested our proposed framework across multiple qubit architectures to suppress dominant collision penalties by revealing a hardware residual crosstalk. We benchmark digitized counterdiabatic QAOA (DC-QAOA), standard QAOA, and simulated annealing. Counterdiabatic terms improve QAOA optimization near steep collision penalties, while simulated annealing achieves the lowest costs on the tested instances. These results indicate that our hardware-aware optimization connects microscopic interaction physics to processor-level frequency planning. These results enable a systematic solver for benchmarking of scalable software hardware co design.",
+  "url": "http://arxiv.org/abs/2610.06264v1",
+  "pdf": "https://arxiv.org/pdf/2610.06264v1",
+  "type": "theory",
+  "summary": "This paper tackles the critical issue of frequency crowding in superconducting quantum processors, which limits scalability through crosstalk. It formulates the problem as a Max-k-Cut optimization, developing a Hamiltonian framework that incorporates multiple collision mechanisms. The resulting methodology enables systematic, hardware-aware frequency planning, connecting microscopic physics to large-scale processor design.",
+  "main_problem": "Frequency crowding, caused by close spacing of qubit transitions, severely limits the scalability of superconducting quantum processors due to crosstalk and leakage errors.",
+  "main_result": "The authors developed a hardware-aware optimization framework that maps collision penalties to a Max-k-Cut problem, showing that counterdiabatic QAOA and simulated annealing can systematically solve for optimal, collision-free qubit frequency assignments.",
+  "method": "The problem is formulated using a Hamiltonian-based framework, mapping collision mechanisms (two- and three-body) onto a discrete cost function solved via quantum optimization algorithms (QAOA) and classical solvers (Simulated Annealing).",
+  "model_or_system": "The system is superconducting quantum processors using transmon qubits, modeled by a cost Hamiltonian $H_C$ that includes penalties for nearest-neighbor collisions ($A_1$), gate clashes ($C_1$), and spectator effects ($S_1$).",
+  "key_observables": "Collision penalties (cost function), gate and idle fidelities, and the resulting frequency-collision landscape.",
+  "important_parameters": "Frequency spacing ($\\Delta = 0.5 \text{ GHz}$), operating frequency ($\\omega = 5.5 \text{ GHz}$), and the specific collision types (A1, C1, S1).",
+  "main_assumptions": "The leading collision terms ($A_1, C_1, S_1$) dominate the landscape, allowing higher-order terms to be neglected in the initial modeling.",
+  "figures_summary": "Figure 1 illustrates the framework flow from initial assignment to the final collision-free map. Figure 2 shows the hardware penalty function landscape for two coupled qubits, defining safe operating valleys.",
+  "paper_structure": "The paper introduces the physical problem, formulates it as a Max-k-Cut problem using a detailed collision Hamiltonian, develops scalable protocols like cluster-stitching, and benchmarks various optimization algorithms (DC-QAOA, QAOA, SA).",
+  "why_interesting": "This work directly addresses the physical constraints limiting qubit connectivity and scaling in superconducting quantum hardware by providing a systematic, physics-informed optimization tool.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06264_figures/2610.06264_fig1.jpg",
+      "caption": "Figure 1. (a) Overview of the frequency-allocation framework for six qubits, represented by boxes arranged in two rows. Left: the initial assignment contains three qubits involved in frequency collisions (red), while the remaining qubits are collision-free (green). Center: Perturbative estimation of the collision-Hamiltonian coefficients Wij and χijk, defining the cost function optimized using simulated annealing, QAOA, and DC-QAOA. Cluster stitching reconciles overlapping lo- cal solutions into a globally consistent assignment. Right: the resulting collision-free frequency map, with optimiza- tion performance benchmarked against classical simulated an- nealing. (b) Frequency-collision...",
+      "page": 2
+    },
+    {
+      "image": "2610.06264_figures/2610.06264_fig2.jpg",
+      "caption": "Figure 2. Hardware penalty function |W12| evaluated as a function of qubit frequencies fQ1 and fQ2 on a logarithmic color scale. (a) Full tuning range with two bright diagonal bands marks the anharmonicity shifted resonance condition f12 ≈±η, while the main diagonal (f12 = 0) remains dark as the direct dispersive shifts cancel exactly at zero detuning, so the true danger zone is displaced from, not centered on, fre- quency degeneracy. (b)Inset resolving the narrow safe valley immediately surrounding f12 = 0, bounded on both sides by the ±η resonances.",
+      "page": 4
+    },
+    {
+      "image": "2610.06264_figures/2610.06264_fig3.jpg",
+      "caption": "Figure 3. Mapping of the multi-tiered penalty system used in the variational optimization loop for the 8-qubit ladder sys- tem. The landscape highlights the divergent energy barriers that the DC-QAOA must navigate. Optimal frequency as- signments are identified within the localized minima.",
+      "page": 7
+    },
+    {
+      "image": "2610.06264_figures/2610.06264_fig4.jpg",
+      "caption": "Figure 4. Frequency allocation on a 16-qubit square lattice obtained with the DC-QAOA framework, shown for circuit depths p = 4 (left) and p = 8 (right). Each node color repre- sents the frequency assigned to a qubit by the variational op- timization loop acting on the penalty Hamiltonian HC. Some spectator qubits in diagonally-opposite positions receive sim- ilar frequencies; this residual degeneracy arises because the local cluster-stitching protocol does not enforce constraints between qubits in non-adjacent clusters, and can be mitigated by extending the constraint graph to include all-to-all spec- tator interactions or by tightening the per-constraint penalty cutoff.",
+      "page": 8
+    },
+    {
+      "image": "2610.06264_figures/2610.06264_fig5.jpg",
+      "caption": "Figure 5. Frequency allocation on a 13-qubit hexagonal ring obtained with the DC-QAOA framework, acting on the multi-tiered penalty Hamiltonian HC. Node colors indicate the frequencies assigned by the variational optimization loop, which navigates the divergent energy barriers associated with the A1, C1, and S1 collision mechanisms to reach the localized minima corresponding to collision-free assignments.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.06264_figures/2610.06264_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

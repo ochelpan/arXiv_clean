@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.05524",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.NE"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimization Geometry of QAOA and Variational Quantum Algorithms",
+  "authors": "Vojtěch Novák, Ivan Zelinka, Silvie Illésová, Swagatam Das, Martin Beseda",
+  "abstract": "Variational quantum algorithms turn choices of Hamiltonian, ansatz, and parameterization into a classical nonconvex optimization problem. We study how this objective function can be visualized and characterized in ways that help explain optimizer behavior. We distinguish two properties of the objective: the number of local minima encountered along sampled directions and the differences in quality among local-search endpoints. We then ask how a local optimizer, represented by BFGS, compares with adaptive differential evolution, represented by jSO. Rather than comparing jSO with a single local run, we allow BFGS multiple starts within the same function-evaluation budget. This gives local search repeated opportunities to explore different basins and provides a stronger baseline for asking when a global evolutionary solver is useful. We study these questions using VQE and QAOA, focusing on how frustra- tion, circuit depth, parameter tying, mixed locality, and nonlinear repa- rameterization change the Hamiltonian expectation-value objective seen by the classical optimizer. Increasing independent circuit depth raises the sampled local-minimum count without making global search more effective. Parameter tying, by contrast, produces both more repeated local structure and much larger differences in quality among local-search endpoints, and in this regime adaptive differential evolution outperforms function-evaluation-matched multistart BFGS. The comparison shows that the number of local minima alone does not determine whether global search is advantageous: the important distinction is whether different basins lead to similarly good solutions or to substantially different objective values. These results provide a practical workflow for connecting model construction, objective- function geometry, empirical diagnostics, and optimizer choice.",
+  "url": "http://arxiv.org/abs/2610.05524v1",
+  "pdf": "https://arxiv.org/pdf/2610.05524v1",
+  "type": "theory",
+  "summary": "This paper analyzes the optimization landscape of Variational Quantum Algorithms (VQAs) by treating the objective function as a classical nonconvex problem. It compares local and global optimization methods, finding that the key diagnostic is the variability of solutions found in different local minima, not just the count of those minima. This offers a crucial guide for designing robust quantum algorithms.",
+  "main_problem": "The paper investigates how the choices made in constructing Variational Quantum Algorithms (VQAs)—specifically the Hamiltonian, ansatz, and parameterization—translate into a classical, nonconvex optimization problem.",
+  "main_result": "The advantage of using a global evolutionary solver over local search depends not merely on the number of local minima, but critically on whether different local basins lead to substantially different objective function values.",
+  "method": "The authors compare local optimization (BFGS) against global optimization (adaptive differential evolution, jSO) using VQE and QAOA on controlled, small-scale examples.",
+  "model_or_system": "The study focuses on VQAs like VQE and QAOA, where the objective function is the Hamiltonian expectation value, $E(\theta) = \\langle\\psi(\theta)|H|\\psi(\theta)\rangle$. The complexity is modulated by factors like frustration, circuit depth, and parameter tying.",
+  "key_observables": "Local minima count encountered along sampled directions, and the differences in objective function quality among local-search endpoints (basins).",
+  "important_parameters": "Frustration, circuit depth, parameter tying, mixed locality, and nonlinear reparameterization.",
+  "main_assumptions": "The analysis relies on sampling random local starts and low-dimensional restrictions, rather than a complete enumeration of all attraction basins.",
+  "figures_summary": "Figures conceptually separate the classical parameter domain, the reachable quantum states, and the energy values. Other figures illustrate the impact of design choices like parameter tying and reparameterization on the objective function's multimodality.",
+  "paper_structure": "The paper first establishes the VQA objective function as a nonconvex optimization problem. It then systematically studies how model/ansatz choices (e.g., parameter tying) affect the geometry, comparing local vs. global optimizers to derive diagnostic criteria.",
+  "why_interesting": "It provides a practical, diagnostic workflow for quantum algorithm developers, guiding the choice between local and global optimization techniques based on the expected geometry of the energy landscape.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.05524_figures/2610.05524_fig1.jpg",
+      "caption": "Fig. 1. Conceptual overview of a variational quantum algorithm. Parameters define a circuit that prepares a restricted set of reachable quantum states, and the Hamiltonian assigns an energy to each state. The optimizer navigates the resulting classical energy landscape over the parameters.",
+      "page": 5
+    },
+    {
+      "image": "2610.05524_figures/2610.05524_fig2.jpg",
+      "caption": "Fig. 2. Compact construction overview. (a) Frustration on a triangle: not all antiferro- magnetic preferences can be satisfied simultaneously. (b) A small frustrated spin-glass model used as a readable QAOA physical example. (c) The same physical model can be exposed through a standard parameterization with more independent controls or through parameter tying with fewer controls. (d) A nonlinear coordinate map can fold the variable seen by the optimizer.",
+      "page": 6
+    },
+    {
+      "image": "2610.05524_figures/2610.05524_fig3.jpg",
+      "caption": "Figure 3 shows the reparameterization directly. A nonlinear map between the optimizer variable and the executed circuit angle can make a simple periodic objective appear more multimodal in the optimizer coordinates. We use this example only to illustrate the effect of the coordinate choice; it is separate from parameter tying.",
+      "page": 6
+    },
+    {
+      "image": "2610.05524_figures/2610.05524_fig4.jpg",
+      "caption": "Fig. 3. A concrete reparameterization example. (a) A repeated-angle circuit block uses the same physical angle α several times. (b) The nonlinear map α(θ) = θ + a sin(mθ) can stay visually close to the identity while introducing a high-frequency deviation. (c) After pullback through this map, the same one-dimensional objective can develop additional sampled minima.",
+      "page": 7
+    },
+    {
+      "image": "2610.05524_figures/2610.05524_fig5.jpg",
+      "caption": "Fig. 4. Two exact two-dimensional restrictions of the same N = 14 frustrated-Ising VQE objective. The coordinate slice is easy to compute, while the optimizer-informed plane exposes a more decision-relevant direction.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.05524_figures/2610.05524_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

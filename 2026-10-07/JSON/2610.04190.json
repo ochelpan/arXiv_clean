@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.04190",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Reduced Cost Quantum Kernel Training",
+  "authors": "Daniel R. Germain, Benjamin Goldweber, Kayla J. Rodriguez, Kristen Rhinehardt",
+  "abstract": "Quantum kernel methods are promising for near-term quantum machine learning, but their training costs are driven by the quadratic scaling of Gram-matrix construction and the measurement cost of estimating individual kernel values. In this work, we investigate one-class anomaly detection as a resource-efficient operating regime for training non-variational quantum kernel models. Using the ULB Credit Card Fraud Detection dataset, we evaluate three quantum feature maps across training-set sizes and qubit counts. Power-law saturation models reveal strong diminishing returns with increasing training data, with 500-sample models retaining approximately 90--93\\% of their fitted asymptotic average precision (AP). We further observe no severe exponential concentration among the evaluated feature maps over the investigated qubit range, thereby avoiding the exponentially increasing measurement requirements associated with that regime. Finally, Nyström approximation reduces kernel construction from $\\mathcal{O}(N^2)$ to $\\mathcal{O}(Nm)$ evaluations, with QSVR retaining 94--97\\% of its exact-kernel AP using only five landmarks. For ZZ-QSVR, downsampling from 4,000 to 500 training samples and applying a five-landmark approximation decreases the number of required kernel evaluations from approximately $8.0$ million to $2,485$, a reduction of more than 3,200-fold, while AP decreases from $0.812$ to $0.737$. Under the minimum IonQ pricing assumption considered here, this corresponds to an illustrative reduction in quantum kernel training cost from approximately \\$1.34 billion to \\$417{,}480. These results demonstrate that training-set reduction and low-rank approximation can substantially reduce the resources required to train non-variational quantum kernel anomaly detectors while retaining meaningful anomaly-discrimination performance.",
+  "url": "http://arxiv.org/abs/2610.04190v1",
+  "pdf": "https://arxiv.org/pdf/2610.04190v1",
+  "type": "both",
+  "summary": "This paper tackles the high computational cost of training quantum kernel models for anomaly detection. The authors demonstrate that combining sample downsampling with the Nyström low-rank approximation can drastically reduce the required quantum circuit evaluations by thousands of times. This resource reduction is shown to be effective, maintaining strong anomaly detection performance while drastically lowering the estimated quantum training cost.",
+  "main_problem": "The primary challenge is developing resource-efficient methods for training quantum kernel models used in machine learning, specifically for one-class anomaly detection.",
+  "main_result": "By combining training-set reduction (downsampling) and low-rank approximation (Nyström method), the required quantum kernel evaluations can be reduced by orders of magnitude while retaining meaningful anomaly-discrimination performance.",
+  "method": "The authors employ quantum kernel methods, approximating the full Gram matrix construction using the Nyström method to reduce complexity from O(N^2) to O(Nm). They apply this to classical anomaly detection frameworks like QSVR.",
+  "model_or_system": "The work utilizes quantum feature maps acting on $n$ qubits to define a quantum kernel, $k(x, x') = |\\langle\\psi(x) | \\psi(x')\rangle|^2$. The models are tested on the ULB Credit Card Fraud Detection dataset.",
+  "key_observables": "Average Precision (AP) for anomaly detection, and the required number of quantum kernel evaluations (cost).",
+  "important_parameters": "Training set size (e.g., 500 samples), number of qubits ($n$), and the number of landmark points ($m$).",
+  "main_assumptions": "The analysis assumes the minimum IonQ pricing model for cost estimation, and the Nyström approximation is used to replace the exact kernel matrix.",
+  "figures_summary": "Figures illustrate the concept of Support Vector Data Description (SVDD) and Support Vector Regression (SVR) decision boundaries, while the notes detail the quantum kernel evaluation circuit and the mechanism of exponential concentration.",
+  "paper_structure": "The paper first establishes the quantum kernel framework, then addresses the computational bottleneck of $O(N^2)$ construction and exponential concentration. It then proposes and evaluates resource reduction techniques—downsampling and Nyström approximation—on anomaly detection tasks.",
+  "why_interesting": "While the application is ML-focused, the core techniques—analyzing resource scaling, mitigating exponential measurement requirements, and implementing low-rank approximations for quantum circuits—are highly relevant to designing practical quantum algorithms for complex physical simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.04190_figures/2610.04190_fig1.jpg",
+      "caption": "FIG. 1. Illustration of support vector data description (SVDD). Input data are mapped into a higher-dimensional feature space, where the nominal samples are enclosed by a minimum-volume hypersphere and points outside the bound- ary are identified as anomalies.",
+      "page": 1
+    },
+    {
+      "image": "2610.04190_figures/2610.04190_fig2.jpg",
+      "caption": "FIG. 2. Quantum kernel evaluation circuit and Gram ma- trix construction. For each pair of data points (xi, xj), the quantum kernel κ(xi, xj) = |⟨0|⊗NU† ϕ(xj)Uϕ(xi)|0⟩⊗N|2 is es- timated as the return probability of the all-zero bitstring. Re- peating this procedure for all pairs of input samples assembles the Gram matrix K, which is passed directly to the classical anomaly detection solver.",
+      "page": 4
+    },
+    {
+      "image": "2610.04190_figures/2610.04190_fig3.jpg",
+      "caption": "FIG. 3. Illustration of the four primary mechanisms associated with exponential concentration in quantum kernels: (a) expressivity-induced concentration, arising as increasingly expressive feature maps approach highly expressive state ensembles; (b) global-measurement-induced concentration, associated with global overlap measurements over an exponentially growing Hilbert space; (c) entanglement-induced concentration, resulting from increasing entanglement between measured and unmea- sured subsystems; and (d) noise-induced concentration, arising from the accumulation of hardware noise with increasing circuit depth and system size.",
+      "page": 5
+    },
+    {
+      "image": "2610.04190_figures/2610.04190_fig4.jpg",
+      "caption": "FIG. 4. Angle-encoding quantum feature map. Each clas- sical input feature xi is mapped directly to a corresponding qubit through a single-qubit rotation RX(xi). The circuit be- gins with all qubits initialized in the |0⟩state, after which the feature-dependent rotations encode the classical input into the quantum state. No entangling gates are applied, such that each feature is encoded independently. The resulting quan- tum state is used to evaluate the fidelity kernel by measuring the overlap between states prepared from different input sam- ples.",
+      "page": 8
+    },
+    {
+      "image": "2610.04190_figures/2610.04190_fig5.jpg",
+      "caption": "FIG. 5. Quantum feature-map circuits used for kernel construction. (a) Example of the Full ZZ feature map for three qubits, consisting of an initial Hadamard layer followed by single-qubit data encoding and pairwise ZZ interactions. (b) ZZ-R feature map, in which the Full ZZ encoding is repeated three times with fixed random unitary layers Rk inserted between successive data-encoding layers. (c) Structure of a fixed random layer Rk, composed of single-qubit RZ-RY -RZ rotations followed by nearest-neighbor CNOT entangling operations. The random rotation parameters are generated once and held fixed throughout kernel evaluation.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.04190_figures/2610.04190_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

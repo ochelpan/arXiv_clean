@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.05086",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "JAQSI: Just Another Quantum Simulator",
+  "authors": "Melvin Strobl, Maja Franz, Lukas Scheller, Eileen Kuehn, Wolfgang Mauerer, Achim Streit",
+  "abstract": "Classical simulation supports the development and validation of quantum algorithms through full-state inspection, controlled noise models and backpropagation, albeit for small quantum systems. Existing frameworks offer gate-level execution, differentiable pulse-level dynamics or optimised hardware execution. Just another quantum simulator (JAQSI) combines gate- and pulse-level simulation in one differentiable circuit model built upon JAX. Circuits are represented as pure functions of numerical inputs which support vectorised batches and JIT compilation. Within a single circuit, matrix-defined operations, gates synthesised from Hamiltonian time evolution and noise channels can be composed freely. For a fast simulation, gate and channel fusion reduces passes over the state, while adjoint differentiation computes expectation-value gradients with a constant number of statevectors. At pulse level, JAQSI reduces evolution under single-term Hamiltonians to a scalar pulse-area integral and reuses cached execution plans and compiled solvers. In a benchmark we compare JAQSI with PennyLane, Qiskit, Qibo, Qulacs, QuTiP and dynamiqs. At gate level, we observe performance either on par or an order of magnitude faster across statevector, density, noise and gradient simulation than the compared simulators up to 12 qubits. Beyond 18 qubits, JAQSI is on par with PennyLane Lightning in both statevector and gradient simulation. In the statevector and noisy density-matrix pulse benchmarks, it is at least 5 times faster than the other simulators, even with its closed-form solve disabled. Disabling the latter increases its runtime by at most a factor of 1.5. We provide JAQSI as open-source software on GitHub and PyPI.",
+  "url": "http://arxiv.org/abs/2610.05086v1",
+  "pdf": "https://arxiv.org/pdf/2610.05086v1",
+  "type": "theory",
+  "summary": "This paper introduces JAQSI, a novel, high-performance quantum simulator built on JAX that unifies gate-level and pulse-level dynamics in a single differentiable framework. It significantly outperforms existing simulators across various benchmarks by employing advanced optimizations like circuit fusion and efficient gradient computation. This advancement makes classical simulation a more viable tool for developing and testing quantum algorithms on larger systems.",
+  "main_problem": "Classical simulation is crucial for quantum algorithm development but is limited by the exponential scaling of statevector simulation for large quantum systems.",
+  "main_result": "JAQSI achieves state-of-the-art performance, being an order of magnitude faster than competitors at gate-level up to 12 qubits, and significantly faster (5-10x) than competitors in pulse-level simulations.",
+  "method": "The authors developed JAQSI, a simulator combining gate- and pulse-level dynamics into a single, differentiable circuit model built on JAX, utilizing techniques like gate/channel fusion and adjoint differentiation.",
+  "model_or_system": "The simulator models quantum systems using circuits composed of arbitrary gates, noise channels, and time-dependent Hamiltonians, supporting both statevector and density-matrix evolution.",
+  "key_observables": "Expectation values (expval), probabilities (probs), density matrices (rho), and gradients (grad).",
+  "important_parameters": "Number of qubits ($n$), circuit depth, and simulation time steps/batch sizes.",
+  "main_assumptions": "The framework assumes circuit operations can be represented as pure functions of numerical inputs, and it optimizes by only storing necessary local matrix operations rather than full system matrices.",
+  "figures_summary": "Figures compare simulation runtimes for gate-level and pulse-level benchmarks against competitors, showing JAQSI's superior scaling and speed.",
+  "paper_structure": "The paper introduces JAQSI's architecture, details its optimized simulation techniques (fusion, adjoint differentiation, pulse integration), and validates its performance through extensive benchmarking against established simulators.",
+  "why_interesting": "The focus on high-performance, differentiable simulation engines directly impacts the feasibility of testing complex quantum algorithms and variational quantum eigensolver (VQE) routines on classical hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.05086_figures/2610.05086_fig1.jpg",
+      "caption": "Fig. 1: Architectural overview of JAQSI. The front end records circuits on a tape and routes gates to their unitary or pulse implementations. The engine applies the resulting operations, which share an operation layer. Helper modules provide drawing, QOC and analysis. Arrows denote the principal dependencies between modules.",
+      "page": 3
+    },
+    {
+      "image": "2610.05086_figures/2610.05086_fig2.jpg",
+      "caption": "Fig. 2: Benchmark circuits for n = 3. (a) Gate-level hardware- efficient ansatz with input angles x and trainable weights w. (b) Pulse-level circuit with a CRX(ϕ) ring that closes from the last qubit to the first. (c) Decomposition of one CRX into rotations and two CX gates, with control c and target t. Each CX becomes HCZH on its target, and each H becomes RZ(π), RY (π/2) and a correction phase. The resulting circuit has 21n pulses.",
+      "page": 6
+    },
+    {
+      "image": "2610.05086_figures/2610.05086_fig3.jpg",
+      "caption": "Fig. 3 shows two runtime regimes at gate level: fixed execution overhead dominates small circuits, while passes over the state matter increasingly as the qubit count grows. Tab. II summarises the speedup of JAQSI over the compared simulators at both levels. Within the timed loop, every call of JAQSI hits the cached, ahead-of-time compiled XLA executable and the whole batch is vectorised via vmap. The jitted PennyLane QNode compiles to an equally batched executable, whereas PennyLane Lightning, Qulacs, Qiskit and Qibo handle the batch sample by sample and pay a fixed cost per sample. At few qubits, this per-sample overhead dominates, so JAQSI and PennyLane have similar runtimes and lead the...",
+      "page": 6
+    },
+    {
+      "image": "2610.05086_figures/2610.05086_fig4.jpg",
+      "caption": "Fig. 4: Pulse-level execution time from 2 to 12 qubits for the H and CRX ring circuit, with a logarithmic time axis. Expval denotes statevector expectation values, and Noise denotes noisy density matrices. Each execution integrates 21n pulse evolutions for n qubits. Each point is the mean time per batch of 2 over 20 iterations. Error bars denote the standard deviation.",
+      "page": 7
+    },
+    {
+      "image": "2610.05086_figures/2610.05086_fig5.jpg",
+      "caption": "Fig. 3: Gate-level execution time versus qubit count for the single-layer hardware-efficient ansatz, with a logarithmic time axis. Expval denotes statevector expectation values, Grad denotes gradients, and Density and Noise denote noise-free and noisy density matrices. Each point is the mean time per batch of 10 over 20 iterations. Error bars denote the standard deviation. Qiskit and Qibo are absent from Grad, and PennyLane Lightning is absent from Noise.",
+      "page": 7
+    }
+  ],
+  "figure": "2610.05086_figures/2610.05086_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

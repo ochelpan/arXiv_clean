@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.05222",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Fidelity Estimation of General Quantum Resource States via Clifford Circuits",
+  "authors": "Shunta Takahashi, Keisuke Fujii",
+  "abstract": "Fidelity estimation is a fundamental tool for assessing quantum resource states across quantum information science. For small infidelity $ε$, tomography and direct fidelity estimation (DFE) have worst-case sample complexity $O(1/ε^2)$ at fixed relative accuracy and confidence. Direct target projections achieve $O(1/ε)$ but generally require non-Clifford operations whose reliability depends on the resource states that are typically the target of benchmarking. Here, we introduce the Bell--coherence fidelity estimation (BCFE) with optimal sample complexity $Θ(1/ε)$ using only Clifford gates and Pauli measurements. We prove that BCFE is applicable to arbitrary pure targets, possibly multi-qubit, with the statistical error of the single-copy coherence part explicitly controlled. To evaluate BCFE in a practical setting, we apply BCFE to analog rotation resource states in the candidate early-FTQC architecture called the Space-Time Efficient Analog Rotations (STAR) architecture. In the simulations using surface codes, BCFE is estimated to require up to approximately $27$ times fewer resource states than DFE for the same standard error in the infidelity estimate, while its estimates remain close to reference values despite circuit-level noise in the additional Bell measurement operations. These results support efficient resource benchmarking within fault-tolerant quantum computing.",
+  "url": "http://arxiv.org/abs/2610.05222v1",
+  "pdf": "https://arxiv.org/pdf/2610.05222v1",
+  "type": "theory",
+  "summary": "This paper introduces the Bell-Coherence Fidelity Estimation (BCFE) protocol, an efficient method to estimate the infidelity of quantum resource states using only Clifford gates and Pauli measurements. It achieves the optimal sample complexity scaling of $O(1/\\epsilon)$, significantly outperforming existing methods like DFE. This advancement is vital for practical resource benchmarking in fault-tolerant quantum computing architectures.",
+  "main_problem": "The paper addresses the fundamental challenge of efficiently estimating the fidelity ($\\mathcal{F}$) of general quantum resource states ($\rho$) with respect to an ideal state $|\\psi\rangle$, especially when the infidelity ($\\epsilon = 1-\\mathcal{F}$) is small.",
+  "main_result": "A novel protocol, Bell-Coherence Fidelity Estimation (BCFE), achieves the optimal sample complexity scaling of $\\Theta(1/\\epsilon)$ using only Clifford gates and Pauli measurements.",
+  "method": "BCFE combines two parts: a 'Bell part' estimating a basis-independent quantity $b$, and a 'coherence part' estimating the target-dependent term $c$, allowing the total infidelity to be reconstructed.",
+  "model_or_system": "The focus is on quantum resource states, specifically applied to analog rotation resource states within the Space-Time Efficient Analog Rotations (STAR) architecture for Fault-Tolerant Quantum Computing (FTQC).",
+  "key_observables": "Fidelity ($\\mathcal{F}$), Infidelity ($\\epsilon$), the Bell estimator $b = \\langle\\Psi^-|\rho^{\\otimes 2}|\\Psi^-\rangle$, and the coherence term $c = \\langle\\psi|\rho|\\psi^\\perp\rangle$.",
+  "important_parameters": "The required sample complexity scales optimally as $O(1/\\epsilon)$, showing significant improvement over Direct Fidelity Estimation (DFE) which scales as $O(1/\\epsilon^2)$.",
+  "main_assumptions": "The protocol is restricted to Clifford gates and Pauli measurements, making it highly relevant for stabilizer-code based FTQC architectures.",
+  "figures_summary": "Figure 1 illustrates the BCFE protocol, showing how the Bell part estimates $b = F\\epsilon - |c|^2$, and the coherence part estimates $c$, which are combined to find $F$ with $O(1/\\epsilon)$ complexity.",
+  "paper_structure": "The paper introduces the problem, details the BCFE protocol by separating the estimation into Bell and coherence components, provides theoretical proofs establishing the optimal $O(1/\\epsilon)$ scaling, and validates the method through simulations on the STAR architecture.",
+  "why_interesting": "This work provides a crucial, resource-efficient diagnostic tool for benchmarking quantum resources in the context of fault-tolerant quantum computation, directly impacting the feasibility analysis of quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.05222_figures/2610.05222_fig1.jpg",
+      "caption": "FIG. 1: Overview of the Bell-coherence fidelity estimation (BCFE) protocol. Copies of the target resource state are subjected to noise and divided between two measurements. The Bell part estimates the probability of a rare event by Bell measurements, while the coherence part estimates c from Pauli measurements. The two estimates are then combined to recover the fidelity F using only Clifford operations and Pauli measurements with optimal sample complexity O(1/ϵ).",
+      "page": 2
+    },
+    {
+      "image": "2610.05222_figures/2610.05222_fig2.jpg",
+      "caption": "FIG. 4: Physical level fidelity estimation under the isotropic depolarizing channel with ϵX = ϵY = ϵZ = 5 × 10−4. The green dashed curve is the exact infidelity; blue circles and orange squares denote our BCFE protocol and Flammia–Liu DFE, respectively. BCFE uses exactly N resource states, while DFE uses approximately N in expectation, with a fluctuating realized count. Error bars indicate one standard error. BCFE error bars use the delta-method approximation in Eq. (69).",
+      "page": 9
+    },
+    {
+      "image": "2610.05222_figures/2610.05222_fig3.jpg",
+      "caption": "FIG. 5: Physical level fidelity estimation for the density matrix in Eq. (70), without assuming a depolarizing channel. Plotting conventions and the comparison of expected copy counts are the same as in Fig. 4. Error bars indicate one standard error. BCFE error bars use the delta-method approximation in Eq. (69).",
+      "page": 9
+    },
+    {
+      "image": "2610.05222_figures/2610.05222_fig4.jpg",
+      "caption": "FIG. 6: Two d = 3 rotated surface code patches. The rotations eiαZ act on the three data qubits of the upper horizontal logical ZL path γ in each patch. The path is marked only in the left patch.",
+      "page": 10
+    },
+    {
+      "image": "2610.05222_figures/2610.05222_fig5.jpg",
+      "caption": "FIG. 7: Circuit implementations of the logical Bell measurement on two d = 3 rotated surface code patches and the coherence measurement on one such patch. In panel (a), the wires v1, v2, v3, u1, . . . , u6 are the nine data qubits of each patch, and γ = {v1, v2, v3} is the logical ZL path shown in Fig. 6. The ancilla a(j) performs three complete rounds of the stabilizer measurements M(j) stab sequentially and is reset after every stabilizer readout. The transversal CNOT is followed by destructive physical Z readout and classical decoding on the second patch. Trials with decoded outcome Z(2) L = −1 proceed to destructive physical X readout and classical decoding on the first patch, whereas...",
+      "page": 11
+    }
+  ],
+  "figure": "2610.05222_figures/2610.05222_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.06606",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Staying Sober: A Shot-Free Predictor of Logical Error Rates for Concatenated Quantum Error Correcting Codes",
+  "authors": "Sayam Sethi, Aditi Awasthi, Maxwell Poster, Joshua Viszlai, Jonathan Mark Baker",
+  "abstract": "Estimating the logical error rate (LER) of a quantum error-correcting (QEC) code by Monte Carlo sampling takes $O(p^{-\\lceil d/2 \\rceil}/\\varepsilon^2)$ samples at physical error rate $p$, code distance $d$ and relative error $\\varepsilon$, which becomes intractable at large distances and low error rates, and especially for concatenated codes, whose distance grows as $d^{\\ell}$ with the number of levels $\\ell$. The fail fast method reduces this cost by sampling the failures of each weight separately, but it only works for unconcatenated codes, and does not model the soft information that the levels of a concatenated code pass to each other. We propose a predictor that takes the stabilizers, the minimum-weight logical operators and, for odd $d$, the logical operators of weight $d + 1$ of a code, and computes, without sampling, the leading monomial $c\\,p^{o}$ of the LER when expressed as a polynomial in $p$, at every level of concatenation, in time polynomial in the code parameters and linear in $\\ell$ for fixed budgets. We prove that our prediction is exact for any unconcatenated stabilizer code, for every logical observable and arbitrary per-qubit error rates, whenever no budget is exhausted. Furthermore, for concatenated codes, we construct a recursive approach that computes the leading monomial exactly in exponential time, and our predictor approximates this approach. Our predictions match exact enumeration at level 1 on every code we evaluate, and up to three levels for the iceberg code. Using our predictor, we evaluate and compare $37$ code configurations under four noise biases in $48$ core-hours, where Monte Carlo sampling would need more than $10^{12}$ shots at $p = 10^{-3}$ for $113$ of these $148$ cases.",
+  "url": "http://arxiv.org/abs/2610.06606v1",
+  "pdf": "https://arxiv.org/pdf/2610.06606v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, non-sampling predictor to calculate the leading term of the Logical Error Rate (LER) for Quantum Error Correcting codes. It overcomes the exponential computational barrier faced by traditional Monte Carlo methods, allowing for the efficient analysis of complex, deeply concatenated quantum codes. This tool is crucial for assessing the fault-tolerance limits of quantum computation.",
+  "main_problem": "The primary challenge is the computational intractability of estimating the Logical Error Rate (LER) for Quantum Error Correcting (QEC) codes, especially highly concatenated ones, using standard Monte Carlo sampling.",
+  "main_result": "The authors propose a novel, non-sampling predictor that computes the leading monomial of the LER as a polynomial in the physical error rate $p$, achieving polynomial time complexity in code parameters and linear in the concatenation level $\\ell$.",
+  "method": "The method involves deriving the leading term of the LER polynomial by analyzing the structure of error classes and utilizing a recursive approach for concatenated codes, avoiding explicit sampling.",
+  "model_or_system": "The system modeled is quantum computation protected by QEC codes, where errors are assumed to be independent Pauli errors on physical qubits. The complexity scales with the code distance $d$ and the number of concatenation levels $\\ell$.",
+  "key_observables": "Logical Error Rate (LER), the leading monomial $c p^o$ of the LER polynomial, and class likelihoods $W_\\lambda(s)$.",
+  "important_parameters": "Physical error rate ($p$), code distance ($d$), number of concatenation levels ($\\ell$), and relative error ($\\varepsilon$).",
+  "main_assumptions": "The predictor is proven exact for unconcatenated codes; for concatenated codes, the recursive approach is an approximation of the exact exponential-time computation.",
+  "figures_summary": "Figure 1 illustrates the exponential scaling of required Monte Carlo shots versus code distance. Figure 1(b) compares the wall-clock time of various LER estimation methods, showing the predictor's efficiency.",
+  "paper_structure": "The paper first establishes the computational bottleneck of Monte Carlo sampling for LER. It then introduces the predictor, proving its exactness for unconcatenated codes. For concatenated codes, it develops a recursive approximation and validates it against exact enumeration for various code types.",
+  "why_interesting": "While focused on abstract QEC theory, the development of efficient, non-sampling analytical tools for error rate prediction is highly relevant to simulating complex quantum hardware noise models in AMO and quantum optics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.06606_figures/2610.06606_fig1.jpg",
+      "caption": "Figure 1: Cost of estimating the LER under code-capacity noise. (a) Shots that Monte Carlo sampling needs to estimate the LER L of the first logical qubit to a relative error of 10%, (1 −L)/(0.01 L), with L from our prediction, at p = 10−3 (filled) and p = 10−4 (open). The dashed line marks 1012 shots, beyond which Monte Carlo sampling becomes impractical. (b) Wall-clock time of each method at p = 10−3, where filled markers are measured, open markers are projected, and the arrow marks a lower bound. Our predictor gives the LER at every p from one run, and so does the spectrum that fail fast samples, but at a precision that varies with p, while exact enumeration and Monte Carlo sampling must...",
+      "page": 2
+    },
+    {
+      "image": "2610.06606_figures/2610.06606_fig2.jpg",
+      "caption": "Figure 2: Interleaved concatenation. Each block at level ℓ−1 encodes k1 logical qubits in an [[n1, k1, d1]] code. Each block at level ℓuses n2 logical qubits from the lower level as the physical qubits of an [[n2, k2, d2]] code. The jth block at level ℓtakes the jth logical qubit of every block at level ℓ−1. Thus, no block at level ℓcontains two logical qubits of the same block at level ℓ−1. Together, the k1 blocks at level ℓform an [[n1n2, k1k2, ≥d1d2]] code. The edges below each block at level ℓ−1 continue its tree down to the physical qubits.",
+      "page": 4
+    },
+    {
+      "image": "2610.06606_figures/2610.06606_fig3.jpg",
+      "caption": "Figure 3: Fail fast with BP-OSD against our prediction on the gross and GALA codes at level 1. For each code, the failure spectrum sampled with BP-OSD with the fail fast fit to it, and the LER that fail fast obtains from the spectrum against our prediction.",
+      "page": 5
+    },
+    {
+      "image": "2610.06606_figures/2610.06606_fig4.jpg",
+      "caption": "Figure 4: Fail fast with BP-OSD against our prediction on the Mitten codes at level 1, as in Figure 3. Top: the failure spectrum sampled with BP-OSD. Bottom: the LER that fail fast obtains from it against our prediction.",
+      "page": 6
+    },
+    {
+      "image": "2610.06606_figures/2610.06606_fig5.jpg",
+      "caption": "Figure 5: LER of the first logical qubit versus p under depolarizing noise, with one panel per code. Lines show the prediction c po. Filled markers show Monte Carlo with 95% confidence interval error bars. Open circles show exact enumeration, and dashed lines show fail fast at level 1.",
+      "page": 17
+    }
+  ],
+  "figure": "2610.06606_figures/2610.06606_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
