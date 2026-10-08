@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.08503",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.dis-nn",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Replica Fragmentation and Glassy Dynamics in Parity Learning",
+  "authors": "Han Ma",
+  "abstract": "We study how independently trained Transformer neural networks reconstruct a binary string from its local domain walls. Runs sharing the data and training protocol can realize different functions. We treat them as replicas and measure truth alignment $m$, prediction confidence $q_{\\mathrm{self}}$, and cross-replica agreement $q_{\\mathrm{cross}}$. Confident disagreement defines the finite-size replica fragmentation that we call glass-like. With small training sets, replicas predict all training examples correctly but remain confident in incorrect predictions for unseen inputs, a regime we call memorization. With larger sets, runs can generalize and then retreat. Retreat occurs when outputs start to deviate from truth while confidence remains high. The frontier between learned and unlearned outputs recedes toward shorter strings. Many later recover as the frontier advances again. The self--cross gap $q_{\\mathrm{self}}-q_{\\mathrm{cross}}$ clearly distinguishes the three learning regimes of memorization, retreat, and recovery. With overall and position-dependent truth alignment subtracted, their residual correlations also differ: memorizing replicas have weakly and uniformly correlated residuals, while retreat has the largest fraction of replica pairs whose residuals are anti-correlated. That is, on the inputs where one replica of such a pair does better than its average, the other tends to do worse. These finite-size observations distinguish persistent memorization from ongoing retreat--recovery dynamics. The thermodynamic and long-time limits, and extensions to other learning tasks, remain open.",
+  "url": "http://arxiv.org/abs/2610.08503v1",
+  "pdf": "https://arxiv.org/pdf/2610.08503v1",
+  "type": "theory",
+  "summary": "This work applies concepts from spin-glass theory to analyze how independently trained neural networks learn complex functions, specifically binary string reconstruction. By measuring replica overlaps and defining gaps, the authors distinguish between distinct learning states like 'memorization' and 'retreat.' This provides a theoretical understanding of generalization failure in deep learning models using tools from condensed matter physics.",
+  "main_problem": "The paper investigates the dynamics of independently trained Transformer neural networks reconstructing a binary string from local domain walls, characterizing the resulting ensemble of learned functions.",
+  "main_result": "The self–cross gap ($\\chi_{SG}$) successfully distinguishes three distinct learning regimes: memorization, retreat, and recovery, revealing differences in residual correlations between these states.",
+  "method": "The analysis uses statistical physics tools, calculating overlaps ($m, q_{\text{self}}, q_{\text{cross}}$) and gaps ($\\chi_{SG}$) across different learning protocols and data sizes.",
+  "model_or_system": "The model is a Transformer network trained on a binary string reconstruction task defined by parity constraints, treated as an ensemble of 'replicas' whose behavior is analyzed using concepts from spin-glass theory.",
+  "key_observables": "Truth alignment ($m$), self-confidence ($q_{\text{self}}$), cross-replica agreement ($q_{\text{cross}}$), and the self–cross gap ($\\chi_{SG}$).",
+  "important_parameters": "Training set size (small vs. large), string length ($L$), and the resulting learning regimes (memorization, retreat, recovery).",
+  "main_assumptions": "The observed regimes are noted to be 'operational and finite-size rather than thermodynamic phases.'",
+  "figures_summary": "Figures illustrate trajectories of block accuracy for CNN vs. Transformer, the crossover of learning probability with data size, and position-resolved residual gaps showing failure peaks.",
+  "paper_structure": "The paper progresses by defining the physical system and observables, establishing the three learning regimes using overlaps, and then providing detailed diagnostics (residual correlations, position-resolved gaps) to distinguish between memorization and retreat dynamics.",
+  "why_interesting": "The application of spin-glass concepts (replica overlaps, glassy dynamics) to the generalization failure of deep learning models provides a powerful theoretical framework for understanding complex, non-equilibrium learning processes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.08503_figures/2610.08503_fig1.jpg",
+      "caption": "Figure 1: Generalization with independently sampled fixed training sets. For each training-set size N, every run samples its own training set from the domain-wall distribution and holds it fixed throughout training. (a) Representative held-out block-accuracy trajectories for a CNN at N = 2048 and a Transformer at N = 1280. The CNN improves progressively and remains accurate, whereas the Transformer learns abruptly, later loses accuracy, and then recovers. (b) Fraction of runs that reach Ablock ≥0.8 within 120 epochs, plotted against N. Points show the measured fractions with binomial confidence intervals. Curves are the descriptive binomial-logistic fits in Eq. (16). (c) The same...",
+      "page": 7
+    },
+    {
+      "image": "2610.08503_figures/2610.08503_fig2.jpg",
+      "caption": "Figure 2: Shared-training-set diagnostics over 600 epochs for L = 12, N = 1280 Transformer runs. The ensemble has 16 runs. The replicas share one fixed training set of 1280 configurations sampled independently from the domain-wall distribution and are evaluated on the complete set of 2048 domain-wall configurations. Only initialization and minibatch order vary. (a) All block-accuracy trajectories, with the pre-specified random seeds 0, 1, and 2 highlighted and the other 13 shown in gray. Every run undergoes multiple threshold crossings and a post-crossing retreat below 0.5. (b) Ensemble means after alignment by the first Ablock ≥0.8 crossing. Abit and Q j Aj rise before the block-accuracy...",
+      "page": 9
+    },
+    {
+      "image": "2610.08503_figures/2610.08503_fig3.jpg",
+      "caption": "Figure 3: Nishimori-gap dynamics evaluated on all 2048 domain-wall configurations at L = 12 over epochs 1–350. Left column: the N = 1280 runs with seeds 0 and 1, trained on the fixed training set shared by all 16 replicas in Fig. 2. Dots mark local maxima of ∆N = qself −m above 0.05, and vertical lines locate the same epochs in block accuracy. Right column: two independently initialized N = 64 runs trained on the same fixed training set; positive ∆N persists while block accuracy remains low.",
+      "page": 10
+    },
+    {
+      "image": "2610.08503_figures/2610.08503_fig4.jpg",
+      "caption": "Figure 4: Position-resolved retreat and recovery in the 16-replica shared-training-set ensemble. The eight replicas that first reach Ablock ≥0.8 and later retreat below 0.5 are aligned at the first such retreat. (a) Individual and mean block accuracy. (b) The group frontiers j⋆ m and j⋆ q with the individual truth frontiers j⋆ m,r as faint curves. (c) and (d) Group profiles m(j, τ) and qself(j, τ), both on a color scale running from 0 to 1. White curves are the corresponding half-height frontiers, and the dashed vertical line in every panel marks the retreat alignment point τ = 0. Frontiers are located by linear interpolation between neighbouring positions. A profile entirely below one half...",
+      "page": 11
+    },
+    {
+      "image": "2610.08503_figures/2610.08503_fig5.jpg",
+      "caption": "Fig. 4 shows that the loss and recovery of global truth alignment are spatially nonuniform. The profile in panel (c) shows that at retreat truth alignment is lost first at larger j, while smaller-j outputs remain aligned. In panel (b), at the onset of retreat, j⋆ q exceeds j⋆ m: predictions remain confident at some larger-j positions after losing truth alignment. Immediately afterward, j⋆ q falls below j⋆ m while j⋆ m stays nearly fixed. Between τ = 0 and τ = 1 the self-overlap frontier drops from 6.2 to 4.3 and the truth frontier moves only from 4.8 to 4.7. Both frontiers then turn upward at the same epoch and advance in step. Truth alignment therefore returns at progressively later output...",
+      "page": 11
+    }
+  ],
+  "figure": "2610.08503_figures/2610.08503_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

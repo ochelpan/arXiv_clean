@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2610.07159",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "hep-ph",
+    "astro-ph.HE",
+    "hep-ex",
+    "hep-th",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Magnus: neutrino oscillation probabilities for any Hermitian Hamiltonian, any number of flavors, and any matter profile",
+  "authors": "Mauricio Bustamante",
+  "abstract": "Interpreting neutrino oscillation measurements requires computing the probability that a neutrino born with one flavor is detected with another. In vacuum and in matter of constant density, this probability has exact formulas. Where the density varies along the path, as in the Earth, the Sun, or a supernova, it does not. There, the usual approaches either replace the profile by constant-density steps, whose error falls only as the square of their width, or integrate the evolution equation with a general-purpose solver, which must shorten its steps to meet a tighter tolerance. Both become slow at high accuracy, yet an analysis needs the probability at many energies, directions, and parameter values. Each new experiment or model often requires writing and validating a new solver. We present Magnus, an open-source Python code that avoids these limitations. It uses the Magnus expansion, whose error falls as a high power of its step width and whose cost is set by how fast the density varies, not by how many oscillations the path holds. Magnus accepts any density profile, any number of flavors, and any Hermitian Hamiltonian, such as those of non-standard interactions, sterile neutrinos, Lorentz-invariance violation, and pseudo-Dirac neutrinos. Where a cheaper route exists, it takes it automatically. For example, where the density varies slowly, as in the Sun, it follows the instantaneous eigenstates and applies the expansion only at resonances. Besides oscillating probabilities, Magnus returns phase-averaged ones, which describe solar and astrophysical neutrinos. A typical probability takes a few milliseconds, and batched scans are one to two orders of magnitude cheaper per point. Among the public codes we compared, Magnus is the fastest at high accuracy on a varying profile. Magnus shifts the effort of studying a new experiment or model from writing a solver to specifying its physics.",
+  "url": "http://arxiv.org/abs/2610.07159v1",
+  "pdf": "https://arxiv.org/pdf/2610.07159v1",
+  "type": "theory",
+  "summary": "This paper presents Magnus, a novel, open-source computational tool for calculating neutrino flavor oscillation probabilities. It overcomes the computational bottlenecks of traditional solvers by employing the Magnus expansion, which is highly accurate and efficient even when the matter density changes rapidly. This shifts the focus of research from developing complex numerical solvers to simply specifying the underlying particle physics model.",
+  "main_problem": "Calculating neutrino flavor transition probabilities when the matter density varies along the propagation path, which lacks a simple closed-form solution.",
+  "main_result": "The authors introduce Magnus, an open-source Python code that computes these probabilities accurately and efficiently, outperforming existing solvers.",
+  "method": "It utilizes the Magnus expansion to compute the evolution operator, whose error scales highly with the step width and whose computational cost depends on the rate of density variation rather than the number of oscillations.",
+  "model_or_system": "The system is neutrino flavor oscillation, governed by a time-dependent Hamiltonian $H(l)$ that incorporates neutrino masses, mixing, and various matter interactions (e.g., non-standard interactions).",
+  "key_observables": "Flavor-transition probability $P_{\nu_\\alpha \to \nu_\beta}(l)$, and phase-averaged probabilities.",
+  "important_parameters": "The Hamiltonian $H(l)$ itself, the number of flavors, and the specific density profile along the path (e.g., Earth, Sun).",
+  "main_assumptions": "The method assumes the evolution is governed by a Hermitian Hamiltonian and does not handle non-unitary processes like decay or decoherence.",
+  "figures_summary": "Figure 1 compares the $\nu_e$ survival probability calculated using Magnus against a high-order Runge-Kutta solver across various flavor numbers and density profiles.",
+  "paper_structure": "The paper details the theory of neutrino oscillation, introduces the Magnus expansion for the evolution operator, describes the implementation in the open-source code, and provides extensive usage examples covering various astrophysical and terrestrial environments.",
+  "why_interesting": "The use of the Magnus expansion to solve differential equations governing quantum evolution is a powerful numerical technique applicable to any system where the Hamiltonian changes slowly or where high accuracy is required over long evolution times, making it relevant for open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.07159_figures/2610.07159_fig1.jpg",
+      "caption": "Figure 1: Accuracy of neutrino oscillation probabilities computed with Magνs at two to five flavors, against an independent solver. Survival probability Pνe→νe at two, three, four, and five flavors, along an exponentially falling density profile (central density 3 · 103 g cm−3, scale height 10 km, baseline 25 km). Top: the probability computed with Magνs [9] (solid) and with a DOP853 integration (eighth-order Runge-Kutta) of the same Hamiltonian. The profile is the same in every panel; the energy window differs, since an eV-scale ∆m2 41 and the standard mass splittings do not resonate at the same energy. Bottom: the largest deviation between the two over all entries of the probability...",
+      "page": 4
+    },
+    {
+      "image": "2610.07159_figures/2610.07159_fig2.jpg",
+      "caption": "Figure 2: Architecture of Magνs. The modules of Magνs and the path of a request through them. A Hamiltonian enters from the left, either supplied by the user as a function of position or built by hamiltonians for one of the implemented scenarios, with the density profile provided by matter, earth, or solarmodels. The request is handled in oscprob, which contains the choice of engine of Sec. 5.3 and the refinement ladder of Sec. 4.7. From there the computation proceeds along one of two routes: through magnus, which evaluates the expansion slab by slab and contains no physics, or through avgprob and adiabatic, which evaluate no slabs outside the non-adiabatic windows—the first for the phase...",
+      "page": 16
+    },
+    {
+      "image": "2610.07159_figures/2610.07159_fig3.jpg",
+      "caption": "Figure 3: The layers of oscprob. The four layers of oscprob, and the engines each one tries. A request enters at one of the named wrappers, which convert their named arguments into a parameter dictionary and pass it to the scenario function of the second layer. That function builds the Hamiltonian and tries the first five engines of Sec. 5.3, in order; if none applies, it passes the Hamiltonian to osc_prob_energy_baseline, which tries the cumulative scan over baselines and otherwise calls osc_prob once for every requested point. osc_prob is itself the seventh engine, the general Magnus ladder of Sec. 4.7. The wrappers are a product set: the fourteen environment-and-scenario names listed in...",
+      "page": 17
+    },
+    {
+      "image": "2610.07159_figures/2610.07159_fig4.jpg",
+      "caption": "Figure 4: The seven Magνs probability engines, in the order they are tried. A request that does not meet an engine’s conditions, summarized on the right, passes to the next, so the general Magnus ladder answers whatever no other engine takes. Each row sketches what its engine does along the trajectory; shading represents the matter density. Averaged probability: the averaged probability from one eigenbasis in closed form; across declared discontinuities, the probability averaged over an energy window; or, where H varies smoothly, the average transported along the instantaneous eigenstates with a Magnus patch across each non-adiabatic crossing. Adiabatic + Magnus: transport along the...",
+      "page": 18
+    },
+    {
+      "image": "2610.07159_figures/2610.07159_fig5.jpg",
+      "caption": "Figure 5: Batching against parallelization. Four ways Magνs computes a scan, drawn along one density profile. Each bar is the final slab grid of one refinement ladder, which traverses the profile once per level; its color marks the process that runs it. (a) One point at a time. (b) The energy-batched scan, with one grid shared by every energy. (c) The cumulative scan, at one energy, recording the probability at every requested baseline (L1 to L4) in one pass. (d) Parallelization with n_jobs = 3: the first point runs in the calling process and the rest are shared out among three workers. See Sec. 5.5 for details.",
+      "page": 21
+    }
+  ],
+  "figure": "2610.07159_figures/2610.07159_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

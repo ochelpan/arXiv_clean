@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.08612",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Classifications in modular restricted Boltzmann machines",
+  "authors": "Elena Agliari, Andrea Lepre, Edoardo Roscani",
+  "abstract": "We consider a modular associative neural network made of $L$ Hopfield models (HMs), coupled so that intra-module interactions are Hebbian and inter-module interactions are anti-Hebbian; this competitive coupling is known to endow the network with pattern-disentanglement capabilities. The integral representation of this system coincides with an assembly of $L$ restricted Boltzmann machines (RBMs) whose hidden layers are coupled, thereby extending the HM-RBM duality to the modular setting. We then train this modular RBM, via one-step contrastive divergence, to perform a classification task in which a query encoded on the visible layers is mapped onto an $L$-tuple of labels read off the hidden layers. When the query is composed of $L$ patterns that are mutually orthogonal on average, we prove that the RBM weights obtained as empirical means over the training dataset, as suggested by the HM-RBM equivalence, constitute a fixed point of the learning dynamics, and we derive an explicit, non-asymptotic bound on the residual drift. We then turn to a harder classification task in which each module is queried with a mixture of $L$ patterns and we show numerically that the same setting for the RBM weights still provides an effective set-up, letting the network jointly classify and disentangle the mixture.",
+  "url": "http://arxiv.org/abs/2610.08612v1",
+  "pdf": "https://arxiv.org/pdf/2610.08612v1",
+  "type": "theory",
+  "summary": "This paper analyzes a modular neural network built from coupled Hopfield Models, showing its mathematical equivalence to a modular Restricted Boltzmann Machine. It develops theoretical bounds to prove that this network can effectively learn to classify complex, mixed patterns by ensuring the learned weights remain stable attractors during training.",
+  "main_problem": "The paper investigates the learning dynamics of a modular associative neural network, composed of coupled Hopfield Models, when adapted for a complex classification task.",
+  "main_result": "It proves that under certain conditions, the RBM weights derived from the associative model form a fixed point of the learning dynamics, and it shows the setup remains effective for classifying mixtures of patterns.",
+  "method": "The analysis involves deriving the contrastive-divergence learning rule for the modular RBM and bounding the expected reconstruction error using techniques from statistical physics and information theory.",
+  "model_or_system": "The model is a modular associative network of L Hopfield Models, coupled competitively (Hebbian intra-module, anti-Hebbian inter-module). This system is shown to be equivalent to an assembly of L coupled Restricted Boltzmann Machines (RBMs).",
+  "key_observables": "Expected reconstruction error (E[Delta y]), RBM weights, and the residual drift of the learning dynamics.",
+  "important_parameters": "Number of modules (L), network size (N), coupling strength (lambda), and dataset corruption variable (r).",
+  "main_assumptions": "The analysis relies on the HM-RBM equivalence and uses approximations like $\bar{\\eta}_\\mu$ as a proxy for the true pattern $\\xi_\\mu$ when the dataset entropy is low.",
+  "figures_summary": "Figure 1 illustrates the modular model structure for L=3, showing the intra-module Hebbian and inter-module inhibitory connections.",
+  "paper_structure": "The paper first establishes the physical model and its equivalence to coupled RBMs. It then details the training setup for classification using contrastive divergence. Finally, it rigorously derives and bounds the expected reconstruction error to prove the stability and effectiveness of the learned weights.",
+  "why_interesting": "The connection between associative memory models (like HMs) and modern machine learning architectures (like RBMs) provides a theoretical framework for understanding how physical constraints (like energy minimization) govern learning in complex, coupled systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.08612_figures/2610.08612_fig1.jpg",
+      "caption": "Figure 1: Example of modular associative model with L = 3 modules and N = 6 neurons per module. In each module a = 1, ..., L, the neurons σa = (σa 1, . . . , σa N) ∈{−1, +1}N are fully-connected, with intra-module Hebbian interactions built on a set of K patterns {ξµ}µ=1,...,K (or on a sample of corrupted copies thereof). The L modules are coupled to one another through inter-module inhibitory connections of strength −λ, which penalise configurations in which different modules retrieve the same pattern, thereby promoting the simultaneous retrieval of L distinct patterns across the L modules.",
+      "page": 5
+    },
+    {
+      "image": "2610.08612_figures/2610.08612_fig2.jpg",
+      "caption": "Figure 2: Architecture of the modular RBM equivalent to the modular HM in Fig. 1. It exhibits L = 3 modules, K = 3 hidden neurons and N = 6 visible neurons per module. In fact, each module a ∈{1, 2, 3} consists of a visible layer σa = (σa 1, . . . , σa N) ∈{−1, +1}N and a hidden layer za = (za 1, . . . , za K) ∈RK. Black edges represent the intra-module weights wµ,a i , coupling the i-th visible neuron of module a to the µ-th hidden neuron of the same module. Dashed edges denote the inter-module couplings xab µ , connecting hidden neurons with the same class index µ across different modules.",
+      "page": 7
+    },
+    {
+      "image": "2610.08612_figures/2610.08612_fig3.jpg",
+      "caption": "Figure 3: Schematic representation of the two supervised datasets introduced in Sec. 2, drawn for K = 5 archetypes and L = 3 modules. The top row shows the archetypes ξ1, . . . , ξ5, here, for illustrative purposes, taken as five digits. A training item is a pair (ˆη, ˆz), where ˆη collects the L vectors presented to the L visible layers, while ˆz collects the L label codes (2.14). In Case 2a, simple classification, the L visible layers receive examples of L distinct archetypes, here ˆµ = (1, 3, 4), and each module has to classify the archetype it is shown. In Case 2b, hard classification, the L visible layers all receive the same vector, the mixture of L distinct examples, here ˆµ = (1, 2,...",
+      "page": 8
+    },
+    {
+      "image": "2610.08612_figures/2610.08612_fig4.jpg",
+      "caption": "Figure 4: Numerical verification of Theorem 1. Residual drift G of eq. (4.1), evaluated at the planted weights w = ¯η for a modular RBM with L = 3 modules, K = 20 archetypes and inter-module coupling λ = 0.2. The average over the generation of the dataset is estimated on 20 independent realisations, and the curves report the typical value of G over 4 independent samples of the quenched archetypes, the error bars being the spread over the latter. The thin solid lines are the right-hand side of (3.16) evaluated with its own constants, one per system size and in the corresponding colour. (a) Thermal channel, at r = 0.8, M = 105 and B = 25, so that both the dataset and the mini-batch channels...",
+      "page": 15
+    },
+    {
+      "image": "2610.08612_figures/2610.08612_fig5.jpg",
+      "caption": "Figure 5: Cosine similarity between the learned weights w(epoch) and the initialization based on the empirical mean of the examples ¯η, evaluated during training in a modular RBM. The network consists of L = 3 modules, each with N = 5000 neurons and inter-module coupling λ = 0.2, storing K = 20 archetypes from which M = 50 examples per archetype are drawn with an entropy of ρ = 0.01 (left) and ρ = 0.2 (right), batch size B = 25. Moreover the system evolves with inverse temperature β = 5. The training is performed using Algorithm 1 for 500 epochs and with learning rate 0.03. The green line tracks the self similarity of a network initialized on the mean of the examples wµ,a i = ¯ηµ i . The...",
+      "page": 16
+    }
+  ],
+  "figure": "2610.08612_figures/2610.08612_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

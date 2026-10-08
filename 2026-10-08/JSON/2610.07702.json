@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.07702",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Demonstration of Parallel Multi-QPU Execution for Fragment-Based Quantum Chemistry Using On-Premises Hardware",
+  "authors": "Nils Herrmann, Mariam Akhtar, Luke W. Bertels, Leigh Cameron, Raymond Chan, Lei Cheng, Daniel Claudino, Mark de Burgh, Simon Gemmell, Rugang Geng, Geoff Gillett, Travis Humble, Stephan Irle, John P. McMahon, Christian Ortiz, Florian Preis, Andreas Sawadsky, Bianca Sawyer, Reuben Singer, Sai Meghana Tunikipati, Cameron Walters, Lachlan Whichello, Adam Zegelin, Marcus W. Doherty",
+  "abstract": "Fragment molecular orbital (FMO) quantum chemistry offers a natural route to parallel quantum computing: large molecular calculations can be decomposed into smaller quantum subproblems that can, in principle, run concurrently. Their practical benefit on real quantum hardware, however, has remained unclear. We demonstrate parallel FMO calculations on three room-temperature diamond-based 'Quoll' quantum computers installed on-site at the Oak Ridge Leadership Computing Facility. Helium clusters (He$_{n}$, $n=2,4,8,10,14$) served as a testbed for total energy calculations using the Quantum Wave Function Sampler (QWFS), a selected configuration interaction (SCI) approach. We compare two execution modes: synchronous shot-parallel execution, in which quantum processors jointly sample QWFS circuits and combine their SPAM-corrected counts into a single probability distribution; and asynchronous fragment-parallel execution, in which processors independently evaluate FMO fragments using device-specific optimized circuits. Both modes increase quantum sampling throughput without systematic loss of accuracy. The three-QPU shot-parallel workflow reaches a parallel efficiency of $93.60\\%$, while the fragment-parallel workflow achieves a measured efficiency of $75.01\\%$, increasing to $95.17\\%$ when excluding the non-useful idle time associated with non-interruptible submitted jobs. In both cases, the assembled FMO-QWFS energies remain chemically accurate compared to the classical ideal. These results provide a proof-of-concept demonstration that parallel quantum execution can improve the practical throughput of quantum chemistry workflows on prototype hardware, motivating the development of future HPC environments with many fault-tolerant quantum processors operating as a distributed resource for molecular and materials simulation.",
+  "url": "http://arxiv.org/abs/2610.07702v1",
+  "pdf": "https://arxiv.org/pdf/2610.07702v1",
+  "type": "experiment",
+  "summary": "This work demonstrates a proof-of-concept for accelerating quantum chemistry calculations by running Fragment Molecular Orbital (FMO) methods in parallel across multiple physical quantum processors. By comparing synchronous and asynchronous execution modes on diamond-based QPUs, the authors achieved high parallel efficiencies while maintaining chemical accuracy. This validates the use of distributed quantum resources for molecular simulation workflows.",
+  "main_problem": "Demonstrating a practical method to leverage parallel quantum computation resources for large-scale molecular calculations in quantum chemistry.",
+  "main_result": "The authors achieved high parallel efficiencies (up to 93.60%) in executing fragment-based quantum chemistry workflows on multiple physical quantum processors, confirming the concept's feasibility.",
+  "method": "The study compares synchronous shot-parallel execution versus asynchronous fragment-parallel execution using the Quantum Wave Function Sampler (QWFS) approach within the Fragment Molecular Orbital (FMO) framework.",
+  "model_or_system": "The testbed utilized Helium clusters (He$_n$) for total energy calculations. The methodology relies on decomposing the large molecular problem into smaller, concurrently solvable fragments (FMO approach).",
+  "key_observables": "Quantum sampling throughput, parallel efficiency (e.g., 93.60% for shot-parallel), and the chemical accuracy of the calculated total energy.",
+  "important_parameters": "The number of quantum processors (three QPU), the size of the helium cluster ($n=2, 4, 8, 10, 14$), and the efficiency metrics.",
+  "main_assumptions": "The primary assumption is that decomposing the problem via FMO allows for a practical speedup on current hardware, and that the QWFS method accurately estimates the ground state energy.",
+  "figures_summary": "Not specified.",
+  "paper_structure": "The paper introduces FMO quantum chemistry as a natural parallelization route, details the QWFS method, and then experimentally compares two parallel execution modes (synchronous vs. asynchronous) on physical hardware using helium clusters.",
+  "why_interesting": "It provides a concrete, hardware-level demonstration of how quantum chemistry algorithms can be mapped onto distributed, multi-QPU architectures, which is highly relevant for scaling quantum simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.07702_figures/2610.07702_fig1.jpg",
+      "caption": "FIG. 1. Schematic overview of the QWFS workflow for an example problem size of four qubits.",
+      "page": 5
+    },
+    {
+      "image": "2610.07702_figures/2610.07702_fig2.jpg",
+      "caption": "FIG. 2. Parameterized QWFS ansatz circuits for monomers (cf. subfigure 2(a)) and dimers (cf. subfigure 2(b)) used in this work. The parameter labels Mi and Di,0, Di,1, Di,2 indicate device-specific optimized parameters, with i denoting the device index.",
+      "page": 6
+    },
+    {
+      "image": "2610.07702_figures/2610.07702_fig3.jpg",
+      "caption": "FIG. 3. Schematic overview of the FMO–QWFS workflow used in this work. Following quantum circuit measurements yielding SPAM-corrected probability distributions, single point energy calculations using the QWFS method are performed. A fragment calculation is accepted if its deviation from the classical ideal energy is below the tolerance ϵtol; otherwise, the fragment remains in the set of fragments to be recomputed in a subsequent round of quantum circuit sampling.",
+      "page": 8
+    },
+    {
+      "image": "2610.07702_figures/2610.07702_fig4.jpg",
+      "caption": "FIG. 4. Installed Quoll quantum-computing cluster and internal hardware layout. Left: the fully assembled rack housing Quoll-1, Quoll-2, and Quoll-3 in a vertical configuration. Right: rendered mechanical layout of an individual Quoll system, highlighting the optics and diamond interface mounted on vibration-isolation platforms, the control electronics and microwave source, and the CPU/GPU classical compute subsystem.",
+      "page": 8
+    },
+    {
+      "image": "2610.07702_figures/2610.07702_fig5.jpg",
+      "caption": "FIG. 5. Shot-parallel execution workflow and resulting performance. (a) Schematic of the synchronous shot-parallel pipeline. Monomer and dimer QWFS circuits are distributed across multiple Quoll processors, and the resulting SPAM-corrected counts are combined into a single probability distribution. (b) Absolute errors of the assembled FMO–QWFS energies for helium clusters from He to He14. The shaded region indicates chemical accuracy (1.4 · 10−3 a.u.). (c) Measured average shot rate compared to ideal parallel average shot rate.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.07702_figures/2610.07702_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

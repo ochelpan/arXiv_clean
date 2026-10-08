@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.07697",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "When Expressivity Is Not Enough: Discrete Routing Geometry in Variational Quantum Circuits",
+  "authors": "Yu Wang",
+  "abstract": "Finding useful variational quantum circuits requires more than representational capacity: training must also have access to directions that improve the objective. We study how discrete CNOT routing shapes both capacity and local accessibility. For circuits built from CNOT and arbitrary one-qubit gates, we separate binary routing matrices from continuous rotations to relate global capacity to local tangent accessibility. An exact finite-field formula for the operator Schmidt rank of a CNOT block and cumulative multiblock bounds yield capacity constraints and a Bell-pair fidelity obstruction. Locally, routing propagates generators into a routing-dependent tangent space, so all parameter gradients can vanish even when the ambient objective gradient is nonzero; frame bounds distinguish loss of gradient coverage from poor conditioning. A routing-conditioned identity insertion preserves the current unitary, state, loss, and existing gradients while adding new tangent directions. Candidate-only and incremental projection scores provide local criteria for ranking insertions. Exact-statevector tests show strong short-horizon score-descent correlations on controlled Bell tasks and effective equal-cost selection on connected Heisenberg chains up to twelve qubits, with complementary TFIM selector controls. A broader TFIM routing ensemble exhibits routing-dependent near-stagnation. Together, these results connect representational capacity, local accessibility, and same-point repair through a common discrete routing description. An architecture need not remain fixed during training: task-dependent geometric information can guide the opening of new descent directions while preserving the learned circuit at insertion. This provides a concrete local approach to a broader problem: how useful quantum circuits can be discovered from the information a task supplies.",
+  "url": "http://arxiv.org/abs/2610.07697v1",
+  "pdf": "https://arxiv.org/pdf/2610.07697v1",
+  "type": "theory",
+  "summary": "This work analyzes the geometric constraints on variational quantum circuits, showing that simply having enough parameters is insufficient for effective training. By focusing on the discrete routing structure of CNOT gates, the authors quantify how this geometry limits local optimization directions, proposing a method to actively guide the circuit's structure during training to ensure convergence.",
+  "main_problem": "The study investigates whether training variational quantum circuits requires more than just sufficient representational capacity; the training process must also have access to directions that improve the objective function.",
+  "main_result": "The paper establishes a concrete link between representational capacity, local accessibility, and the ability to repair training stagnation by analyzing the role of discrete CNOT routing geometry.",
+  "method": "The authors use mathematical tools like operator Schmidt rank, finite-field formulas, and tangent space analysis to characterize the geometry of the reachable unitary set defined by the circuit's routing structure.",
+  "model_or_system": "The model is a variational quantum circuit built from CNOT gates and arbitrary one-qubit gates, parameterized by a mixed encoding involving discrete routing matrices (from GL(n, F2)) and continuous rotations.",
+  "key_observables": "Operator Schmidt Rank (OSRS), local gradient coverage (tangent space projection $\\Pi_{T_A}$), and the ability to restore descent directions.",
+  "important_parameters": "The size of the system ($n$), the number of layers ($t$), and the specific structure of the CNOT routing matrix $A$.",
+  "main_assumptions": "The local results do not establish efficient global search, asymptotic barren-plateau suppression, or noisy-hardware advantage.",
+  "figures_summary": "Figure 1 illustrates the mechanism: tracing reachable sets, showing ambient descent directions orthogonal to the accessible space, and demonstrating how identity-initialized routing blocks can restore descent.",
+  "paper_structure": "The paper first analyzes the global constraints using OSRS and cut-rank formulas for single and multiple CNOT blocks. It then moves to local analysis, demonstrating gradient vanishing when the accessible tangent space is orthogonal to the objective gradient. Finally, it proposes and tests a 'same-point augmentation' technique to guide the opening of new descent directions.",
+  "why_interesting": "It provides a deep geometric understanding of the limitations of variational quantum algorithms, suggesting that structural modifications (routing) can be used to guide optimization away from local minima or plateaus.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.07697_figures/2610.07697_fig1.jpg",
+      "caption": "Figure 1: Routing, local accessibility, and same-point repair. (a) Varying the angles at fixed routing A traces a reachable set MA within the ambient unitary space. The target U⋆belongs to MA⋆; multiblock reachable sets may overlap. (b) At the current U, the ambient descent direction −G(U) can be orthogonal to the accessible space T (A) U , so parameter gradients vanish despite G(U) ̸= 0. (c) An identity-initialized routing block preserves U, its output state, loss, and ambient gradient while adding directions DB. For a suitable B, the enlarged space T new U = T (A) U + DB exposes a nonzero descent projection. Surfaces and shaded spans are schematic; surface height does not encode loss.",
+      "page": 3
+    },
+    {
+      "image": "2610.07697_figures/2610.07697_fig2.jpg",
+      "caption": "Figure 2: Depth limits cross-cut capacity through connectivity. Blue and orange regions specify a fixed qubit bipartition. Red links show CNOT gates, with a filled control and an open target marked by a plus. (a) On a nearest-neighbor chain, only one hardware edge crosses a consecutive-site cut. At most one CNOT can use it in each parallel layer, so depth d permits at most d cross-cut gates. From a pure product input, the output Schmidt rank is at most 2d and the entanglement entropy at most d bits. These are upper bounds, not guarantees of saturation. Gray links denote other available chain edges. (b) With all-to-all connectivity, m CNOTs on disjoint pairs can cross the same cut...",
+      "page": 10
+    },
+    {
+      "image": "2610.07697_figures/2610.07697_fig3.jpg",
+      "caption": "Figure 3: Bell-pair obstruction and constrained stationarity. Exact statevector evaluation of capacity-saturating constructions for m = 2, 3, 4, 5, with one construction per (m, k) point. (a) When plotted against the channel deficit r = m −k, all constructions attain the tight capacity floor L⋆= 1 −2−r; markers are offset slightly in the horizontal direction to display coincident values for different m. (b) At the corresponding constrained optima, the ambient state-gradient norm remains nonzero while the visible norm ∥ΠT stGst∥is at the numerical floor. Both norms use the pure-state horizontal metric; values below 10−16 are displayed at 10−16. There are no statistical error bars because the...",
+      "page": 16
+    },
+    {
+      "image": "2610.07697_figures/2610.07697_fig4.jpg",
+      "caption": "Figure 4: Same-point augmentation restores access and geometric scores predict early descent. The controlled test compares 15 instances and 12 nonidentity candidates per instance, each adding 3n parameters and eight CNOTs. (a) Instantaneous accessible-gradient recovery at the same physical point for one instance. All insertions start from the same state, loss, and ambient gradient; values below 10−13 are shown at this display floor. (b) Descent after same-point intervention, with infidelity 1 −|⟨ψtarget|ψ⟩|2 (lower is better). For this representative instance (seed 20264923), candidate-only, incremental, and retrospective oracle selection choose the same candidate, so their trajectories...",
+      "page": 26
+    },
+    {
+      "image": "2610.07697_figures/2610.07697_fig5.jpg",
+      "caption": "Figure 5: Geometric selection improves the use of equal-cost augmentation on a connected Heisenberg ansatz. (a) Representative same-point continuation (n = 8, seed 20268804). (b) Fifty-step gains for five seeds at each n = 8, 10, 12, with 12 equal-cost candidates per checkpoint; bars show means and points show instances. The random selector uses one fixed draw per instance. (c) Within-instance score correlations with realized 50-step gain. (d) Candidate-only and incremental scores can rank the same pool differently, selecting different candidates in 4/15 instances. The oracle is the retrospective best candidate.",
+      "page": 28
+    }
+  ],
+  "figure": "2610.07697_figures/2610.07697_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

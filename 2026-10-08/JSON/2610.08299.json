@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2610.08299",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Pauli Decomposition by Character Theory: A Memory-Bounded Algorithm for Qubits and Qudits",
+  "authors": "Mohammadreza Khellat, Mohammad Masoumi, Saman Nasoori, Soroush Nasoori",
+  "abstract": "Pauli decomposition underpins Trotterization, phase estimation, sparse-Hamiltonian simulation, and variational observables, at exponential naive cost. From the character theory of $(\\mathbb{Z}_2)^n$, characters $χ_z(v)=(-1)^{\\langle v,z\\rangle}$ are the diagonal Pauli strings, so any diagonal operator is already Pauli-decomposed. A general operator still needs the shifts: each $X^{\\otimes x}$ couples to a character $χ_z=Z^{\\otimes z}$, and the products $X^{\\otimes x}Z^{\\otimes z}$ -- up to phases in $\\{\\pm 1,\\pm i\\}$ -- form the Pauli group, the central extension of $(\\mathbb{Z}_2)^n\\times(\\mathbb{Z}_2)^n$ by that phase group fixed by the symplectic pairing. A section of that extension remains a choice: the bare products $X^{\\otimes x}Z^{\\otimes z}$, or the genuine operators that insert $Y=iXZ$ at every qubit where $x$ and $z$ overlap. As Fourier analysis on an abelian shift-character lattice (a natural DFT), this formulation is not qubit-bound: $(\\mathbb{Z}_p)^n$ recovers Heisenberg-Weyl qudits. The fast algorithm is the FFT for the group at hand; on $(\\mathbb{Z}_2)^n$ that FFT is Walsh-Hadamard, at cost $O(n\\cdot 4^n)$. paulikit is a memory-bounded realization of that qubit transform: peak usage need not materialize the dense $2^n\\times 2^n$ operator, unlike prior codes whose $O(1)$ extra sits on that buffer, checked beyond a billion oscillator terms against Work-Span and bandwidth ceilings.",
+  "url": "http://arxiv.org/abs/2610.08299v1",
+  "pdf": "https://arxiv.org/pdf/2610.08299v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, memory-efficient algorithm for performing Pauli decomposition on quantum operators acting on qubits and qudits. By leveraging character theory and the Fast Walsh-Hadamard Transform, the authors achieve a fast computational scaling while crucially avoiding the memory bottleneck associated with storing the full exponential operator matrix. This advancement is vital for implementing large-scale quantum simulations and algorithms.",
+  "main_problem": "The paper addresses the challenge of efficiently decomposing a general quantum operator into the Pauli string basis, which is crucial for many quantum algorithms.",
+  "main_result": "They developed a fast, memory-bounded algorithm using character theory (or DFT for qudits) to compute the Pauli coefficients, achieving a complexity of O(n 4^n) while avoiding the materialization of the full exponential-sized operator matrix.",
+  "method": "The core method involves applying Fourier analysis (specifically the Walsh-Hadamard transform for qubits) on an abelian shift-character lattice derived from the Pauli group structure.",
+  "model_or_system": "The theory applies to quantum computation involving n qubits (generalizable to qudits) and focuses on decomposing an arbitrary operator T acting on this system.",
+  "key_observables": "The Pauli coefficients $d_{x,z}$ that define the decomposition $T = \\sum d_{x,z} P(x, z)$.",
+  "important_parameters": "The number of qubits/qudits ($n$), the dimension ($p$), and the computational complexity ($O(n 4^n)$).",
+  "main_assumptions": "The method assumes the structure of the Pauli group as a central extension and relies on the mathematical framework of character theory and DFT.",
+  "figures_summary": "Figure 4 illustrates the performance benchmarking, showing active worker-thread count over time for different numbers of workers, comparing achieved speedup against theoretical limits.",
+  "paper_structure": "The paper establishes the scientific problem (Pauli decomposition), develops the mathematical framework using character theory and DFT, presents the efficient algorithm for both qubits and qudits, and concludes with performance benchmarking and generalization discussions.",
+  "why_interesting": "This work provides a highly efficient, mathematically rigorous tool for analyzing quantum circuits and Hamiltonians, which is fundamental for simulating complex quantum dynamics in quantum information and computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.08299_figures/2610.08299_fig1.jpg",
+      "caption": "Figure 1: Chunking as partition-and-stream: the active-row index set X is split into disjoint chunks X1, . . . , XC (Lemma 2), each processed independently into raw (x, z, coefficient) arrays, with no re- combination step — the union across chunks is exactly the unchunked decomposition. Schematic: three representative chunks are drawn, not the true chunk count C for any specific problem size.",
+      "page": 15
+    },
+    {
+      "image": "2610.08299_figures/2610.08299_fig2.jpg",
+      "caption": "Figure 2: Dependency structure underlying the Work–Span analysis: per-chunk worker nodes (tier V) are mutually independent (Lemma 2) and run concurrently, but every chunk’s result passes through a single, totally-ordered consumer (tier P) in one process, regardless of which drain mechanism (§6.3) feeds it. That consumer is minimal for parallel decompose arrays itself; the label- and dict-building cost belongs to a separate, optional caller one layer up that this manuscript’s own array-yielding results skip. This asymmetry — many independent V-tier nodes converging on one serial P-tier consumer — is what §6.1 bounds.",
+      "page": 17
+    },
+    {
+      "image": "2610.08299_figures/2610.08299_fig3.jpg",
+      "caption": "Figure 3: Surviving term count, whole-process peak resident memory, and paulikit’s own decomposition memory, all normalized to their value at the sweep’s first point and plotted on a shared log scale, so the gap between term-count growth and either memory curve’s growth is directly visible. Left: sparse oscillator family, N = 50, . . . , 300, chunk size fixed at 2 — terms grow 1165×, peak RSS 1.54×, paulikit’s own decomposition memory 3.49×. Right: dense random Hermitian input with assume dense=True, nqubits = 8, . . . , 13 — terms grow 1024×, peak RSS 61.5× (entirely the cost of holding the input matrix itself), while paulikit’s own decomposition memory grows only 29.2× off a sub-megabyte...",
+      "page": 24
+    },
+    {
+      "image": "2610.08299_figures/2610.08299_fig4.jpg",
+      "caption": "Figure 4: Active worker-thread count over the course of a full decomposition, sampled at 100 Hz via kernel-level uprobes on the two compiled kernels’ own entry and exit points — a thread counts as active only while genuinely executing inside one of them, not by scheduler state or CPU occupancy, which would not distinguish real work from a migrated-but-idle thread. Top: nworkers = 4, this platform’s physical core count. Bottom: nworkers = 8, its logical/hyperthread count. The dashed line marks nworkers; the shaded band is the gap between active threads and that line at each sampled instant. Captured on Python 3.14: the deposit’s own methodology (§8) has separately measured, on this platform,...",
+      "page": 25
+    }
+  ],
+  "figure": "2610.08299_figures/2610.08299_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

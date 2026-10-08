@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.07423",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.AI",
+    "cond-mat.mes-hall",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "2d-fet-bench: from spatial reasoning to fet design on flakes",
+  "authors": "Dunzhi Zhou, Chengyu Zhu, Gang Qiu, Caiwen Ding",
+  "abstract": "Field-effect transistor (FET) layouts on exfoliated two-dimensional flakes are typically drawn by hand for each flake, placing contacts and gates to match its position and outline in optical micrographs. To our knowledge, no executable benchmark tests whether language-model agents can perform this flake-specific construction reliably. We introduce 2D-FET-Bench V2, a benchmark of 128 layout tasks built from microscopy-derived flake contours, including hole-containing flakes and multi-flake tasks. Each task supplies a textual device specification and contour coordinates. An agent generates typed polygon and path operations rendered to GDSII. A deterministic verifier checks geometric and structural requirements, and a separate integrity check verifies that the supplied contours remain unchanged. Scripted reference layouts pass all 128 tasks, showing that every task is solvable. We evaluate six models and seven workflow and scaffold variants of GPT5.6-Luna, with five attempts per task. The best-performing configuration in the six-model panel, GPT5.6-Luna with ReAct-3, passes 62.3% of attempts and solves 80.5% of tasks at least once (coverage) and 43.8% in all five attempts (consistency). ReAct-3 exceeds the one-pass Plan-and-Execute by 27.0 pass@1 points at 2.46 times the tokens. An expert audit of one sampled verifier-passing layout per covered task, across five ReAct-3 configurations, accepts 56.4% to 63.5% of them. The benchmark evaluates geometric and structural FET layout construction.",
+  "url": "http://arxiv.org/abs/2610.07423v1",
+  "pdf": "https://arxiv.org/pdf/2610.07423v1",
+  "type": "theory",
+  "summary": "This paper presents 2D-FET-Bench V2, a novel benchmark designed to test if large language model agents can automatically design functional Field-Effect Transistors on irregularly shaped 2D material flakes. By requiring agents to translate textual specifications into precise geometric layout files, the work pushes the frontier of AI-driven microelectronic design automation.",
+  "main_problem": "The paper introduces an executable benchmark to test the ability of language-model agents to reliably perform complex, flake-specific Field-Effect Transistor (FET) layout construction on 2D materials.",
+  "main_result": "The best-performing agent configuration (GPT5.6-Luna with ReAct-3) achieved 80.5% task coverage, demonstrating that AI can tackle the geometric and structural challenges of device design.",
+  "method": "The authors developed 2D-FET-Bench V2, a benchmark of 128 tasks requiring agents to translate textual device specifications into precise GDSII polygon and path operations.",
+  "model_or_system": "The physical system involves designing FETs on exfoliated 2D flakes (like graphene or MoSe2), where the contacts and gates must conform precisely to the irregular, microscopy-derived contours of the substrate.",
+  "key_observables": "Task success rate (pass@k), task coverage, consistency across multiple attempts, and adherence to geometric/structural design rules (DRC).",
+  "important_parameters": "The benchmark tasks vary in complexity, involving between 1 and 10 flakes and 1 to 24 required transistors.",
+  "main_assumptions": "The benchmark tests spatial reasoning from specification to geometry, independent of direct optical image perception, and success requires passing multiple deterministic checks (DRC, structural integrity, input preservation).",
+  "figures_summary": "Figures illustrate the benchmark construction process, showing input flake contours, the agent's construction loop, and examples of verified reference layouts.",
+  "paper_structure": "The paper introduces the problem, details the 2D-FET-Bench V2 dataset (128 tasks), describes the agent workflow (textual spec -> polygon ops -> GDSII), and presents quantitative results comparing various LLM configurations.",
+  "why_interesting": "While not directly about quantum physics, the rigorous testing of AI agents on complex, constrained geometric design tasks (like semiconductor layout) represents a significant advancement in applying AI to materials science engineering problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.07423_figures/2610.07423_fig1.jpg",
+      "caption": "Figure 1: Benchmark construction and task interface, illustrated with task L3/case_8. (a) The contour pool grouped by shape tier, with hole probes selected separately. (b) An illustrative multi-flake placement that differs from the placement of this task. (c) The ReAct-3 construction loop, with the condensed request shown to the agent as its input. (d) The stored reference layout for this task, produced by reference code. Contours derive from MaskTerial dataset masks [Uslu et al., 2025a], scales are nominal, and material labels assign the n- and p-type device roles in each layout.",
+      "page": 3
+    },
+    {
+      "image": "2610.07423_figures/2610.07423_fig2.jpg",
+      "caption": "Figure 2: Distributions over the 128 tasks (a: flakes, b: transistors, c: layers, d: rules, h: task-text tokens) and their 370 flakes (e: area, f: solidity, g: vertices). Each panel gives n and the median. Flake areas use the nominal 0.293 µm/pixel scale.",
+      "page": 5
+    },
+    {
+      "image": "2610.07423_figures/2610.07423_fig3.jpg",
+      "caption": "Figure 3: Task-level consistency (ReAct-3/C0). Each bar splits the 128 tasks by successes in five attempts. Pass@5 is the share outside 0/5, all-five is the 5/5 share, and pass@1 is the mean of ct/5.",
+      "page": 7
+    },
+    {
+      "image": "2610.07423_figures/2610.07423_fig4.jpg",
+      "caption": "Figure 4: Task-property associations with success under ReAct-3/C0. Points show Spearman’s rank correlation (ρ) between each task property and the number of successful attempts out of five for GPT5.6-Luna, GLM-5, and Kimi K2.5. Bars show 95% bootstrap intervals over 128 tasks (127 for required transistors). Negative values mean higher property values coincide with lower success.",
+      "page": 7
+    },
+    {
+      "image": "2610.07423_figures/2610.07423_fig5.jpg",
+      "caption": "Figure 5: Pass@1 by (a) required transistors per task and (b) editable design layers for the six ReAct-3/C0 configurations, with 95% task-bootstrap intervals. Each bin label gives its task count.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.07423_figures/2610.07423_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
