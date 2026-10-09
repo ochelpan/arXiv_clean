@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.10339",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Binary Optimization of Measurement Groupings for Quantum Energy Estimation",
+  "authors": "Isaac L. Huidobro-Meezs, Rodrigo A. Vargas-Hernández",
+  "abstract": "Repeated measurements can dominate the resources required for quantum energy estimation, making the choice of which Pauli observables to measure together a central optimization problem for variational quantum algorithms. We formulate fully commuting measurement grouping as a classical binary optimization problem based on clique selection and construct non-overlapping groups using mixed-integer linear programming (MILP). For a benchmark of molecular Hamiltonians, groupings optimized with approximate covariances reduce the non-overlapping measurement requirement $\\varepsilon^2M$ by $51.8\\%$ on average relative to sorted insertion (SI). Using the MILP groups to initialize iterative coefficient splitting (ICS), denoted MILP-ICS, yields an average $24.3\\%$ reduction relative to ICS initialized from SI (SI-ICS). The optimized groups also transfer across nearby molecular geometries while preserving substantial measurement savings. We further introduce O-clique, which directly optimizes overlapping commuting supports through candidate-clique selection and coefficient profiles. Although O-clique provides only modest additional reductions beyond MILP-ICS, it reduces the measurement requirement by $27.3\\%$ on average relative to SI-ICS with 100 iterations, despite using only five final coefficient refinement iterations, indicating improved support quality. Finally, we extend the comparison to Fermi--Hubbard, Kitaev--Heisenberg--$Γ$, and XYZ lattice Hamiltonians, where MILP-based groupings substantially outperform the corresponding SI-based strategies. Together, these results show that variance-informed optimization of measurement-group structure can substantially reduce sampling costs across molecular and lattice Hamiltonians, with optimized non-overlapping groups providing strong, transferable initializations and direct overlapping optimization offering further gains.",
+  "url": "http://arxiv.org/abs/2610.10339v1",
+  "pdf": "https://arxiv.org/pdf/2610.10339v1",
+  "type": "theory",
+  "summary": "This paper tackles the resource bottleneck in quantum energy estimation by optimizing how Pauli observables are grouped for measurement. It formulates this as a binary optimization problem, using MILP for non-overlapping groups and introducing an 'O-clique' method for overlapping supports. The results demonstrate significant, transferable reductions in required measurement repetitions across various quantum Hamiltonians.",
+  "main_problem": "The core problem is minimizing the required number of repeated measurements for accurate quantum energy estimation, as this resource requirement can dominate computational costs.",
+  "main_result": "Variance-informed optimization techniques, particularly using Mixed-Integer Linear Programming (MILP) for non-overlapping groups, substantially reduce the measurement requirement compared to standard methods.",
+  "method": "The authors formulate the measurement grouping problem as a classical binary optimization problem, utilizing MILP for non-overlapping sets and introducing 'O-clique' for optimizing overlapping supports.",
+  "model_or_system": "The methods are benchmarked on molecular and lattice Hamiltonians, including Fermi-Hubbard, Kitaev-Heisenberg-$\\Gamma$, and XYZ lattice Hamiltonians, which are represented by Pauli observables.",
+  "key_observables": "The primary metric is $\\epsilon_{2M}(G)$, the required measurement repetitions, derived from minimizing the variance $S(G)$ associated with the Pauli observables.",
+  "important_parameters": "The optimization depends on node features ($v_i$, variance) and edge features ($w_{ij}$, covariance) derived from the Pauli terms.",
+  "main_assumptions": "The MILP formulation is used to linearize the selection process, and the comparison separates gains from measurement-support selection versus coefficient refinement.",
+  "figures_summary": "Figure 1 illustrates the pipeline, detailing the MILP approach for non-overlapping grouping and the O-Clique method for overlapping grouping, showing how weights are adjusted.",
+  "paper_structure": "The paper develops the theoretical framework by defining the measurement cost function, proposing MILP for non-overlapping groups, extending to O-clique for overlapping groups, and finally benchmarking these optimized groupings across various lattice and molecular Hamiltonians.",
+  "why_interesting": "This work directly addresses resource optimization in variational quantum algorithms, providing concrete, mathematically rigorous methods (MILP) to reduce the required sampling overhead for estimating ground state energies in quantum chemistry and condensed matter simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10339_figures/2610.10339_fig1.jpg",
+      "caption": "FIG. 1. Pipeline for the main algorithms proposed here. Given a Hamiltonian and its commutativity graph, we produce a set of candidate cliques C including singletons. For each clique, we calculate its contribution to the measurement cost dC using an approximate covariance dictionary. The MILP variant uses the node and edge weight definitions from Eq. 12 and produces a non-overlapping grouping. This non-overlapping result can be employed with ICS to produce an overlapping grouping. The O-Clique variant replaces the node and edge weights with their overlapping definition in Eq. 18 and employs a heuristic to initialize the weights assigned to each group, producing an overlapping measurement...",
+      "page": 4
+    },
+    {
+      "image": "2610.10339_figures/2610.10339_fig2.jpg",
+      "caption": "FIG. 2. Reuse of MILP-optimized groupings at different ge- ometries. We optimize the MILP grouping at a specific geom- etry (dashed vertical line) and use that grouping as the mea- surement scheme for other geometries. Approximate CISD co- variance dictionaries used during optimization; results reeval- uated for the exact ground state. Geometries with unseen Pauli operators are encircled; for those operators, we use VarSI-OR [31] to assign groups. MILP-R corresponds to the refined variant described in the text.",
+      "page": 8
+    },
+    {
+      "image": "2610.10339_figures/2610.10339_fig3.jpg",
+      "caption": "FIG. 3. Measurement cost for different lattice Hamiltonians. Comparison of the ε2M values for the measurement groupings found with SI, SI-ICS, MILP, and MILP-ICS. SI-ICS and MILP-ICS use the non-overlapping SI and MILP groups as initial- ization. We consider a Kitaev honeycomb with anisotropies, a Fermi-Hubbard model, and an XYZ model. Details on the Hamiltonians are available in Appendix E.",
+      "page": 10
+    },
+    {
+      "image": "2610.10339_figures/2610.10339_fig4.jpg",
+      "caption": "Fig. 3 shows the ε2M counts for the K–H–Γ, FH, and XYZ models considered for the SI, SI-ICS, MILP, and MILP-ICS methods. In all cases, the MILP and MILP-ICS solutions substantially outperform their corresponding SI and SI-ICS baselines. In particular, the MILP solution can even beat SI-ICS for the FH and XYZ models; for XYZ, the resulting grouping is particularly simple: grouping all X-terms in one group, all Y-terms in another, and all Z-terms in the last. We find improvement ratios for MILP-ICS against SI of R =1.84, 1.67, 1.90 for the K–H–Γ, FH, and XYZ models, respectively. The nominal measurement gains to reach 1mEh accuracy for MILP-ICS versus SI-ICS are 32.72, 50.49, and 41.22 ×106...",
+      "page": 10
+    },
+    {
+      "image": "2610.10339_figures/2610.10339_fig5.jpg",
+      "caption": "FIG. 4. Distributions of the variances and covariances for the K–H–Γ, FH, and XYZ model lattice Hamiltonians and H2O molecule qubit Hamiltonians. Each density is independently scaled to a maximum of unity. Smoothed distributions were obtained using kernel density estimation with a Gaussian ker- nel and a smoothing factor of 0.8 for the covariances and of 0.2 for the variances.",
+      "page": 11
+    }
+  ],
+  "figure": "2610.10339_figures/2610.10339_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

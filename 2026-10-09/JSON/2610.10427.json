@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2610.10427",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "Design-Time Conformance Checking for Pulse-Level Quantum Control",
+  "authors": "Rylan Malarchick",
+  "abstract": "A pulse-level quantum control program is written against a device whose limits are recorded, if at all, in vendor documentation and source code. A program that exceeds them can be refused at compile time. It can also be accepted and silently altered, or compile and then fail at the board. In the last two cases the experiment runs, and the data does not correspond to the program that was written. We present qconform, a checker that decides whether a pulse program is realizable on a device, given a versioned capability descriptor for that device. Every constraint in a descriptor cites the toolchain observation that established it. The checker is design-time, offline, and deterministic, and it uses no floating point. It reports a verdict, the rules it applied, and a coverage manifest that names what it did not check. We evaluate qconform by differential testing against the QICK and Qblox toolchains, on three QICK board configurations and one Qblox cluster. Over 1263 program runs of 969 distinct programs, the checker accepted no program that a toolchain refuses. On both vendors, a descriptor pinned to one toolchain release accepts programs that older releases refuse. The evaluation also found ten defects in the checker and its descriptors, all fixed.",
+  "url": "http://arxiv.org/abs/2610.10427v1",
+  "pdf": "https://arxiv.org/pdf/2610.10427v1",
+  "type": "experiment",
+  "summary": "This paper introduces qconform, a formal checker designed to verify if a quantum pulse control program is physically realizable on a quantum device. It achieves this by comparing the program against a versioned capability descriptor, using exact arithmetic to avoid floating-point errors. The evaluation demonstrates that the checker successfully catches discrepancies between different versions of vendor toolchains.",
+  "main_problem": "The core problem is ensuring that a pulse-level quantum control program is physically realizable on a target quantum device, as vendor documentation often fails to capture all operational constraints.",
+  "main_result": "The proposed checker, qconform, successfully accepted no program that the vendor toolchains refused during extensive differential testing, identifying discrepancies between toolchain versions.",
+  "method": "The authors developed qconform, a design-time, offline checker that verifies a pulse program against a versioned capability descriptor using exact rational arithmetic.",
+  "model_or_system": "The work focuses on pulse-level quantum control for superconducting qubits, using vendor toolchains like QICK and Qblox to define the operational constraints of the physical hardware.",
+  "key_observables": "The checker reports a verdict, the specific rules applied, and a coverage manifest detailing what was not checked.",
+  "important_parameters": "Device constraints include minimum pulse length, timing grid, frequency band, and amplitude resolution, all defined using exact rational numbers.",
+  "main_assumptions": "The checker does not decide the converse (it might reject a program the toolchain accepts), nor does it cover run-time behavior or data-dependent control flow.",
+  "figures_summary": "The notes mention a differential loop diagram illustrating the flow from program generation to vendor toolchain testing, and tables summarizing differential results and defects found.",
+  "paper_structure": "The paper introduces the problem of hardware constraint verification, details the qconform checker and its descriptor format, presents the methodology using differential testing against QICK and Qblox, and concludes with evaluation results and identified limitations.",
+  "why_interesting": "This work provides a rigorous, formal verification layer for quantum control sequences, which is crucial for moving quantum algorithms from simulation to reliable hardware implementation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10427_figures/2610.10427_fig1.jpg",
+      "caption": "Fig. 1. The differential loop. The generator derives programs from the descriptor, the checker and the vendor toolchain each answer, and triage dispositions every row. A value the lowering cannot carry exactly is attributed to the harness, not counted as agreement or disagreement.",
+      "page": 3
+    }
+  ],
+  "figure": "2610.10427_figures/2610.10427_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.10298",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "physics.chem-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Physics-Aligned Electronic Ground-State Learning Improves Generalization",
+  "authors": "Eike S. Eberhard, Xaver Kainz, Viktor Kotsev, Abdulrahman Aldossary, Stephan Günnemann",
+  "abstract": "Machine-learned interatomic potentials (MLIPs) excel at in-distribution tasks, accelerating drug and material development, yet they struggle to generalize out-of-distribution. We propose to push the cost-accuracy Pareto frontier by designing observable-agnostic electronic ground-state descriptor models (GSMs) with computational costs situated between MLIPs and Kohn-Sham density functional theory (KS-DFT). We align the learning objectives and architectures of GSMs with the governing equations of KS-DFT by enforcing physical constraints and removing optimization pressure on unphysical or irrelevant degrees of freedom. In our size-extrapolation experiments from QM9 to QM40, our combined contributions OrthoNormal-Loss (ON-Loss) and Grassmann Restricted Occupied-Orbital Training (GROOT) reach a 79.1% energy and 83.4% force mean absolute error (MAE) reduction over previous state-of-the-art density GSMs. For Hamiltonian GSMs, ON-Loss and Residual Optimal-gauge Conditioning-aware KS-Eq. Training (ROCKET) together reduce the energy and force MAEs of the strongest baseline by 99.8% and 95.9%, respectively. Using a self-consistency rejection criterion, we filter out extrapolation errors on QMugs, rejecting fewer than 0.4% of predictions while reaching an energy MAE of 0.07 mHa. Finally, we demonstrate the efficiency of label-free self-consistency fine-tuning, and transfer GSMs to reactive chemistry in Transition1x, reaching energy errors below chemical accuracy.",
+  "url": "http://arxiv.org/abs/2610.10298v1",
+  "pdf": "https://arxiv.org/pdf/2610.10298v1",
+  "type": "theory",
+  "summary": "This paper introduces advanced machine-learned descriptor models designed to predict electronic ground states by embedding the physical constraints of Kohn-Sham DFT directly into the loss functions. By enforcing mathematical rules like orthonormality and manifold membership, the models achieve superior generalization and accuracy, significantly outperforming prior state-of-the-art methods in predicting molecular properties.",
+  "main_problem": "The primary challenge is accelerating the accurate prediction of electronic ground states for molecules and materials while ensuring the predictions remain physically valid and generalize well beyond the training data.",
+  "main_result": "The proposed descriptor models, incorporating physical constraints like orthonormal loss (ON-Loss) and manifold projection (GROOT/ROCKET), significantly reduce energy and force errors (up to 99.8% reduction) compared to previous state-of-the-art methods.",
+  "method": "The authors develop and apply specialized machine learning architectures (GSMs) that are explicitly aligned with the governing equations of Kohn-Sham DFT by enforcing physical constraints during training.",
+  "model_or_system": "The system is the electronic ground state of molecules/materials, governed by the Kohn-Sham DFT equations. The ML models predict descriptors (like the density matrix or Hamiltonian) that must satisfy physical constraints, such as belonging to the Grassmann manifold.",
+  "key_observables": "Energy (E) and Force (F) Mean Absolute Error (MAE); convergence speed (ERIC); and the ability to maintain accuracy below chemical accuracy ($\\sim 0.8$ mHa).",
+  "important_parameters": "The comparison involves size extrapolation (QM9 to QM40) and testing on out-of-distribution molecules (QMugs).",
+  "main_assumptions": "The core assumption is that by enforcing physical constraints derived from the underlying quantum mechanics (e.g., idempotency, orthonormality), ML models can overcome the limitations of standard supervised learning on electronic structure data.",
+  "figures_summary": "The notes indicate comparisons across multiple tables showing MAE reductions for various models (Pbase, GROOTrot, ROCKET) across different generalization tests (size extrapolation, self-consistency fine-tuning).",
+  "paper_structure": "The paper systematically introduces the limitations of current ML potentials, proposes physically constrained descriptor models (GSMs) using novel loss functions (ON-Loss, GROOT, ROCKET), and validates these methods through rigorous testing on size extrapolation and self-consistency refinement.",
+  "why_interesting": "This work directly addresses the integration of deep learning into quantum chemistry, providing mathematically rigorous methods to ensure that ML predictions respect fundamental physical laws, which is crucial for reliable simulations in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10298_figures/2610.10298_fig1.jpg",
+      "caption": "Figure 1: GSM size extrapolation from QM9 to molecules up to 4× larger QM40 molecules. The GROOT models generalize robustly, reaching errors below half chemical accuracy (∼0.8 mHa) on 98% of the tested molecules. All observables are computed at a budget of exactly one Fock build averaged over 3 training seeds each. The GROOT variants are the best performing models for almost all observables except for the Kohn–Sham (self-consistency) energy where ROCKET is best. NequIP and MACE trained on forces still outperform even the best GSMs on forces, but physically aligned GSMs achieve an order of magnitude better energies compared to all trained MLIPs.",
+      "page": 1
+    },
+    {
+      "image": "2610.10298_figures/2610.10298_fig2.jpg",
+      "caption": "Figure 2: ON-Loss is \"observable-isotropic\" and improves size extrapolation. (a,b,c,d) Values log-binned by p",
+      "page": 7
+    },
+    {
+      "image": "2610.10298_figures/2610.10298_fig3.jpg",
+      "caption": "Figure 3: GROOT and ROCKET show robust extrapolation, and can be equipped with GSMs-specific error indicators (Tab.28). GSMs and MLIPs trained on QMugs molecules with at most 150 electrons and evaluated on systems with up to 660 electrons. The table shows the fraction of molecules rejected by the self-consistency criterion and the observable errors of the remaining molecules, with the MAE including the rejected predictions in brackets below. Compared to linear scaling MLIPs like PaiNN (Schütt et al., 2021), NequIP (Batzner et al., 2022), and MACE (Batatia et al., 2022) trained on energies only (meaning at equal reference compute budget), GROOTproj achieves an order of magnitude better...",
+      "page": 8
+    },
+    {
+      "image": "2610.10298_figures/2610.10298_fig4.jpg",
+      "caption": "Figure 4: Beyond size extrapolation: generalization across conformations and label-free adaptation to new chemistry. QMugs-trained models generalize to the β = 120◦cut of the 3BPA backbone-dihedral energy surface (left panel, Tab.29): the ground truth (α, γ) energy-surface, and the energy deviations of GSMs, with median (MAE-optimal) constant offset removed per model. Label-free self-consistency training (SCT) on Transition1x. The upper-right panel shows the validation loss against the self-consistency residual over 0, 2, 4, and 6 epochs of cosine-annealed SCT, suggesting that shorter training budgets might be feasible. The observable MAEs are resolved along the reaction coordinate ξ, with...",
+      "page": 9
+    },
+    {
+      "image": "2610.10298_figures/2610.10298_fig5.jpg",
+      "caption": "Figure 5: Many coefficient matrices, one density. (a) The smallest case, B = 3 and O = 2: the occupied orbitals c1, c2 span a plane which determines the density. Rotating the arrows within the plane by UOO changes the orbitals, but not the plane. (b) For arbitrary O, B ∈N with O < B. The coefficients C ∈RB×B split into an occupied block CO ∈RB×O and a virtual block CV ∈RB×V . Only the occupied block determines the density matrix as seen in Eq.(2). Multiplication from the right by a block-diagonal orthogonal matrix U does not change the density matrix, see Eq.(5).",
+      "page": 20
+    }
+  ],
+  "figure": "2610.10298_figures/2610.10298_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

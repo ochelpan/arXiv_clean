@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.09141",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Cognitive-Aware QML-CRL Framework for Detecting Affinity and Romance-Investment Fraud",
+  "authors": "Bibhas Adhikari, Ramya Srinivasan",
+  "abstract": "We present a hybrid quantum-classical framework that detects affinity and romance-investment fraud by modelling the cognitive biases in a manipulative conversation. In our proposed framework, cognitive biases central to this fraud class are carried by dedicated qubits in a structured parameterized quantum circuit, together with a frame qubit makes the encoding sensitive to the temporal order of manipulative reframing, and a narrative qubit that aggregates co-occurrence through a trainable entanglement layer. The circuit parameters are trained jointly with a classical reinforcement-learning agent that decides, turn by turn, whether to flag the conversation, modeled as an optimal stopping problem. We evaluate the model's performance on synthetic conversations that include hard negatives, legitimate but urgent, and legitimate but pushy sales conversations.",
+  "url": "http://arxiv.org/abs/2610.09141v1",
+  "pdf": "https://arxiv.org/pdf/2610.09141v1",
+  "type": "theory",
+  "summary": "This paper introduces a Cognitive-Aware Quantum Machine Learning framework that combines a structured Parameterized Quantum Circuit (PQC) with Reinforcement Learning (RL) to detect financial fraud. The PQC encodes measurable cognitive biases and conversational structure into quantum feature vectors. The RL agent then uses these quantum features to learn the optimal timing for flagging suspicious interactions, treating the detection as an optimal stopping problem.",
+  "main_problem": "The paper addresses the detection of affinity and romance-investment fraud by modeling the cognitive biases present in manipulative conversations.",
+  "main_result": "The proposed hybrid quantum-classical framework successfully trains an agent to optimally decide when to flag a conversation based on quantum-derived risk features.",
+  "method": "It employs a joint training scheme where a Parameterized Quantum Circuit (PQC) encodes cognitive biases, and a classical Reinforcement Learning (RL) agent optimizes the stopping decision.",
+  "model_or_system": "The model uses an $(n+2)$-qubit quantum register containing qubits for specific cognitive biases, a frame qubit for temporal order, and a narrative qubit for co-occurrence. The quantum circuit parameters are trained via semi-gradient Temporal-Difference (TD) learning.",
+  "key_observables": "The primary observables are the continuous, per-turn risk signals derived from the quantum register readout, forming the state vector $\\mathbf{s}_t$ used by the RL agent.",
+  "important_parameters": "Key parameters include the bias weights ($\\Theta$), the RL action-value weights ($\\mathbf{w}_a$), and regularization parameters like $\\lambda$ controlling the trade-off between interpretability and adaptability.",
+  "main_assumptions": "The framework assumes that the fraud detection problem can be modeled as an optimal stopping problem solvable by combining quantum feature mapping with RL. It also assumes the synthetic data generation process has no autoregressive structure.",
+  "figures_summary": "Figure 1 illustrates the end-to-end pipeline from raw text to the flag/wait decision, alongside the detailed quantum encoder. Figure 5 details the synthetic data generation process across six distinct stages of a fraudulent conversation.",
+  "paper_structure": "The paper details the architecture (PQC encoder + RL agent), the mathematical formalism for gradient calculation (parameter shift rule, semi-gradient TD learning), the training stabilization techniques (warm-up, anchoring), and the evaluation using synthetic, stage-structured data.",
+  "why_interesting": "While the application is in NLP/Fraud Detection, the core mechanism involves using quantum circuits to encode structured, non-linear information (cognitive biases, temporal order) into a feature space for a classical control problem (RL), which is a novel application of quantum feature mapping.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.09141_figures/2610.09141_fig1.jpg",
+      "caption": "Figure 1: Complete architecture. (a) The end-to-end pipeline from raw conversation text to a flag/wait decision. (b) Detail of the parameterized quantum-cognitive encoder.",
+      "page": 4
+    },
+    {
+      "image": "2610.09141_figures/2610.09141_fig2.jpg",
+      "caption": "Figure 2: Gate-level structure of the parameterized quantum-cognitive encoder. All angles shown are functions of the trainable parameters Θ and of the current turn’s cues.",
+      "page": 7
+    },
+    {
+      "image": "2610.09141_figures/2610.09141_fig3.jpg",
+      "caption": "Figure 3: Training and order-sensitivity results. (a) Joint training enables the mis- specified encoder to adapt after warm-up, whereas the frozen encoder fails to flag. (b) Detection timing under turn-order shuffling with cue content held fixed.",
+      "page": 11
+    },
+    {
+      "image": "2610.09141_figures/2610.09141_fig4.jpg",
+      "caption": "Figure 4: Risk-feature trajectories at the cognitive initialization (top) and after joint training (bottom), for a fraud conversation, a pushy-sales hard negative, and a benign conversation. Training sharpens the frame channel into the discriminator that separates fraud from pushy sales, while the loss and authority channels saturate on all three classes.",
+      "page": 12
+    },
+    {
+      "image": "2610.09141_figures/2610.09141_fig5.jpg",
+      "caption": "Figure 5: The synthetic conversation generator. (a) Each fraudulent conversation is divided into six stages by the boundaries ⌊linspace(0, T, 7)⌋, shown here for T = 14; the labelled critical turn t∗is the first turn of the loss-event stage (turn 9), and detection lateness is measured relative to it. (b) Each stage s carries a fixed base level b(s) i ∈[0, 1] for the four bias channels. (c) The frame channel b(s) f ∈[−1, 1] is zero for the first four stages and non-zero only in the last two, with opposite signs, so every fraudulent conversation contains exactly one RZ ↔RY transition. By the sign convention of Eq. (6), ct,f > 0 is loss framing and drives RZ while ct,f < 0 is recovery framing...",
+      "page": 23
+    }
+  ],
+  "figure": "2610.09141_figures/2610.09141_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

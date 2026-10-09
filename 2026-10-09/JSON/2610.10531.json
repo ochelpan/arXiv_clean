@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.10531",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Estimation of Logical Sensitivities Through Fault-Counting",
+  "authors": "Winston Fu, J. Wilson Staples, Jeff D. Thompson",
+  "abstract": "Quantum error-correcting circuits are affected by multiple physical noise mechanisms, whose contributions to logical failure must be understood to evaluate code performance and guide improvements in hardware. The individual error budget contributions for an error type $i$ can be characterized by its logical sensitivity $ν_i = \\frac{\\partial p_L}{\\partial p_i}$, which measures the response of the logical error rate $p_L$ to each physical noise parameter $p_i$. Normally, $ν_i$ is measured using linear fits such as finite differences, where $p_L$ is measured at two or more values of $p_i$ to calculate partial derivatives. In this paper, we develop a differentiable estimator to obtain all components of $\\nabla_{\\mathbf p}p_L$ simultaneously from a single Monte Carlo data set at one noise configuration, using information about the underlying fault configurations. In surface code simulations with circuit-level noise, the estimator agrees with conventional finite differences while requiring one to two orders of magnitude fewer shots to achieve the same variance. We apply this technique to quantify error budgets, resolve sensitivities at the individual qubit level, and infer effective code distance. Finally, we incorporate the sensitivities into Newton root finding to locate and trace threshold contours in multidimensional noise models. These results provide an efficient method for extracting and applying logical sensitivity information from standard quantum error correction simulations.",
+  "url": "http://arxiv.org/abs/2610.10531v1",
+  "pdf": "https://arxiv.org/pdf/2610.10531v1",
+  "type": "theory",
+  "summary": "This paper introduces a differentiable estimator to overcome the shot-budget limitations of traditional finite difference methods when calculating logical sensitivities in quantum error correction. By estimating the full gradient from a single simulation run, it drastically reduces the required computational resources. This efficiency allows researchers to accurately map out critical performance boundaries, such as noise thresholds, in complex, multi-parameter noise models.",
+  "main_problem": "The paper addresses the need for an efficient method to estimate logical sensitivities ($\nu_i = \\partial p_L / \\partial p_i$), which quantify how the logical error rate ($p_L$) responds to individual physical noise parameters ($p_i$) in quantum error correction.",
+  "main_result": "A novel differentiable estimator can calculate all components of the gradient $\nabla_{\\mathbf p}p_L$ simultaneously from a single Monte Carlo data set, achieving a significant reduction (one to two orders of magnitude) in required simulation shots compared to standard finite difference methods.",
+  "method": "The core method is a differentiable estimator that leverages information about underlying fault configurations to estimate partial derivatives of the logical error rate. This is combined with Newton root finding to trace threshold contours in multi-dimensional noise models.",
+  "model_or_system": "The primary model is quantum error-correcting circuits, specifically using the surface code subjected to circuit-level noise. The analysis is performed on the logical error rate $p_L$ as a function of various physical noise parameters $p_i$.",
+  "key_observables": "Logical Error Rate ($p_L$), Logical Sensitivities ($\nu_i = \\partial p_L / \\partial p_i$), Threshold Contours ($\\Delta(p) = 0$).",
+  "important_parameters": "Physical noise parameters ($p_i$), circuit distance ($d$), shot budget ($N$), and the step size ($h$) used in finite difference methods.",
+  "main_assumptions": "The differentiable estimator relies on accessing underlying fault configurations in stabilizer tableau simulations. The analysis often uses linear approximations for small error rates and assumes the ability to use local sensitivity information to guide root finding.",
+  "figures_summary": "Figures compare the variance and estimates of sensitivities ($\nu_i$) between the proposed differentiable method and standard finite differences. Other figures illustrate the tracing of threshold contours in multi-parameter noise spaces.",
+  "paper_structure": "The paper first introduces the problem of sensitivity estimation, contrasts the standard finite difference approach with the proposed differentiable estimator, demonstrates the superior variance scaling of the new method, and finally applies this technique to locate and trace threshold contours in complex noise models using Newton root finding.",
+  "why_interesting": "This work provides a powerful, statistically efficient tool for characterizing the robustness of quantum codes, which is crucial for designing fault-tolerant quantum computers by precisely mapping out the boundaries of reliable operation in complex noise landscapes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10531_figures/2610.10531_fig1.jpg",
+      "caption": "FIG. 1: Overview of contributions. Top: The standard approach to finding sensitivities and error budgets is the finite difference method. This involves using values of pL measured at various p to calculate gradients, requiring multiple simulations at different p. ei is the unit vector in the pi direction. Bottom: We introduce a differentiable estimator to estimate sensitivities using samples at only one p. The sensitivity to different components of p is extracted from the sampled fault locations, which are ordinarily discarded if the only object is to compute pL.",
+      "page": 2
+    },
+    {
+      "image": "2610.10531_figures/2610.10531_fig2.jpg",
+      "caption": "FIG. 2: (a) Logarithmic sensitivities ∂log pL/∂log pi , over a range of p. Circles are the estimates obtained using Diff, while diamonds are estimates obtained using FD. (b) Relative difference between ˆνFD 2qb and ˆνDiff 2qb at different step fractions a, for d = 7 at p = 0.005. As the sensitivity is measured over a larger range of p, higher-order terms cause a bias in the measured sensitivity. (c) Fractional variance in sensitivity from Diff and FD at varying shot budgets, obtained from 200 bootstrap samples of 2 × 109 shots for each error type at step fraction a = 0.1.",
+      "page": 4
+    },
+    {
+      "image": "2610.10531_figures/2610.10531_fig3.jpg",
+      "caption": "FIG. 3: (a) A pL vs p sweep of a surface code at distances 3, 5, and 7. Using Diff, the samples collected at each point on the curve can also be used to estimate a breakdown of νi by error type, round number, spatial location, and individual fault. The spatial sensitivity heatmaps, aggregated over d rounds, are shown for two-qubit gate errors and idle errors, where squares represent data qubits and circles represent ancilla qubits. The plotted values are logarithmic sensitivities, ∂log pL/∂log pi . (b) At the same time, the sum of sensitivities gives a local unbiased measurement of the slope of the pL vs p curve, which can be used to calculate the local effective distance scaling factor. In...",
+      "page": 5
+    },
+    {
+      "image": "2610.10531_figures/2610.10531_fig4.jpg",
+      "caption": "FIG. 4: (a) Illustration of the threshold-finding algorithm for the case s = 2. The gray line shows the threshold contour between error types p1 and p2 that needs to be found. Boxed numbers represent the steps of the algorithm. Step 1: For two distances d1 and d2, sample the circuits at some p0, measure pL, and calculate ∆(p0), while also using Diff to find ∇p∆(p0) from the same set of data. Step 2: The Newton step predicts a new point p1 for which ∆(p1) = 0. Repeat until the convergence criteria are met. Step 3: Choosing a p2 where p2 −p1 is orthogonal to the vector ∇p∆(p1). This leaves ∆(p2) = 0 to first order, and so is close to the threshold as well. Repeat root finding until this next...",
+      "page": 7
+    },
+    {
+      "image": "2610.10531_figures/2610.10531_fig5.jpg",
+      "caption": "FIG. 5: Threshold contours for four error type pairs, using PyMatching, Correlated PyMatching, and Tesseract. Uncertainty in contour position due to statistical uncertainty in ∆is plotted as a lightly shaded region around each contour line. For PyMatching and Correlated PyMatching, darker shades show the thresholds found using the (5, 7) distance pair. Lighter shades show the (3, 5) distance pair. For Tesseract, only the (3, 5) distance pair was measured.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.10531_figures/2610.10531_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

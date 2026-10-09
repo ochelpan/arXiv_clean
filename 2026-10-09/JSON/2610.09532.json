@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.09532",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Vibrational Sample-Based Quantum Diagonalization with Unitary-Cluster-Jastrow Ansätze on IBM QPUs",
+  "authors": "Kunal Kumar, Erik Lötstedt, Yuri Kobayashi, Seiji Yunoki",
+  "abstract": "We extend sample-based quantum diagonalization (SQD) to anharmonic vibrational spectra and use it to benchmark how vibrational ansätze scale on present-day hardware under a direct one-hot encoding (up to 72 qubits). Five particle-conserving circuits are warm-started through vibrational coupled-cluster (VCC) t1, t2 amplitudes: UVCCSD, the compact heuristic circuit (CHC), and three unitary-cluster-Jastrow ansätze introduced here, VLUCJ, Vg-uCJ, and VIm-uCJ. A self-consistent configuration-recovery loop reconstructs correlated states from hardware samples in the low-retention regime where naïve post-selection breaks down, enabling the calculation of ground-state energies for H$_2$O, CH$_2$O, and CH$_2$ClF (3-9 modes). We compare harmonic-oscillator and vibrational self-consistent-field (VSCF, \"modal\") reference bases. In the small-modal-basis regime relevant for near-term devices, the modal basis is typically more accurate than the harmonic-oscillator representation; empirically, it also yields substantially better-converged hardware sampling for deep circuits at these qubit counts. Across ansätze, we find a clear retention/accuracy tradeoff when scaling: the new VLUCJ circuit is the most hardware-robust, retaining the largest fraction of physically valid one-hot outcomes, whereas the more expressive uCJ variants and UVCCSD can recover more correlation when retention is sufficient. Finally, we extend the recovery protocol to excited states by targeting a chosen per-mode VSCF occupation and warm-starting it with a state-specific VCC calculation, and we demonstrate the calculation of one representative fundamental vibrational frequency per molecule on IBM QPUs.",
+  "url": "http://arxiv.org/abs/2610.09532v1",
+  "pdf": "https://arxiv.org/pdf/2610.09532v1",
+  "type": "both",
+  "summary": "This paper develops and tests advanced quantum algorithms for calculating the anharmonic vibrational spectra of molecules using quantum hardware. It compares several unitary-cluster-Jastrow ansätze, finding that hardware noise limits performance, but demonstrating that structured quantum sampling outperforms random guessing. The work successfully calculates fundamental vibrational frequencies on IBM QPUs, advancing the field's practical application to molecular physics.",
+  "main_problem": "The paper addresses extending sample-based quantum diagonalization (SQD) to accurately calculate anharmonic vibrational spectra of molecules using current quantum hardware.",
+  "main_result": "The novel VLUCJ ansatz proved to be the most hardware-robust circuit structure, while the study successfully demonstrated calculating fundamental vibrational frequencies on IBM QPUs.",
+  "method": "The authors employ SQD, warm-starting the process with vibrational coupled-cluster (VCC) amplitudes, and comparing multiple unitary-cluster-Jastrow ansätze on superconducting quantum processors.",
+  "model_or_system": "The system models are the vibrational spectra of small molecules ($\text{H}_2\text{O}$, $\text{CH}_2\text{O}$, $\text{CH}_2\text{ClF}$), governed by a quartic force-field Hamiltonian derived from DFT calculations.",
+  "key_observables": "Ground-state and excited-state energies, fundamental vibrational frequencies, and the fraction of physically valid one-hot outcomes (retention).",
+  "important_parameters": "Qubit count up to 72, comparison between harmonic-oscillator and vibrational self-consistent-field (VSCF) reference bases, and the anharmonic coupling terms up to quartic order.",
+  "main_assumptions": "The accuracy relies on the underlying potential energy surface approximation and the comparison highlights a trade-off between ansatz expressivity and hardware robustness.",
+  "figures_summary": "Figures compare energy gaps and circuit performance (CZ count, depth) across different ansätze and sampling methods (random vs. structured quantum sample) on IBM hardware.",
+  "paper_structure": "The paper introduces the theoretical framework (Hamiltonian, SQD), details the comparison of five ansätze, benchmarks performance on IBM QPUs by comparing results against random sampling and classical VSCF targets, and concludes with the calculation of representative vibrational frequencies.",
+  "why_interesting": "This work directly tackles the application of quantum computation to molecular structure and dynamics, a core area of AMO physics, by benchmarking advanced quantum algorithms against real-world hardware noise.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.09532_figures/2610.09532_fig1.jpg",
+      "caption": "Figure 1: All five ansätze at the toy N = 2, M = 2 (4- qubit) system, one layer, P = 1 pair (VIm-uCJ, Vg-uCJ) – P is the number of intermode modal pairs (i, k), (j, l) chosen to receive a diagonal Jastrow correlator/D2 primitive, out of the \u0000N 2 \u0001 (M −1)2 possible pairs (Table 2), so P = 1 here is the minimal, non-empty choice at this toy system’s own small pair count. Givens (“G”) and paired double excitation (“D2”) are drawn as opaque boxes; the diagonal Jastrow (“P”) and RZ tail are drawn as their native gates. The true native- gate compilation of a single D2(θ) on this system is depth 66, 25 CZ gates once transpiled at optimization_level=3 to generic Heron basis gates – illustrative of...",
+      "page": 4
+    },
+    {
+      "image": "2610.09532_figures/2610.09532_fig2.jpg",
+      "caption": "Figure 2: ibm_phoenix hardware, layers=1, vibrational ground-state energy relative to the VSCF reference (E −EVSCF) for each of the five ansätze, modal basis, M=4 (12/24/36 qubits for H2O/CH2O/CH2ClF respectively) – faded bars are before self- consistent recovery (an explicit subspace diagonalization over whatever the raw sample actually contained), filled bars are after. The dashed line (labeled in-panel) is the converged classical target (VFCI for H2O/CH2O; VCC(M=8) for CH2ClF, whose Hamiltonian is too large for VFCI, Table 3’s footnote). We show M=4 because several ansätze retain sufficient pre-recovery signal for the effect of recovery to remain visible. The corresponding ibm_kingston...",
+      "page": 13
+    },
+    {
+      "image": "2610.09532_figures/2610.09532_fig3.jpg",
+      "caption": "Figure 3: Same as Figure 2, but in the HO basis. The comparison shows that the relative quality of the raw modal- and HO-basis samples depends on the ansatz and its retained one-hot signal. The corresponding ibm_kingston comparison is shown in Appendix D.3, Figure A4b.",
+      "page": 13
+    },
+    {
+      "image": "2610.09532_figures/2610.09532_fig4.jpg",
+      "caption": "Figure 4: One-hot retention (fraction of raw shots decoding to a physical bitstring, before recovery) vs. modal count M, log scale, in four panels: ibm_phoenix (left) vs. ibm_kingston (right), modal basis (top) vs. HO basis (bottom). Each outlined, alternately-shaded group corresponds to one modal count M and contains five ansatz columns (in the order UVCCSD, VLUCJ, VIm-uCJ, Vg-uCJ, CHC, left to right, separated by thin vertical rules). Within one ansatz column, each molecule’s individually measured retention (H2O, CH2O, CH2ClF, each run once at that parameter setting – not repeated trials of the same system) is drawn as its own short horizontal line at that value, colored by molecule (teal...",
+      "page": 14
+    },
+    {
+      "image": "2610.09532_figures/2610.09532_fig5.jpg",
+      "caption": "Figure 5: Ground-state energy vs. modal count M on ibm_phoenix for UVCCSD (top row, panels a–c) – the deepest, highest- CZ-count ansatz tested (Table 2) – and Vg-uCJ (bottom row, panels d–f), a representative shallow Jastrow-family circuit, in both the modal and HO bases. Results are compared with the classical VCC(M) hierarchy and with the converged VFCI reference for H2O and CH2O, or the VCC(M=8) reference for CH2ClF (Table 3). Numerical errors and retention-dependent trends are discussed in the molecule-specific subsections below.",
+      "page": 16
+    }
+  ],
+  "figure": "2610.09532_figures/2610.09532_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

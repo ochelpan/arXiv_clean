@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.10027",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Optimization of Tensor Rings with Low-Rank Environments",
+  "authors": "Matthieu Jeannin, Alessandro Chessari, Jan Von Delft",
+  "abstract": "Tensor-ring (TR) decompositions provide a natural representation of periodic systems but are difficult to optimize because the closed geometry prevents a global canonical form and leads to costly, ill conditioned environments. Existing periodic DMRG methods alleviate this difficulty by compressing long environments to a low-rank representation, reducing local operations to $\\mathcal{O}(pχ^3)$, where $p$ is the retained environment rank. Here, we extend this approach to an efficient two-site Ring-DMRG algorithm and improve its numerical robustness through appropriate gauge transformations and a generalized Davidson solver. A central challenge in the two-site formulation is the truncation step, which must account for the surrounding environment. When this environment is sufficiently separable, a suitable change of frame reduces the truncation to an ordinary SVD. When it is not separable, we instead use an alternating optimization that retains the full environment.   The computational advantage of tensor rings over tensor trains depends on the scaling of the required environment rank $p$ with bond dimension and system size. For critical systems, the divergent correlation length makes long-range observables remain sensitive to the periodic geometry as the thermodynamic limit is approached. In this regime, the environment rank required to reach a fixed accuracy in the observable does not grow with the system size. Ring-DMRG therefore retains the same cubic scaling with bond dimension as standard DMRG, but at a substantially smaller bond dimension. The low-rank environment construction also provides a systematic generalization of belief propagation (BP), with standard BP recovered in the rank-one limit.",
+  "url": "http://arxiv.org/abs/2610.10027v1",
+  "pdf": "https://arxiv.org/pdf/2610.10027v1",
+  "type": "theory",
+  "summary": "This paper presents an advanced Ring-DMRG algorithm to efficiently simulate periodic quantum systems using Tensor Ring decompositions. It overcomes the inherent difficulties of optimizing TRs by introducing robust two-site truncation schemes and advanced solvers. The work demonstrates that this method maintains the favorable scaling of DMRG while significantly reducing the required computational resources for critical systems.",
+  "main_problem": "The paper addresses the challenge of efficiently optimizing Tensor Ring (TR) decompositions for periodic quantum many-body systems, which are difficult due to the closed geometry leading to ill-conditioned environments.",
+  "main_result": "The proposed Ring-DMRG algorithm retains the favorable cubic scaling ($\\mathcal{O}(\\chi^3)$) with bond dimension of standard DMRG while achieving this at a substantially smaller bond dimension compared to other methods.",
+  "method": "It extends DMRG to a two-site Ring-DMRG algorithm, improving robustness with gauge transformations and using generalized Davidson solvers for the local variational problem.",
+  "model_or_system": "The methods are applied to periodic quantum many-body systems, using the spin-1/2 Heisenberg chain as a primary example to benchmark performance.",
+  "key_observables": "Ground-state energy error, bond dimension ($\\chi$), and environment rank ($p$).",
+  "important_parameters": "Bond dimension ($\\chi$), environment rank ($p$), system size ($N$), and the ratio $J_2/J_1$ for the Heisenberg chain.",
+  "main_assumptions": "The core assumption is that the low-rank structure of the environment allows for efficient, systematic approximation, generalizing belief propagation.",
+  "figures_summary": "Figure 1 compares TT (open) vs. TR (periodic) representations. Figure 2 shows energy convergence for the Heisenberg chain, illustrating the scaling advantage of TRs over TTs ($\\chi_t \\propto \\chi_{r}^{1.5}$).",
+  "paper_structure": "The paper introduces the TR representation for periodic systems, details the Ring-DMRG methodology (including two-site truncation and alternating optimization), and analyzes its computational scaling and convergence properties against established methods like TT.",
+  "why_interesting": "The development of robust, scalable tensor network algorithms like Ring-DMRG is crucial for simulating strongly correlated materials where periodic boundary conditions are natural, allowing access to regimes previously inaccessible due to computational cost.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10027_figures/2610.10027_fig1.jpg",
+      "caption": "Figure 1. Diagrammatic representation of a tensor train or matrix product state (a) and a tensor ring or periodic matrix product state (b).",
+      "page": 1
+    },
+    {
+      "image": "2610.10027_figures/2610.10027_fig2.jpg",
+      "caption": "Figure 2. Convergence of the ground-state energy for the spin- 1/2 Heisenberg chain with N = 500 with periodic boundary conditions. We compare standard DMRG in tensor-train form with open boundary conditions (OBC TT), standard DMRG with periodic boundary conditions (PBC TT), and Ring-DMRG with a tensor-ring ansatz (PBC TR). The relative energy error |E −E0|/|E0| is shown as a function of the bond dimension χ. For the OBC calculation, E0 is the converged OBC energy, whereas both periodic calculations are compared with the converged PBC energy at χt = 3000. Inset: Tensor- train bond dimension χt versus tensor-ring bond dimension χr required to reach the same relative energy error for PBC...",
+      "page": 2
+    },
+    {
+      "image": "2610.10027_figures/2610.10027_fig3.jpg",
+      "caption": "Figure 3. Diagrammatic representation of the Hamiltonian tranfert matrix (a) and norm transfert matrix(b).",
+      "page": 3
+    },
+    {
+      "image": "2610.10027_figures/2610.10027_fig4.jpg",
+      "caption": "Figure 4. Diagrammatic representation of the the tensor ring contractions with N = 5 at site ℓ= 3. (a) generalized eigen value problem Eq. (13), (b) compact SVD-based representation of the local Hamiltonian H(3) as in Eq. (18), (c) singular value decomposition of the local norm N (3) as in Eq. (17).",
+      "page": 4
+    },
+    {
+      "image": "2610.10027_figures/2610.10027_fig5.jpg",
+      "caption": "Figure 5. Comparison between the Lanczos and Davidson solvers for the local generalized eigenvalue problem. (a) Num- ber of norm-environment applications ρN for the Lanczos solver as a function of χ2. (b) Mean sweep time τsweep as a function of the bond dimension χ, normalized by the David- son sweep time at χ = 70. The Lanczos solver requires an increasing number of norm-environment applications because of the inner linear solves, resulting in a substantially larger sweep cost at large bond dimension.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.10027_figures/2610.10027_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

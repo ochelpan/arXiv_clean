@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.09186",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "The Dichotomy Between Pattern Recognition and Step-by-Step Reasoning",
+  "authors": "Amrut Nadgir, Pratik Chaudhari, Vijay Balasubramanian",
+  "abstract": "We argue that pattern recognition and step-by-step reasoning are two ends of a spectrum. A large language model (LLM) learns to reason step-by-step when data is structured such that the next token depends on a small amount of preceding context. Inference in LLMs resembles pattern recognition when the next token depends on a large amount of preceding context. If the next token depends on only the $c$ most recent tokens, reasoning traces are paths on a De Bruijn graph whose nodes are $c$-length contexts and edges are next-token transitions between contexts. The set of reasoning traces of a task forms a directed acyclic subgraph of the De Bruijn graph. An LLM that has learned all edges of this subgraph can compose them to solve longer, unseen tasks, i.e., it reasons step-by-step. We prove that the number of edges is vanishingly small compared to the number of reasoning traces. Empirically, the number of training samples a transformer needs is a power law in the number of edges, so learning to reason step-by-step is sample efficient. We can induce De Bruijn structure in any task by maintaining a ``state'' that makes future reasoning independent of the past. The frequency of states in the reasoning trace determines $c$. We show, by fine-tuning Qwen2.5-1.5B-Instruct to solve equations and answer questions about stories, that frequent states (small $c$) result in higher accuracy but greater fragility to perturbations at test time. LLMs trained with a large $c$ are only as good as models that perform pattern recognition without reasoning. A moderate density of states balances accuracy and robustness. We show that real-world data has De Bruijn structure: Qwen3-14B and Qwen3-32B retain over 75% of their accuracy on GSM8K, MATH-500 and GPQA-Diamond when attention is restricted to a sliding window less than 15% as long as the full reasoning trace.",
+  "url": "http://arxiv.org/abs/2610.09186v1",
+  "pdf": "https://arxiv.org/pdf/2610.09186v1",
+  "type": "both",
+  "summary": "This work models LLM reasoning as pathfinding on a De Bruijn graph, proving that such structured reasoning is highly sample-efficient. Empirically, it shows that while frequent state reporting boosts accuracy, a moderate structure density is necessary to achieve robust performance. The findings suggest that the optimal design of complex AI systems requires balancing local precision with global structural robustness.",
+  "main_problem": "The paper investigates the fundamental relationship between pattern recognition and step-by-step reasoning capabilities within Large Language Models (LLMs). It seeks to characterize how the underlying structure of reasoning traces dictates the model's sample efficiency and robustness.",
+  "main_result": "Step-by-step reasoning is highly sample-efficient if the reasoning traces exhibit a De Bruijn graph structure, suggesting that real-world data may possess this underlying mathematical structure. However, the optimal performance requires a balance between high state frequency (small $c$) for accuracy and low state frequency (large $c$) for robustness.",
+  "method": "The authors combine theoretical proofs on De Bruijn graph path coverage with extensive empirical testing, fine-tuning LLMs (Qwen series) on equation-solving tasks while manipulating context window sizes and introducing controlled perturbations.",
+  "model_or_system": "The primary model is the Large Language Model (LLM) predicting the next token. The theoretical framework models the reasoning process as paths on a De Bruijn graph, where the context length $c$ determines the graph's structure.",
+  "key_observables": "Final-Answer Accuracy, Derivation Accuracy, $P_{\\min}/P_{\text{tot}}$ ratio, and the model's performance under varying state emission intervals ($k$) and perturbation probabilities ($p$).",
+  "important_parameters": "The context length $c$ (determining De Bruijn structure), the state emission interval $k$, and the perturbation probability $p$.",
+  "main_assumptions": "The core assumption is that if the next token depends only on $c$ preceding tokens, the reasoning process can be modeled as a path on a De Bruijn DAG. It also assumes that the optimal regime balances accuracy and robustness.",
+  "figures_summary": "Figures illustrate the De Bruijn graph structure, showing that path coverage ratios decrease significantly for structured graphs. Other figures compare accuracy metrics (final vs. derivation) across different state emission intervals and perturbation levels.",
+  "paper_structure": "The paper progresses from a theoretical characterization of reasoning as path traversal on a De Bruijn graph, establishing sample efficiency. It then moves to empirical validation using synthetic tasks (equations) to test the impact of state emission frequency and perturbations on accuracy and robustness.",
+  "why_interesting": "While primarily focused on AI/ML, the rigorous mathematical modeling using graph theory (De Bruijn graphs) and the explicit analysis of information flow constraints ($c$) provide a novel, structured framework for understanding complex sequential computation, which has parallels in quantum circuit design or state evolution.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.09186_figures/2610.09186_fig1.jpg",
+      "caption": "Figure 1: De Bruijn graph: Edges (both bold and gray) show transitions from one 4-gram to an- other by appending a token. Bold edges form a directed acyclic sub- graph (DAG). Green and orange shaded nodes are start and answer nodes in the DAG respectively. Each path corresponds to a rea- soning trace.",
+      "page": 2
+    },
+    {
+      "image": "2610.09186_figures/2610.09186_fig2.jpg",
+      "caption": "Figure 2: Data with De Bruijn structure can be learned with few, short traces. We created a synthetic dataset of De Bruijn graphs and DAGs for different values of c and V . Left: The minimum number of start-to-answer paths required to cover every edge in the DAG Pmin shrinks relative to the total number of paths Ptot as the number of nodes grows. Right: The minimum length of paths to cover every edge Lcover shrinks relative to the longest path Lmax. Details: DAGs were created with S = 5 start nodes, N = 10 answer nodes. Dotted curves denote an average over random orderings for nodes in the DAG. Solid curves correspond to using a particular ordering π∗",
+      "page": 3
+    },
+    {
+      "image": "2610.09186_figures/2610.09186_fig3.jpg",
+      "caption": "Figure 3: Transformers can learn paths on a De Bruijn DAG with few and short samples. We created a synthetic dataset of De Bruijn graphs and DAGs for different values of c and V , and trained transformers on start-to-answer paths from 5 replicate DAGs for each configuration (random π, error bars are standard error). The green curve indicates the sample complexity (left) or the length of reasoning traces in the training data (right) required for achieving 95% path coverage, i.e., when the trained transformer assigns probability greater than 10% of the probability under the uniform distribution 1/Ptot to >95% of paths. The blue curve corresponds to the situation where the trained transformer...",
+      "page": 4
+    },
+    {
+      "image": "2610.09186_figures/2610.09186_fig4.jpg",
+      "caption": "Figure 4: Sample complexity of learning remapped reasoning traces. Connected line segments correspond to remapping with block lengths s = 4, 8, 16; there are 10 different DAGs drawn on this plot. Dashed lines indi- cate the fit obtained in Fig. 3 for the original reasoning traces. Smaller values of s have a larger number of edges and sample complex- ity. Learning on remapped traces follows a similar power-law trend as seen in Fig. 3.",
+      "page": 5
+    },
+    {
+      "image": "2610.09186_figures/2610.09186_fig5.jpg",
+      "caption": "Figure 5: An equation-solving task. The red text is a perturbation inserted at inference- time. The step-by-step reasoning model (k = 1) adapted to this perturbation by undoing the operation in the next step.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.09186_figures/2610.09186_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

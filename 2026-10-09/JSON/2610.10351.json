@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2610.10351",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Measurement-Efficient Differentiable Quantum Architecture Search for Combinatorial Optimization",
+  "authors": "Lukas Theißinger, Thore Gerlach, Christian Bauckhage",
+  "abstract": "Differentiable quantum architecture search (DQAS) is a promising framework for the automated design of quantum circuits, particularly for variational quantum optimization algorithms. However, its practical deployment on quantum hardware is limited by the large number of circuit measurements required during optimization, making hardware execution costly. In this work, we show that for a broad class of combinatorial optimization problems and commonly used rotational gate parameterizations, the measurement cost of DQAS can be significantly reduced without changing the optimization objective. We derive the proposed measurement reduction scheme theoretically and validate it experimentally on 3-SAT and MaxCut benchmark problems. Our approach reduces the requested gradient measurement cost by about 39 to 41% while introducing only negligible classical post-processing overhead, lowering the practical cost of executing DQAS on quantum hardware.",
+  "url": "http://arxiv.org/abs/2610.10351v1",
+  "pdf": "https://arxiv.org/pdf/2610.10351v1",
+  "type": "experiment",
+  "summary": "This paper introduces a Measurement-Efficient Differentiable Quantum Architecture Search (ME-DQAS) framework for optimizing quantum circuits used in combinatorial problems. By exploiting the structural properties of the cost Hamiltonian and circuit, the authors derive a method that significantly reduces the number of required quantum measurements for gradient estimation. This lowers the practical overhead, making DQAS more feasible for current quantum hardware.",
+  "main_problem": "The primary challenge addressed is the high measurement cost associated with Differentiable Quantum Architecture Search (DQAS) when applying variational quantum algorithms to combinatorial optimization.",
+  "main_result": "The authors propose a measurement-efficient scheme that reduces the required gradient measurement cost by 39% to 41% compared to standard two-shift estimates on benchmark problems like 3-SAT and MaxCut.",
+  "method": "They derive and implement a measurement-saving gradient estimator that exploits the diagonal structure of the cost Hamiltonian and the structure of the quantum circuit suffix to replace standard two-shift rules with one-shift or zero-measurement estimates.",
+  "model_or_system": "The work uses parameterized quantum circuits $U(\theta)$ to estimate an objective function $F(\theta) = \\langle 0|U(\theta)^\\dagger H_f U(\theta)|0\rangle$, where $H_f$ is a diagonal cost Hamiltonian derived from combinatorial problems like 3-SAT or MaxCut.",
+  "key_observables": "Normalized loss (objective function value), number of DQAS updates, and the requested $\theta$-gradient shot cost.",
+  "important_parameters": "The reduction factor (39%-41%), the gate parameterization type (rotational), and the structure of the Hamiltonian (diagonal in the computational basis).",
+  "main_assumptions": "The method assumes the cost Hamiltonian $H_f$ is diagonal in the computational basis and that the circuit suffix possesses structural properties (e.g., Clifford or commuting) that allow for the gradient simplification.",
+  "figures_summary": "Figure 1 compares DQAS vs. ME-DQAS across final quality, objective updates, and $\theta$-gradient shot cost ratio for 3-SAT and MaxCut, showing ME-DQAS superiority. Figure 2 quantifies the source of cost reduction via zero-gradient and one-shift rules.",
+  "paper_structure": "The paper first establishes the bottleneck in DQAS gradient estimation. It then theoretically derives the measurement-saving gradient estimator based on structural properties. Finally, it validates the approach experimentally on 3-SAT and MaxCut, comparing performance metrics against the standard DQAS baseline.",
+  "why_interesting": "This work directly addresses the practical hardware limitations of quantum machine learning algorithms by providing a concrete, theoretically derived method to reduce the required quantum measurement budget for gradient estimation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10351_figures/2610.10351_fig1.jpg",
+      "caption": "Fig. 1. Main experimental result for 100 matched 3-SAT instances and 100 matched MaxCut instances. Each row compares baseline DQAS with ME-DQAS under the same global shot budget. Bars show means with 95% confidence intervals. The three panels measure final solution quality, how many DQAS updates fit into the budget and the requested full θ-gradient shot cost relative to baseline parameter shift.",
+      "page": 5
+    },
+    {
+      "image": "2610.10351_figures/2610.10351_fig2.jpg",
+      "caption": "Fig. 2. Source of the requested full θ-shot reduction in fig. 1. The dominant contribution comes from gradients that are certified to be exactly zero; the diagonal one-shift rule gives the next largest contribution. The Clifford-suffix branch is negligible for this gate set.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.10351_figures/2610.10351_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

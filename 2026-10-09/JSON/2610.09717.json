@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.09717",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Pareto-optimal quantum kernel selection for unsupervised anomaly detection on real malware beaconing data",
+  "authors": "Boaz Micah, Nadia Milazzo, Maissa Beji, Borja Aizpurua, Llorenç Espinosa-Portalés, Esteban Payares, Ghada Ben Slama, Luc Andrea, Michel Kurek, Thomas Cope, Olivier Salomon",
+  "abstract": "Quantum kernel methods are leading candidates for a practical quantum advantage in machine learning, but assessing that potential requires two quantities usually reported separately: how well a kernel performs on the task, and how far its geometry departs from the classical kernels available for the same problem. We introduce a fully unsupervised, multi-objective protocol that optimises simultaneously the normalised pseudo discrepancy (NPD), a label-free proxy for anomaly detection quality, and the geometric difference (GD) to a tuned classical reference kernel, selecting models from the resulting Pareto front. We apply it to malware beaconing detection in real network traffic, using a one-class support vector machine with fidelity and projected quantum kernels over four data encodings, on simulators and on IQM's 20-qubit Garnet processor. NPD-guided selection alone finds a fidelity kernel that beats the tuned classical baseline, but with a geometric difference too small to certify the gain as quantum. Projected kernels reach far larger geometric differences; the Pareto-selected one only marginally exceeds the baseline (AUC $0.782$ versus $0.765$, $g_{C\\to Q}\\approx 89>\\sqrt{N}$ relative to that reference kernel), still below the NPD-selected fidelity kernel ($0.840$).",
+  "url": "http://arxiv.org/abs/2610.09717v1",
+  "pdf": "https://arxiv.org/pdf/2610.09717v1",
+  "type": "both",
+  "summary": "This paper proposes a novel, unsupervised framework to select quantum kernels for anomaly detection by optimizing two metrics: predictive quality (NPD) and structural separation from classical methods (GD). Using real malware data on quantum hardware, the authors demonstrate a fundamental trade-off, showing that the best performance is achieved by a kernel that balances these two objectives rather than maximizing separation alone.",
+  "main_problem": "The paper develops a systematic, unsupervised framework to select optimal quantum kernels for anomaly detection, balancing predictive performance against the degree of geometric separation from classical kernels.",
+  "main_result": "The Pareto-optimal selection process identifies a trade-off, showing that while projected kernels achieve large geometric differences, the best detection performance (AUC 0.840) was found using a fidelity kernel selected via the unsupervised Normalized Pseudo Discrepancy (NPD) criterion.",
+  "method": "It employs a multi-objective optimization protocol to find the Pareto front by simultaneously maximizing the NPD (a label-free anomaly score) and maximizing the Geometric Difference (GD) between quantum and classical kernels.",
+  "model_or_system": "The methods are applied to real malware beaconing data, utilizing one-class Support Vector Machines (OCSVM) with both fidelity and projected quantum kernels. Testing was conducted on both simulators and the IQM 20-qubit Garnet processor.",
+  "key_observables": "AUC (Area Under the Curve), Normalized Pseudo Discrepancy (NPD), and Geometric Difference ($g_{C\to Q}$).",
+  "important_parameters": "The trade-off between high expressivity (large GD) and high task performance (high NPD) is central; hardware noise limits the achievable advantage.",
+  "main_assumptions": "The primary assumption is that the Pareto front guides the optimal model choice, and the NPD score serves as a reliable, label-free proxy for anomaly detection quality.",
+  "figures_summary": "Figures illustrate the unsupervised optimization pipeline searching the Pareto front, and hardware results compare performance metrics (AUC, F1) across different kernel types on the QPU.",
+  "paper_structure": "The paper introduces the multi-objective framework (NPD + GD), details the application to malware data using fidelity and projected kernels, presents results comparing simulation vs. hardware performance, and concludes by characterizing the performance-separability trade-off.",
+  "why_interesting": "The work directly tests quantum machine learning kernels on a real-world cybersecurity problem, providing empirical benchmarks for the utility of quantum feature maps in data analysis, which is highly relevant to quantum information applications.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.09717_figures/2610.09717_fig1.jpg",
+      "caption": "FIG. 1. The unsupervised optimisation pipeline: a hyper- parameter search over quantum kernels selected under three objectives (NPD, GD, and their joint Pareto knee) and eval- uated on the test set.",
+      "page": 4
+    },
+    {
+      "image": "2610.09717_figures/2610.09717_fig2.jpg",
+      "caption": "FIG. 2. Pareto fronts of the fidelity (blue) and projected (red) quantum kernels under joint maximisation of the NPD and GD, evaluated on the statevector simulator. Circles mark the non-dominated configurations of each front; stars mark the selected knee points. The fidelity kernel maintains a low GD across the front, whereas the projected kernel trades a high GD at low NPD for improved NPD, exposing the tension between the two objectives. Each front contains only the configurations that remained non-dominated during the optimisation, which is why the two kernels contribute different numbers of points.",
+      "page": 8
+    },
+    {
+      "image": "2610.09717_figures/2610.09717_fig3.jpg",
+      "caption": "FIG. 3. Test AUC versus geometric difference gk for all hyperparameter configurations evaluated during the GD- maximisation run (statevector simulation). Blue: fidelity ker- nels; red: projected quantum kernels. The green dashed line marks gk = √",
+      "page": 9
+    },
+    {
+      "image": "2610.09717_figures/2610.09717_fig4.jpg",
+      "caption": "FIG. 4. Test AUC versus NPD for all hyperparameter config- urations evaluated during the NPD-maximisation run (stat- evector simulation). Blue: fidelity kernels; red: projected quantum kernels. The orange dotted line marks the tuned classical OCSVM baseline (AUC = 0.765). Fidelity kernels concentrate at higher AUC, with a substantial fraction above the baseline, while projected kernels spread widely between AUC ≈0.33 and 0.86 and mostly lie below it. Within each family the NPD–AUC relation is weak. The largest-NPD con- figuration of each family (yellow: fidelity; green: projected) lies above the baseline, at AUC = 0.840 and 0.777 respec- tively.",
+      "page": 9
+    },
+    {
+      "image": "2610.09717_figures/2610.09717_fig5.jpg",
+      "caption": "FIG. 5. Layout of the IQM Garnet QPU. The color map in- dicates single and two-qubit gate errors (darker=higher error, lighter=lower error). We highlight the optimal way to choose a qubit patch to implement a Hamiltonian evolution feature map with nearest-neighbour interactions. The specific patch needs to be adjusted depending on re-calibration of the QPU.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.09717_figures/2610.09717_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.10254",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Benchmarking Modular Optimization Strategies for Parameterized Quantum Circuits",
+  "authors": "Carla Cotea, Stefan Balauca, Andreea Arusoaie",
+  "abstract": "Training parameterized quantum circuits requires balancing optimization progress with limited evaluation budgets and the statistical uncertainty of near-term quantum hardware. We present a modular benchmarking framework that separates quantum search-direction estimation from classical parameter-update rules, allowing their interactions and sensitivities to be examined independently. We evaluate a suite of gradient-based, stochastic, and derivative-free optimizers across combinatorial optimization using the Quantum Approximate Optimization Algorithm (QAOA), supervised quantum machine learning using Iris classification and a quantum convolutional neural network (QCNN) for binary MNIST classification, and quantum chemistry using the variational quantum eigensolver (VQE) for molecular hydrogen. By separating objective evaluations from sample-circuit costs under finite-shot simulation and physical execution on a 156-qubit processor, we compare optimizer behavior across workloads with different parameter counts and measurement requirements. Four selected simulator and hardware case studies report terminal and best observed objectives separately, alongside post-training classifier accuracies. The comparisons include selected MaxCut and hydrogen trajectories and illustrate workload-dependent objective changes and evaluation costs, while the simulator benchmark compares both peak and mean performance across three seeds. The hardware runs do not establish an optimizer ranking or isolate a causal effect of device noise.",
+  "url": "http://arxiv.org/abs/2610.10254v1",
+  "pdf": "https://arxiv.org/pdf/2610.10254v1",
+  "type": "both",
+  "summary": "This paper introduces a modular benchmarking framework to systematically test optimization strategies for parameterized quantum circuits. By decoupling gradient estimation from parameter updates, the authors evaluate performance across diverse tasks like chemistry and machine learning. The work is vital for understanding how resource constraints and algorithmic choices affect practical quantum computation.",
+  "main_problem": "Training parameterized quantum circuits (PQCs) is challenging due to the need to balance optimization progress against limited evaluation budgets and the inherent statistical uncertainty of near-term quantum hardware.",
+  "main_result": "The study benchmarks various optimization strategies, showing that performance is highly dependent on the specific workload, resource constraints, and the modular separation of gradient estimation from parameter updates.",
+  "method": "The authors developed a modular benchmarking framework that independently evaluates quantum search-direction estimators (e.g., OCP, finite-difference) and classical parameter-update rules (e.g., Adam, SGD).",
+  "model_or_system": "The benchmarking is applied across four distinct quantum workloads: QAOA for MaxCut, QCNN for Iris/MNIST classification, and VQE for molecular hydrogen ($\text{H}_2$).",
+  "key_observables": "Solution quality (e.g., Test Accuracy, Energy Error), and resource costs (Objective Evaluations, Logical Circuits, Shots).",
+  "important_parameters": "Finite-shot simulation (256 shots/circuit), 156-qubit processor, and various hyperparameter settings for optimizers.",
+  "main_assumptions": "The hardware runs are presented as targeted case studies and do not establish a universal optimizer ranking or isolate the causal effect of device noise.",
+  "figures_summary": "Figures provide an overview of the modular optimization loop across the four workloads, comparing solution quality against quantum-evaluation cost.",
+  "paper_structure": "The paper reviews background, defines component-level comparisons, details the specific workloads/protocols, presents results comparing various optimizers, and concludes with a discussion of limitations.",
+  "why_interesting": "It provides a rigorous, resource-aware framework for comparing optimization algorithms in the NISQ era, which is crucial for developing practical quantum machine learning and simulation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10254_figures/2610.10254_fig1.jpg",
+      "caption": "Fig. 1 Overview of the benchmarking framework. Four parameterized-quantum-circuit workloads are evaluated using a modular optimization loop that separates search-direction estimation from classical parameter updating. Experiments are conducted under finite-shot simulation and selected physical- QPU execution, with comparisons based on solution quality, quantum-evaluation cost, convergence behavior, and hardware-case-study outcomes. Derivative-free methods retain their native proposal and update dynamics",
+      "page": 3
+    },
+    {
+      "image": "2610.10254_figures/2610.10254_fig2.jpg",
+      "caption": "Fig. 2 Mean performance versus evaluation cost across the four simulated workloads and three random seeds (42, 123, and 1234). Each marker denotes one optimizer configuration; marker color identifies the search-direction method and marker shape identifies the classical update rule or derivative-free baseline. MaxCut performance is expressed relative to the exact target cost, Iris and MNIST QCNN performance as test accuracy, and H2 VQE performance as absolute error from the FCI reference energy. Logical-circuit evaluations are shown for MaxCut and the classification work- loads. For VQE, only objective-evaluation counts are reported because the number of commuting measurement groups was not...",
+      "page": 17
+    },
+    {
+      "image": "2610.10254_figures/2610.10254_fig3.jpg",
+      "caption": "Fig. 3 MaxCut QAOA with SPSA-SGD over 25 monitored optimization steps on the same six-edge graph. Dashed lines with circles show simulation with optimizer seed 123 and graph seed 42; solid lines with squares show the hardware run on ibm aachen. The objective is expected negative cut, with exact target −5. The terminal simulator and hardware costs are −4.023438 and −3.908474; their best observed values are −4.027344 at step 24 and −3.984726 at step 19. The initial reference job and shifted gradient probes are excluded from the displayed history",
+      "page": 18
+    },
+    {
+      "image": "2610.10254_figures/2610.10254_fig4.jpg",
+      "caption": "Fig. 4 H2 VQE with PGPE-SGD: total energy over 25 monitored steps in seed-42 simulation (dashed lines with circles) and on ibm aachen (solid lines with squares). Both histories include nuclear repulsion and use 256 requested shots per expectation setting. Hardware points are the unshifted centers of the 11-evaluation PGPE batches executed on hardware. The terminal energies are −1.129593 Ha in simulation and −0.980468 Ha on hardware; the minimum measured energies are −1.138991 and −1.063881 Ha. The exact reference is −1.137270174661 Ha. Curves are unsmoothed single trajectories, not estimates of run-to-run uncertainty",
+      "page": 20
+    },
+    {
+      "image": "2610.10254_figures/2610.10254_fig5.jpg",
+      "caption": "Fig. 5 Iris classification with COBYLA: simulator and hardware mini batch MSE over 50 objective queries. Dashed lines with circles denote the seed-42 simulator run; solid lines with squares denote the archived ibm aachen run. Each query uses 16 training samples and 256 requested shots per expectation setting. All recorded losses are plotted without smoothing; marker frequency is reduced for readability. The minima occur at simulator query 49 and hardware query 40. The post-training test accuracies of the selected parameters are 100% and 90%, respectively, and are distinct from the plotted losses",
+      "page": 21
+    }
+  ],
+  "figure": "2610.10254_figures/2610.10254_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

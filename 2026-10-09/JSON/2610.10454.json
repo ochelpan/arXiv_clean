@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.10454",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Exact Excitation Spectra and Spectral Gaps of the Frustrated Spin-1/2 $J_1$-$J_2$ Model via Dual Spin-Sector Variational Quantum Eigensolvers",
+  "authors": "Sk Saniur Rahaman",
+  "abstract": "Finding excited states and excitation gaps in frustrated spin systems using Variational Quantum Eigensolvers (VQE) is complicated by state-ordering inversions. In the frustrated spin-1/2 $J_1$-$J_2$ Heisenberg model, standard single-sector algorithms like Variational Quantum Deflation (VQD) in $S_z=0$ fail when $J_2/J_1 < 0.25$. In this regime, the lowest-lying excitation in $S_z=0$ is a Triplet ($S=1$), which lies below the Excited Singlet ($S=0$). Standard deflation projects out the ground singlet and converges onto the Triplet state, misidentifying it as the Excited Singlet. Here, we present a Dual Spin-Sector VQE framework that resolves these state-ordering inversions across 1D spin chains and 2D rectangular lattices. By first optimizing the ground Triplet state in the $S_z=1$ sector (where singlet states cannot exist), mapping it into $S_z=0$ via the total spin-lowering operator $S^- = \\sum_i S_i^-$, and evaluating a dual-sector penalty cost function, we isolate the Excited Singlet ($E_S$) without variational ambiguity. Numerical state-vector simulations confirm exact convergence to machine precision with unit overlap fidelity. The method captures key physical features, including the gapless phase, the BKT critical point at $J_2/J_1 \\approx 0.2411$, the Majumdar-Ghosh dimer point ($J_2/J_1 = 0.50$), and the 2D non-magnetic frustrated regime ($J_2/J_1 \\approx 0.40 - 0.60$). Finite-shot sampling simulations and gate-scaling analytics up to $N=100$ qubits demonstrate the resource efficiency and shot resilience of the algorithm for near-term quantum execution.",
+  "url": "http://arxiv.org/abs/2610.10454v1",
+  "pdf": "https://arxiv.org/pdf/2610.10454v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel Dual Spin-Sector Variational Quantum Eigensolver (VQE) to accurately calculate excited states in frustrated spin systems like the $J_1$-$J_2$ model. By optimizing across multiple spin sectors and using a penalty cost function, the method resolves ambiguities that plague standard VQE approaches. It successfully reproduces key quantum phases and demonstrates high resilience to noise, advancing the feasibility of quantum simulation for complex magnetic materials.",
+  "main_problem": "Standard Variational Quantum Eigensolver (VQE) techniques fail to accurately determine excited states and spectral gaps in frustrated spin systems due to state-ordering inversions.",
+  "main_result": "The proposed Dual Spin-Sector VQE framework successfully isolates the true Excited Singlet state, achieving convergence to machine precision and accurately capturing known quantum phases.",
+  "method": "The authors developed a Dual Spin-Sector VQE by optimizing across distinct magnetization sectors ($S_z=0$ and $S_z=1$) and using a dual-sector penalty cost function to resolve ambiguities.",
+  "model_or_system": "The study focuses on the spin-1/2 $J_1$-$J_2$ Heisenberg model, applicable to 1D spin chains and 2D rectangular lattices, characterized by frustrated magnetic interactions.",
+  "key_observables": "Ground state energy ($E_0$), Excited Singlet energy ($E_S$), spectral gaps ($\\Delta_{SS}, \\Delta_{ST}$), and quantum subspace fidelity.",
+  "important_parameters": "The ratio $J_2/J_1$ is critical, with key points identified at $J_2/J_1 \\approx 0.2411$ (BKT point) and $J_2/J_1 = 0.50$ (Majumdar-Ghosh point).",
+  "main_assumptions": "The method relies on the exact commutation relation $[H, S^-] = 0$ to map the Triplet state, and it assumes the feasibility of implementing the dual-sector penalty cost function on near-term quantum hardware.",
+  "figures_summary": "Figures illustrate the dual spin-sector quantum circuit pipeline, the NISQ overlap circuit for penalty terms, and comparisons showing the failure of standard VQD versus the resilience of the Dual VQE under finite measurement shot noise.",
+  "paper_structure": "The paper first identifies the failure mode of standard VQE methods in frustrated magnets. It then introduces and details the Dual Spin-Sector VQE framework, showing its application to 1D and 2D lattices, benchmarking its performance against known physical points, and finally demonstrating its resource efficiency for near-term quantum hardware.",
+  "why_interesting": "This work provides a concrete, advanced quantum algorithm tailored to overcome fundamental limitations (state-ordering inversions) in simulating strongly correlated quantum magnets, which is a major bottleneck for quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10454_figures/2610.10454_fig1.jpg",
+      "caption": "FIG. 1. Dual Spin-Sector Parameterized VQE circuit archi- tecture. (a) Shallow Parameterized Quantum Circuit (PQC) ansatz U(⃗θ) for sector state preparation (Sz = 1 and Sz = 0), S−total spin-lowering operator mapping, and Pauli expecta- tion value measurement. (b) Shallow Compute-Uncompute overlap measurement circuit U † AU(⃗γ) for evaluating defla- tion penalty terms |⟨ψA|ψ(⃗γ)⟩|2 = P(|00 . . . 0⟩) without deep ancilla-assisted unitaries.",
+      "page": 3
+    },
+    {
+      "image": "2610.10454_figures/2610.10454_fig2.jpg",
+      "caption": "FIG. 2. Resource complexity scaling of Dual Spin-Sector Pa- rameterized VQE as a function of system size N ∈[4, 100] qubits (10 × 10 grid). (a) Total 2-qubit CNOT gate count scaling for 1D chains and 2D lattices at circuit depths D = 2 and D = 4. (b) Variational parameter complexity Nθ = 2N(D + 1). Linear gate scaling enables NISQ execution up to N = 100 qubits without deep entangling circuits.",
+      "page": 4
+    },
+    {
+      "image": "2610.10454_figures/2610.10454_fig3.jpg",
+      "caption": "Fig. 2 presents the explicit gate resource complexity and variational parameter scaling of our algorithm up to N = 100 qubits (10 × 10 rectangular grid). For circuit depth D = 4, CNOT count scales linearly as NCNOT = D·N for 1D chains (NCNOT = 400 at N = 100) and NCNOT ≈2D · N for 2D lattices (NCNOT = 800 at N = 100) [Fig. 2(a)]. Variational parameter count scales strictly linearly as Nθ = 2N(D + 1) [Fig. 2(b)] (Nθ = 1000 at N = 100). Classical L-BFGS-B iteration counts scale sub-exponentially (∼60 −80 iterations for N = 12, ∼80 −100 for N = 16, 20, and projected ≲450 for N = 100). While exact state-vector numerical simu- lations employ classical L-BFGS-B optimization, physi- cal execution...",
+      "page": 4
+    },
+    {
+      "image": "2610.10454_figures/2610.10454_fig4.jpg",
+      "caption": "FIG. 3. Classical L-BFGS-B optimization convergence tra- jectories of energy per site (E/N) at J2/J1 = 0.50 rendered in double-column layout across the full page width for (a) 1D spin chain (L = 16) and (b) 2D rectangular lattice (4 × 4, N = 16). Shown are Ground State Singlet (E0), Triplet (ET ), and Excited Singlet (ES) trajectories settling smoothly onto exact ED benchmark levels (dashed and dotted horizontal lines). In 1D panel (a), ED benchmarks are dashed blue (E0), dashed orange (ET ), and dotted green (ES); Dual VQE op- timization trajectories are solid blue (E0), solid orange (ET ), and dash-dotted green (ES). At J2/J1 = 0.50, 1D E0 and ES overlay identically due to dimer state...",
+      "page": 5
+    },
+    {
+      "image": "2610.10454_figures/2610.10454_fig5.jpg",
+      "caption": "FIG. 5. Comparative finite quantum measurement shot-noise sampling error benchmark rendered in double-column lay- out across the full page width for 1D system size L = 16 at J2/J1 = 0.20. (a) Energy error per site (∆E/L) across measurement shot budgets Nshots = 103, 104, 105, 106, show- ing Standard VQD ES failure trap curve (dashed red line with triangles) compared to Dual VQE E0 (solid blue line with cir- cles), ET (solid orange line with squares), and ES (solid green line with diamonds). (b) Quantum subspace fidelity with a dual y-axis layout: Dual VQE state fidelities for E0 (blue circles), ET (orange squares), and ES (green diamonds) are plotted on the left axis, while Standard VQD’s...",
+      "page": 7
+    }
+  ],
+  "figure": "2610.10454_figures/2610.10454_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

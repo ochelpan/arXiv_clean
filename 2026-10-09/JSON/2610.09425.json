@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.09425",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "What a Reporting Convention Hides: A Matched-Budget Audit of Quantum Natural Gradient with an Exactly Computed Metric",
+  "authors": "Lu Wei, Yufeng Wang, Haibin Ling",
+  "abstract": "Several published comparisons of variational quantum optimizers time only runs that reach a target loss, or read the verdict at a single target. Either convention could decide whether an optimizer's costlier steps pay off. We measure how much each convention changes verdicts among Adam, simultaneous perturbation stochastic approximation (SPSA) and quantum natural gradient (QNG), on initializations held out from the selection of settings. We compute the exact metric that preconditions QNG, price every step in circuit evaluations and give every method the same budget. In a median pooled over circuit widths, cost families and a sweep of settings with common misses, SPSA needs more than twice Adam's evaluations to reach a loose target. Dropping the censored runs that miss the target hides this gap. On the global-cost family we hold fixed the settings selected for a strict target. QNG then usually reaches the loose target after Adam but the strict target first. QNG's strict-target lead disappears when the metric's simulator price, linear in the number of parameters, is replaced by an assumed hardware count quadratic in that number. We recommend charging every miss the budget and reporting verdicts across targets.",
+  "url": "http://arxiv.org/abs/2610.09425v1",
+  "pdf": "https://arxiv.org/pdf/2610.09425v1",
+  "type": "theory",
+  "summary": "This paper rigorously audits the comparison of variational quantum optimizers by demonstrating that the reported performance metrics are heavily biased by the chosen evaluation convention. By implementing a standardized cost accounting that charges every step, the authors show that the apparent superiority of one optimizer over another can vanish when reporting conventions are changed. It serves as a methodological guide for future quantum algorithm benchmarking.",
+  "main_problem": "The paper addresses the bias in comparing variational quantum optimizers by analyzing how different reporting conventions (e.g., success-only runs vs. full budget accounting) affect performance metrics.",
+  "main_result": "The reported performance of quantum optimizers, particularly Quantum Natural Gradient (QNG), is highly dependent on the chosen evaluation convention and target setting, suggesting that single-metric comparisons are misleading.",
+  "method": "The authors conduct a rigorous comparison of optimizers (QNG, Adam, SPSA) by implementing a standardized cost accounting system that prices every step in circuit evaluations.",
+  "model_or_system": "The model involves variational quantum circuits used to prepare quantum states on $n$ qubits, evaluated using global and local cost functions.",
+  "key_observables": "Time-to-target ($\tau$), total circuit evaluations required, ratio of medians (SPSA vs. Adam), and the number of initializations where one optimizer reaches the target first (QNG vs. Adam).",
+  "important_parameters": "Circuit widths (3 to 6 qubits), target loss thresholds ($\tau=0.20$ or $\tau=0.01$), and fixed computational budgets ($B$).",
+  "main_assumptions": "The core assumption is that a fair comparison requires charging every run that misses the target the full computational budget and using an exactly computed metric for QNG.",
+  "figures_summary": "Figures illustrate the impact of different reporting choices (success-only vs. budget-capped) on time-to-target comparisons, and tables quantify the performance differences between optimizers under various conditions.",
+  "paper_structure": "The paper systematically critiques existing benchmarking practices, presents a standardized methodology involving fixed budgets and step pricing, and then compares QNG against classical optimizers across multiple cost families and target strictness levels.",
+  "why_interesting": "It provides a critical methodological framework for evaluating quantum machine learning algorithms, which is crucial for researchers building practical quantum computation benchmarks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.09425_figures/2610.09425_fig1.jpg",
+      "caption": "Figure 1 traces two reporting choices that turn the runs of a time-to-target comparison into a verdict. One is which runs enter the statistic. A run that misses the target within its budget has a time right-censored at the budget, and success-only timing drops such runs. This complete-case summary makes runtime estimates opti- mistic (Mattos et al., 2021, Sec. V-E; Tornede et al., 2020, Sec. 2.2). A reading is a summary computed under one option of a reporting choice. The two read- ings of which runs enter are the conditional median over reached runs only and the budget-capped median, which charges every miss the budget (Section 3). The other choice is the target, which single-target...",
+      "page": 1
+    },
+    {
+      "image": "2610.09425_figures/2610.09425_fig2.jpg",
+      "caption": "Figure 1: The target τ defines the crossing times T, and × marks a run that does not reach τ within the budget B. The choice of which runs enter then acts on these times in both branches (Figure 3). Medians are conditional (reached runs only) or budget-capped (misses charged the budget). The paired branch counts which method needs fewer evaluations to the target, a miss counting as the budget, and takes the median of the paired differences.",
+      "page": 2
+    },
+    {
+      "image": "2610.09425_figures/2610.09425_fig3.jpg",
+      "caption": "Figure 2: (a) The testbed. Each of the L layers applies RY and then RZ to every qubit and then the ring E of controlled-Z gates, and the loss C(θ) follows from the probabilities of measuring 0 (Section 3). Each optimizer step adds its price in circuit evaluations to the run’s count, 2p for Adam, 2p + (p + 1) for QNG and 2 for SPSA, up to the budget B = 54p. (b) Adam (η = 0.3) and QNG (η = 1, λ = 10−1), with settings selected for τ = 0.01, from one of the 20 new global- cost initializations at n = 6 (B = 3888) whose τ = 0.01 paired difference is nearest the median (rule in Appendix D). Adam is first at τ = 0.20 and QNG at τ = 0.01, which Adam misses within B. A black-edged marker is a run’s...",
+      "page": 4
+    },
+    {
+      "image": "2610.09425_figures/2610.09425_fig4.jpg",
+      "caption": "Figure 3: Two reporting choices, each applied to its own fixed set of runs. Only Adam’s η = 0.3 runs on the new global-cost initializations enter both panels (Appendix D). (a) Original grid at τ = 0.20, original and new initializations in separate rows, all settings and the eight configurations of both cost families pooled, so medians mix budgets. Open markers use reached runs only, and filled ones charge every miss B. The line at 1 is Adam, whose runs all reach the target. SPSA’s shared sequence is defined in Section 3. Bars are Bonferroni-adjusted 99.5% bootstrap intervals, ten ratios per initialization set. (b) Global-cost family, 80 new initializations, settings selected for τ = 0.01,...",
+      "page": 6
+    },
+    {
+      "image": "2610.09425_figures/2610.09425_fig5.jpg",
+      "caption": "Figure 4: Gradient variance against width for (a) the global-cost family and (b) the local-cost family of Section 3, with a shared vertical axis. Here ∂1C is the derivative of the loss C with respect to the RY angle of the first qubit in the first layer. In (a) and (b), each marker is the variance of ∂1C over 200 initial points with independent, uniformly random angles. Each line is the least-squares fit of the natural logarithm of this variance against n over one set of random initial points, and each set draws its own points. (c) The fitted slope of each set for each family with its unadjusted percentile bootstrap interval from 400 replicates that resample the derivatives at each n....",
+      "page": 12
+    }
+  ],
+  "figure": "2610.09425_figures/2610.09425_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2610.09947",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "On the Expressive Power and Capacity of Quantum Data Reuploaders",
+  "authors": "Lord Sen, Shyamapada Mukherjee",
+  "abstract": "Data reuploading---repeatedly encoding classical inputs at multiple layers of a parameterized quantum circuit---is a central mechanism for enhancing the expressivity of quantum neural networks (QNNs). Building on the Fourier-theoretic framework of Schuld et al.~\\cite{schuld2021fourier}, we study the frequency spectrum of the general multivariate, $R$-reupload architecture (QDR). (i) We make explicit that the accessible frequencies form the set $K_R=S^{(R)}-S^{(R)}$, which equals the $R$-fold sumset $T^{(R)}$ of the difference set $T=S-S$ of the encoding spectrum, and we characterise it exactly: $K_R=\\{k\\in\\mathcal L:\\ \\ell_T(k)\\le R\\}$, where $\\mathcal L=\\mathrm{span}_{\\mathbb Z}(T)$ is an integer lattice and $\\ell_T$ is word length in $T$. (ii) We show that the \\emph{directions} of the spectrum stabilise already at $R=1$ (the real span of $K_R$ equals that of $\\mathcal L$), whereas the spectrum itself never saturates: the maximal frequency grows linearly in $R$ and the number of frequencies grows polynomially, as $Θ(R^{m})$ with $m=\\mathrm{rank}\\,\\mathcal L$. (iii) Using the spectrum size, we give a Rademacher-complexity bound on the capacity of QDRs of order $\\sqrt{|K_R|/n}$. (iv) We report experiments on function approximation and classification with train/test splits, several seeds and parameter-matched classical baselines. The simulated spectra match the theory exactly. A single-qubit QDR beats a matched MLP on several smooth or periodic univariate targets and on the spiral task, but it is clearly worse on multivariate regression ($d\\ge4$), where it is highly sensitive to the input-encoding scale; it beats the MLP only on equations with $d\\le3$ inputs.",
+  "url": "http://arxiv.org/abs/2610.09947v1",
+  "pdf": "https://arxiv.org/pdf/2610.09947v1",
+  "type": "both",
+  "summary": "This paper provides a deep theoretical and experimental analysis of Quantum Data Reuploaders (QDRs), characterizing their achievable frequency spectrum using Fourier analysis. It derives capacity bounds based on this spectrum size and compares QDR performance against classical MLPs on various function approximation and classification tasks. The findings highlight that while QDRs have a theoretically structured capacity, their practical performance is highly sensitive to input scaling and dimensionality.",
+  "main_problem": "The paper investigates the expressive power and capacity of Quantum Data Reuploaders (QDRs), a specific architecture for Quantum Neural Networks (QNNs). It aims to characterize how the structure of the quantum circuit limits the functions it can approximate.",
+  "main_result": "The accessible frequency spectrum of QDRs grows polynomially with the reuploading depth $R$, leading to a capacity bound proportional to $\\sqrt{|KR|/n}$. Experimentally, QDRs perform well on certain tasks but are limited in multivariate regression compared to MLPs.",
+  "method": "The analysis relies heavily on Fourier theory, mapping the quantum circuit output to a finite Fourier series whose frequency set $KR$ is characterized using sumsets and word length metrics on an integer lattice.",
+  "model_or_system": "The model is the QDR architecture, $U(\theta, x) = W_{R+1}V(x)W_R(\theta) \\cdots W_1$, where $V(x)$ encodes classical data $x$. The analysis is performed on the resulting output function $f_\theta(x)$, which is a finite Fourier series.",
+  "key_observables": "Test Root Mean Square Error (RMSE) for regression tasks (e.g., $\tanh(x^3/3)$) and classification accuracy for tasks like XOR and spirals.",
+  "important_parameters": "The reuploading depth $R$, the input scale $\\sigma$, the number of qubits $n$, and the number of trainable parameters $P$.",
+  "main_assumptions": "The analysis assumes the encoding $V(x)$ has a finite phase decomposition, and the theoretical bounds rely on the structure of the frequency set $KR$.",
+  "figures_summary": "Figures compare the test RMSE of QDRs versus matched MLPs across various targets (ReLU, sigmoid, $\tanh(x^3/3)$) and show decision boundaries for classification tasks.",
+  "paper_structure": "The paper first establishes the theoretical characterization of the frequency spectrum $KR$ using Fourier analysis. It then derives capacity bounds based on the size of this spectrum. Finally, it presents extensive experiments comparing QDR performance against MLPs on regression and classification tasks.",
+  "why_interesting": "This work provides rigorous mathematical tools (Fourier analysis, sumsets) to quantify the limitations of quantum circuit depth in approximating classical functions, which is crucial for understanding the practical utility of variational quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.09947_figures/2610.09947_fig1.jpg",
+      "caption": "Fig. 1: Univariate targets (blue) and the QDR fit (red dashed, best of 5 seeds) for a 27-parameter QDR with the default encoding (σ = 1), 400 epochs. Targets are normalised to [−1, 1]; the test RMSE shown is mean±std over seeds.",
+      "page": 6
+    },
+    {
+      "image": "2610.09947_figures/2610.09947_fig2.jpg",
+      "caption": "Fig. 2: tanh \u0000 x3\u0001 target (blue) and QDR fits (red dashed, best seed) for 15–45 parameters, all trained for 400 epochs with σ = 1 (test RMSE in the panel titles; last two panels: test RMSE versus P at 400 and 1600 epochs for the QDR and the matched MLP).",
+      "page": 8
+    },
+    {
+      "image": "2610.09947_figures/2610.09947_fig3.jpg",
+      "caption": "Fig. 3: Test RMSE versus number of parameters for tanh \u0000 x3\u0001 (mean±std over 5 seeds, log scale): QDR with σ = 1 at 400 and 1600 epochs, QDR with σ = 0.5, and matched MLPs.",
+      "page": 8
+    },
+    {
+      "image": "2610.09947_figures/2610.09947_fig4.jpg",
+      "caption": "Fig. 4: Decision regions of the best-of-5 QDR (σ = 1) on the test points: XOR (P = 9), Gaussian blobs (P = 9) and spiral (P = 45).",
+      "page": 10
+    }
+  ],
+  "figure": "2610.09947_figures/2610.09947_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

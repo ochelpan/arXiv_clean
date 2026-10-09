@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.10258",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.SE",
+    "cs.AI",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QuSema: Detecting Silent Bugs in Quantum Libraries via Quantum-knowledge-enhanced Agents",
+  "authors": "Yujin Song, Kaining Zhang, Qixin Zhang, Shuai Wang, Pingchuan Ma, Yuxuan Du",
+  "abstract": "Quantum libraries are now critical infrastructure for quantum algorithm development, yet their correctness remains difficult to test. Existing testing techniques mainly rely on failure-based or comparison-based oracles, exposing bugs only when executions fail, violate runtime checks, or disagree with another implementation. Their applicability is limited when suitable execution-based oracles are unavailable, leaving some silent bugs undetected. Such missed bugs can produce incorrect results that propagate into experimental conclusions, simulation studies, and algorithmic designs. Here we present QuSema, an autonomous testing agent for finding silent bugs in quantum libraries. QuSema uses constraints from quantum semantics and documentation as a source-level semantic oracle to assess whether implementation logic can produce invalid outputs from valid inputs. It operates through an agentic loop that repeatedly inspects library API documentation and source code, reasons about the intended behavior of quantum operations, identifies potential semantic deviations, and validates them by generating executable tests through library APIs. Guided by quantum-domain reasoning, QuSema turns high-level behavioral mismatches into concrete, user-triggerable bug reports, enabling it to uncover non-crash defects. We implement QuSema for Qiskit and PennyLane. On a benchmark of 20 historical silent bugs, QuSema achieves higher mean bug relocation counts than Claude Code and Codex, with the DeepSeek configuration costing less than Claude Code. QuSema also discovers 40 previously unknown bugs confirmed by the developers, including 30 silent bugs.",
+  "url": "http://arxiv.org/abs/2610.10258v1",
+  "pdf": "https://arxiv.org/pdf/2610.10258v1",
+  "type": "theory",
+  "summary": "This paper introduces QuSema, an autonomous testing agent designed to find 'silent bugs' in quantum computing libraries. It overcomes the limitations of traditional testing by using quantum semantics and documentation as a source-level oracle. By reasoning about intended quantum behavior, QuSema can uncover subtle, non-crashing defects critical for reliable quantum algorithm development.",
+  "main_problem": "The core problem is detecting 'silent bugs' in quantum libraries, where incorrect results are produced without triggering explicit runtime failures.",
+  "main_result": "The proposed agent, QuSema, successfully discovered 40 previously unknown bugs, including 30 silent bugs, surpassing existing testing methods on a benchmark.",
+  "method": "QuSema is an autonomous agent that uses quantum semantics and API documentation as a source-level semantic oracle to reason about intended behavior and generate executable tests.",
+  "model_or_system": "The system involves quantum computing libraries like Qiskit and PennyLane, which operate on qubits and quantum states manipulated by unitary operators.",
+  "key_observables": "Semantic deviations, incorrect output values from valid inputs, and discrepancies between documented API specifications and actual code execution.",
+  "important_parameters": "The complexity of quantum circuits, gate parameters (e.g., angles $\theta, \\varphi$), and the structure of quantum operations.",
+  "main_assumptions": "The primary assumption is that the intended behavior of the quantum library can be inferred and constrained using quantum semantics and documentation, allowing for testing beyond simple failure modes.",
+  "figures_summary": "Figure 1 illustrates the limitations of existing black-box testing methods, such as the inability to establish expected output relations or trigger bugs under specific semantic conditions.",
+  "paper_structure": "The paper first establishes the limitations of existing failure-based and comparison-based testing for quantum libraries. It then introduces QuSema, detailing its agentic loop that uses quantum semantics to derive source-level oracles, followed by empirical results on bug detection.",
+  "why_interesting": "While focused on software, the underlying challenge of verifying complex, non-linear, and high-dimensional physical simulations (like those in quantum computing) mirrors the need for robust verification techniques in AMO physics simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10258_figures/2610.10258_fig1.jpg",
+      "caption": "Fig. 1. Limitations of approaches employing black-box test oracles. (a) Limited availability of expected relations between execution results, where equivalent circuits can have different resource counts and some higher-level resource-estimation functionality lacks a cross-library counterpart. (b) Inefficient triggering, where a bug when implementing the CU gate is exposed only under specific semantic conditions.",
+      "page": 5
+    },
+    {
+      "image": "2610.10258_figures/2610.10258_fig2.jpg",
+      "caption": "Fig. 2. Circuit-level manifestation and source-level semantic evidence of Qiskit #13079 [16] in HoareOptimizer. (a) The triggering program and actual and expected circuits, showing an extra 𝑋on 𝑞0. (b) The implementation caches the original node after replacing it, so subsequent cancellation leaves the replacement 𝑋in the circuit. This violates quantum circuit semantics and is inconsistent with the documented node replacement.",
+      "page": 7
+    },
+    {
+      "image": "2610.10258_figures/2610.10258_fig3.jpg",
+      "caption": "Fig. 3. Workflow of QuSema for detecting silent bugs in quantum libraries. (a) Contextual Unit Preparation extracts code segments from library source code and combines them with call relations and documentation to form contextual units. (b) Semantic Defect Detection searches each contextual unit for semantic violations, formulates defect hypotheses and executes tests to produce candidate defects. (c) API Triggering and Bug Validation searches for documented APIs that expose the candidate defects, uses the reverse chain as auxiliary guidance, verifies the triggers, and classifies the results as bugs, potential bugs, or not bugs.",
+      "page": 10
+    },
+    {
+      "image": "2610.10258_figures/2610.10258_fig4.jpg",
+      "caption": "Fig. 4. Component contributions with DeepSeek-V4.1-Flash (Max). (a) Candidates matching historical defects as Contextual Unit Preparation and the Source-level Semantic Oracle are added. (b) Bugs satisfying the relocation criterion with and without hypothesis verification in Stages II and III. Each group reports the counts from Runs 1–3 and their mean across the three runs.",
+      "page": 16
+    },
+    {
+      "image": "2610.10258_figures/2610.10258_fig5.jpg",
+      "caption": "Fig. 5. Silent bugs discovered by QuSema: (a) incorrect bosonic-operator multiplication in PennyLane #9650 [86] and (b) incorrect control-state composition in Qiskit #16410 [87].",
+      "page": 16
+    }
+  ],
+  "figure": "2610.10258_figures/2610.10258_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

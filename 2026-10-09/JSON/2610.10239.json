@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.10239",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "ProtocolMatch: Protocol-Dependent Model Selection for Scientific Dynamics Forecasting",
+  "authors": "Lu Wei, Yufeng Wang, Haibin Ling",
+  "abstract": "Scientific dynamics forecasting is often framed as an architecture choice, although deployment is also determined by observed history, rollout feedback, compute budget, physical objective, and test distribution. We formulate protocol-dependent model selection and introduce ProtocolMatch, a compute-matched, validation-selected, and failure-preserving evaluation framework. On driven quantum-spin dynamics, we compare recurrent, patched-attention, causal-attention, and low-rank linear predictors across three independently generated datasets. The causal-attention--recurrence ordering reverses as the training set grows within a fixed two-spin task, while a linear predictor has the lowest mean error in the six-spin local-observable comparison. Restricting observed history worsens every refreshed-history view but improves every closed-loop view in the four-spin study. A latest-state MLP has lower error than persistence on every dataset under state refresh across all five cells, yet its closed-loop rank varies by system and includes finite explosive errors. Physical penalties improve targeted consistency without reliably improving prediction error, and in-distribution intervals lose most coverage after a driving-frequency shift. Thus scientific model selection should return a predictor with its protocol and report accuracy, physical validity, and shifted-distribution reliability separately.",
+  "url": "http://arxiv.org/abs/2610.10239v1",
+  "pdf": "https://arxiv.org/pdf/2610.10239v1",
+  "type": "both",
+  "summary": "This paper addresses the challenge of model selection in quantum dynamics forecasting by proposing ProtocolMatch, a framework that evaluates models based on the entire operational protocol, not just the architecture. By testing on driven quantum-spin systems, the authors show that model performance is highly protocol-dependent, necessitating that any reported predictor must be accompanied by its specific operational context and separate reliability metrics.",
+  "main_problem": "Scientific dynamics forecasting requires model selection that accounts for the entire 'protocol'—including observation history, rollout rules, and physical constraints—rather than just the model architecture.",
+  "main_result": "The optimal forecasting model depends critically on the specific protocol used, as demonstrated by performance reversals when changing data size, history length, or evaluation loop (observed vs. closed-loop).",
+  "method": "The authors introduce ProtocolMatch, a framework that evaluates model candidates by explicitly conditioning the risk calculation on the entire forecasting protocol $P$, separating accuracy, physical validity, and shifted-distribution reliability.",
+  "model_or_system": "The study applies this framework to driven quantum-spin dynamics, simulating systems ranging from two-spin to six-spin quantum chains governed by Hamiltonians like the transverse-field Ising model.",
+  "key_observables": "Mean Squared Error (MSE) for prediction error, physical consistency (e.g., trace normalization, positivity), and interval coverage under shifted distributions.",
+  "important_parameters": "History length (1, 5, 20), rollout rule (Observed-history vs. Closed-loop), and the specific protocol tuple $P$ defining the evaluation regime.",
+  "main_assumptions": "The primary assumption is that the protocol cannot be treated as a nuisance variable; changes in performance across protocols indicate fundamentally different deployment behaviors.",
+  "figures_summary": "Figures illustrate the comparison between observed-history and closed-loop evaluations, and show how the preferred model architecture reverses when varying training data size or rollout rules.",
+  "paper_structure": "The paper first establishes the limitations of architecture-only model selection, introduces the ProtocolMatch framework to condition model selection on the full protocol $P$, and then empirically tests this framework across various quantum-spin dynamics systems and protocols.",
+  "why_interesting": "This work provides a rigorous, machine-learning-informed methodology for assessing the reliability of quantum dynamics models, which is crucial for building trustworthy simulations of open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10239_figures/2610.10239_fig1.jpg",
+      "caption": "Figure 1: The forecasting protocol determines both the information available to a predictor and how that predictor is compared. (a) Observed-history and closed-loop evaluation keep the predictor, future controls, and target fixed; only the source of the next state-history window changes. (b) ProtocolMatch pairs that declared task with controlled candidates, validation-only selection, independent-dataset aggregation, and failure-preserving reliability reports.",
+      "page": 3
+    },
+    {
+      "image": "2610.10239_figures/2610.10239_fig2.jpg",
+      "caption": "Figure 1(b) summarizes the comparison workflow. Four controls make the resulting rank interpretable.",
+      "page": 3
+    },
+    {
+      "image": "2610.10239_figures/2610.10239_fig3.jpg",
+      "caption": "Figure 2: Replicated ranking reversals under matched optimization time. (a) LSTM-minus-causal error for closed-loop extrapolation changes sign between 64 and 256 training trajectories. (b) Local-minus-full-history error changes sign between observed-history and closed-loop rollout while the full prediction target remains fixed. Colored lines are independent-dataset means over three training seeds; the dashed black line is their average. Both panels use 20-step histories, a 120-second budget, identity-distribution tests, and no output clipping.",
+      "page": 6
+    },
+    {
+      "image": "2610.10239_figures/2610.10239_fig4.jpg",
+      "caption": "Figure 2(b) defines the input contrast as local-minus- full MSE. For the history-20 LSTM, it is +0.02046 with observed-history refresh and −0.03023 with closed-loop feedback. Each independent dataset shows the same sign change. The benefit of nonlocal history therefore depends on whether those channels are refreshed from observations or populated by preceding predictions.",
+      "page": 6
+    },
+    {
+      "image": "2610.10239_figures/2610.10239_fig5.jpg",
+      "caption": "Figure 3: Accuracy, physical validity, and uncertainty are distinct outcomes. (a) A trace penalty usually lowers trace error but often raises prediction MSE for a two-spin LSTM; the 32 correlated views share fitted models. (b) Intervals calibrated on 64 independent identity-distribution trajectories approach nominal 90% coverage in distribution but lose most coverage after a frequency shift. Widths are full symmetric interval widths.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.10239_figures/2610.10239_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
