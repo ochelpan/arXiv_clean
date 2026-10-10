@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.10756",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-Enhanced Inference of Conditional Future Probabilities with Reduced Memory Cost",
+  "authors": "Jianjun Chen, Akshat Gupta, Chengran Yang, Ariel Neufeld, Jayne Thompson, Thomas J. Elliott, Mile Gu",
+  "abstract": "Many potential future events have devastating consequences, from the onset of earthquakes to financial black swan events. Accurate predictions of their probability of occurrence are vital. Yet as the stochastic systems underlying such events become increasingly complex, these probabilities can depend on ever-growing amounts of past data, which require ever more memory to track. The accuracy of our estimates is ultimately limited by both computational and memory constraints; the former to reduce sampling error, the latter to avoid sampling bias. Traditional quantum algorithms -- such as amplitude estimation -- address only the former, and become untenable especially in near-future quantum devices where quantum memory is a premium. Here, we offer quantum-algorithmic means to reduce systematic bias while maintaining a quadratic speed-up. Our results thus advance the timeline for the practical deployment of quantum technologies, and illustrate their additional benefits when simulating processes of growing complexity.",
+  "url": "http://arxiv.org/abs/2610.10756v1",
+  "pdf": "https://arxiv.org/pdf/2610.10756v1",
+  "type": "theory",
+  "summary": "This paper introduces a quantum-algorithmic framework to estimate the probability of future events in complex stochastic systems. It tackles the fundamental trade-off between memory requirements and estimation accuracy by combining quantum amplitude estimation with quantum-enhanced dimensional reduction. The results demonstrate that quantum methods can maintain high accuracy while drastically reducing the memory overhead compared to classical methods.",
+  "main_problem": "The core challenge is accurately estimating the conditional probability of a future event in complex stochastic systems while overcoming the exponential memory scaling and computational limitations of traditional quantum algorithms.",
+  "main_result": "The authors propose a quantum-algorithmic method that simultaneously achieves a quadratic speed-up (like QAE) and significantly reduces the systematic bias associated with memory constraints.",
+  "method": "The approach involves mapping classical stochastic processes to quantum memory states and employing a structured quantum circuit (MRQPE) to estimate probabilities, incorporating quantum-enhanced dimensional reduction techniques.",
+  "model_or_system": "The work analyzes stationary stochastic processes, including Autoregressive (AR(2)) models and cyclic random walks, which are discretized and modeled using quantum memory registers.",
+  "key_observables": "Conditional future probabilities $P(X_{0:L} | \\leftarrow x)$, estimation error ($\\epsilon$), and the fidelity divergence rate (QFDR).",
+  "important_parameters": "Memory dimension ($D_c$ vs. $\tilde{D}$), required number of simulations ($N$), and the time horizon ($L$).",
+  "main_assumptions": "The analysis relies on approximating the full quantum model with a reduced memory dimension ($\tilde{D} < D_c$) while maintaining low estimation error.",
+  "figures_summary": "Figures illustrate the unitary evolution coupling memory and ancilla, the structured quantum circuit for state preparation, and comparisons of mean absolute errors for various time series models (AR(2), coin process) under noise.",
+  "paper_structure": "The paper first establishes the problem of memory vs. accuracy trade-off, then details the quantum-algorithmic framework (MRQPE) for state preparation, and finally validates the method by applying it to various time series models (AR(2), Poisson processes) to demonstrate simultaneous reduction in bias and memory cost.",
+  "why_interesting": "It directly addresses the practical limitations of quantum computation for simulating complex, long-term physical processes by showing how quantum techniques can manage the exponential growth of required classical memory states.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10756_figures/2610.10756_fig1.jpg",
+      "caption": "FIG. 1: Classical vs. Quantum Models. (a) A classical model of a stochastic process operates by tracking relevant past information in its memory states {sj}, encoded within the memory system M. At each time step, a classical model in state sj emits a symbol x and transitions to some state sk with probability T x jk. (b) A quantum model consists of a quantum memory initialised in a state |sj⟩, based on the past observations ←−x . At each time step t, the unitary Us entangles the memory register with a fresh ancillary system, imprinting the output |xt⟩onto the ancilla and simultaneously updating the memory. The output |xt⟩can be measured immediately to generate a sequence for the stochastic...",
+      "page": 3
+    },
+    {
+      "image": "2610.10756_figures/2610.10756_fig2.jpg",
+      "caption": "FIG. 2: Algorithm Schematic. Our method for memory-reduced conditional probability estimation tackles the data-loading problem through the use of a recurrent quantum circuit A (a). Through L repeated applications of Us on a suitably initialised memory system and L ancilla qubits, the circuit is able to generate a quantum superposition of all possible futures up to a time horizon of L. Provided the memory system (top line) is properly accounted for, we can build a suitable Grover iterator Q (b). We can then construct a family of quantum circuits Nk, each involving mk repeated applications of Q. The resulting measurement statistics from these circuits then allow us to estimate ˆp (c). For...",
+      "page": 4
+    },
+    {
+      "image": "2610.10756_figures/2610.10756_fig3.jpg",
+      "caption": "FIG. 3: Cyclic random walk and its discretisation. (a) We can discretise a cyclic random walk by dividing the unit interval into equal segments, each represented by its midpoint sj = j/N, j = 0, 1, . . . , N −1 (red markers). Between any two states, there exist two possible transition pathways — one clockwise and one anticlockwise. (b) Given a continuous position Xt, the discrete state of the system at time t is defined as the closest segment midpoint sj, denoted St = s(Xt). The transition probability from sk to sj is then P(sk|sj) = P(Xt+1 ∈Ik|Xt = xj), where Ik = \b x : x −k",
+      "page": 5
+    },
+    {
+      "image": "2610.10756_figures/2610.10756_fig4.jpg",
+      "caption": "FIG. 4: Illustration of quantum advantage on a cyclic random walk. Here we compare the performance of classical Monte Carlo methods to our memory-reduced quantum probability estimator (MRQPE) when simulating a 8-segment cyclic random walk when memory dimension is constrained to 4. (a) illustrates the estimates of the probability p = P(x0:3 = 100|x−3:0 = 000) using classical Monte Carlo (blue), MRQPE with linear (LIS) scheduling (see Appendix F for details on LIS and EIS scheduling) as a function of the number of simulations N, with the true value of p plotted in comparison (purple). The error bars represent the error bars corresponding to the 90th and 10th percentiles over 1000 independent...",
+      "page": 6
+    },
+    {
+      "image": "2610.10756_figures/2610.10756_fig5.jpg",
+      "caption": "FIG. 5: Quantum advantage when simulating a 16-state cyclic random walk. Here, we consider the average RMSE error when estimating all events with probabilities from 10−9 to 10−8 for the 16-state cyclic random walk (see Appendix G 4 for details). As in the the 8-state case, both classical baseline and quantum models are set to have memory dimension of 4. As in Figure 4c, the blue line then denotes the the lower bound on RMSE achieved using classical models — even if we allowed unlimited samples. Meanwhile the green line plots the RMSE error of our quantum models as function of number of simulations. We see that quantum models can achieve RMSE below classical limits using only around 3000...",
+      "page": 7
+    }
+  ],
+  "figure": "2610.10756_figures/2610.10756_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

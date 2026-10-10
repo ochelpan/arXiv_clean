@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.10731",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Single-shot magic state factories for quantum LDPC codes",
+  "authors": "Varun Menon, Rohan Mehta, Andi Gu, Andrei C. Diaconu, Daniel Bochen Tan, Xiao Xiao, Michael J. Gullans, Qian Xu, Hengyun Zhou, Mikhail D. Lukin, J. Pablo Bonilla Ataides",
+  "abstract": "Quantum low-density parity-check (qLDPC) codes can substantially reduce the qubit overhead of fault-tolerant quantum computation, but any useful architecture based on such codes also requires an efficient mechanism to implement non-Clifford gates in a fault-tolerant manner. We introduce a space-time-efficient magic state factory for high-rate qLDPC codes by combining the transversal non-Clifford gates of recently developed tricycle codes with single-shot four-dimensional balanced product quadcycle codes. The key ingredient is an efficient \"escape\" mechanism that teleports postselected logical magic states from tricycle codes to larger distance quadcycle codes. Under a standard circuit-level noise model at physical error rate $10^{-3}$, our factories produce $\\mathrm{CCZ}$ states at logical error rates as low as $10^{-9}$ with 10-40 times lower space-time cost than state-of-the-art magic state generation methods. The resulting states are directly encoded in high-rate blocks suitable for computation. We identify the quadcycle codes by an AI-assisted search and show that they can serve as excellent memories capable of single-shot error correction. Finally, we present a concrete implementation of the entire factory with highly efficient atom transport on reconfigurable neutral-atom quantum computers. Together, these results provide an end-to-end, practical protocol for producing and utilizing high-fidelity magic states within a high-rate qLDPC architecture, with the lowest space-time cost to date.",
+  "url": "http://arxiv.org/abs/2610.10731v1",
+  "pdf": "https://arxiv.org/pdf/2610.10731v1",
+  "type": "both",
+  "summary": "This paper presents a novel, highly efficient 'magic state factory' designed for fault-tolerant quantum computation using quantum LDPC codes. It merges tricycle and quadcycle codes via a teleportation mechanism to generate high-fidelity magic states. The protocol is demonstrated on neutral-atom quantum computers, offering a practical, low-overhead pathway to scaling quantum computation.",
+  "main_problem": "The core challenge is developing a space-time-efficient method to generate high-fidelity magic states required for fault-tolerant quantum computation using quantum LDPC codes.",
+  "main_result": "The authors propose a factory combining tricycle and quadcycle codes that achieves logical error rates as low as $10^{-9}$ with 10-40 times lower space-time cost than existing methods.",
+  "method": "The approach uses an 'escape' mechanism to teleport postselected logical magic states from tricycle codes to more robust quadcycle codes via a depth-1 homomorphic CNOT.",
+  "model_or_system": "The protocol is demonstrated on reconfigurable neutral-atom quantum computers, utilizing the algebraic structure of tricycle and quadcycle codes for state preparation and error correction.",
+  "key_observables": "Logical error rate (achieving $10^{-9}$), space-time cost (showing 10-40x improvement), and fidelity of generated CCZ states.",
+  "important_parameters": "Physical error rate ($p = 10^{-3}$), code distances ($d_{3D}$), and the number of available atoms/AODs.",
+  "main_assumptions": "The analysis assumes a standard circuit-level noise model at $p = 10^{-3}$, and the efficiency relies on the shared algebraic structure between the two code types.",
+  "figures_summary": "Figures illustrate the 'Transversal dimension-jump magic state factory' process, showing the flow from tricycle to quadcycle blocks, and detail the single-shot error correction capabilities of the quadcycle codes.",
+  "paper_structure": "The paper first introduces the need for efficient magic state generation for qLDPC codes. It then details the combination of tricycle and quadcycle codes, the teleportation mechanism, and finally presents a concrete, end-to-end implementation using neutral atoms.",
+  "why_interesting": "The integration of advanced quantum error-correcting codes (qLDPC) with a physical implementation platform (neutral atoms) to solve a fundamental resource bottleneck (magic state generation) is highly relevant for experimental quantum computing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10731_figures/2610.10731_fig1.jpg",
+      "caption": "FIG. 1. Transversal dimension-jump magic state factory. (a) Three tricycle blocks are prepared in |+⟩and acted on by a transversal CCZ circuit using a fan-out gadget, producing the nine-qubit hypergraph state |det⟩shown on the right. The gadget pairs each block with an ancilla patch of the same code through one transversal layer of CNOTs, splitting the two CCZ layers across the two patches so that every qubit takes part in a single gate. A depth-1 homomorphic CNOT teleports the magic state into three paired quadcycle blocks prepared in |0⟩. Transversal X measurements of the tricycle blocks provide the teleportation outcomes and detector information used for postselection. The dashed box...",
+      "page": 2
+    },
+    {
+      "image": "2610.10731_figures/2610.10731_fig2.jpg",
+      "caption": "FIG. 2. Single-shot circuit-level performance of the quadcycle codes. Logical error rate per cycle per logical qubit versus physical error rate p for the [[54, 6, 6]], [[72, 6, 8]], and [[162, 6, 14]] quadcycle codes, from windowed memory simulations under circuit-level depolarizing noise. Decoding is single-shot: a sliding window spanning three syndrome- extraction rounds and advancing one round per step (W = 3, S = 1) solves for the most-likely error within each window, so a constant number of rounds suffices independent of the code distance. The open marker extrapolates the [[162, 6, 14]] curve to p = 10−3 using PL ∝pd/2 with d = 12 (its circuit- level distance upper bound). Error bars...",
+      "page": 5
+    },
+    {
+      "image": "2610.10731_figures/2610.10731_fig3.jpg",
+      "caption": "FIG. 3. Complete factory pipeline with downstream fault-tolerant gadgets. Only one of the three parallel sets of code blocks is shown. The escape stage abstracts Fig. 1, in which the magic state is teleported to three quadcycle blocks and postselected (not shown). Using ancillary quad- cycle codes and homomorphic CNOTs, we then perform a transversal measurement that effectively addresses a single logical qubit in the Z basis. As the ancillary quadcycle code is also single-shot state preparable, this measurement can be performed in constant depth. Then, depending on the logi- cal outcome, we modify the factory to transversally prepare a resource state for the required addressable CZ...",
+      "page": 6
+    },
+    {
+      "image": "2610.10731_figures/2610.10731_fig4.jpg",
+      "caption": "FIG. 4. Qubit placement and routing for the neutral-atom implementation. (a) Toric layout of a quadcycle code. Qubits are arranged into unit cells containing six data qubits, four X-check ancillae, and four Z-check ancillae. The correspond- ing tricycle cell, shown below, is identified with the lower row of the quadcycle cell. This shared layout allows the two codes to use the same routing patterns for their common stabilizer terms and aligns their data qubits for the homomorphic CNOT. The dashes inside the unit cell display which sectors are coupled for an A term. (b) Parallel atom rearrangement implementing the cyclic translation associated with the monomial xy. The translations are...",
+      "page": 7
+    },
+    {
+      "image": "2610.10731_figures/2610.10731_fig5.jpg",
+      "caption": "FIG. 5. Dependence of the factory on the CCZ error rate. Post-selected logical error rate per output logical qubit (top) and single-block acceptance fraction (bottom) for the 2 × [[27, 3, 3]] →[[54, 6, 6]] and 2 × [[36, 3, 4]] →[[72, 6, 8]] fac- tories, as a function of the CCZ error rate pCCZ, with all other operations held at depolarizing noise p = 10−3. The simulated CCZ noise is the single-qubit marginal of a three-qubit depo- larizing channel; this marginal is exact because each qubit participates in only one gate in the depth-1 transversal CCZ circuit. Error bars are binomial.",
+      "page": 14
+    }
+  ],
+  "figure": "2610.10731_figures/2610.10731_fig1.jpg",
+  "highlighted": [
+    "Mikhail D. Lukin"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 2,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

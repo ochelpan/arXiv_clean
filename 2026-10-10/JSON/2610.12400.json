@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.12400",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Measure Now, Mitigate Later: Virtual Error Cancellation for Logical Quantum Circuits",
+  "authors": "Oles Shtanko, Saswata Roy, Shashwat Kumar, Zlatko Minev",
+  "abstract": "Early fault-tolerant quantum algorithms are a key step in scalable quantum computing, but are ultimately constrained by residual, uncorrectable logical errors. Logical quantum error mitigation can eliminate this bias, however its standard requirements include prior noise characterization, more complex experiments, and substantial sampling overhead. Although no mitigation technique can simultaneously overcome all three constraints, we demonstrate that the first two---noise learning and need for modified circuits---can be completely bypassed for logical circuits by leveraging only syndrome records. Specifically, we introduce virtual error cancellation: a method that, unlike previous bias-free approaches, operates entirely in classical post-processing on universal quantum circuits. We develop and numerically test end-to-end protocols that reduce the sampling overhead beyond fundamental limitations of existing syndrome-aware mitigation techniques, including syndrome-based postselection. In particular, we propose a scheme that pairs the low-latency decoder used in the experiment with a high-complexity decoder run in post-processing. In numerical simulations of a distance-7 rotated surface code, we show that our full-stack dual-decoder algorithm exhibits an error that diminishes as the number of samples increases, capable of reaching more than three orders of magnitude of suppression compared to the decoded logical error rate in an experimentally achievable setting. These results establish syndrome records as a resource for correcting universal computational estimates after quantum execution.",
+  "url": "http://arxiv.org/abs/2610.12400v1",
+  "pdf": "https://arxiv.org/pdf/2610.12400v1",
+  "type": "theory",
+  "summary": "This paper introduces Virtual Error Cancellation (VEC), a novel post-processing technique to combat residual logical errors in quantum computation. VEC leverages syndrome records to estimate logical observables without requiring full noise characterization or circuit modification. The results demonstrate that this method achieves significant error suppression with a theoretically bounded and near-optimal sampling overhead.",
+  "main_problem": "The primary challenge is mitigating residual, uncorrectable logical errors in early fault-tolerant quantum algorithms that persist even after physical error correction.",
+  "main_result": "The proposed Virtual Error Cancellation (VEC) method allows for error suppression exceeding three orders of magnitude in simulations by operating entirely in classical post-processing using only syndrome records.",
+  "method": "VEC is a novel classical post-processing technique that constructs an unbiased estimator by assigning weights to syndrome records, bypassing the need for prior noise characterization or circuit modification.",
+  "model_or_system": "The analysis is performed on logical quantum circuits, specifically using the framework of stabilizer codes like the distance-7 rotated surface code.",
+  "key_observables": "Logical Error Rate ($p_L$), Sampling Overhead ($C(w)$), Syndrome Record ($s$), and the estimator $\\hat{\\langle O \rangle}_{\text{VEC}}$.",
+  "important_parameters": "Code distance ($d$), sampling overhead scaling factor ($\\eta$), and the minimal weight difference ($\\Delta W_{min}$) characterizing error regimes.",
+  "main_assumptions": "The physical noise is assumed to be described by a Pauli channel, and the analysis often relies on asymptotic expansions and the system operating below the error threshold ($p < p_{th}$).",
+  "figures_summary": "Figures illustrate the VEC concept, comparing sampling overhead scaling ($\\eta$) against existing methods, and detail the dual-decoder architecture used for coarse-grained cancellation.",
+  "paper_structure": "The paper develops the theory of unbiased estimators using syndrome records, derives optimal filter weights, introduces coarse-grained and dual-decoder protocols for tractability, and finally analyzes the scaling and residual error suppression in the decoupled limit.",
+  "why_interesting": "This work provides a powerful, resource-efficient theoretical tool for quantifying and suppressing errors in quantum computation that is highly relevant to experimental quantum information scientists.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.12400_figures/2610.12400_fig1.jpg",
+      "caption": "FIG. 1. Concept. (a) An unmodified universal logical circuit is executed with real-time decoding and feedforward, storing each shot’s syndrome record si and outcome mi. (b) Fault rates of a prescribed detector error model are learned from the stored syndromes, without separate calibration experiments. (c) Comparing real-time and offline decoding partitions shots into consensus (SI) and disagreement (SX,Y,Z) sectors. (d) VEC assigns positive weights wI > 1 to consensus shots and negative weights wQ < 0 to disagreement shots. The estimator ⟨O⟩VEC = N −1 P",
+      "page": 2
+    },
+    {
+      "image": "2610.12400_figures/2610.12400_fig2.jpg",
+      "caption": "FIG. 2. Dual-decoder architecture and coarse-grained virtual error cancellation (d = 7 unless noted). (a) Sector shares πQ versus physical error rate p for the consensus sector SI and the disagreement sectors SX,Y,Z. Lines are power-law fits (SY fitted for p ≥0.04; no SY counts for p ≤0.01); error bars are standard errors (68% Clopper–Pearson for SY ). (b) Conditional logical error matrix pQ,Q′ at p = 0.05: probability of logical error Q′, relative to the real-time frame, in sector Q; rows sum to one. (c) Logical error rate (LER) pL of real-time minimum-weight perfect matching (MWPM, open markers) and offline maximum-likelihood decoding (ML, filled markers) for d = 3, 5, 7; shading marks...",
+      "page": 4
+    },
+    {
+      "image": "2610.12400_figures/2610.12400_fig3.jpg",
+      "caption": "FIG. 3. End-to-end noise learning and virtual error cancellation on a d = 7 surface code. Code-capacity depolarizing noise with per-qubit rates distributed around a mean p; learning budgets scale as Tlearn = Tbase·(5·10−3/p); 102 noise realizations. (a) Learned versus true per-qubit error rates for the three lowest values of p (Tbase = 107), colored by point density. Inset: distribution of the relative error (median 0.35%). (b) Relative error of the learned logical error rates ¯pX, ¯pY , ¯pZ at p = 5·10−3, with median and 68% and 95% bands. (c) Unmitigated logical error rate, postselection on decoder agreement (wQ = 0), and VEC residual bias ∥pres∥1 for Tbase = 105, 106, 107. Lines connect...",
+      "page": 6
+    },
+    {
+      "image": "2610.12400_figures/2610.12400_fig4.jpg",
+      "caption": "FIG. 4. Full-circuit integration and pipelined sliding- window decoding. Logical circuit schematic (top) decom- posed into sequential Clifford layers (blue boxes) that exhibit residual logical error channels in the form of Eq. (1) (red shapes), alongside a non-Clifford T-gate teleportation gadget (magic state |T ⟩preparation in blue, transversal CNOT, de- structive measurement MZ, and real-time feedforward phase correction Sm L ). The pipelined decoding schedule (bottom) executes overlapping sliding windows with committed regions (orange) and lookahead buffers (yellow-hatched) along the time axis.",
+      "page": 7
+    },
+    {
+      "image": "2610.12400_figures/2610.12400_fig5.jpg",
+      "caption": "Fig. 3. The learned model recovers both the physical fault probabilities (Fig. 3a) and the logical Pauli error rates (Fig. 3b) across multiple noise realizations and er- ror channels. Figure 3c compares the unmitigated logi- cal error rate, the error rate obtained by postselecting on decoder agreement, and the residual VEC error rate aris- ing from finite-sample noise mischaracterization. For the largest learning budget (Tbase = 107) and p ≤2.2 · 10−2, the protocol reduces logical errors by more than a fac- tor of 103 relative to the unmitigated decoding and more than a factor of 102 relative to postselection based on two-decoder agreement; the suppression decreases toward the highest...",
+      "page": 7
+    }
+  ],
+  "figure": "2610.12400_figures/2610.12400_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.10772",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "Scaling Quantum Optimization to the Thousand-Qubit Scale with Distributed Quantum Sampling",
+  "authors": "Amana Liaqat, Ahmed Darwish, Stephen DiAdamo, Dan Holme, Kieran McDowall, Emre Sahin, Naeimeh Mohseni, Giorgio Cortiana, Corey O'Meara",
+  "abstract": "The Minimum Birkhoff Decomposition (MBD) seeks a sparse weighted sum of matchings and is a challenging optimization problem with applications in network scheduling and energy trading. We scale a quantum-assisted decomposition method by combining single-layer QAOA sampling with Extended Fully-Corrective Frank-Wolfe (E-FCFW) optimization, spectral graph partitioning, and greedy feasibility repair. We demonstrate the pipeline on the 1,354-node PEGASE bus test case (representing a 1,354-bus transmission grid with 1,710 transmission lines), whose 1,710 edges define a native 1,710-variable matching optimization problem requiring 1,710 qubits in the unpartitioned encoding. Partitioning enables distributed execution on IBM superconducting quantum processors. The best reported hardware result uses a 50-qubit partition bound, while reducing partitions to 20 qubits degrades convergence in the partition-size comparison. Larger partitions are more demanding for matrix product state (MPS) simulation, and bond-dimension tests show that truncating quantum correlations reduces candidate quality. The results therefore motivate retaining a substantive quantum sampling task within each partition as the overall problem scales. On the PEGASE-1354 benchmark, repaired QAOA samples achieve lower residual decomposition error than both simulated annealing and uniform random sampling baselines, while spatial circuit packing reduces hardware execution time by approximately a factor of three. These results demonstrate that combining spectral partitioning, spatial circuit packing, and classical feasibility repair provides an executable path for deploying gate-based quantum sampling on thousand-variable constrained optimization problems on current hardware.",
+  "url": "http://arxiv.org/abs/2610.10772v1",
+  "pdf": "https://arxiv.org/pdf/2610.10772v1",
+  "type": "both",
+  "summary": "This work tackles the difficulty of applying quantum optimization algorithms to massive, real-world constrained problems like power grid analysis. It proposes a scalable pipeline that uses spectral graph partitioning to break the problem into smaller, hardware-manageable chunks. By combining quantum sampling with classical repair techniques, the authors demonstrate a viable path for running thousand-variable optimization on current superconducting quantum processors.",
+  "main_problem": "The paper addresses the challenge of scaling quantum optimization methods, specifically for the Minimum Birkhoff Decomposition (MBD), to large-scale, thousand-variable constrained problems.",
+  "main_result": "The combination of spectral graph partitioning, spatial circuit packing, and classical feasibility repair provides an executable path for deploying gate-based quantum sampling on large-scale optimization problems using current quantum hardware.",
+  "method": "The approach combines the Extended Fully-Corrective Frank-Wolfe (E-FCFW) framework with single-layer QAOA sampling, distributing the problem via spectral partitioning across multiple quantum processing units (QPUs).",
+  "model_or_system": "The problem is modeled as decomposing a doubly substochastic matrix into a sparse weighted sum of matchings, formulated as a QUBO Hamiltonian on a graph like the 1,354-node PEGASE bus test case.",
+  "key_observables": "Residual decomposition error ($\\lVert D - D^* \rVert_F^2$), hardware execution time, and mirror fidelity ($\\hat{F}_{\text{mirror}}$).",
+  "important_parameters": "Partition size ($p_s$), QAOA parameters ($\\gamma_0, \beta_0$), and the number of qubits (up to 1,710 variables).",
+  "main_assumptions": "The method assumes that retaining a substantive quantum sampling task within each partition is necessary for convergence, and it relies on classical feasibility repair to enforce global constraints.",
+  "figures_summary": "Figures illustrate the workflow involving partitioning residual graphs into QAOA subproblems, dispatching them across multiple QPUs using spatial circuit packing, and the comparison of convergence curves against classical baselines.",
+  "paper_structure": "The paper details the formulation of MBD, introduces the E-FCFW framework augmented by QAOA sampling, describes the scaling solution using spectral partitioning and spatial packing, and validates the entire pipeline on large benchmark graphs.",
+  "why_interesting": "While the core problem is graph optimization, the methodology heavily relies on mapping complex constraints onto quantum circuits, simulating entanglement via MPS, and managing hardware resource constraints (qubit count, depth), making it highly relevant to quantum computing architecture and algorithm development.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.10772_figures/2610.10772_fig1.jpg",
+      "caption": "FIG. 1. Residual graphs are partitioned into QAOA subproblems and dispatched across IBM QPUs using spatial circuit packing. Samples are stitched, repaired to enforce matching feasibility, and added to the classical E-FCFW active set.",
+      "page": 2
+    },
+    {
+      "image": "2610.10772_figures/2610.10772_fig2.jpg",
+      "caption": "FIG. 2. Benchmark on synthetic demand graphs inspired by heavy-hex topology (n = 120, |E| = 132). (a) Normalized approximation cost versus decomposition length for hardware QAOA, MPS simulation, and classical baselines. All methods except greedy Birkhoff (BKF) supply candidates to E-FCFW. (b) Mirror fidelity and final cost versus MPS bond dimension χ: retaining more entanglement improves simulation fidelity and candidate quality.",
+      "page": 5
+    },
+    {
+      "image": "2610.10772_figures/2610.10772_fig3.jpg",
+      "caption": "FIG. 3. Cost convergence of partitioned E-FCFW versus decomposition length on simulation and quantum hardware compared with classical baselines, with and without repair. (a) Partitioning bounds ps ∈{20, 50, 80} evaluated via MPS simulation (χ = 128), compared with partitioned simulated annealing (SA) and uniform random sampling baselines (all using feasibility repair). (b) Hardware execution on IBM Heron (ibm_marrakesh) tracking 128-bond-dimension MPS simulation, with spatial circuit packing yielding a 3× execution speedup with minimal degradation in candidate quality. (c) Convergence with and without greedy feasibility repair; discarding invalid matchings without repair stalls QAOA...",
+      "page": 6
+    },
+    {
+      "image": "2610.10772_figures/2610.10772_fig4.jpg",
+      "caption": "FIG. 4. PEGASE-1354 partitioned into 41 subgraphs with edge bound ps = 50. Colors distinguish neighboring partitions; gray lines are internal edges and dashed red lines are cut edges. Shaded regions illustrate individual partitions.",
+      "page": 8
+    },
+    {
+      "image": "2610.10772_figures/2610.10772_fig5.jpg",
+      "caption": "FIG. 5. Spatial packing on the 156-qubit IBM Heron proces- sor ibm_marrakesh. Two 38-qubit and two 34-qubit circuits occupy 144 qubits in disjoint regions. Idle qubits and unused cross-boundary couplers separate the circuits.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.10772_figures/2610.10772_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

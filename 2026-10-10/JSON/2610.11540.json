@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.11540",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quickly extracting fidelity decay rates in random circuit benchmarking experiments",
+  "authors": "Ake Köhne, Stavros Efthymiou, Joanna Majsak, Jadwiga Wilkens, Bram Evert, Andrew D. Patterson, Jonas Helsen, Markus Heinrich, Ingo Roth",
+  "abstract": "Randomized benchmarking (RB) with structured circuits is experimentally scalable, but gives biased short-depth fidelity estimates because incomplete ensemble mixing introduces transient modes. Waiting for these transients to decay in deeper circuits can push the signal below the noise floor. This is a well-established obstacle, e.g. in linear cross-entropy benchmarking (LinXEB). Here we overcome this obstacle solely through classical post-processing. We introduce a one-parameter family of estimators that interpolate between the standard LinXEB-type post-processing and a new post-processing technique we call the trace filter function. Under practical assumptions, the trace filter function provably suppresses transient modes, exposing an interpretable fidelity decay at short depth, with theoretical guarantees comparable to standard RB, at the cost of an increased variance. We bound the variance, analyze the evaluation complexity of the new estimators, and develop practical post-processing algorithms. Experiments on a Rigetti superconducting processor validate the method for one-dimensional circuits of up to 12 qubits: where the standard estimator requires depth beyond a 40-layer experimental window, the trace filter function yields consistent estimates below 10 layers. Trace-filtered randomized benchmarking therefore extends reliable fidelity characterization to relevant structured circuit ensembles and short-depth regimes that are inaccessible to conventional estimators.",
+  "url": "http://arxiv.org/abs/2610.11540v1",
+  "pdf": "https://arxiv.org/pdf/2610.11540v1",
+  "type": "both",
+  "summary": "This paper presents a new classical post-processing technique, the trace filter function, to overcome systematic biases in randomized benchmarking measurements. By suppressing transient decay modes, the method allows for accurate extraction of fidelity decay rates even when experimental circuits are too short for standard estimators to converge. This significantly extends the reliable characterization window for quantum hardware performance.",
+  "main_problem": "The paper addresses the challenge of obtaining accurate, unbiased estimates of fidelity decay rates from randomized benchmarking (RB) experiments when transient modes bias standard short-depth measurements.",
+  "main_result": "A novel 'trace filter function' post-processing technique is introduced that provably suppresses these transient modes, enabling reliable fidelity characterization at circuit depths inaccessible to conventional estimators.",
+  "method": "The authors develop and analyze a one-parameter family of estimators, culminating in the trace filter function, which is applied to the measured expectation values from random circuits.",
+  "model_or_system": "The work is validated using experiments on a superconducting processor (Rigetti) for one-dimensional circuits up to 12 qubits, utilizing random Clifford circuits generated via brickwork patterns.",
+  "key_observables": "Fidelity decay rate ($\beta$), transient modes, and the variance of the estimators.",
+  "important_parameters": "The filter parameter $\\alpha$, the circuit depth ($m$), and the qubit number ($n$).",
+  "main_assumptions": "Assumptions include time-stationary Markovian gate-dependent noise and local-symmetry assumptions for the noise model.",
+  "figures_summary": "Figures illustrate the experimental setup (simulated and physical circuits), the comparison of different methods for determining the mixing length, and the theoretical scaling of moment calculations.",
+  "paper_structure": "The paper progresses from identifying the bias caused by transient modes in RB, introducing the interpolating estimator family, deriving the theoretical properties of the trace filter function (including its efficiency for local circuits), and validating the method with superconducting hardware experiments.",
+  "why_interesting": "This work provides a crucial algorithmic tool for characterizing decoherence in near-term quantum hardware, directly impacting the ability to benchmark quantum processors against theoretical limits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.11540_figures/2610.11540_fig1.jpg",
+      "caption": "Figure 1. Overview of setup. (a) Circuits used in simulations. Each random circuit instance g is constructed from a brickwork pattern of m layers of 2-qubit Clifford gates. (b) Circuits used in experiments. Each 2-qubit gate from (a) is now a layer of 1–qubit gates, each sampled from the ensemble (tetrahedral, Clifford or icosahedral), followed by a CZ gate. The last layer is followed by a layer of 1–qubit random gates. (c) Steps of the experiment exploiting on-chip randomness. The classical computer prepares a program where each random gate is parametrized by three angles ϕ0, ϕ1, ϕ2. The parametrized executable is uploaded to the FPGA, where the angles are randomly sampled. The FPGA sends...",
+      "page": 3
+    },
+    {
+      "image": "2610.11540_figures/2610.11540_fig2.jpg",
+      "caption": "Figure 2. Numerical evaluation of filtered RB for an open 1D brickwork circuit on 30 qubits, with local two-qubit Clifford gates interspersed with identical single-qubit depolarizing noise. The moments are evaluated exactly using local applications of Weingarten calculus and tensor-network contractions, as detailed in Appendix C. (a) Filtered RB signals, showing the reduction of the transient regime with increasing α and the nearly single-exponential decay of the trace filter α = 3. (b) Corresponding second moments. (c) Uncertainty of the decay-parameter estimate, normalized by the uncertainty for α = 1, showing an optimal value of around α = 1.5 for this setting. (d) Decay values extracted...",
+      "page": 6
+    },
+    {
+      "image": "2610.11540_figures/2610.11540_fig3.jpg",
+      "caption": "Figure 3. Randomized benchmarking experiments performed on the Cepheus-1-36Q Rigetti device. We use random circuits as described in Figure 1b and show results for both the Clifford ensemble and the icosahedral ensemble. For n = 6, m ∈{1 . . . 40} and for n = 10/12 we have m ∈{1, 2, 3, 4, 5, 6, 7, 8, 12, 16, 20, 24, 28, 32, 36, 40}. For the number of circuits and shots, refer to Table I. Uncertainties are estimated using bootstrapping procedures and shaded areas represent 95%-uncertainty intervals. In panel (a) we show the first moments using the Clifford ensemble and in panel (b) we show the corresponding second moments for n = 10. In panel (c), we compare the estimated second moments for...",
+      "page": 7
+    },
+    {
+      "image": "2610.11540_figures/2610.11540_fig4.jpg",
+      "caption": "Figure 4. Estimating the mixing length in practice. First (a) and second (b) moments of the RB signal for a brickwork circuit of the same construction as described in Figure 1b with the Clifford ensemble and n = 20. We show results for noiseless circuits (dashed line) and circuits where each brickwork is followed by single qubit depolarizing noise (p = 7.5 · 10−3) on each qubit (continuous line). (c) The cautious fitting approach applied to the 6-qubit RB data obtained on the emulator of IBM Guadalupe, the same data as discussed in Figure 7. The cutoff is estimated by the TN-based reconstruction method. A single exponential is fitted through the data in the fitting interval.",
+      "page": 18
+    },
+    {
+      "image": "2610.11540_figures/2610.11540_fig5.jpg",
+      "caption": "Figure 5. Comparison of different methods to determine the cutoff point. For each method, we show the results when applied to two different RB curves. The RB curves originate from the 6-qubit Rigetti experiment with the icosahedral ensemble described in the main text. We use the results from both an experiment with 2.5 · 105 circuits per sequence length and from an experiment with 103 circuits per sequence length to investigate the robustness of the different methods. In panels (a,d,g), we show how the cutoff points depend on the filter function. In panels (b,e,h) we visualize the cutoff points for α = 1 and α = 2 for the experiment with 2.5 · 105 circuits and we do the same in panels...",
+      "page": 19
+    }
+  ],
+  "figure": "2610.11540_figures/2610.11540_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.11246",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.other"
+  ],
+  "is_primary_archive": false,
+  "title": "Assessing the Reliability of Foundational Machine Learning Potentials for Evaluating the Veracity of the Crystallography Open Database",
+  "authors": "Justinas Šlepavičius, Antanas Vaitkus, Andrius Merkys, Saulius Gražulis, Linas Vilčiauskas",
+  "abstract": "The Crystallography Open Database (COD) contains over half a million experimentally determined crystal structures. Validation of crystallographic data proceeds at three hierarchical levels, the third of which assesses the physical plausibility of structures. This level has typically relied on empirical heuristics or expert judgment, which are slow and error-prone given the size of crystallographic databases and the rate at which new structures are deposited. Here we assess whether universal machine-learning interatomic potentials (MLIPs) can automate this level of validation. Of the 522 086 COD entries, 317 457 (60.8\\%) passed a data-quality filter removing disordered structures, formula mismatches and unmodelled solvent. These structures were relaxed with M3GNet, and 314 153 (99.0\\%) converged without a large change in cell volume. For most entries the relaxed and deposited volumes are nearly identical. Convergence and volume change thus provide simple criteria for identifying relaxations that do not confirm the deposited structure. A manual inspection of 327 structures showed that no single descriptor threshold (energy, largest force, or atomic displacement) separates valid from invalid structures. A comparison of M3GNet, CHGNet, PET-MAD and PET-OAM on 524 selected structures revealed model-specific failures: M3GNet distorts cyclopentadienyl and other $π$ ligands, and both M3GNet and CHGNet distort thiophene and thiazole rings, whereas the PET models preserve these motifs. All models detected missing hydrogen atoms, and at least some detected spurious hydrogens, incorrectly assigned atom types, and two previously unreported coordinate errors. No single model detected all error types. MLIP relaxation is therefore a useful but model-dependent screening tool, and combining several models is preferable to relying on any single one.",
+  "url": "http://arxiv.org/abs/2610.11246v1",
+  "pdf": "https://arxiv.org/pdf/2610.11246v1",
+  "type": "theory",
+  "summary": "This work assesses whether advanced Machine Learning Interatomic Potentials (MLIPs) can automate the validation of crystal structures in the COD database. By relaxing structures using multiple MLIPs, the authors found that while these models are powerful screening tools, they are model-dependent and fail to detect all types of structural errors independently. Therefore, combining multiple MLIPs is recommended for reliable validation.",
+  "main_problem": "The paper aims to automate the physical plausibility validation of crystallographic data in the Crystallography Open Database (COD), a task traditionally reliant on slow and error-prone expert judgment.",
+  "main_result": "MLIP relaxation is a useful but model-dependent screening tool; no single model detects all types of structural errors, suggesting that combining multiple MLIPs is preferable.",
+  "method": "The authors employed universal Machine Learning Interatomic Potentials (MLIPs)—including M3GNet, CHGNet, PET-MAD, and PET-OAM—to perform high-throughput structural relaxations on COD crystal structures.",
+  "model_or_system": "The physical system is the vast dataset of crystal structures from the COD. The methodology involves filtering these structures and then relaxing them using various MLIPs, which are trained to reproduce DFT calculations.",
+  "key_observables": "Relaxed cell volumes, maximum atomic forces, energy values, Root Mean Square Deviation (RMSD), and maximum atomic displacement distance (dmax).",
+  "important_parameters": "The study analyzes performance across different MLIPs and notes that the relaxation is performed at 0 K, while many structures were determined at finite temperatures.",
+  "main_assumptions": "The primary assumption is that structural inconsistencies can be flagged by observing deviations in the relaxed structure compared to the deposited one, though the authors caution that MLIPs reproduce DFT, not necessarily experimental geometries.",
+  "figures_summary": "Figures illustrate pairwise correlations between various structural descriptors (volume, energy, RMSD, dmax) across different MLIP pairs, showing varying degrees of agreement.",
+  "paper_structure": "The paper first establishes the need for automation in COD validation. It then details the use of MLIPs for relaxation, analyzing diagnostics like volume change and force convergence. Finally, it compares multiple MLIPs, showing model-specific failures and concluding that a multi-model approach is necessary.",
+  "why_interesting": "While focused on solid-state crystallography, the core methodology—using neural networks (MLIPs) to predict physical properties and screen large datasets for subtle deviations—is highly relevant to developing robust simulation tools for complex quantum many-body systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.11246_figures/2610.11246_fig1.jpg",
+      "caption": "Figure 1: The workflow used in the benchmarking of M3GNet and filtering of candi- date structures. A full explanation of the data quality filter rules is presented in Table 1. Each entry may fail more than one selection rule. 5",
+      "page": 5
+    },
+    {
+      "image": "2610.11246_figures/2610.11246_fig2.jpg",
+      "caption": "Figure 2: Comparison of the cell volumes before and after relaxation. Left: histogram of the volume ratio rV (Equation 1). Right: relaxed versus initial cell volume on log- arithmic axes. On these axes, logrV is proportional to the distance of a point from the diagonal y = x, so the histogram corresponds to a projection of the scatter plot onto the direction perpendicular to the diagonal.",
+      "page": 8
+    },
+    {
+      "image": "2610.11246_figures/2610.11246_fig3.jpg",
+      "caption": "Figure 3: Pairwise distributions of the relaxation descriptors Ei, Ef, Fi max, Ff max, RMSD and dmax for all successfully relaxed structures. Symbols mark the manually inspected structures: the colour indicates the validity of the input structure (blue, valid; red, invalid) and the shape the validity of the relaxed structure (circle, valid; star, invalid). In the panels comparing initial with final values of Fmax and of E, the dashed line is the diagonal y = x. Only the most populated region is shown; the full ranges are given in Figure 8.",
+      "page": 11
+    },
+    {
+      "image": "2610.11246_figures/2610.11246_fig4.jpg",
+      "caption": "Figure 4: Pairwise correlation of initial and final largest atomic forces, Fi max and Ff max, obtained with the four MLIPs. For the inspected structures, the colour of the symbol indicates the validity of the input structure (blue, valid; red, invalid) and its shape the validity of the relaxed structure (circle, valid; star, invalid). The dashed line is the diagonal y = x and the dotted line is the linear fit to y = log10 Fmax (vertical axis) against x = log10 Fmax (horizontal axis); the fitted equation and the coefficient of determination R2 are presented in the Supplementary Information Table 3.",
+      "page": 14
+    },
+    {
+      "image": "2610.11246_figures/2610.11246_fig5.jpg",
+      "caption": "Figure 5: Ratio of the Fi max obtained with CHGNet to that obtained with each of the other models, as a function of the lattice anisotropy. Symbols are the same as in Fig- ure 4.",
+      "page": 15
+    }
+  ],
+  "figure": "2610.11246_figures/2610.11246_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}
