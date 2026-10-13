@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.13038",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Error Mitigation by Zero-Noise Extrapolation (ZNE) in Indirect-Control System",
+  "authors": "Arijit Das, Masaki Owari",
+  "abstract": "The indirect-control paradigm offers a scalable approach to quantum computation by restricting external operations to a small subset of qubits, whereas the entire system evolves under its intrinsic many-body Hamiltonian. This framework reduces hardware complexity and limits the noise introduced through control channels. Recently, Anan et al. proposed an implementation of the variational quantum eigensolver (VQE) within this indirect-control architecture. However, the impact and integration of quantum error mitigation techniques in such a setting remain largely unexplored. In particular, zero-noise extrapolation (ZNE), a widely used error mitigation strategy, has not yet been systematically adapted to indirect-control VQE. A key requirement of ZNE is the controlled amplification of noise, which is commonly achieved through circuit-level techniques such as unitary folding. In the indirect-control framework, however, quantum operations are largely governed by continuous time-evolution under the system Hamiltonian, making the construction of physically realizable inverse operations non-trivial. In this study, we investigate the feasibility of implementing ZNE within the indirect-controlVQEframework.We address the challenges associated with unitary folding in the presence of time-evolution operators and, with a minimal relaxation of the indirect-control constraint, we propose a ZNE-based error-mitigation strategy that exploits the symmetry of the one-dimensional XY spin chain.",
+  "url": "http://arxiv.org/abs/2610.13038v1",
+  "pdf": "https://arxiv.org/pdf/2610.13038v1",
+  "type": "theory",
+  "summary": "This paper addresses the challenge of applying Zero-Noise Extrapolation (ZNE) error mitigation to quantum simulations performed under the indirect-control paradigm. By analyzing the 1D XY spin chain, the authors overcome the theoretical hurdles associated with noise amplification in time-evolution dominated systems. The result is a concrete, feasible error mitigation protocol that enhances the reliability of VQE calculations on hardware with limited control access.",
+  "main_problem": "The paper investigates the feasibility of applying Zero-Noise Extrapolation (ZNE) error mitigation to the Variational Quantum Eigensolver (VQE) when implemented within the resource-constrained indirect-control quantum computing paradigm.",
+  "main_result": "The authors propose a viable ZNE-based error mitigation strategy for indirect-control VQE by exploiting the inherent symmetry of the one-dimensional XY spin chain, despite the challenges posed by continuous time-evolution.",
+  "method": "The core method combines the indirect-control VQE framework with Zero-Noise Extrapolation (ZNE), which estimates the true zero-noise expectation value by extrapolating measurements taken at artificially increased noise levels.",
+  "model_or_system": "The study uses the 1D XY spin chain model ($H_{XY}$) as the physical system. The computation is performed using an indirect-control architecture, where external operations are limited to a small control unit while the rest of the system evolves under its intrinsic Hamiltonian.",
+  "key_observables": "The primary observable is the energy expectation value, $E(\\lambda)$, which is measured as a function of the noise parameter $\\lambda$.",
+  "important_parameters": "The noise parameter $\\lambda$, the system Hamiltonian $H_{XY}$, and the control unit parameters $\\vec{\theta}_n$ are key parameters. The minimum achievable noise level $\\lambda_0$ is also critical.",
+  "main_assumptions": "The work assumes that the expectation value of the full system Pauli operator can be measured at the end of the circuit, and that the noisy expectation value $E(\\lambda)$ can be accurately modeled as a polynomial in $\\lambda$ for extrapolation.",
+  "figures_summary": "Figure 1 illustrates the indirect-control architecture, distinguishing the control subsystem from the inaccessible part evolving under the drift Hamiltonian. Figure 2 shows the structure of the indirect-control VQE ansatz circuit for a five-qubit system.",
+  "paper_structure": "The paper first establishes the indirect-control VQE framework, noting its advantages for NISQ devices. It then identifies the gap regarding error mitigation, specifically ZNE. The bulk of the work addresses the technical challenge of implementing ZNE (unitary folding) with continuous time-evolution, culminating in the proposed, symmetry-exploiting ZNE strategy for the 1D XY chain.",
+  "why_interesting": "This work is highly relevant to AMO physics and open quantum systems because it tackles the practical limitations of simulating complex, interacting many-body systems (like spin chains) on near-term quantum hardware by combining advanced quantum control techniques (indirect-control) with necessary error mitigation protocols (ZNE).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.13038_figures/2610.13038_fig1.jpg",
+      "caption": "FIGURE 2. An illustration of the n-th layer of an indirect-control VQE ansatz circuit for a five-qubit system. The first two qubits constitute the control unit, where arbitrary quantum gate operations can be applied, while the remaining three qubits are not directly accessible and evolve solely under the system’s intrinsic dynamics.",
+      "page": 4
+    },
+    {
+      "image": "2610.13038_figures/2610.13038_fig2.jpg",
+      "caption": "FIGURE 3. Noise boosting of the standard indirect-control VQE circuit is achieved using unitary folding, where a noisy unitary gate G is replaced by GG†G. We refer to the circuit containing such noisy G†G identity gates as a folded circuit. The n-th layer of a 7-qubit indirect-control folded circuit with noisy time-evolution is depicted, where IR1x is an abbreviation for R† X RX on the 1st qubit, ICZ represents CZ †CZ, and IY represents Y †Y . The highlighted section",
+      "page": 7
+    },
+    {
+      "image": "2610.13038_figures/2610.13038_fig3.jpg",
+      "caption": "FIGURE 4. A 6-qubit, 30-layer indirect-control VQE ansatz with initial random time parameters sampled from the range [0, Tmax = 20] is used. The minimum expectation value of the 6-qubit HIsing is estimated. The results compare Trotterized time-evolution with a single time-evolution gate subject to local depolarizing noise for various given decoherence rates γ, where the noise strength scales with the duration of the evolution. The error bars represent the standard deviation computed from 10 independent trials, each consisting of VQE optimization. The resulting standard deviation reflects the variability arising from the random initialization of the variational parameters.",
+      "page": 8
+    },
+    {
+      "image": "2610.13038_figures/2610.13038_fig4.jpg",
+      "caption": "FIGURE 5. A 6-qubit, 30-layer indirect-control VQE ansatz with initial random time parameters sampled from the range [0, Tmax = 20] and a decoherence rate of γ = 0.001 is used. The minimum expectation value of the 6-qubit HIsing is estimated. The results compare Trotterized time-evolution with a single time-evolution gate subject to local depolarizing noise, where the noise strength scales with the duration of the evolution. Noise levels are amplified using unitary folding. The error bars represent the standard deviation computed from 10 independent trials, each consisting of VQE optimization. The resulting standard deviation reflects the variability arising from the random initialization...",
+      "page": 8
+    },
+    {
+      "image": "2610.13038_figures/2610.13038_fig5.jpg",
+      "caption": "FIGURE 6. Single-variate Richardson extrapolation of different orders is shown. A 7-qubit, 30-layer indirect-control VQE ansatz with initial random time parameters sampled from the range [0, Tmax = 20] is used. The minimum expectation value of the 7-qubit HIsing is estimated. The time-evolution gates are simulated using Mn = 1 in Equation (23). Local depolarizing noise with γ = 0.001 in Equation (25) is applied only to the multi-qubit time-evolution gate. The error bars represent the standard deviation computed from 10 independent trials, each consisting of VQE optimization followed by ZNE. The resulting standard deviation reflects the variability arising from the random initialization of...",
+      "page": 10
+    }
+  ],
+  "figure": "2610.13038_figures/2610.13038_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

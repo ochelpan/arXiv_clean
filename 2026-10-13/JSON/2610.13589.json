@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.13589",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Decoder- and Noise-Aware Optimization Framework for Clifford-Deformed Quantum Error-Correcting Codes",
+  "authors": "Julius Rye Bønnelykke, Benjamin Joecker, Peter Krogstrup, Vincent Philippe Michal, Mark Kamper Svendsen",
+  "abstract": "Practical fault-tolerant quantum computing requires qubit-efficient quantum error correction (QEC). Clifford deformations (CDs) modify the stabilizers of a QEC code to lower its logical error rate at no additional resource cost. However, the number of possible CDs grows exponentially with the number of qubits, making exhaustive search infeasible beyond small codes. In this work, we further show that under circuit level noise the optimal CD depends strongly on both the noise model and decoder. To make systematic CD optimization possible, we introduce Evolution-Based Best-arm Identification (EBBI), a shot-efficient search algorithm that treats the circuit, noise model and decoder as a black box. We benchmark EBBI's performance on the rotated surface code, under two strongly $Z$-biased circuit-level noise models with the PyMatching decoder. At distance 3, EBBI finds the optimal CD using up to $\\sim 1100\\times$ fewer shots than random search. At distance 5, when run at the target error rate, the median EBBI run converges to the CDs we believe to be optimal, while random search never converges. Under a $Z$-biased SI1000-like noise model, EBBI discovers a new CD, the B-XZZX code, which we generalized to larger distances. It differs from XZZX on only a fraction $\\mathcal{O}(d^{-1})$ of the qubits at code distance $d$, yet its relative advantage grows from $\\approx 5\\%$ at $d = 3$ to $\\approx 12\\%$ at $d = 11$. We thus show that the B-XZZX pattern found by EBBI can be systematically scaled to larger code distances. Our work represents a first step towards scalable CD optimization for general QEC codes.",
+  "url": "http://arxiv.org/abs/2610.13589v1",
+  "pdf": "https://arxiv.org/pdf/2610.13589v1",
+  "type": "theory",
+  "summary": "This work presents a novel optimization framework, EBBI, to efficiently search for the best Clifford Deformations for Quantum Error-Correcting Codes. By treating the noise and decoding process as a black box, EBBI significantly outperforms random search in finding CDs that minimize logical errors under realistic circuit-level noise. This advances the field toward scalable, practical fault-tolerant quantum computation.",
+  "main_problem": "The core problem is finding the optimal Clifford Deformation (CD) for Quantum Error-Correcting Codes (QEC) to minimize the logical error rate, as exhaustive search over the exponentially growing space of CDs is infeasible.",
+  "main_result": "The proposed algorithm, EBBI, successfully identifies near-optimal CDs with vastly fewer shots than random search, and it discovered a new, systematically scalable CD pattern (B-XZZX) with a measurable advantage over existing codes.",
+  "method": "The authors introduce Evolution-Based Best-arm Identification (EBBI), a shot-efficient search algorithm that treats the entire optimization process (circuit, noise, decoder) as a black box, combining evolutionary search principles with statistical sampling.",
+  "model_or_system": "The study focuses on QEC codes, specifically benchmarking on the surface code, and analyzing performance under realistic circuit-level noise models (e.g., Z-biased noise).",
+  "key_observables": "Logical error rate ($P_L$), number of shots required for optimization, and the relative performance advantage of the discovered CD.",
+  "important_parameters": "Code distance ($d$), physical error rate ($p$), and the specific noise model (e.g., SI1000-like).",
+  "main_assumptions": "The success of the search relies on the assumption that small changes in CD patterns result in similar logical error rates, allowing the search to be guided effectively.",
+  "figures_summary": "Figures illustrate the EBBI search process (Initialization, Sampling, Pruning) and compare the PL rankings of various CDs under different noise models and decoders, showing EBBI's superior convergence.",
+  "paper_structure": "The paper first establishes the difficulty of CD optimization, then details the EBBI algorithm, benchmarks its performance on the surface code using specific noise models, and concludes by demonstrating the scalability and novelty of the discovered optimal CD patterns.",
+  "why_interesting": "The development of EBBI provides a scalable, data-driven methodology for optimizing QEC codes, moving beyond brute-force searches to tackle complex, high-dimensional optimization problems in quantum information.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.13589_figures/2610.13589_fig1.jpg",
+      "caption": "FIG. 1. a) Example Clifford deformation (CD) on the distance-3 surface code. Data qubits are represented by filled circles and check qubits by black squares. Connections be- tween data and check qubits represent the applied two-qubit gates. The color of a data qubit indicates the specific change made to its connected gates. b,c,d) Outline of the Evolution- Based Best-arm Identification (EBBI) method. b) Initializa- tion: Uniformly pick K random CDs from An and simulate each until W logical errors have been observed. The posterior over the logical error rate PL is modeled as a beta distribu- tion. c) Sampling: At each step, the posterior with the largest standard deviation is simulated and...",
+      "page": 2
+    },
+    {
+      "image": "2610.13589_figures/2610.13589_fig2.jpg",
+      "caption": "FIG. 2. Median performance over 25 independent runs of EBBI and random search as a function of shot count. The PL of specific CDs of interest [Table III] have been plotted as horizontal lines for comparison. The spread over all runs and over the central 15 out of 25 runs can be found in Fig. 11 in Appendix G. a-b) use the HBD noise model [34]. a) uses the distance-3 surface code with 3 syndrome extraction rounds. During the runtime of EBBI and random search, the noise model used noise strength psearch and η = 500, while the plotted points use p = 0.1% and η = 500 with an estimated PL from 108 shots. Reference lines for the PL of the CSS (undeformed code), XZZX [22] and B-XZZX (Fig. 3a,b)...",
+      "page": 6
+    },
+    {
+      "image": "2610.13589_figures/2610.13589_fig3.jpg",
+      "caption": "FIG. 3. Generalization of results. a) Optimal distance-3 CD on the surface code under the HBD-SI1000 noise model, obtained from a search over all 39 A3-CDs; it is also the best CD found by EBBI. b) Best distance-5 CD on the surface code under HBD-SI1000 noise found by EBBI. c) Improve- ment in PL over the XZZX surface code for the undeformed CSS code under HBD-SI1000(p = 0.1%, η = 500), the tiled optimal distance-3 CD [23] (panel a) and the discovered B- XZZX code. The error bars show one standard deviation and are too small to see in the plot; each PL at distance-3 to distance-9 is estimated from 1010 shots in both the logical X and Z bases of the surface code, with distance-11 using 1011",
+      "page": 7
+    },
+    {
+      "image": "2610.13589_figures/2610.13589_fig4.jpg",
+      "caption": "FIG. 4. a) Circuit diagrams illustrating stabilizer measurements in the surface code under different deformations in A3. Left: Measurement circuits expressed using the corresponding controlled-Pauli interactions. Right: Controlled-X and controlled-Y operations are decomposed into a single controlled-Z gate together with basis changes on the data qubit. b) ZXZ Euler decomposition up to a global phase of the basis-change gates used in panel a and their products. Virtual RZ rotations (dashed boxes) are implemented in software and therefore introduce negligible latency and are thus treated as ideal in this work.",
+      "page": 12
+    },
+    {
+      "image": "2610.13589_figures/2610.13589_fig5.jpg",
+      "caption": "FIG. 7. Pearson correlation of the CD PL as the HBD noise model error strength p is increased from p = 0.1% to p = 0.25% (left plot) and p = 0.5% (right plot). Correlation numbers are reported for both the entire CD space and for only the 100 CDs with the lowest PL (at p = 0.1%) shown in the insets. Each PL was estimated using 108 shots.",
+      "page": 13
+    }
+  ],
+  "figure": "2610.13589_figures/2610.13589_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

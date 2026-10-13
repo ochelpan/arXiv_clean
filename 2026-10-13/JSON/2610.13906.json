@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2610.13906",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CC"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Query Complexity of Maximum Degree and its Generalizations",
+  "authors": "Amin Shiraz Gilani, Nikhil S. Mande, Subhasree Patro, Nithish Raja",
+  "abstract": "We study the quantum query complexity of several basic graph problems. 1) We prove a tight $Θ(n^{3/2})$ bound for finding a maximum-out-degree vertex in an $n$-vertex tournament, resolving a conjecture of Mande, Paraashar, and Saurabh [FSTTCS'23]. 2) Using the same proof idea, we give a direct proof that finding a maximum-degree vertex in an $n$-vertex undirected graph requires $Θ(n^{3/2})$ quantum queries, a bound implicit in the work of Apers and Lee [CCC'21]. Both lower bounds above hold even for computing only the maximum degree or maximum out-degree. 3) We also study Maximum $(k,n-k)$-Cut, which asks for the largest cut with one side of size $k$. For every constant $k\\geq 1$, we give an $O(n^{2-1/(k+1)})$-query quantum algorithm. 4) We establish a reduction to Maximum $(k,n-k)$-Cut involving $k$-Graph Collision, which asks whether the marked vertices of a known graph contain a $k$-clique. For $k\\geq 3$, this yields unconditional lower bounds with exponents strictly larger than $3/2$, showing that this problem is strictly harder than computing maximum degree. Additionally, under a conjecture we propose for $k$-Graph Collision, the reduction yields a lower bound matching our upper bound above.",
+  "url": "http://arxiv.org/abs/2610.13906v1",
+  "pdf": "https://arxiv.org/pdf/2610.13906v1",
+  "type": "theory",
+  "summary": "This paper rigorously analyzes the quantum query complexity for several core graph problems, including finding the maximum degree and solving the MaxCut problem. It establishes that finding the maximum degree requires $\\Theta(n^{3/2})$ queries, and provides detailed upper and lower bounds for the MaxCut problem, showing its computational hardness relative to degree computation.",
+  "main_problem": "The paper studies the quantum query complexity of fundamental graph problems, such as finding the maximum degree vertex and solving the Maximum (k, n-k)-Cut problem.",
+  "main_result": "It establishes tight quantum query bounds, showing that finding the maximum degree requires $\\Theta(n^{3/2})$ queries, and deriving upper and lower bounds for the MaxCut problem that depend on the size of the cut set $k$.",
+  "method": "The authors use quantum query complexity theory, employing techniques like reductions from known hard problems (e.g., graph collision) to establish lower bounds, and quantum maximum finding algorithms for upper bounds.",
+  "model_or_system": "The underlying model is graph theory, where the quantum query access is modeled via the adjacency matrix of the graph. The analysis focuses on the computational complexity of graph properties.",
+  "key_observables": "Quantum query complexity $Q(\\cdot)$, maximum degree $\\Delta(G)$, and the size of the maximum $k$-cut $\text{MaxCut}_{k,n}(G)$.",
+  "important_parameters": "The graph size $n$, the cut set size $k$, and the exponent $3/2$ are critical parameters determining the complexity bounds.",
+  "main_assumptions": "The tight upper bound for $\text{MaxCut}_{k,n}$ is conditional on a conjecture regarding $k$-Graph Collision ($\text{GCG}_k$).",
+  "figures_summary": "Figure 1 illustrates the construction of a tournament used to model a complex Boolean problem. Figure 2 shows the construction of a graph $G_x$ used to model the $\text{OR}_m \\circ \text{PrMaj}_m$ problem.",
+  "paper_structure": "The paper proceeds by first establishing the $\\Theta(n^{3/2})$ bounds for maximum degree/out-degree. It then tackles the MaxCut problem, deriving upper bounds using quantum maximum finding and establishing lower bounds via reductions from $k$-Graph Collision.",
+  "why_interesting": "While the focus is on graph theory complexity, the techniques used—establishing lower bounds via reductions and deriving optimal quantum algorithms—are foundational to quantum information theory and quantum algorithm design.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.13906_figures/2610.13906_fig1.jpg",
+      "caption": "Figure 1: Construction of the tournament Tx from an input x = (x(1), . . . , x(m)) to ORm ◦PrMajm. The orientations inside L form a fixed regular tournament, so every vertex of L has out-degree m within L. The orientations inside R, and between p and R, are fixed so that every vj has out-degree m/2 within R ∪{p}. The orientations of the dashed edges (i.e., the edges between vj and {ui, ¯ui}) depend on x(i) j . Specifically, if x(i) j = 1 then set ui →vj →¯ui, and if x(i) j = 0 then set ¯ui →vj →ui. Thus, deg+ Tx(ui) = m+wt(x(i)) and deg+ Tx(¯ui) = m+(m−wt(x(i))). Consequently, ∆+(Tx) = 3m/2 if (ORm ◦PrMajm)(x) = 0, and ∆+(Tx) = 3m/2 + 1 if (ORm ◦PrMajm)(x) = 1.",
+      "page": 5
+    },
+    {
+      "image": "2610.13906_figures/2610.13906_fig2.jpg",
+      "caption": "Figure 2: Construction of the graph Gx from an input x = (x(1), . . . , x(m)) to ORm ◦PrMajm. The set L induces a fixed clique, while R induces a fixed independent set. The dotted edges (i.e., the edges between ui and vj) depend on x(i) j . Specifically, {ui, vj} is an edge if and only if x(i) j = 1. Thus, degGx(ui) = m −1 + wt(x(i)). Consequently, ∆(Gx) = 3m/2 −1 if (ORm ◦PrMajm)(x) = 0, and ∆(Gx) = 3m/2 if (ORm ◦PrMajm)(x) = 1.",
+      "page": 6
+    },
+    {
+      "image": "2610.13906_figures/2610.13906_fig3.jpg",
+      "caption": "Figure 3: Construction of the graph Hx from an input x = (xv)v∈V to GCG k ◦PrMajn. The graph Hx has vertex set V ⊔L ⊔R, where L = {u1, . . . , un} and R = {w1, . . . , wn}. Inside V , we place the complement graph ¯G. For every i, j ∈[n], we add the edge {vi, uj} if and only if either i = j or {vi, vj} ∈E(G). Finally, for every i, j ∈[n], we add the edge {vi, wj} if and only if xvi[j] = 1. Consequently, every vertex vi ∈V has degree n + wt(xvi) ∈{3n/2, 3n/2 + 1}.",
+      "page": 16
+    }
+  ],
+  "figure": "2610.13906_figures/2610.13906_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

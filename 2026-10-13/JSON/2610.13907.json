@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2610.13907",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A scalable sample-based quantum diagonalization solver for general Pauli-sum Hamiltonians",
+  "authors": "Yutaro Iiyama",
+  "abstract": "A scalable ground-state solver to be used in sample-based quantum diagonalization (SQD) is presented. The solver is built on JAX API, and is intended to be run on GPU platforms and possibly many-GPU high-performance computing facilities. It is capable of subspace diagonalization in up to $2^{30}$-dimensional subspace, with possible upgrades to enable even larger-scale operations. The two main components, a general-purpose eigensolver and an SQD-specific matrix-vector operation function, are described in detail. Efficiency of the eigensolver with respect to the GPU memory is demonstrated using a simple physics model. Furthermore, good strong scaling of the eigensolver in many-GPU environment is observed.",
+  "url": "http://arxiv.org/abs/2610.13907v1",
+  "pdf": "https://arxiv.org/pdf/2610.13907v1",
+  "type": "theory",
+  "summary": "This paper introduces a highly scalable, GPU-accelerated solver for finding the ground state of quantum systems described by Pauli-sum Hamiltonians using Sample-based Quantum Diagonalization (SQD). It details the implementation of a specialized eigensolver and matrix-vector product optimized for massive parallel computing. The work demonstrates strong scaling and successfully validates the method on the transverse-field Ising model.",
+  "main_problem": "The paper addresses the need for a scalable ground-state solver for Sample-based Quantum Diagonalization (SQD) applied to general Pauli-sum Hamiltonians.",
+  "main_result": "A scalable solver built on JAX API is presented, capable of subspace diagonalization in very large dimensions and demonstrating good strong scaling on many-GPU HPC facilities.",
+  "method": "It combines a locally optimal conjugate gradient (LOCG) eigensolver with a specialized, matrix-free matrix-vector operation tailored for Pauli-sum Hamiltonians.",
+  "model_or_system": "The methodology is tested using the one-dimensional transverse-field Ising model (TFIM) as a physical validation case. The general Hamiltonian is a Pauli-sum: H = sum(c_k P_k).",
+  "key_observables": "The two lowest energy eigenvalues ($E_0, E_1$) of the TFIM, and the energy gap ($E_1 - E_0$).",
+  "important_parameters": "Subspace dimension ($N$) up to $2^{30}-1$; the number of parallel GPU nodes (up to 128).",
+  "main_assumptions": "The matrix-vector operation must perform the projection in situ to avoid storing the full reduced Hamiltonian matrix; the eigensolver relies on the matrix being Hermitian.",
+  "figures_summary": "Figure 1a shows the energy gap vs. magnetic field for the 30-site TFIM, and Figure 1b shows the time-to-completion scaling with the number of parallel nodes, demonstrating good strong scaling.",
+  "paper_structure": "The paper first introduces the general problem of SQD for Pauli-sum Hamiltonians. It details the implementation using JAX for the eigensolver (LOCG) and the specialized matrix-vector operation. Validation is performed on the TFIM, demonstrating both the numerical results and the scalability of the implementation.",
+  "why_interesting": "The development of highly scalable, GPU-optimized, matrix-free solvers is crucial for simulating quantum many-body systems beyond the reach of traditional diagonalization methods, directly impacting research in quantum magnetism and condensed matter theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.13907_figures/2610.13907_fig1.jpg",
+      "caption": "Fig. 1. Validation of the conjugate gradient eigensolver",
+      "page": 7
+    }
+  ],
+  "figure": "2610.13907_figures/2610.13907_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

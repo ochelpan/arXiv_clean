@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.12806",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Trainable Quantum-Native Language Models: Dissipative Memory, Capacity Limits, and Hardware Validation",
+  "authors": "Deniz Yunus Göğüş",
+  "abstract": "We study byte-level autoregressive language models whose hidden state is a small quantum register, whose transitions are learned token-conditioned quantum channels, and whose next-byte probabilities come directly from Born-rule measurements without a learned classical vocabulary projection or softmax. In the fixed-width recurrent setting, unitary dynamics cannot contract or reset stored distinctions; experimentally, unitary recurrence loses to its retrained one-token control in every tested variant. Introducing learned dissipation, then token-conditioned dissipative gating, yields useful memory beyond one token. The gated model improves test negative log-likelihood by 0.20 +/- 0.03 nats/byte over retrained parameter-matched one-token controls at context length 12, and by 0.29-0.33 at longer contexts, but never beats retrained two-token controls. A key-value recall benchmark shows a width-dependent threshold: one stored pair meets the pre-registered accuracy bar at 4-5 memory qubits, two pairs at 6-7, and three pairs remain unsolved. This is consistent with, but does not establish, a capacity explanation for the short effective memory horizon. As a secondary result, one-qubit models reach lower stationary memory entropy than a heuristically optimized classical predictive frontier at matched error in 9/9 seeds. On IBM Heron hardware, computational-basis memory-register distributions show signal against a uniform null in 12/12 circuits across prefixes of up to 12 tokens, next-bit probabilities pass pre-registered accuracy bars at four-token prefixes, and bytes are generated autoregressively by sampling physically measured bit probabilities. The tested models are classically simulable and substantially worse than classical n-gram baselines. We claim no computational quantum advantage.",
+  "url": "http://arxiv.org/abs/2610.12806v1",
+  "pdf": "https://arxiv.org/pdf/2610.12806v1",
+  "type": "both",
+  "summary": "This paper proposes and tests quantum-native language models where the memory state is a small quantum register whose evolution is controlled by learned quantum channels. By incorporating dissipation, the model achieves useful, context-dependent memory, demonstrating performance gains over purely unitary approaches. The work validates this architecture end-to-end on quantum hardware while concluding that no computational quantum advantage is demonstrated over classical baselines.",
+  "main_problem": "The paper investigates the necessary memory dynamics for trainable quantum-native recurrent language models, assessing their capacity limits and validating the architecture on current quantum hardware.",
+  "main_result": "Introducing learned, token-conditioned dissipation significantly improves memory retention over purely unitary dynamics, allowing the model to solve key-value recall tasks up to two stored pairs using a small quantum register.",
+  "method": "The authors train the model by minimizing the negative log-likelihood of the next byte, using quantum channels (CPTP maps) to govern the state evolution and direct Born-rule measurements for output probabilities.",
+  "model_or_system": "The model uses a small quantum register ($\rho_t$) as its hidden state, with transitions governed by learned, token-conditioned quantum channels. The output probability is read directly from the measurement expectation value, bypassing classical vocabulary projections.",
+  "key_observables": "Negative log-likelihood (NLL) improvement (e.g., +0.20 nats/byte), key-value recall accuracy (e.g., 2 pairs at 6-7 qubits), and physical measurement of bit probabilities on hardware.",
+  "important_parameters": "Context length (up to 12 tokens), quantum register width (4-7 qubits), and the comparison between unitary vs. dissipative channels.",
+  "main_assumptions": "The tested models are classically simulable at the tested widths, and the primary limitation is an empirical two-token memory horizon, not a proven fundamental capacity law.",
+  "figures_summary": "The notes detail comparisons between different memory dynamics (unitary vs. dissipative) and show quantitative performance gains across various context lengths and memory tasks.",
+  "paper_structure": "The paper progresses by first establishing the failure of unitary recurrence, then introducing and testing learned dissipation/gating mechanisms, benchmarking memory capacity via key-value recall, and finally validating the full pipeline on real quantum hardware.",
+  "why_interesting": "The work directly addresses how non-unitary, dissipative dynamics—which are central to open quantum systems theory—can be engineered into a functional, trainable computational primitive for complex tasks like language modeling.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.12806_figures/2610.12806_fig1.jpg",
+      "caption": "Figure 1: The three memory dynamics compared. UMW: unitary conjugation (norm-preserving, cannot contract stored distinctions). UMW-D: unitary write followed by a fixed learned dis- sipation channel (a work qubit coupled, reset, and discarded). UMW-G: one learned CPTP map per token, writing and forgetting jointly. All rows read out with the same 256-outcome Born-rule POVM, with no softmax; the sampled byte is the next input.",
+      "page": 4
+    },
+    {
+      "image": "2610.12806_figures/2610.12806_fig2.jpg",
+      "caption": "Figure 2: Full recurrence against retrained one-token (h1) and two-token (h2) controls of the same parameterization and parameter count; dots are individual seeds, bars their means. Dotted and dashed lines: the tuned bigram (2.3406) and the classical 4-gram (1.5125) on the same test set.",
+      "page": 8
+    },
+    {
+      "image": "2610.12806_figures/2610.12806_fig3.jpg",
+      "caption": "Figure 3: Key–value recall ladder (exp 295, single seed). Left: answer accuracy against width for K = 1, 2, 3 stored pairs, with the 0.5 bar and the value-marginal floor. Right: value content and full configuration entropy of the largest K solved at each width, with the single-copy accessible-information ceiling of n bits drawn as an information-scale reference only, not as a task-solvability threshold.",
+      "page": 9
+    },
+    {
+      "image": "2610.12806_figures/2610.12806_fig4.jpg",
+      "caption": "Figure 4: Perturbed coin, one memory qubit: stationary memory entropy S(¯ρ) against excess prediction error, for trained models without (dark) and with (teal) the annealed entropy penalty; markers denote p = 0.3 (circle), 0.4 (square), 0.45 (triangle). Grey curves: the attacked classical frontier per p; dashed: Cµ = ln 2; dotted: the quantum optima Cq(p).",
+      "page": 11
+    },
+    {
+      "image": "2610.12806_figures/2610.12806_fig5.jpg",
+      "caption": "Figure 5: Hardware validation on ibm_marrakesh. (a) Total variation distance between the measured computational-basis memory-register distribution and the simulator’s predicted diag- onal, for line (Job A′) and ring (Job A) circuits, against the distance between the prediction and the uniform null (hollow markers). (b) Per-bit |phw(bit = 1) −psim| for Jobs B (L=8), B2 (L=8 with dynamical decoupling and twirling) and B3 (L=4); red bars are medians, dashed line the 0.10 bar. (c) Transpiled two-qubit gate counts for the two entanglers.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.12806_figures/2610.12806_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

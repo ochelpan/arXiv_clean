@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.13879",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.IT"
+  ],
+  "is_primary_archive": true,
+  "title": "GPU-Based Parallel BP Decoding for Quantum LDPC Memory",
+  "authors": "Ming Wang, Yanbo Zhao, Ang Li, Frank Mueller",
+  "abstract": "Quantum low-density parity-check (qLDPC) decoding requires reliable corrections and low latency over long syndrome histories. We extend BP-SF, an oscillation-guided belief-propagation (BP) decoder with independent syndrome-flip trials, by introducing windowed and streaming operations. Our CUDA implementation combines disordered-memory retries, sliding windows, correlation-aware graphs, and layered scheduling. Circuit-level simulations test fixed-basis memory and complete logical Pauli-frame recovery. On the [[144,12,12]] bivariate bicycle code at physical error rate p = 0.002, parallel BP-SF reduces 99.9th-percentile call latency by a factor of 13.15 relative to an eight-chain Relay-BP GPU baseline on 100,000 matched samples for which every tested method's initial BP stage fails within 80 iterations. Windowed BP-SF maintains a flat logical error rate and nearly constant per-round compute time through 512 rounds, reaching a 17.1-fold speedup over monolithic decoding. In 512-round full-frame streaming decoding with 2.97-ms syndrome arrivals, layered BP-SF on a transformed joint graph with 20 retries reduces 99.9th-percentile correction-release age from 166.29 to 36.25 ms relative to the joint graph with flooding updates and 100 retries. These results connect parallel BP post-processing to lower decoding costs and earlier correction release in streaming quantum memory.",
+  "url": "http://arxiv.org/abs/2610.13879v1",
+  "pdf": "https://arxiv.org/pdf/2610.13879v1",
+  "type": "both",
+  "summary": "This paper presents highly optimized, GPU-accelerated decoding algorithms for quantum LDPC codes used in quantum memory. By introducing windowed and streaming operations to the Belief Propagation decoder, the authors achieve substantial speedups and reduced latency compared to existing state-of-the-art methods. These results are crucial for realizing fault-tolerant quantum computation by enabling faster error correction cycles.",
+  "main_problem": "Developing fast and accurate decoders for quantum low-density parity-check (qLDPC) codes to support fault-tolerant quantum computing and keep pace with syndrome extraction rates.",
+  "main_result": "The proposed parallel BP-SF decoder significantly reduces the 99.9th-percentile call latency by a factor of 13.15, and windowed decoding achieves a 17.1-fold speedup over monolithic methods in long-running memory simulations.",
+  "method": "The work extends Belief Propagation (BP) decoding using syndrome-flip trials (BP-SF) by implementing windowed and streaming operations on a CUDA-accelerated platform, alongside advanced graph transformations like GARI.",
+  "model_or_system": "The system involves quantum error correction (QEC) using qLDPC codes, where the decoder processes syndrome measurements derived from Pauli operators acting on physical qubits.",
+  "key_observables": "99.9th-percentile call latency, logical error rate (LER), per-round compute time, and correction-release age (delay).",
+  "important_parameters": "Tested on the [[144,12,12]] bivariate bicycle code at a physical error rate p = 0.002, and simulated up to 512 decoding rounds.",
+  "main_assumptions": "The use of BP as an approximation for the \\#P-complete exact quantum decoding problem, and approximations in full-frame decoding such as factorizing second-sector priors.",
+  "figures_summary": "Figures illustrate the workflow for BP-SF, detailing initial BP, oscillation detection, sparse trial generation, and the process for sliding-window decoding.",
+  "paper_structure": "The paper builds upon prior BP-SF work by integrating it with GPU acceleration, windowing, and joint correlated-error models to address the practical challenges of continuous syndrome data arrival in quantum memory.",
+  "why_interesting": "The focus on high-speed, low-latency decoding algorithms directly impacts the feasibility and scaling of quantum computation, which is a core concern for quantum information theorists.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.13879_figures/2610.13879_fig1.jpg",
+      "caption": "Figure 1: Overview of BP-SF. (a) An initial BP attempt returns immediately if its estimate satisfies the input syndrome; otherwise, hard-decision oscillations identify a candidate set Φ. (b) Sparse trial vectors supported on Φ generate shifted syndromes for independent BP trials. (c) The first syndrome-valid trial is mapped back by undoing its trial vector.",
+      "page": 3
+    },
+    {
+      "image": "2610.13879_figures/2610.13879_fig2.jpg",
+      "caption": "Figure 2: Schematic workflow for sliding-window decoding. Decode the core and buffer together, but finalize only the older core estimates. As new syndrome data arrive, slide the window forward and revisit the buffer with more context.",
+      "page": 5
+    },
+    {
+      "image": "2610.13879_figures/2610.13879_fig3.jpg",
+      "caption": "Figure 3: BP convergence survival on the J144, 12, 12K code under circuit-level noise with the fraction of samples not yet converged by each iteration. We use 10,000 samples per physical error rate and a maximum of 1,000 iterations.",
+      "page": 5
+    },
+    {
+      "image": "2610.13879_figures/2610.13879_fig4.jpg",
+      "caption": "Figure 5: Effect of candidate selection on the J144, 12, 12K code under circuit-level noise. “5 Trials” denotes one initial BP attempt and up to four additional trials upon failure, with at most 200 iterations per attempt. Each additional trial re- verses one prior LLR. Candidate positions are the four most oscillating bits or are selected at random. BP1000 uses a sin- gle attempt with at most 1,000 iterations.",
+      "page": 6
+    },
+    {
+      "image": "2610.13879_figures/2610.13879_fig5.jpg",
+      "caption": "Figure 4: Precision and recall probabilities of candidate bit selection on the J144, 12, 12K code. We evaluate the correla- tion between candidate bits and actual error locations by identifying the top 50 most frequently flipped bits among approximately 8,700 error mechanisms (fewer than 50 are selected if some of the top-ranked bits are never flipped). The decoder is run with a maximum of 50 iterations, and statis- tics are collected over 1,000 decoding failures. This analysis reveals how well bit-level oscillation can serve as a heuristic for error localization.",
+      "page": 6
+    }
+  ],
+  "figure": "2610.13879_figures/2610.13879_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

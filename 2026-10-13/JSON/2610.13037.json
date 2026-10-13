@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2610.13037",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-Circuit Residuals for Receptor Functional Potency Prediction: Predictive Gains and Quadratic Structure",
+  "authors": "Chenyan Jia, Yaping Ma, Yuen Wang, Cong Guo",
+  "abstract": "The predictive performance of neural networks for receptor functional potency modeling depends on both molecular representations and prediction-head design. Using GLP-1R cAMP-related pEC50 prediction as the primary task, we jointly train a classical molecular encoder with a linear base head and a shallow quantum-circuit residual head that share the learned molecular representation. We evaluate the models using random and structure-group splits, include tuned Chemprop as a domain reference, and extend the evaluation to ADRB2 and MC4R. Under the GLP-1R structure-group split, the quantum-residual models reduce mean absolute error relative to the corresponding base models from 0.677 to 0.639 with a multilayer perceptron (MLP) encoder and from 0.680 to 0.641 with a graph neural network (GNN) encoder. In structural control experiments, a parameter-count-matched real-orthogonal control achieves similar predictive performance, suggesting that some quantum-residual gains may be associated with structured quadratic feature interactions. By combining receptor functional potency prediction with structural analysis of the quantum residual, this study provides empirical evidence to inform compact residual-head design and highlights the potential of quantum-circuit parameterizations for this task.",
+  "url": "http://arxiv.org/abs/2610.13037v1",
+  "pdf": "https://arxiv.org/pdf/2610.13037v1",
+  "type": "theory",
+  "summary": "This work proposes using quantum-circuit residuals as an advanced prediction head for molecular property prediction, specifically receptor functional potency. By jointly training a classical molecular encoder with this quantum residual, the authors significantly improve prediction accuracy over baseline models. This demonstrates a practical application of quantum feature extraction in computational chemistry and drug discovery.",
+  "main_problem": "The paper addresses the challenge of accurately predicting receptor functional potency ($\text{pEC}_{50}$) from molecular structures using machine learning.",
+  "main_result": "The integration of a quantum-circuit residual head significantly reduces the Mean Absolute Error (MAE) compared to standard base models, demonstrating the potential of quantum feature extraction in cheminformatics.",
+  "method": "A hybrid quantum-classical model is trained where a molecular encoder (MLP or GNN) feeds into a prediction head composed of a linear base term and a quantum-circuit residual term.",
+  "model_or_system": "The system involves predicting biological activity ($\text{pEC}_{50}$) for receptors like $\text{GLP-1R}$. The quantum component uses amplitude encoding to map the molecular embedding into a five-qubit state, which is then processed by a parameterized quantum circuit to yield an expectation value residual.",
+  "key_observables": "Mean Absolute Error (MAE) for $\text{pEC}_{50}$ prediction, paired MAE differences, and performance under simulated noise.",
+  "important_parameters": "The quantum residual head has 36 trainable parameters; performance is tested across random and structure-group data splits.",
+  "main_assumptions": "The quantum residual gains are compared against structured classical controls (e.g., real-orthogonal controls), and noise simulations assume ideal preparation and local Markovian noise.",
+  "figures_summary": "Figures illustrate the quantum-circuit residual framework and compare MAE across different splits and noise levels; Tables quantify MAE improvements for various residual head structures.",
+  "paper_structure": "The paper introduces the hybrid model, details the quantum residual calculation (including its quadratic form), evaluates performance on $\text{GLP-1R}$ using various encoders and splits, compares against classical controls, and finally analyzes robustness under simulated noise.",
+  "why_interesting": "It provides a concrete, applied example of using quantum circuits not for simulating fundamental physics, but as a structured, high-dimensional feature extractor within a machine learning pipeline, which is relevant to ML-physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.13037_figures/2610.13037_fig1.jpg",
+      "caption": "Figure 1: Quantum-circuit residual framework and structured controls. (A) Ligand struc- tures are used to predict receptor cAMP-related pEC50, with each receptor modeled sepa- rately. The MLP takes Morgan fingerprints, whereas the GNN combines molecular graphs and fingerprints. (B) The shared representation feeds the linear base head and quantum residual head; their outputs are summed and transformed back to the pEC50 scale. All three components are trained jointly end to end. The light-orange module shows amplitude encod- ing, a two-layer five-qubit circuit, and single-qubit Pauli-Z expectation-value readout. (C) Quadratic structure of the quantum residual and classical controls. The...",
+      "page": 5
+    },
+    {
+      "image": "2610.13037_figures/2610.13037_fig2.jpg",
+      "caption": "Figure 2: GLP-1R functional potency prediction. (A,B) Out-of-fold MAE under random and structure-group splits, respectively; lower values indicate better performance. Circles denote individual-seed results, diamonds denote means, and error bars show sample standard deviations. MLP/GNN denote encoders, and MLP res. denotes the MLP residual head.",
+      "page": 9
+    },
+    {
+      "image": "2610.13037_figures/2610.13037_fig3.jpg",
+      "caption": "Figure 3: Paired MAE comparisons of classical residual controls and quantum-residual mod- els on GLP-1R. (A,B) MLP encoder under random and structure-group splits, respectively; (C,D) GNN encoder under the corresponding splits. Differences are control MAE minus quantum-residual MAE, in pEC50 units: positive values favor the quantum residual (right), and negative values favor the classical control (left). Dashed lines mark zero difference. Cir- cles denote individual-seed differences, diamonds denote means, and error bars show sample standard deviations. Parentheses indicate trainable residual-head parameter counts; the quantum residual head has 36 parameters.",
+      "page": 11
+    },
+    {
+      "image": "2610.13037_figures/2610.13037_fig4.jpg",
+      "caption": "Figure 4: Functional potency prediction for ADRB2 and MC4R. (A,B) Out-of-fold MAE for ADRB2 and MC4R, respectively, under both split schemes; lower values indicate better performance. MAE axes are scaled separately for each receptor. Circles denote individual- seed results, diamonds denote means, and error bars show sample standard deviations. MLP/GNN denote encoders; MLP res. and Real-orth. denote the MLP and real-orthogonal quadratic residual heads, respectively.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.13037_figures/2610.13037_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

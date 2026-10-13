@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2610.13420",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.mes-hall",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Predicting Nanofabrication Variance: A Conditional Diffusion Model",
+  "authors": "Wenhan Zhang, Ben Mills, Oleksandr Buchnev, Kevin F. MacDonald",
+  "abstract": "Micro- and nanostructures fabricated by focused ion beam (FIB) milling invariably deviate from input designs due to systematic and stochastic effects such as ablation-rate fluctuations, and redeposition. As such, nominally identical iterations of a given process yield a distribution of non-identical fabrication outcomes, leading to variations in the physical (optical, mechanical) properties of fabricated structures. Existing models of the milling process typically predict a single deterministic fabrication result, neglecting this variability. Here we present a conditional diffusion model that learns the statistical distribution of process outcomes conditioned on input design, enabling it to predict a realistic distribution of possible output sample structures. These predictions accurately reproduce edge morphology, linewidth variations, and defect probabilities observed in fabricated samples, enabling statistical analysis of milling performance and the identification of dominant structural and process parameter-dependent deformation modes. The work establishes a probabilistic modelling framework for fabrication variability analysis and fabrication-aware design optimization.",
+  "url": "http://arxiv.org/abs/2610.13420v1",
+  "pdf": "https://arxiv.org/pdf/2610.13420v1",
+  "type": "both",
+  "summary": "This paper introduces a conditional diffusion model to overcome the limitation of deterministic fabrication simulations by modeling the full statistical distribution of outcomes from FIB milling. By training on input masks and resulting SEM images, the model predicts an ensemble of possible structures, allowing for statistical analysis of process variability. This establishes a probabilistic framework for designing robust nanostructures.",
+  "main_problem": "Existing models for nanofabrication processes, such as Focused Ion Beam (FIB) milling, predict only a single deterministic outcome, failing to account for the inherent stochastic variability caused by physical fluctuations.",
+  "main_result": "The conditional diffusion model successfully predicts a realistic *distribution* of possible output sample structures, accurately capturing variations in edge morphology, linewidths, and defect probabilities observed experimentally.",
+  "method": "The authors trained a conditional diffusion model, using a U-Net architecture and SPADE blocks, to learn the statistical distribution of fabricated outcomes conditioned on the input design mask.",
+  "model_or_system": "The physical system is the fabrication of micro- and nanostructures (e.g., straight-line trenches) using FIB milling on thin gold films. The model learns the mapping from a binary input mask to the probability distribution of the resulting SEM image.",
+  "key_observables": "Linewidth distributions, defect probabilities, and Principal Component Analysis (PCA) modes characterizing structural deformation.",
+  "important_parameters": "Ablation-rate fluctuations, redeposition effects, and the input design mask geometry.",
+  "main_assumptions": "The model assumes that the statistical variability of the fabrication process can be effectively modeled by a conditional diffusion process, and that DDIM sampling provides sufficient fidelity for inference.",
+  "figures_summary": "Figures compare simulated vs. experimental histograms of milled linewidths for straight-line trenches, and show PCA analysis comparing simulated and experimental structural deformation modes for complex geometries like split-rings.",
+  "paper_structure": "The paper introduces the problem of fabrication variability, details the conditional diffusion model training (forward/reverse process, loss functions), demonstrates its ability to generate an ensemble of realistic outcomes, and validates its predictions against experimental measurements of linewidths and structural modes.",
+  "why_interesting": "While the physics is in materials science, the core methodology—using advanced generative ML models (Diffusion Models) to characterize the statistical uncertainty of a physical process—is highly relevant to modeling noise and uncertainty in quantum measurements or open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.13420_figures/2610.13420_fig1.jpg",
+      "caption": "FIG 1. Conditional diffusion model for FIB milling – training and application. (a) Representative pairs of binary mask and corresponding fabricated sample SEM images used for model training and validation. Note that in the binary masks, white areas are those to be milled, while in SEM images, milled regions [exposed silicon nitride substrate] appear darker than the surrounding [gold] surface. (b) Diffusion model training procedure – the full training dataset is generated through a ‘forward’ process of incrementally adding Gaussian noise to sample SEM images [upper row]. A U-Net is then trained to perform the reverse ‘de- noising’ process, conditioned on the binary mask. (c) From a set of...",
+      "page": 2
+    },
+    {
+      "image": "2610.13420_figures/2610.13420_fig2.jpg",
+      "caption": "FIG 2. Diffusion model predictions vs. experimental FIB milling outcomes. (a, b) Histograms [overlaid with best-fit probability- density curves] of milled linewidths in simulated [orange bars and curves] and experimentally fabricated [blue] patterns of wide/narrow straight-line trenches milled through a gold film, in (a) vertical and (b) horizontal orientations, perpendicular and parallel respectively to the ion beam raster scan lines. Inset images show the relevant binary masks, representative section of corresponding experimental sample SEM images, and representative diffusion model-generated pseudo-SEM images. [Narrow trenches are omitted from (b) because high defect rates preclude...",
+      "page": 4
+    },
+    {
+      "image": "2610.13420_figures/2610.13420_fig3.jpg",
+      "caption": "FIG 3. Principal component analysis of structural deformation modes diffusion model simulated vs. experimentally fabricated split- rings. (a) The split ring binary mask and corresponding representative experimental sample SEM images, and diffusion model- generated pseudo-SEM images. (b) Explained variance (EV) of the first five principal components of structural deformation in a decomposition of simulated pseudo-SEM images [orange] and fabricated sample SEM images [blue]. (c) Corresponding principal component eigenimages illustrating the spatial distributions of deformation modes. [The color scale represents dimensionless principal-component loadings, with positive/negative values denoting...",
+      "page": 6
+    }
+  ],
+  "figure": "2610.13420_figures/2610.13420_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

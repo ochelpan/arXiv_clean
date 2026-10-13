@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2610.13694",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QTN-RQNN: Quantum Tensor Network-Based Recurrent Quantum Neural Network",
+  "authors": "Amit S. Patel, Himanshu R. Patel, Bikash K. Behera, Pranav Mehta, Ghanshyam Tejani, Deepak Parashar",
+  "abstract": "Resource constraints and imperfect quantum operations remain major challenges for quantum machine learning (QML) on noisy intermediate-scale quantum (NISQ) devices, particularly for fault-diagnosis tasks involving imbalanced and heterogeneous data. This work proposes QTN-RQNN, a Quantum Tensor Network-Based Recurrent Quantum Neural Network that integrates tensor-network-inspired nearest-neighbor interactions with recurrent quantum processing. The model sequentially encodes input features while propagating quantum memory across recurrent steps and incorporates QSMOTE for class balancing. QTN-RQNN is evaluated on four heterogeneous fault-diagnosis datasets SPID, CWRUBD, EFDD, and SFDD and compared with QNN, QTN-QNN, and RQNN baselines through classification, ablation, multi-seed, convergence, and quantum-resource analyses. Results show dataset-dependent predictive behavior, indicating that increased quantum architectural complexity does not universally improve classification. On SPID, QTN-RQNN improves the RQNN F1-score from 0.3077 to 0.4516 and ROC-AUC from 0.4485 to 0.6970, while the remaining datasets exhibit different performance-resource trade-offs and sensitivity to recurrent timesteps and circuit depth. Across all datasets, QTN-RQNN reduces the two-qubit-gate count from 32 to 24 per sample relative to RQNN, corresponding to a 25% reduction without increasing the four-qubit requirement; the same relative reduction is obtained for QTN-QNN over QNN. These findings establish QTN-RQNN as a resource-conscious recurrent quantum architecture and highlight the need to jointly consider predictive performance and circuit-resource requirements for near-term quantum fault diagnosis.",
+  "url": "http://arxiv.org/abs/2610.13694v1",
+  "pdf": "https://arxiv.org/pdf/2610.13694v1",
+  "type": "both",
+  "summary": "This paper introduces QTN-RQNN, a novel recurrent quantum neural network that incorporates tensor-network structures to enhance efficiency for quantum machine learning tasks like fault diagnosis. By integrating structured local interactions and optimizing resource usage, it achieves state-of-the-art performance on specific datasets while significantly reducing required quantum gates compared to existing recurrent quantum models.",
+  "main_problem": "Developing resource-conscious quantum architectures for Quantum Machine Learning (QML) to perform fault-diagnosis on noisy intermediate-scale quantum (NISQ) devices using imbalanced and heterogeneous data.",
+  "main_result": "The proposed QTN-RQNN significantly improves classification performance on the SPID dataset while achieving a 25% reduction in two-qubit gate count compared to baseline recurrent models.",
+  "method": "The authors propose QTN-RQNN, which integrates tensor-network-inspired nearest-neighbor interactions into a recurrent quantum processing unit, utilizing QSMOTE for class balancing.",
+  "model_or_system": "The model is a Quantum Tensor Network-Based Recurrent Quantum Neural Network. It processes sequential data by encoding input features into a quantum state and propagating the memory state across recurrent steps using a structured unitary operation.",
+  "key_observables": "F1-score, ROC-AUC, two-qubit-gate count, and the final readout vector $z = [\\langle Z\\otimes I\rangle, \\langle I\\otimes Z\rangle]^\top$.",
+  "important_parameters": "The trainable parameters $\\Theta = [\theta, w_0, w_1, b]$ govern the network's evolution and final classification layer.",
+  "main_assumptions": "The performance is dataset-dependent, and the study emphasizes the necessity of jointly considering predictive performance and circuit-resource requirements for near-term quantum applications.",
+  "figures_summary": "Figures illustrate the compact overview of the QTN-RQNN architecture and its circuit-level structure, detailing input encoding and memory propagation.",
+  "paper_structure": "The paper details the entire pipeline: data preprocessing (PCA, scaling), class balancing (QSMOTE), defining the recurrent input state, parameterizing the QTN-structured unitary ($U_{QTN}$), updating the reduced memory state via partial trace, and finally, optimizing the readout using a classical sigmoid layer.",
+  "why_interesting": "The work directly addresses the resource limitations of NISQ devices by proposing a structured, resource-efficient quantum architecture for a practical ML task, which is highly relevant to quantum algorithm development.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.13694_figures/2610.13694_fig1.jpg",
+      "caption": "Fig. 1: Compact overview of the proposed QTN-RQNN framework. Preprocessed and QSMOTE-balanced features are processed sequentially by shared QTN-based recurrent cells while quantum memory is propagated across recurrent steps. Final measurements are used for fault classification.",
+      "page": 3
+    },
+    {
+      "image": "2610.13694_figures/2610.13694_fig2.jpg",
+      "caption": "Fig. 2: Circuit-level structure of the proposed QTN-RQNN. Qubits q0 and q1 encode the current feature segment through RY (πxt,1) and RY (πxt,2), while q2 and q3 form the recurrent quantum-memory register. Each QTN layer applies trainable RY and RZ rotations followed by parameterized nearest-neighbor RZZ interactions on (q0, q1), (q2, q3), and (q1, q2). After L layers, the input subsystem is traced out and the resulting memory state ρM,t is propagated to the next recurrent step. The same QTN parameters are reused for t = 1, . . . , T. After the final step, local Z measurements of the memory qubits are supplied to a classical sigmoid output layer.",
+      "page": 5
+    },
+    {
+      "image": "2610.13694_figures/2610.13694_fig3.jpg",
+      "caption": "Fig. 3: Threshold-independent discrimination performance of QTN-RQNN across the four datasets. The first row presents the ROC curves for (a) SPID, (b) CWRUBD, (c) EFDD, and (d) SFDD, while the second row presents the corresponding precision-recall (PR) curves for (e) SPID, (f) CWRUBD, (g) EFDD, and (h) SFDD.",
+      "page": 8
+    },
+    {
+      "image": "2610.13694_figures/2610.13694_fig4.jpg",
+      "caption": "Fig. 4: Effect of the number of recurrent timesteps T on QTN-RQNN for (a) SPID, (b) CWRUBD, (c) EFDD, and (d) SFDD.",
+      "page": 8
+    },
+    {
+      "image": "2610.13694_figures/2610.13694_fig5.jpg",
+      "caption": "Fig. 5: Effect of QTN circuit depth L on QTN-RQNN for (a) SPID, (b) CWRUBD, (c) EFDD, and (d) SFDD.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.13694_figures/2610.13694_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
