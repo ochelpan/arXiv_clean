@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.18202",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Theory of Trotter Error with Variable-Weight Schedules",
+  "authors": "Henrique Ennes",
+  "abstract": "Trotterization is a widely used algorithm for simulating quantum evolutions and consists of approximating a target unitary through a local linear decomposition of its generator that is repeated over $N$ steps. We introduce {scheduled trotterization}, a variable-weight modification in which the coefficients of the local linear decomposition are allowed to change from step to step. Using the geometry of the Lie group of unitary operators, we express the global endpoint error as a product of transported local defects, whose leading terms are obtained by two applications of the Baker-Campbell-Hausdorff formula, one inside each local step and one between different transported defects, separating the internal Trotter error from the external accumulation error. While we recover recent tighter bounds on the global approximation error when the weights are held fixed, the new framework allows us to propose a weight-varying schedule that significantly decreases the global error. For exact infinitesimal synthesis, we prove that this improves the usual fixed-weight $O(N^{-1})$ behavior to $O(N^{-2})$, without changing the basic pulse skeleton. We also extend the framework to imperfect infinitesimal synthesis, as arises in quantum gate synthesis problems, where admissible coefficients may only approximate the desired local corrections. In this case, the error is controlled by a local covering parameter measuring the quality of the available coefficient set. Numerical experiments for random $\\SU(2)$ targets further support the predicted theoretical improvements. The results suggest a novel perspective for the analysis of Trotter errors, which can be treated as schedulable quantities to be coherently canceled at the endpoint.",
+  "url": "http://arxiv.org/abs/2610.18202v1",
+  "pdf": "https://arxiv.org/pdf/2610.18202v1",
+  "type": "theory",
+  "summary": "This work introduces 'scheduled trotterization,' a method that allows the weights of local quantum pulses to vary over time to actively cancel accumulated errors. By treating the error as a schedulable quantity, the authors prove that the simulation error can be significantly reduced from $O(N^{-1})$ to $O(N^{-2})$. This offers a powerful theoretical tool for designing more accurate and efficient quantum simulation algorithms.",
+  "main_problem": "The paper aims to improve the accuracy of quantum evolution simulation, specifically addressing the error accumulation inherent in Trotterization methods.",
+  "main_result": "By implementing a variable-weight scheduling scheme, the global approximation error can be theoretically improved from the standard $O(N^{-1})$ scaling to $O(N^{-2})$ for exact synthesis.",
+  "method": "The analysis uses Lie group theory, expressing the global error as a product of transported local defects analyzed via the Baker-Campbell-Hausdorff formula.",
+  "model_or_system": "The model involves approximating a target unitary evolution $U = \\exp(itH)$ using a product formula derived from a finite set of available local Hamiltonians $\\{H_j\\}$ with variable weights.",
+  "key_observables": "Global approximation error ($\\epsilon = \\|U - W\\|$); local defects and accumulated error terms.",
+  "important_parameters": "Number of steps ($N$); local covering parameter (for imperfect synthesis); small parameters ($\\delta$, $\\sigma$).",
+  "main_assumptions": "The target Hamiltonian $H$ must belong to the real span of the available basis Hamiltonians $\\{H_j\\}$; the analysis relies on the BCH formula for small step sizes.",
+  "figures_summary": "Figure 1 compares fixed-weight ($O(N^{-1})$) vs. variable-weight ($O(N^{-2})$) trotterization; Figure 2 illustrates the geometric path difference between ideal and approximated evolution; Figure 3 compares various error bounds.",
+  "paper_structure": "The paper develops the error analysis by first establishing the general variable-weight framework, deriving error bounds using the transport identity, and then specializing to the fixed-weight limit and the imperfect synthesis case.",
+  "why_interesting": "It provides a rigorous, mathematically advanced framework for optimizing quantum simulation protocols, directly impacting the achievable fidelity of quantum gates and time evolution simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.18202_figures/2610.18202_fig1.jpg",
+      "caption": "FIG. 1. Top: Ordinary fixed-weight trotterization of the unitary U = exp[i(6H1 + 9H2)] using the pulses exp(i2H1) and exp(i3H2). The different steps are separated by the dashed rectangles; here the number of steps N is set to 3 for illustration purposes. Bottom: Variable-weight trotterization of the same target unitary, where the pulse weights are adjusted at later steps to suppress the accumulated error. While the fixed-weight trotterization solution converges to the target evolution with scaling O(N −1), our variable-weight schedule converges with scaling O(N −2).",
+      "page": 2
+    },
+    {
+      "image": "2610.18202_figures/2610.18202_fig2.jpg",
+      "caption": "FIG. 2. A representation of the geometric intuition behind trotterization. The black dashed curve corresponds to the path γ(t) = exp(itH) in SU(d), starting at the identity when t = 0 and ending at γ(1) = U. The ideal integration curve (green), Sn = exp(inH/N), coincides with γ(n/N) and there- fore incurs no approximation error when n = N. On the other hand, a general trotterization scheme (red) uses actual steps T (n) and, at n = N, ends at distance ε (blue) from the target. Here N = 3 for illustration purposes.",
+      "page": 4
+    },
+    {
+      "image": "2610.18202_figures/2610.18202_fig3.jpg",
+      "caption": "FIG. 3. Left: Estimated and observed errors according to dif- ferent trotterization bounds for different values of N. Here, a random SU(2) target is approximated with a fixed-weight trotterization solution, where H is assumed to be the set of three Pauli matrices and C = R3 (i.e., the solution is drift- free). Right: The error bound estimated according to equa- tion (14) as a function of the observed error, for 100 randomly sampled SU(2) targets, with N held fixed at 50. The dashed line has slope +1.",
+      "page": 6
+    },
+    {
+      "image": "2610.18202_figures/2610.18202_fig4.jpg",
+      "caption": "FIG. 4. Log-log plot of the observed trotterization error using the fixed- and scheduled-weight solutions. The fitted expo- nents (p), together with reference curves proportional to N −1",
+      "page": 9
+    },
+    {
+      "image": "2610.18202_figures/2610.18202_fig5.jpg",
+      "caption": "FIG. 5. Left: Log-log plot of the observed trotterization error using the fixed- and scheduled-weight solutions for C = Z3, where H was taken to be small multiples of the three Pauli matrices and the target is a random SU(2) unitary. Refer- ence curves proportional to N −1 and N −2 are also shown. Right: The difference ∆L between the number of gates in the scheduled- and fixed-weight solutions for trotterization- based gate synthesis. Statistics were taken over 30 randomly generated SU(2) targets, and the filled region corresponds to one standard deviation around the average.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.18202_figures/2610.18202_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

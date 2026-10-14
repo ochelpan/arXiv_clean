@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.18130",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Distance Prediction for Quantum Codes",
+  "authors": "Nadav Schneider, Eliya Nachmani",
+  "abstract": "The distance of a quantum code is a fundamental metric that dictates its error-correction capability. While quantum low-density parity-check (qLDPC) families such as Bivariate Bicycle (BB) codes offer a promising pathway to low-overhead fault-tolerant quantum computing, computing their distance is challenging. Current exact solvers and even search heuristics that provide a distance upper bound suffer from severe computational bottlenecks, restricting the discovery of optimal codes. In this paper, we construct a dataset of BB codes with corresponding distance upper bounds obtained through high-budget heuristic searches. We introduce BB-Net, an attention-based neural network architecture for predicting the distance of BB codes. It achieves 96.39% accuracy on the reference distances in the test set, compared with 94.86% for state-of-the-art heuristics with a budget of up to $10^{4}$ times more computational runtime. On a subset with certified exact distances, BB-Net achieves 98.94%. By relieving the distance-calculation bottleneck, BB-Net enables faster screening of large code spaces, particularly in ML-driven search pipelines, and thereby can accelerate the discovery of novel quantum error-correcting codes, an important capability for advancing scalable fault-tolerant quantum computing. Our code is publicly available: https://github.com/NadavSc/BBNet",
+  "url": "http://arxiv.org/abs/2610.18130v1",
+  "pdf": "https://arxiv.org/pdf/2610.18130v1",
+  "type": "theory",
+  "summary": "This paper introduces BB-Net, an attention-based neural network designed to predict the minimum distance of quantum error-correcting codes, specifically BB codes. By encoding the code's algebraic structure using polynomial and spectral tokens, BB-Net bypasses the NP-hard computational barrier associated with exact distance calculation. This breakthrough significantly accelerates the screening process, aiding the discovery of novel, high-performance quantum codes.",
+  "main_problem": "The core challenge is the computationally hard problem of determining the minimum distance ($d$) of quantum error-correcting codes, which dictates their fault-tolerance capability.",
+  "main_result": "The proposed neural network, BB-Net, achieves high accuracy in predicting code distances with a computational cost up to $10^4$ times lower than state-of-the-art heuristic solvers.",
+  "method": "The authors developed BB-Net, an attention-based neural network that processes the algebraic structure of Bivariate Bicycle (BB) codes by combining polynomial and Tanner-spectral token representations.",
+  "model_or_system": "The focus is on Quantum Error Correction (QEC) using stabilizer codes, specifically Bivariate Bicycle (BB) codes, which are analyzed through their parity-check matrices and algebraic structure.",
+  "key_observables": "The minimum distance ($d$) of the quantum code, defined as the minimum weight of a nontrivial logical operator.",
+  "important_parameters": "Code parameters ($\\ell, m, n, k$), the computational budget (runtime), and the prediction accuracy (e.g., 96.39% on the test set).",
+  "main_assumptions": "The method assumes the code structure can be effectively tokenized into local (polynomial) and global (spectral) representations, and that ML prediction can reliably substitute for exact, intractable computation.",
+  "figures_summary": "Figures compare distance estimation methods, showing the massive runtime difference between heuristic searches and BB-Net inference. Ablation studies (Figure 5) validate the necessity of the combined polynomial and spectral encoding branches.",
+  "paper_structure": "The paper first establishes the computational bottleneck of distance finding for QEC codes. It then details the novel BB-Net architecture, which tokenizes the code structure using polynomial and spectral encoders. Finally, it presents empirical results demonstrating the superior speed and accuracy of the ML prediction approach.",
+  "why_interesting": "This work directly addresses a critical bottleneck in the search for better quantum error-correcting codes, which is foundational for building scalable quantum computers.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.18130_figures/2610.18130_fig1.jpg",
+      "caption": "Figure 1: Distance estimation for bivariate bicycle codes through two approaches: computationally intensive heuristic search and orders of magnitude more efficient inference using BB-Net. Numbers refer to a full benchmark evaluation.",
+      "page": 1
+    },
+    {
+      "image": "2610.18130_figures/2610.18130_fig2.jpg",
+      "caption": "Figure 2: BB-Net architecture. A BB code is processed by two encoders; The polynomial encoder applies self-attention to monomial tokens and is conditioned on the code parameters through FiLM layers. In parallel, the Tanner spectral encoder processes Fourier-character tokens using attention as well. Each branch produces a code latent representation, which is combined through a learned gated residual connection. The fused representation then passed to a classification head.",
+      "page": 5
+    },
+    {
+      "image": "2610.18130_figures/2610.18130_fig3.jpg",
+      "caption": "Figure 3: BB-Net tokenization and embedding. A BB code specified by sparse polynomials A and B is mapped to two complementary representations: (i) polynomial tokens encode monomial supports on Zℓ× Zm with the type (A,B) indicator as a one-hot vector and the first eight Fourier harmonics, represented by sine and cosine components along each lattice dimension, yielding a 32-dimensional positional representation. (ii) Tanner spectral tokens encode the responses of the full polynomials at each group character χ using 18-dimensional character features. Learned CLS tokens are used as latent vector aggregators for the downstream classification task.",
+      "page": 6
+    },
+    {
+      "image": "2610.18130_figures/2610.18130_fig4.jpg",
+      "caption": "Figure 4: The x-axis denotes the minimum distance threshold t, and the y-axis reports the accuracy computed over codes whose distance satisfies d ≥t. Thus, moving to the right restricts the evalua- tion to increasingly high-distance codes. This was examined on three subsets: the whole benchmark, certified exact distances, and upper bound, unresolved distances.",
+      "page": 8
+    },
+    {
+      "image": "2610.18130_figures/2610.18130_fig5.jpg",
+      "caption": "Figure 5: Bold curves denote the best configuration, including augmentation, shift canonicalisation, and FiLM conditioning; lighter curves show the corresponding model with the component named in each panel removed.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.18130_figures/2610.18130_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

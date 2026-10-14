@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.17755",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.MS"
+  ],
+  "is_primary_archive": true,
+  "title": "PADO-Pauli: A GPU-Accelerated Implementation of Pauli Propagation",
+  "authors": "Hyunwoo Kim, Youngseok Lee",
+  "abstract": "Variational quantum algorithms utilize parameterized circuits many times during training, at new parameter values, over batches of data, and with gradients. Pauli propagation approximates the expectation values of such circuits classically by evolving the observable in the Heisenberg picture as a truncated sum of Pauli strings. We present PADO-Pauli, a GPU engine for Pauli propagation that compiles a circuit and its observables once into sparse matrices in which each rotation angle contributes only a cosine and a sine factor, so every later evaluation reuses the compiled program. It evaluates batches of parameters and data inputs embedded as rotation angles. By default its gradients come from a vector-Jacobian product registered with PyTorch's automatic differentiation, so they flow through the angles to any classical layer that produces them. PADO-Pauli also provides truncation by Pauli weight and coefficient size, and noise channels. Zero-filtering removes terms that do not contribute to an expectation value in the all-zero reference state and makes the batched forward pass about 1.5 times faster. Compared to cuPauliProp on an NVIDIA A100, PADO-Pauli evaluates up to 10 times faster on 4 to 12 qubits and uses up to 3.1 times less memory on 16 qubits. We check its accuracy against exact statevector simulation up to 28 qubits. These features make PADO-Pauli a practical toolkit for training variational quantum algorithms, including quantum machine learning models.",
+  "url": "http://arxiv.org/abs/2610.17755v1",
+  "pdf": "https://arxiv.org/pdf/2610.17755v1",
+  "type": "both",
+  "summary": "This paper introduces PADO-Pauli, a GPU-accelerated toolkit for efficiently calculating expectation values of quantum circuits using Pauli propagation. It compiles the circuit structure once, allowing for extremely fast, batched evaluations and automatic differentiation necessary for training quantum machine learning models. The performance gains over existing methods make it a practical tool for variational quantum computing research.",
+  "main_problem": "The core challenge is efficiently evaluating expectation values of parameterized quantum circuits many times during the training of variational quantum algorithms, especially when gradients are required.",
+  "main_result": "PADO-Pauli is presented as a GPU-accelerated engine that achieves significant speedups (up to 10x faster than cuPauliProp) and memory reductions compared to existing tools.",
+  "method": "It uses Pauli propagation, approximating expectation values by evolving observables in the Heisenberg picture as a truncated sum of Pauli strings, implemented via a single, compiled GPU program.",
+  "model_or_system": "The system involves quantum circuits whose observables are expressed as sums of Pauli strings. The method handles parameterized rotations and supports batch processing.",
+  "key_observables": "Expectation values of observables (Hamiltonians) written as sums of Pauli strings, and their gradients.",
+  "important_parameters": "Pauli weight and coefficient size for truncation; rotation angles ($\theta$) which are embedded as batch inputs.",
+  "main_assumptions": "The method relies on truncation (by weight and coefficient size) to keep the computation tractable, assuming the total error is bounded by the sum of discarded coefficient masses.",
+  "figures_summary": "Figure 1 illustrates the workflow: single compilation $\rightarrow$ truncation $\rightarrow$ multiple evaluations with gradients. Figure 2 conceptually shows the branching structure during Pauli propagation.",
+  "paper_structure": "The paper details the need for efficient expectation value calculation, introduces the PADO-Pauli engine with its compilation and GPU acceleration, discusses the mathematical framework including truncation strategies, and validates performance against state-of-the-art tools.",
+  "why_interesting": "It provides a highly optimized, differentiable classical tool for simulating quantum circuit dynamics, which is crucial for developing and benchmarking variational quantum algorithms in quantum information science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.17755_figures/2610.17755_fig1.jpg",
+      "caption": "Figure 1: Overview of PADO-Pauli: a single compilation, with truncation applied at each propagation step, followed by multiple evaluations with gradients.",
+      "page": 5
+    },
+    {
+      "image": "2610.17755_figures/2610.17755_fig2.jpg",
+      "caption": "Figure 2: Conceptual branching tree for Pauli propagation under parameterized rotations: non-commuting gates split a Pauli string into cosine and sine branches. Rot(θℓ) is the rotation RG(θℓ) of Eq. (4), and P ′, P ′′, P ′′′ the distinct strings its successive sine branches produce.",
+      "page": 6
+    },
+    {
+      "image": "2610.17755_figures/2610.17755_fig3.jpg",
+      "caption": "Figure 3: Zero-filtering at compile time. Solid blue, strings reaching a kept output row; dashed red, strings removed because Tr[ρ0P] = ⟨00|P|00⟩= 0 for them or for every string they produce.",
+      "page": 13
+    },
+    {
+      "image": "2610.17755_figures/2610.17755_fig4.jpg",
+      "caption": "Figure 4: Trained models of the three embedding tasks of Sec. 3.3; (c) is the model of Listing 3. In (b) and (c): shading, the model’s P(class=1); points, the training set (class 0 blue, class 1 orange); black contours, the P = 0.5 decision boundary.",
+      "page": 15
+    },
+    {
+      "image": "2610.17755_figures/2610.17755_fig5.jpg",
+      "caption": "Figure 5: Convergence of coefficient truncation on a fixed 16-qubit, depth-3 Erdős–Rényi MaxCut-QAOA instance with max-weight truncation disabled. (a) truncated expectation value against the exact statevector value (dashed); (b) absolute error. In both panels the ϵ axis is logarithmic and reversed, running from 10−1 at the left to 10−6 at the right.",
+      "page": 20
+    }
+  ],
+  "figure": "2610.17755_figures/2610.17755_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

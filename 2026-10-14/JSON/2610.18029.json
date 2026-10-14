@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.18029",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "q-bio.PE"
+  ],
+  "is_primary_archive": true,
+  "title": "Lossless Reductions and Hybrid Sampling for Phylogeny Using the Maximum Compatibility Criterion",
+  "authors": "Orson Ye, James Bonfield, Joshua Cudby, Richard Durbin, Sergii Strelchuk",
+  "abstract": "Maximum compatibility provides a criterion for phylogenetic reconstruction in which the objective is to retain a maximum set of mutually compatible characters. For binary characters, pairwise compatibility can be represented by a weighted graph whose vertices correspond to characters and whose edges connect compatible pairs. A leading algorithm by Cherry [BMC Bioinformatics, 18(1):127, 2017] uses this representation to identify maximum compatible character sets as maximum weight cliques.   We formulate the problem as maximum weight independent set enumeration on the complement graph and use deterministic postprocessing to map sampled bit strings to maximal feasible solutions. To explore the prospects of quantum computational advantage, we further construct bespoke correction-in-the-loop Quantum Approximate Optimisation Algorithm instances and find that traditional Lagrange multiplier choices may not be optimal for the enumeration problem on noisy devices.   We also introduce lossless graph reductions with reconstruction rules that preserve the complete set of optimal solutions. Our results indicate that graph reduction and sampling can be effectively combined to address the enumeration bottleneck in maximum compatibility phylogeny, while retaining exact reconstruction when the residual optimum set is completely resolved.   We enhance Cherry's approach to maximum compatibility by introducing graph reduction techniques and quantum sampling. Our classical benchmarks show a clear difference between finding one optimum and recovering the optimum set in practice. We demonstrate the utility of our methods on graphs constructed from SARS-CoV-2 sequences.",
+  "url": "http://arxiv.org/abs/2610.18029v1",
+  "pdf": "https://arxiv.org/pdf/2610.18029v1",
+  "type": "theory",
+  "summary": "This paper enhances phylogenetic reconstruction by tackling the Maximum Weight Clique enumeration problem using a hybrid quantum-classical approach. It combines graph reduction techniques with bespoke Quantum Approximate Optimization Algorithm (QAOA) instances to efficiently find the entire set of optimal character sets. This method is demonstrated on SARS-CoV-2 data, highlighting the utility of combining structural simplification with quantum sampling for complex combinatorial problems.",
+  "main_problem": "The paper addresses the computationally hard problem of phylogenetic reconstruction using the Maximum Compatibility Criterion, which translates to finding the Maximum Weight Clique (MWC) in a compatibility graph.",
+  "main_result": "The authors propose a hybrid approach combining graph reduction techniques with quantum sampling (QAOA) to tackle the enumeration bottleneck of finding all optimal solutions, outperforming single-solution finding methods.",
+  "method": "The methodology involves formulating the problem as finding an MWC, applying graph reduction rules to simplify the input graph, and utilizing bespoke QAOA instances for quantum sampling alongside classical deterministic postprocessing.",
+  "model_or_system": "The model is phylogenetic inference applied to multiple sequence alignments (e.g., SARS-CoV-2 sequences). The core mathematical structure is the weighted graph where vertices are characters and edges represent compatibility.",
+  "key_observables": "Execution time (s), number of nodes, graph density, and the ability to enumerate the complete set of optimal (maximum weight) cliques.",
+  "important_parameters": "The size of the graph (nodes/edges), the required fidelity of the solution (finding one optimum vs. enumerating all optima), and the choice of Lagrange multipliers for QAOA.",
+  "main_assumptions": "The necessity of enumerating *all* optimal solutions, rather than just finding one, is a key assumption differentiating this work from standard optimization benchmarks. The quantum sampling is treated as a component, not a full replacement for classical methods.",
+  "figures_summary": "Figures benchmark various clique-finding solvers (IncMaxCLQ, CliSAT, FastWCLQ2, SCCWalk4L, AClique) showing time taken versus clique quality for varying graph sizes.",
+  "paper_structure": "The paper progresses from defining the MWC problem in phylogeny, detailing classical graph reduction techniques, proposing the hybrid quantum-classical solver, benchmarking the solvers, and finally applying the methods to real-world sequence data like SARS-CoV-2.",
+  "why_interesting": "While the primary focus is bioinformatics/graph theory, the explicit construction and benchmarking of QAOA instances for an NP-hard enumeration problem, and the discussion of quantum sampling fidelity on noisy devices, touches upon quantum algorithm design and resource estimation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.18029_figures/2610.18029_fig1.jpg",
+      "caption": "Figure 1: Benchmarks of exact maximum clique solvers, IncMaxCLQ and CliSAT. The results derived from graphs taken from random subsets of size 100 to 20,000 sequences in increments of 50. Times are the total execution time.",
+      "page": 8
+    },
+    {
+      "image": "2610.18029_figures/2610.18029_fig2.jpg",
+      "caption": "Figure 1 shows the time taken as a function of the number of nodes in the graph. Both CliSAT and IncMaxCLQ show a polynomial base-line for CPU growth, which can cover the bulk of the execution runs. However there are outliers which are expected to follow an exponential CPU growth. The tools can be ran with a fixed time limit, returning the best result found within that time.",
+      "page": 8
+    },
+    {
+      "image": "2610.18029_figures/2610.18029_fig3.jpg",
+      "caption": "Figure 2: Benchmarks of the approximate solver SCCWalk4L. This returns a single clique after a time limit of 1000s. Colours represent the quality of result, showing perfect maximum cliques, imperfect cliques found with at least 99% of the maximum clique size, and cliques found below 99%. Times shown are the time to find the best solution, which is typically considerably less than the fixed specified execution time.",
+      "page": 9
+    },
+    {
+      "image": "2610.18029_figures/2610.18029_fig4.jpg",
+      "caption": "Figure 3: Scatter plots of the depth and gate count against number of qubits of the QAOA circuits required to solve the MWC problem on various subsets of SARS-CoV-2 genome samples.",
+      "page": 12
+    },
+    {
+      "image": "2610.18029_figures/2610.18029_fig5.jpg",
+      "caption": "Figure 4: For different Lagrange multipliers, the low energy solutions correspond to different subgraphs. Taking different fractions of the lowest energies, we show what proportions of the corresponding subgraphs correspond to MWCs given our postprocessing algorithm.",
+      "page": 14
+    }
+  ],
+  "figure": "2610.18029_figures/2610.18029_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
