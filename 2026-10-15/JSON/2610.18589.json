@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.18589",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CC"
+  ],
+  "is_primary_archive": true,
+  "title": "$T$-efficient unitary synthesis via block-sparse Hamiltonian simulation",
+  "authors": "Diyi Liu, Shuchen Zhu, Wibe Albert de Jong, Di Fang, David Williams-Young, Chao Yang",
+  "abstract": "We construct Clifford+$T$ circuits implementing arbitrary $n$-qubit unitaries with worst-case $T$-count $\\widetilde{O}(N^{8/7})$ at constant operator-norm error, where $N=2^n$, improving the previous exponent $5/4$. The construction uses $\\widetilde{O}(N^{6/7})$ clean ancillas. The main idea is to reduce the data addressed by each query to the block-encoding circuit for a sparse piece while controlling the additional simulation work needed to combine the pieces. We simulate a Hermitian logarithm of the target by flattening its traceless part with a two-layer random similarity transformation, randomly partitioning the transformed generator into block-sparse Hermitian pieces, and combining their evolutions using qDRIFT. For a target operator-norm error $ε\\in(0,1/2)$, let $L=\\log_2(N/ε)$, the qubit count plus the requested bits of accuracy. By successively correcting the approximation error, we obtain a circuit using $\\widetilde{O}(N^{8/7}L^{3/7}+NL)$ $T$ gates and $\\widetilde{O}(N)$ clean ancillas whenever $L\\le N$. We also prove that, at constant precision, the exponent $8/7$ is optimal within a sequential block-SELECT model.",
+  "url": "http://arxiv.org/abs/2610.18589v1",
+  "pdf": "https://arxiv.org/pdf/2610.18589v1",
+  "type": "theory",
+  "summary": "This paper presents a novel construction for synthesizing arbitrary $n$-qubit unitaries using Clifford+T circuits, achieving a T-gate complexity of $\\widetilde{O}(N^{8/7}L^{3/7}+NL)$. The authors improve upon previous bounds and rigorously prove that the $N^{8/7}$ scaling is optimal within the sequential block-SELECT model, advancing the theoretical understanding of quantum circuit resource requirements.",
+  "main_problem": "Determining the minimum number of T gates required to implement an arbitrary n-qubit unitary circuit efficiently.",
+  "main_result": "The authors achieve a T-gate count of $\\widetilde{O}(N^{8/7}L^{3/7}+NL)$ and prove that the exponent $8/7$ is optimal in the worst case for the sequential block-SELECT model.",
+  "method": "The approach simulates the target unitary via its Hermitian logarithm, flattening the generator using random similarity transformations, and combining the resulting block-sparse evolutions using the qDRIFT technique.",
+  "model_or_system": "The model is quantum computation using Clifford+T circuits to realize arbitrary $n$-qubit unitaries $U \\in U(2n)$. The resource measure is the T-gate count, as T-gates are non-Clifford and costly.",
+  "key_observables": "T-gate count, clean ancilla count, and the approximation error $\\epsilon$.",
+  "important_parameters": "N (total qubits, $2^n$), L ($\\log_2(N/\\epsilon)$), and the exponent $8/7$.",
+  "main_assumptions": "The analysis assumes the use of clean ancillas, and the lower bound proof is restricted to the sequential block-SELECT model.",
+  "figures_summary": "Figure 1 illustrates matrix partitioning for $N=8$. Figure 2 compares schematic table access for dense vs. separate piece encodings. Figure 3 and 4 show the assignment and structure of blocks for Hamiltonian simulation.",
+  "paper_structure": "The paper develops the construction by first establishing the simulation framework (using qDRIFT and block encoding) and then deriving the optimal complexity bounds by analyzing the required resources in the sequential block-SELECT model.",
+  "why_interesting": "This work directly addresses the fundamental resource cost of quantum computation, providing state-of-the-art bounds on gate synthesis complexity, which is crucial for designing practical quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.18589_figures/2610.18589_fig1.jpg",
+      "caption": "FIG. 2. Schematic table access at fixed precision. Boxes in (a) denote queries to the dense block encoding of the target matrix in Yuan et al. [9]. Boxes in (b) denote queries to the block encodings UHk of our s pieces, illustrated with two piece tables. Each table has O(D2/s) block slots in the parameter range used in the construction. Dashed arrows link queries to their tables. The query counts are totals over the respective circuits.",
+      "page": 4
+    },
+    {
+      "image": "2610.18589_figures/2610.18589_fig2.jpg",
+      "caption": "FIG. 3. One possible assignment with D = 4 and s = 2. Colored cells are nonzero b × b blocks; blank cells are zero. Each block and its conjugate-transpose partner are assigned to the same piece, indicated by their shared color. The out- lined blocks show one such pair. Thus H′ = H1 + H2 with Hermitian pieces.",
+      "page": 5
+    },
+    {
+      "image": "2610.18589_figures/2610.18589_fig3.jpg",
+      "caption": "FIG. 4. Lookup table for the blue piece H1 in Fig. 3. Table rows correspond to block columns J, and table columns to slots u = 1, 2. Numbers give block row indices I, while gray cells represent zero padding. The outlined blocks (H1)3,2 and (H1)2,3 are adjoints, with paired addresses (2, 2) and (3, 1), respectively.",
+      "page": 5
+    },
+    {
+      "image": "2610.18589_figures/2610.18589_fig4.jpg",
+      "caption": "FIG. 5. Building UH1 from the lookup table in Fig. 4 and the matrix entries. The solid outlines trace address (J, u) = (2, 2): its entry I = 3 selects a unitary with encoded block (H1)3,2/g. Each selected unitary is constructed from the corresponding matrix block and g during classical preprocessing. select applies that unitary for the corresponding address. The permutation Π changes the block label from input J = 2 to output I = 3 and the slot from u = 2 to u′ = 1. This branch therefore contributes to block (3, 2) of the encoded matrix.",
+      "page": 6
+    },
+    {
+      "image": "2610.18589_figures/2610.18589_fig5.jpg",
+      "caption": "FIG. 6. Block encoding UK of a Hermitian piece K with b × b blocks. For K = H1, this circuit implements the con- struction in Fig. 5. The data registers are B, holding the input block column J, and T, holding the position xl within a block. The encoding ancillas are S, holding one of m padded slots per column, and the single flag qubit F. The Hadamard layer FS = H⊗log2 m prepares and unprepares the uniform slot state. For each nonpadding address (J, u) identifying row I, select applies a unitary on F, T whose F = 0 block is KIJ/g, where g bounds all block operator norms. Padding encodes zero. The permutation Π exchanges addresses (J, u) and (I, u′) of adjoint blocks on S, B. The block with...",
+      "page": 8
+    }
+  ],
+  "figure": "2610.18589_figures/2610.18589_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

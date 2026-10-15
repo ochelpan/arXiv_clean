@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2610.17395",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "A Controlled Null Result for Per-Gate Riemannian Optimization in VQE",
+  "authors": "Polina Belozerova, Pavel Osinenko",
+  "abstract": "Parametrized gates in a variational quantum eigensolver (VQE) live on a product of unitary groups, which makes Riemannian optimization a natural candidate for improving training. We test this candidate in the clean per-gate setting: each single-qubit gate is optimized directly on U (2) and compared with Adam on an unconstrained Euler-angle chart representing the same physical gate, initialized from the same unitaries and tuned with a separate learning-rate sweep. On a validated hydrogen-chain benchmark, we find no measurable practical advantage from the Riemannian machinery. The direct manifold optimizer and the Euler-coordinate baseline are interleaved in final error and success rate; the classical coordinate baseline is not slower in iterations on the successful cells; and the choices of Riemannian metric, retraction, and momentum vector transport do not change the conclusion. We also identify four failure modes that can manufacture an apparent positive result: a trivial product-state benchmark, a projected-matrix Adam baseline that discards most of its own step, a non-unitary inherited Cayley retraction that lets the reported energy pass below the variational minimum, and a learning-rate grid whose optimum sits at its boundary. Each failure mode produced a plausible multi-seed result in our own workflow before being caught. The practical output of this paper is therefore a controlled null result and a validation checklist for VQE optimizer comparisons.",
+  "url": "http://arxiv.org/abs/2610.17395v1",
+  "pdf": "https://arxiv.org/pdf/2610.17395v1",
+  "type": "theory",
+  "summary": "This paper investigates whether using Riemannian geometry to optimize individual gates in VQE circuits improves performance over standard optimization methods. Through rigorous testing on a hydrogen-chain benchmark, the authors report a controlled null result, finding no practical advantage. The main contribution is establishing a detailed validation checklist to guide future, more reliable comparisons of quantum optimizers.",
+  "main_problem": "To rigorously test whether optimizing variational quantum circuits using per-gate Riemannian optimization offers a practical advantage over standard classical optimizers like Adam.",
+  "main_result": "The study concludes a controlled null result, finding no measurable practical advantage for Riemannian optimization over a matched Euler-angle Adam baseline on a validated hydrogen-chain benchmark.",
+  "method": "The authors compare Riemannian optimization techniques (using various retractions and metrics) against a classical Adam baseline applied to the same physical gates, using a rigorous validation protocol.",
+  "model_or_system": "The model is the Variational Quantum Eigensolver (VQE) applied to neutral hydrogen chains. The ansatz involves trainable single-qubit U(2) gates followed by a fixed CNOT entangler.",
+  "key_observables": "Geometric mean best energy error (|E - \\lambda_min|) and success rate at chemical accuracy (1.6 x 10^-3 Ha). Diagnostics include Schmidt rank and half-chain entropy.",
+  "important_parameters": "The comparison is restricted to the clean per-gate U(2) setting, excluding noisy hardware or large-block compilation.",
+  "main_assumptions": "The primary limitation is the scope: the result is only valid for the specific per-gate U(2) regime tested, and the paper provides a checklist for future comparisons.",
+  "figures_summary": "Figures compare the performance of Euler-coordinate Adam versus direct per-gate manifold Adam, while tables summarize performance metrics and list four identified failure modes that can create false positives.",
+  "paper_structure": "The paper establishes the problem, details the Riemannian optimization methods and baselines, presents results on the hydrogen-chain benchmark showing no advantage, and concludes by detailing four failure modes and proposing a validation checklist for future work.",
+  "why_interesting": "It provides a crucial, highly technical benchmark and validation checklist for the entire field of quantum machine learning optimization, helping researchers avoid misleading positive results.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.17395_figures/2610.17395_fig1.jpg",
+      "caption": "FIGURE 1. Depth calibration used before ranking optimizers. Operating points are chosen near the shallowest depths that can reach chemical accuracy; cells that no tested method can solve are not used as evidence for optimizer superiority.",
+      "page": 3
+    },
+    {
+      "image": "2610.17395_figures/2610.17395_fig2.jpg",
+      "caption": "FIGURE 2. Matched Euler-coordinate Adam versus direct per-gate manifold Adam. Dots denote individual seeds and lines denote the geometric mean at the best learning rate per method. The two valid methods are interleaved; projected matrix Adam sits far above both.",
+      "page": 4
+    },
+    {
+      "image": "2610.17395_figures/2610.17395_fig3.jpg",
+      "caption": "FIGURE 3. Ingredient and failure-mode ablations. The safe geometric choices do not separate in the resolved cells; apparent large effects arise from invalid baselines, unsafe retractions, or insufficient learning-rate grids.",
+      "page": 4
+    }
+  ],
+  "figure": "2610.17395_figures/2610.17395_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

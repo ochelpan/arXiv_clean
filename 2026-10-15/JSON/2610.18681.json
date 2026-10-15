@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.18681",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Explicitly correlated ground states with a feedback-free variational hybrid algorithm",
+  "authors": "Benjamin Corbett, Akimasa Miyake",
+  "abstract": "Explicitly correlated methods, which represent dominant short-range correlations by a diagonal Jastrow-type correlator, are designed to accurately describe systems of strongly correlated electrons, such as the fully periodic 2D Fermi--Hubbard model. However, as the reference state is compact in momentum space whereas the correlator acts naturally in real space, there is a fundamental mismatch of bases that classical algorithms resolve only by restricting the reference or the correlator. Here we propose a hybrid algorithm in which a quantum processor prepares a low-entanglement momentum-space matrix product state (MPS), precomputed classically by the transcorrelated method at the cost of a nonvariational energy, rotates it to real space, and measures in bases fixed by the Hamiltonian. Because the measurement bases are independent of the correlator, the correlator can be variationally optimized entirely in classical post-processing with no quantum-classical feedback loop. We demonstrate our algorithm on 32 qubits of Quantinuum's H2-2 with a bond-dimension-4 MPS for the half-filled $4 \\times 4$ lattice and achieve a relative ground-state energy error of $16 \\pm 4\\%$ after postselection, reduced to $3.5 \\pm 0.5\\%$ by calibration using low-order moments from the MPS. Compared with other feedback-free hybrid algorithms, even under generous assumptions, our method requires fewer samples than quantum-selected configuration interaction and fewer two-qubit gates than quantum Krylov methods.",
+  "url": "http://arxiv.org/abs/2610.18681v1",
+  "pdf": "https://arxiv.org/pdf/2610.18681v1",
+  "type": "both",
+  "summary": "The paper introduces a novel, feedback-free hybrid quantum algorithm to calculate the ground state energy of the Fermi-Hubbard model. It addresses the mismatch between momentum-space quantum hardware and real-space correlation methods by performing variational optimization classically after quantum measurement. This approach demonstrates high accuracy on quantum hardware while requiring fewer quantum resources than competing methods.",
+  "main_problem": "The core challenge is bridging the gap between explicitly correlated methods, which naturally use real-space correlators, and quantum processors, which operate naturally in momentum space, for strongly correlated electron systems.",
+  "main_result": "The authors propose a hybrid, feedback-free algorithm that achieves a significantly reduced relative ground-state energy error (down to 3.5% via calibration) on a 32-qubit system, outperforming other hybrid methods.",
+  "method": "The algorithm uses a quantum processor to prepare a low-entanglement momentum-space MPS, which is then rotated to real space. The crucial step is that the correlator parameters are optimized entirely in classical post-processing, avoiding a quantum-classical feedback loop.",
+  "model_or_system": "The study focuses on the fully periodic 2D Fermi–Hubbard model, simulated at half-filling, using a Hamiltonian involving hopping ($t$) and on-site repulsion ($U$). The simulation is performed on a 32-qubit quantum processor.",
+  "key_observables": "Relative ground-state energy error ($|E_{ec} - E_{gs}|/|E_{gs}|$), spin correlation observable ($S_{zz}(\rho)$), and various expectation values required for energy calculation.",
+  "important_parameters": "Bond dimension ($\\chi=4$), lattice size ($4 \times 4$), and the ratio $U/t=4$.",
+  "main_assumptions": "The transcorrelated energy used for precomputation is nonvariational, and the final energy minimization relies on classical post-processing of sampled distributions, which are calibrated using low-order moments.",
+  "figures_summary": "Figures illustrate the workflow (DMRG $\rightarrow$ Quantum $\rightarrow$ Classical), compare energy convergence between transcorrelated and explicitly correlated methods, and show the dramatic improvement in energy error when calibration is applied to quantum hardware samples.",
+  "paper_structure": "The paper first introduces the fundamental mismatch in bases. It then details the hybrid algorithm workflow, showing the quantum preparation and classical optimization. Results are presented by comparing the energy convergence of different methods and demonstrating the performance gains on actual quantum hardware.",
+  "why_interesting": "This work is highly relevant as it proposes a practical, resource-aware quantum algorithm for strongly correlated matter that circumvents the need for complex, iterative quantum feedback loops, making it more amenable to near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.18681_figures/2610.18681_fig1.jpg",
+      "caption": "FIG. 1. Transcorrelated momentum-space DMRG with the Gutzwiller factor eJD produces the approximate ground state |ϕ⟩and nonvariational energy Etc. A quantum processor prepares |ϕ⟩, rotates it to real space, and measures in fixed diagonal and hopping bases. The samples are calibrated to reproduce known MPS expectation values and reused to optimize arbitrary real-space diagonal correlators Cθ entirely in classical post-processing, without a quantum–classical feedback loop.",
+      "page": 2
+    },
+    {
+      "image": "2610.18681_figures/2610.18681_fig2.jpg",
+      "caption": "FIG. 2. (a) Transcorrelated energy Etc, sampled explicitly correlated energy Eec, and the minimum of its second-order Taylor approximation E(2) ec , Eq. (4), for the one-parameter Gutzwiller correlator versus bond dimension χ for the spin-blocked (SB) and spin-interleaved (SI) orderings. (b) Relative Eec errors for the Gutzwiller, 59-parameter, and 103-parameter correlators and for a Gutzwiller correlator on a non-transcorrelated (J = 0) reference, which barely improves on direct DMRG (not shown). (c) Median and central 68% interval from partitioning 157 million samples for the χ = 1024 SI MPS into experiments of varying size, with and without calibration. Horizontal lines mark the exact...",
+      "page": 3
+    },
+    {
+      "image": "2610.18681_figures/2610.18681_fig3.jpg",
+      "caption": "FIG. 3. Relative width of 95% bootstrap confidence inter- vals versus total samples M = M (d) + 4NM (s) for raw and calibrated (cal.) energies from χ = 4 SB MPSs with the Gutzwiller correlator. Widths are divided by the reference ground-state energy magnitude, from exact diagonalization for 4 × 4 and auxiliary-field QMC for 6 × 6 [34]. The alloca- tion is M (d) : M (s) = 122 : 3. Plotted budgets have at least 95% successful replicates; dashed power-law fits use M ≥106.",
+      "page": 4
+    },
+    {
+      "image": "2610.18681_figures/2610.18681_fig4.jpg",
+      "caption": "FIG. 4. (a) Energy bootstrap distributions from raw and particle-number-postselected (p.s.) H2-2 data without calibration. (b) Postselected, calibrated hardware data and 1,000 calibrated noise-free experiments matched to the retained sample count in every measurement setting. (c) The z-component of the spin correlations from postselected and calibrated H2-2 data, matched- sample noise-free experiments, the biorthogonal transcorrelated MPS (t.c.), and the exact ground state (g.s.), averaged over displacements of length ρ. Solid and dashed lines in (a) and (b) mark the exact ground-state and full-sample noise-free energies.",
+      "page": 5
+    },
+    {
+      "image": "2610.18681_figures/2610.18681_fig5.jpg",
+      "caption": "FIG. 5. The explicitly correlated energy landscape with the Gutzwiller correlator, eθD, for the χ = 1024 SI MPS. Shown are the infinite-sample limit Eec, M →∞, the second-order Taylor approximation E(2) ec , and ten randomly selected exper- iments each using 314,000 samples with and without calibra- tion. The horizontal line is the exact ground-state energy.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.18681_figures/2610.18681_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.17351",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "hep-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QGrAT: Quantum Grade-Aware Transformer for Jet Tagging",
+  "authors": "Pallavi Bhardwaj, Michael Spannowsky",
+  "abstract": "Lorentz symmetry and the three-prong structure of hadronic top decays provide physical guidance for designing compact quantum jet taggers. We introduce QGrAT (Quantum Grade-Aware Transformer), a quantum transformer that incorporates these structures into its interactions between constituent qubits. Geometric features constructed from the constituent four-momenta are organised by the grades of the spacetime Clifford algebra $C\\ell(1,3)$, and their grade-specific inner products determine the pairwise attention couplings. For fixed constituents and co-transforming reference vectors, these couplings are Lorentz invariant, although the component-wise input encoding makes the complete classifier frame dependent. An auxiliary qubit introduces an explicit three-particle interaction through products of pairwise Minkowski inner products, while a trainable in-circuit readout converts the resulting quantum state into a classification score. We evaluate the architecture in state-vector simulation on the Top Tagging benchmarks. With ten constituents per jet, the configuration using grades $0\\text{-}3$ and the three-particle ancilla requires twelve qubits and $144$ trainable parameters, reaching AUC $0.944 \\pm 0.002$ and background rejection $1/\\varepsilon_B = 35.7 \\pm 2.4\\ (96.8 \\pm 7.7)$ at signal efficiency $\\varepsilon_S = 0.50\\ (0.30)$. This performance is competitive with the L-GATr-Slim baseline at matched constituent and parameter budgets. Adding the three-particle ancilla raises background rejection at $50\\%$ signal efficiency from $19.9$ to $35.7$, whereas extending the representation to the tested grade-$4$ feature gives no consistent improvement. The study establishes a framework for incorporating spacetime geometry into quantum attention and identifies explicit three-particle correlations as the principal source of improved background rejection among the architectural variations tested.",
+  "url": "http://arxiv.org/abs/2610.17351v1",
+  "pdf": "https://arxiv.org/pdf/2610.17351v1",
+  "type": "theory",
+  "summary": "This paper introduces QGrAT, a novel quantum transformer designed for jet tagging in high-energy physics by embedding the Lorentz symmetry of spacetime into its attention mechanism. It utilizes the structure of the Clifford algebra to define invariant couplings between constituent qubits. The resulting model shows strong performance, demonstrating that explicitly modeling three-particle interactions is key to improving background rejection.",
+  "main_problem": "The paper addresses the challenge of designing compact quantum jet taggers capable of identifying highly boosted heavy particles by incorporating fundamental physical symmetries.",
+  "main_result": "The proposed QGrAT architecture achieved competitive performance (AUC 0.944) on top tagging benchmarks, with the explicit inclusion of three-particle correlations significantly boosting background rejection.",
+  "method": "The method introduces QGrAT, a quantum transformer that encodes geometric features derived from particle four-momenta using the structure of the spacetime Clifford algebra $\text{C}\\ell(1,3)$.",
+  "model_or_system": "The model is a quantum transformer operating on constituent qubits, where attention couplings are determined by Lorentz-invariant inner products derived from the grades of the Clifford algebra. The system is tested using state-vector simulation on Top Tagging benchmarks.",
+  "key_observables": "Area Under the Curve (AUC), background rejection ($1/\\epsilon_B$), and signal efficiency ($\\epsilon_S$).",
+  "important_parameters": "Ten constituents per jet; the use of grades 0-3 and an auxiliary three-particle qubit.",
+  "main_assumptions": "The component-wise input encoding makes the complete classifier frame dependent, even though the attention couplings are Lorentz invariant.",
+  "figures_summary": "Figure 1 illustrates the geometric interpretation of the five grades in $\text{C}\\ell(1,3)$ and maps them to the QGrAT features used in the quantum circuit.",
+  "paper_structure": "The paper builds mathematically by first introducing the Clifford algebra, then proving the Lorentz invariance of the grade-specific inner products, detailing the quantum circuit construction, and finally presenting performance evaluations and analysis.",
+  "why_interesting": "While focused on particle physics, the core methodology—encoding physical symmetries (Lorentz invariance) into the structure of quantum gates and attention mechanisms—is highly relevant for developing physically constrained quantum machine learning models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.17351_figures/2610.17351_fig1.jpg",
+      "caption": "Figure 1: Geometric interpretation of the five grades in Cℓ(1,3) and the corresponding QGrAT features. The drawings schematically represent simple spacetime blades, with grade 4 shown as a projection of an oriented four-volume. The + signs select an orientation for the volumes. The component counts are the grade-subspace dimensions \u00004 g \u0001 , giving 1 + 4 + 6 + 4 + 1 = 16 basis blades. The implemented Ti sums weighted trivectors, while hi sums four-volume magnitudes and retains no orientation sign. All contractions use the Minkowski metric diag(+1,−1,−1,−1).",
+      "page": 3
+    },
+    {
+      "image": "2610.17351_figures/2610.17351_fig2.jpg",
+      "caption": "Figure 2: The two QGrAT quantum circuits studied in this work. Both share the classical encoder, grade-aware IsingZZ(ηg) attention, the three-particle-product ancilla tap, and the variational (VQC) mixer, and differ only in the readout stage. (a) Main model, an in-circuit readout qubit qr coupled to the data register and the three-particle-product ancilla qT. (b) Classical-readout variant, where qr is removed and Pauli pair correlators over the data and ancilla qubits feed a learned Hamiltonian-observable head. Shaded boxes are classical stages drawn only as the source of the circuit inputs. Gate-level building blocks appear in Figs. 3–4.",
+      "page": 8
+    },
+    {
+      "image": "2610.17351_figures/2610.17351_fig3.jpg",
+      "caption": "Figure 3: Full Grade-Aware Attention block at N=4 qubits (one per constituent), showing all active Clifford grades g ∈{0,1,2,3,4}. The mechanism is described in Section 4.3. Gray (grade 0, scalar p·P): one RY (α0) per qubit. Blue gradient (grade 1, four-momentum): RX(αE)RY (αpx)RZ(αpy)RX(αpz). Purple gradient (grade 2, bivector p∧P): RX RY RZ RX RY RZ, one per bivector blade. Orange gradient (grade 3, trivector Ti): RX RY RZ RX, one per trivector blade. Red (grade 4, four-volume magnitude hi): a single RX. The ZZg blocks (multi-qubit) carry the Clifford-pairing coupling angles η(i j) g , with the symmetry scope specified in Section 3.3, and the green RY RZ are independent variational...",
+      "page": 9
+    },
+    {
+      "image": "2610.17351_figures/2610.17351_fig4.jpg",
+      "caption": "Figure 4: Block Tap: Hadamard-test ancilla tap at an illustrative N=4 data qubits. The generator and its gate realisation are given in Section 4.4. The ancilla is placed in |+〉by a Hadamard, controls a diagonal unitary on the data register, and is carried forward to the in-circuit readout qubit (“to QR”, Fig. 6), never measured directly. The cyan three-particle-product tap qT applies a controlled MultiRZ over data-qubit triples.",
+      "page": 10
+    },
+    {
+      "image": "2610.17351_figures/2610.17351_fig5.jpg",
+      "caption": "Figure 6: Block QR: in-circuit Quantum Readout on an auxiliary qubit qr, drawn at an illustrative N=4 data qubits plus the three-particle-product ancilla qT (any enabled ancilla is coupled the same way), see Section 4.6.2. Dark red: Hadamard places qr in |+〉. Red blocks: individual IsingZZ(λZ i ) and IsingYY(λY i ) two-qubit gates between qr and each of the data qubits and qT, shown with a control dot on the data/ancilla wire and the gate label on qr. Light red: learned basis rotation RY (µ0) followed by RZ(µ1) on qr. Grey: 〈Zr〉 measurement, feeding ℓ= a〈Zr〉+ b.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.17351_figures/2610.17351_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

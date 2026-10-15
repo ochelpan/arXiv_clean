@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.18225",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "PPVM: A Circuit Simulation Framework for Digital Twins of Quantum Processors",
+  "authors": "Xiu-Zhe Luo, David Plankensteiner, Kai-Hsin Wu, Rob Patterson, Alexander Schuckert, Oriol Rubies-Bigorda, Refaat Ismail, Jonhas Colina, Neelay Fruitwala, Danylo Lykov, Tyson Jones, Stefan Krastanov, Rafael Haenel, Stefan Ostermann, Sheng-Tao Wang",
+  "abstract": "Quantum computers are approaching the early fault-tolerant regime. Verifying the next generation of quantum hardware requires joint emulation of the quantum processor, hardware noise, and classical control and decoding logic. We introduce the Programmable Pauli Virtual Machine (PPVM), an open-source framework for digital twins of quantum processors. PPVM unifies Pauli propagation and generalized tableau simulation under a common abstraction within a single virtual machine. Its bytecode supports arbitrary classical control flow, with measurement-conditioned feed-forward available in the generalized tableau backend. For neutral-atom hardware, we derive independent and correlated atom-loss channels and integrate them into both backends. We demonstrate loss-aware magic state distillation on over a thousand physical qubits and integration with classical decoding through Bloqade QEC Studio.",
+  "url": "http://arxiv.org/abs/2610.18225v1",
+  "pdf": "https://arxiv.org/pdf/2610.18225v1",
+  "type": "both",
+  "summary": "This paper presents PPVM, an open-source virtual machine framework designed to create digital twins for quantum processors, capable of simulating complex noise models like atom loss. It unifies Pauli propagation and tableau simulation to support arbitrary classical control flow, making it a powerful tool for benchmarking next-generation quantum hardware.",
+  "main_problem": "Verifying next-generation quantum hardware requires jointly emulating the quantum processor, hardware noise, and classical control/decoding logic.",
+  "main_result": "The authors introduce PPVM, a framework that successfully integrates loss-aware magic state distillation on thousands of qubits and demonstrates performance scaling improvements using GPU acceleration for Pauli propagation.",
+  "method": "They developed the Programmable Pauli Virtual Machine (PPVM), which unifies Pauli propagation (Heisenberg picture) and generalized tableau simulation (Schrödinger picture) under a single bytecode-driven virtual machine.",
+  "model_or_system": "The framework is designed for digital twins of quantum processors, specifically modeling neutral-atom hardware that can experience loss, requiring the simulation of three-level systems { |0>, |1>, |L> }.",
+  "key_observables": "Expectation values of observables $\\langle O \rangle$, total loss probability $p_{\text{tot}}$, and runtime performance metrics comparing different simulation backends.",
+  "important_parameters": "The simulation handles arbitrary classical control flow, measurement-conditioned feed-forward, and models both independent and correlated atom-loss channels.",
+  "main_assumptions": "The Pauli propagation method can suffer from exponential growth in the number of observable terms, and the simulation often assumes that loss/reset processes do not generate coherences between the computational and loss subspaces.",
+  "figures_summary": "Figures illustrate the PPVM bytecode structure for active reset with loss detection, benchmark comparisons show runtime scaling for TFIM and Heisenberg models across CPU and GPU backends, and a comparison highlights the necessity of PPVM's control flow over purely compiled methods when loss is involved.",
+  "paper_structure": "The paper first introduces the need for joint emulation, details the PPVM architecture and its two simulation backends (Pauli/Tableau), extends these methods to model complex hardware noise like atom loss, and concludes with extensive benchmarking comparing PPVM against state-of-the-art simulators on various models.",
+  "why_interesting": "The explicit focus on integrating hardware noise (like atom loss) and classical control flow into a unified simulation framework is crucial for benchmarking and developing fault-tolerant quantum computation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.18225_figures/2610.18225_fig1.jpg",
+      "caption": "Figure 1: PPVM overview. (a) An upstream compiler emits bytecode containing quantum, classical, and debug instructions. The virtual CPU executes arithmetic and control flow and dispatches quantum instructions to the virtual QPU. The virtual QPU applies gates and hardware noise, including independent and correlated atom loss, using either generalized tableau simulation or Pauli propagation. The tableau backend returns measurement outcomes for feed-forward, while the Pauli propagation backend returns expectation values. Breakpoints pause execution for inspection of the classical execution state and the quantum state or propagated observable. (b) Features supported by generalized tableau...",
+      "page": 2
+    },
+    {
+      "image": "2610.18225_figures/2610.18225_fig2.jpg",
+      "caption": "Figure 2: PPVM bytecode program (text format) for active reset with loss detection. In each of up to three rounds, the qubit is prepared in |+⟩, subjected to atom loss with probability 1%, and measured. The breakpoint (•) pauses execution immediately after the measurement so that the full machine state can be inspected. If the atom is lost (m = 2), the program ends. Otherwise, an X gate is applied when m = 1, ensuring that a surviving qubit ends the round in |0⟩(feed-forward). CPU instructions are shown in black, QPU instructions in purple, and control flow (branch targets and the jumps to them) in green. The loop counter (round) is denoted by i.",
+      "page": 3
+    },
+    {
+      "image": "2610.18225_figures/2610.18225_fig3.jpg",
+      "caption": "Figure 3: Runtime of loss-aware MSD with different codes. For the code sizes and noise rates shown, adding loss and depolarizing noise produces only a small runtime overhead. At a total of 1435 qubits, the runtime per shot is about 0.1s. The noise probabilities are ploss = pdpl = 10−4. All runtimes were measured via PPVM’s Python bindings on a single thread of an Apple M4 (24 GB RAM).",
+      "page": 10
+    },
+    {
+      "image": "2610.18225_figures/2610.18225_fig4.jpg",
+      "caption": "Figure 4: Loss-induced decay of the summed spin corre- lation m(t) in the Heisenberg model. ℓ= 3 square lattice (n = 9 qubits), J = 1, dt = 0.1, 6 first-order Trotter steps. Each two-qubit interaction is decomposed into single-qubit Cliffords, RZ rotations, and CZ gates, with a correlated loss channel [pLL, pLQ, pLN] = [p/3, p/3, p/3] applied at every CZ gate. We chose the coefficient thresh- old 5 × 10−3. Except for the curve annotated as non- preserving (n.p.), all runs use the protected set {Zq}.",
+      "page": 11
+    },
+    {
+      "image": "2610.18225_figures/2610.18225_fig5.jpg",
+      "caption": "Figure 5: The harness-engineering workflow used to develop PPVM. (1) A human provides a reference im- plementation with autocompletion-level AI assistance. (2) An AI agent develops benchmarks and tests under human guidance. (3) The autotune evaluates candidate optimizations using benchmarks, reference comparisons, and tests. (4) If performance is unsatisfactory, steps 2–3 repeat. (5) The workflow returns to step 1 for the next algorithm, or finishes if none remain.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.18225_figures/2610.18225_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 1,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

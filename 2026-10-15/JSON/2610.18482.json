@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.18482",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Lifting: Quantum State Discrimination Framework for Mid-Circuit Measurements",
+  "authors": "Chi Zhang, Neel Vora, Yilun Xu, Gang Huang, Fan Chen, Lei Jiang",
+  "abstract": "Quantum computing promises new capabilities beyond classical computation. Mid-circuit measurements (MCMs) enable error correction and outcome-dependent control, but their reliability is limited by noise on superconducting hardware. These operations depend on accurate quantum state discrimination (QSD), which assigns measured signals to state labels. Neural network-based (NN-based) QSD improves this assignment, yet its error remains bounded below by the Bayes risk of the available readout distributions. A complementary challenge is state deterioration as successive measurements accumulate and circuit execution advances, making static calibration less representative of the workload. We present Lifting, a QSD framework that addresses both challenges through repetition encoding, neural decoding, and in situ calibration. Encoding supplies joint in-phase and quadrature (I-Q) readout signals from the target and auxiliary qubits, while contextual calibration trains the decoder for the conditions encountered during execution. Our theoretical analysis shows that retaining additional channels from a fixed joint distribution cannot increase Bayes risk and establishes sufficient conditions for contraction of an overlap-based upper bound. Experiments across three IBM processors evaluate the framework on repeated stabilizer measurement, parity-check, and teleportation workloads.",
+  "url": "http://arxiv.org/abs/2610.18482v1",
+  "pdf": "https://arxiv.org/pdf/2610.18482v1",
+  "type": "experiment",
+  "summary": "This paper introduces 'Lifting,' a novel framework designed to improve Quantum State Discrimination for noisy mid-circuit measurements on superconducting qubits. It tackles two key issues: the fundamental error limit (Bayes risk) and state deterioration caused by measurement history. By combining repetition encoding with context-aware, in situ calibration, the framework significantly boosts the reliability of quantum operations for error correction and computation.",
+  "main_problem": "The paper addresses the challenge of accurately performing Quantum State Discrimination (QSD) for Mid-Circuit Measurements (MCMs) in superconducting quantum hardware, which is degraded by noise and state deterioration over time.",
+  "main_result": "The proposed 'Lifting' framework, which combines repetition encoding, neural decoding, and in situ calibration, successfully improves circuit success rates across various MCM workloads compared to static calibration methods.",
+  "method": "The authors developed a framework that uses joint In-phase and Quadrature (I-Q) readout signals from auxiliary qubits (repetition encoding) and trains a neural network decoder using calibration data acquired contextually during the actual circuit execution (in situ calibration).",
+  "model_or_system": "The work is implemented on superconducting quantum processors (e.g., IBM processors), utilizing dispersive readout interactions characterized by a Hamiltonian involving resonator and qubit coupling. The core process involves mapping continuous I-Q measurement signals to discrete quantum states.",
+  "key_observables": "Bayes Risk (fundamental error limit), I-Q readout distributions, Whole-trace accuracy, and final-syndrome correctness for quantum error correction circuits.",
+  "important_parameters": "The error rate is fundamentally bounded by the Bayes risk; state deterioration occurs on microsecond timescales during circuit execution.",
+  "main_assumptions": "Static calibration based on isolated measurements is insufficient because it fails to account for state deterioration that occurs during the actual, dynamic workload execution.",
+  "figures_summary": "Figures illustrate state deterioration in qubit-reuse stabilizer workloads, comparing initial SPAM references to later, degraded readout distributions, and demonstrate the workflow of the Lifting framework using joint I-Q signals.",
+  "paper_structure": "The paper first establishes the problem of MCM noise and state deterioration relative to the Bayes risk limit. It then introduces the Lifting framework, detailing repetition encoding and in situ calibration. Finally, it validates the framework through experimental results on superconducting processors using stabilizer measurements, parity checks, and teleportation.",
+  "why_interesting": "The focus on hardware-aware error mitigation techniques like in situ calibration and advanced readout encoding directly impacts the feasibility of scaling quantum computation, which is of high interest to theorists studying open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.18482_figures/2610.18482_fig1.jpg",
+      "caption": "FIG. 1. State deterioration reflected in readout-distribution changes in the five-cycle QR-Stabilizer workload. (a) Core circuit with a measured data qubit and a phase-kickback ancilla. Lifting proxy wires are omitted. (b) SPAM references for preparation labels 0 (blue) and 1 (red) on qubit 51 of ibm fez. 10,000 shots per class are sampled from the reference acquisitions for display. (c) Target-readout I–Q distributions ordered from cycles c1 to c5. (d) Equal-prior kernel density estimation (KDE) Bayes-risk estimates comparing the SPAM-0 reference with each ideal-1 target cycle, SPAM-trained NN-based QSD error rates, and transferred digital-error estimates. The curve labeled ibm fez...",
+      "page": 5
+    },
+    {
+      "image": "2610.18482_figures/2610.18482_fig2.jpg",
+      "caption": "FIG. 2. Lifting workflow. (a) Context-matched calibration executions prepare reference labels and place encoded readout at the workload’s measurement locations. (b) Local repetition encoding couples the labeled MCM qubit to d −1 auxiliary ancillas initialized to |0⟩. Concurrent readout supplies their joint I–Q readout signals. (c) The d I–Q pairs are concatenated into a 2d-component feature vector. Reference labels supervise neural training, and inference assigns a logical outcome to each target observation. Optional confidence selection retains a subset of observations before reporting retained-shot accuracy.",
+      "page": 5
+    },
+    {
+      "image": "2610.18482_figures/2610.18482_fig3.jpg",
+      "caption": "FIG. 3. Error rates across five MCM cycles: the KDE Bayes- risk estimate, SPAM-trained NN-based QSD, the transferred ibm fez digital estimate from Fig. 1(d), and single-channel NN-based QSD with cycle-matched in situ calibration. The risk curve compares constructed reference–target distribu- tions. The decoder curves evaluate target shots. Contextual calibration changes the training references, while this com- parison retains the single-channel observation space.",
+      "page": 6
+    },
+    {
+      "image": "2610.18482_figures/2610.18482_fig4.jpg",
+      "caption": "FIG. 5. Target-only and joint I–Q readout discrimination for d = 2 on ibm fez, using 10,000 shots per preparation la- bel. (a,b) Target and auxiliary (proxy) I–Q scatter, with blue and red denoting reference labels 0 and 1, respectively. (c,d) Signed quadratic-discriminant scores s1 −s0 from the two- dimensional target observations and four-dimensional joint I–Q readout signals. Annotated risks are equal-prior KDE- based estimates of distributional overlap, rather than held-out classifier error rates.",
+      "page": 8
+    },
+    {
+      "image": "2610.18482_figures/2610.18482_fig5.jpg",
+      "caption": "FIG. 6. IBM Fez assignment accuracy versus encoding dis- tance d, comparing hardware measurements (emp.) with the fitted empirical model in Eq. (18). The curve labeled theo. uses κ = 0.45 and α = 9.03, fitted for the displayed distance sweep.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.18482_figures/2610.18482_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
