@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.19544",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Shot- and Noise-Aware Pauli Correlation Encoding for Max-Cut Experiments on IBM Heron Quantum Processor",
+  "authors": "Achraf Boussahi",
+  "abstract": "Pauli correlation encoding (PCE) encodes $m$ binary variables in the signs of $k$-body Pauli correlators of $n=O(m^{1/k})$ qubits, and trains a parameterized circuit on a relaxed loss of sharpness $α$. The strongest published schedules sharpen this loss aggressively and are benchmarked with exact expectation values, whereas a quantum computer estimates correlators from a finite number of shots. We show that the sharpness is a hidden shot budget. Since the expected sign of a correlator estimated from $S$ shots, $\\mathrm{erf}(c\\sqrt{S/2})$, agrees with $\\tanh(0.851\\sqrt{S}\\,c)$ to within $0.019$, the edge term of the relaxed loss at $α=0.851\\sqrt{S}$ approximately equals, up to a constant, minus twice the cut expected from decoding $S$ shots. This explains why schedules tuned with exact expectation values lose their advantage at realistic budgets, and yields a shot-aware schedule whose final sharpness is set by the shot budget. On five G-set graphs with $800$ variables on $13$ qubits, this schedule outperforms every published schedule at its target budget in all $150$ paired comparisons of the decoded circuit output, owing to the sharpness at $1.6\\times10^4$ shots and mostly to switching off the regularization at $10^3$; after a classical bit-swap search, it remains the best on average at $1.6\\times10^4$ shots. Device noise damps the correlators by a factor $s$, which amounts to a smaller shot budget $s^2S$. On the IBM Heron processor ibm_fez, an all-to-all ansatz of the type used for the best published G-set results compiles to $835$ CZ gates and decodes to a random cut, while our $96$-CZ hardware-native circuit, trained in simulation and sharpened to $α\\simeq0.65\\,s\\sqrt{S}$, retains up to $0.919$ of the best-known cut. For new circuits, a damping and an offset calibrated on other circuits of the same graph predicted the decoded cuts at $10^3$ shots to within $0.002$.",
+  "url": "http://arxiv.org/abs/2610.19544v1",
+  "pdf": "https://arxiv.org/pdf/2610.19544v1",
+  "type": "both",
+  "summary": "This work tackles the Max-Cut problem using Pauli Correlation Encoding on quantum processors. The authors introduce a crucial 'shot-aware' training schedule that correctly links the required optimization sharpness to the actual number of measurement shots available. This methodology significantly improves performance on real hardware by accurately accounting for measurement noise and finite sampling.",
+  "main_problem": "The paper addresses the challenge of solving NP-hard combinatorial optimization problems, specifically Max-Cut, using quantum computation.",
+  "main_result": "A novel shot-aware training schedule is proposed that accounts for finite measurement budgets and device noise, leading to superior performance compared to previous methods on both simulated and physical quantum hardware.",
+  "method": "It employs Pauli Correlation Encoding (PCE) to map binary variables to Pauli correlators, optimizing a relaxed loss function using a schedule whose sharpness is determined by the available shot budget ($S$).",
+  "model_or_system": "The problem is framed as finding the ground state of a classical Ising model (Max-Cut). The implementation is tested on the IBM Heron quantum processor, utilizing hardware-native ansatz circuits.",
+  "key_observables": "Approximation ratio ($r(\\mathbf{x})$), measured Pauli correlators, and the final decoded cut weight.",
+  "important_parameters": "Shot budget ($S$), sharpness parameter ($\\alpha$), and device noise damping factor ($s$).",
+  "main_assumptions": "The core assumption is that the required training sharpness ($\\alpha$) scales predictably with the shot budget ($\\alpha \\propto \\sqrt{S}$), correcting previous overestimations based on exact expectation values.",
+  "figures_summary": "The notes reference tables comparing approximation ratios across various schedules and shot counts, and tables detailing the damping of measured correlators on the physical device.",
+  "paper_structure": "The paper develops from the theoretical equivalence of Max-Cut to an Ising model, introduces the PCE and the relaxed loss function, derives the shot-aware scheduling principle, and concludes with extensive comparative results on both simulation and the IBM Heron hardware.",
+  "why_interesting": "It provides a concrete, hardware-aware methodology for improving variational quantum algorithms by correctly modeling the impact of finite measurement resources (shots) and device noise on optimization schedules.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.19544_figures/2610.19544_fig1.jpg",
+      "caption": "FIG. 1: The Pauli correlation encoding pipeline. The quantum computer (QPU) prepares the parameterized state and measures it in three settings. The classical computer (CPU) estimates the m correlators from the recorded bit strings, evaluates the relaxed loss of Eq. (7), and updates the circuit parameters. After training, the spins are decoded from the signs of the measured correlators, and the cut of Eq. (1) is evaluated classically.",
+      "page": 3
+    },
+    {
+      "image": "2610.19544_figures/2610.19544_fig2.jpg",
+      "caption": "FIG. 2: The two ans¨atze of this work on four qubits, drawn with the Qiskit circuit drawer [40]. Each box is a single-qubit rotation RX or RZ with its own parameter θ[p], and each pair of dots joined by a line and labeled ZZ is a two-qubit rotation RZZ(θ) = exp(−iθZ ⊗Z/2) with its own parameter; the parameters are numbered in the order of our implementation (Appendix G). (a) Two consecutive layers of the native brickwork ansatz of Eq. (9), whose two-qubit rotations only couple neighbouring qubits of a chain. The gray bars mark the beginning of each layer, and the pattern of pairs alternates between odd layers ℓand even layers ℓ+ 1. (b) One layer of the all-to-all ansatz, which couples every...",
+      "page": 6
+    },
+    {
+      "image": "2610.19544_figures/2610.19544_fig3.jpg",
+      "caption": "FIG. 3: Part of the qubit layout (vertices) and connectivity (edges) of the IBM Fez quantum processor [42], a Heron r2 processor with 156 qubits on a heavy-hex lattice and CZ entangling gates. Only the three bottom rows and the first twelve columns are shown; the dots indicate where the lattice continues. The 13 qubits of our hardware experiments (highlighted, q0 to q12), selected by the transpiler from the calibration data at the time of execution, form a chain onto which the two-qubit rotations of the native ansatz map without any SWAP gate.",
+      "page": 7
+    },
+    {
+      "image": "2610.19544_figures/2610.19544_fig4.jpg",
+      "caption": "FIG. 4: (a) The expected decoded spin E[sgn ˆci] = erf(ci p",
+      "page": 9
+    },
+    {
+      "image": "2610.19544_figures/2610.19544_fig5.jpg",
+      "caption": "FIG. 5: Expected approximation ratio after decoding from S shots per measurement setting, for the five G-set graphs (mean and 95% confidence band over five paired initializations; native ansatz). The dots on the right are decoded from exact correlators. Dashed lines: published schedules; solid lines: the shot-aware rules for S = 103",
+      "page": 12
+    }
+  ],
+  "figure": "2610.19544_figures/2610.19544_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

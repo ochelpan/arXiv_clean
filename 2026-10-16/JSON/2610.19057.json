@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.19057",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.other",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "A Conservative Darcy-Brinkman-Stokes Formulation for PHREEQC-Coupled Reactive Transport with Cell-Based Surface Complexation",
+  "authors": "Hannah P. Menke, Florian Doster, Julien Maes",
+  "abstract": "We present a mass-conservative Darcy-Brinkman-Stokes (DBS) formulation for reactive transport with cell-based surface complexation in image-based porous media, coupled to PHREEQC and implemented in GeoChemFoam, an OpenFOAM-based toolbox. Dissolved species are transported in the physical mobile-water fraction, adsorbed species are stored as conservative cell-scale surface inventories, and each reactive cell is coupled to PHREEQC. Reactive surface area is prescribed independently as a cell field, so that internal area left unresolved by segmentation of microporous phases can be represented while DBS flow and transport are retained in the resolved pore space. The implementation is verified with a test suite that isolates the coupling of transport and chemistry from the construction of reactive surface area. Aqueous and adsorbed mass balance is evaluated against a one-dimensional analytical retardation benchmark and closed-system batch calculations. The smooth-interface surface-area algorithms are tested on idealised two- and three-dimensional geometries. In a two-scale lithium micromodel, DBS reproduces fully resolved aqueous and sorbed inventories within 0.6% across Pe=0.1-10. The applications comprise Pb2+ retardation by hydrous ferric oxide coatings in a two-dimensional fracture network, competitive Mn2+/Mg2+ exchange in a three-dimensional Kelvin-cell sorbent, and Sr2+/Ca2+ exchange in Estaillades limestone. In the fracture-network and limestone cases, the formulation yields spatially resolved aqueous and adsorbed inventories even where reactive surface area is only partly resolved at the image scale. The framework therefore supports conservative surface-complexation modelling in both resolved and unresolved pore structures, with relevance to contaminant retention, selective ion capture, and radionuclide transport.",
+  "url": "http://arxiv.org/abs/2610.19057v1",
+  "pdf": "https://arxiv.org/pdf/2610.19057v1",
+  "type": "theory",
+  "summary": "This work presents a mass-conservative numerical framework to model reactive transport in porous media, coupling fluid flow (DBS) with complex surface chemistry (PHREEQC). Its key innovation is treating the reactive surface area independently of the resolved pore structure, allowing accurate simulation of contaminant retention in both visible and hidden pore regions. This is highly relevant for environmental modeling of groundwater contamination.",
+  "main_problem": "Developing a mass-conservative framework for reactive transport in porous media that accurately handles surface complexation, especially when the reactive surface area is not fully resolved by the image scale.",
+  "main_result": "The formulation successfully yields spatially resolved aqueous and adsorbed inventories even when the reactive surface area is only partly resolved at the image scale, supporting conservative surface-complexation modeling in both resolved and unresolved pore structures.",
+  "method": "The authors use a mass-conservative Darcy-Brinkman-Stokes (DBS) formulation coupled with PHREEQC for reactive chemistry, implemented in an OpenFOAM-based toolbox.",
+  "model_or_system": "The model simulates reactive transport in porous media (like fractured aquifers or limestone) where dissolved species move in the mobile-water fraction and interact with solid surfaces via surface complexation.",
+  "key_observables": "Aqueous and adsorbed mass balance, spatially resolved aqueous and adsorbed inventories.",
+  "important_parameters": "Peclet number (Pe), mobile-water fraction ($\theta$), total reactive surface area ($\\mathbf{a}_{\text{surf}}$), and porosity ($\\epsilon$).",
+  "main_assumptions": "The reactive surface area is prescribed independently as a cell field, allowing the representation of internal area unresolved by segmentation while retaining DBS flow/transport in the resolved pore space.",
+  "figures_summary": "Not specified (The notes detail the testing of algorithms on idealized 2D/3D geometries and the results of specific case studies like $\text{Pb}^{2+}$ retardation).",
+  "paper_structure": "The paper details the formulation (DBS flow/transport coupled to PHREEQC), the novel treatment of surface area (interface + intrinsic terms), verification against 1D analytical benchmarks, and application to complex 2D/3D geological systems.",
+  "why_interesting": "While the subject is geochemistry, the core contribution is a sophisticated, multi-scale numerical framework (DBS, operator splitting, cell-based inventory tracking) for simulating coupled physical and chemical processes, which shares methodological rigor with complex systems modeling.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.19057_figures/2610.19057_fig1.jpg",
+      "caption": "Fig. 1 Source-traced solution procedure for reactiveTransportDBSFoam with phreeqcMixture. The constructor establishes the active-cell mapping and initial PhreeqcRM state. Each timestep advances all aqueous species in conservative DBS form, after which speciesMixture.correct() transfers the aqueous and surface state to PhreeqcRM, executes runCells(), and returns the updated species fields. At output times, it writes the fields and, when enabled, a matching complete PhreeqcRM checkpoint.",
+      "page": 11
+    },
+    {
+      "image": "2610.19057_figures/2610.19057_fig2.jpg",
+      "caption": "Fig. 2 1D retardation benchmark: spatial profiles at t = 10 s. Left: normalised aqueous Ca2+ profiles for the aqueous-only and surface-enabled runs, compared with the corresponding cell-averaged semi- infinite Ogata–Banks solutions. Inset errors are measured relative to these semi-infinite profiles. Right: normalised adsorbed amount compared with the linear-equilibrium reference constructed from the batch-calibrated Ks and the retarded Ogata–Banks profile.",
+      "page": 13
+    },
+    {
+      "image": "2610.19057_figures/2610.19057_fig3.jpg",
+      "caption": "Fig. 3 1D outlet breakthrough curves. Symbols show the outlet-patch area-averaged Ca2+ nor- malised by the inlet concentration Cin for the aqueous-only and surface-enabled runs. Dashed lines are high-resolution finite-domain references with the same inlet and outlet conditions as the numerical cases. Dash-dot lines show the semi-infinite Ogata–Banks solutions; their difference from the dashed curves illustrates the effect of the finite-domain outlet condition. Vertical dotted lines mark the advec- tive breakthrough times tBT = Lθ/UD (aqueous-only) and tBT = LθR/UD (surface-enabled).",
+      "page": 14
+    },
+    {
+      "image": "2610.19057_figures/2610.19057_fig4.jpg",
+      "caption": "Fig. 4 Controlled surface-area tests for the quasi-2D and 3D smooth-interface reconstructions. Left: voxelised circular-post slices, with the analytic circular interface shown in red, and three-dimensional renderings of the voxelised spheres at R/∆x = 8 and 16, overlaid by the semi-transparent red analytic spheres. Blue and amber identify voxel faces outside and inside the analytic sphere; these geometry colours are distinct from the method colours used in the error plots. Right: relative integrated surface- area error at R/∆x = 8, 16, 32, and 64 for the 2D circular post (Aref = 2πRh) and 3D sphere (Aref = 4πR2). The analytic areas define error; snappyHexMesh is a body-fitted comparator....",
+      "page": 16
+    },
+    {
+      "image": "2610.19057_figures/2610.19057_fig5.jpg",
+      "caption": "Fig. 5 Micromodel image-based comparison at t = 200 s. The comparison is reported between the resolved-wall snappyHexMesh comparator and DBS smoothSurface. Rows show dissolved Sr2+ fields normalised by Cin, a magnified region of cell-wise reactive surface area asurfV , and the corresponding sorbed inventory fields over the same region; the dashed boxes in the top row mark the region shown at higher magnification. The lower rows show the chemistry-cell inventories for both cases; in the snappyHexMesh case, each wall face contributes its area to its adjacent cell. The area row reports both the integrated area and its spatial distribution, which controls the surface-complexation inventory. The...",
+      "page": 18
+    }
+  ],
+  "figure": "2610.19057_figures/2610.19057_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

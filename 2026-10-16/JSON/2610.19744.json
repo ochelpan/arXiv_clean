@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2610.19744",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Resolving Structural Uncertainty in Stochastic Dynamical Systems via Ensemble-Based Bayesian Inference",
+  "authors": "Francesco Zambelli, Valeria D'Andrea, Manlio De Domenico",
+  "abstract": "Recovering the interaction structure of complex stochastic dynamical systems from sparse time-series observations is an inherently ill-posed inverse problem. The posterior over network configurations is high-dimensional, highly degenerate, and shaped by the non-equilibrium nature of the available data. To address this, we propose a fully Bayesian, ensemble-based inference framework. Our approach grounds a continuous-time Stochastic Differential Equation (SDE) likelihood formulation---acting mathematically as an Onsager-Machlup quasi-potential for non-equilibrium paths---within a non-parametric Minimum Description Length (MDL) structural prior. This framework rigorously penalizes model complexity and avoids kinetic overfitting by forcing continuous parameters into a finite vocabulary of discrete categories. The joint posterior is optimized using a block-coordinate scheme combining sub-quadratic Markov Chain Monte Carlo (MCMC) topological sampling with deterministic Nelder-Mead parameter optimization. Using highly non-linear macroscopic population dynamics as a benchmark, we demonstrate that inference requires non-stationary transient data to resolve causal information. Furthermore, we prove that propagating structural uncertainty via ensemble-based posterior analysis produces significantly more robust and reliable predictions for downstream perturbation outcomes than traditional single-point (MAP) estimates. The framework is highly generalizable, capturing fundamental topological constraints even under severe generative model mismatches, offering a robust tool for uncertainty-aware inference in complex stochastic systems.",
+  "url": "http://arxiv.org/abs/2610.19744v1",
+  "pdf": "https://arxiv.org/pdf/2610.19744v1",
+  "type": "theory",
+  "summary": "This paper introduces a fully Bayesian, ensemble-based inference framework to solve the challenging problem of reconstructing network structure from noisy time-series data of stochastic dynamical systems. By combining an SDE likelihood with an MDL prior, it rigorously quantifies structural uncertainty. The method proves that accounting for the entire ensemble of plausible structures leads to superior predictions for system responses compared to using single best-guess estimates.",
+  "main_problem": "The core problem is the ill-posed inverse task of reconstructing the interaction structure (network topology) of complex stochastic dynamical systems from limited, noisy time-series observations.",
+  "main_result": "The proposed ensemble-based Bayesian framework provides significantly more robust and reliable predictions for downstream perturbations compared to traditional single-point (MAP) estimates, especially when non-stationary transient data is available.",
+  "method": "It employs a fully Bayesian inference framework combining a continuous-time SDE likelihood (Onsager-Machlup quasi-potential) with a non-parametric Minimum Description Length (MDL) structural prior.",
+  "model_or_system": "The system is modeled by continuous-time Stochastic Differential Equations (SDEs) describing complex dynamics, such as those found in neural networks or gene regulatory circuits. The dynamics are governed by coupling weights (W) and intrinsic noise.",
+  "key_observables": "The primary observables are the time-series data $X$ from the stochastic system, and the key diagnostic is the full posterior distribution over network configurations, $\text{P}(W, \theta|X)$.",
+  "important_parameters": "Key parameters include the interaction weights $W_{ij}$, the noise strength $D$, and the system relaxation rates $\\gamma$. The analysis highlights the importance of non-stationary transient data.",
+  "main_assumptions": "Key assumptions include the use of an SDE likelihood formulation and the necessity of non-stationary data to resolve causality. Limitations include the instability of the Euler-Maruyama method for large time steps.",
+  "figures_summary": "The notes do not provide a summary of figures, but they detail the mathematical structure of the Hessian matrix and the derivation of exact analytical transition moments for the SDE.",
+  "paper_structure": "The paper is structured around establishing the ill-posed nature of the inverse problem, proposing the Bayesian framework incorporating MDL regularization, detailing the optimization scheme (MCMC + Nelder-Mead), and validating the ensemble approach against point estimates using benchmark models.",
+  "why_interesting": "The rigorous probabilistic treatment of structural uncertainty, moving beyond point estimates, is highly valuable for modeling complex, non-equilibrium systems where underlying connectivity is unknown, bridging statistical inference with dynamical systems theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.19744_figures/2610.19744_fig1.jpg",
+      "caption": "FIG. 1 Schematic overview of the proposed Bayesian inference framework. In the left panel, we show the network topology and the model used to generate the synthetic data. In the central panel, we show an example of trajectory generated from the model, and the corresponding dataset of pairs (xk, dxk) of states and infinitesimal increments dxk = ∆xk",
+      "page": 3
+    },
+    {
+      "image": "2610.19744_figures/2610.19744_fig2.jpg",
+      "caption": "FIG. 2 Inference performance analysis: In panel a and b we present the grid search results to evaluate the inference performance as a function of the number of sampled pairs Mpairs and the sampling interval ∆t. a reports the AUPRC, which quantifies the topological accuracy of the probabilistic inferred network, while b reports the Spearman correlation coeffient, which quantifies the accuracy of the inferred regulatory weights. The results are for network of size N = 10 and for the transient regime. In panel c and d we report respectively the slices of the grid search results both trough the variation of sampling interval ∆t (c) and the number of sampled pairs Mpairs (d). In particular, in...",
+      "page": 7
+    },
+    {
+      "image": "2610.19744_figures/2610.19744_fig3.jpg",
+      "caption": "FIG. 3 Benchmarking against canonical inference paradigms. In panels a, b, and c, we report the robustness of the inference engine across experimental regimes: (a) parameter regularization, comparing node-specific (local) vs. shared (global) kinetic parameters θ = {γ, V, D}; (b) non-equilibrium dynamics, comparing transient vs. stationary trajectories; and (c) discretization sensitivity, comparing exact transition moments against the Euler-Maruyama (E-M) approximation. In panel d, we benchmark the proposed Bayesian SDE approach against an extensive suite of nine canonical inference paradigms spanning tree-based, sparse regression, information-theoretic, deep learning (Neural ODEs), and...",
+      "page": 9
+    },
+    {
+      "image": "2610.19744_figures/2610.19744_fig4.jpg",
+      "caption": "FIG. 4 Results of Wilson-Cowan Rate Model. In panel a is presented the schematic of the Wilson-Cowan model, which is a non-linear dynamical system that describes the interactions between excitatory and inhibitory populations of neurons, regulated by a set of non-linear differential equations different from the SDE model used for inference. Because our grid search established that the algorithm excels at quantitatively resolving small, homogenously connected architectures, we modeled this local micro-scale neural population using an Erd˝os- R´enyi topology (N = 10, p = 0.15), with a mixture of excitatory and inhibitory connections. This explicitly tests the framework’s ability to operate on...",
+      "page": 11
+    }
+  ],
+  "figure": "2610.19744_figures/2610.19744_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

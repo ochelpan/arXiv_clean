@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.19077",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DC",
+    "cs.NI"
+  ],
+  "is_primary_archive": true,
+  "title": "Federated Unlearning of Quantum Data via Classical Shadows",
+  "authors": "Zihao Ding, Jun Huang, Cong-cong Xing",
+  "abstract": "Quantum federated learning trains a quantum neural network (QNN) across nodes that hold quantum data, such as the states of quantum sensors. To forget data, unlearning methods for quantum models replay them, and federated unlearning from stored updates removes whole nodes only. Quantum data cannot be replayed, since a state is consumed when measured and cannot be cloned. We propose Shadow-based Data Erasure (SHADE), in which each node records a classical shadow of every training state, a few randomized single-qubit measurements taken at training time. The gradient and curvature of a QNN on a state are expectations of observables, so SHADE estimates them for the forget data from the shadows at any later parameters and removes their effect by a federated Newton correction. Only classical estimates cross the network. We prove that the shadow size needed for a target unlearning error grows exponentially in the size of the backward light cone of the measured observable and not in the number of qubits. In simulation with 50 nodes and on edge boards, SHADE matches the forget accuracy of retraining within 0.5 points, without replay and in under 0.2 s.",
+  "url": "http://arxiv.org/abs/2610.19077v1",
+  "pdf": "https://arxiv.org/pdf/2610.19077v1",
+  "type": "both",
+  "summary": "This paper introduces Shadow-based Data Erasure (SHADE), a novel technique for performing federated unlearning on quantum neural networks. Since quantum states cannot be replayed, SHADE records classical 'shadows' of the data during training. These shadows allow the network to estimate and correct for the influence of forgotten data using a federated Newton correction, achieving high accuracy efficiently.",
+  "main_problem": "Developing a method for federated unlearning of quantum data when the quantum states cannot be replayed due to measurement consumption.",
+  "main_result": "The proposed SHADE method matches the forget accuracy of retraining within 0.5 points in simulation, achieving this without replaying states and in under 0.2 seconds.",
+  "method": "SHADE records classical 'shadows' (random single-qubit Pauli measurements) of training states and estimates the necessary gradient and curvature contributions using these shadows to perform a federated Newton correction.",
+  "model_or_system": "The system involves training a Quantum Neural Network (QNN) across multiple nodes holding quantum data, such as states from quantum sensors. The core mechanism relies on estimating expectation values of observables.",
+  "key_observables": "Forget accuracy (FA), Utility (RA/TA), Parameter/Output distance to retrain, and computational time.",
+  "important_parameters": "Shadow size, backward light cone size, number of nodes (e.g., 50), and required unlearning error ($\\epsilon$).",
+  "main_assumptions": "The primary assumption is that the gradient and curvature can be estimated solely from classical shadows, avoiding the need to re-prepare or re-measure the original quantum states.",
+  "figures_summary": "Figures illustrate the system model, the backward light cone scaling, and compare SHADE's performance against other unlearning techniques across various deletion scenarios and scalability tests.",
+  "paper_structure": "The paper introduces the problem of quantum data unlearning, details the SHADE mechanism (Shadow Recording, Estimation, Newton Correction), provides theoretical guarantees on shadow size, and validates the approach through extensive simulations and comparisons with existing methods.",
+  "why_interesting": "It addresses the critical intersection of quantum machine learning and data privacy, providing a concrete, resource-efficient method for model updating in distributed quantum settings.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.19077_figures/2610.19077_fig1.jpg",
+      "caption": "Fig. 1. System model of federated unlearning on quantum data.",
+      "page": 2
+    },
+    {
+      "image": "2610.19077_figures/2610.19077_fig2.jpg",
+      "caption": "Fig. 2. Backward light cone of the measured observable in a layered QNN.",
+      "page": 3
+    },
+    {
+      "image": "2610.19077_figures/2610.19077_fig3.jpg",
+      "caption": "Fig. 3. Parameter-shift records fix the parameters, shadows do not.",
+      "page": 3
+    },
+    {
+      "image": "2610.19077_figures/2610.19077_fig4.jpg",
+      "caption": "Fig. 4. The architecture of SHADE at the nodes and the server.",
+      "page": 5
+    },
+    {
+      "image": "2610.19077_figures/2610.19077_fig5.jpg",
+      "caption": "Fig. 5. Testbed of edge boards with device noise, and the spin-chain data.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.19077_figures/2610.19077_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.19034",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Logical gate set tomography",
+  "authors": "Piper C. Wysocki, Juan Gonzalez De Mendoza, Karl Mayer, Natalie C. Brown, Ciaran Ryan-Anderson, Jalan A. Ziyad, Jordan H. Hines, Daniel G. Hothem, Corey I. Ostrove, Timothy J. Proctor, Kevin C. Young, Robin J. Blume-Kohout, Charles H. Baldwin, Kenneth M. Rudinger",
+  "abstract": "Quantum error correction (QEC) can strongly suppress noise, but predicting whether a computation succeeds requires understanding not only how much effective noise persists after QEC, but what form that noise takes. To thoroughly characterize this noise, we introduce logical gate set tomography (``logical GST''). Logical GST produces detailed representations of noisy logical operations that can be used to derive higher-level metrics, such as gate fidelity and diamond distance, and to test for non-Markovian and coherent logical errors. We use logical GST to obtain the first full, self-consistent characterization of a universal single-qubit logical gate set, implemented in the seven-qubit Steane code using Quantinuum System Model H1, a 20-qubit trapped-ion quantum processor. In the experimental data from H1, logical GST identified predominantly logical Pauli-stochastic errors, found no evidence of logical non-Markovianity, and detected weak potential signatures of coherent logical error. By contrast, higher-shot datasets generated with Quantinuum's detailed system emulator, identify mechanisms for weak but statistically significant logical non-Markovianity and strong evidence of coherent logical error. Finally, we use logical GST to perform error attribution with the system emulator, revealing how specific physical error sources shape logical error mechanisms.",
+  "url": "http://arxiv.org/abs/2610.19034v1",
+  "pdf": "https://arxiv.org/pdf/2610.19034v1",
+  "type": "both",
+  "summary": "This paper introduces Logical Gate Set Tomography (logical GST) to deeply characterize noise in quantum error correction codes. By applying this technique to trapped-ion hardware and simulators, the authors distinguish between simple stochastic errors and more complex coherent or non-Markovian errors. This work is crucial for advancing fault-tolerant quantum computing by providing actionable diagnostics for hardware improvement.",
+  "main_problem": "The goal is to thoroughly characterize noise in quantum error correction (QEC) by understanding the *form* of the noise (e.g., Markovian vs. non-Markovian, Pauli-stochastic vs. coherent), rather than just measuring effective noise rates.",
+  "main_result": "The study found that while initial hardware data suggested Pauli-stochastic errors, detailed simulation revealed strong evidence for coherent logical errors and non-Markovianity, allowing for error attribution to specific physical sources.",
+  "method": "The authors introduce and apply Logical Gate Set Tomography (logical GST), which extends standard GST to characterize effective operations acting only on the logical degrees of freedom.",
+  "model_or_system": "The work uses the seven-qubit Steane code ($\\llbracket 7, 1, 3 \rrbracket$) for logical encoding and is implemented on the Quantinuum System Model H1 (a 20-qubit trapped-ion processor), supplemented by a detailed system emulator (H1-1E).",
+  "key_observables": "Gate fidelity, diamond distance, logical Pauli-stochastic error rates, logical non-Markovianity signatures, and coherent logical error parameters.",
+  "important_parameters": "The analysis involves model selection using the Akaike Information Criterion (AIC) and fitting parameters related to coherent error generators (FOGI parameters).",
+  "main_assumptions": "The standard GST model often assumes the Markovian property (no context dependence), which the paper tests by analyzing syndrome correlations and comparing experimental vs. simulated results.",
+  "figures_summary": "Figures schematically detail the logical GST protocol, show syndrome correlations across time steps, and illustrate the comparison between hardware measurements and emulator predictions regarding error types.",
+  "paper_structure": "The paper introduces logical GST, details the protocol for characterizing the logical gate set, analyzes hardware data to identify error types (Pauli-stochastic), and contrasts these findings with detailed emulator simulations to pinpoint underlying physical error mechanisms like coherence and non-Markovianity.",
+  "why_interesting": "The rigorous application of GST to the logical level provides a powerful diagnostic tool for fault-tolerant quantum computation, moving beyond simple fidelity metrics to diagnose the fundamental nature of noise (e.g., memory effects, coherence) in physical hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.19034_figures/2610.19034_fig1.jpg",
+      "caption": "FIGURE 1: Schematic overview of the logical gate set tomography (“logical GST”) protocol and experimental implementation on Quantinuum H1-1, a 20-qubit trapped-ion quantum processor. Panels (a)–(c) show a hierarchy of circuit representations, from the high-level GST circuit structure, to its decomposition into logical operations, to the physical implementation of those logical operations in the Steane code. (a) Logical GST circuit structure. Each circuit consists of an effective state preparation ρ′, a short gate sequence called a germ that is repeated p times to amplify gate errors, and an effective measurement M′. The full protocol uses a structured list of such circuits with different...",
+      "page": 2
+    },
+    {
+      "image": "2610.19034_figures/2610.19034_fig2.jpg",
+      "caption": "FIGURE 2: Logical operations can be treated as acting only on logical qubits only in certain circumstances. (a) The n- data-qubit Hilbert space can be viewed as Hdata \u001b HL ⊗HS , with k logical qubits and n −k syndrome qubits. For the [[7, 1, 3]] Steane code, this gives one logical qubit and six syn- drome qubits. In this picture, ideal syndrome extraction and recovery can be viewed as returning the syndrome subsystem to the trivial syndrome sector. (b) If the syndrome subsys- tem is correctly reset after each implemented logical gate, it can be traced out, leaving an effective operation on the log- ical subsystem alone. (c) If the syndrome subsystem retains information between gates, the...",
+      "page": 4
+    },
+    {
+      "image": "2610.19034_figures/2610.19034_fig3.jpg",
+      "caption": "FIGURE 3: Pauli transfer matrices with 2σ half-widths for the logical Hadamard (HL), phase (S L), identity (IL), and Zπ/4 (TL) gates, estimated using logical GST on a Steane-[[7, 1, 3]]-encoded qubit implemented on H1-1. Pauli transfer matrix elements are colored using a symmetric logarithmic scale with a linear region near zero to make deviations from the target operation more visible.",
+      "page": 5
+    },
+    {
+      "image": "2610.19034_figures/2610.19034_fig4.jpg",
+      "caption": "FIGURE 4: Quantifying coherent logical error in simulated data from Quantinuum’s detailed system emulator. (a) Summary of model agreement quantified by model violation Nσ [Eq. (1)] and evidence ratio γ(CPTP, S) [Eq. (2)] for the hardware data and four datasets simulated on H1-1E. The Akaike information criterion (AIC) is shown by a dashed line at γ = 2. Memory settings are encoded by color, while leakage settings are encoded by hatching and marker shape. (b) Unmodeled error estimated using a single-parameter wildcard model shown as a percentage of per-operation diamond distance for all datasets. For exact numerical values for quantities plotted in panels (a) and (b), see Table III in...",
+      "page": 8
+    },
+    {
+      "image": "2610.19034_figures/2610.19034_fig5.jpg",
+      "caption": "FIGURE 5: Automated model selection (AMS) results for H1-1E simulated datasets under the four combinations of memory and leakage error settings. Shown are the 13 FOGI parameters in the resulting reduced models with the largest maximum per- circuit TVD influence, grouped by qualitative error type: (a) on-axis over-rotations, (b) dephasing errors, and (c) generalized bitflips. Within each labeled panel, the upper plot shows the reduced-model absolute error-rate estimate, with error bars showing 2σ confidence intervals, and the lower plot shows the corresponding maximum per-circuit TVD. Memory settings are encoded by color, while leakage settings are encoded by hatching and marker shape. By...",
+      "page": 10
+    }
+  ],
+  "figure": "2610.19034_figures/2610.19034_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.19073",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A modular quantum computer based on Cornucopia codes",
+  "authors": "Zhide Lu, Weikang Li, Yinghao Ma, Hanyu Yan, Bingrun Wang, Yixuan Ma, Zheng-Zhi Sun, Dong-Ling Deng",
+  "abstract": "Ultra-high-rate quantum error correction codes can store many logical qubits in a single code block with few physical qubits. A fault-tolerant quantum computer, however, also requires a universal set of logical operations on individually addressable logical qubits, and the ancilla overhead of these operations may erode the advantage of the high encoding rate. Here, we propose the Cornucopia architecture, in which a universal set of logical operations is implemented at low overhead for the Cornucopia codes. In particular, we focus on the [[2844,1426,18]] Cornucopia code as an example and introduce a modular quantum computer built from such code blocks connected by bridges. Each block stores 1,426 logical qubits and serves as a universal logical processor. Exploiting the code's translation symmetry, we construct a family of reusable gadgets that individually address 1,422 logical qubits within each block. These gadgets support three universal logical instruction sets: basic, high-throughput and fixed-extractor. Excluding magic-state factories, a module with sufficient workspace to execute any instruction in the basic set requires an average of 4.1 physical qubits per logical qubit, compared with 3.0 for memory alone. The architecture thus preserves the resource advantage of ultra-high-rate quantum memory while enabling universal logical computation, providing a route towards low-overhead fault-tolerant quantum computers.",
+  "url": "http://arxiv.org/abs/2610.19073v1",
+  "pdf": "https://arxiv.org/pdf/2610.19073v1",
+  "type": "theory",
+  "summary": "This paper proposes the Cornucopia architecture, a modular design for fault-tolerant quantum computing that merges the high storage density of ultra-high-rate quantum error correcting codes with the capability for universal logical operations. By introducing specialized, reusable gadgets and connection bridges, the authors demonstrate a pathway to achieving low-overhead, scalable quantum computation. This work is significant for advancing the practical realization of large-scale quantum processors.",
+  "main_problem": "The challenge is designing a fault-tolerant quantum computer architecture that maintains the high resource efficiency of ultra-high-rate quantum error correction codes while supporting universal, low-overhead logical operations.",
+  "main_result": "The proposed Cornucopia architecture successfully integrates high-rate memory with universal logical computation by implementing three instruction sets (basic, high-throughput, fixed-extractor) with manageable overhead.",
+  "method": "The authors utilize a modular design based on the Cornucopia code, employing 'code surgery' and symmetry-adapted gadgets to perform logical operations while preserving the code distance.",
+  "model_or_system": "The system is a modular quantum computer built from interconnected code blocks based on the [[2844,1426,18]] Cornucopia code. Each block acts as a universal logical processor, connected by specialized bridges.",
+  "key_observables": "Logical error rate ($2.6 \times 10^{-16}$ per logical qubit per cycle), physical qubits per logical qubit (4.1 for basic set vs. 3.0 for memory alone), and code distance ($d=18$).",
+  "important_parameters": "Encoding rate (ultra-high, > 1/2), number of logical qubits per block (1,426), and the size of the connecting bridges (18 qubits).",
+  "main_assumptions": "The construction relies on the ability to build gadgets that provably preserve the code distance and the assumption that the overhead of the basic instruction set is acceptable compared to the memory advantage.",
+  "figures_summary": "Figures illustrate the modular structure, the three instruction sets (basic, high-throughput, fixed-extractor), and the detailed mechanisms for performing logical operations like CNOT gates across module bridges.",
+  "paper_structure": "The paper progresses by first introducing the Cornucopia architecture to solve the overhead problem, detailing the three instruction sets and the use of reusable gadgets, then focusing on inter-module operations (bridges, CNOT), and finally comparing the resource scaling against alternative architectures like the bicycle code.",
+  "why_interesting": "While focused on quantum computation, the rigorous resource accounting and comparison of overheads (e.g., physical qubits per logical qubit) provide quantitative benchmarks relevant to scaling any complex quantum hardware platform.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.19073_figures/2610.19073_fig1.jpg",
+      "caption": "Fig. 1. A modular quantum computer based on Cornucopia codes. a, One [[2844, 1426, 18]] Cornucopia block [37]: twelve data tiles Lj, Rj and six check tiles, each a 3 × 79 array; every check acts on one qubit in each data tile, located by a row permutation and a column translation. The column translation T of the data tiles is a code automorphism; in our canonical logical basis it cyclically shifts each of the 18 registers of 79 logical qubits and fixes the four invariant modes, which together make up the 1,426 logical qubits. b, Three instruction sets: IB is generated by 54 reusable seed gadgets, their translates and matching bridges; IH executes compatible IB gadgets in parallel as direct...",
+      "page": 2
+    },
+    {
+      "image": "2610.19073_figures/2610.19073_fig2.jpg",
+      "caption": "Fig. 2. Surgery toolkit. a, Schematic of a seed gadget SXi measuring X: one vertex check (square) is attached to each data qubit in the support of the target (red), old checks (diamonds) that anticommute locally with the target are deformed onto skeleton edges (orange; every edge is an ancilla data qubit), and the product of all vertex checks equals X. Expansion edges raise the spectral gap of the gadget graph to λ2 > 2, which keeps the code distance, and cycle checks on a complete cycle basis ensure that the gadget encodes no additional logical qubits. b, Translation covariance: T t maps the seed gadget for X(i,0) to one for X(i,t), so that one seed per register serves its 79 logical...",
+      "page": 3
+    },
+    {
+      "image": "2610.19073_figures/2610.19073_fig3.jpg",
+      "caption": "Fig. 3. High-throughput instructions. a, Largest verified parallel batch for each instruction type, that is, the number of instructions executed in a single merged code, including mixed single-qubit X and Z measurements on distinct logical qubits and simultaneous magic- state injections (|T⟩). b, Distribution of the number of instructions per layer when random workloads of 3,000 instructions are scheduled into compatible parallel layers, for single-qubit X and Z measurements, single-qubit measurements including Y , bridged products XX and ZZ, and all five basic types mixed (all); for each type, the histogram combines three independent workloads, and the legend gives their mean number of...",
+      "page": 4
+    },
+    {
+      "image": "2610.19073_figures/2610.19073_fig4.jpg",
+      "caption": "Fig. 4. Fixed extractor. a, Local rule around one old check Ss, shown on six of its twelve qubits. Its hub is joined to the data vertices of its support by star edges, each carrying an ancilla qubit (orange dots), and every data vertex carries the vertex check Gv = PvX(∂v). For a target P, the vertices in Ks(P) (dark blue), at which the local factor Pq anticommutes with Ss, are joined by the shortcut hyperedge hs; the old check becomes SsZhs, and Rs = ZhsZ(Js) is the cycle formed by the shortcut and the star edges Js from the hub to these vertices. b, Smallest eigenvalue of each Fourier block Lk of the extractor Laplacian, excluding the zero eigenvalue of L0. Blocks k and 79 −k are complex...",
+      "page": 5
+    },
+    {
+      "image": "2610.19073_figures/2610.19073_fig5.jpg",
+      "caption": "Fig. 5. Connecting modules and magic-state sources. a, The extractors of two Cornucopia modules are joined by a matching bridge of 18 ancilla qubits (light blue) between fixed ports, and 17 square checks complete the cycle basis. For any pair of targets the merged code measures P A ⊗P B, satisfies wmax ≤16 and ∆max ≤14, and preserves the distance. b, A distance-18 surface-code patch holding a |T⟩state carries an 18-vertex gadget on its Z string, which is joined by the bridge to a seed gadget SZj or to the extractor, so that the merged code measures",
+      "page": 6
+    }
+  ],
+  "figure": "2610.19073_figures/2610.19073_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

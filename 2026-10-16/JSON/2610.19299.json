@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.19299",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Gap-Priced $|T\\rangle$-States: Dynamic $|T\\rangle$ Post-Selection and Budget-Aware Factory Provisioning",
+  "authors": "Maxwell Poster, Sayam Sethi, Yuhao Liu, Jonathan Baker, Costin Iancu",
+  "abstract": "Magic $|T\\rangle$-state preparation dominates the cost of fault-tolerant quantum computation on surface codes, yet cultivation and distillation are typically provisioned statically, leaving much of the program's error budget unused. We present Gap-Priced $|T\\rangle$ States (GP$|T\\rangle$-S), a lattice surgery scheduler and factory allocator that co-optimizes both methods under a total $T$-error budget. GP$|T\\rangle$-S uses the complementary gap of each cultivated state as a fidelity estimate and dynamically adjusts the cultivation gap cutoff, converting budget slack into speed by giving the scheduler control over the cultivation post-selection. GP$|T\\rangle$-S also characterizes distillation factories by size, $|T\\rangle$-state production rate, and budget slack, and introduces cultivating factories that embed cultivation within routing channels, achieving fidelities otherwise requiring two-level distillation at a single-level footprint. GP$|T\\rangle$-S organizes these characterizations into a factory catalog, and performs distillation factory allocation over this catalog in tandem with the gap cutoff using dynamic-programming to achieve one of i) minimum spacetime volume, ii) minimum execution time, or iii) minimum space overhead, all within a user-provided $T$-error budget. Across sixteen benchmarks under high and low $T$-error budgets of $10^{-3}$ and $10^{-5}$ respectively, GP$|T\\rangle$-S consistently outperforms cultivation-only and single-factory baselines without exceeding the budget, achieving a 5.5$\\times$ geometric mean speedup in logical cycle count and a 3.4$\\times$ geometric mean reduction in space-time volume.",
+  "url": "http://arxiv.org/abs/2610.19299v1",
+  "pdf": "https://arxiv.org/pdf/2610.19299v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel scheduler, GP|T>S, designed to optimize the preparation of crucial |T> magic states for fault-tolerant quantum computing. It dynamically balances cultivation and distillation by treating the total error budget as a shared resource. By co-optimizing these processes, the method significantly outperforms static baselines in terms of speed and resource efficiency.",
+  "main_problem": "Magic |T> state preparation is the most resource-intensive step in fault-tolerant quantum computation using surface codes, and existing methods fail to optimally balance fidelity, resource usage, and a total error budget.",
+  "main_result": "The proposed Gap-Priced |T> States (GP|T>S) scheduler achieves significant speedups (up to 5.5x) and volume reductions (up to 3.4x) across various benchmarks while strictly adhering to a user-defined total T-error budget.",
+  "method": "The authors developed a co-optimization framework using dynamic programming to jointly schedule dynamic cultivation post-selection (based on the complementary gap) and allocate distillation factories across a catalog, all constrained by the total error budget.",
+  "model_or_system": "The work is situated in the context of Fault-Tolerant Quantum Computation (FTQC) using the surface code, focusing specifically on the preparation of magic |T> states via lattice surgery.",
+  "key_observables": "Logical cycle count, space-time volume, and the total T-error budget ($\\epsilon$).",
+  "important_parameters": "Total T-error budget ($\\epsilon$), cultivation gap cutoff, and factory size/rate.",
+  "main_assumptions": "Existing schedulers are budget-agnostic, and static allocation methods cannot optimally balance the trade-off between fidelity and speed.",
+  "figures_summary": "Figures illustrate the dynamic adjustment of the gap cutoff and the co-optimization process, comparing the proposed method against cultivation-only and single-factory baselines across multiple benchmarks.",
+  "paper_structure": "The paper introduces the core problem, details the GP|T>S methodology (dynamic post-selection and factory allocation), presents the optimization framework using dynamic programming, and validates the approach across sixteen benchmarks under varying error budgets.",
+  "why_interesting": "While focused on quantum computation, the resource management aspect—co-optimizing multiple competing resource requirements (time vs. space vs. error)—is highly relevant to any field dealing with complex, constrained physical simulations or experimental setups.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.19299_figures/2610.19299_fig1.jpg",
+      "caption": "Figure 1. Magic-state injection requirements versus target total error (|𝑇⟩-state infidelity times |𝑇⟩-state count). (a) Fea- sibility of cultivation alone for several benchmarks. (b) Num- ber of distinct injection methods in the space-optimal config- uration for a given fidelity target and |𝑇⟩-state count, from a constrained space-minimizing optimization over nine proto- cols: cultivation, 15-to-1, 20-to-4, 8-to-CCZ, and cultivation- fed hybrids.",
+      "page": 1
+    },
+    {
+      "image": "2610.19299_figures/2610.19299_fig2.jpg",
+      "caption": "Figure 2. GP|𝑇⟩-S overview. Left: The gap cutoff is typically statically determined or baked into the cultivation process at compile time. Given a 𝑇-error budget, we propose a dynamic lattice surgery scheduler which adjusts the gap cutoff for cultivators dynamically as the budget is expended. If budget surplus exists, lower gap |𝑇⟩-state that could otherwise not be consumed under a static gap cutoff may be consumed to execute a PPR at the cost of additional 𝑇-error budget, improving execution time. Right: Given the 𝑇-error budget 𝜀, the input circuit, a factory catalog, and optionally physical qubit count, GP|𝑇⟩-S will co-optimize gap cutoff 𝐺and the allocated factory configuration in...",
+      "page": 2
+    },
+    {
+      "image": "2610.19299_figures/2610.19299_fig3.jpg",
+      "caption": "Figure 3. Where this work sits relative to existing FTQC methods. Current lattice surgery schedulers are budget- agnostic, meaning that while they boast short execution times, they do not perform any resource estimation that would otherwise bottleneck practical, on-hardware execu- tion. At the other end, static allocation of a stringent gap cutoff, or of an unwieldy and large distillation factory, can both execute under budget, but at significant time cost.",
+      "page": 2
+    },
+    {
+      "image": "2610.19299_figures/2610.19299_fig4.jpg",
+      "caption": "Figure 4. Left: 15-to-1 distillation factory topology. Five logical surface code qubits occupy the middle row of the 3×5 grid of tiles. The tiles in the first column have distance 𝑑𝑥× 𝑑𝑥, while the remaining tiles have distance 𝑑𝑧× 𝑑𝑥. Faulty 𝑇rotations occur in the routing channels (top row and bottom row) according to the Pauli-product circuit seen on the right. Once this circuit completes, an output magic state |𝑚⟩is produced on the left most column, ready for consumption in a Pauli-product rotation. Right: 15-to-1 distillation Pauli-product circuit [18]. Each product requires a single |𝑇⟩-state to execute, which are typically done via faulty-𝑇rotations, but can also be provided from...",
+      "page": 3
+    },
+    {
+      "image": "2610.19299_figures/2610.19299_fig5.jpg",
+      "caption": "Figure 5. (a) Left: a single distance-5 surface code patch with 𝑋(red) and 𝑍(blue) stabilizers, each measured through one ancilla qubit; right: an alternative patch shape that exposes joint ports for simultaneous logical measurements.",
+      "page": 3
+    }
+  ],
+  "figure": "2610.19299_figures/2610.19299_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

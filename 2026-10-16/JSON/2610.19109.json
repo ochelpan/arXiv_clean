@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.19109",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Post-Optimization Subspace Corrections to Quantum Ansätze",
+  "authors": "Prince Frederick Kwao, Bharath Sambasivam, Jason Saroni, Srivathsan Poyyapakkam Sundar, Edwin Barnes, Ayush Asthana",
+  "abstract": "Circuit depth and measurement count are the main limitations for chemical applications of the leading variational quantum algorithms on quantum computers. We show that both resource requirements can be reduced by augmenting adaptive variational quantum algorithms with post-optimization corrective techniques. We focus on two such techniques---Hamiltonian-moment Krylov subspace diagonalization and the identity-augmented quantum self-consistent equation of motion (q-sc-EOM)---applied to optimized ADAPT-VQE states without further ansatz growth or nonlinear optimization. Across molecular systems studied with up to 20 qubits, first-order Krylov correction reduces the optimized iterations (and the corresponding number of adaptive layers) needed to reach the $1.6~\\mathrm{m}E_h$ threshold by up to approximately sixfold, with a general trend toward larger reductions at higher determinant Rényi entropy. We also find measurement-cost reductions of up to approximately fortyfold using a suitable resource-cost model. Identity-augmented q-sc-EOM improves molecular potential-energy curves obtained from truncated ADAPT-VQE ansätze with limited expressivity and recovers accuracy from states produced by sampled operator ranking without additional gradient-based operator selection, providing an advantage when small pool gradients make selection measurement intensive. Together, these post-optimization corrections offer routes to improve energy accuracy and reduce adaptive circuit growth in quantum algorithms as quantum hardware advances.",
+  "url": "http://arxiv.org/abs/2610.19109v1",
+  "pdf": "https://arxiv.org/pdf/2610.19109v1",
+  "type": "theory",
+  "summary": "This paper introduces post-optimization techniques—Krylov subspace corrections and identity-augmented q-sc-EOM—to enhance variational quantum algorithms for chemistry. These methods significantly reduce the required circuit depth and measurement count needed to achieve chemical accuracy on near-term quantum hardware. The results demonstrate a substantial improvement in resource efficiency for simulating molecular electronic structure.",
+  "main_problem": "The primary challenge is reducing the resource requirements, specifically circuit depth and measurement count, for applying variational quantum algorithms (VQAs) to chemical simulations on near-term quantum hardware.",
+  "main_result": "The proposed post-optimization techniques, Krylov subspace diagonalization and identity-augmented q-sc-EOM, can reduce required adaptive iterations by up to sixfold and measurement costs by up to fortyfold.",
+  "method": "The authors augment optimized ADAPT-VQE states by applying post-optimization subspace corrections, namely Hamiltonian-moment Krylov subspace diagonalization and identity-augmented quantum self-consistent equation of motion (q-sc-EOM).",
+  "model_or_system": "The work focuses on molecular electronic-structure problems, using active-space Hamiltonians mapped to qubits via the Jordan-Wigner transformation. The methods are tested on molecular systems up to 20 qubits.",
+  "key_observables": "Energy accuracy (target threshold: 1.6 mEh), required adaptive iterations, measurement cost, and molecular potential-energy curves.",
+  "important_parameters": "Determinant Rényi entropy ($h_{0.25}$), number of qubits (up to 20), and the target energy threshold (1.6 mEh).",
+  "main_assumptions": "The techniques are applied to states already optimized by ADAPT-VQE, and the analysis considers finite-shot estimation limitations.",
+  "figures_summary": "Figures compare the reduction in required adaptive iterations (Krylov correction) and model the resource-cost ratio improvement achieved by the proposed corrections.",
+  "paper_structure": "The paper introduces the resource limitations of VQAs, details the two post-optimization techniques (Krylov and q-sc-EOM), presents quantitative results showing significant resource reductions across molecular systems, and concludes by outlining the path toward improved accuracy and reduced circuit growth.",
+  "why_interesting": "This work directly addresses the resource scaling bottleneck in quantum chemistry simulations, providing concrete, theoretically grounded methods to enhance the performance of variational quantum algorithms for molecular physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.19109_figures/2610.19109_fig1.jpg",
+      "caption": "FIG. 1. Adaptive outer iterations required to reach 1.6 mEh accuracy for CEO+TETRIS ADAPT-VQE and its first-order (K1) and second-order (K2) Krylov subspace corrections as a function of R´enyi entropy h0.25. (a) Results for 27 molecular electronic- structure cases. Solid lines are least-squares fits of ln Niter to h0.25, where Niter is the iteration count, with R2 log = 0.970, 0.865, and 0.613 for CEO+TETRIS ADAPT-VQE, K1, and K2, respectively. (b) Conditional extrapolations at h0.25 = 13. Darker bands and thick translucent bars denote 95% confidence intervals for the fitted trend; lighter bands and capped error bars denote 95% prediction intervals. Observations span 1.764 ≤h0.25 ≤7.818;...",
+      "page": 4
+    },
+    {
+      "image": "2610.19109_figures/2610.19109_fig2.jpg",
+      "caption": "FIG. 2. Modeled normalized resource-cost ratio r = CK1/CADAPT for first-order Krylov subspace diagonalization (K1) relative to full CEO+TETRIS ADAPT-VQE as a func- tion of R´enyi entropy h0.25. The analysis includes 26 cases, and the horizontal dashed line marks r = 1. K1 is charged once at the retrospectively identified earliest iteration satisfy- ing the 1.6 mEh threshold; unsuccessful intermediate checks are not charged.",
+      "page": 6
+    },
+    {
+      "image": "2610.19109_figures/2610.19109_fig3.jpg",
+      "caption": "FIG. 3. NH3 ground-state potential energy and absolute error relative to active-space FCI in the STO-6G basis with a (4e, 4o) active space, corresponding to eight qubits. The displayed bond-stretching coordinate spans 0.6–4.0 ˚A. The ADAPT-VQE reference is truncated after three outer iterations, after which q-sc-EOM is applied without reoptimizing the circuit. (a) Energies from truncated ADAPT-VQE, q-sc-EOM, and FCI. (b) Absolute errors |E −EFCI|; the shaded region marks the 1.6 mEh accuracy threshold. The largest truncated ADAPT-VQE error is approximately 40 mEh, whereas the q-sc-EOM error remains below 1.0 mEh over the displayed grid. The axis unit Ha denotes the hartree.",
+      "page": 7
+    },
+    {
+      "image": "2610.19109_figures/2610.19109_fig4.jpg",
+      "caption": "FIG. 4. Effect of finite-shot ADAPT gradient estimation on operator selection for singlet m-benzyne mapped to 12 qubits. (a) Median FCI energy error for ADAPT-VQE (solid) and identity-augmented q-sc-EOM (dashed). (b) Median maximum exact gradient magnitude over the fermionic singles-and-doubles pool. Bands in (a,b) show the 10th–90th percentiles over 100 trajectories, and color denotes shots per gradient observable, Ng. (c) Fraction of trajectories attaining |E −EFCI| ≤1.6 mEh at any evaluated ADAPT iteration.",
+      "page": 7
+    },
+    {
+      "image": "2610.19109_figures/2610.19109_fig5.jpg",
+      "caption": "FIG. 5. Finite-shot ground-state energy errors for planar NH3 in STO-6G with a (4e, 4o) active space. QSE and q- sc-EOM use 500, 103, or 104 shots per measured matrix ele- ment. The signed error is ∆E = Esampled −EFCI, where EFCI is the active-space FCI ground-state energy. Symbols show the mean over five independent sampling realizations at each shot count; error bars show ± one standard deviation. The black horizontal line marks ∆E = 0. Only finite-shot sam- pling is included; gate and readout noise are excluded. The axis unit Ha denotes the hartree.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.19109_figures/2610.19109_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
