@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.21609",
+  "category": "other",
+  "arxiv_categories": [
+    "physics.atom-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fast, parallel, three-dimensional rearrangement of atom arrays using superpositions of elementary holograms",
+  "authors": "D. J. Hoare, P. Dunniece, J. Rodewald, K. K. Voges, M. R. Tarbutt",
+  "abstract": "Assembling defect-free arrays of neutral atoms requires real-time rearrangement of stochastically loaded optical tweezers. Conventional rearrangement methods shuttle atoms sequentially, whereas high-speed spatial light modulators (SLMs) can move all atoms in parallel, which scales more favorably as the array size grows. For fast parallel rearrangement, the sequence of holograms displayed on the SLM should be computed more rapidly than the SLM refresh rate, and there should be phase continuity between successive holograms to minimize transient intensity fluctuations. We calculate holograms analytically by adding together the complex fields needed to produce each individual trap, and we ramp the phase of each trap linearly as it moves to its target location. Trap positions enter as continuous variables, rather than tied to points on a grid, so the method provides high positioning accuracy. Using a single GPU, we compute each intermediate hologram in 0.284 ms, considerably faster than the SLM refresh time of 0.696 ms, so the rearrangement speed is hardware-limited. In each step, we use the free processing time to iteratively optimize the holograms for equal intensity across the traps, decreasing trap non-uniformity to 1.24% during rearrangement at no cost in total time. Starting from an array of 256 sites loaded stochastically with $^{87}$Rb atoms, we assemble a 100-atom array in under 20 ms with a rearrangement survival probability of 99.31(12)% per atom. This rearrangement increases the temperature of the atoms by 9(3) $μ$K, which is small compared to the trap depth of 480 $μ$K. Our method can also move individual atoms axially, enabling transport in different planes. We demonstrate this capability with a rearrangement protocol where one set of atoms leapfrogs over another.",
+  "url": "http://arxiv.org/abs/2610.21609v1",
+  "pdf": "https://arxiv.org/pdf/2610.21609v1",
+  "type": "experiment",
+  "summary": "This paper presents a novel, high-speed method using Superposition-of-Elementary-Holograms (SEH) to reconfigure arrays of neutral atoms trapped by optical tweezers. By calculating holograms faster than the hardware refresh rate, the authors achieved rapid, parallel rearrangement of atom arrays with high fidelity. This advancement is critical for scaling up quantum simulations and quantum computing experiments based on neutral atoms.",
+  "main_problem": "The core challenge is achieving fast, parallel, and high-fidelity three-dimensional rearrangement of defect-free arrays of neutral atom traps.",
+  "main_result": "The authors successfully assembled a 100-atom array in under 20 ms with a high survival probability of 99.31% per atom, demonstrating speed limited by the hardware refresh rate.",
+  "method": "They employ a Superposition-of-Elementary-Holograms (SEH) method combined with Linear Phase Interpolation (LPI) to compute the required holographic phase masks rapidly.",
+  "model_or_system": "The system involves neutral atoms trapped by optical tweezers generated using high-speed Spatial Light Modulators (SLMs). The method treats trap positions and fields as continuous variables, allowing for precise, parallel manipulation.",
+  "key_observables": "Rearrangement survival probability (99.31%), trap non-uniformity (reduced to 1.24%), and the time taken for assembly (< 20 ms).",
+  "important_parameters": "SLM refresh rate (0.696 ms), GPU computation time (0.284 ms), and the trap depth (480 µK).",
+  "main_assumptions": "The method assumes the SLM only modulates the phase, and the speed is ultimately limited by the SLM's physical refresh rate.",
+  "figures_summary": "Figures schematically illustrate the I-SEH rearrangement protocol steps, from stochastic loading to final defect-free array assembly, alongside fluorescence images of the initial and final states.",
+  "paper_structure": "The paper details the I-SEH algorithm, comparing its computational scaling against FFT-based methods, presenting the full protocol implementation on Rb atoms, and demonstrating 3D transport capabilities.",
+  "why_interesting": "This work directly addresses the engineering bottleneck in quantum simulation platforms by providing a method to rapidly reconfigure complex atomic arrays, which is crucial for scaling up quantum simulation and quantum information processing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.21609_figures/2610.21609_fig1.jpg",
+      "caption": "FIG. 1. Schematic of the I-SEH rearrangement protocol for a stochastically filled 20 × 20 array rearranged into a defect-free 14 × 14 array. (a) Stochastic loading. Filled circles mark occupied sites and open circles empty sites. (b) Occupied sites are assigned to the target sites (shaded region) using the Jonker-Volgenant(JV) linear assignment algorithm. Unassigned and unoccupied traps are extinguished by setting their weights to zero. (c) The assigned traps are transported in parallel along linear trajectories over K frames, with K set by the maximum step size per frame. (d) The final defect-free array. (e) Hologram computation. Weights wn and phases θn of the initial and final arrays are...",
+      "page": 4
+    },
+    {
+      "image": "2610.21609_figures/2610.21609_fig2.jpg",
+      "caption": "Figure 1 shows the interpolated superposition of el- ementary holograms (I-SEH) rearrangement protocol, which proceeds as follows:",
+      "page": 4
+    },
+    {
+      "image": "2610.21609_figures/2610.21609_fig3.jpg",
+      "caption": "FIG. 2. Experimental characterization of the rearrangement protocol with zero equalization iterations per step. (a) Single-shot fluorescence image of a stochastically loaded 16 × 16 array and (b) the corresponding distribution of photon counts, giving a mean filling fraction ηi = 55.26(16)%. (c) Single-shot fluorescence image of the 10 × 10 target array after rearrangement and (d) the corresponding count distribution, giving ηf = 96.33(9)%. The residual low-count peak in (d) corresponds to target sites left unfilled. (e) Rearrangement efficiency as a function of the maximum per-frame step size δ. Error bars are smaller than the points. The efficiency is roughly constant for δ ≲1.0 µm and...",
+      "page": 6
+    },
+    {
+      "image": "2610.21609_figures/2610.21609_fig4.jpg",
+      "caption": "FIG. 3. Transport out of the focal plane. (a)–(c) Averaged fluorescence images of atoms in a 9×9 array with site spacing 5 µm, with one checkerboard sublattice displaced along the optical axis by ∆z = 0, 5 and 10 µm, respectively. The imaging system remains focused on the original focal plane, so atoms in the displaced sites appear defocused. (d) Transport survival probability η against axial step size using 20 axial steps of size δz out of and back into the focal plane. (e) Schematic of leapfrog transport. Alternate columns (red) are axially transported by d, carried over the neighboring column (blue), and back into the focal plane on its far side. (f), (g) Averaged fluorescence images of...",
+      "page": 7
+    },
+    {
+      "image": "2610.21609_figures/2610.21609_fig5.jpg",
+      "caption": "FIG. 4. Numerical characterization of the I-SEH protocol, simulated for the rearrangement of a 50% stochastically filled 20×20 array into a defect-free 14 × 14 array, both of 5.0 µm site spacing, with a maximum step size of 0.25 µm and K = 85 frames. (a) Phase error εn, the deviation of each trap’s optical phase from its linearly interpolated target trajectory, shown for all 196 traps at every frame (left) and as the distribution of all measurements (right). The dashed line marks zero error. The standard deviation over the full sequence is σε = 0.0432 rad. (b) Minimum-to-maximum envelope of the normalized trap intensities In/⟨I⟩at each frame, for four weight schemes: fixed uniform weights,...",
+      "page": 9
+    }
+  ],
+  "figure": "2610.21609_figures/2610.21609_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 1,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 1,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 2,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

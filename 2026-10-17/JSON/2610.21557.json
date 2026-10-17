@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2610.21557",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Reducing the Cost of Qudit State Preparation by Learning a Sparse Structure for SNAP Gates",
+  "authors": "Marco Pennazio, Leonardo Ignazio Pagliochini, Riccardo Pellini, Maurizio Ferrari Dacrema, Paolo Cremonesi",
+  "abstract": "Preparing quantum states in bosonic qudits with SNAP--Displacement sequences requires both optimizing the gate parameters and deciding which Fock levels should be controlled by each SNAP gate. A fully parameterized ansatz assigns an independent phase to every Fock level in every gate, leading to a number of phases that grows steeply. This constitutes a problem for short to medium term systems as controlling many phases requires complex control pulses which are subject to increased control errors. Previous work reduced this cost by restricting the trainable phases to predefined sparse patterns, such as a diagonal or a grid, which however may not be optimal for a specific target state. In this work, we address this limitation by introducing a method that learns which phases are needed together with their values, using a differentiable mask. A sparsity penalty encourages the removal of unnecessary phases, while temperature annealing gradually turns the masks into binary decisions. We compare the proposed method with fully parameterized and predefined sparse ansatzes on Fourier and Haar-random target states. The evaluation considers both the minimum number of phases required to reach different infidelity thresholds and the overall trade-off between fidelity and phases required, measured through Pareto frontiers and hypervolume. The results show that learning the location of the phases together with their values provides competitive or improved fidelity--resource trade-offs, although the advantage depends on the target state and qudit dimension.",
+  "url": "http://arxiv.org/abs/2610.21557v1",
+  "pdf": "https://arxiv.org/pdf/2610.21557v1",
+  "type": "theory",
+  "summary": "This paper tackles the resource cost of preparing quantum states in bosonic qudits by developing a novel machine learning technique. It introduces a differentiable mask that learns which phase parameters are essential for achieving a target state. The results demonstrate that this adaptive approach can significantly improve the trade-off between state fidelity and the number of required control resources compared to fixed, heuristic methods.",
+  "main_problem": "The core problem is minimizing the computational cost, specifically the number of required phase parameters, when preparing complex quantum states in bosonic qudits using SNAP-Displacement sequences.",
+  "main_result": "The proposed method of learning the required phases via a differentiable mask achieves competitive or improved fidelity-resource trade-offs compared to fixed sparse ansatzes, especially for certain target states and infidelity thresholds.",
+  "method": "The authors introduce a learnable, differentiable mask that jointly optimizes the gate parameters (displacement angles and phases) with the mask coefficients, using sparsity penalties and temperature annealing to guide the mask towards binary decisions.",
+  "model_or_system": "The system involves bosonic qudits, simulated using superconducting radio-frequency cavities, which are controlled via a SNAP-Displacement protocol. The state preparation is optimized in an extended Hilbert space.",
+  "key_observables": "Fidelity ($F$), Infidelity ($I$), and the minimum number of active SNAP phases. Trade-offs are quantified using Pareto frontiers and hypervolume.",
+  "important_parameters": "The qudit dimension ($d$), the target state (e.g., Fourier-5, Haar-random), and the regularization weights ($\\lambda$).",
+  "main_assumptions": "The initial structural mask ($M_{\text{struct}}$) is fixed based on heuristics, and the process involves converting a continuous soft mask to a discrete hard mask, which is mitigated by a final fine-tuning step.",
+  "figures_summary": "Figures show Pareto frontiers comparing the trade-off between infidelity and phase count for different ansatzes (Learnable vs. Diagonal adaptive) for Fourier-5 and Haar random states. Tables report the mean hypervolume for these comparisons.",
+  "paper_structure": "The paper first establishes the problem of phase explosion in qudit state preparation. It then details the proposed learnable mask approach, jointly optimizing parameters and mask structure. Finally, it rigorously compares this method against existing sparse ansatzes using metrics like hypervolume for various target states.",
+  "why_interesting": "This work directly addresses resource optimization in quantum state preparation protocols relevant to superconducting circuit quantum computing, providing a machine learning framework to adaptively select necessary control parameters.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.21557_figures/2610.21557_fig1.jpg",
+      "caption": "Figure 1: Overview of the optimization pipeline for the Learnable ansatz. In the experiments reported in this work, the number of blocks is fixed to 𝐵= 𝑑, so the block search shown in the first stage is omitted. The remaining stages include width selection, learned-mask optimization, greedy refinement, and structural compression.",
+      "page": 10
+    },
+    {
+      "image": "2610.21557_figures/2610.21557_fig2.jpg",
+      "caption": "Figure 2: Pareto frontiers comparing the trade-off between infidelity and the number of SNAP phases for the Fourier-5 target state.",
+      "page": 13
+    },
+    {
+      "image": "2610.21557_figures/2610.21557_fig3.jpg",
+      "caption": "Figure 3: Pareto frontiers comparing the trade-off between infidelity and the number of SNAP phases for the Haar random target state.",
+      "page": 13
+    }
+  ],
+  "figure": "2610.21557_figures/2610.21557_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 1,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

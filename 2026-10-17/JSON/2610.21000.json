@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.21000",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "monoprop: Scaling Pauli and Majorana propagation via Anticommutation Indices",
+  "authors": "Aaron Miller",
+  "abstract": "We introduce monoprop, an open-source, massively parallel operator-propagation framework for fermion and qubit bases. For $N$ qubits or modes, existing codes represent each of the $K$ tracked operator terms (Pauli strings or products of Majorana operators) as a $2N$-bit string, testing each for anticommutation with the gate at $O(KN)$ cost per gate. Here, we introduce the anticommutation index which rapidly looks up the terms anticommuting with a gate. A local gate changes only the terms that touch its sites, and when terms are truncated to act on few sites, only a fraction $\\sim1/N$ touch any given qubit or mode, and we use this to prove the time per gate scales as $O(K/N)$. This counterintuitive result tells us that for a fixed number of terms, increasing the number of sites can make things faster. We demonstrate this numerically, and show monoprop scales almost ideally to 8192 cores, tracking $9.5\\times10^{10}$ terms. Beyond propagation, we present memory-efficient surrogate graphs, which record one propagation and replay it at new angles, for fast energy re-estimation and parameter gradients, and an efficient method for finding energy-minimising gates and optimal angles for simulating adaptive quantum-chemistry circuits.",
+  "url": "http://arxiv.org/abs/2610.21000v1",
+  "pdf": "https://arxiv.org/pdf/2610.21000v1",
+  "type": "theory",
+  "summary": "This paper presents 'monoprop,' a highly efficient, open-source framework for simulating quantum dynamics by tracking Pauli and Majorana operators. It achieves superior computational scaling, $O(K/N)$, by using an anticommutation index that exploits operator sparsity. This advancement allows for the accurate and scalable simulation of complex quantum models relevant to condensed matter physics.",
+  "main_problem": "Developing an efficient, massively parallel framework to calculate expectation values and gradients for quantum systems simulated using Pauli or Majorana operators.",
+  "main_result": "The proposed framework, monoprop, achieves a computational cost scaling of O(K/N) per gate, which is significantly faster than existing O(KN) methods, especially for large systems.",
+  "method": "It introduces an 'anticommutation index' to rapidly identify only the terms that anticommute with a gate, avoiding exhaustive checks and exploiting the sparsity and locality of the operator structure.",
+  "model_or_system": "The methods are applied to simulate quantum dynamics for systems described by Pauli strings (qubits) or products of Majorana operators (fermions), benchmarking against models like the Hubbard model and kicked-Ising chain.",
+  "key_observables": "Expectation values (e.g., $\text{Tr}(\rho U^\\dagger H U)$), energy gradients ($\\partial \theta_{p\\ell} f_L(\theta)$), and the computational cost per gate.",
+  "important_parameters": "System size ($N$), number of tracked terms ($K$), and the gate angle ($\theta$).",
+  "main_assumptions": "The $O(K/N)$ scaling relies on the assumption that the tracked operators are 'evenly supported' relative to the system size.",
+  "figures_summary": "Figures illustrate the superior scaling of the index method (monoprop) compared to dense codes, and show the structure of anticommutation indices for Majorana operators.",
+  "paper_structure": "The paper introduces the framework, details the anticommutation index technique, and then applies it to calculate expectation values and gradients for various benchmark Hamiltonians (Hubbard, Ising) using structured algorithms for gate generation and scoring.",
+  "why_interesting": "The focus on Hamiltonian simulation for strongly correlated models (Hubbard, Ising) using advanced operator algebra techniques is highly relevant for understanding quantum many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.21000_figures/2610.21000_fig1.jpg",
+      "caption": "Figure 1: K/N scaling intuition. Twelve degree- 4 Majorana monomials (rows) on N = 6 and N = 12 modes, with dots marking occupied positions. In the top panels, the gate reads only the two blue highlighted anticommutation index lists, whose lengths are shown by bars. Doubling the number of modes stretches each of the degree-4 monomials among twice as many lists. Because the operator is evenly supported, these lists have similar lengths (Definition 2), so the gate now reads about half as many entries. By contrast, the dense ver- sion below reads everything, meaning we have double the work with double the modes.",
+      "page": 2
+    },
+    {
+      "image": "2610.21000_figures/2610.21000_fig2.jpg",
+      "caption": "Figure 2: Scaling with system size. Single-core run time divided by P",
+      "page": 3
+    },
+    {
+      "image": "2610.21000_figures/2610.21000_fig3.jpg",
+      "caption": "Figure 3: Anticommutation index showing K = 7 Majorana monomials on N = 6 modes, with black occupied positions. The generator γ = {4, 7} reads the lists of its two positions (shaded), whose symmetric difference is the anticommuting set (Eq. (5)). Monomials ν2,6,7 occupy neither position, so commute and are never examined, while ν3 occupies both, cancels, and commutes. Monomials ν1,4,5 occupy exactly one and anticommute. The Pauli index is the same structure and differs only in the lists a generator reads (Fig. 7).",
+      "page": 4
+    },
+    {
+      "image": "2610.21000_figures/2610.21000_fig4.jpg",
+      "caption": "Figure 4: Strong and weak scaling of monoprop. Distributed propagation of the linear Hubbard model of Appendix H.1, from 128 cores on one node to 8192 cores on 64 nodes. The strong scaling column fixes the number of tracked monomials at 1.6 × 109, 6.1 × 109, or 2.44 × 1010. The weak scaling column holds the monomials per node fixed at 9.6 × 107, 3.85 × 108, or 1.48 × 109. The top row shows wall-clock time against the ideal scaling curves, and the bottom row reports the parallel efficiency. Larger problems maintain their efficiency to more cores.",
+      "page": 5
+    },
+    {
+      "image": "2610.21000_figures/2610.21000_fig5.jpg",
+      "caption": "Figure 5: Building and evaluating the surrogate graph. Single-core time and memory cost of building the surrogate graph with a single gradient and energy evaluation, relative to propagation of the same circuit with no graph. The circuit is a 127-qubit heavy-hex kicked-Ising model (Appendix H.4), with Pauli-weight cutoff 6 and no coefficient truncation. Panel (a) shows the wall-clock time of one call and (b) the peak memory above the baseline.",
+      "page": 6
+    }
+  ],
+  "figure": "2610.21000_figures/2610.21000_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

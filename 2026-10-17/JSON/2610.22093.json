@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.22093",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Bubble-Sort Exchange Networks: Symmetry Selection Rules and Language-Model Distillation on Exchange-Only Spin Chains",
+  "authors": "Yuichiro Minato",
+  "abstract": "On a chain of exchange-coupled quantum dots a Heisenberg exchange pulse of area pi is a SWAP, so the parallel bubble-sort SWAP network of superconducting chains is native to exchange-only (EO) spin qubits, and any other pulse area fuses routing with an entangling interaction. We build a variational \"bubble-sort exchange network\" (odd-even transposition, one parameter per pulse) and study it as a Born machine read out by Pauli spin blockade. Exchange conserves total spin, so the reachable readout distributions are fixed by the total-spin content of the initial product state. For the two-spin singlet-triplet encoding we derive a selection rule -- outcomes with k triplet pairs are bounded by the initial weight in sectors S <= k (S = 0 excluded for k = 1) -- and prove by a transportation argument that it is also sufficient: the reachable distributions form the polytope cut out by the rule, and its total-variation floor is attained. Products of singlets and T0's forbid whole outcome classes; the Neel state forbids none; the three-spin EO code has no floor. We then distil, in noise-free simulation, next-token distributions of GPT-2 over restricted vocabularies into the network, with matrix-product-state (MPS) Born machines as classical control. At six logical qubits the three-spin chain reaches KL = 0.011 nat at depth N and 0.004 at 2N, below the bond-dimension-4 MPS; the two-spin chain from the Neel state reaches 0.014 at 2N and 0.004 at 3N, against 0.28-1.5 from singlet/triplet products for the first teacher. Final states lie largely outside the code space: leakage is a resource, not an error. No arrangement of disjoint pulses meets every pair in fewer than N-1 rounds, and at depth 2N the chain distils as well as a 2D array or non-local couplings. Sector-restricted simulation extends this to 10-14 logical qubits (up to 30 dots).",
+  "url": "http://arxiv.org/abs/2610.22093v1",
+  "pdf": "https://arxiv.org/pdf/2610.22093v1",
+  "type": "theory",
+  "summary": "This work investigates using a bubble-sort exchange network on spin chains to perform quantum computation by distilling probability distributions from large language models. The authors derive strict symmetry rules governing the achievable quantum states and demonstrate high-fidelity performance in these distillation tasks. This shows a viable pathway for implementing complex quantum algorithms using only local, nearest-neighbor exchange interactions.",
+  "main_problem": "To characterize the capability of a bubble-sort exchange network on exchange-only spin chains to perform quantum information tasks, specifically distilling probability distributions from classical language models.",
+  "main_result": "The network successfully distills complex probability distributions (like those from GPT-2) with high fidelity, achieving performance comparable to or exceeding established benchmarks like 2D arrays or non-local couplings.",
+  "method": "The study combines theoretical analysis of spin-spin exchange constraints (deriving necessary and sufficient selection rules) with advanced simulation techniques like Matrix-Product States (MPS) for quantum knowledge distillation.",
+  "model_or_system": "The system is a linear array of exchange-coupled quantum dots (spin qubits) governed by Heisenberg exchange pulses. The computation is structured using a 'bubble-sort exchange network' circuit.",
+  "key_observables": "KL divergence (nats) for distillation fidelity, state preparation fidelity (F), and the selection rule bounding reachable readout distributions.",
+  "important_parameters": "Depth of the network (N), number of logical qubits (up to 14), and the pulse area ($\\pi$ for SWAP).",
+  "main_assumptions": "The primary assumption is that the single exchange pulse $U(\theta)$ is the native, efficient operation, and leakage is treated as a resource rather than an error.",
+  "figures_summary": "Figure 1 compares the bubble sort network implementation across different superconducting qubit platforms; Figure 2 illustrates the bubble-sort schedule and the distillation pipeline comparing the exchange network to MPS Born machines.",
+  "paper_structure": "The paper first establishes the physical constraints (selection rules) imposed by total spin conservation on the readout. It then demonstrates the network's ability to perform quantum knowledge distillation by mapping classical LLM outputs onto the quantum Born machine readout, concluding with scalability tests.",
+  "why_interesting": "It provides a concrete, hardware-constrained model (exchange-only chains) for implementing complex quantum algorithms derived from machine learning, bridging quantum simulation with quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.22093_figures/2610.22093_fig1.jpg",
+      "caption": "FIG. 1. Where this paper starts. (a) The parallel bubble sort (odd–even transposition): in each round a two-qubit block acts on every other neighbouring pair, the pairs alternate from round to round, and after n rounds every pair of qubits has been adjacent exactly once while the register order is reversed. (b) On superconducting hardware [6] the block is ZZ(φ)·SWAP: the interaction (two CNOTs around an Rz) and the routing SWAP are separate operations, four gate layers per round in the count of Ref. [6], before native compilation. (c) On an exchange-coupled spin chain the block is a single exchange pulse U(θ) = e−iθ Si·Si+1 whose only parameter is the pulse area θ = R J dt: θ = π is a SWAP,...",
+      "page": 2
+    },
+    {
+      "image": "2610.22093_figures/2610.22093_fig2.jpg",
+      "caption": "FIG. 2. Left: the bubble-sort (odd–even transposition) sched- ule for N = 6 dots, R = N rounds. Each bar is one exchange pulse U(θ) with its own pulse area; θ = π on every bar reverses the chain. Right: the distillation pipeline used in Sec. IV: a restricted-vocabulary GPT-2 continuation distribution is fit- ted independently by MPS Born machines (a classical control for the bond dimension the circuit must emulate) and by the exchange network, trained directly on the KL divergence to the teacher, read out by Pauli spin blockade on the first pair of every block.",
+      "page": 3
+    },
+    {
+      "image": "2610.22093_figures/2610.22093_fig3.jpg",
+      "caption": "FIG. 3. The network as a circuit. (a) The only gate: one exchange pulse of area θ on a neighbouring pair, Eq. (1); θ = 0, π/2 and π give the identity, √",
+      "page": 5
+    },
+    {
+      "image": "2610.22093_figures/2610.22093_fig4.jpg",
+      "caption": "FIG. 4. Infidelity of the three-spin network versus number of rounds. State preparation: mean over Haar-random logical targets for n = 2 (N = 6) and n = 3 (N = 9); values below 10−7 are shown at the floor. Unitary compilation: worst of the four targets of Appendix A (three random polar factors and the GPT-2 block) for n = 2 and n = 3. At n = 2 a state needs R ≈N + 2 and a leakage-free logical unitary R = 4N; at n = 3 states need R ≈3N and unitaries are not reached up to R = 6N.",
+      "page": 5
+    },
+    {
+      "image": "2610.22093_figures/2610.22093_fig5.jpg",
+      "caption": "FIG. 5. The selection rule for the two-spin encoding with n = 3 blocks (N = 6). A dot marks the total-spin sectors S ∈Λ(k) of the initial state that can contribute to a PSB outcome with k triplet pairs; a cross marks a forbidden com- bination (one spin-1 cannot couple to S = 0, so k = 1 is fed by S = 1 only, and k spin-1’s cannot exceed S = k). Ex- change dynamics cannot move weight between rows, so the probability of a column is bounded by the weights c2 S of its dotted rows, Eq. (5). Right: c2 S for three initial states. |S⟩⊗3",
+      "page": 6
+    }
+  ],
+  "figure": "2610.22093_figures/2610.22093_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

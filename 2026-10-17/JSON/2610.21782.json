@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.21782",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-compatible Riemannian conjugate gradient for ground-state preparation",
+  "authors": "Andres Arcia-Lopez, Marek Gluza, Yudai Suzuki, Cyrus Mostajeran",
+  "abstract": "Riemannian optimization provides a natural geometric framework for designing quantum algorithms for ground-state preparation, most notably through quantum imaginary-time evolution. However, existing geometry-aware approaches primarily employ steepest-descent updates, leaving more advanced methods from classical Riemannian optimization largely unexplored. In this work, we introduce quantum conjugate gradient descent (QCGD), a quantum-compatible implementation of Riemannian conjugate gradient that combines the steepest descent direction with information retained from previous search directions. In our numerical experiments, the proposed approach achieves faster convergence per iteration than the baseline double-bracket quantum imaginary-time evolution (DB-QITE) algorithm, and we quantify the associated circuit cost with gate counts produced by Qrisp. This improvement, however, comes at the cost of increased circuit depth for each update step, revealing a trade-off between convergence rate and implementation complexity. Nevertheless, since the circuit depth for those algorithms grows exponentially with the number of iterations, the proposed method may offer practical advantages, particularly in the early fault-tolerant regime.",
+  "url": "http://arxiv.org/abs/2610.21782v1",
+  "pdf": "https://arxiv.org/pdf/2610.21782v1",
+  "type": "theory",
+  "summary": "This work proposes Quantum Conjugate Gradient Descent (QCGD) to improve ground-state preparation algorithms by incorporating memory effects from classical optimization theory. QCGD shows faster convergence per step than existing methods like DB-QITE, though this improvement increases the circuit depth required for each update. The paper analyzes the critical trade-off between achieving faster convergence and managing the resulting exponential growth in circuit complexity.",
+  "main_problem": "The paper addresses the challenge of ground-state preparation (GSP) for Hamiltonians, which is a computationally hard problem.",
+  "main_result": "The proposed Quantum Conjugate Gradient Descent (QCGD) achieves faster convergence per iteration than existing methods like DB-QITE, although this comes with a trade-off of increased circuit depth per step.",
+  "method": "It introduces QCGD, a quantum-compatible adaptation of Riemannian Conjugate Gradient Descent, which incorporates memory from previous search directions into the optimization process.",
+  "model_or_system": "The focus is on optimizing the energy expectation value $E(U)$ by minimizing it along geodesics on the unitary manifold $U(N)$ using unitary evolution.",
+  "key_observables": "Energy expectation value $E_k$, convergence rate, and circuit cost quantified by gate counts and circuit depth.",
+  "important_parameters": "The trade-off between convergence rate and implementation complexity (circuit depth), particularly in the early fault-tolerant regime.",
+  "main_assumptions": "The derivation relies on approximations such as the group commutator expansion and Trotter-Suzuki formulas to translate classical Riemannian CGD rules into quantum unitary operations.",
+  "figures_summary": "Figures compare the energy convergence of QCGD versus DB-QITE, and also compare resource costs (gate counts, circuit depth) across increasing system sizes, showing QCGD's resource overhead.",
+  "paper_structure": "The paper builds from the geometric formulation of GSP, introduces the existing DB-QITE method, derives the QCGD update rules by adapting Riemannian CGD, and concludes with complexity and resource analysis comparing the two approaches.",
+  "why_interesting": "It provides a concrete, theoretically derived quantum algorithm improvement for a fundamental problem in quantum simulation, directly impacting the resource estimates for near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.21782_figures/2610.21782_fig1.jpg",
+      "caption": "FIG. 1. Schematic comparison of conjugate-gradient descent (CGD; black) and gradient descent (GD; blue) for minimising a function E(U) on the unitary manifold. Each curve segment represents a step along a geodesic. For GD with exact line search, the step size is cho- sen to minimise E(U) along the current geodesic; thus, the negative Riemannian gradient at the new iterate is orthog- onal to the parallel transport of the previous search direc- tion, producing the illustrated right-angle turns [89, 90]. At the final CGD iterate, the three arrows indicate, respectively, the parallel-transported previous CGD direction (tangent to the incoming path), the new negative Riemannian gradient...",
+      "page": 2
+    },
+    {
+      "image": "2610.21782_figures/2610.21782_fig2.jpg",
+      "caption": "FIG. 2. Sketch of the DB-QITE and QCGD recursion rules. Each row, labelled k, represents the unitary update constructed at the kth iteration. The comparison shows how the QCGD circuit grows recursively as new operations are inserted. The light blue blocks denote the unitaries Uj that prepare approximations to the ground-state of a Hamiltonian H, while the dark blue and purple blocks denote Hamiltonian evolution eitH and generalised reflections eit|0⟩⟨0| about the |0⟩state, respectively. The operations are applied from left to right, and † indicates that the circuit should be inverted.",
+      "page": 3
+    },
+    {
+      "image": "2610.21782_figures/2610.21782_fig3.jpg",
+      "caption": "FIG. 3. Schematic comparison between the ex- act gradient-descent geodesic (black) and its group- commutator approximation (red). The exact path is generated by e−µ[H,ψk]Uk, while the product-formula path is constructed from Hamiltonian evolutions eiαH and phase ro- tations eiβψk.",
+      "page": 4
+    },
+    {
+      "image": "2610.21782_figures/2610.21782_fig4.jpg",
+      "caption": "FIG. 4. Comparison of Riemannian gradient descent (GD) and conjugate-gradient descent (CGD) for the Heisenberg Hamiltonian introduced in Eq. (32) with the singlet initialisation from Eq. (34). From left to right, the panels show the energy Ek = ⟨ψk|H|ψk⟩after optimization step k for L = 8, 10, and 12 qubits. The red dashed line marks the exact ground-state energy, λ0, for each system size. The two methods coincide at the first update because CGD has no previous search direction. From the second update onward, CGD uses information retained from the preceding step and consistently reaches a lower energy than GD. The improvement is modest for L = 8 but becomes increasingly visible for L = 10...",
+      "page": 6
+    },
+    {
+      "image": "2610.21782_figures/2610.21782_fig5.jpg",
+      "caption": "FIG. 5. QCGD parameter landscapes for the L = 20 Heisenberg model with HVA initialisation. Panels (a)–(d), occupying the left half of the figure, show results for (µ, γ) ∈[0, 0.5]2; panels (e)–(h), in the right half, show results for the extended domain [0, 1.5]2. The upper and lower rows correspond to the second and third updates, respectively. Within each domain, the left panels show Ek(µ, γ), with silver markers denoting the minima on the sampled grids, while the right panels compare the DB-QITE limit γ = 0 with the slices at the selected γopt. Black markers indicate the optimal µ, and ∆Ek denotes the energy reduction relative to DB-QITE. In the restricted domain, both minima occur at...",
+      "page": 8
+    }
+  ],
+  "figure": "2610.21782_figures/2610.21782_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

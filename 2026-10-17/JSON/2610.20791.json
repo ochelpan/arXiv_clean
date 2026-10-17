@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.20791",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Sparse-QITE: Discovering Compact Generators for Quantum Imaginary-Time Evolution via Regularization Methods",
+  "authors": "Rafael Gómez-Lurbe, Luca Ion, Alberto Acevedo, Andreu Anglés-Castillo",
+  "abstract": "Quantum imaginary-time evolution (QITE) provides a systematic route to ground-state preparation, but its cost grows rapidly with the locality $D$ of the unitary approximation, for which the local Pauli basis scales as $4^D$. We introduce Sparse-QITE, a regularized formulation that promotes compact generators, reducing the number of quantum operations and yielding circuits with fewer gates and lower depth. We derive rigorous bounds on the sparsification error and benchmark the method in one-dimensional transverse-field Ising and antiferromagnetic Heisenberg models. Sparse-QITE exhibits a controllable sparsity--accuracy trade-off while retaining strong compression even in the high-accuracy regime. In scalability experiments with respect to $D$, the active support grows much more slowly than in standard QITE and, in several regimes, approximately saturates over the domain sizes studied. After circuit construction and transpilation, some of the largest-domain cases require only about $1\\%$ of the standard-QITE gate count while maintaining high accuracy. We further introduce adaptive and active-discovery variants: the former selects the regularization strength dynamically during the evolution, while the latter reduces the number of Pauli expectation values that need to be evaluated and, consequently, the measurement requirements. These results establish sparsity-promoting regularization as a route toward more resource-efficient QITE. More broadly, these results suggest that sparsity-promoting regularization may also benefit variational quantum algorithms.",
+  "url": "http://arxiv.org/abs/2610.20791v1",
+  "pdf": "https://arxiv.org/pdf/2610.20791v1",
+  "type": "theory",
+  "summary": "This paper introduces Sparse-QITE, a regularization technique that promotes sparsity in the generators used for Quantum Imaginary-Time Evolution (QITE). By adding an $\\ell_1$ penalty, the method drastically reduces the number of necessary quantum operations compared to standard QITE. This results in highly resource-efficient quantum circuits for simulating ground states in models like the Ising and Heisenberg models.",
+  "main_problem": "Quantum Imaginary-Time Evolution (QITE) for ground-state preparation is computationally expensive due to the rapid scaling of the local Pauli basis with locality domain size $D$.",
+  "main_result": "Sparse-QITE, a regularized formulation, achieves substantial generator compression, requiring significantly fewer gates (potentially 1% of standard QITE) while maintaining high accuracy.",
+  "method": "The method introduces an $\\ell_1$ regularization penalty (elastic-net formulation) to the standard QITE objective function, promoting the selection of a compact, sparse set of Pauli generators.",
+  "model_or_system": "The method is benchmarked on one-dimensional quantum models, specifically the transverse-field Ising and antiferromagnetic Heisenberg models, to approximate the imaginary-time evolution operator.",
+  "key_observables": "Generator sparsity (number of active Pauli terms), circuit gate count (U3, CX), circuit depth, and ground-state fidelity ($F_{GS}$).",
+  "important_parameters": "Sparsity regularization strength ($\\lambda$), numerical stabilization parameter ($\rho$), and locality domain size ($D$).",
+  "main_assumptions": "The analysis relies on bounding norms and using approximations derived from the Duhamel representation; the stability heuristic is noted as practical rather than rigorously proven.",
+  "figures_summary": "Figures compare resource scaling (gate count, depth) between standard QITE and Sparse-QITE across varying domain sizes ($D$) and fidelity thresholds, showing significant resource savings with sparsity.",
+  "paper_structure": "The paper first establishes the computational bottleneck of standard QITE. It then introduces Sparse-QITE using $\\ell_1$ regularization to derive compact generators. The core of the work involves benchmarking this method on TFIM and Heisenberg models, showing resource savings, and finally detailing extensions like adaptive and active-discovery variants.",
+  "why_interesting": "This work directly addresses the resource scaling bottleneck in quantum simulation algorithms, providing a concrete, mathematically grounded technique to make quantum algorithms more feasible on near-term hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.20791_figures/2610.20791_fig1.jpg",
+      "caption": "Figure 1: Overview of the Sparse-QITE framework. Sparse regularization selects compact Pauli generators; Adaptive Sparse-QITE adjusts the regularization strength according to a local approximation tolerance; Active-Discovery Sparse-QITE reuses discovered support to reduce subsequent measurement requirements.",
+      "page": 3
+    },
+    {
+      "image": "2610.20791_figures/2610.20791_fig2.jpg",
+      "caption": "Figure 2: Imaginary-time evolution for the TFIM (ordered and disordered phase) and the isotropic Heisenberg for a chain of N = 8 spins. (Left) Ground-state infidelity on a logarithmic scale for each model comparing regular QITE with Sparse-QITE. (Right) Fraction of active Pauli terms χn of Sparse-QITE with respect to QITE. The Heisenberg model results used D = 6 resulting in |C(QIT E) n | = 7936, the TFIM ordered-phase results use D = 6 with |C(QIT E) n | = 16128, whereas the disordered-phase results use D = 4 with |C(QIT E) n | = 960. In each case, the chosen λ is the largest tested value for which the final-state fidelity with standard QITE is at least 0.999 and is given in the legend for...",
+      "page": 9
+    },
+    {
+      "image": "2610.20791_figures/2610.20791_fig3.jpg",
+      "caption": "Figure 3: Normalized active support by Pauli locality w of Sparse-QITE for the models explored in Fig. 2. Each horizontal entry gives the fraction of active Pauli strings at a given locality, normalized by the total number of available strings at that locality. The white hatched area denotes exactly zero active terms.",
+      "page": 10
+    },
+    {
+      "image": "2610.20791_figures/2610.20791_fig4.jpg",
+      "caption": "Figure 4: Sparsity–accuracy trade-off for Sparse-QITE of the models studied in Fig. 2 sweeping the regularization parameter λ, where each point corresponds to a different value. The horizontal axis gives the total number of active Pauli rotations accumulated over the trajectory of 100 imaginary time steps, while the vertical axis shows the final ground-state infidelity. Solid lines represent the Pareto front containing the points that minimizes infidelity and active Pauli terms. Solid black markers denote standard QITE costs and final infidelities.",
+      "page": 11
+    },
+    {
+      "image": "2610.20791_figures/2610.20791_fig5.jpg",
+      "caption": "Figure 5: Scaling of Sparse-QITE with the QITE domain size D for the N = 8 TFIM. (Left) Total number of active Pauli terms accumulated over the full imaginary-time trajectory. (Center) Final ground-state infidelity for ordered phase. (Right) Final ground-state infidelity for disordered phase. For each fidelity threshold with respect to standard QITE, the largest tested regularization strength λ satisfying the threshold is selected. Standard-QITE results are included in solid black lines for comparison. Both the active-term counts and ground-state infidelities are displayed on logarithmic scales.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.20791_figures/2610.20791_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

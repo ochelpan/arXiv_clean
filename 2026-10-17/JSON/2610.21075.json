@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.21075",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Data-Driven Optimization of Seminumerical Exchange for SIMD CPUs",
+  "authors": "Jesse DiCenso, Henryk Laqua, Martin Head-Gordon",
+  "abstract": "We present a seminumerical exchange algorithm (SNK) based on the sn-LinK method [Laqua et al., J. Chem. Theory Comput. 16, 1456 (2020)], optimized for modern multi-core central processing units with single instruction multiple data vector instructions and report its implementation into the Q-Chem quantum chemistry program. Vectorization and memory management strategies for the Boys function and 3-center-1-electron (3c1e) integral kernels are given. Several new considerations are made in the computation of the 3c1e integrals: the Head-Gordon Pople horizontal recurrence relations, same-center optimizations, and multishell optimizations, all implemented symbolically employing the SymPy symbolic algebra library and exported as optimized C++ code leveraging common-sub-expression elimination (CSE) optimization techniques. A general scheme for choosing optimal integral kernels is developed through rigorous timing benchmarks. The resulting implementation is tested against traditional 4c2e exchange for several systems and basis sets, showing 1-2 orders of magnitude speedups for systems of practically relevant sizes (100-500 atoms, 2000-10000 basis functions). For smaller molecules, comparisons are also made against the more efficient occ-RI-K method showing a break-even point around 50-100 atoms beyond which SNK dramatically outperforms due to its superior sub-quadratic (between linear and quadratic) time complexity as well as its effectively negligible memory demand.",
+  "url": "http://arxiv.org/abs/2610.21075v1",
+  "pdf": "https://arxiv.org/pdf/2610.21075v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, highly optimized seminumerical exchange algorithm (SNK) designed to accelerate the calculation of exchange integrals in DFT. By transforming computationally prohibitive 4c2e integrals into more manageable 3c1e integrals, the method achieves dramatic speedups for large molecular systems. This represents a significant computational advance for quantum chemistry simulations.",
+  "main_problem": "The primary challenge addressed is the computational expense of calculating the exact exchange (K) term in electronic structure theory, which is often the rate-limiting step in quantum chemistry simulations.",
+  "main_result": "The developed seminumerical exchange algorithm (SNK) achieves 1-2 orders of magnitude speedups over traditional methods for large systems and outperforms established methods beyond a break-even point of 50-100 atoms.",
+  "method": "The approach approximates complex 4-center-2-electron integrals by performing one integration numerically (via quadrature) and the other analytically, resulting in more manageable 3-center-1-electron integrals.",
+  "model_or_system": "The work is applied to electronic structure calculations within Density Functional Theory (DFT) using atomic orbitals and basis sets, focusing on the calculation of exchange interactions.",
+  "key_observables": "The primary observable is the exchange energy matrix (K), and performance is measured by computational speedup and scaling complexity.",
+  "important_parameters": "System size (100-500 atoms), basis set size (2000-10000 functions), and the break-even point (50-100 atoms) relative to other methods.",
+  "main_assumptions": "The efficiency relies on the ability to perform numerical integration over a real space grid and utilizes advanced optimizations like common-sub-expression elimination and mixed-precision arithmetic.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper details the mathematical derivation of the SNK method, including the use of recurrence relations (Obara-Saika, Head-Gordon Pople) for 3c1e integrals, followed by an implementation section focusing on data-driven optimization, integral screening, and leveraging SIMD CPU capabilities.",
+  "why_interesting": "While focused on quantum chemistry, the core development—creating a highly optimized, scalable numerical routine for calculating complex many-body interactions—is directly relevant to developing efficient simulation techniques for open quantum systems or strongly correlated materials.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.21075_figures/2610.21075_fig1.jpg",
+      "caption": "FIG. 1. Primitive integrals per second for generic (GVRR) and codegen (CVRR, CHRR) kernels, including same-center optimiza- tions (SC); 1 primitive; single-threaded. Values with standard devi- ations are shown for FP32 kernels, while parenthetical values show FP64→FP32 speedup ratios.",
+      "page": 8
+    },
+    {
+      "image": "2610.21075_figures/2610.21075_fig2.jpg",
+      "caption": "FIG. 2. Primitive integrals per second for generic (GVRR) and code- gen (CVRR, CHRR) kernels, including same-center optimizations (SC); 2 primitives; single-threaded. Values with standard devia- tions are shown for FP32 kernels, while parenthetical values show FP64→FP32 speedup ratios.",
+      "page": 8
+    },
+    {
+      "image": "2610.21075_figures/2610.21075_fig3.jpg",
+      "caption": "FIG. 3. Primitive integral counts and percentages of the total for linear alkanes (A) and diamond clusters (D) with 64 or 128 Carbon atoms in cc-pVTZ (TZ) or cc-pVQZ (QZ).",
+      "page": 9
+    },
+    {
+      "image": "2610.21075_figures/2610.21075_fig4.jpg",
+      "caption": "FIG. 4. Wall times for one J + K build using RI-J and SNK, occ- RI-K, or 4c2e K for linear alkanes and diamond clusters.",
+      "page": 10
+    },
+    {
+      "image": "2610.21075_figures/2610.21075_fig5.jpg",
+      "caption": "FIG. 5. Wall times for one K build with SNK, including total times, integrals times (computation and digestion; steps 8, 9, and 10 in Al- gorithm 1), and BLAS-3 times (steps 5 and 11 in Algorithm 1).",
+      "page": 11
+    }
+  ],
+  "figure": "2610.21075_figures/2610.21075_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

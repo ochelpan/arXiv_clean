@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.21987",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum control of solid state qubits via Reinforcement Learning",
+  "authors": "Dennis Herb, Mirko Rossini, Sabine Wölk, Joachim Ankerhold, Dominik Maile, Alessio Belenchia",
+  "abstract": "The use of reinforcement learning (RL) in the design of quantum control strategies for pulse level control of NISQ era quantum devices is attracting growing interest. Model-free RL, not requiring preexisting knowledge of the physical system, acts as a black-box optimization tool well suited for noisy devices. In this work, we provide a simulation-based analysis of the performance of model-free RL for state preparation and qubit gate design in a challenging setup: indirect control of NV nuclear spins in a spin-bath. In particular, the spin-bath is modeled via the generalized cluster correlation expansion accounting for magnetic impurities and intra-bath interactions. We analyze the performance of the RL agents by performing simulations with minimally observable environments and noisy, sparse rewards as introduced in (Phys. Rev. X 12, 011059), and compare them to other state-of-the-art black-box optimization tools.",
+  "url": "http://arxiv.org/abs/2610.21987v1",
+  "pdf": "https://arxiv.org/pdf/2610.21987v1",
+  "type": "theory",
+  "summary": "This paper investigates using Reinforcement Learning to design quantum control pulses for solid-state qubits like NV centers, which are subject to complex noise from a surrounding spin-bath. By modeling the bath using the generalized cluster correlation expansion, the authors show that RL agents can learn highly effective, tailored control strategies. This advances the field by demonstrating how ML can optimize quantum operations under realistic, noisy, and partially observable conditions.",
+  "main_problem": "Designing optimal quantum control pulse sequences for solid-state qubits operating in the noisy NISQ era.",
+  "main_result": "Reinforcement Learning agents can generate tailored pulse sequences with higher fidelities by explicitly accounting for the complex structure of the surrounding spin-bath compared to other black-box optimization methods.",
+  "method": "The study employs model-free Reinforcement Learning (RL) agents, comparing their performance against Bayesian Optimization and Evolution Strategies.",
+  "model_or_system": "The system involves Nitrogen-Vacancy (NV) centers acting as qubits, coupled to a nuclear spin register and a complex, unaddressed nuclear spin bath. The bath dynamics are modeled using the generalized cluster correlation expansion (gCCE).",
+  "key_observables": "State fidelity and process fidelity are the primary metrics used to reward the RL agents.",
+  "important_parameters": "The complexity of the spin-bath, the specific Hamiltonian parameters ($D_{gs}, P_{gs}$), and the RL hyperparameters (e.g., learning rate, discount factor) are critical.",
+  "main_assumptions": "The analysis relies on the gCCE approximation to manage the exponentially growing Hilbert space of the spin-bath, and the RL setup addresses minimally observable environments and noisy, sparse rewards.",
+  "figures_summary": "Figures illustrate the RL setup controlling spins via microwave pulses under bath influence, and comparison figures show convergence curves and Bloch sphere trajectories comparing RL to CMA-ES and BO.",
+  "paper_structure": "The paper details the Hamiltonian, introduces the RL framework, presents the main simulation results comparing RL performance, and discusses the mathematical framework for fidelity estimation.",
+  "why_interesting": "This work directly tackles the practical challenge of controlling solid-state quantum memories in realistic, noisy environments by integrating advanced machine learning optimization techniques with complex many-body physics models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.21987_figures/2610.21987_fig1.jpg",
+      "caption": "Figure 1: Overview of our RL setup. A reinforcement learning agent indirectly controls one or more nuclear spins via mw pulses on the NV electronic spin while under the influence of a spin-bath. Upon measuring the electronic spin at the end of a train of pulses the agent obtains a reward. The latter aids the agent in learning how to perform pulse sequences aimed at the optimal implementation of quantum gates or state preparation while accounting for the open quantum system dynamics.",
+      "page": 4
+    },
+    {
+      "image": "2610.21987_figures/2610.21987_fig2.jpg",
+      "caption": "Figure 2: Schematic representation of the register and the first gCCE orders. (Top) The register, composed of the electronic spin and selected nuclear spins, is sur- rounded by impurity spins forming the spin-bath. (Bot- tom) Illustration of gCCE0, gCCE1, and gCCE2. The encircled cluster contains the register together with the bath spins included at the respective gCCE order, while all remaining bath spins are treated as a mean field [34].",
+      "page": 6
+    },
+    {
+      "image": "2610.21987_figures/2610.21987_fig3.jpg",
+      "caption": "Figure 3: Learning and evaluation for indirect nuclear- spin control. (a) Smoothed episode reward ˜R with a window of 103 episodes. (b) Evaluation of three-pulse sequences implementing a Hadamard gate on the nu- clear spin using control of the electronic spin only. The system parameters are Mzz = −0.152 MHz, Mzx = 0.110 MHz, Ω= 0.5 MHz, and Bz = 14.8 mT. The pulse parametrization is shown in the inset of (a); for each pulse, the agent selects two free-evolution times, the pulse duration, and phase within [0, 1] µs, [0, 2] µs, and [−π, π], respectively. The learned se- quences have total durations of about 5 µs, comparable to Refs. [29, 32, 33].",
+      "page": 10
+    },
+    {
+      "image": "2610.21987_figures/2610.21987_fig4.jpg",
+      "caption": "Figure 4: RL agents learn pulse sequences robust to spin-bath effects for the Hada10 target. (a,b) Training curves for agents A1–3, trained without a bath (a), and B1–3, trained with a gCCE1 bath (b), using exact process fidelity as reward. Gray curves show training for independent runs; horizontal lines indicate mean fidelities evaluated without a bath and with the exact bath. (c,d) Fidelity distributions from stochastic policy evaluations. Bath-trained agents achieve higher exact-bath fidelities. (e,f) Representative dynamics from agents A and B, showing ⟨X⟩(dashed) and ⟨Z⟩(solid) without a bath, with gCCE1, and with the exact bath (dotted). Agent B remains robust to bath effects, with...",
+      "page": 13
+    },
+    {
+      "image": "2610.21987_figures/2610.21987_fig5.jpg",
+      "caption": "Figure 5: Training with single-shot fidelity rewards for the Hada4 target. (a) Agents A1–3(ss), trained with- out a spin-bath. (b) Agents B1–3(ss), trained with the gCCE1 bath. Gray curves show independent training runs; horizontal lines indicate mean fidelities F evalu- ated without a bath and with the exact bath. Despite the noisy single-shot reward, bath-trained agents learn pulse sequences that are more robust to environmental effects.",
+      "page": 14
+    }
+  ],
+  "figure": "2610.21987_figures/2610.21987_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

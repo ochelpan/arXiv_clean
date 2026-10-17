@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.22191",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cs.LG",
+    "cs.NE"
+  ],
+  "is_primary_archive": true,
+  "title": "Attention over noisy examples: generalization and memorization in the exponential Hopfield network",
+  "authors": "Francesco Alemanno",
+  "abstract": "In Hebbian learning from examples a Hopfield network of $N$ neurons is not supplied with the $K$ archetypes it has to retrieve but with $M$ blurred examples of each, of quality $r$, and whether it can infer them depends on the load $α=K/N$ (interference among them) and on the dataset entropy $ρ=(1-r^2)/(Mr^2)$ (how little the examples say about them). We transfer this protocol to the exponential Hopfield model, whose zero-temperature update is a step of softmax attention with the unlabelled examples as keys. A signal-to-noise analysis gives in closed form the overlap between the output and an unseen archetype, $m^{(1)}={\\rm erf}(1/\\sqrt{2ρ_{\\rm eff}})$: the majority-rule law of the pairwise model at small load, with $ρ$ replaced by an attention entropy $ρ_{\\rm eff}$ built from the weight the softmax gives to the correct class and the number of examples it spreads it over. Two consequences follow. First, in a window of inverse temperatures $β$ that widens as $\\sqrt N$ the interference between archetypes is exponentially small in $Nβ$: the load drops out and the number of archetypes that can be learnt grows as $\\exp(c\\sqrt N)$. Second, learning fails differently: in the pairwise model through a spin-glass phase, in the exponential model through memorization: the softmax concentrates its weight on the training example closest to the input and returns it in place of the archetype. Seen from the input the softmax weights are those of the random energy model, and memorization is its freezing transition, at $β\\sqrt{N(1-r^2)}\\simeq\\sqrt{2\\ln M}$; it is measurable on a head whose keys are examples as the number of examples carrying weight. On MNIST the diagnostic follows the random-energy prediction; on fashion-MNIST it detects sub-clusters in the classes, and the best accuracy lies beyond the memorization threshold, where the softmax reads out a local sub-prototype.",
+  "url": "http://arxiv.org/abs/2610.22191v1",
+  "pdf": "https://arxiv.org/pdf/2610.22191v1",
+  "type": "theory",
+  "summary": "This work analyzes an exponential Hopfield network using attention layers to study how associative memory systems generalize versus memorize. By analyzing the effective attention entropy, the authors derive a quantitative understanding of the transition between these two regimes as a function of temperature and system load. This provides deep theoretical insights into the operational limits of attention-based learning.",
+  "main_problem": "The paper investigates the trade-off between generalization and memorization when using attention mechanisms (softmax) over noisy examples in associative memory models.",
+  "main_result": "The system exhibits three distinct regimes controlled by the inverse temperature $\\beta$: small $\\beta$ yields pairwise crosstalk, intermediate $\\beta$ shows generalization, and large $\\beta$ leads to memorization, analogous to the Random Energy Model freezing transition.",
+  "method": "The analysis employs signal-to-noise theory, deriving closed-form expressions for the overlap using an effective attention entropy $\\rho_{\\text{eff}}(\\beta)$.",
+  "model_or_system": "The model is an exponential Hopfield network where the stored keys are noisy training examples. The dynamics are mapped onto a single head of self-attention, connecting it to established theories of associative memory.",
+  "key_observables": "Generalization overlap $m(1)$, memorization measure $n_{\\max}$, and the effective attention entropy $\\rho_{\\text{eff}}(\\beta)$.",
+  "important_parameters": "Load $\\alpha=K/N$, dataset entropy $\\rho$, and the inverse temperature $\\beta$.",
+  "main_assumptions": "The analysis relies on Gaussian approximations (Central Limit Theorem) for the field acting on a neuron, which is assumed valid except in the highly condensed regime.",
+  "figures_summary": "Figures illustrate the three operational regimes (crosstalk, prototype, memorization) across varying inverse temperatures $\\beta$, and show diagnostic plots for MNIST/fashion-MNIST data.",
+  "paper_structure": "The paper builds from comparing the exponential model to the pairwise model, deriving the one-step magnetization $m(1)$ using $\\rho_{\\text{eff}}$, and then analyzing the transition between generalization and memorization as $\\beta$ is varied.",
+  "why_interesting": "The direct mapping of attention mechanisms to established statistical physics concepts like spin-glass phases and REM freezing provides a powerful theoretical framework for understanding modern deep learning architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.22191_figures/2610.22191_fig1.jpg",
+      "caption": "Figure 1: The three regimes seen from one query. Attention weights (5) of the same query (a fresh example of archetype ξ1; N = 1000, K = 20, M = 16, ρ = 0.2) over the same training set at three inverse temperatures, β = βlo/3, √βloβhi and 3βhi, where βlo and βhi are the two edges of the generalization window derived in Sec. 3, Eq. (17). In each panel the left part shows the M weights wb of the keys of the correct class, the right part the total weight Vν = P",
+      "page": 4
+    },
+    {
+      "image": "2610.22191_figures/2610.22191_fig2.jpg",
+      "caption": "Figure 2: The three regimes in the (β, ρ) plane, from the closed-form theory alone (N = 1000, K = 100, M = 16). (a) Crosstalk (crosstalk term of Corollary 1(i) above ρ), prototype and memorization (x > √",
+      "page": 7
+    },
+    {
+      "image": "2610.22191_figures/2610.22191_fig3.jpg",
+      "caption": "Figure 3: One attention step over the training set as a function of the inverse temperature β, for N = 1000, α = 0.1 and three datasets of increasing entropy (columns: (ρ, M) = (0.05, 32), (0.2, 16), (0.5, 8), i.e. r = 0.62, 0.49, 0.45). Top: magnetization of the unseen archetype, theory (14) (line) versus Monte Carlo (full circles), and overlap nmax with the closest training example (open squares); the dotted line is the quality r of a single example. Bottom: weight of the correct class W and pooled fraction Meff/M, theory (12), (13) (lines) versus Monte Carlo (symbols). The grey band is the analytic window (17). The three regimes of Corollary 1 are visible from left to right: crosstalk (W...",
+      "page": 8
+    },
+    {
+      "image": "2610.22191_figures/2610.22191_fig4.jpg",
+      "caption": "Figure 4: The load disappears. Retrieval of an unseen archetype from a fresh test example (q = r), N = 4000, M = 16, β = 0.012; lines are theory, symbols Monte Carlo (3 samples × 6 queries, standard errors). (a) One-step magnetization against the load α at three dataset entropies: the pairwise network, Eq. (9) (dashed lines, open squares), degrades as α grows, the attention layer, Eqs. (14)–(15) (solid lines, full circles), does not. (b) Magnetization against ρ at α = 0.2: pairwise (open squares), attention after one step (full circles) and at the fixed point of the iterated map (triangles); the dotted line is the quality r of a single example. The iterated map retrieves the archetype only...",
+      "page": 9
+    },
+    {
+      "image": "2610.22191_figures/2610.22191_fig5.jpg",
+      "caption": "Figure 5: Size dependence of the generalization window at ρ = 0.2, M = 16, α = 0.1 (lines: theory; symbols: Monte Carlo, 3 samples × 8 queries). (a) Against β the window widens with N. (b) Against βN the rising (crosstalk) edges collapse, up to the slow drift ln K = ln(αN) of Eq. (17). (c) Against β √",
+      "page": 10
+    }
+  ],
+  "figure": "2610.22191_figures/2610.22191_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

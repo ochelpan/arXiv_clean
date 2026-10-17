@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.21778",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Same Spectrum, Harder First-Order Training: Phase-Locking in Single- versus Multi-Qubit Re-Uploading Circuits",
+  "authors": "Michael Poppel, David Bucher, Maximilian Zorn, Markus Baumann, Sebastian Wölckert, Claudia Linnhoff-Popien, Philipp Altmann, Jonas Stein",
+  "abstract": "Angle-encoded variational quantum circuits implement truncated Fourier series. For one-dimensional inputs, a single-qubit re-uploading (serial) circuit represents every function that a multi-qubit circuit with the same encoding budget $E$ can; we find that this exchange of width for depth is not free in first-order training. Because its state lives on the Bloch sphere, all parameters of the serial circuit move the state, at each input, along one complex direction, which we call \\emph{phase-locking}. We prove that this costs no Fourier direction but leaves no direction to spare: however many parameters it has, the serial circuit has at most $2E+2$ tangent directions, one more than its $2E+1$ Fourier coefficients need, while a two-qubit control with the same encoding budget and model class generically has at least $6E+6$. The cost in training is measured against this control, as the number of runs out of 100 that reach the optimum within a fixed step budget. On an exact loss with flat-spectrum targets the gap grows with $E$; at $E=32$ the serial circuit converges in 3, 53 and 83 runs under gradient descent, Adam and Levenberg--Marquardt, the control in 99, 100 and 100. On three real-world series, at matched parameter counts, the serial circuit reaches the least-squares optimum in at most 9 runs under Adam and in 32 to 93 under Levenberg--Marquardt, the control in at least 98 and in all 100; its held-out error is up to about $1.5$ times that of the control under Adam, but no larger in the typical run under Levenberg--Marquardt.",
+  "url": "http://arxiv.org/abs/2610.21778v1",
+  "pdf": "https://arxiv.org/pdf/2610.21778v1",
+  "type": "theory",
+  "summary": "This paper rigorously compares single-qubit versus multi-qubit quantum circuits designed to represent the same function. It proves that while they are equally expressive, the single-qubit serial structure suffers from 'phase-locking,' which geometrically constrains its parameter movement. This constraint leads to significantly poorer convergence during first-order training compared to multi-qubit controls.",
+  "main_problem": "The paper compares the training difficulty of single-qubit versus multi-qubit variational quantum circuits (VQCs) that are structurally different but functionally equivalent (same spectrum). It investigates whether the structural trade-off between width and depth impacts optimization convergence.",
+  "main_result": "The exchange of width for depth is not free in first-order training; the single-qubit serial circuit exhibits 'phase-locking' that severely limits its tangent directions compared to multi-qubit controls, leading to poorer optimization performance.",
+  "method": "The authors use theoretical analysis of the Jacobian structure (comparing tangent directions) alongside extensive numerical benchmarking using multiple optimization algorithms (Adam, LM, GD) on various target functions.",
+  "model_or_system": "The model involves Variational Quantum Circuits (VQCs) using angle encoding to implement truncated Fourier series. The comparison is between serial (single-qubit) and multi-qubit (ancilla/parallel) circuit architectures.",
+  "key_observables": "Convergence rate (runs out of 100 reaching optimum), held-out error ratio, and the dimension of the tangent space ($\text{dim T}$).",
+  "important_parameters": "Encoding budget ($E$), number of qubits ($N$), and optimization algorithm (Adam, LM, GD).",
+  "main_assumptions": "The comparison focuses on optimization difficulty, not a loss of expressivity, and assumes the cost is due to optimization geometry rather than vanishing gradients.",
+  "figures_summary": "Figures illustrate chain lengths for different circuit types and demonstrate the phase-locking mechanism (one complex direction for $N=1$). Tables summarize convergence rates and error ratios across various targets and optimizers.",
+  "paper_structure": "The paper first establishes the functional equivalence of the circuits (same spectrum) and then dives into the theoretical analysis of the Jacobian structure, highlighting the constraint imposed by phase-locking in the serial case. This is followed by extensive numerical results comparing optimization performance across different real-world and synthetic targets.",
+  "why_interesting": "The findings provide concrete evidence that the geometric structure of the quantum circuit (depth vs. width) imposes measurable, non-trivial constraints on the optimization landscape, which is crucial for designing efficient quantum machine learning models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.21778_figures/2610.21778_fig1.jpg",
+      "caption": "Figure 1. (a) Chain length at E = 4: the number L + 1 of blocks, all of which enter every term of every Fourier coefficient (Lemma 4.1). (b) Phase-locking. At each input, every parameter of the serial circuit moves the state along the one vector |ψ⊥⟩ (Lemma 4.2); on two qubits, in the ancilla and the parallel circuit alike, it moves it along three orthogonal vectors (Remark 4.3). Symbols as in Lemma 4.2 and Remark 4.3.",
+      "page": 3
+    },
+    {
+      "image": "2610.21778_figures/2610.21778_fig2.jpg",
+      "caption": "Figure 2. Share of converged runs (final loss ≤10−6) against the encoding budget E, for flat targets and the three optimisers. Bars: 95% Wilson intervals; 100 runs per point.",
+      "page": 7
+    },
+    {
+      "image": "2610.21778_figures/2610.21778_fig3.jpg",
+      "caption": "Figure 3. Poisson-kernel targets, Adam at matched parameter counts. (a) Share of runs that reach the least-squares optimum; open diamonds: Levenberg–Marquardt on the same runs of the serial circuit (both two-qubit circuits reach the optimum in every run under it). Bars: 95% Wilson intervals; 100 runs per point. (b) Held-out error 1 −R2: median over runs, bars from the lower to the upper quartile; open diamonds: median of the serial circuit under Levenberg–Marquardt.",
+      "page": 9
+    },
+    {
+      "image": "2610.21778_figures/2610.21778_fig4.jpg",
+      "caption": "Figure 4. Real-world series, Adam at matched parameter counts; panels as in Figure 3, 100 runs per point.",
+      "page": 9
+    },
+    {
+      "image": "2610.21778_figures/2610.21778_fig5.jpg",
+      "caption": "Figure 5. (a) Median log10 κJ at initialisation against E, flat targets; the dotted line marks double precision. (b) Median log10 κJ (solid) and median log10 loss (dashed) along gradient descent, flat targets, E = 16.",
+      "page": 21
+    }
+  ],
+  "figure": "2610.21778_figures/2610.21778_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
