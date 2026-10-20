@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.23834",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Task-aligned spectral inductive biases in parameterized quantum circuits",
+  "authors": "Felix Frohnert, Adrián Pérez-Salinas, Sebastian Lange, Marcus Schwaebisch, Evert van Nieuwenburg, Vedran Dunjko",
+  "abstract": "Parameterized quantum circuits are widely investigated in quantum machine learning, yet how their architecture can provide task-aligned inductive biases remains poorly understood. We study data reuploading quantum circuits with two distinct inputs: a signal that varies between samples and a fixed, task-defined spectral query that specifies how the signal should be probed. We show that encoding the query can change the circuit's hypothesis class over the signal by modulating how its existing signal frequencies are combined, without introducing new sample-dependent information. This mechanism matches tasks built on nonuniform Fourier transforms, whose evaluation frequencies specify the query and whose sampling positions guide its encoding. We examine this connection in a classification task inspired by synthetic aperture radar, where acquisition geometry determines a query for classifying unfocused spectral patches before image formation. Across small-scale spectral and radar-like tasks, aligned queries improve learning from limited data over parameter-matched circuits with mismatched or absent queries. These results provide a route from known spectral task structure to the design and validation of inductive biases in parameterized quantum circuits.",
+  "url": "http://arxiv.org/abs/2610.23834v1",
+  "pdf": "https://arxiv.org/pdf/2610.23834v1",
+  "type": "theory",
+  "summary": "This work develops a theoretical framework showing that incorporating a fixed 'query' input into Parameterized Quantum Circuits (PQCs) allows for the precise engineering of task-specific inductive biases. By analyzing the resulting spectral structure, the authors demonstrate that this mechanism can successfully map known signal processing tasks, such as those involving Nonuniform Fourier Transforms, onto quantum circuits, improving performance with limited data.",
+  "main_problem": "The paper addresses how to design Parameterized Quantum Circuits (PQCs) to incorporate task-specific inductive biases, moving beyond general circuit training.",
+  "main_result": "By introducing a fixed, task-defined 'query' input alongside the variable 'signal' input, the circuit's hypothesis class can be precisely modulated to match structures found in spectral signal processing tasks.",
+  "method": "The authors utilize a Double Data Reuploading (DDR) circuit architecture, analyzing the resulting expectation value through Fourier decomposition to isolate the effect of the query on the circuit's coefficients.",
+  "model_or_system": "The model is a PQC processed via a DDR structure, taking two inputs: a sample-dependent signal $\\mathbf{x}$ and a fixed, task-defined query $\\mathbf{f}$. The output is analyzed as a Generalized Trigonometric Polynomial (GTP) of both inputs.",
+  "key_observables": "The hypothesis class, the modulation of signal coefficients, and the relative mean-square error for approximation tasks.",
+  "important_parameters": "The structure of the query $\\mathbf{f}$ (e.g., determined by SAR acquisition geometry) and the number of trainable parameters $\\theta$.",
+  "main_assumptions": "The analysis relies on the query encoding failing certain 'absorption' conditions to demonstrate a true change in the model's representational power.",
+  "figures_summary": "Figures illustrate the DDR circuit structure, showing how the query controls the encoding, and demonstrate the application to SAR classification where geometry dictates the query.",
+  "paper_structure": "The paper first establishes the mathematical framework of DDR circuits, then analyzes the effect of the query on the hypothesis class using formal propositions, and finally applies this understanding to solve a spectral classification problem inspired by synthetic aperture radar (SAR).",
+  "why_interesting": "It provides a rigorous, mathematically grounded method for engineering quantum circuit architectures to naturally encode physical constraints (like spectral relationships) relevant to quantum sensing or quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.23834_figures/2610.23834_fig1.jpg",
+      "caption": "Figure 1. From query-controlled circuits to geometry-aligned classification. (II) In a DDR circuit, a fixed query controls how signal-dependent Fourier components are combined, modifying the represented function without providing sample- specific information (Sec. II). (III) A spectral classification task supplies a fixed query f ⋆and, through its sampling positions and score structure, a target spectrum Ω(f) ⋆ that guides the query encoding (Sec. III). (IV) In SAR, the acquisition geometry supplies this structure, enabling geometry-aligned classification directly from raw measurements without first reconstructing a focused image (Sec. IV).",
+      "page": 2
+    },
+    {
+      "image": "2610.23834_figures/2610.23834_fig2.jpg",
+      "caption": "Figure 2. Parameterized quantum circuits with data reuploading architectures: (a) The nq-qubit single data reuploading scheme consisting of L layers. Classical input features x are re-encoded at each layer via Eℓ(x) alongside parameterized unitaries Vℓ(θ). (b) The nq-qubit double data reuploading scheme extended to two input streams, x and f, structured across L/2 blocks. Each block alternates between encoding unitaries E(f) ℓ (f) and E(x) ℓ (x) and parameterized unitaries V (f) ℓ (θ) and V (x) ℓ (θ).",
+      "page": 3
+    },
+    {
+      "image": "2610.23834_figures/2610.23834_fig3.jpg",
+      "caption": "Figure 3. Changing the query encoding or the query value can alter the hypothesis class and the function prior. The top row varies the encoding at fixed f = (π/4, π/3); the bottom row varies f(t) = t1 at fixed encoding. In each row, the three series represent (I) an absorbable local encoding with Haar-distributed parameters, (II) the same encoding with a Gaussian parameter prior of width 0.35, and (III) a nonlocal encoding with Haar-distributed parameters. The comparisons preserve the accessible query-frequency spectrum Ω(f), isolating changes beyond frequency support. (a–c) Encoding interpolation. The generators H(f) ℓ,n(α) = sℓ",
+      "page": 6
+    },
+    {
+      "image": "2610.23834_figures/2610.23834_fig4.jpg",
+      "caption": "Figure 4. A task-aligned fixed query improves learning in a teacher–student problem. Teachers are DDR circuits evaluated at f ⋆= (π/4, π/3); students use the correct query, the mismatched query 2f ⋆, or no query. All students share the same architecture, trainable parameters, initializations, and optimization budget. (a) Test balanced accuracy versus training-set size. Lines show averages over ten independently sampled teachers after averaging folds within each teacher; shaded regions are paired 95% bootstrap intervals over teach- ers. (b) Median best-found relative mean-square error when fitting the continuous teacher score on an independent grid. The correct-query model reaches numerical...",
+      "page": 8
+    },
+    {
+      "image": "2610.23834_figures/2610.23834_fig5.jpg",
+      "caption": "Figure 5. Classification sensitivity to the fixed query value. (a) Test balanced accuracy for students trained with f(λ) = λf ⋆, where f ⋆= (π/4, π/3) is the query used to generate the teacher labels. The values λ = 0, 1, and 2 corre- spond to the no-query, correct-query, and mismatched-query models, respectively. (b) Local sensitivity to perturbations f = f ⋆+ δ(cos ϕ, sin ϕ) over eight sampled directions. The solid curve denotes the directional mean, the light band the directional 10–90% range, and the dashed curve the minimum accuracy over directions, averaged over teachers. The marked tolerance δ1% estimates the largest query mismatch for which the worst-direction accuracy remains...",
+      "page": 9
+    }
+  ],
+  "figure": "2610.23834_figures/2610.23834_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

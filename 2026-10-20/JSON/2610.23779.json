@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2610.23779",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Mesoscopic learning dynamics of extensive-width neural networks",
+  "authors": "Shu Zhou, Jean Barbier, Sebastian Goldt",
+  "abstract": "Understanding how stochastic gradient descent learns internal representations in wide neural networks trained on rich target functions is a central problem in machine learning. We study this question in two-layer neural networks learning target functions represented by networks of the same architecture, with arbitrary nonlinearity, and with network width and input dimension growing proportionally. In this regime, standard approaches for describing the learning dynamics require tracking a diverging number of overlaps, which measure correlations between learned and target features, leaving no obvious description in terms of a few order parameters. Here, we develop a mesoscopic description of learning by characterizing the distribution of overlaps. In the early stages of learning, we find that a Gaussian description of overlap statistics reduces the learning dynamics to a few collective variables that track learning of the target function's linear and quadratic components. We then estimate the timescale of specialization, when Gaussian closure breaks down and individual learned features begin to strongly correlate with specific target features. We find that specialization in extensive-rank networks is accelerated via a quadratic shielding mechanism, whereby learning the linear and quadratic components of the target function filters gradient fluctuations. We finally describe how the activation function determines the pattern of specialization and characterize the subsequent refinement of learned features. Together, these results show how collective learning gives way to individual feature discovery and clarify when learning in large neural networks admits a simple statistical description.",
+  "url": "http://arxiv.org/abs/2610.23779v1",
+  "pdf": "https://arxiv.org/pdf/2610.23779v1",
+  "type": "theory",
+  "summary": "This work provides a detailed theoretical framework for understanding learning dynamics in very wide neural networks. It moves beyond simple mean-field descriptions by characterizing the transition from collective learning to individual feature specialization. The key finding is the identification of a quadratic shielding mechanism that governs the timescale and nature of this feature discovery process.",
+  "main_problem": "The paper investigates how Stochastic Gradient Descent (SGD) learns internal representations within wide neural networks trained on complex target functions.",
+  "main_result": "It develops a mesoscopic description showing that learning proceeds through distinct stages: initial Gaussian-closure dynamics, followed by a specialization phase accelerated by a quadratic shielding mechanism, and finally, a refinement phase of feature discovery.",
+  "method": "The analysis uses mean-field theory, expanding the activation function in Hermite polynomials, and deriving coupled Ordinary Differential Equations (ODEs) for mesoscopic overlap moments.",
+  "model_or_system": "The model is a two-layer neural network trained via one-pass online SGD, comparing the student network's weights to a fixed teacher network in the extensive-width (proportional) limit.",
+  "key_observables": "Overlaps ($\\Omega_{ab}^{ij}$), mesoscopic overlap moments ($Q_{ab}^p$), and the population loss function ($L$).",
+  "important_parameters": "Network width ($k$), input dimension ($d$), learning rate ($\\eta$), and the degree of the Hermite polynomial expansion ($r$).",
+  "main_assumptions": "The analysis heavily relies on the Gaussian-closure assumption in the early stages and the effective-confinement assumption when deriving dynamics in the specialized regime.",
+  "figures_summary": "Figures illustrate the four stages of learning (initialization, Gaussian-closure, specialization, refinement) and show the Mean-Square Displacement (MSD) of overlaps demonstrating a crossover in noise scaling.",
+  "paper_structure": "The paper progresses from establishing the general problem in the extensive-width limit, deriving the initial dynamics using Gaussian closure, identifying the specialization transition driven by higher-order modes, and finally deriving closed equations for the refined dynamics exhibiting quadratic shielding.",
+  "why_interesting": "The mathematical framework of deriving collective dynamics from microscopic correlations, especially the identification of shielding mechanisms that simplify complex noise structures, mirrors techniques used in analyzing quantum many-body systems near critical points or in disordered quantum magnets.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.23779_figures/2610.23779_fig1.jpg",
+      "caption": "FIG. 1. The stages of learning in an extensive-width neural network. Schematic view of the learning regimes in the extensive-width teacher–student model. Red and blue arrows denote teacher and student hidden neurons, respectively, and the sphere represents the space of weight directions. The colored line schematically illustrates the decrease in generalization error during training. (a) At initialization, student weight vectors are isotropic and have only small random overlaps with the teacher’s. (b) In the early stages of learning, the student learns a quadratic approximation of the teacher function by learning the teacher weights up to a rotation; individual teacher-student overlaps...",
+      "page": 2
+    },
+    {
+      "image": "2610.23779_figures/2610.23779_fig2.jpg",
+      "caption": "FIG. 2. Sequential learning of order parameters. For the three different activation functions ReLU, ELU, and tanh, we show the test loss (top row) and the evolution of the order parameters Qp and QWℓduring training. The shaded regions indicate the successive regimes dominated by the dynamics of Q1, Q2, and higher-order modes Qp≥3, while the bottom row tracks a permutation-fixed student–teacher overlap. Parame- ters: Network with width k = 200, input dimension d = 50.",
+      "page": 6
+    },
+    {
+      "image": "2610.23779_figures/2610.23779_fig3.jpg",
+      "caption": "FIG. 3. Empirical distribution of the student–teacher overlap matrix entries at representative stages of training. Histograms of the teacher–student overlaps Ω01 ij at representative stages of training. Early on (first two columns), all entries lie within a Gaussian bulk (blue), whose mean and width are determined by Q1 and Q2. As training progresses, student neurons become strongly correlated with individual teacher neurons. For each student neuron, we highlight in red all overlaps whose magnitudes exceed the extremal value of k random teacher–student overlaps, which scales like √2 log k. Their appearance marks the emergence of specialization. The solid black curve is a Gaussian fit to the...",
+      "page": 7
+    },
+    {
+      "image": "2610.23779_figures/2610.23779_fig4.jpg",
+      "caption": "FIG. 4. Generalization loss dynamics under Gaussian closure. We show the test loss eq. (5) obtained by simulating neural networks together with the prediction obtained under Gaussian closure, eq. (11). Panel (a) uses the activation σ(x) = He1(x) + He2(x)/2, for which the predicted plateau loss is zero. In this case, Gaussian closure describes the entire training dynamics; panels (b–d) show ReLU, ELU, and tanh activation functions. The blue dashed line shows the theoretical pre- specialization loss plateau after removing the contributions from the first two Hermite sectors. Parameters: k = 400, d = 100.",
+      "page": 8
+    },
+    {
+      "image": "2610.23779_figures/2610.23779_fig5.jpg",
+      "caption": "FIG. 5. Timescale of specialization. We plot the time of specialization measured experimentally against the theo- retical prediction, eq. (16). Symbols indicate the SGD step where networks with varying k = d specialize, defined as the first time at which Q01 Wℓdeviates from its Gaussian-closure value by more than 0.1, with ℓ= 1 for odd r and ℓ= 2 for even r. The detailed data collection procedure is il- lustrated in Fig. 10. We fix the learning rate for all net- works at η = 0.1; the activation functions for r = 3, 4, 5, 6 are defined as σr(z) = He1(z) + 1",
+      "page": 9
+    }
+  ],
+  "figure": "2610.23779_figures/2610.23779_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 1,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

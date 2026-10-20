@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.23477",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards optimal selection schedules for online active learning",
+  "authors": "Hugo Cui, Francesca Mignacco, Francesco Mori",
+  "abstract": "We consider the problem of online linear classification, where a stream of unlabeled samples is available, and annotation is costly. We investigate the optimal query policy, that prescribes whether and when a sample should be labeled and used for a training step, or instead discarded, so as to minimize a given objective. We focus on the realizable case, under Gaussian design, in the high-dimensional regime where data dimension and number of unlabeled samples grow proportionally. We consider two objectives: 1) the generalization error under a labeling budget, and 2) a cumulative cost function where mistakes have unit cost and queries cost $Δ$. We first show that the myopic policies that greedily minimize at all times the increment in the objective correspond to either small or intermediate-margin policies, that prescribe the selection of samples whose margins fall within certain intervals that shrink with time. Within this class, we numerically ascertain the optimal schedules for the selection thresholds that minimize the final values of the objectives. Taking inspiration from the myopic policy for the cumulative cost, we design a very simple query policy schedule that we compare to other proposed heuristics, on synthetic data and real medical image datasets. Finally, we discuss myopic policies for two-layer neural networks, and exemplify how naive margin-based policies can cease to be optimal.",
+  "url": "http://arxiv.org/abs/2610.23477v1",
+  "pdf": "https://arxiv.org/pdf/2610.23477v1",
+  "type": "theory",
+  "summary": "This paper develops the theory for optimally scheduling active learning in high-dimensional linear classification. By treating the problem as a control problem, it derives optimal query policies that outperform simple greedy strategies. The results provide scaling laws for error decay and regret growth, offering insights into efficient data acquisition in complex, information-theoretic settings.",
+  "main_problem": "The paper investigates finding the optimal schedule for active learning—determining when to query a label versus when to use a prediction—to minimize generalization error or cumulative cost.",
+  "main_result": "The optimal policies are shown to be intermediate-margin rules, and the myopic policy for the cumulative cost leads to sub-linear growth of the regret, with test error decaying according to specific power laws depending on the loss function.",
+  "method": "The authors employ control-theoretic methods applied to Ordinary Differential Equations (ODEs) derived in the high-dimensional limit to optimize the selection policy schedule.",
+  "model_or_system": "The model is online linear classification under Gaussian design, where the learner iteratively updates its weights based on available data or queries. The process involves balancing the cost of mistakes against the cost of obtaining labels.",
+  "key_observables": "Generalization error ($\\epsilon_g$), cumulative cost ($R_k$), and the selection threshold ($\\kappa_t$).",
+  "important_parameters": "High-dimensional regime ($n \\sim d$), labeling budget ($\\gamma$), and query cost ($\\Delta$).",
+  "main_assumptions": "The analysis relies on the Gaussian design, the realizable case, and the approximation of SGD dynamics by deterministic ODEs in the large dimension limit.",
+  "figures_summary": "Figures compare selection policies (myopic vs. optimal) in the $(t, \\omega)$ plane for final error minimization, and show the decay of test error ($\\epsilon_{g,t}$) versus training time ($t$) for different loss functions.",
+  "paper_structure": "The paper develops the problem formulation for online active learning, derives the governing ODEs for summary statistics, compares myopic vs. horizon-optimized policies for different objectives (generalization error vs. cumulative cost), and analyzes asymptotic scaling laws for various loss functions.",
+  "why_interesting": "While the core topic is ML, the mathematical machinery—analyzing optimal control schedules in high dimensions, deriving asymptotic scaling laws, and using ODE approximations—shares methodological parallels with analyzing complex, non-equilibrium dynamics in disordered or interacting quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.23477_figures/2610.23477_fig1.jpg",
+      "caption": "Figure 1: (left) Selection policies in the (t, ω) plane for the final-error minimization. Colored regions indicate pt(·) = 1. The myopic rule p◦ ϵ,t(·) (8) is shown in blue. The horizon-optimized intermediate-margin schedule p⋆ ϵ,t(·) = 1[a⋆ t ≤| · | ≤b⋆ t ] (9), with a⋆ t and b⋆ t set to minimize the final error, is shown in yellow. Parameters: γ = 0.4, η = 0.5, m0 = 0, q0 = 0.15, tF = 20. (right) Final generalization error εg,tF vs. query budget γ. Parameters: η = 0.5, m0 = 0, q0 = 0.15, tF = 20. Lines represent theoretical predictions while symbols mark single-trajectory SGD simulations at d = 1000. For details on the policies see Table 1.",
+      "page": 7
+    },
+    {
+      "image": "2610.23477_figures/2610.23477_fig2.jpg",
+      "caption": "Figure 2: (left) Selection policies in the (t, ω) plane for cumulative-cost minimization. Colored regions indicate pt(·) = 1. The myopic rule p◦ R,t(·), greedily maximizing the cost decrease at each time, is shown in blue. The horizon-optimized inner-margin schedule p⋆ R,t(·) = 1[| · | ≤bt], with bt set to minimize the final cumulative cost, is shown in yellow. Parameters: ∆= 0.3, η = 0.5, m0 = 0, q0 = 0.15, tF = 20. (right) Cumulative cost RtF vs. the query price ∆. Parameters: η = 0.5, m0 = 0, q0 = 0.15, tF = 20. Lines represent theoretical predictions while symbols mark single-trajectory SGD simulations at d = 1000. Constant and optimal intermediate-margin families collapse to the...",
+      "page": 9
+    },
+    {
+      "image": "2610.23477_figures/2610.23477_fig3.jpg",
+      "caption": "Figure 3: Cumulative cost Rt and number of queries Qt versus mistakes Mt (inset) for the first-order and adaptive b-sampling algorithms (Cesa-Bianchi et al., 2004) (blue, orange), the logistic sampling algorithm (Sculley, 2007) (green) and the active perceptron algorithm (Dasgupta et al., 2005) (red), for binary classification on isotropic Gaussian data in dimension d = 200 (left), and the pneumonia diagnosis task on chest X-ray images (Kermany et al., 2018) (right). Purple curves mark a random (constant, margin- independent) strategy. Brown curves represent an inner margin policy with shrinking K/t threshold, with tunable bandwidth K. The query cost was set to ∆= 0.2. Hyperparameters were...",
+      "page": 10
+    },
+    {
+      "image": "2610.23477_figures/2610.23477_fig4.jpg",
+      "caption": "Fig. 2 (right) shows that time-dependent schedules achieve lower cost than the best random policy pt(·) = p and all constant strategies. All free parameters, including p, are chosen to minimize RtF . The horizon-optimized schedule outperforms the myopic one, with a gap growing with ∆. The myopic rule queries only when it lowers the cost immediately, ignoring that each query also reduces future mistakes. At large ∆it therefore queries too little, whereas the horizon-optimized schedule invests in queries early in training that pay off later on.",
+      "page": 10
+    },
+    {
+      "image": "2610.23477_figures/2610.23477_fig5.jpg",
+      "caption": "Figure 4: Preactivations Wx selected by the myopic policy p◦ R,t (13) (blue) for ∆= 0.46 and a naive inner-margin threshold on the network output pt(·) = 1[|v⊤g(·)| ≤0.35] (yellow). The weights W in (13) were extracted from a GeLU- activated two-layer neural network with r = 2 hidden neurons, trained without data selection on the logistic loss for 1000 steps, at d = 500 and η = 1. The un- trained readout is v = (1, 1)⊤. The de- cision boundary of the network is repre- sented in dashed lines.",
+      "page": 11
+    }
+  ],
+  "figure": "2610.23477_figures/2610.23477_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

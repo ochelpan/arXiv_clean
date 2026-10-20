@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.22876",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum approximate stochastic combinatorial optimisation",
+  "authors": "Edric Matwiejew, Paulo E. Santos, Jingbo B. Wang, Ugo Varetto",
+  "abstract": "Two-stage stochastic combinatorial optimisation concerns discrete decisions made before all relevant information is known. An initial decision is made; once uncertainty is resolved, it can be adapted to the realised scenario, at a cost. The aim is to find the initial decision that minimises the upfront cost plus the expected cost of optimal adaptation. The first-stage decision problem is often NP-hard, and computing the expected minimum recourse cost can be $\\#\\mathrm{P}$-hard for a single first-stage candidate. We introduce Quantum Approximate Stochastic Combinatorial Optimisation (QASCO), a variational quantum-walk ansatz that coherently incorporates scenario-dependent recourse into its dynamics to search over first-stage decisions without explicitly evaluating expected minimum recourse costs. We demonstrate QASCO for MaxCut with stochastic edge weights, obtain a circuit with polynomial per-layer gate complexity, and study the ansatz via exact state-vector simulation. Across the instances considered, QASCO concentrates amplitude more effectively on stochastic-optimal first-stage decisions than a previously proposed two-stage QAOA construction. We further show that the ansatz can be calibrated using a depth-independent number of parameters and applied to unseen instances without further circuit-parameter optimisation, including joint decision--scenario--recourse spaces spanning more than $2^{32}$ configurations. Under a query-cost model, comparison with the tested classical heuristics using sample-average approximations of the expected minimum recourse cost shows that QASCO more reliably reaches globally optimal first-stage solutions while requiring fewer cut evaluations. These results show how to incorporate scenario-dependent recourse into the ansatz dynamics, providing a general framework for variational quantum walks in two-stage stochastic combinatorial optimisation.",
+  "url": "http://arxiv.org/abs/2610.22876v1",
+  "pdf": "https://arxiv.org/pdf/2610.22876v1",
+  "type": "theory",
+  "summary": "This paper proposes QASCO, a novel variational quantum-walk ansatz designed to solve two-stage stochastic combinatorial optimization problems. It overcomes the difficulty of explicitly calculating expected minimum recourse costs by embedding this dependency directly into the quantum circuit dynamics. The results demonstrate that QASCO reliably finds globally optimal first-stage decisions for problems like Stochastic MaxCut, outperforming classical benchmarks.",
+  "main_problem": "The paper addresses the computationally hard problem of two-stage stochastic combinatorial optimization, where decisions must be made before all uncertain information is known.",
+  "main_result": "The proposed QASCO ansatz successfully incorporates scenario-dependent recourse into the quantum dynamics, showing superior performance over previous quantum and classical heuristics in reaching optimal first-stage decisions.",
+  "method": "It introduces Quantum Approximate Stochastic Combinatorial Optimisation (QASCO), a variational quantum-walk ansatz that searches the decision space by coherently modeling the expected minimum recourse cost.",
+  "model_or_system": "The model is the two-stage stochastic program, formulated for problems like Stochastic MaxCut, requiring the encoding of first-stage decisions, scenario realizations, and recourse actions across multiple quantum registers.",
+  "key_observables": "Amplitude concentration on stochastic-optimal decisions, Hit rate, Expected Run Time (ERT), and Recourse evaluation cost (number of queries).",
+  "important_parameters": "Variational parameters ($\\gamma, t$), ansatz depth ($p$), and the required Sample Average Approximation (SAA) batch sizes ($M_{req}$).",
+  "main_assumptions": "The method assumes an efficiently preparable scenario distribution and relies on a product-form model for the joint distribution of uncertain parameters.",
+  "figures_summary": "Figures illustrate the two-stage optimization process, the QASCO circuit structure across three registers, and benchmark results comparing QASCO against classical methods (Tabu, Greedy, Uniform) regarding hit rates and run times.",
+  "paper_structure": "The paper first defines the two-stage stochastic program, then introduces the QASCO ansatz, details its circuit implementation for stochastic MaxCut, and concludes with extensive numerical studies comparing its performance against classical heuristics.",
+  "why_interesting": "While focused on optimization, the core mechanism involves designing a quantum circuit (variational quantum walk) to implicitly handle complex, multi-stage dependencies (recourse) that are classically intractable, which is a key area in quantum algorithm design.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.22876_figures/2610.22876_fig1.jpg",
+      "caption": "Figure 1: Two-stage stochastic optimisation with recourse. A first-stage decision x is selected before uncertainty is revealed, incurring the deterministic cost C(x). For each scenario ω ∈Ω, the recourse action is chosen from Y (x, ω) to minimise Q(x, y; ω), giving Q∗(x; ω). Averaging this minimum cost under µ and adding C(x) gives the stochastic objective Jµ(x).",
+      "page": 4
+    },
+    {
+      "image": "2610.22876_figures/2610.22876_fig2.jpg",
+      "caption": "Figure 2: Representative six-vertex stochastic MaxCut instance. Left: graph structure with edge thickness proportional to the nominal weight ¯we. Right: nominal weight ¯we, perturbation support ∆e, and marginal distribution µe for each edge.",
+      "page": 5
+    },
+    {
+      "image": "2610.22876_figures/2610.22876_fig3.jpg",
+      "caption": "Figure 3: Schematic circuit for QASCO. SX prepares the solution register in a uniform state over all first-stage solutions, and SΩprepares a probability-weighted superposition over the space of scenarios according to the target distribution µ. The recourse register is prepared conditionally on the solution and scenario registers by SY . UC and UQ phase-encode the first-stage and recourse costs, respectively. The adjoint preparation unitaries S† Y and S† Ωaggregate amplitudes associated with the same first-stage choice in a component flagged by |0⟩Ω|0⟩Y . The controlled mixer Λ0(UW ) acts on this component before the amplitudes are redistributed back to the full problem configuration space...",
+      "page": 8
+    },
+    {
+      "image": "2610.22876_figures/2610.22876_fig4.jpg",
+      "caption": "Figure 4: Induced partite-graph structure of the controlled mixer with a transverse-field, or hypercube, solution-space adjacency AX with |X| = 8. Here SY prepares a uniform superposition over recourse ac- tions, |sx,ω⟩Y = |s⟩Y . The scenario distribution is a product of µ0 = (0.825, 0.175), µ1 = (0.660, 0.340), and µ2 = (0.739, 0.261). Left: the first-stage solution-space adjacency. Middle: the rank-one projector |r⟩⟨r|, where |r⟩= |µ⟩Ω|s⟩Y , with basis states ordered as (ω, y). Right: the induced adjacency matrix Amix. Block rows and columns correspond to the partite sets Vx and Vx′; each block is (AX)x,x′ |r⟩⟨r|. White entries are zero and darker entries have larger weights.",
+      "page": 10
+    },
+    {
+      "image": "2610.22876_figures/2610.22876_fig5.jpg",
+      "caption": "Figure 5: QWOA recourse preconditioner SY for stochastic MaxCut. Each of the pR layers applies the modified recourse-phase oracle Ue Q, followed by transverse-field mixing on Y . The preconditioner parameters (α, β) are optimised first and then held fixed during optimisation of the main ansatz parameters. For pR = 0, the circuit reduces to H⊗n on the recourse register.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.22876_figures/2610.22876_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

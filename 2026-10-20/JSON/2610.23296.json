@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.23296",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning angles for quantum approximate optimization",
+  "authors": "Johannes Jakubik, Isabelle Wittmann, Zaheed Gaffoor, Gciniwe Simphiwe Baloyi, Craig Mahlasi, Etienne Vos, Thomas Brunschwiler, Daniel J. Egger",
+  "abstract": "The Quantum Approximate Optimization Algorithm (QAOA) and its variants are leading algorithms to help solve challenging combinatorial optimization problems. QAOA maps these problems to Ising Hamiltonians such that their ground state is the desired solution. Candidate solutions are then drawn from a variational quantum circuit. The performance of QAOA hinges on a set of variational angles. However, finding good angles is an instance-specific and computationally expensive non-convex classical optimization task. Here, we learn the mapping from the problem instance to high-quality QAOA angles. Our learned models replace the per-instance optimization, that we call the solver, with a single forward pass that is several orders of magnitude faster than the solver with a near identical quality. Our models further generalize to unseen topologies such as Barabási-Albert and 2D grid graphs. Experiments on quantum hardware confirm that QAOA samples with angles produced by our open-source models are indistinguishable from solver angles. Crucially, models sensitive to the topology of the problem instance increase the quality of the QAOA angles. Our work amortizes a major bottleneck in QAOA by an up-front data generation and training cost. Importantly, this cost can be amortized over time in settings where many similar problems are optimized on a regular basis, as is often the case in applications for industry.",
+  "url": "http://arxiv.org/abs/2610.23296v1",
+  "pdf": "https://arxiv.org/pdf/2610.23296v1",
+  "type": "both",
+  "summary": "This paper tackles the computational bottleneck in QAOA by treating the selection of variational angles as a graph regression problem. By training deep learning models on graph structures, the authors create a fast predictor that outputs high-quality angles for new, unseen optimization problems. This significantly accelerates the application of QAOA to complex combinatorial optimization tasks.",
+  "main_problem": "The core problem is overcoming the computational bottleneck associated with finding high-quality variational angles required for the Quantum Approximate Optimization Algorithm (QAOA).",
+  "main_result": "The authors propose a machine learning framework that learns the mapping from a problem's graph structure directly to the optimal QAOA angles, achieving near-solver quality with a single forward pass.",
+  "method": "They frame angle selection as a supervised, graph-level regression problem, training deep neural networks (like GIN or specialized Transformers) on graph representations to predict the necessary variational parameters.",
+  "model_or_system": "The system is QAOA, which maps combinatorial optimization problems (like MaxCut) onto an Ising Hamiltonian. The variational state is $|\\psi_p(\beta, \\gamma)\rangle$, and the goal is to minimize the expected energy $E(\beta, \\gamma)$.",
+  "key_observables": "Approximation Ratio (AR) of the solution quality, and the variational angles $(\beta, \\gamma)$ themselves.",
+  "important_parameters": "The QAOA depth $p$, and the graph structure (topology, weights) of the optimization problem instance.",
+  "main_assumptions": "The primary assumption is that the relationship between the graph structure and the optimal angles is learnable via deep graph neural networks, allowing for generalization to unseen topologies.",
+  "figures_summary": "Figures illustrate the process flow: casting the optimization problem into a graph representation, training the deep learning model across various graph types, and demonstrating the resulting angle prediction.",
+  "paper_structure": "The paper first introduces QAOA and its optimization challenge. It then details the ML approach, comparing various graph encoder architectures (EdgeTF, GraphTF, GIN) to predict the angles. Finally, it validates the method by showing performance on quantum hardware and generalization capabilities.",
+  "why_interesting": "This work directly addresses the practical scalability of quantum algorithms by replacing computationally intensive classical optimization loops with fast, data-driven ML inference, which is crucial for applying QAOA to real-world, large-scale problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.23296_figures/2610.23296_fig1.jpg",
+      "caption": "FIG. 1. Learning angles for QAOA: In Phase (1), we cast the optimization problem into a (hyper-)graph representation via a normalized Hamiltonian, which allows us to train a deep learning model in Phase (2) across varying graph types. Deep learning models mostly rely on information of the raw graph topologies as well as aggregated global features. Backbones can be distinguished into Graph Neural Network-type models and Transformer-type models. In Phase (3), we describe the inference, where we derive angles (β, γ) via single forward passes and test their quality through simulation and on quantum hardware.",
+      "page": 3
+    },
+    {
+      "image": "2610.23296_figures/2610.23296_fig2.jpg",
+      "caption": "FIG. 2. Tree graph underlying the fixed-angles design for random four-regular graphs. The purple nodes show the tree seen by depth-one QAOA. The purple and blue nodes show the tree seen by depth-two QAOA.",
+      "page": 4
+    },
+    {
+      "image": "2610.23296_figures/2610.23296_fig3.jpg",
+      "caption": "FIG. 3. Panels (a), (b), and (c) exemplify in-distribution Erd˝os–R´enyi, random-regular, and heavy-hex graphs, respectively. Panels (d) and (e) exemplify out-of-distribution Barab´asi–Albert and 2D grid graphs, respectively. Panels (f) and (g) show the distribution of the β1 and γ1 angles, respectively, obtained from the solver at p = 2 prior to rescaling γ. (h) Distribution of the γ angles before and after rescaling with Eq. (7). (i) Per-instance cost-operator scale factor a across all five graph topologies.",
+      "page": 5
+    },
+    {
+      "image": "2610.23296_figures/2610.23296_fig4.jpg",
+      "caption": "FIG. 4. Quality validation of the QAOA angle training with Pauli propagation at p = 2 and 20 nodes. (a) AR loss of the angles optimized with Pauli propagation versus the AR of angles optimized with a state vector. Each marker is one of either 160 random d-regular graphs with d ∈{3, 4, ..., 10} or 160 Erd˝os–R´enyi graphs with pi ∈{5%, 6%, ..., 12%}. The ARs of all the trained angles are evaluate with a state vector. (b) Distribution of the loss in AR.",
+      "page": 5
+    },
+    {
+      "image": "2610.23296_figures/2610.23296_fig5.jpg",
+      "caption": "FIG. 5. Schematic overview of the three classes of graph-based models used for QAOA angle prediction. The models differ in how graph structure and global graph features are represented, processed, and combined before predicting the QAOA angles.",
+      "page": 6
+    }
+  ],
+  "figure": "2610.23296_figures/2610.23296_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

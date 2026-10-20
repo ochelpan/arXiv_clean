@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.23291",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Electrochemical Molecular Dynamics within the Finite-Field Framework",
+  "authors": "Krystof Brezina, Ludwig Ahrens-Iwers, Mariana Rossi",
+  "abstract": "Electrochemical processes at charged interfaces lie at the heart of modern technologies and their continued improvement depends on insights into the relevant atomistic processes. However, the necessary tools to impose constant-voltage conditions in molecular dynamics (MD) simulations typically directly target the electrode charge, making their extension to methods that go beyond an empirical description of metals more cumbersome. In this work, we propose an MD protocol to realize a thermodynamic ensemble in which voltage control is attained, but which is formulated purely within the framework of finite-field simulations in 3D periodic boundary conditions. We show a derivation and implementation of such a control device, which we coin an electrostat, in the ELECTRODE package within LAMMPS. Our simulations systematically benchmark the derived theory against other established approaches, for example, showing its equivalence to a potentiostat, and quantify the importance of properly accounting for ensemble fluctuations. We find that for systems of several thousands of atoms, one obtains the same equilibrium properties with the electrostat as with a simpler constant-field simulation. The difference between the two methods only manifests itself at smaller length scales, thereby establishing practical limits for the inclusion of voltage fluctuations in atomistic simulations of electrochemical systems. The strength of this framework also lies in its simplicity of extension to first-principles ab initio and reactive machine-learning potentials.",
+  "url": "http://arxiv.org/abs/2610.23291v1",
+  "pdf": "https://arxiv.org/pdf/2610.23291v1",
+  "type": "theory",
+  "summary": "This paper introduces the 'electrostat,' a novel molecular dynamics protocol that allows for accurate simulation of electrochemical systems under constant voltage control using finite-field methods. It rigorously proves the electrostat's equivalence to established potentiostat techniques while demonstrating its computational advantages for large-scale atomistic simulations. This advances the toolkit for studying interfaces in electrochemistry.",
+  "main_problem": "The core problem is developing robust molecular dynamics simulation tools to enforce constant-voltage ($\\phi^*$) conditions in electrochemical systems, especially for models beyond simple empirical metal descriptions.",
+  "main_result": "The authors propose and validate an 'electrostat' protocol, showing it is equivalent to a potentiostat and yields correct equilibrium properties for large systems, while quantifying the limits where voltage fluctuations become significant.",
+  "method": "The work develops a theoretical framework for realizing the constant-voltage ensemble purely within finite-field simulations using a stochastic differential equation (SDE) approach.",
+  "model_or_system": "The system modeled is a nanoscopic electrochemical cell, typically involving an ionic liquid electrolyte and planar electrodes (e.g., graphite). The theory generalizes standard ensembles (Constant-E, Constant-D) to incorporate voltage control.",
+  "key_observables": "Voltage ($\\phi^*$), Electric Field ($E^*$), Displacement Field ($D^*$), Electrode Charge ($Q^*$), and ion-association free-energy profiles $F(r)$.",
+  "important_parameters": "System size (thousands of atoms), temperature ($T$), and the time scale separation between different control mechanisms.",
+  "main_assumptions": "The framework relies on formulating the control purely within finite-field methods, and comparisons establish practical limits where the inclusion of voltage fluctuations is necessary.",
+  "figures_summary": "Figures illustrate the various simulation setups (constant V, E, D, Q) for a nanocapacitor and show benchmarks comparing the electrostat to constant-field methods, confirming equivalence for large systems.",
+  "paper_structure": "The paper develops the theory of the electrostat (Section II), benchmarks this new protocol against established methods (CPM, constant-E), and presents detailed simulations (Section III) on observables like ion association free energy and charge dynamics.",
+  "why_interesting": "The rigorous development of ensemble control methods that correctly incorporate thermal fluctuations (like a potentiostat) into computationally efficient finite-field frameworks is crucial for simulating open quantum systems and interfaces.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.23291_figures/2610.23291_fig1.jpg",
+      "caption": "Figure 1. The possible simulation approaches for a nanoscopic electrochemical cell consisting of a coarse-grained ionic liquid electrolyte (butylmethylimidazolium hexafluorophosphate, [BMIM+][PF− 6 ], with the cation shown in blue and the anion in green) and planar graphite electrodes (carbon atoms are shown in gray). Boundaries, across which PBCs are applied, are shown in red. The lateral (z) length of the unit cell is labeled L and capacitor (plate-to-plate) length L′. In panel A, we show the closed-circuit set up consistent with the CPM. Here, the unit cell has 2D PBC in the (x, y)-directions with the electrodes facing a vacuum on the outside edges of the unit cell and the control...",
+      "page": 3
+    },
+    {
+      "image": "2610.23291_figures/2610.23291_fig2.jpg",
+      "caption": "Figure 2. Equivalences of different electrostatic descrip- tions of a model HCl/Au(100) nanocapacitor. In panel A, we show the electrolyte-centered system and the charge per layer as calculated by the four methods discussed above in the text. The data shows that the CPM and the constant- E methods as well as the CCM and the constant-D meth- ods represent equivalent descriptions under their respective PBCs. In panel B, we show the same system wrapped into the conductor-centered geometry. In this case, the CPM and CCM are not applicable and both sets of black-point refer- ences are reproduced from panel A. For the constant-E and -D methods, the data shows that the finite-field description is...",
+      "page": 6
+    },
+    {
+      "image": "2610.23291_figures/2610.23291_fig3.jpg",
+      "caption": "Figure 4. Helmholtz free-energy F profiles as a function of the separation r of a LiCl ion pair at the water/Pd(111) interface. Panel A: The free-energy profile obtained by the constant-E method at grounded (zero-field) conditions is shown in blue, the corresponding one obtained by the elec- trostat is shown in red. The error bars are plotted at shaded intervals behind each profile in matching color. Panel B: The same calculation as in panel A, only with a 0.023 V ˚A −1 tar- get field applied. The inset shows a snapshot of the system in which the Pd electrodes are shown in blue, oxygen atoms in red, hydrogen atoms in white, the Li+ ion in orange and the Cl−ion in turquoise. The system is...",
+      "page": 7
+    },
+    {
+      "image": "2610.23291_figures/2610.23291_fig4.jpg",
+      "caption": "Figure 3. Equivalence of the 2D- vs 3D-PBC simulations in the [BMIM+][PF− 6 ]/graphite system (Fig. 1). Panel A com- pares the evolution of total electrode charge in a constant- potential simulation using the CPM (blue) and the constant- E method (red); both simulations started from the same ini- tial condition and the voltage drop is 2 V, which was enforced directly in CPM or by an E-field of the corresponding mag- nitude (detailed in the text). Panel B shows a similar com- parison between CCM with the charge constrained to 3 e and the constant-D method with a correspondingly strong D-field (see text). Panel C compares the charge dynamics in stochas- tic simulations where the voltage drop...",
+      "page": 7
+    },
+    {
+      "image": "2610.23291_figures/2610.23291_fig5.jpg",
+      "caption": "Figure 5. Diffusion coefficients D⊥for the motion in z- direction as a function of z for PF6 – (A) and BMIM+ (C) ions in a model system with an ionic liquid and graphite electrodes (cf. Fig. 1). Number-density profiles are shown in (B) and (D) for PF6 – and BMIM+, respectively. The coefficients and densities are shown for E-field of 0 and 15.6 mV ˚A −1, which were realized with constant-E and the electrostat.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.23291_figures/2610.23291_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.23840",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Demonstration of Logical Error Suppression in a Surface Code Memory on a Cloud-Accessible IBM Superconducting Processor",
+  "authors": "Shuwen Kan, Aaron Hoyt, Sean Garner, Ethan Vo, Adrian Harkness, Rod Rofougaran, Zefan Du, Chenxu Liu, Norm Tubman, Ying Mao, Samuel Stein",
+  "abstract": "Quantum error correction can suppress logical errors exponentially with code distance when physical noise is below threshold. Realizing this on hardware requires tight coordination among quantum gates, mid-circuit measurements, and qubit coherence. Device variation, noise asymmetry, and correlations across space and time complicate the translation of these capabilities into logical error suppression. Here, we study rotated surface-code memory on an IBM Nighthawk r2 processor. Performance varies across tested processor placements, which we attribute to differences in qubit quality. We optimize the code by combining short readout, fused measurement and reset, and an XX echo on data qubits during ancilla readout. Compared with standard readout without reset or echo, the optimized syndrome extraction circuit reduces the median per-round logical error rate by factors of 3.8 in the X basis and 1.4 in the Z basis. In memory experiments of up to 150 rounds, the distance advantage weakens, alongside long-lived correlations that may reflect a persistent error component. Under our optimization recipe, increasing the protected distance from 3 to 6 while holding the other distance fixed reduces the per-round logical error rate from 0.53% to 0.24% in Z memory and from 0.52% to 0.22% in X memory. The corresponding error-suppression factors under maximum-likelihood decoding are 1.68 and 1.85. These results connect circuit compilation and optimization to surface-code memory performance and limitations, and motivate QPU and QEC circuit codesign for fault-tolerant quantum computing primitives on current cloud hardware.",
+  "url": "http://arxiv.org/abs/2610.23840v1",
+  "pdf": "https://arxiv.org/pdf/2610.23840v1",
+  "type": "experiment",
+  "summary": "This work reports on achieving logical error suppression in a surface code memory on a superconducting quantum processor by optimizing the syndrome extraction circuit. Key optimizations, such as using fused measurement and reset, substantially lowered the logical error rate. The results highlight the critical interplay between circuit compilation, hardware noise characteristics, and the achievable performance of fault-tolerant quantum computation.",
+  "main_problem": "The paper demonstrates the feasibility of achieving logical error suppression in a surface code memory using a cloud-accessible superconducting quantum processor.",
+  "main_result": "Optimizing the syndrome extraction circuit significantly reduced the per-round logical error rate by factors up to 3.8 in the X basis, and increasing the protected distance from 3 to 6 further reduced the error rate.",
+  "method": "The authors implemented and optimized syndrome extraction circuits, comparing performance across different readout and reset protocols.",
+  "model_or_system": "The experiment uses a rotated surface-code memory implemented on an IBM Nighthawk r2 superconducting processor, which supports mid-circuit measurements and resets.",
+  "key_observables": "Logical error probability (LEP), logical error per round ($\\epsilon$), and error-suppression factors ($\\Lambda$).",
+  "important_parameters": "Protected distance (d=3 to d=6), readout duration, and echo pulse length.",
+  "main_assumptions": "The analysis suggests that long-lived correlations and the weakening distance advantage point to persistent, non-Markovian error components in the hardware.",
+  "figures_summary": "Figures illustrate processor layouts, performance comparisons of LEP vs. rounds, the effect of increasing protected distance, and the impact of echo pulses on flip probabilities.",
+  "paper_structure": "The paper systematically analyzes performance by optimizing readout circuits (fused reset vs. standard), quantifying error suppression gains, and investigating the impact of idle time placement and echo pulses on coherence.",
+  "why_interesting": "The detailed characterization of hardware limitations, such as data-qubit idling noise and the necessity of circuit-level optimization (e.g., fused reset, echo), provides crucial, actionable feedback for designing fault-tolerant quantum computation primitives.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.23840_figures/2610.23840_fig1.jpg",
+      "caption": "FIG. 1. Device and rotated surface-code performance. Increasing the protected distance lowers the logical error per round in both memories for the selected rectangular patches. (a) The processor and selected placement, with qubits coloured by readout error and couplers by controlled-Z (CZ) gate error. (b) Check detection probabilities for 44 placements, pooling both memories. (c), (d) Z- and X-memory logical error probability (LEP) versus rounds at other distance 3, using exact maximum- likelihood decoding on all 20 000 shots. Insets show ε versus protected distance, with fits used to estimate the suppression factor Λ. (e) Calibration and detection-probability distributions, with dashed...",
+      "page": 2
+    },
+    {
+      "image": "2610.23840_figures/2610.23840_fig2.jpg",
+      "caption": "FIG. 2. Readout-window duration. Shorter readout lowers logical errors and space-like pair probabilities, with phase-pair changes exceeding the idle-decoherence prediction. (a) Ancilla schedules with no reset, separate reset or fused measurement and reset. (b), (c) Z- and X-memory ε versus readout duration. Faint points show individual placements and prominent markers their means. Labels give fractional changes. (d) Measured reductions in space-like pij versus predictions from the shared data qubit’s calibrated T1 or T2. Markers distinguish placements, the dotted line denotes equality, and annotations give measured and predicted medians. Error bars in (b,c) are 95 % intervals from 200...",
+      "page": 3
+    },
+    {
+      "image": "2610.23840_figures/2610.23840_fig3.jpg",
+      "caption": "FIG. 3. Reset at equal round duration. Both reset schemes reduce long-tail correlations, while fused reset also lowers X-memory logical error at matched round duration. (a) Ancilla schedules padded to a common 2.79 µs round. (b) Mean ε across three placements. (c) Excess neighbouring X-check activity after recorded ancilla readout 1 versus 0, relative to non- neighbouring checks, before and after weighting by the read-1 fraction. (d) Detector-pair classes. (e), (f) Long-tail pij without reset versus separate and fused reset, respectively. Points above equality have smaller correlations with reset. Insets enlarge the low-correlation region. Tail offsets account for each circuit’s...",
+      "page": 5
+    },
+    {
+      "image": "2610.23840_figures/2610.23840_fig4.jpg",
+      "caption": "FIG. 4. Idle placement within syndrome extraction. The same inserted delay produces larger logical errors and hook- class correlations within the round than between rounds. (a) Delay positions after the second entangling layer or after ancilla readout, with illustrative fault propagation. (b) Z-memory ε versus inserted delay: solid lines and filled markers denote within- round insertion; dashed lines and open markers denote between-round insertion. (c), (d) Corresponding class-averaged pij, using a common scale. Measurements use the selected placement. Fig. 22 shows the complementary X-memory comparison. Error bars are 95 % intervals from 200 binomial resamples of each round count (b) and...",
+      "page": 5
+    },
+    {
+      "image": "2610.23840_figures/2610.23840_fig5.jpg",
+      "caption": "FIG. 5. Dynamical decoupling during readout. The echo lowers X-memory logical error, while extending it beyond readout raises the error in both memories. (a) X–X sequences during fused readout, with hatched segments beyond the readout window. (b) ε versus nominal echo length in Z and X memory (zero: no-echo control). (c) Detection probability of each memory’s check family. (d) Same-check long-tail pij, averaged over both memories, for X-checks and Z-checks. Dotted lines mark the readout duration. Nominal lengths exclude pulse durations. Longer sequences extend the enclosing round. Error bars are 95 % intervals from 200 binomial resamples of each round count (b) or from 200 whole-shot...",
+      "page": 6
+    }
+  ],
+  "figure": "2610.23840_figures/2610.23840_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

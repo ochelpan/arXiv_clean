@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2610.22954",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-Assisted Unambiguous Discrimination of Pure States with Robustness Bounds",
+  "authors": "Jinhyeok Heo, Dongkeun Lee, Junghee Ryu, Minjin Choi",
+  "abstract": "We propose a hybrid quantum-classical framework for the unambiguous discrimination of pure states by combining the noisy intermediate-scale quantum semidefinite program solver (NSS) with the reciprocal-state representation. In NSS, a given semidefinite program (SDP) is represented within a subspace spanned by chosen ansatz states, with the required quantities estimated using quantum circuits, and the resulting optimization is performed classically. This makes NSS naturally applicable to discrimination problems involving circuit-prepared states, as finding a discrimination measurement can be formulated as an SDP. By choosing the discriminated states themselves as the ansatz and exploiting the reciprocal-state representation, the general matrix-variable NSS formulation is reduced to an optimization over N scalar variables, where N is the number of discriminated states. The resulting formulation reduces the number of optimization variables and positive-semidefinite constraints compared with the original NSS formulation. We further establish robustness guarantees against Gram matrix estimation errors, including a rescaling procedure that guarantees a valid positive operator-valued measure (POVM) under bounded perturbations. The resulting bounds quantify both the deviation in average success probability and violations of the no-error condition using only the estimated Gram matrix, its SDP solution, and a characterized perturbation bound, without access to the ideal Gram matrix. Numerical simulations validate the derived robustness bounds and characterize finite-shot scaling. We also perform experiments on IBM quantum hardware to estimate pairwise overlaps, and then evaluate the performance of the resulting POVMs.",
+  "url": "http://arxiv.org/abs/2610.22954v1",
+  "pdf": "https://arxiv.org/pdf/2610.22954v1",
+  "type": "both",
+  "summary": "This paper presents a hybrid quantum-classical method for unambiguously discriminating pure quantum states. It combines the NSS solver with a reciprocal-state representation to simplify the optimization problem significantly. Crucially, the authors derive robust theoretical bounds that quantify performance degradation due to errors in estimating state overlaps on quantum hardware.",
+  "main_problem": "The paper addresses the fundamental task of unambiguously discriminating between a set of unknown pure quantum states from an ensemble.",
+  "main_result": "They propose a hybrid quantum-classical framework that simplifies the optimization problem by using the reciprocal-state representation, and they establish robust bounds against errors in estimating the state overlaps.",
+  "method": "The method combines the Noisy Intermediate-Scale Quantum (NSS) semidefinite program solver with the reciprocal-state representation to reduce the optimization variables from a general matrix form to a set of scalars.",
+  "model_or_system": "The system involves an ensemble of pure quantum states, $|\\phi_k\rangle$, whose overlaps are estimated using quantum circuits on hardware like the IBM quantum processor. The goal is to find an optimal Positive Operator-Valued Measure (POVM).",
+  "key_observables": "Average conclusive success probability, violations of the no-error condition, and the estimated Gram matrix $E$ (pairwise overlaps).",
+  "important_parameters": "The number of states ($N$), the preparation probabilities ($\\{\\eta_k\\}$), and the bound on Gram matrix estimation error ($\\epsilon$).",
+  "main_assumptions": "The framework assumes the ability to estimate the Gram matrix from quantum measurements and relies on a rescaling procedure to guarantee a valid POVM despite estimation errors.",
+  "figures_summary": "Figure 1 illustrates the three-step hybrid workflow: ansatz selection, quantum estimation of overlaps (Gram matrix $E$), and classical optimization for the POVM elements. Figure 4 shows finite-shot scaling of estimation errors.",
+  "paper_structure": "The paper first formulates the problem as an SDP, then introduces the hybrid NSS approach, significantly simplifies it using the reciprocal-state representation, derives robustness bounds against noise, and finally validates the approach through numerical simulations and experiments on quantum hardware.",
+  "why_interesting": "This work directly tackles the practical implementation of quantum information protocols on NISQ devices by providing rigorous error bounds for state discrimination, which is crucial for quantum communication and sensing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.22954_figures/2610.22954_fig1.jpg",
+      "caption": "FIG. 1: Hybrid quantum-classical workflow for NSS-based pure- state unambiguous discrimination. Discriminated states {|ϕk⟩} (top left), prepared by {Uk} with probabilities {ηk}, are processed within the NSS framework (right) in three steps. (1) The ansatz states are set to coincide with the discriminated states, |ψk⟩= |ϕk⟩. (2) The Gram matrix E, with entries Ek,ℓ= ⟨ϕk|ϕℓ⟩, is estimated via quantum circuits. The illustrated Hadamard-test circuit estimates the real part of the overlap. (3) The reduced SDP in Eq. (13) is solved classically to obtain the scalars {qn}. The optimal POVM (bottom left) is con- structed from E and {qn} through Eqs. (9) and (10).",
+      "page": 3
+    },
+    {
+      "image": "2610.22954_figures/2610.22954_fig2.jpg",
+      "caption": "FIG. 2: Quantum circuits used in the numerical simulations. (a) State preparation circuit for generating the discriminated state |ϕk⟩using a three-qubit, two-layer HEA consisting of RY rotations and CNOT gates. The prepared states are real-valued, and thus their pairwise overlaps Ek,ℓ= ⟨ϕk|ϕℓ⟩are real. (b) Overlap estimation circuit for computing Ek,ℓ, obtained from the measurement outcome on the ancilla.",
+      "page": 7
+    },
+    {
+      "image": "2610.22954_figures/2610.22954_fig3.jpg",
+      "caption": "FIG. 3: Numerical validation of the robustness bounds for ensembles of N = 2, 3, 4 pure states, generated using the three-qubit, two-layer ansatz circuit in Fig. 2(a), with equal prior probabilities. Panels (a)–(c) show the relative error RP in the average success probability and the bound in Eq. (43). Panels (d)–(f) show the maximum misidentification probability, maxk,n ⟨ϕk| b Mn |ϕk⟩, and the bound obtained by maximizing the right-hand side of Eq. (31) over k , n. For each N, one randomly generated state ensemble is fixed, and 100 perturbation strengths ε are sampled log-uniformly from [10−4, 5 × 10−2]. For each ε, an independent real symmetric perturbation ∆E with zero diagonal and ∥∆E∥2...",
+      "page": 7
+    },
+    {
+      "image": "2610.22954_figures/2610.22954_fig4.jpg",
+      "caption": "FIG. 4: Finite-shot errors in Gram-matrix estimation for the same three-qubit ensembles used in Fig. 3, with N ∈{2, 3, 4}, in the ab- sence of circuit noise. Markers show the mean spectral-norm error ∥∆E∥2 over 500 independent repetitions at each shot count, and lines show the Hoeffding bounds with failure probability α = 0.05.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.22954_figures/2610.22954_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

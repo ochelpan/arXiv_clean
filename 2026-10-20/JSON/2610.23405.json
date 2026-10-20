@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.23405",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.plasm-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Circuits for Variable-Coefficient Vlasov Dynamics via Schrödingerisation",
+  "authors": "Fong Yew Leong, Dax Enshan Koh, Wei-Bin Ewe, Qiubo Chen, Zhun-Yong Ong",
+  "abstract": "High-dimensional Vlasov equations present promising use cases for quantum simulation, but their transport coefficients must be implemented coherently in order to preserve a compact quantum representation. We develop explicit Schrödingerised circuits for prescribed external field Vlasov dynamics without classical field updates. In 1D1V, velocity-dependent streaming is compiled directly from the encoded velocity register, while a non-linear cubic field is evaluated using reversible fixed-point arithmetic. For fixed polynomial degree, the field workspace scales linearly with the coordinate register width, while the field evaluation subroutine has polynomial depth. As a proof of concept, we simulate a minimal coupled 3D3V anharmonic Penning system and realise mixed electric-field terms and transverse magnetic coupling on a six-dimensional phase space in agreement with classical calculations. Resource analysis shows approximately linear growth with the number of time steps, while identifying the auxiliary register as the dominant depth bottleneck. Structured preparation and register recovery of the auxiliary state reveal an interplay between loading cost and readout. Together, our algorithm demonstrates a fully coherent quantum simulation of high-dimensional Vlasov dynamics with variable coefficients and identifies the practical resource costs that must be controlled for large-scale quantum implementation.",
+  "url": "http://arxiv.org/abs/2610.23405v1",
+  "pdf": "https://arxiv.org/pdf/2610.23405v1",
+  "type": "theory",
+  "summary": "This paper presents a method to simulate high-dimensional Vlasov dynamics, which governs collisionless plasma, using purely quantum circuits. By employing Schrödingerisation, they overcome the challenge of variable coefficients and non-unitary evolution, achieving a fully coherent simulation. The work provides critical resource estimates for scaling this simulation to large, complex physical systems.",
+  "main_problem": "The paper addresses the challenge of developing fully coherent quantum simulation circuits for high-dimensional Vlasov dynamics, especially when the governing equations involve variable coefficients.",
+  "main_result": "They successfully developed explicit Schrödingerised circuits for variable-coefficient Vlasov transport, demonstrating simulation of coupled 3D3V systems entirely coherently on quantum hardware.",
+  "method": "The core method involves Schrödingerisation to map the non-unitary evolution to a unitary quantum circuit, which is then implemented using structured, explicit quantum gates for both velocity-dependent streaming and field-dependent acceleration.",
+  "model_or_system": "The model is the Vlasov equation, describing collisionless plasma dynamics, which is simulated by encoding the phase-space density into an amplitude-encoded quantum state. The simulation is extended to coupled 3D3V anharmonic Penning systems on a six-dimensional phase space.",
+  "key_observables": "Circuit depth, resource scaling (linear growth with time steps), state fidelity ($F$), and quantum-classical discrepancy ($\\epsilon_{Q-C}$).",
+  "important_parameters": "Number of time steps, dimension of the phase space (e.g., 6D), and the degree of the polynomial external field.",
+  "main_assumptions": "The simulation relies on the Schrödingerisation technique to maintain unitarity, and resource analysis highlights the auxiliary register as the dominant depth bottleneck.",
+  "figures_summary": "Figures illustrate generic circuit blocks for coefficient dependence, the structure of velocity-dependent free-streaming, and comparisons of state preparation fidelity and error for different initial profiles.",
+  "paper_structure": "The paper details the theoretical framework of Schrödingerisation for Vlasov dynamics, presents the circuit decomposition for variable coefficients (velocity and field dependence), and analyzes the resource costs and state preparation techniques for high fidelity.",
+  "why_interesting": "This work provides a concrete, resource-aware blueprint for simulating complex, non-Hamiltonian, non-equilibrium dynamics (like plasma physics) using purely quantum computational primitives, which is highly relevant for quantum simulation efforts.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.23405_figures/2610.23405_fig1.jpg",
+      "caption": "Figure 3: vV1 block for A1 term. The dashed region applies the phase rotations θ0 and θb on the p-register, controlled by the velocity register, while the remaining controlled vWj and vU blocks implement the bulk and boundary finite-difference couplings. The dotted region indicates the corresponding vV2 block for the A2 term, which has the same layout but uses phase selections vWj(λ = −π/2) and vU(λ = π/2).",
+      "page": 9
+    },
+    {
+      "image": "2610.23405_figures/2610.23405_fig2.jpg",
+      "caption": "Figure 4: Construction of Block 1 from binary-controlled powers of vV1, followed by a single vV2 block. Each P-register qubit controls the corresponding power vV 2l 1 , and the most significant qubit controls the adjoint unitaries.",
+      "page": 9
+    },
+    {
+      "image": "2610.23405_figures/2610.23405_fig3.jpg",
+      "caption": "Figure 7: Phase-space validation of the 1D1V Schrödingerised Vlasov circuit for nx = nv = 5, np = 7, Nt = 1, ∆t = 0.05, and T = 0.05. (a) Initial distribution f0(x, vx). (b) Recovered quantum distribution fQ(x, vx, T). (c) Pointwise difference between the quantum and scheme-matched classical solutions, fQ −fC. The difference is of order 10−5, compared with distribution amplitudes of order 10−2.",
+      "page": 21
+    },
+    {
+      "image": "2610.23405_figures/2610.23405_fig4.jpg",
+      "caption": "Figure 8: Marginal distributions for the 1D1V validation case at T = 0.05. (a) Spatial marginal ρ(x) = P vx f(x, vx). (b) Velocity marginal g(vx) = P x f(x, vx). The initial distribution (t = 0, dashed), scheme-matched classical solution (solid), and recovered quantum solution (markers) are shown.",
+      "page": 21
+    },
+    {
+      "image": "2610.23405_figures/2610.23405_fig5.jpg",
+      "caption": "Figure 9: Resource scaling and temporal behaviour of the 1D1V Schrödingerised Vlasov circuit. (a) Peak logical-qubit count nq as the spatial and velocity grid resolutions are increased together from nx = nv = 2 to 5, with np = 7 fixed. The horizontal axis shows the corresponding combined number of physical grid points, Nx + Nv. (b) Decomposed CNOT count NCX and rotation-like gate count Nrot as functions of the number of Strang steps Nt for (nx, nv) = (3, 3), (4, 4), and (5, 5), with np = 7. Both resource measures grow approximately linearly with Nt. (c) Relative quantum–classical L2 discrepancy ϵQ−C versus total simulated time T = Nt∆t for the (nx, nv, np) = (4, 4, 7) circuit using ∆t =...",
+      "page": 22
+    }
+  ],
+  "figure": "2610.23405_figures/2610.23405_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
