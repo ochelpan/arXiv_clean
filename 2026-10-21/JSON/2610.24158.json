@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.24158",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "math.NA",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Reusable QUBO-Derived Block-Schur Inverse Factors for Fixed-Operator Finite-Difference PDE Solvers",
+  "authors": "Arash Fath Lipaei, Özgür E. Müstecaplıoğlu, Özlem Salehi, Selin Aslan",
+  "abstract": "Many simulations of partial differential equations require the repeated solution of linear systems whose matrix remains fixed while the righthand side changes. We present a hybrid offline online framework for this setting. The discretized operator is organized into small coupled blocks and reduced through block Schur complements. Instead of expressing the complete PDE solution as one large binary optimization problem, quadratic unconstrained binary optimization is used only to construct reusable local inverse factors. These factors are computed during an offline stage, decoded and stored, and then reused in an ordinary classical block solve for subsequent righthand sides. The optimizer facing problem size is governed by the local block size and chosen numerical precision, rather than by the dimension of the full spatial grid. We develop the mathematical formulation, analyze the accuracy and resource requirements of the binary representation, and examine the method on representative finite difference PDE problems, including execution of the local optimization stage on quantum optimization hardware. The resulting architecture provides a reusable interface between conventional numerical linear algebra and QUBO based quantum optimization.",
+  "url": "http://arxiv.org/abs/2610.24158v1",
+  "pdf": "https://arxiv.org/pdf/2610.24158v1",
+  "type": "both",
+  "summary": "This paper introduces a hybrid offline-online framework to solve PDEs by leveraging quantum optimization. It uses QUBOs only in an offline stage to pre-calculate reusable local inverse factors derived from the PDE operator structure. These factors are then used in a fast, classical block-solve routine for any subsequent right-hand side, significantly reducing the quantum computational burden.",
+  "main_problem": "Developing a reusable framework to solve linear systems arising from fixed-operator Partial Differential Equations (PDEs) where the right-hand side changes repeatedly.",
+  "main_result": "The authors propose an architecture that separates the operator-dependent preprocessing (offline) from the repeated solves (online), allowing QUBO optimization to run only once.",
+  "method": "The method uses block-Schur decomposition to reduce the PDE system into local blocks, whose inverse factors are constructed by solving least-squares problems formulated as QUBOs during an offline stage.",
+  "model_or_system": "The model involves discretizing PDEs (like Heat or Poisson) into large linear systems ($Ax=b$), which are then decomposed into block-tridiagonal structures suitable for Schur recursion.",
+  "key_observables": "Local inverse residuals, global solution error ($\\lVert A\\mathbf{u} - \\mathbf{b} \rVert$), and the normalized objective gap ($g_j$).",
+  "important_parameters": "The computational cost is governed by the local block size, not the full spatial grid dimension. Resolution is controlled by the fixed-point precision $K$.",
+  "main_assumptions": "The method assumes the ability to separate the problem into local blocks and that the required inverse columns can be accurately represented by a QUBO formulation.",
+  "figures_summary": "Figure 1 illustrates the offline-online architecture. Figure 6 audits the reconstruction of inverse columns from QUBO submissions, showing residual ratios. Figure 7 shows end-to-end PDE reconstructions using cached factors for Heat, Poisson, and Klein-Gordon equations.",
+  "paper_structure": "The paper first establishes the need for a reusable solver for fixed-operator PDEs. It then details the mathematical formulation using block-Schur decomposition and reformulates the inverse factor calculation as a QUBO problem. The core contribution is the hybrid offline-online framework, followed by analysis and testing on representative PDEs.",
+  "why_interesting": "This work directly addresses the interface between classical numerical linear algebra (PDE solvers) and quantum optimization (QUBO), providing a concrete, reusable quantum kernel for scientific computing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.24158_figures/2610.24158_fig1.jpg",
+      "caption": "Figure 1: Offline–online architecture of the reusable block-Schur QUBO method. For a fixed finite-difference operator, the block-tridiagonal organization is reduced to Schur blocks and each required inverse column is represented as a signed fixed-point least-squares QUBO. The decoded columns are assembled into approximate Schur inverses and cached. Coupling factors may either be cached explicitly or evaluated from the cached inverse factors during substitution. Subsequent solves use only the classical block forward/backward recursions in Eqs. (12)–(14). The largest logical optimization problem therefore contains B(1 + M + K) binary variables and depends on the local block size and numerical...",
+      "page": 4
+    },
+    {
+      "image": "2610.24158_figures/2610.24158_fig2.jpg",
+      "caption": "Figure 2: Exact-oracle validation of the fixed-point convergence theory for B = 2, M = 1, and K = 4, . . . , 10. Each plotted point uses the exact minimizer of every finite-bit inverse-column QUBO, obtained by exact reduced-grid minimization, so the curves isolate quantization and propagation error rather than heuristic optimizer error. Here eu is the relative PDE solution error, eS−1 is the mean Schur-inverse error, and EQUBO is the mean minimized least-squares/QUBO energy. In both PDEs, the relative solution error and mean Schur-inverse error have fitted log2 slopes close to −1, consistent with O(2−K), while the mean minimized least-squares/QUBO energy has a slope close to −2, consistent...",
+      "page": 9
+    },
+    {
+      "image": "2610.24158_figures/2610.24158_fig3.jpg",
+      "caption": "Figure 3: Exact finite-bit five-PDE validation using the prescribed multiscale correction schedule γp = γ0/8p, p = 0, 1, 2, 3. Panel (a) reports relative error against the dense numerical solve, and panel (b) reports the maximum cached Schur-inverse residual. Each point represents the complete cached-factor PDE calculation with the 24-bit inverse-column encoding.",
+      "page": 10
+    },
+    {
+      "image": "2610.24158_figures/2610.24158_fig4.jpg",
+      "caption": "Figure 4: Large-block Poisson line-block study at fixed N = 960. Panel (a) separates three different scaling quantities: the inverse-column logical variable count grows linearly as 12B, the dense upper-triangular QUBO coefficient count grows quadratically, and the leading LU-factorization work for a conventional dense B × B block is (2/3)B3 and grows cubically; explicitly forming the inverse incurs additional work. Panel (b) shows the solution error and global residual after rounded fixed-point Schur inverses are cached and used in the complete block solve. Per-block scaling produces zero clipping for all four block sizes (Table 4); the solution remains accurate at the 10−3 level while the...",
+      "page": 11
+    },
+    {
+      "image": "2610.24158_figures/2610.24158_fig5.jpg",
+      "caption": "Figure 6 makes this distinction visible. Panel (a) gives the exact finite-bit recovery fraction. Panel (b) shows the local residual ratio for all mapped instances: non-exact Heat and Poisson samples often increase the local residual by a factor of a few, but the absolute residuals remain of order 10−3 or smaller. Panel (c) compares normalized objective gap with the decoded local residual. Exact hits lie at zero gap, while the non-exact samples occupy a narrow low-gap region. The end-to-end reconstructions are shown in Figure 7. For Heat, the relative error is 3.24 × 10−4. For Poisson, the two line slices of the 10 × 2 interior grid are both reproduced closely; the relative field error is...",
+      "page": 11
+    }
+  ],
+  "figure": "2610.24158_figures/2610.24158_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

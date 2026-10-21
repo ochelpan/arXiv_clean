@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.26472",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.DC",
+    "cs.ET",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "KrMM Recurrences: HPC-Enhanced Estimators for Nonlinear Classical Shadows",
+  "authors": "Matthias Gruber, Sabrina Herbst, Ivona Brandic, Vincenzo De Maio",
+  "abstract": "While quantum technologies are rapidly evolving, near-term applications heavily rely on hybrid quantum-classical paradigms. Among these, the classical shadows framework has gained a lot of traction, not only for quantum information science, but also for the development and verification of quantum hardware. It allows to efficiently classically estimate many properties of quantum states from randomized measurements alone, a task that is otherwise intractable due to the destructive nature of measurements in quantum systems. There are, however, many properties of interest that are, due to their very problem formulation, not efficiently estimable. In this work, we identify a computational kernel occurring in estimators of polynomial functions, a class of problems that are in general computationally difficult to solve. We show that this structure allows a row-wise partition that, together with a custom SIMD vectorization, enables massive parallelization and can reduce the computational cost significantly. We show applicability and scalability of the approach on different tasks, and our results showcase that the approach allows high sequential throughput and close-to-ideal parallel scaling. The work thus provides a new way of identifying and exploiting structure in classical shadow estimators, resulting in practical advantages on inherently difficult problems.",
+  "url": "http://arxiv.org/abs/2610.26472v1",
+  "pdf": "https://arxiv.org/pdf/2610.26472v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, highly parallel computational technique to estimate difficult nonlinear properties of quantum states using classical shadows. By mapping the estimation problem onto a structured Kronecker-matrix-matrix recurrence, the authors enable massive parallelization via row-wise decomposition and custom SIMD optimization. This significantly boosts the throughput for tasks like QFI estimation, making previously computationally prohibitive quantum characterization feasible on modern HPC hardware.",
+  "main_problem": "The paper addresses the computational bottleneck in estimating nonlinear properties of quantum states using the classical shadows formalism, which is otherwise intractable.",
+  "main_result": "By identifying a recurring computational kernel structured as Kronecker-matrix-matrix (KrMM) recurrences, the authors enable massive parallelization via row-wise partitioning and custom SIMD vectorization.",
+  "method": "The core method involves reformulating polynomial estimators into KrMM recurrences, which are then decomposed into independent row-wise Kronecker-matrix-vector (KrMV) recurrences for parallel processing.",
+  "model_or_system": "The work analyzes quantum states ($\rho$) and their properties, utilizing the classical shadows framework derived from randomized measurements on quantum systems.",
+  "key_observables": "Nonlinear properties such as purity and Quantum Fisher Information (QFI) are key observables being estimated.",
+  "important_parameters": "The complexity scales are analyzed concerning the number of measurements ($N$), the order of the polynomial ($k$), and the number of qubits ($n$).",
+  "main_assumptions": "The approach assumes that the estimators can be mapped onto a structured recurrence relation (KrMM) that allows for row-wise decomposition.",
+  "figures_summary": "Figures illustrate the comparison between plain and batch classical shadows, and detail the implementation of the fused row kernel using custom SIMD data layouts for high parallel efficiency.",
+  "paper_structure": "The paper first introduces the classical shadows framework and the difficulty of nonlinear estimation. It then derives the KrMM recurrence structure, details the row-wise decomposition and custom hardware implementation (SIMD/SRM), and finally benchmarks the approach on specific tasks like QFI estimation, showing scaling results.",
+  "why_interesting": "This work provides a concrete, high-performance computational tool for characterizing quantum states that goes beyond simple expectation values, directly impacting the feasibility of verifying quantum hardware properties.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.26472_figures/2610.26472_fig1.jpg",
+      "caption": "Fig. 1: Our contribution. Polynomial classical shadows estimators, including online and batched [4] estimators for mixed- state entanglement verification and the Quantum Fisher Information, (see Sec. V), share a common representation, the KrMM recurrence, which induces a row-wise splitting by the Kronecker structure of Ft. This allows defining a computational kernel Ki, that iteratively computes the row estimators independently of each other, as each computation only depends on the previous timestep, making the computation highly parallelizable. Each worker locally aggregates the results, and communication is only required for the final aggregation and reduction. This results in...",
+      "page": 2
+    },
+    {
+      "image": "2610.26472_figures/2610.26472_fig2.jpg",
+      "caption": "Fig. 2: Overview of Plain and Batch Classical Shadows. On the left (orange), quantum measurements are collected by randomly sampling a unitary U from the ensemble U. The process is repeated N times, and the measurements {(Ui, |b⟩i)} are forwarded to the classical computer for post-processing. For the plain shadows (top), the estimator for the k-th order polynomial is then built by iterating over all size-k subsets of the snapshots, scaling as O(N k). For batch shadows (bottom), the snapshots are split into NB ≥k distinct batches. Batch shadows are built by averaging over all snapshots of the batch, and the k-th order polynomials are estimated by iterating over all size-k subset of batches....",
+      "page": 3
+    },
+    {
+      "image": "2610.26472_figures/2610.26472_fig3.jpg",
+      "caption": "Fig. 3: Fused row kernel Ki with custom SIMD data layout for a vector size Vs of 2 doubles. Performing one full SRM operation (index j) requires fully covering one row with M/(2Vs) repetitions of the SRM and update cycle. r indices denote real part, and i indices imaginary part. Green fields correspond to small data that will likely be accessed from cache. Blue fields correspond to large data that will likely be loaded from memory. In the online algorithm, each recursion cycle repeats m times, with the output of the previous update cycle directly serving as the input. Aggregation in the online algorithm corresponds to storing the i-th entry of the row state. In the batch algorithm it...",
+      "page": 5
+    },
+    {
+      "image": "2610.26472_figures/2610.26472_fig4.jpg",
+      "caption": "Fig. 4: Used single node parallelism over increasing number of qubits. We use simultaneous multithreading (SMT) once the number of rows exceeds the number of available cores.",
+      "page": 7
+    },
+    {
+      "image": "2610.26472_figures/2610.26472_fig5.jpg",
+      "caption": "Fig. 5: Relative error of PT moment estimation over number of measurements of the Werner state for moments 2 and 34 for 6, 8, and 10 qubits. Lightened lines and dots depict the relative errors. Thick lines correspond to the probabilistic error bound of the online algorithm obtained through variance estimation.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.26472_figures/2610.26472_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

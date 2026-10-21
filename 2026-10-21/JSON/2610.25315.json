@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2610.25315",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Exact quantum Hamming-weight computation at optimal depth and minimum width",
+  "authors": "Wei Zi, Pei Yuan, Junhong Nie",
+  "abstract": "Hamming-weight computation and symmetric Boolean functions are basic primitives for quantum arithmetic and state preparation, where circuit depth and qubit overhead matter. We construct an exact circuit computing the Hamming weight of an $n$-qubit register with depth $O(\\log n)$ and size $O(n\\log n)$, using only the $n$ input qubits and $m=\\lceil\\log_2(n+1)\\rceil$ binary output qubits. The circuit uses arbitrary one-qubit gates and CNOTs with all-to-all connectivity. Both depth and total width are optimal. Our constructions combine tree structures and pipelining, temporarily using input qubits as workspace. We also give exact circuits for every symmetric Boolean function with the same depth and size bounds, using only $m$ ancillary qubits returned to zero. Finally, we apply the counter to exact preparation of balanced Dicke states for even $n$. With only $O(\\log n)$ ancillary qubits, we obtain expected depth $O(\\log^2 n)$ using measurements and classical feedforward, and depth $O(n^{1/4}\\log n)$ using unitary gates alone.",
+  "url": "http://arxiv.org/abs/2610.25315v1",
+  "pdf": "https://arxiv.org/pdf/2610.25315v1",
+  "type": "theory",
+  "summary": "This paper presents the construction of highly efficient quantum circuits for fundamental tasks like Hamming weight computation and general Boolean function evaluation. By achieving optimal depth and size bounds, it advances the theoretical understanding of quantum circuit complexity. The results are vital for building practical quantum arithmetic modules.",
+  "main_problem": "The primary goal is to construct exact, resource-efficient quantum circuits for computing the Hamming weight of an $n$-qubit register and evaluating general symmetric Boolean functions.",
+  "main_result": "The authors achieve optimal depth $O(\\log n)$ and size $O(n \\log n)$ for Hamming weight computation using only input and output qubits, and provide similar bounds for general symmetric Boolean functions.",
+  "method": "The construction relies on combining tree structures and pipelining, utilizing techniques like the 'simultaneous modular addition lemma' and Fourier transforms to achieve depth and width optimality.",
+  "model_or_system": "The model is a quantum circuit operating on $n$ input qubits and $m$ output qubits, assuming arbitrary one-qubit gates and CNOTs with all-to-all connectivity.",
+  "key_observables": "Circuit Depth ($D(U)$), Circuit Size ($S(U)$), Total Width, and the Hamming Weight of the input state.",
+  "important_parameters": "The input size $n$, the output word length $m = \\lceil\\log_2(n+1)\rceil$, and the required ancillary qubit count.",
+  "main_assumptions": "The circuit model assumes all-to-all connectivity, and the analysis distinguishes between clean and dirty workspace qubits.",
+  "figures_summary": "Figures illustrate the counting circuit structure, the three-register example for phase collection, and the two-round pipeline for routing/address loading.",
+  "paper_structure": "The paper develops tools for arithmetic (simultaneous modular addition via path-sum permutations) before applying these tools to construct the main circuit for Hamming weight computation, followed by generalizations to arbitrary symmetric Boolean functions.",
+  "why_interesting": "The focus on achieving optimal depth and width for fundamental arithmetic primitives (like counting) is crucial for designing scalable quantum algorithms, especially those involving state preparation or quantum arithmetic.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.25315_figures/2610.25315_fig1.jpg",
+      "caption": "FIG. 1. Coherent counting using the input as temporary workspace. (a) A Hadamard layer prepares the output, three batches collect the weight-dependent phase, and an inverse Fourier transform reads out the binary weight. Each batch borrows registers from its complement and restores them before the next batch. (b) The input block contains the string xC, the dirty word has integer label b, and the output has integer label q. Here ADDW→B adds the output to the dirty word modulo N. The two phase operations cancel the dependence on b, leaving ωq|xC|. For a full batch, Ma replaces ADDW→B and translates all borrowed words simultaneously.",
+      "page": 4
+    },
+    {
+      "image": "2610.25315_figures/2610.25315_fig2.jpg",
+      "caption": "FIG. 2. Tree construction of simultaneous addition, illustrated with six target words. Each box shows the current integer label of an m-qubit register; the root is the source Q with label q. All arithmetic is modulo 2m. (a) The targets initially contain b1, . . . , b6. (b) Working from the leaves upward, subtract each target parent’s value from its child. The two edges out of Q are skipped; dashed edges mark this exception, and upward arrows indicate the traversal order. (c) Working from the root downward, add each parent’s current value to its child. Every target then contains bv + q, while Q is unchanged.",
+      "page": 6
+    },
+    {
+      "image": "2610.25315_figures/2610.25315_fig3.jpg",
+      "caption": "FIG. 3. The tree pipeline after logical round t = 5 for four-qubit words. Each box has one band per bit, with bit 0 at the bottom. Blue bands are in computational encoding and can control phase gates; pale orange bands remain in Fourier form. The root Q is available from the start. The first, second, and third target levels have decoded three, two, and two bits, respectively. Adjacent nonroot levels alternate their Hadamards: the first and third target levels have just decoded a new bit in round 5, whereas the second target level last decoded a bit in round 4. The exact schedule is proved in Appendix A.",
+      "page": 6
+    },
+    {
+      "image": "2610.25315_figures/2610.25315_fig4.jpg",
+      "caption": "FIG. 4. Boolean evaluation by routing with dirty workspace. (a) The input (y0, y1) = (1, 0) is stored in routers on the selected path. The state of B follows the blue path to leaf 10; bits are listed in routing order, so the integer input is y = 1. Each nonroot internal vertex has a channel Mu and a router Ru. The root has only a router, and leaves have only channels. Dashed links indicate router control. The leaf gates encode h(0, 0) = h(1, 0) = 1 and h(0, 1) = h(1, 1) = 0. All borrowed qubits may start dirty. (b) Two applications of Qh, each followed by CNOTB→T, add h(y) to the target and restore B and the tree. Operations execute from left to right. (c) Each row tracks the state...",
+      "page": 9
+    }
+  ],
+  "figure": "2610.25315_figures/2610.25315_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

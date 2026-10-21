@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.24344",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.PF"
+  ],
+  "is_primary_archive": true,
+  "title": "FTWeave: Composing Logical Execution, Real-Time Decoding, and Magic-State Supply in Tightly Integrated Quantum-Classical Systems",
+  "authors": "Panayiotis Christou, Shuwen Kan, Ying Mao",
+  "abstract": "Fault-tolerant quantum applications depend on both decoded measurement information and a continuing supply of magic states. While an operation waits for either, its logical data require protection that produces more syndrome data and decoding work. Architects must provision the quantum and classical parts of the machine together, before complete systems are available to measure. FTWeave is a system-level simulator for this architectural exploration. It accepts OpenQASM 2/3 circuits, CUDA-Q Logical compiler artifacts, Stim circuits, and provider-derived physical inputs through adapters that preserve operation and measurement dependencies. Users bind these inputs to quantum resources, classical processors, memory, communication, and factory configurations. One event timeline determines application progress, resource ownership, and continuing protection. This supplies the system model needed to connect circuit and decoder evidence to application performance. Controlled demand studies and complete multiplier and Ising circuits show why the coupling changes provisioning decisions. A fixed-work approximation predicts a 3.55x multiplier speedup from additional factories where the coupled model gives almost none. Explicit ownership also changes useful capacity: increasing decoder workers alone has no benefit in a storage-constrained case, while increasing workers and feedback entries together gives 4.93x speedup. Selected color and hypergraph-product code mappings take 53-90% longer under decoder service variability, despite an unchanged mean. These comparisons identify useful resource combinations and distinguish protection work from the elapsed lifetime of quantum data.",
+  "url": "http://arxiv.org/abs/2610.24344v1",
+  "pdf": "https://arxiv.org/pdf/2610.24344v1",
+  "type": "theory",
+  "summary": "This paper introduces FTWeave, a system-level simulator designed to explore the architecture of fault-tolerant quantum computers by modeling the interplay between quantum circuits, real-time decoding, and magic-state supply. It demonstrates that resource provisioning must account for continuous protection work generated during waits, revealing that simple component scaling often fails to capture the true performance gains achievable through coordinated resource management.",
+  "main_problem": "Architecting fault-tolerant quantum systems requires coordinating logical execution, real-time decoding, and magic-state supply, especially when operations stall waiting for resources.",
+  "main_result": "The coupling between components significantly changes provisioning decisions, and resource ownership (e.g., feedback entries) can yield substantial speedups that are missed by simpler models.",
+  "method": "The authors developed FTWeave, a system-level simulator that uses an event timeline to model resource competition between quantum operations, decoding work, and state supply.",
+  "model_or_system": "The system models tightly integrated quantum-classical architectures for fault-tolerant quantum computation, accepting inputs from OpenQASM, CUDA-Q, and Stim circuits.",
+  "key_observables": "Application progress, resource ownership, total decoding work, and completion time under various resource constraints.",
+  "important_parameters": "Code mappings (Color, Hypergraph-product), resource counts (decoder workers, memory), and service variability.",
+  "main_assumptions": "The model assumes distinct completion points for classical steps and provides a framework to test resource combinations rather than providing absolute performance guarantees.",
+  "figures_summary": "Figures illustrate the event timeline showing resource interaction, the workflow stages of a factory, and how fixed points in time dictate subsequent progress while QEC continues.",
+  "paper_structure": "The paper introduces FTWeave, details its ability to accept diverse inputs and track resource ownership over an event timeline, and presents comparative studies showing how resource coupling dictates performance gains.",
+  "why_interesting": "While focused on simulation, the detailed resource accounting and analysis of bottlenecks (like storage constraints vs. worker counts) provide crucial insights into the practical resource budgeting required for scaling complex quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.24344_figures/2610.24344_fig1.jpg",
+      "caption": "Figure 1. FTWeave combines dependency-preserving inputs, grounding profiles, and machine settings on one event timeline. The waiting T operation needs usable feedback and a compatible magic state while continuing QEC and factory control share classical resources. Outputs record progress, protection work, and resource use. Timelines and counts are schematic.",
+      "page": 4
+    },
+    {
+      "image": "2610.24344_figures/2610.24344_fig2.jpg",
+      "caption": "Figure 2. Captured-frontier example. The dashed line fixes round 10 at 11 𝜇s. Teal markers show QEC progress. The ap- plied target resolves at 15 𝜇s, and the orange batch becomes ready at 17 𝜇s. Protection continues during both waits. Re- sources are available at 17 𝜇s.",
+      "page": 5
+    },
+    {
+      "image": "2610.24344_figures/2610.24344_fig3.jpg",
+      "caption": "Figure 4. RQ1 architectural decisions. (a) Reference rotated-surface 𝑑= 3 study with one chain. Uniform demand crosses a CPU-capacity threshold, while both regimes plateau over 16–32 slots. (b) Separate 256-slot code/decoder study. Cells show the runtime reduction from one to two chains under burst demand. Construction size 𝑠equals distance for the first four families and half the distance for HGP. Every cell is a matched completed pair under the service mapping in Section 5.",
+      "page": 13
+    },
+    {
+      "image": "2610.24344_figures/2610.24344_fig4.jpg",
+      "caption": "Figure 5. Demand grouping changes waiting and the useful upgrade. (a,b) Saved QEC-wait intervals for the first sixteen T consumers, covering 512 requested Clifford rounds in each regime. Black strips count overlapping waits once. Both excerpts use one chain and the same time scale. (c,d) Complete five-circuit jobs, each consuming 640 T states, at 32 CPU slots. Only decoder service is scaled, with physical cadence fixed at 1.1 𝜇s. Two- and four-chain curves coincide.",
+      "page": 13
+    },
+    {
+      "image": "2610.24344_figures/2610.24344_fig5.jpg",
+      "caption": "Figure 6. RQ2 efficiency and readiness. Left: window size changes service per new round, uniform runtime, and p99 waiting. Right: GPU predecoding with CPU fallback changes p95 waiting before substantially changing runtime. Both panels use one chain, 32 CPU slots, and 24 outstanding windows. Window scaling, predecoder service, and fallback probabilities are architectural sensitivities.",
+      "page": 14
+    }
+  ],
+  "figure": "2610.24344_figures/2610.24344_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

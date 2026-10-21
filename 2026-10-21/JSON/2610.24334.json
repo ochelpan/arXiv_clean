@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.24334",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Power-Law Correlations Without Apparent Temperature-Tuned Criticality in Fixed-Tree Hierarchical Languages",
+  "authors": "Marcel Kühn, Bernd Rosenow",
+  "abstract": "Sampling temperature can substantially reshape autoregressive generation, but it is unclear when temperature changes in long-range correlations reflect a genuine phase transition rather than a smooth change in statistics. We study this question in a controlled analogue of temperature sampling: a finite-depth probabilistic context-free grammar on a fixed hierarchical tree, where exact next-token conditionals are computed by belief propagation and then rescaled by a softmax temperature before autoregressive sampling. We measure two-point mutual information between tokens as a function of separation. Across the tested temperatures and grammar ensembles, mutual information remains well described by a power-law envelope. Temperature changes the correlation magnitude and fitted exponent, but within the accessible system sizes we find no long-distance plateau characteristic of an ordered phase and no clear crossover to short-range exponential decay. An approximate mapping to an Ising model on a tree explains how exponential decay in tree distance becomes a power law in token distance, allowing power laws to persist without tuning to a special decoding temperature. This controlled baseline clarifies which temperature effects can arise from hierarchical structure alone, before adding training, approximation error, or neural architecture.",
+  "url": "http://arxiv.org/abs/2610.24334v1",
+  "pdf": "https://arxiv.org/pdf/2610.24334v1",
+  "type": "theory",
+  "summary": "This paper investigates the origin of power-law correlations in language models by using a simplified, controlled model based on a fixed hierarchical grammar. By measuring mutual information across varying temperatures, the authors show that the power-law decay persists due to the underlying tree structure, even without tuning to a special critical temperature. This clarifies the structural contributions to long-range correlations before considering the complexities of fully trained neural networks.",
+  "main_problem": "To determine if power-law correlations observed in language models stem from a genuine phase transition or if they can arise solely from the fixed hierarchical structure and temperature rescaling of the model.",
+  "main_result": "The mutual information consistently follows a power-law envelope across tested temperatures, suggesting that the hierarchical structure alone can sustain power-law correlations without tuning to a special critical temperature.",
+  "method": "The study uses a controlled analogue—a probabilistic context-free grammar on a fixed tree—to compute and measure the two-point mutual information between tokens as a function of separation.",
+  "model_or_system": "The model is a finite-depth probabilistic context-free grammar defined on a fixed hierarchical tree. The process involves computing exact next-token conditionals via belief propagation and then rescaling them using a softmax temperature before autoregressive sampling.",
+  "key_observables": "Two-point mutual information, I(r), measured as a function of token separation r; the fitted exponent $\\alpha(T)$ vs. temperature $T$.",
+  "important_parameters": "Decoding temperature $T$; grammar ensemble type (full-support vs. sparse support); system size (depth of the grammar).",
+  "main_assumptions": "The analysis provides a controlled baseline, assuming the fixed hierarchical structure is the sole source of correlation, thereby excluding effects from training data or neural architecture.",
+  "figures_summary": "Figures illustrate the expected power-law, plateau, and exponential decay behaviors for mutual information. Specific plots show the power-law envelope of $I(r)$ across varying temperatures and compare the goodness-of-fit between power-law and exponential models.",
+  "paper_structure": "The paper establishes the controlled model (PCFG on a tree), details the measurement of mutual information $I(r)$ under temperature rescaling, presents results showing persistent power-law decay, and concludes by mapping this behavior to an Ising model on a tree.",
+  "why_interesting": "The work provides a clean, analytically tractable baseline for understanding how structural constraints (like those in a tree) can induce critical-like scaling (power laws) in correlation measures, which is relevant for understanding emergent physics in complex, structured systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.24334_figures/2610.24334_fig1.jpg",
+      "caption": "FIG. 1. Left: Schematic plot of different mutual-information behaviors. In the 2D Ising model, an ordered phase would show a plateau in the mutual information, whereas a disordered phase would show exponential decay. At criticality, correlations decay as a power law. Natural language likewise exhibits an approximate power-law decay of correlations. We ask whether such decay requires tuning to a special sampling temperature. Center: Structure of the synthetic language for s = 2 and L = 3. Right: Protocol for autoregressively sampling text from this language at a modified temperature.",
+      "page": 3
+    },
+    {
+      "image": "2610.24334_figures/2610.24334_fig2.jpg",
+      "caption": "FIG. 2. Temperature dependence of the two-point mutual information in a grammar drawn from the full-support rule ensemble with heterogeneous probabilities, with v = 16, L = 10, and s = 2, corresponding to sequence length d = 1024. More details are given in Section A. Left: Empirical mutual information I(r) as a function of token distance r for several decoding temperatures. Points show estimates at individual distances, crosses indicate averages over distances that share the same lowest common ancestor with the last token, and dashed lines show power-law fits. Right: Fitted effective exponent α in I(r) ∼r−α as a function of temperature. Temperature changes both the magnitude and the...",
+      "page": 8
+    },
+    {
+      "image": "2610.24334_figures/2610.24334_fig3.jpg",
+      "caption": "FIG. 3. Temperature dependence of the two-point mutual information in grammars drawn from sparse rule ensembles with branching factor s = 3, L = 5, v = 16, and m = 4 allowed transition rules per parent. Top row: Strictly sparse grammar with ε = 0. Bottom row: Softened sparse grammar with ε = 0.1. In the strict case, forbidden transitions remain forbidden at all finite temperatures and therefore continue to sustain correlations even at high temperature. In the softened case, high temperature weakens the preferred sparse structure, but the observed decay remains well described by a power law over the sampled range. Additional results for sparse transition rules, including results for s = 2...",
+      "page": 9
+    },
+    {
+      "image": "2610.24334_figures/2610.24334_fig4.jpg",
+      "caption": "FIG. 4. Additional temperature sweeps for the full-support heterogeneous rule ensemble with v = 16, s = 2, L = 10, d = 1024, and σ = 5. Rows correspond to three independent rule draws. Left column: empirical two-point mutual information I(r) as a function of token distance r. Points show individual distance estimates, crosses show averages over distances with the same common-ancestor level, and dashed lines show power-law fits to the averaged points. Right column: fitted effective exponent α in I(r) ∼r−α as a function of decoding temperature. Each curve is estimated from 2.0 × 107 autoregressively sampled strings. Error bars denote two standard errors from the fit; missing error bars...",
+      "page": 17
+    },
+    {
+      "image": "2610.24334_figures/2610.24334_fig5.jpg",
+      "caption": "FIG. 5. Temperature dependence of two-point mutual information in sparse rule ensembles with branching factor s = 2 and m = 3 allowed transition rules per parent. Top row: strictly sparse grammar with ε = 0. Bottom row: softened sparse grammar with ε = 0.1. Left column: empirical mutual information I(r) as a function of token distance r. Points show individual distance estimates, crosses show common-ancestor-level averages, and dashed lines show power-law fits. Right column: fitted effective exponent α in I(r) ∼r−α as a function of decoding temperature. Each curve is estimated from 2.0 × 108 autoregressively sampled strings. Error bars denote two standard errors from the fit; missing error...",
+      "page": 18
+    }
+  ],
+  "figure": "2610.24334_figures/2610.24334_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 3,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

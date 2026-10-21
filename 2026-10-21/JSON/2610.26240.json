@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.26240",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.CR",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Q-MALDetect: Quantum Image-Based Malware Detection and Adversarial Robustness Analysis",
+  "authors": "Walid El Maouaki, Mohammad Izen, Nouhaila Innan, Alberto Marchisio, Muhammad Shafique",
+  "abstract": "Quantum machine-learning (QML) models are increasingly considered for security applications, yet their adversarial robustness in malware analysis remains insufficiently understood. This paper presents Q-MALDetect, a hybrid convolutional and variational-quantum detector for byte-image representations of x86-64 Executable and Linkable Format (ELF) binaries, and evaluates it under feature-space and a range of Grad-CAM-guided, executable-aware evasion attacks. The model achieves 97.2% training accuracy, but its robustness deteriorates as attack strength increases, with the strongest evaluated feature-space attack reaching a 78.7% attack success rate (ASR). Among executable-aware attacks, Grad-CAM-guided no-operation (NOP) insertion produces the highest conditional ASR of 32.9%. Dynamic adversarial training is the most effective evaluated defense, reducing feature-space ASR to as low as 5.0%, executable-aware ASR to 7.7%, and the sequential-attack ASR to 34.0%. In contrast, convolutional-autoencoder preprocessing increases executable-aware ASR to 39.7%, coinciding with a rise in Grad-CAM attribution mass within the mutable .text region from 35.2% to 45.7%. Ablation results reveal no monotonic relationship between qubit count and robustness, while the encoding interface modifies the learned attack surface without neutralizing the strongest attack. These findings demonstrate that the effectiveness of attacks and defenses depends strongly on the perturbation constraints and evaluation conditions. Reliable deployment of QML malware detectors therefore requires assessment against both feature-space and executable-aware attacks rather than reliance on clean accuracy or generic denoising alone.",
+  "url": "http://arxiv.org/abs/2610.26240v1",
+  "pdf": "https://arxiv.org/pdf/2610.26240v1",
+  "type": "both",
+  "summary": "This paper introduces Q-MALDetect, a hybrid quantum-classical model for detecting malware from binary images. It rigorously tests the model's security by subjecting it to both standard feature-space and advanced, executable-aware adversarial attacks. The findings emphasize that while dynamic adversarial training improves robustness, no single defense or architectural choice guarantees security, necessitating multi-faceted threat modeling for real-world deployment.",
+  "main_problem": "The paper addresses the critical gap in understanding the adversarial robustness of Quantum Machine Learning (QML) models when applied to malware detection, particularly comparing feature-space attacks against executable-aware binary mutations.",
+  "main_result": "Dynamic adversarial training proved to be the most effective defense, significantly reducing the Attack Success Rate (ASR) across various attack types. However, the study concludes that reliable deployment requires testing against both feature-space and executable-aware attacks, as clean accuracy is insufficient.",
+  "method": "The authors developed Q-MALDetect, a hybrid detector combining a CNN frontend with a variational quantum circuit, and rigorously tested it using classical attacks (FGSM, PGD) and complex, executable-aware attacks (Grad-CAM guided NOP insertion).",
+  "model_or_system": "The system uses x86-64 ELF binaries converted into byte-images ($224 \times 224$). The detector architecture is a hybrid model featuring a CNN frontend, an FC bridge, and a variational quantum circuit utilizing 4-qubit amplitude encoding.",
+  "key_observables": "Attack Success Rate (ASR) for feature-space and executable-aware attacks; detection accuracy; and the reduction in ASR achieved by dynamic adversarial training.",
+  "important_parameters": "Perturbation budget ($\\epsilon$); number of qubits ($n$); and the specific attack type (e.g., Grad-CAM guided NOP insertion).",
+  "main_assumptions": "The primary assumption is that the effectiveness of defenses and attacks is highly dependent on the specific perturbation constraints and evaluation conditions, invalidating reliance on clean accuracy alone.",
+  "figures_summary": "Figures illustrate the complete evaluation protocol, ASR comparisons across different attack types and defense strategies, the impact of varying qubit counts, and the comparison between amplitude and angle encoding results.",
+  "paper_structure": "The paper follows a structure of problem definition (QML security gap), model proposal (Q-MALDetect), detailed methodology (attack/defense implementation), comprehensive evaluation (ablation studies on qubits, encoding, and defenses), and concluding analysis on deployment requirements.",
+  "why_interesting": "This work is interesting because it applies quantum computational models to a concrete, complex security problem (malware detection), forcing an analysis of quantum model robustness against sophisticated, structured adversarial inputs, which touches upon quantum information security.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.26240_figures/2610.26240_fig1.jpg",
+      "caption": "Fig. 1: Q-MALDetect evaluation workflow. ELF binaries are converted to 224 × 224 normalized byte images and divided into a 1,200-sample model-development pool and a 100-malware attack holdout. A CNN bridge supplies normalized amplitudes to a variational quantum circuit. The evaluation covers three feature-space attacks and two Grad-CAM-guided, executable-aware NOP-insertion attacks; dynamic adversarial training and CAE preprocessing are then tested under the same attack families. Ablations vary perturbation budget, qubit count, encoding interface, and NOP length, while the final stage reports clean metrics, ASR, attribution behavior, and noise-model sensitivity.",
+      "page": 3
+    },
+    {
+      "image": "2610.26240_figures/2610.26240_fig2.jpg",
+      "caption": "Fig. 2: Representative attribution shift under CAE preprocessing. (a) Original malware byte image. (b) The base-model Grad-CAM map is spatially diffuse. (c) The CAE-model map concentrates high activation in a narrow horizontal band aligned with the analyzed .text region. The two numbered callouts mark segments of this same high-activation band, not separate processing stages. Across 495 paired maps, .text attribution mass increases from 35.2% to 45.7%.",
+      "page": 3
+    },
+    {
+      "image": "2610.26240_figures/2610.26240_fig3.jpg",
+      "caption": "Fig. 4: ASR under the undefended, CAE-defended, and adversarially trained conditions. FGSM, PGD, and Compound are feature- space ASRs; Grad-CAM+NOP and Grad-CAM+RL are conditional executable ASRs. Bar labels round the corresponding means to whole percentages. AT reduces all five attacks, whereas the CAE reduces feature-space ASR but increases both executable-aware rates.",
+      "page": 5
+    },
+    {
+      "image": "2610.26240_figures/2610.26240_fig4.jpg",
+      "caption": "Fig. 3: Training convergence for one illustrative run. Loss decreases from 0.6815 to 0.0605 while training accuracy increases from 56.41% to 98.44% over 10 epochs.",
+      "page": 5
+    },
+    {
+      "image": "2610.26240_figures/2610.26240_fig5.jpg",
+      "caption": "Fig. 5: Conditional executable ASR versus NOP length with total inserted volume fixed at 2,520 bytes, averaged over five seeds. Faint lines show individual seeds and the bold line shows the mean. The absence of a monotonic length trend, together with large seed variation, indicates that total displacement and detector fragility dominate the identity of the selected NOP.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.26240_figures/2610.26240_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

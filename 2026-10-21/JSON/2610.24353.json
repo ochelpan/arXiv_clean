@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.24353",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "EntangledEdge: A Distributed System for Orbital Quantum Sensing and Learning",
+  "authors": "Mohammad Abrarul Hasanat, Amit Samanta, Jason Ludmir, Tirthak Patel, Rohan Basu Roy",
+  "abstract": "An orbital quantum sensor is more precise than classical and holds its information in a quantum state's superposition and entanglement, which classical measurement collapses. Learning on quantum-sensed data therefore requires a distributed system in which the data stay quantum from sensor to inference. We present EntangledEdge, the first system architecture to unify orbital quantum sensing and learning end-to-end, with a quantum data plane and a classical control plane. It routes each event to a channel-matched model in a capacity-diverse bank, adapts its detection threshold without labels, and aggregates across stations by hardware fidelity. Evaluated with a hybrid prototype (real quantum processors, simulated orbit-to-ground link) over satellite telemetry, EntangledEdge achieves high-quality inference at bounded per-event cost, improves quantum processor utilization, and scales with fleet size.",
+  "url": "http://arxiv.org/abs/2610.24353v1",
+  "pdf": "https://arxiv.org/pdf/2610.24353v1",
+  "type": "both",
+  "summary": "This paper introduces EntangledEdge, a novel distributed system designed to perform quantum sensing and machine learning end-to-end across space and ground stations. It solves the critical problem of preserving quantum information during transmission by using quantum teleportation. The architecture achieves high-quality inference while managing real-world constraints like decoherence and data sparsity.",
+  "main_problem": "Developing a distributed system for quantum sensing data that remains quantum from the sensor in orbit to the inference engine on the ground, circumventing classical measurement collapse.",
+  "main_result": "The proposed EntangledEdge architecture achieves high-quality inference by unifying sensing and learning end-to-end, showing superior performance over classical and centralized methods.",
+  "method": "The system uses quantum teleportation to transfer the sensed quantum state from the satellite to the ground QPU, followed by quantum autoencoder learning.",
+  "model_or_system": "The system involves an orbital quantum sensor interacting with a field, transmitting the state via a quantum link (teleportation) to a ground QPU for processing. It utilizes a quantum data plane and a classical control plane.",
+  "key_observables": "F1 Score, detection quality, latency, throughput, and QPU utilization.",
+  "important_parameters": "Quantum state superposition and entanglement, hardware fidelity, and the short coherence times ($T_2$) of the qubits.",
+  "main_assumptions": "Quantum data cannot be buffered or copied on the satellite due to the no-cloning theorem and short coherence times; learning must occur online.",
+  "figures_summary": "Figures illustrate the end-to-end process from orbital sensing to ground inference, comparing performance across different data aggregation architectures (Isolated, Centralized, Federated).",
+  "paper_structure": "The paper introduces the problem, details the EntangledEdge architecture (quantum data plane + classical control plane), compares its performance against various baselines (e.g., classical transmission, centralized learning), and validates scalability and robustness.",
+  "why_interesting": "It addresses the practical challenge of integrating quantum sensing measurements into real-world, distributed machine learning pipelines, which is crucial for quantum networking and remote quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.24353_figures/2610.24353_fig1.jpg",
+      "caption": "Figure 1. An orbital quantum sensor teleports its data qubit to a ground station’s QPUs through a pre-shared Bell pair and a classical radio channel, where an ansatz performs learning and inference on the recovered state.",
+      "page": 2
+    },
+    {
+      "image": "2610.24353_figures/2610.24353_fig2.jpg",
+      "caption": "Figure 2. The fully quantum pipeline leads. The others mea- sure the state at the satellite and lose the quantum structure. Shaded bands are across-seed standard deviations.",
+      "page": 3
+    },
+    {
+      "image": "2610.24353_figures/2610.24353_fig3.jpg",
+      "caption": "Figure 3. Ground tracks of two satellites (NOAA-20, NOAA- 21), ground-station coverage disks, and contact windows. Passes are short, sparse, and not simultaneous across stations. Empirical evidence. Fig. 2 confirms this on OPS-SAT [71] telemetry data as the anomaly fraction sweeps from 6% to 20%. All three pipelines share the same bottleneck and train- ing budget. The fully quantum pipeline (sense →teleport → quantum autoencoder detection) holds the highest F1 at ev- ery operating point. The classical-transmission pipeline mea- sures quantum state 𝜌at the satellite into a 25-dimensional vector of single-qubit X/Y/Z and two-qubit ZZ observables, transmits it, and runs a classical autoencoder...",
+      "page": 3
+    },
+    {
+      "image": "2610.24353_figures/2610.24353_fig4.jpg",
+      "caption": "Figure 4. Classical telemetry alone selects one capacity-tier QAE on the QPU, with SPSA gradient estimation on a classical node. The inset details the label-free SWAP-test reconstruction, which yields a scalar score without measuring the input state.",
+      "page": 5
+    },
+    {
+      "image": "2610.24353_figures/2610.24353_fig5.jpg",
+      "caption": "Figure 5. F1 score against the per-link channel noise parameter 𝜂for two QAE capacities at opposite ends of the model-size axis. The large capacity has higher F1 at low 𝜂. The small capacity has a higher F1 at high 𝜂. No single capacity covers the range. The pattern generalizes to other pairs on the axis. primitive that returns the closeness between two quantum registers as a single scalar without disturbing the registers it compares. The test uses an auxiliary qubit and a controlled- SWAP between the trash register and the reference register. A single measurement on the auxiliary qubit produces an out- come whose probability grows as the trash register deviates from the reference. This...",
+      "page": 6
+    }
+  ],
+  "figure": "2610.24353_figures/2610.24353_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 1,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

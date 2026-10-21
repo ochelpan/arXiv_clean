@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.25105",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Generative marginal learning for finite-size molecular simulation with application to stress calculation",
+  "authors": "Cheng Yuan",
+  "abstract": "We propose generative marginal learning (GML), a framework for equilibrium sampling and local observable estimation in molecular simulations. By training a conditional diffusion model on large-system simulations, GML learns the marginal distribution of a retained region, enabling configuration generation without explicitly simulating the surrounding environment or imposing periodic boundary conditions on the retained region. We derive a marginal effective potential and the associated conditional mean-force identity, which provide the basis for both denoising and force-alignment training. As an application, we estimate the spatially averaged Irving--Kirkwood stress near a vacancy defect. Numerical results demonstrate that GML substantially improves pair structure and local stress accuracy compared with small periodic molecular dynamics simulations, mitigating finite-size effects in calculating local molecular observables.",
+  "url": "http://arxiv.org/abs/2610.25105v1",
+  "pdf": "https://arxiv.org/pdf/2610.25105v1",
+  "type": "theory",
+  "summary": "This paper introduces Generative Marginal Learning (GML), a novel framework using conditional diffusion models to estimate the equilibrium marginal distribution of a localized region in molecular simulations. By learning the influence of the surrounding environment implicitly, GML accurately calculates local observables like the stress tensor, significantly outperforming traditional methods that suffer from finite-size artifacts.",
+  "main_problem": "To accurately calculate macroscopic physical quantities, such as the Irving-Kirkwood stress, in a localized region of a large molecular system without the computational cost or boundary artifacts of full-system simulations.",
+  "main_result": "The Generative Marginal Learning (GML) framework significantly improves the accuracy of pair structure and local stress estimation compared to small periodic molecular dynamics simulations by mitigating finite-size effects.",
+  "method": "GML employs a conditional diffusion model trained on large-system equilibrium samples to learn the marginal distribution of the retained region by integrating out the surrounding environment degrees of freedom.",
+  "model_or_system": "The system is crystalline matter simulated via molecular dynamics (MD) with pair potentials. The model learns the marginal density $p_R(x | A, T)$ from the full-system density $p(x, y | A, T)$.",
+  "key_observables": "Spatially averaged Irving-Kirkwood (IK) stress ($\\langle\\sigma_C\rangle_{\text{conf}}$), pair structure (RDFs), and the effective potential $V(x; A, T)$.",
+  "important_parameters": "Temperature ($T$), system size (large vs. small periodic cells), and the specific defect type (e.g., vacancy).",
+  "main_assumptions": "The framework assumes that the marginal distribution can be accurately modeled by a conditional diffusion process, and the force-alignment loss provides a necessary constraint on the learned potential gradient.",
+  "figures_summary": "Figure 1 illustrates the domain reduction from a full system ($\\Omega$) to a retained region ($R$) and an observation core ($C$). Figure 10 compares defect-neighbor RDFs across various simulation methods, showing GML's improved accuracy.",
+  "paper_structure": "The paper introduces GML, derives the necessary mathematical identities linking forces and scores, details the training using both denoising and force-alignment losses, and applies the method to estimate the IK stress near a vacancy defect, concluding with comparative numerical results.",
+  "why_interesting": "While focused on classical MD, the use of advanced generative modeling (diffusion models) to extract equilibrium statistical properties from complex, constrained physical systems is highly relevant to developing next-generation simulation tools for quantum many-body systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.25105_figures/2610.25105_fig1.jpg",
+      "caption": "Figure 1: The domain reduction used by GML. The full domain Ωcontains N atoms. The retained region R ⊂Ωcontains M atoms with coordinates x; the exterior coordinates y are integrated out. The observation core C ⊂R is surrounded by the interaction buffer R\\C. GML learns the joint distribution of all retained coordinates from full-system samples, while observables are evaluated in C. The coordinates shown here precede the translation alignment used for training (Fig. 2). Atomic dots and region sizes are schematic.",
+      "page": 4
+    },
+    {
+      "image": "2610.25105_figures/2610.25105_fig2.jpg",
+      "caption": "Figure 2: Data generation, training, and stress estimation with GML. Blue and orange denote R and C as in Fig. 1; icons are schematic. Full-system molecular dynamics sup- plies configurations and, for force-alignment training, forces including exterior interactions. Translation alignment gives the retained coordinates xa defined in Eq. (12); corrected forces follow Eq. (24). The losses average over temperature, full-system configuration, noise level, and Gaussian noise according to P in Eq. (16), with D = dM. At fixed T, independent samples xa,(m), m = 1, . . . , S, give the mean buffered Irving–Kirkwood (IK) stress, including the thermal contribution and bonds crossing C.",
+      "page": 6
+    },
+    {
+      "image": "2610.25105_figures/2610.25105_fig3.jpg",
+      "caption": "Figure 3: Reference geometry of the seven-vacancy crystal. (a) Full periodic system; the blue and orange rectangles delimit R and C. (b) Retained region and RDF sampling sets. Regional centers lie in C; purple rings mark the twelve atoms immediately bordering the vacancy cluster, whose labels form IS. The green plus marks one of these atoms, and its dashed circle shows the neighbor-search radius 3.4a. Neighbors may lie in the buffer. The two panels use different scales.",
+      "page": 15
+    },
+    {
+      "image": "2610.25105_figures/2610.25105_fig4.jpg",
+      "caption": "Figure 4: Regional RDFs after 100000 training updates. Rows correspond to T ∗= 0.07 (held out) and 0.10 (training). The left column shows gC and the right column its signed difference from large-cell MD on a linear scale. Insets resolve the first peak and the smaller GML differences.",
+      "page": 19
+    },
+    {
+      "image": "2610.25105_figures/2610.25105_fig5.jpg",
+      "caption": "Figure 6 and Table 3 show that GML reduces the temperature-dependent biases of both baselines. Small periodic MD is less compressive than the reference, whereas the Gaussian model is more compressive; both discrepan- cies grow overall with temperature. Among the three GML models, force- alignment training gives the smallest stress discrepancy at three training temperatures and joint training at two. Denoising training gives the smallest discrepancy at all four held-out temperatures. This agrees with the RDF evidence for stronger final generalization with denoising training. However, these final-checkpoint results do not show whether force-alignment training reaches accurate stress estimates...",
+      "page": 19
+    }
+  ],
+  "figure": "2610.25105_figures/2610.25105_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

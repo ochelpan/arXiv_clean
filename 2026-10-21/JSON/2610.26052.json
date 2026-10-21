@@ -1,0 +1,63 @@
+{
+  "arxiv_id": "2610.26052",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "astro-ph.IM"
+  ],
+  "is_primary_archive": true,
+  "title": "HyQ-LC: Improving Light-Curve Classification with Hybrid Quantum--Classical Learning",
+  "authors": "Xinghang Yu, Bin Yang",
+  "abstract": "Light curves reveal stellar variability and support studies of stellar evolution and cosmic distances. Reliable classification is therefore important for large time-domain surveys. We present HyQ-LC for ten-class stellar light-curve classification using 359 handcrafted features and 633,034 training objects. The main model combines a window multilayer perceptron (MLP) backbone with a nine-qubit readout using amplitude encoding and angle re-uploading. Both this hybrid and its pure-MLP control have 44,238 parameters. On a shared 20,000-object test set, the hybrid has macro-averaged F1 (Macro-F1) point gains of 0.8276 and 1.2393 percentage points over the pure MLP on two fine-tuning seeds. A separate fixed-fusion configuration achieves slightly higher Macro-F1 but lower accuracy than approximately budget-matched LightGBM. Its positive class-level differences are concentrated in CEP, RRC, and ROT, while the full-budget LightGBM reference scores higher on both metrics. All circuits are simulated classically. The comparisons retain existing validation-selected checkpoints and use the same test objects, with features, predictions, and recomputation code publicly available. The results identify point-estimate improvements over the tested controls while leaving the specific contribution of the quantum branch unresolved.",
+  "url": "http://arxiv.org/abs/2610.26052v1",
+  "pdf": "https://arxiv.org/pdf/2610.26052v1",
+  "type": "theory",
+  "summary": "This paper proposes HyQ-LC, a hybrid quantum-classical neural network, to enhance the classification of stellar light curves using engineered features. The model integrates a classical MLP with a quantum readout circuit, demonstrating measurable performance gains over pure classical counterparts. However, the authors caution that the full benefit over state-of-the-art classical methods like LightGBM is not definitively proven.",
+  "main_problem": "The paper aims to improve the classification of stellar variability from light curves, a task crucial for large-scale time-domain astronomical surveys.",
+  "main_result": "The hybrid quantum-classical model (HyQ-LC) showed point-estimate gains in Macro-F1 over the pure MLP control, although the full-budget LightGBM reference generally scored higher on key metrics.",
+  "method": "The authors developed a hybrid model combining a classical MLP backbone with a quantum readout circuit utilizing amplitude encoding and angle re-uploading.",
+  "model_or_system": "The system analyzes stellar light curves using 359 handcrafted features. The model architecture involves a window MLP processing these features, which then feeds into a nine-qubit readout circuit for classification.",
+  "key_observables": "Macro-averaged F1 (Macro-F1) and Accuracy (ACC) on a 20,000-object test set.",
+  "important_parameters": "The model has approximately 44,238 trainable parameters; the quantum readout uses a 12-layer circuit with 540 trainable parameters.",
+  "main_assumptions": "All quantum circuits are simulated classically, and the specific contribution of the quantum branch remains unresolved due to architectural overlaps with classical controls.",
+  "figures_summary": "The figures detail the model overview (MLP backbone + 9-qubit readout), the quantum encoding/circuit structure, and comparisons across various control configurations (MLP, fixed fusion, LightGBM).",
+  "paper_structure": "The paper introduces the problem, details the hybrid quantum-classical architecture (encoding, readout circuit, fusion), compares its performance against parameter-matched and full-budget classical baselines (MLP, LightGBM), and analyzes class-specific gains.",
+  "why_interesting": "While the application is astrophysics, the core methodology involves integrating quantum circuits (readout) into a deep learning framework for feature processing, which is relevant to quantum machine learning applied to complex data structures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.26052_figures/2610.26052_fig1.jpg",
+      "caption": "Figure 1: HyQ-LC model overview. (a) The main model combines a 120-dimensional Window MLP representation with 27 features from a global nine-qubit readout. Separately normalised features enter a 147→128→10 residual MLP, whose logits are added to the backbone prediction before class-weight correction. (b) The separate fixed-fusion configuration averages the corrected logits of independently trained token-wise quantum and Window MLP classifiers. Its 55,581-scalar budget includes one fixed mixing coefficient. Light curves are schematic illustrations, not measured examples; the tokens group feature entries rather than time samples.",
+      "page": 4
+    },
+    {
+      "image": "2610.26052_figures/2610.26052_fig2.jpg",
+      "caption": "Figure 2: Nine-qubit readout in the residual HyQ-LC model. (a) The bounded input supplies 512 normalised amplitudes and nine grouped angles. The amplitude formula shown applies to nonzero inputs; Eq. (2) specifies the zero-norm fallback. (b) State preparation is performed once. Each of twelve layers applies trainable Rz–Ry–Rz rotations, the ordered CNOT ring 0 →1, . . . , 7 →8, 8 →0, and angle re-uploading. The 324 rotation, 108 frequency, and 108 shift parameters sum to 540; qubit zero is the least significant basis bit. (c) Nine expectations for each of X, Y , and Z form the 27- dimensional output. All expectations are computed by classical state-vector simulation.",
+      "page": 6
+    }
+  ],
+  "figure": "2610.26052_figures/2610.26052_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

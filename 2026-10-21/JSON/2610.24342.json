@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.24342",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-Classical Iterative Refinement for the Pressure-Poisson Equation on NISQ Hardware",
+  "authors": "Doyeol \"David\" Ahn, Byeongyong Park, Rho Shin Myong, Franz Klein",
+  "abstract": "We present a hybrid quantum-classical iterative refinement for the pressure-Poisson equation of the incompressible Navier-Stokes projection method on noisy quantum hardware. Rather than solving the pressure equation once per time step, we solve it repeatedly for the normalized residual and scale each quantum direction by a least-squares fit to the physical residual. As a result, the error of the quantum solve enters as a contraction factor $\\sinθ_k$ of the residual rather than as an error floor. This removes the requirement of a state infidelity below $10^{-7}$ that was estimated for single-solve schemes. With a boundary-consistent staggered (MAC) discretization, the pressure residual equals the velocity divergence left after projection up to the factor $Δt/ρ$. On the IBM processor ibm_cleveland, a four-qubit ($16\\times16$) problem reached a relative residual below $10^{-7}$ within eight to ten corrections in all 20 runs of a pre-registered experiment, whereas a single solve with a comparable number of shots stopped at 0.33-0.59. In a six-qubit ($64\\times64$) pilot, all three runs reached the same tolerance in 13 corrections. On the IonQ Forte processor, a manufactured-solution benchmark reached $5.6\\times10^{-8}$ in nine corrections, with a pressure error of $4.9\\times10^{-8}$. Finally, we carried out the variational training itself on ibm_cleveland, so that every sampled value of the cost function was obtained from hardware measurements. The residual fell to $5.6\\times10^{-4}$ in seven corrections, below the pre-specified tolerance of $10^{-3}$, at the rate predicted by a noise model and with 24 min of QPU time.",
+  "url": "http://arxiv.org/abs/2610.24342v1",
+  "pdf": "https://arxiv.org/pdf/2610.24342v1",
+  "type": "experiment",
+  "summary": "This paper proposes a novel hybrid quantum-classical method to solve the pressure-Poisson equation for fluid dynamics on noisy quantum hardware. By iteratively refining the solution using the residual, the authors circumvent the error floor limitations of single quantum solves. Experiments on real quantum processors show that this refinement technique successfully drives the error down to high physical tolerances.",
+  "main_problem": "The paper addresses the challenge of solving the pressure-Poisson equation, a computationally intensive step in simulating incompressible Navier-Stokes fluid dynamics, using noisy quantum hardware.",
+  "main_result": "By employing a hybrid quantum-classical iterative refinement scheme, the authors demonstrated that the quantum error enters as a controllable contraction factor, allowing the simulation to reach high accuracy ($10^{-7}$) on NISQ hardware, unlike single-solve methods which hit an error floor.",
+  "method": "They use an iterative refinement loop where the residual is repeatedly solved quantumly to determine a direction, which is then scaled using a least-squares fit derived from the physical residual, thereby achieving convergence.",
+  "model_or_system": "The model is the incompressible Navier-Stokes equations solved using a staggered (MAC) grid discretization. The computation is performed on superconducting (ibm_cleveland) and trapped-ion (IonQ Forte) quantum processors.",
+  "key_observables": "The primary observable is the pressure residual, monitored by the relative residual $\\|r!\\|/\\|b\\|$, with convergence tracked by the contraction factor $\\sin\theta!$.",
+  "important_parameters": "Target relative residual tolerance ($\tau$) of $10^{-7}$; the number of qubits (up to 6); and the number of iterative corrections (8 to 13).",
+  "main_assumptions": "The core assumption is that the iterative refinement structure allows the quantum error to manifest as a multiplicative contraction factor rather than an additive error floor, which is critical for convergence.",
+  "figures_summary": "Figures illustrate the real-amplitude ansatz and the multi-circuit readout process (HTree), while the overall structure shows the iterative quantum-classical refinement loop.",
+  "paper_structure": "The paper details the physical derivation of the Poisson equation, introduces the hybrid quantum-classical iterative refinement methodology, presents experimental results on multiple quantum hardware platforms demonstrating convergence, and concludes by comparing this approach to single-solve limitations.",
+  "why_interesting": "The work provides a concrete, hardware-aware algorithmic blueprint for solving complex partial differential equations (PDEs) that are central to fluid dynamics, moving beyond simple quantum simulation to address iterative numerical stability.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.24342_figures/2610.24342_fig1.jpg",
+      "caption": "Fig. 1. (a) Real-amplitude ansatz 𝑈(𝜃) with 24 trained angles and 15 CNOT gates. (b) The five HTree readout circuits measured at every correction.",
+      "page": 4
+    },
+    {
+      "image": "2610.24342_figures/2610.24342_fig2.jpg",
+      "caption": "Fig. 2. The hybrid quantum–classical refinement loop. The residual, the scale and the update are computed exactly on the classical side; the quantum processor supplies one normalized direction per correction.",
+      "page": 5
+    },
+    {
+      "image": "2610.24342_figures/2610.24342_fig3.jpg",
+      "caption": "Fig. 3. Relative residual of problem P1 against the number of quantum corrections (IBM ibm_cleveland, pre- registered 20-pair experiment of 14 October 2026). Squares at the right: the single solves with a comparable total number of shots.",
+      "page": 9
+    },
+    {
+      "image": "2610.24342_figures/2610.24342_fig4.jpg",
+      "caption": "Fig. 4. Relative residual and pressure error of problem P2 on IonQ Forte against the number of quantum corrections.",
+      "page": 10
+    },
+    {
+      "image": "2610.24342_figures/2610.24342_fig5.jpg",
+      "caption": "Fig. 5. Relative residual of problem P3 (six qubits, 8 × 8) on ibm_cleveland against the number of quantum corrections. The dashed line is the median of the 20 four-qubit runs of Fig. 3; the squares at the right are the single solves at 690,000 shots.",
+      "page": 11
+    }
+  ],
+  "figure": "2610.24342_figures/2610.24342_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

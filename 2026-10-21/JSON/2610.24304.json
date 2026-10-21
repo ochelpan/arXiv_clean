@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2610.24304",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cs.AI",
+    "cond-mat.other",
+    "cond-mat.str-el",
+    "cond-mat.supr-con"
+  ],
+  "is_primary_archive": true,
+  "title": "CME-SpectrumBench: Can LLMs Analyze Condensed Matter Spectral Data?",
+  "authors": "Jin Gene Wong, Anjney Midha, Joseph Mathew Tennyson, Wei-Lin Chiang, Ion Stoica, Zhi-Xun Shen",
+  "abstract": "Large Language Models (LLMs) are presently well assessed by expert-level mathematics and physics benchmarks which focus on theoretical, symbolic reasoning. However, we lack experimental benchmarks that evaluate data analysis in frontier research problems, a capability that future domain-specific foundation models must have. To this end, we present CME-SpectrumBench, an expert-designed benchmark consisting of 190 questions that measures how reliably frontier LLMs analyze research-level spectral scientific data in condensed matter experiments (CME). Using simulated CME spectral data, we prompt models to identify structures from 2D intensity arrays in the face of noise and limited instrumental resolution, a test of dense context reasoning. Models are scored by how accurately their numerical answers approach the ground truth. Under direct query, scores generally pale in comparison to handwritten code due to clear failure modes: models can find simple features but struggle to trace patterns or compute derived quantities, and performance typically degrades with increased data resolution and noise/convolution levels. LLM performance becomes comparable to handwritten code by allowing tool use (access to a Python interpreter) with/without ReAct prompting, in effect mapping questions onto agentic code generation problems. Our findings show that frontier models can serve as research assistants by interfacing with data through code, but still face difficulties processing information directly from large datasets - a key barrier future foundation models must overcome. The code and data are publicly available at https://huggingface.co/datasets/jingene/CMESpectrumBench.",
+  "url": "http://arxiv.org/abs/2610.24304v1",
+  "pdf": "https://arxiv.org/pdf/2610.24304v1",
+  "type": "both",
+  "summary": "This work introduces CME-SpectrumBench, a benchmark designed to test LLMs on analyzing complex, noisy spectral data from condensed matter experiments. The study finds that while frontier models struggle to interpret raw data directly, their performance dramatically improves when they can use code interpreters to perform the necessary data processing steps. This highlights a key limitation: LLMs are currently better suited as code-interfacing assistants rather than direct data analysts.",
+  "main_problem": "The paper evaluates the ability of Large Language Models (LLMs) to perform complex data analysis on research-level spectral data from condensed matter experiments.",
+  "main_result": "LLMs struggle significantly when asked to analyze spectral data directly from large, noisy inputs, but their performance improves substantially when the task is framed as an agentic code generation problem requiring tool use.",
+  "method": "A benchmark called CME-SpectrumBench, containing 190 questions, was designed using simulated spectral data from condensed matter experiments (CME). Models are scored on their ability to numerically extract physical parameters from 2D intensity arrays.",
+  "model_or_system": "The physical domain is Condensed Matter Physics, specifically analyzing spectral data from techniques like ARPES and RIXS. The underlying physics involves solving an inverse problem to extract dispersion $\\epsilon(k)$ and line width $\\Sigma''(\\omega)$ from a measured spectrum $A(k, \\omega)$.",
+  "key_observables": "Dispersion curves $\\epsilon(k)$ and line widths $\\Sigma''(\\omega)$; the measured spectral data $A(k, \\omega)$ are 2D intensity maps.",
+  "important_parameters": "Noise levels (e.g., 10%, 40%) and instrumental convolution levels are key parameters used to increase the difficulty of the analysis.",
+  "main_assumptions": "The core assumption is that LLMs, when provided with code execution tools, can be effectively mapped to act as research assistants capable of solving complex scientific inverse problems.",
+  "figures_summary": "Figures illustrate sample spectral functions showing the effect of increasing noise on the spectrum, and another figure compares model performance gains when advanced prompting or tool use is enabled.",
+  "paper_structure": "The paper introduces the gap in current LLM benchmarks (lack of data analysis tests), presents the CME-SpectrumBench, details the methodology of spectral analysis (inverse problem), reports performance gains achieved through tool use, and concludes with the limitations of direct data processing by LLMs.",
+  "why_interesting": "While the focus is on AI benchmarking, the underlying physics problem—extracting fundamental parameters from noisy, complex spectral data—is highly relevant to any theoretical or experimental work in strongly correlated electron systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.24304_figures/2610.24304_fig1.jpg",
+      "caption": "Figure 1: Sample spectral function A(k, ω) from the bottom of a band, from which we may draw three tiers of questions (Section 2.3). Increasing noise levels are shown: (a) 0%, (b) 10%, (c) 40%.",
+      "page": 2
+    },
+    {
+      "image": "2610.24304_figures/2610.24304_fig2.jpg",
+      "caption": "Figure 2: (a) More recently released, closed–weight (proprietary) models generally perform better. Models with asterisks (*) are open–weight. Note expanded axes scaling, which top out at 1. Min./max. refer to spectra with minimum and maximum noise or convolution. (b) Advanced prompting improved scores, particularly for questions with minimal noise and convolution (min.), but gains were marginal when experimental complications were severe (max.). A solid black line denotes identical scores under direct query and advanced prompting. The legend applies to both subfigures.",
+      "page": 3
+    },
+    {
+      "image": "2610.24304_figures/2610.24304_fig3.jpg",
+      "caption": "Figure 3: Advanced prompting improved scores slightly for Tier I and Tier III questions, and vastly for Tier II. However, questions with maximal noise or convolution (red) were still poorly tackled.",
+      "page": 7
+    },
+    {
+      "image": "2610.24304_figures/2610.24304_fig4.jpg",
+      "caption": "Figure 4: (a) Higher resolution (more pixels/token count) typically worsened scores. Three examples are shown, representing the three tiers of questions. A vertical dashed line at 1002 pixels indicates the resolution at which the standard evaluation is carried out in Fig. 2. Shaded areas indicate error in the mean score (standard error) σx = σx/√n, for score x, sample standard deviation σx, and sample size n. (b) Maintaining the same color scheme, exponential decay of score with resolution (beyond 1002 pixels) is shown across categories, highlighting the differences between tiers of questions.",
+      "page": 8
+    },
+    {
+      "image": "2610.24304_figures/2610.24304_fig5.jpg",
+      "caption": "Figure 5: Unexpected improvement and subsequent expected decline in accuracy of answers with increasing noise; ground truth in red. Noise levels are set at (a) 0%, (b) 10%, and (c) 40% of maximum dispersion intensity, for a quadratic dispersion (question category B2).",
+      "page": 9
+    }
+  ],
+  "figure": "2610.24304_figures/2610.24304_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

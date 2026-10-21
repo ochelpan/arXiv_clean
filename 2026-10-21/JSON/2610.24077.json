@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.24077",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum error correction well below the color code threshold",
+  "authors": "Ali Lavasani, Adam P. Reed, Joan M. Dreiling, Annie J. Park, Michael Mills, Matteo Puviani, Gabriel Matos, M. S. Allman, Noah Berthusen, Natalie C. Brown, Victor E. Colussi, Brian Estey, Cameron Foltz, Daniel Gresh, Reza Haghshenas, Akhil Isanaka, Nikhil Kotibhaskar, Anthony Ransford, Ciarán Ryan-Anderson, Brian Neyenhuis, David Hayes, Tzvetan S. Metodi, Andrew C. Potter",
+  "abstract": "Quantum error correction enables scalable fault-tolerant quantum computation by suppressing logical errors exponentially with code distance once physical error rates fall below a critical threshold. Here we demonstrate below-threshold operation of triangular color codes with distances $d=3,5,$ and $7$ on Quantinuum's Helios trapped-ion quantum processor. Leveraging both circuit- and hardware- level leakage reduction schemes, we achieve logical error rates as low as $5_{-2}^{+4}\\times 10^{-6}$, and demonstrate error suppression by over an order of magnitude, $Λ=12_{-2}^{+3}$, with each successive increase in code distance. Moreover, we demonstrate below threshold scaling of error rates for Clifford two-qubit randomized benchmarking circuits when encoded in $d=3,5$ color codes, achieving logical error rate of $7^{+3}_{-3}\\times 10^{-5}$ per logical two-qubit Clifford at distance $5$ with a suppression factor of $Λ=9_{-3}^{+8}$. We compare logical performance for existing near-optimal algorithmic decoders, and both convolutional neural network and transformer-based neural network decoders capable of real-time decoding an order of magnitude faster than the syndrome extraction rate. These results approach the logical error rates required for megaquop-scale quantum computation and indicate that scaled trapped-ion processors could reach application-relevant performance with substantially smaller code blocks than indicated by previous results in other qubit modalities.",
+  "url": "http://arxiv.org/abs/2610.24077v1",
+  "pdf": "https://arxiv.org/pdf/2610.24077v1",
+  "type": "both",
+  "summary": "This research demonstrates that quantum error correction using triangular color codes can operate significantly below the theoretical error threshold on a trapped-ion quantum processor. By combining hardware leakage mitigation with advanced neural network decoding, the authors achieved extremely low logical error rates. These results suggest that trapped-ion systems can reach application-relevant performance with smaller code blocks than previously thought necessary.",
+  "main_problem": "The paper demonstrates quantum error correction (QEC) operation well below the theoretical threshold to enable scalable, fault-tolerant quantum computation.",
+  "main_result": "They achieved logical error rates as low as $5 \times 10^{-6}$ and demonstrated error suppression by over an order of magnitude ($\\Lambda \\approx 12$) when increasing the code distance.",
+  "method": "The study combines hardware-level leakage reduction schemes with advanced machine learning decoders (CNN and Transformer) to process syndrome measurements from color codes.",
+  "model_or_system": "The work uses triangular color codes on Quantinuum's Helios trapped-ion quantum processor, which utilizes $^{137}\text{Ba}^+$ ions as qubits.",
+  "key_observables": "Logical Error Rate (LER), Suppression Factor ($\\Lambda$), and performance of various decoders (Tesseract, CNN, RTT).",
+  "important_parameters": "Code distances $d=3, 5, 7$; physical error rates ($p$) relative to the threshold ($p_{\text{th}}$).",
+  "main_assumptions": "The hardware-level scheme was limited to three cycles, and the neural network decoders were applied without further fine-tuning on hardware data.",
+  "figures_summary": "Figures illustrate the color code structure, the syndrome extraction circuit, and plots showing the distance scaling of the logical error rate.",
+  "paper_structure": "The paper details the experimental setup on the trapped-ion platform, presents results from memory and randomized benchmarking experiments, and provides extensive technical details on training and implementing CNN and Transformer decoders.",
+  "why_interesting": "The combination of physical implementation on trapped ions with state-of-the-art ML decoding techniques pushes the boundaries of achievable error suppression, providing concrete benchmarks for fault-tolerant quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.24077_figures/2610.24077_fig1.jpg",
+      "caption": "FIG. 1. Triangular color code distance scaling a) Triangular color codes at distances 3,5 and 7. The gold dots represent physical qubits, and faces correspond to the code stabilizers. For distances d = 3, 5 we run 6 and 2 parallel memory experiments per shot. b) The SWAP-superdense syndrome extraction circuit. The bottom figure shows the mapping between the wires in the circuit and the qubits in each face. For four-qubit faces, the missing wires should simply be dropped from the circuit. The mapping changes after each syndrome extraction round, with a period of three, to ensure each data qubits eventually gets swapped with a fresh syndrome qubit. c) The distance scaling plot; both...",
+      "page": 2
+    },
+    {
+      "image": "2610.24077_figures/2610.24077_fig2.jpg",
+      "caption": "FIG. 2. Hardware-level leakage reduction a) Leakage repump scheme for 137Ba+. State-selective, narrow-linewidth transitions (red arrows) sequentially transfer leaked population to three 2D5/2 states. After each of these transitions, the transferred population is driven (orange arrows) to 2P3/2, which decays predominantly to 2S1/2 (dashed arrows). b) Leaked population versus number of repump cycles, normalized to the zero-cycle mean (see Methods). Gray dashed lines mark the three cycles used in this work and the corresponding suppression. c) Logical error rate (LER) per syndrome-extraction round, with and without circuit-level LRU and hardware-level leakage repump. Hardware-level leakage...",
+      "page": 3
+    },
+    {
+      "image": "2610.24077_figures/2610.24077_fig3.jpg",
+      "caption": "FIG. 3. Decoder statistics Decoding time distributions for streaming Frontier, CNN and RTT decoders across all three code distances; h(t) dt corresponds to the fraction of rounds, across all shots of a given distance, that took between t and t+dt milliseconds to process. The numbers for the streaming Frontier is from its WASM implementation.",
+      "page": 3
+    },
+    {
+      "image": "2610.24077_figures/2610.24077_fig4.jpg",
+      "caption": "FIG. 4. Syndrome error analysis a) Average non-trivial syndrome density (ps) per round. Faded lines correspond to specific stabilizers, and bold lines indicate shot-averaged quantities for each distance. Syndromes corresponding to weight w = 4 and weight w = 6 stabilizers are averaged sep- arately. b) Correlation between detector firings. The dashed lines show the range of detectors corresponding to the 10th round of syndrome extraction, showing that correlations with the 10th round are only significant in the 9th and 11th rounds. A discrete color map is used for better contrast (see Supple- mentary Material for analogous plots with continuous color maps for all distances). c) Error budget...",
+      "page": 5
+    },
+    {
+      "image": "2610.24077_figures/2610.24077_fig5.jpg",
+      "caption": "FIG. 5. Clifford 2QRB a) the Failure rate PL(m) of unen- coded and encoded Clifford 2QRB circuits for different 2QRB sequence lengths m. b) Logical error rate per Clifford gate ε for distances d = 3, 5. We extract ε assuming the decay form PL = A(1 −4",
+      "page": 6
+    }
+  ],
+  "figure": "2610.24077_figures/2610.24077_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.26784",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "High-Accuracy Propagation-Assisted Local Decoding for Fast Transversal Clifford Circuits",
+  "authors": "Mark Webber, Simanraj Sadana, Matthew A. Lane, Lucy Jade Robson, Anthony O'Rourke",
+  "abstract": "We benchmark the Iterative Redecode Scheme (IRS) on fast transversal Clifford circuits, achieving high-accuracy correlated decoding using local memory-style detectors and decoders. On a deep random Clifford benchmark, IRS yields approximately $4\\times$ lower logical failure rates than the ghost protocol at $d=11$ with matched buffers, and $15\\times$ lower rates than logical observable matching (LOM). In three-block GHZ preparation, IRS achieves $2\\times$ lower logical error rates than reliable logical Pauli-product decoding with matched initialisation, improving to $25\\times$ at $d=19$ with $\\lceil d/2\\rceil$ full initialisation rounds. We place IRS, which builds on Wan et al.'s scheme, within a broader propagation-assisted local (PAL) framework, where local decoders exchange messages rather than decoding a global hypergraph. IRS alternates local minimum-weight perfect matching (MWPM) on memory-equivalent detector error models (DEMs) with Pauli-frame propagation and detector updates across transversal CNOT layers, seeking local error estimates consistent with the global detector record. Prior-informed DEMs account for probabilities of propagated errors missing from the memory-equivalent model, improving initial decoding and reducing logical error rates. Zero-weight physical Pauli mechanisms enable inference and propagation of initially indeterminate stabilizer outcomes. Error rates saturate after a few iterations even for deep, adversarial alternating-tCNOT circuits, allowing iteration caps with negligible loss of accuracy. We find syndrome-extraction buffers of order $\\lfloor d/4\\rfloor$ sufficient for distance-dependent error suppression in the demanding regimes studied. The approach extends to other local decoders and CSS codes; for repeated logical $S$ gates, IRS achieves approximately $4$ to $10\\times$ lower logical error rates than LOM, depending on initialisation.",
+  "url": "http://arxiv.org/abs/2610.26784v1",
+  "pdf": "https://arxiv.org/pdf/2610.26784v1",
+  "type": "theory",
+  "summary": "This paper introduces the Iterative Redecode Scheme (IRS), a powerful decoding technique for fault-tolerant quantum computation using transversal Clifford circuits. IRS operates within a Propagation-Assisted Local (PAL) framework, iteratively refining error estimates by combining local matching with error propagation across circuit layers. It demonstrates superior performance over existing methods, making it a significant advancement for building reliable quantum computers.",
+  "main_problem": "The paper addresses the challenge of achieving high-accuracy decoding for fault-tolerant quantum computation, specifically dealing with correlated error structures arising from error propagation across multiple logical blocks in transversal Clifford circuits.",
+  "main_result": "The proposed Iterative Redecode Scheme (IRS) significantly lowers logical failure rates compared to established protocols like the ghost protocol and Logical Observable Matching (LOM) across deep random and structured benchmarks.",
+  "method": "IRS implements a Propagation-Assisted Local (PAL) framework by iteratively alternating local minimum-weight perfect matching (MWPM) decoding with Pauli-frame propagation and detector updates across transversal CNOT layers.",
+  "model_or_system": "The work focuses on fault-tolerant quantum computation using surface codes and general CSS codes, simulating circuits involving successive transversal CNOT (tCNOT) layers.",
+  "key_observables": "Logical failure rates, detector records, and the consistency between local and global error estimates.",
+  "important_parameters": "Code distance (d), number of syndrome-extraction buffer rounds ($\\lfloor d/4\rfloor$), and error probabilities ($p$).",
+  "main_assumptions": "The method assumes that local decoders can be coupled via message passing (PAL framework) and that the error process can be modeled by propagating Pauli errors across gate boundaries.",
+  "figures_summary": "Figure 1 compares the logical error rate vs. code distance for IRS against the ghost protocol and LOM on a deep random Clifford benchmark. Other figures detail circuit schematics for GHZ preparation and repeated logical S gates.",
+  "paper_structure": "The paper introduces the IRS as an extension of the PAL framework, detailing its iterative mechanism (MWPM $\\leftrightarrow$ Propagation). It then benchmarks this scheme against state-of-the-art decoders on various deep circuits (random Clifford, GHZ, repeated S gates), concluding with discussions on the underlying error models and necessary buffer sizes.",
+  "why_interesting": "While focused on quantum computation, the core concept of iterative refinement and propagating local constraints to solve a global, correlated problem shares conceptual parallels with advanced techniques in statistical physics and optimization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.26784_figures/2610.26784_fig1.jpg",
+      "caption": "FIG. 1. Deep random Clifford benchmark on the rotated surface code. Using the logical circuit and noise model of Ref. [1], we plot the logical error rate per logical-gate layer versus code distance d for: IRS (blue circles) with a prior-informed initial pass and one or two syndrome-extraction (SE) buffer rounds between logical-gate layers, shown as solid and dashed lines, respectively; the ghost protocol (burgundy triangles) [1] with one SE buffer round, using author-supplied reference data; and the open-source LOM decoder (orange squares) [2]. Our simulations accumulate approximately 100 logical failures per point. IRS continues to suppress logical errors with increasing distance, with the...",
+      "page": 3
+    },
+    {
+      "image": "2610.26784_figures/2610.26784_fig2.jpg",
+      "caption": "FIG. 2. Schematic of a transversal CNOT between two distance-3 rotated surface-code patches. The deterministic propagation rules are shown for X-type errors, which propagate from control to target, and Z-type errors, which propagate from target to control.",
+      "page": 4
+    },
+    {
+      "image": "2610.26784_figures/2610.26784_fig3.jpg",
+      "caption": "FIG. 3. IRS layers, passes and iterations in the circuit being decoded, using the notation of Algorithm 1. Each layer ℓcontains simultaneous tCNOTs. Pink boxes represent one iteration: IRS visits the layers in circuit order, removes each layer’s stored propagation correction δℓ, infers and applies an updated propagation correction, and re-decodes. Each iteration contains L decoding passes; an initial pass precedes the first iteration. Iterations repeat until ∆(n)",
+      "page": 5
+    },
+    {
+      "image": "2610.26784_figures/2610.26784_fig4.jpg",
+      "caption": "FIG. 4. (a) Logical circuit for preparing a 3 logical qubit GHZ state. The 0th qubit is initialised in the logical plus state, for which the initial Z-type stabilizer values are indeterminate, indicated by red question marks on the blue stabilizers; this is the standard gauge freedom when initialising in the Z(X)-basis and measuring the X(Z)-stabilizers. This gauge propagates across the tCNOTs onto other blocks, represented by the X enclosed in an orange box, whose contributions cancel in the logical Z1Z2 observable. The resulting performance is shown in Figure 5. (b) Other deterministic logical measurements on the GHZ-state. The contributions from the initially indeterminate Z-stabilizer...",
+      "page": 8
+    },
+    {
+      "image": "2610.26784_figures/2610.26784_fig5.jpg",
+      "caption": "FIG. 5. 3-block GHZ benchmark using the logical circuit and physical error model of Ref. [3]. Circuit logical error rate is shown versus code distance d for IRS with correlated MWPM (blue circles), the published reliable logical Pauli-products (RLPP) decoder (magenta diamonds), and the independent patch-transfer reference (black stars) from Figure S7 of Ref. [3]. Solid lines with filled markers, and dashed lines with empty markers, use full-full and half-full initialisation, respectively (see main text). The dotted blue curve uses ⌈d/2⌉full syndrome-extraction rounds before the first tCNOT. Shaded bands show 95% confidence Wilson intervals. Error-model details are given in Appendix E E.1....",
+      "page": 8
+    }
+  ],
+  "figure": "2610.26784_figures/2610.26784_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

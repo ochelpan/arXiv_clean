@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.26689",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Measurement-efficient energy estimator for quantum chemistry of photodynamic materials",
+  "authors": "Connor Lenihan, Kripa Panchagnula, Luca Erhart, Jem Guhit, Carlo A. Gaggioli, Gabriel Greene-Diniz, Gabriel Laude, Megan Cerys Rowe, Fabian Finger, Pranav Kalidindi, Enrico Rinaldi, Mikko Muuronen, Chandrika Mulakala, Thomas M. Soini, Elvira Shishenina, David Muñoz Ramo, David Zsolt Manrique",
+  "abstract": "Accurate modelling of chemical reaction rates requires precise correlated energy differences. Quantum computing offers a potential route to their determination, but extracting energies from quantum-prepared states can demand prohibitive sampling. We demonstrate measurement-efficient correlated energy estimation using an electronically challenging H$_2$DBB--Ru model derived from a Ru-functionalized hafnium metal-organic framework relevant to radiodynamic and photodynamic therapies. The mixed estimator combines a quantum-prepared target with sparse multiconfiguration references and recovers ground-state corrections using magnitude-only compute-uncompute measurements. Analytical variance estimates predict 1.6 mHa precision with a few hundred shots, about 100 times fewer than the single-determinant formulation and three orders of magnitude fewer than optimized Hamiltonian-term sampling. With approximate targets, it reaches comparable accuracy using simpler state preparation than direct expectation-value estimation. Emulator and trapped-ion experiments on Quantinuum Helios validate the approach up to (10,10), including a 50-qubit circuit combining AI-assisted state preparation with error detection, providing a measurement-efficient route to correlated energy differences for challenging chemical problems.",
+  "url": "http://arxiv.org/abs/2610.26689v1",
+  "pdf": "https://arxiv.org/pdf/2610.26689v1",
+  "type": "both",
+  "summary": "This paper introduces a measurement-efficient mixed estimator to calculate correlated energy differences for challenging quantum chemistry problems relevant to photodynamic materials. By combining quantum-prepared target states with classical references, the method drastically reduces the required quantum measurement shots compared to standard techniques. The approach is validated on a complex molecular model and tested on trapped-ion quantum hardware.",
+  "main_problem": "Accurately determining correlated energy differences for quantum chemistry, which is crucial for modeling chemical reaction rates in photodynamic and radiodynamic therapies.",
+  "main_result": "The proposed mixed estimator achieves predicted precision of 1.6 mHa with significantly fewer quantum shots compared to single-determinant or Hamiltonian-term sampling methods.",
+  "method": "The authors developed and applied a measurement-efficient mixed estimator (EME) that combines a quantum-prepared target state with sparse multiconfiguration references to estimate electronic energies.",
+  "model_or_system": "The study uses the H2DBB--Ru molecular model, derived from a Ru-functionalized hafnium metal-organic framework, which serves as a challenging benchmark for electronic structure calculations.",
+  "key_observables": "Electronic energy differences (activation energy, $\\Delta E$), overlap terms ($\\langle\\Psi|\\Lambda\rangle$, $\\langle\\Psi|\\Phi\rangle$), and required quantum circuit resources (qubit count, depth).",
+  "important_parameters": "Target precision of 1.6 mHa; comparison across active spaces up to (10,10); comparison against CASCI benchmarks.",
+  "main_assumptions": "The method assumes the ability to classically obtain the reference state $|\\Phi\rangle$ and resolves sign ambiguities by assuming the target state is the ground state.",
+  "figures_summary": "Figure 1 illustrates the end-to-end workflow, integrating classical calculations, quantum state preparation (pp-tUPS/sMCS), direct overlap measurements, and the final mixed estimator calculation.",
+  "paper_structure": "The paper details the theoretical formulation of the mixed estimator, benchmarks it against established quantum chemistry methods using the H2DBB--Ru system, and validates the approach using both emulator and trapped-ion experiments on Quantinuum Helios.",
+  "why_interesting": "The development of measurement-efficient estimators directly addresses the resource bottleneck in applying quantum computing to complex molecular simulations, bridging quantum information theory with physical chemistry.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.26689_figures/2610.26689_fig1.jpg",
+      "caption": "Fig. 1 End-to-end workflow from chemical modelling to precise energy differences, illustrated here for an H2DBB–Ru molecular model extracted from the Hf–DBB–Ru framework. Classical calculations define the relevant geometries and AS Hamiltonians. A quantum state-preparation method provides a target eigenstate or approximation, here we use a variant of tUPS: pp-tUPS optimized by statevector VQE; and sparse multiconfiguration states. Direct measurements of overlaps with classically con- structed sparse reference and residual states, particularly compute–uncompute, reduce sampling cost and variance relative to Pauli averaging. The mixed estimator combines these overlaps with classically known...",
+      "page": 4
+    },
+    {
+      "image": "2610.26689_figures/2610.26689_fig2.jpg",
+      "caption": "Fig. 2 Exact ME quantities for the triplet-spin ground states of the two (6,6) AS Hamiltonians corresponding to the Rx and R0 geometries. For each m, the reference is obtained by diagonalizing the Hamiltonian in the subspace of the m largest-amplitude CASCI determinants, from which the corresponding normalized residual state is constructed. a, Reference-energy error EΦ −ECASCI. b, Residual norm rΦ = ∥QΦH |Φ⟩∥. c, Energy correction rΦh/s. d, Residual-state overlap h = ⟨Ψ|Λ⟩. e, Reference-state overlap s = ⟨Ψ|Φ⟩. f, Ratio of the two overlaps.",
+      "page": 7
+    },
+    {
+      "image": "2610.26689_figures/2610.26689_fig3.jpg",
+      "caption": "Figure 3 compares the direct expectation value and the mixed estimator using the same sequence of approximate target states for all three active spaces. For pp-tUPS, two layers place both estimators within the ±1.6 mHa interval for both geometries. For sMCS, the mixed estimator generally approaches the CASCI energies with fewer retained determinants than the direct expectation value, with the clearest separation in the larger ASs. Because the state is not exact in this test and the mixed estimator is non-variational, it is not guaranteed to converge monotonically or to be closer at every truncation. The result, however, demonstrates that the mixed estimator can reduce the target-state...",
+      "page": 7
+    },
+    {
+      "image": "2610.26689_figures/2610.26689_fig4.jpg",
+      "caption": "Fig. 3 Statevector energy convergence of mixed estimator and expectation value for the approximate target states: a) pp-tUPS targets in the (6,6) active space. b)–d), sMCS targets in the (6,6), (8,8), and (10,10) active spaces. Dashed and dotted curves correspond to ME and direct EV values, with solid lines marking the CASCI energy, and the shaded region marking ECASCI ± 1.6 mHa. Orange and blue correspond to the Rx and R0 geometries. Scatter markers for sMCS indicate the truncations used for emulator and hardware runs as defined by Eq. (5).",
+      "page": 8
+    },
+    {
+      "image": "2610.26689_figures/2610.26689_fig5.jpg",
+      "caption": "Fig. 4 State-preparation quality and circuit resources for the (6,6) active space. a), b) indicate the overlap of the CASCI and pp-tUPS state, alongside the two-qubit pp-tUPS resources. By definition of the ansatz (fig. 9), resources for both geometries are identical. c), d) are analogous for the sMCS states. Orange and blue correspond to the Rx and R0 geometries. pp-tUPS resources for both states are identical; a feature of the ansatz with two-qubit gate count as hexagons and depth as octagons. sMCS gate count is shown as a solid line, with dotted corresponding to depth.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.26689_figures/2610.26689_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

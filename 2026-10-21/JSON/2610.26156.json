@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.26156",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cond-mat.soft"
+  ],
+  "is_primary_archive": true,
+  "title": "Dynamical Batching: How Class-Cycling Training Shapes the Internal Structure of Neural Networks",
+  "authors": "Nicolás Ratier-Werbin, Samuel Lozano, Miguel Ruiz-García",
+  "abstract": "We investigate whether cyclically varying the class composition of training batches can modify both the performance and the internal organization of neural networks. Motivated by nonequilibrium systems, in which cycling between related sub-goals can make switching between their solutions increasingly efficient, we introduce Dynamical Batching (DB), a sampling protocol that periodically emphasizes each class while leaving the loss and the optimizer unchanged, and compare it with Uniform Batching (UB), in which every mini-batch has equal class proportions. In the regime where standard training fails, DB changes the outcome: on a three-arm spiral, a capacity-limited MLP that plateaus far below perfect accuracy under UB fits the training data under DB. Tracking individual weights, we find that under DB the change between class-specialized states is carried by a smaller set of weights than under UB, and that this set is markedly more persistent from cycle to cycle, on every synthetic dataset we test and in a wider network that fits the data under both protocols. This organization is a signature of the protocol rather than a predictor of its benefit: it appears equally where DB leaves accuracy unchanged. On CIFAR-10, the same protocol modestly improves the test accuracy of a channel-narrowed ResNet-10, a standard residual architecture, and of a second capacity-limited convolutional network. These results show that how class emphasis is distributed in time can shape both the solution a network reaches and the internal structure of the network.",
+  "url": "http://arxiv.org/abs/2610.26156v1",
+  "pdf": "https://arxiv.org/pdf/2610.26156v1",
+  "type": "theory",
+  "summary": "This work introduces Dynamical Batching (DB), a training protocol that cyclically emphasizes different classes in a neural network's training batches. By comparing DB to standard uniform batching, the authors show that DB not only improves classification accuracy in certain regimes but also fundamentally changes the network's internal structure, localizing and stabilizing the weights responsible for switching between class-specific solutions.",
+  "main_problem": "The paper investigates whether cyclically varying the class composition of training batches (Dynamical Batching, DB) can modify both the performance and the internal organization of neural networks, especially when standard training fails.",
+  "main_result": "DB significantly improves test accuracy over standard Uniform Batching (UB) in certain capacity-limited networks and induces a weight organization characterized by a smaller, more persistent set of weights responsible for class switching.",
+  "method": "The authors compare DB, a protocol emphasizing classes cyclically, against UB, which uses uniform class proportions, by analyzing weight changes and test accuracy across various synthetic and real-world datasets.",
+  "model_or_system": "The study uses neural networks (MLPs and CNNs) trained on multi-class classification tasks, including the three-arm spiral and CIFAR-10. The training dynamics are governed by the sampling protocol applied to the mini-batches.",
+  "key_observables": "Test accuracy, size of the weight switching set, Jaccard overlap of switching sets, and switching distance between class-specialized states.",
+  "important_parameters": "Amplitude ($A$) and Period ($T$) of the class cycling schedule; network capacity (e.g., width of ResNet-10); batch size and learning rate.",
+  "main_assumptions": "The protocol is designed to be drop-in, leaving the per-example loss and optimizer unchanged; the benefit is hypothesized to stem from the localization and persistence of weight changes.",
+  "figures_summary": "Figures illustrate the class proportion changes over time, map the test accuracy gain vs. Amplitude and Period, and compare weight variation metrics (Switching Set, Persistence, Distance) between DB and UB protocols.",
+  "paper_structure": "The paper introduces DB and compares it to UB, first on toy models (three-arm spiral) to establish weight-level diagnostics (switching set size, persistence). It then extends these findings to real-world CNNs (CIFAR-10), showing performance gains correlated with network capacity limitations.",
+  "why_interesting": "The analysis of weight localization and persistent structural changes under non-equilibrium training protocols provides an analogy to understanding how external driving forces or structured environmental constraints can stabilize complex, non-trivial solutions in physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.26156_figures/2610.26156_fig1.jpg",
+      "caption": "FIG. 1. Learning by Dynamical Batching (DB). (a) Class proportion pi(t), the fraction of each mini-batch drawn from class i, over two training cycles (C = 3). At low amplitude (top, A = 5) every batch still contains all three classes: the focal-class proportion rises from 1/3 to 0.71, while the other two fall to 0.14. At high amplitude (bottom, A = 70) the emphasized class dominates the batch, its proportion saturating near 1, while the other two nearly vanish. A cycle is C consecutive periods, one sweep through the classes. (b) Schematic of the parameter space (illustrative, not data). Each class-specialized objective is satisfied in an extended, cone-shaped region (one cone per class,...",
+      "page": 3
+    },
+    {
+      "image": "2610.26156_figures/2610.26156_fig2.jpg",
+      "caption": "FIG. 2. Dynamical Batching (DB) on the three-arm spiral. (a) Accuracy gain in percentage points over the Uniform Batching (UB, A = 1) run with the same period T, across oscillation amplitude A and period T, for the small (H = 50) and large (H = 500) networks; training and test gain shown separately. Color scales differ between rows. Each cell averages 5 seeds; the yellow and green boxes mark the UB baseline (A = 1) and the best DB configuration, (A, T) = (20, 320), used in (b) and in Sec. IV. For the small network, a broad region of positive gain reaches +37.87 points in test accuracy, next to a failure region at large A and small T. The large network already reaches 99.00% train and 95.93%...",
+      "page": 5
+    },
+    {
+      "image": "2610.26156_figures/2610.26156_fig3.jpg",
+      "caption": "Figure 3d illustrates the functional side of this picture in one representative DB run. Late in training, accuracy is at ceiling for most of the period, drops in its middle part while the loss rises, and recovers within 5–10 steps once the emphasis on the focal class has decreased, a small fraction of the T = 320 steps of the period. Early in training, accuracy stays between ≈0.35 and ≈0.5 for almost the whole period. The abrupt onset and end of the dip (t ≈116 and t ≈205) coincide with the flooring of Eq. (2): at these steps the number of examples of each non-focal class drops from 3 to 2 per batch, and later returns to 3. The non-focal classes never vanish from the batch (at the peak, g =...",
+      "page": 5
+    },
+    {
+      "image": "2610.26156_figures/2610.26156_fig4.jpg",
+      "caption": "FIG. 3. Class switching concentrates on a small, persistent set of weights, and the distance between class states shrinks over training. Spiral, small network, (A, T) = (20, 320), B = 50. One cycle is 3 × 320 = 960 steps, giving 130 cycles, of which the first 122 are dynamical and the rest fall in the uniform final 5% and are excluded from the analysis. Solid green: Dynamical Batching (DB); dashed amber: Uniform Batching (UB, A = 1). (a) Switching-set size |S|/n: the fraction of all weights needed to carry 80% of the class-to-class variation. (b) Persistence of the switching set: the fraction of weights switching in either cycle that switch in both. (c) Switching distance d (Eq. (4)), the...",
+      "page": 6
+    },
+    {
+      "image": "2610.26156_figures/2610.26156_fig5.jpg",
+      "caption": "FIG. 4. Accuracy change on a channel-narrowed ResNet-10. Gain in training (left) and test (right) accuracy, in percentage points, relative to the Uniform Batching (UB) run (A = 1) with the same period T (UB averaged over all periods: train 100.00%, test 79.84%), across amplitude A and period T, for a ResNet-10 with channel widths scaled by 0.15, trained on CIFAR-10. Each cell averages 5 seeds. The color scale is clipped at −30 points: dark blue cells are runs that collapse, mostly to chance level. Axes are categorical; only a subset of the tested values is labeled.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.26156_figures/2610.26156_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
