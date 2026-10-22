@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2610.27500",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "math.NA",
+    "cs.LG",
+    "math.AP",
+    "nlin.PS"
+  ],
+  "is_primary_archive": false,
+  "title": "Soliton Profiles in 1D: Enhanced Neural-Network Solvers and Constrained Deep Ritz Methods",
+  "authors": "Chandler Haight, Alex D Rodriguez, Svetlana Roudenko",
+  "abstract": "We develop and compare enhanced neural-network solvers for one-dimensional ground-state profiles, which are solutions of $$ Q^{\\prime\\prime}=bQ-γQ^{p},\\quad Q>0,\\quad p>1, \\quad b, γ>0, $$ the stationary profile equation for the nonlinear Schrödinger, generalized Korteweg-de Vries, and nonlinear Klein-Gordon equations. Its explicit sech-type solutions serve as exact reference for error computation and benchmark hyperparameter selection. We improve on the standard Adam-trained physics-informed neural network (PINN) baseline by introducing higher-order optimization via Gauss-Newton/Levenberg-Marquardt and L-BFGS refinements, as well as Fourier-feature PINNs, and constrained Deep Ritz (DR) formulations. In DR approaches we introduce two new neural-network formulations, which implement two classical variational characterizations: a Nehari-constrained Deep Ritz method, in which the height is learned by projecting onto the Nehari/Pokhozhaev manifold, and a Weinstein Deep Ritz method, in which a normalized profile minimizes the Weinstein quotient. The Deep Ritz formulations perform best overall, in particular, the Weinstein variant gives the best error-runtime balance. The neural-network based solvers remain less accurate and efficient than classical Petviashvili iteration in 1D, however, the current study provides a proof of concept: the mesh-free formulation, non-reliance on exact profiles or the related features make them promising in higher dimensions and for more complicated nonlinearities and dispersive operators.",
+  "url": "http://arxiv.org/abs/2610.27500v1",
+  "pdf": "https://arxiv.org/pdf/2610.27500v1",
+  "type": "theory",
+  "summary": "This work compares advanced neural network techniques, including constrained Deep Ritz methods, for numerically solving the ground-state profiles of nonlinear dispersive equations. The methods are benchmarked against classical solvers, showing that variational deep learning approaches are highly promising for extending to higher dimensions and complex physical models beyond the 1D proof-of-concept.",
+  "main_problem": "The paper develops and compares enhanced neural-network solvers for finding one-dimensional ground-state profiles, which are solutions to a stationary profile equation derived from nonlinear dispersive PDEs.",
+  "main_result": "The constrained Deep Ritz formulations, particularly the Weinstein variant, perform best, achieving the best error-runtime balance, although they remain less accurate than classical methods in 1D.",
+  "method": "The authors compare standard PINNs against enhanced versions incorporating higher-order optimization (Gauss-Newton/L-BFGS) and advanced variational techniques like Nehari and Weinstein constrained Deep Ritz methods.",
+  "model_or_system": "The study focuses on the ground-state profile equation, $Q'' = bQ - \\gamma|Q|^{p-1}Q$, which governs solitary wave solutions for nonlinear Schrödinger, generalized Korteweg-de Vries, and nonlinear Klein-Gordon equations.",
+  "key_observables": "Ground-state profiles (solitary waves), $L^2$ errors, and computational runtime.",
+  "important_parameters": "Nonlinearity exponent $p$ ($p>1$), and physical constants $b$ and $\\gamma$.",
+  "main_assumptions": "The 1D case is used as a controlled benchmark due to the existence of explicit sech-type solutions; the methods are presented as a proof of concept for higher dimensions.",
+  "figures_summary": "Not specified.",
+  "paper_structure": "The paper introduces the physical problem (soliton profiles) and the governing ODE. It then details the comparison between various neural network solvers (PINNs, FF-PINNs, Deep Ritz) and benchmarks them against classical methods, culminating in a discussion of the performance trade-offs.",
+  "why_interesting": "While focused on classical nonlinear PDEs, the development of robust, variational deep learning solvers (Deep Ritz) provides powerful, generalizable numerical tools applicable to complex, high-dimensional quantum field theories or many-body Hamiltonians where traditional solvers struggle.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.27500_figures/2610.27500_fig1.jpg",
+      "caption": "Figure 1. Training loss (left) and ground state solution profile convergence (right) for L–BFGS PINN (with parameters as seen in Table 2) for Q2 “ Q´Q5. The (black dashed) curve labeled Exact in the right panel is the explicit solution given by (14).",
+      "page": 15
+    },
+    {
+      "image": "2610.27500_figures/2610.27500_fig2.jpg",
+      "caption": "Figure 2. Training loss (left) and ground state solution profile convergence (right) for Adam–L–BFGS PINN (with parameters as seen in Table 2) for Q2 “ Q ´ Q5. The (black dashed) curve labeled Exact in the right panel is the explicit solution given by (14). The final learned profile corresponds to 15,000 Adam steps followed by 25 L–BFGS steps.",
+      "page": 15
+    },
+    {
+      "image": "2610.27500_figures/2610.27500_fig3.jpg",
+      "caption": "Figure 2 shows in the left panel that the Adam warm-up gradually reduces the training loss before the L–BFGS refinement stage produces the final decrease. In the profile plot in the right panel of the same figure, we observe that the learned profiles improve across the recorded Adam and L–BFGS checkpoints and approach the exact ground state given by (14). The labels of the form 15,000 ` j denote the total optimizer-step count, with the first 15,000 epochs corresponding to Adam and the subsequent j steps corresponding to the L–BFGS refinement. The final profile after the 15,000-epoch Adam warm-up and 25 L–BFGS steps agrees closely with the exact profile, up to the errors reported in the...",
+      "page": 15
+    },
+    {
+      "image": "2610.27500_figures/2610.27500_fig4.jpg",
+      "caption": "Figure 3. Training loss (left) and ground state solution profile convergence (right) for GN/LM PINN (with parameters as seen in Table 5) for Q2 “ Q´Q5. The (black dashed) curve labeled Exact in the right panel is the explicit solution given by (14).",
+      "page": 17
+    },
+    {
+      "image": "2610.27500_figures/2610.27500_fig5.jpg",
+      "caption": "Figure 3 shows in the left panel that pure GN/LM produces a sharp and sustained decrease in the PINN training loss over the refinement steps. In the right panel, we observe that the successive learned profiles approach the exact ground state given by (14). By step 50, the learned and exact curves are already visually indistinguishable at the plotting scale. We nevertheless continue the optimization to the selected final value of 150 GN/LM steps and report the errors at that final step in the left group of columns of Table 6 because the order of error at step 50 is only 10´3, compared with 10´5 at step 150. For p “ 5, the final L8 and L2 errors are 6.839973 ˆ 10´5 and 5.982481 ˆ 10´5,...",
+      "page": 17
+    }
+  ],
+  "figure": "2610.27500_figures/2610.27500_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

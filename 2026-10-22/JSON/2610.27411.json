@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.27411",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.other",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Fully Automated Wannier Disentanglement via Projectability Selection in Gaussian and Augmented Plane-Wave Frameworks",
+  "authors": "William P. Comaskey, Jose L. Mendoza-Cortes",
+  "abstract": "Constructing the frozen manifold for entangled bands requires balancing exact reproduction of the target bands with sufficient variational freedom to build a well-localized subspace from the broader Bloch pool. We present a workflow that systematically determines the energy ceiling for a target number of selected Wannier projections, freezing every Bloch state below this threshold across the sampled k-mesh. By measuring projectability, the spectral weight of each Bloch state projected onto the target localized basis, the workflow detects missing conduction channels and quantifies discrepancies between orbital character and energy-based freezing. In comparisons where we controlled the extent of the energy ceiling, freezing all sub-ceiling states is generally favored over projectability-based frozen states. Of the seven materials we tested, freezing all sub-ceiling states lowers the band error on four from between 11 meV and 1.2 eV to 18 meV or less, and matches the projectability-based choice to within about 2 meV on the remaining three. In each of the four, projectability-based frozen states give the lower spread, showing that spread alone cannot identify the better model. With the frozen states held fixed, the workflow minimizes the gauge-invariant spread, constructs the gauge from density-matrix columns on atomic orbitals, and passes an isolated set of bands to Wannier90 for localization. The workflow is implemented in two programs for seamless high-throughput Wannierization with WIEN2k (wien2wannier) and CRYSTAL (LCAO2Wannier). Using a single set of calibrated defaults, the CRYSTAL implementation with analytic overlaps produces models that reproduce the reference bands of five cells, from bulk h-BN in a joint valence-and-conduction model to a magnetic framework with 1424 orbitals. The WIEN2k implementation produces eight such models from seven calculations.",
+  "url": "http://arxiv.org/abs/2610.27411v1",
+  "pdf": "https://arxiv.org/pdf/2610.27411v1",
+  "type": "theory",
+  "summary": "This paper introduces a fully automated, systematic workflow for Wannierizing electronic bands in complex materials. It addresses the challenge of defining the correct subspace by balancing energy constraints with state localization metrics like projectability. The method proves robust across different computational frameworks, offering a powerful tool for high-throughput solid-state physics calculations.",
+  "main_problem": "The core challenge is constructing the frozen manifold for entangled electronic bands, which requires balancing the accurate reproduction of target bands with maintaining enough variational freedom for a well-localized subspace.",
+  "main_result": "The workflow demonstrates that freezing all states below a derived energy ceiling is generally superior to methods relying solely on state projectability, significantly reducing band errors across tested materials.",
+  "method": "The authors present a systematic, multi-step workflow involving determining an energy ceiling, measuring state projectability, minimizing the gauge-invariant spread ($\\Omega_I$), and finally passing the isolated bands to Wannier90 for localization.",
+  "model_or_system": "The methods are applied to various condensed matter systems, including bulk h-BN, MgB2, and SnTe, using both WIEN2k (LAPW) and CRYSTAL (LCAO) implementations for high-throughput calculations.",
+  "key_observables": "Band Error, Gauge-invariant Spread ($\\Omega_I$), Projectability (spectral weight), and the minimum number of misassigned states (Certificate).",
+  "important_parameters": "The energy ceiling ($\\epsilon_c$), the target number of Wannier projections, and various thresholds like $\\sigma_p=0.5$ are critical parameters.",
+  "main_assumptions": "The process assumes an inherent trade-off when setting the energy ceiling, and the method relies on analytic calculations of momentum-shifted overlaps for Gaussian AOs to ensure mathematical consistency.",
+  "figures_summary": "Figure 1 illustrates the entire pipeline for both lcao2wannier and wien2wannier, detailing the sequence from frontend calculations through to Wannier90, distinguishing between the 'hand-off' and 'window' routes.",
+  "paper_structure": "The paper details the iterative process: first, selecting the minimal set of relevant channels (Algorithm S1); second, determining the energy ceiling ($\\epsilon_c$) via an iterative search (Algorithm S2); third, disentangling the subspace by minimizing $\\Omega_I$ (Algorithm S3); and finally, constructing the gauge in the AO basis (Algorithm S4).",
+  "why_interesting": "While focused on solid-state theory, the rigorous algorithmic development for defining and optimizing the relevant Hilbert subspace (the frozen manifold) shares conceptual overlap with defining effective Hamiltonians or low-energy subspaces in open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.27411_figures/2610.27411_fig1.jpg",
+      "caption": "FIG. 1. The pipeline of both programs, read from the bottom. The two lowest sheets are the frontends. lcao2wannier starts from the real-space matrices H(R) and S(R) of a CRYSTAL calculation and computes the overlaps M (k,b) analytically and orthonormalizes the Bloch states in the same analytic metric, which makes the overlaps contractive on any mesh (Sec. II). wien2wannier starts from WIEN2k LAPW eigenvectors and uses projectabilities from muffin-tin channels extended by inter- stitial tails (Appendix E). From the third sheet up, both programs apply the same rules to the energies εnk, the overlaps and the projectabilities Pnk. On the orange sheet, two thresholds (planes) are read off the...",
+      "page": 2
+    },
+    {
+      "image": "2610.27411_figures/2610.27411_fig2.jpg",
+      "caption": "FIG. 2. Frozen extent and frozen membership on bulk h-BN (16 Wannier functions, 122×6 mesh). (a) DFT bands along the Wannier90 path, colored by their Löwdin projectability Pnk onto the target orbitals. The amber lines mark EF + 8 eV (dashed) and the top of the trusted set at +12.65 eV (dash-dotted). (b) The trust mask of Eq. (9). Each row is a k-point, sorted by the top of its trusted set T(k) (gray line), and each pool state between +4 and +14 eV is drawn at its energy as a dot if trusted and a cross if not, colored by Pnk. Below the top of the trusted set lie 378 untrusted states, and the best single energy window misassigns 129 states. (c)–(f) Models (pink) over the DFT bands (black),...",
+      "page": 6
+    },
+    {
+      "image": "2610.27411_figures/2610.27411_fig3.jpg",
+      "caption": "FIG. 3. Freezing methods on identical h-BN inputs (63 mesh, 16 functions, and the same pool, overlaps and target chemistry). (a) Band distance over the valence window [−20, 0] eV and the conduction window [+5, +12] eV. The four Wannier90 settings are hand-set energy windows, per-state freezing (dis_froz_proj, without a frozen energy window) at the PDWF-recommended 0.95/0.01 (freezing/discard) and at the derived freezing threshold 0.706, and the automatic thresholds of Wannier90 4.0.2 (dis_proj_auto, 0.805/0.180), and all four stall. The two released routes, with the ceiling at the top of the trusted set (+12.65 eV), converge, and the window route starts from the SCDM gauge of the hand-off....",
+      "page": 15
+    },
+    {
+      "image": "2610.27411_figures/2610.27411_fig4.jpg",
+      "caption": "FIG. 4. The six production runs at the released defaults, (a) the Bi bilayer (SOC, path M–Γ–K–M), (b) MgB2 (metal), (c) SnTe (B2 metal, SOC, with d channels added to the target automatically), (d) bulk h-BN (joint valence-and-conduction model, drawn in gray above EF + 8 eV, which is outside its target range), and (e) and (f) the α and β spin channels of the Sc-COF (1424 AOs). Each panel freezes every pool state below the automatic ceiling, which on SnTe is lowered to EF + 6.18 eV under the X pocket (Fig. 6), and draws the Wannier interpolation (pink) over the LCAO reference (thin gray). Edge bars mark the scoring windows of Table I (slate below EF, coral above), and the box gives the band...",
+      "page": 16
+    },
+    {
+      "image": "2610.27411_figures/2610.27411_fig5.jpg",
+      "caption": "FIG. 5. Topology of the 16-function Bi bilayer model (band distance 0.27 meV, Table I), computed with WannierTools [80]. (a) Wilson loop of the Wannier charge centers. The largest-gap center (dash-dotted) is crossed an odd number of times, so Z2 = 1. (b) Spin-resolved edge spectral function near the edge Dirac point, from the surface Green’s function [81]. The intensity gives the spectral weight A, and the color gives the edge spin polarization Sˆn/A, where Sˆn is the spectral function projected on spin along ˆn. Energies are relative to ED, the crossing point of the two edge branches in the middle of the 52.8 meV bulk gap. The SM shows the input projectabilities, the edge Fermi points and...",
+      "page": 17
+    }
+  ],
+  "figure": "2610.27411_figures/2610.27411_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

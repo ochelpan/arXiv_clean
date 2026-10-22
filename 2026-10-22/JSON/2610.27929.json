@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.27929",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Constant-Depth Quantum Barrier Option Pricing via a Static Bivariate Oracle Framework",
+  "authors": "Ji-Hui Mo, Yuan-Hong Tao",
+  "abstract": "Quantum amplitude estimation offers a theoretical quadratic speedup over classical Monte Carlo methods for financial derivative pricing. However, extending gate-based algorithms to path-dependent barrier options has historically been hampered by sequential path discretization, where tracking price paths across $d$ monitoring dates incurs a linear escalation in qubit footprint and gate depth ($\\mathcal{O}(d)$), posing severe coherence challenges for near-term quantum processors.   In this work, we present a constant-depth quantum pricing framework that fundamentally eliminates the temporal dependency of barrier monitoring. Leveraging the Brownian reflection principle and Girsanov theorem, we project the continuous supremum dynamics onto a static bivariate joint distribution of the terminal price $S_T$ and running supremum $M_T$. This allows decoupling dynamic boundary checks into a static bivariate oracle comprising two parallel comparators and a dual-controlled rotation gate. We prove this architecture reduces circuit depth and comparator complexity from $\\mathcal{O}(d)$ to an invariant $\\mathcal{O}(1)$, while supporting discrete monitoring via zero-quantum-cost boundary corrections.   Transpilation benchmarks for daily monitoring ($d = 252$) show our framework slashes physical CNOT count by 98.59% (from 2262 to 32) and compresses two-qubit depth by 98.02% (from 1514 to 30 layers). Under a realistic 127-qubit IBM Eagle noise model, the shallow circuit achieves a 7.84% relative valuation error with M3 readout mitigation. Finally, the framework seamlessly extends to nonlinear exotic payoffs lacking analytical solutions, establishing a noise-resilient pathway toward practical quantum advantage in computational finance.",
+  "url": "http://arxiv.org/abs/2610.27929v1",
+  "pdf": "https://arxiv.org/pdf/2610.27929v1",
+  "type": "theory",
+  "summary": "This paper presents a breakthrough quantum algorithm for pricing complex financial derivatives by transforming the path-dependent problem into a static, two-dimensional joint distribution. By leveraging advanced mathematical theorems, the authors design a constant-depth quantum oracle that bypasses the exponential resource scaling of traditional time-stepping quantum simulations. This represents a significant step toward realizing practical quantum advantage in computational finance.",
+  "main_problem": "The primary challenge is developing a quantum algorithm to price path-dependent financial derivatives, like barrier options, without the resource scaling issues associated with simulating the entire price path over many monitoring dates.",
+  "main_result": "The authors propose a constant-depth quantum oracle framework that eliminates temporal dependency by projecting the continuous path dynamics onto a static bivariate joint distribution, achieving massive reductions in required quantum resources.",
+  "method": "The method uses the Brownian reflection principle and Girsanov theorem to derive a static joint probability density function $f_{S_T, M_T}(s, m)$, which is then encoded into a constant-depth quantum circuit.",
+  "model_or_system": "The model is financial option pricing, specifically using Geometric Brownian Motion (GBM) for asset dynamics, and the quantum computation is implemented on superconducting qubits (benchmarked on IBM Eagle).",
+  "key_observables": "Relative valuation error (7.84% under noise), CNOT gate count (slashed by 98.59%), and two-qubit circuit depth (slashed by 98.02%).",
+  "important_parameters": "Number of monitoring dates ($d=252$), risk-free rate ($r$), volatility ($\\sigma$), and the required precision ($M$).",
+  "main_assumptions": "The framework assumes the applicability of the Brownian reflection principle and Girsanov theorem for the projection, and that the Broadie-Glasserman-Kou correction can absorb discrete sampling bias classically.",
+  "figures_summary": "Figure 5 compares the quantum oracle's convergence rate ($O(M^{-1})$) against the classical Monte Carlo rate ($O(M^{-1/2})$) for estimating the payoff surface.",
+  "paper_structure": "The paper first establishes the limitation of sequential path-discretization ($O(d)$ scaling). It then introduces the mathematical projection onto a static bivariate distribution using advanced stochastic calculus theorems. Finally, it details the constant-depth quantum oracle implementation and benchmarks its performance against noise models.",
+  "why_interesting": "While applied to finance, the core technique—reducing a path-dependent, time-evolving quantum simulation into a static, low-depth oracle—is a powerful general methodology for quantum simulation of complex, time-correlated quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.27929_figures/2610.27929_fig1.jpg",
+      "caption": "Figure 1: Static bivariate quantum barrier option pricing circuit architecture based on the Brow- nian reflection principle. The circuit executes state preparation PS,M, evaluates moneyness and barrier conditions via two static ripple-carry comparators, applies a dual-controlled linear rota- tion, and restores ancillae via uncomputation, completely decoupling circuit depth from moni- toring frequency.",
+      "page": 10
+    },
+    {
+      "image": "2610.27929_figures/2610.27929_fig2.jpg",
+      "caption": "Figure 2: Theoretical error trade-off as a function of the scaling parameter c and total quantum query budget M. (a) The composite pricing error displays characteristic U-shaped profiles, where dashed lines indicate truncation bounds and solid markers pinpoint global minima c∗(M). (b) Optimal parameter trajectory demonstrating the M −1/3 power-law decay toward finer analytical precision.",
+      "page": 14
+    },
+    {
+      "image": "2610.27929_figures/2610.27929_fig3.jpg",
+      "caption": "Figure 3: Asymptotic convergence of pricing estimation errors as a function of total query sam- ples M. Classical Monte Carlo displays the characteristic −0.50 algebraic slope, whereas IQAE equipped with our static bivariate oracle achieves a scaling slope of −0.984, demonstrating the- oretical quadratic quantum acceleration.",
+      "page": 16
+    },
+    {
+      "image": "2610.27929_figures/2610.27929_fig4.jpg",
+      "caption": "Figure 4: Transpiled physical resource scaling as a function of monitoring dates d. (a) CNOT gate count scaling; (b) Two-qubit circuit depth scaling. While the sequential baseline explodes linearly, our static bivariate framework remains constant (CNOT = 32, Depth = 30).",
+      "page": 17
+    },
+    {
+      "image": "2610.27929_figures/2610.27929_fig5.jpg",
+      "caption": "Figure 5: Pricing benchmarks for nonlinear penetration-dependent barrier options without an- alytical tractability. (a) Payoff surface fpen(ST , MT ) displaying nonlinear warping along the supremum coordinate; (b) Convergence comparison demonstrating that while classical solvers degrade to O(M −1/2), our static quantum oracle sustains O(M −1) scaling.",
+      "page": 18
+    }
+  ],
+  "figure": "2610.27929_figures/2610.27929_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

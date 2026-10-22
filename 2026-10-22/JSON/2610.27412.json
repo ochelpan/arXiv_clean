@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.27412",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.supr-con",
+    "cs.LG"
+  ],
+  "is_primary_archive": false,
+  "title": "Learning the Geometry of Materials Space with Trained Neural Tangent Kernels",
+  "authors": "Daniel Kaplan, Gabriel Kotliar, Anirvan M Sengupta",
+  "abstract": "Neural networks trained to predict materials properties learn representations whose physical content can be difficult to extract. We use the neural tangent kernel (NTK), evaluated at trained parameters, to recover the geometry learned by a network that predicts superconducting transition temperatures from elemental composition alone. Kernel ridge regression with the trained NTK closely reproduces the network's predictive performance and substantially outperforms regression with the initial kernel. Spectral analysis and multidimensional scaling reveal a geometry dominated by a small number of directions. Clustering and local neighborhood analysis organize compounds into recognizable superconducting families and connect materials with related chemical and correlated-electron properties despite substantial differences in $T_c$. These results establish trained tangent kernels as practical probes of learned materials representations, connecting property prediction with the exploration of materials space.",
+  "url": "http://arxiv.org/abs/2610.27412v1",
+  "pdf": "https://arxiv.org/pdf/2610.27412v1",
+  "type": "theory",
+  "summary": "This work treats the Neural Tangent Kernel (NTK) as an interpretable probe of the geometry learned by a neural network predicting superconducting properties. By applying the NTK distance metric and dimensionality reduction techniques, the authors successfully map the high-dimensional elemental composition space into a low-dimensional manifold. This manifold reveals physically meaningful clusters corresponding to known superconducting material families.",
+  "main_problem": "To recover and interpret the physical geometry learned by a neural network trained to predict materials properties, specifically superconducting transition temperatures ($T_c$), from elemental composition.",
+  "main_result": "The trained Neural Tangent Kernel (NTK) successfully induces a low-dimensional, interpretable geometry that organizes materials into known superconducting families and connects chemically distinct materials with related physical properties.",
+  "method": "The study uses Kernel Ridge Regression (KRR) with the NTK, evaluated at trained parameters, to probe the learned representation geometry, followed by spectral analysis and Multi-Dimensional Scaling (MDS).",
+  "model_or_system": "The system is materials space, where elemental compositions serve as inputs ($x \\in \\mathbb{R}^{120}$), and the target property is the superconducting transition temperature ($T_c$). The prediction is modeled by a neural network $f(x, \theta)$.",
+  "key_observables": "Superconducting transition temperature ($T_c$), NTK distance $d(x, x')$, low-dimensional embedding coordinates ($z_i$), and cluster assignments.",
+  "important_parameters": "The training parameters ($\theta^*$) of the neural network, the regularization parameter ($\\lambda$), and the dimensionality of the embedding space.",
+  "main_assumptions": "The NTK is used as a stable proxy for the regularized influence operator, and the analysis relies on the Gauss-Newton approximation for the Hessian.",
+  "figures_summary": "Figures show the comparison between untrained and trained NTK geometries, the low-dimensional MDS embedding of superconducting materials colored by clusters, and the correlation between NTK distance and $T_c$ for different families.",
+  "paper_structure": "The paper establishes the NTK as a probe, shows that KRR with the trained NTK matches network performance, and then uses MDS and clustering on the NTK geometry to reveal underlying physical organization in materials space.",
+  "why_interesting": "While focused on ML, the ability to extract physical structure (like superconducting families) from high-dimensional compositional data using a kernel method is relevant for developing data-driven models for complex quantum materials.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.27412_figures/2610.27412_fig1.jpg",
+      "caption": "FIG. 1 : Schematic overview of the workflow. Minimal compositional descriptors are used to train a neural network predictor for superconducting properties. The neural tangent kernel (NTK) evaluated at trained parameters induces a task-adaptive similarity geometry on materials space. Dimensional reduction and clustering of this geometry reveal semantically meaningful structure learned through supervised training.",
+      "page": 2
+    },
+    {
+      "image": "2610.27412_figures/2610.27412_fig2.jpg",
+      "caption": "FIG. 2 : Properties and structure of the NTK. (a) The Shepard plot, i.e., embedding distance ||zi−zj|| vs Euclidean distance of an untrained NTK realization, derived first the first N = 1 step of training. No embedding is generated. (b) Eigenvalue spectrum of the train NTK. Approximately two principal eigenvalues can be discerned. (Note the log scale). (c) Kernel Ridge Regression (KRR) properties: rapid convergence of the KRR with respect to the regularization λ confirms the relative number of useful degrees of freedom (non-null eigenvalues in (b)). (d) Shepard plot of the trained NTK, indicating a significantly different embedding of the data.",
+      "page": 4
+    },
+    {
+      "image": "2610.27412_figures/2610.27412_fig3.jpg",
+      "caption": "FIG. 3 : Low-dimensional embedding of superconducting materials obtained from classical multidimensional scaling (MDS) applied to trained NTK distances. Colors correspond to clusters identified through unsupervised k-means clustering in the embedded representation space. Several clusters align with known superconducting families, including cuprates, iron-based su- perconductors, undoped or otherwise superconductors with “simple” chemical formulae, and non-superconducting compounds. As this information is not present during training, we manually assign labels to the generated clusters; each cluster taxonomy is determined by the the first 200 compounds, measured by distance to the centroid.",
+      "page": 6
+    },
+    {
+      "image": "2610.27412_figures/2610.27412_fig4.jpg",
+      "caption": "FIG. 4 : Neighborhood structure induced by the trained NTK geometry. Materials are ordered according to radial distance from representative compounds in the learned NTK metric (top: YBa2Cu4O8-based cuprate; bottom: CeCoIn5 heavy-fermion superconductor). Blue points show NTK distance, while red points indicate the superconducting transition temperature Tc. Gray dashed lines denote distance gaps used to identify neighborhood shells in the learned geometry. Nearby compounds frequently share chemical motifs, doping structure, or correlated-electron phenomenology despite substantial variation in Tc, indicating that the trained NTK captures transferable physical structure beyond the original...",
+      "page": 7
+    },
+    {
+      "image": "2610.27412_figures/2610.27412_fig5.jpg",
+      "caption": "FIG. 5 : Measure of K(x, x) as uncertainty in clustering. We take a cut along a fixed z2 value z2 = −25 and average over a window of ±6 in that range. We then traverse z1. We find a correlation between boundaries of the identified clusters and increases in K(x, x). In areas of low explainability/silhouette, such corresponding changes in K(x, x) were not observed.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.27412_figures/2610.27412_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

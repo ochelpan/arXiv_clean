@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.28542",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Acceleration of CTQMC via Denoising Diffusion Models with Auxiliary Spectral Functions",
+  "authors": "Rishi Rao, Li Zhu",
+  "abstract": "Continuous-time Quantum Monte Carlo (CTQMC) impurity solvers are a numerically exact, but expensive, option for solving the Dynamical Mean Field Theory (DMFT) equations, with statistical noise from undersampling presenting a major challenge to low temperature studies. This noise is especially egregious within the sampled self-energy, which can destabilize the self-consistency loop upon insertion into the Dyson equation. In this work, we introduce a neural denoiser for fermionic imaginary time Green's functions based on the diffusion model architecture trained on synthetic data. The network predicts positive and normalized auxiliary spectral functions consistent with the noisy imaginary axis CTQMC data, which is then refined via autodifferentiation to match the measured self-energy, its first two high-frequency moments, and impurity occupation similar to the Constrained Residual Minimization (CRM) method. This leads to Green's functions and self-energies that are causal by design. Through this denoising framework we are able to reduce the required CTQMC measurement steps by a factor of 10-100. We benchmark our method with a half-filled Hubbard model on a Bethe lattice, a two-patch Dynamical Cluster Approximation (DCA) of the two-dimensional Hubbard model, and the SrVO$_3$ system. We reproduce the Mott transition upon increasing Coulomb interaction for the half-filled Hubbard model with only 5000 CTQMC measurements, the pseudogap transition for the DCA two-dimensional Hubbard model with only 5$\\times$10$^5$ measurements, and match the spectral function of SrVO$_3$ with 50 times fewer measurements than the reference. Since we generate auxiliary spectral functions, we recover the approximate spectral functions of the systems for free without performing analytic continuation.",
+  "url": "http://arxiv.org/abs/2610.28542v1",
+  "pdf": "https://arxiv.org/pdf/2610.28542v1",
+  "type": "theory",
+  "summary": "This paper presents a novel machine learning approach using denoising diffusion models to mitigate severe statistical noise in CTQMC calculations for DMFT. By predicting auxiliary spectral functions, the method drastically reduces the computational cost—by factors of 10-100—while accurately capturing complex physics like Mott and pseudogap transitions in correlated materials.",
+  "main_problem": "The primary challenge is overcoming severe statistical noise inherent in Continuous-time Quantum Monte Carlo (CTQMC) solvers when calculating impurity self-energies for Dynamical Mean Field Theory (DMFT) at low temperatures.",
+  "main_result": "The proposed denoising framework reduces the required CTQMC measurement steps by a factor of 10-100, successfully reproducing key physics like the Mott and pseudogap transitions with significantly fewer measurements.",
+  "method": "The authors introduce a neural denoiser based on the diffusion model architecture to predict auxiliary spectral functions from noisy imaginary-time Green's functions, refining the prediction using autodifferentiation to enforce physical constraints.",
+  "model_or_system": "The work applies to strongly correlated electron systems studied via DMFT, specifically benchmarking on the half-filled Hubbard model on a Bethe lattice, the two-patch DCA of the 2D Hubbard model, and the $\text{SrVO}_3$ material.",
+  "key_observables": "Imaginary time Green's functions, self-energies, and spectral functions $A(\\omega)$ are the key observables, with the focus on recovering the spectral function without explicit analytic continuation.",
+  "important_parameters": "Low temperatures, the Coulomb interaction $U$, and the doping level (for the DCA model).",
+  "main_assumptions": "The method assumes that the denoised auxiliary spectral functions are sufficient to accurately represent the true spectral properties, and the process is designed to ensure causality in the resulting Green's functions.",
+  "figures_summary": "Figures illustrate the multi-stage neural network architecture for spectral function prediction, comparing the denoised results against raw, low-measurement, and high-measurement reference calculations for various physical transitions.",
+  "paper_structure": "The paper details the theoretical motivation (noise in CTQMC/DMFT), introduces the diffusion model architecture for denoising, describes the constrained optimization/refinement steps, and validates the method by benchmarking against multiple physical models and transitions.",
+  "why_interesting": "While focused on condensed matter, the use of advanced generative AI (Diffusion Models) to solve fundamental, computationally intractable many-body physics problems provides a powerful methodological advance applicable across theoretical physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.28542_figures/2610.28542_fig1.jpg",
+      "caption": "FIG. 1. Computation flow used to obtain the predicted spectral function Apred(ω). Input to neural network is noisy imaginary time Green’s function Gnoisy(τ), predicted density of impurity orbital ρ and estimated diffusion timestep tidx. The fourier transform step only retains the first Klow Matsubara frequencies. The projector step is a constrained least squares correction ensuring data consistency.",
+      "page": 3
+    },
+    {
+      "image": "2610.28542_figures/2610.28542_fig2.jpg",
+      "caption": "FIG. 2. Results of denoising by model without optimization towards self-energy target for 4 randomly chosen examples within a held-out test set.",
+      "page": 6
+    },
+    {
+      "image": "2610.28542_figures/2610.28542_fig3.jpg",
+      "caption": "FIG. 3. Mean absolute error of denoised G(τ) versus diffusion timestep for both our denoising model and a Hankel projec- tion. Diffusion timestep here serves as a proxy for noise, with larger diffusion timestep indicating noisier input.",
+      "page": 6
+    },
+    {
+      "image": "2610.28542_figures/2610.28542_fig4.jpg",
+      "caption": "FIG. 4. (a) Denoised Green’s function versus (b) raw CTQMC Green’s function for the last DMFT iteration as a function of Hubbard interaction U for the single band Hubbard model. Also shown in (c) the evolution of the internal spectral function representation for the denoising model. The transition from paramagnetic metal to insulator happens around a U value of 2.65-2.7. Only 5000 CTQMC measurement steps were performed.",
+      "page": 7
+    },
+    {
+      "image": "2610.28542_figures/2610.28542_fig5.jpg",
+      "caption": "FIG. 5. Imaginary part of G(iωn) for raw CTQMC and denoised CTQMC per DMFT iteration for various doping levels. Each doping level is offset by 0.25 for clarity.",
+      "page": 7
+    }
+  ],
+  "figure": "2610.28542_figures/2610.28542_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

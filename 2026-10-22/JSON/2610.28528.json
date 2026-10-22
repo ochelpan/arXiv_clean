@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2610.28528",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn",
+    "cond-mat.quant-gas",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Ground-State Manifold Amplification for Rydberg Atom Arrays via Houdayer Cluster Updates",
+  "authors": "Andrew J. Ochoa, Martin J. A. Schuetz, Helmut G. Katzgraber",
+  "abstract": "We demonstrate a hybrid quantum-classical approach for exploring ground-state manifolds of maximum independent set problems, in which quantum hardware supplies the initial solutions and an entirely classical post-processing algorithm expands them, increasing the solution diversity of quantum hardware measurements by up to several orders of magnitude. Quantum optimization devices, while capable of generating high-quality solutions, can suffer from fundamental sampling limitations. This is particularly problematic for applications that strongly depend on a large variety of uncorrelated optimal solutions. We apply the Houdayer cluster update algorithm to systematically expand quantum-generated solution sets through classical post-processing. We validate our approach on a test bed of 43 problem instances from QuEra's Aquila analog annealing device, achieving diversity amplification factors, defined as the increase in the number of distinct solutions at a given set size, of up to 11923x with a median of 24.3x across different problem scales and hardness parameters. Because exact ground-state degeneracies are known for these instances, the recovered fraction of the manifold can be measured rather than bounded: post-processing recovers a median of 21% of the ground-state manifold, and provably all of it for six instances. We also demonstrate that, in some cases, the classical post-processing can discover independent sets larger than those found by the quantum hardware, thus improving on solution quality and not just diversity. While the method is non-ergodic and cannot guarantee complete manifold coverage, it consistently discovers a larger number of high-quality, and in some cases strictly better, configurations than quantum sampling alone. This work demonstrates how simple classical post-processing can enhance the utility of quantum optimization results.",
+  "url": "http://arxiv.org/abs/2610.28528v1",
+  "pdf": "https://arxiv.org/pdf/2610.28528v1",
+  "type": "both",
+  "summary": "This paper presents a hybrid method to enhance quantum optimization results for problems like MIS using Rydberg atom arrays. It combines initial solutions from quantum hardware with a classical post-processing technique called Houdayer cluster updates. This classical step dramatically increases the discovered solution diversity and can even find better solutions than the quantum hardware alone.",
+  "main_problem": "The core problem is exploring and systematically amplifying the ground-state manifold of NP-hard combinatorial optimization problems, such as Maximum Independent Set (MIS).",
+  "main_result": "The hybrid quantum-classical approach achieved diversity amplification factors up to 11923x and recovered a median of 21% of the true ground-state manifold for tested instances.",
+  "method": "A hybrid approach where quantum hardware provides initial solution seeds, which are then systematically expanded using a classical post-processing algorithm based on Houdayer cluster updates.",
+  "model_or_system": "The physical platform utilized is Rydberg atom arrays, specifically demonstrated on QuEra's Aquila analog annealing device, encoding the MIS problem on unit disk graphs.",
+  "key_observables": "Solution Diversity Amplification Factor, Recovered Fraction of the Ground-State Manifold, and the size of the discovered independent set compared to the quantum hardware output.",
+  "important_parameters": "The problem instances are drawn from a test bed of 43 instances, and the key mechanism relies on the structure of connected components (clusters) within the symmetric difference of two solutions.",
+  "main_assumptions": "The method is fundamentally non-ergodic and cannot guarantee complete manifold coverage, and the quantum hardware is assumed to suffer from inherent sampling limitations.",
+  "figures_summary": "Figures illustrate the Houdayer cluster update mechanism, detailing how exchanging entire connected components between two solutions generates multiple distinct candidates, and show the overall algorithm flow.",
+  "paper_structure": "The paper introduces the MIS problem on Rydberg arrays, details the quantum sampling limitations, and then systematically applies the Houdayer cluster update algorithm in a classical post-processing step to expand the solution space, validating the results on multiple benchmark instances.",
+  "why_interesting": "This work directly bridges quantum hardware limitations (sampling bias) with classical algorithmic power, showing a concrete method to extract far more information from quantum measurements than the raw output suggests, which is highly relevant for interpreting quantum simulation results.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.28528_figures/2610.28528_fig1.jpg",
+      "caption": "FIG. 1. Houdayer cluster update mechanism for ground-state manifold amplification. (a) A single update, shown on a real instance from our data set (atoms L8 seed3066: 51 atoms, 135 unit-disk edges, |MIS| = 16) and read left to right as an identity. Two solutions si and sj returned by the QuEra Aquila hardware, both of optimum size 16, are combined into their symmetric difference ∆ij = si ⊕sj. Atoms belonging to a solution are drawn as filled blue markers and unselected atoms as open circles. The 8 atoms selected in both solutions form the shared backbone (blue squares) and are untouched by the update; the 16 atoms of ∆ij (orange diamonds) split into c = 8 disjoint connected components of...",
+      "page": 4
+    },
+    {
+      "image": "2610.28528_figures/2610.28528_fig2.jpg",
+      "caption": "FIG. 2. Amplification across the 40 problem instances whose best independent-set size did not change under post-processing; the three instances where classical post-processing found a strictly larger independent set are shown separately in Table I. The bar chart shows the amplification from initial quantum solutions to the final post-Houdayer solution pool on a base-10 log scale. Instances are grouped by type (Benchmark, hard, and standard). Across the full 43-instance dataset, amplification factors range from 1.0× to 11923× with a median of 24.3×.",
+      "page": 7
+    },
+    {
+      "image": "2610.28528_figures/2610.28528_fig3.jpg",
+      "caption": "FIG. 3. Scatter plot showing the initial quantum solution count Nquantum versus the final Houdayer solution pool size on a base-10 log-log scale. Points above the diagonal indi- cate amplification; the three points on the diagonal are in- stances that showed none. The 40 instances shown exclude the three improvement instances, which are treated sepa- rately (Section III D). Benchmark instances are represented by circles, hard instances by squares, and standard instances by triangles. The highest amplification (HP1478) generates 1967339 solution configurations from an initial pool of 165, i.e., a 11923× amplification. Most instances show substan- tial amplification regardless of initial...",
+      "page": 8
+    },
+    {
+      "image": "2610.28528_figures/2610.28528_fig4.jpg",
+      "caption": "FIG. 4. Initial solution diversity versus amplification fac- tor. The mean pairwise Hamming distance ¯∆(with error bars from a delete-one-seed jackknife, none for pools of two seeds) between the initial quantum solutions versus amplifi- cation success. The seed pools are reconstructed from the raw hardware samples through the same repair procedure used by the algorithm (Section II D), so ¯∆characterises the pool the hardware actually supplied rather than the amplified mani- fold. Of the 43 instances, 35 are shown: the three improve- ment instances are treated separately (Section III D) and five further instances yield only a single distinct solution at the optimum, so they admit no pair....",
+      "page": 8
+    },
+    {
+      "image": "2610.28528_figures/2610.28528_fig5.jpg",
+      "caption": "Figure 4 examines the relationship between the diver- sity of the quantum seed pool and the resulting amplifi- cation. We measure diversity as the mean pairwise Ham- ming distance ¯∆between initial quantum solutions. For binary solution vectors the Hamming distance equals the size of the symmetric difference |si ⊕sj| introduced in Section II C, so we use the two terms interchangeably and denote the per-pair value |∆ij| and its mean ¯∆. Er- ror bars come from a delete-one-seed jackknife, because",
+      "page": 8
+    }
+  ],
+  "figure": "2610.28528_figures/2610.28528_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 4,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

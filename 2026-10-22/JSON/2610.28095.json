@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.28095",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural Network Fractional Quantum Hall States with Learnable Orbital Pair Matrix Factors: Balancing Physical Priors and Flexibility",
+  "authors": "Yubing Qian, Weiluo Ren, Ji Chen",
+  "abstract": "Neural network fractional quantum Hall (FQH) states offer a promising alternative for capturing Landau level (LL) mixing and for understanding FQH physics, yet the incorporation of physical priors has so far been limited to the minimal exact constraints built into the ansatz. Working in spherical geometry, we show that the network's flexibility suffers both when only minimal additional physical priors are supplied and when priors such as flux attachment are imposed rigidly. In the former case, the monopole harmonic product orbital (MHPO) ansatz is difficult to optimize, whereas in the latter, the expressivity of the neural network is restricted. We therefore propose the orbital pair matrix factor MHPO (MHPO-M) ansatz, which balances physical priors against flexibility by not only replacing the fixed Laughlin structure with learnable pair factors but also making them dependent on both the electron configurations and the orbitals. Across $ν=1/5$, $1/3$, and $2/5$, MHPO-M achieves the lowest variational energy among the tested variants, and a factorized orbital readout based on it enables scaling to 35 electrons, with energies competitive with trends inferred from three-LL exact-diagonalization results. These results demonstrate that physical priors can be appropriately incorporated without sacrificing the flexibility of neural network wavefunctions, opening a promising path toward accurate, scalable modeling of FQH systems with LL mixing.",
+  "url": "http://arxiv.org/abs/2610.28095v1",
+  "pdf": "https://arxiv.org/pdf/2610.28095v1",
+  "type": "theory",
+  "summary": "This paper introduces the MHPO-M ansatz, a novel neural network structure designed to model Fractional Quantum Hall states. It resolves the long-standing trade-off between enforcing physical constraints and maintaining the necessary flexibility in the wavefunction ansatz. The results show that this method yields highly accurate and scalable energy predictions for these complex correlated electron systems.",
+  "main_problem": "The core challenge is developing scalable and accurate neural network methods to model Fractional Quantum Hall (FQH) states while correctly incorporating essential physical constraints without losing the necessary flexibility of the ansatz.",
+  "main_result": "The proposed MHPO-M ansatz successfully balances physical priors and network flexibility, achieving the lowest variational energy for tested fillings and enabling scaling to larger electron numbers with results competitive to exact diagonalization.",
+  "method": "The authors employ neural network wavefunctions, specifically the MHPO-M ansatz, to minimize the energy expectation value of the FQH Hamiltonian, using MCMC for estimation and K-FAC for optimization.",
+  "model_or_system": "The system is the Fractional Quantum Hall effect studied on a spherical geometry with a magnetic monopole flux. The Hamiltonian includes kinetic terms and electron-electron Coulomb interactions, and the wavefunctions are constructed using specialized orbital pair matrix factors.",
+  "key_observables": "Variational energy (compared to ED results), angular momentum expectation value ($\\langle \\hat{L}^2 \rangle$), and the projected energy onto the $L=0$ sector ($E_{L=0}$).",
+  "important_parameters": "Filling factors ($\nu = 1/5, 1/3, 2/5$), LL mixing strength ($\\kappa$), and the angular momentum penalty strength ($\beta$).",
+  "main_assumptions": "The analysis assumes that the MHPO-M ansatz can correctly balance physical structure and network flexibility, and that the $SU(2)$ average can be approximated via Haar-random rotations.",
+  "figures_summary": "Figures compare the performance of three ansatzes (MHPO, MHPO-L, MHPO-M) across various fillings, showing energy, error, and correlation functions. Supplementary figures detail the effect of an angular momentum penalty ($\beta$) on the projected energy ($E_{L=0}$) versus the unprojected energy.",
+  "paper_structure": "The paper first establishes the limitations of prior methods (MHPO and MHPO-L) in balancing constraints and flexibility. It then introduces and validates the MHPO-M ansatz by showing its superior performance across multiple filling factors and its ability to scale. Finally, it analyzes the role of explicit symmetry penalties ($\beta$) on the projected $L=0$ energy.",
+  "why_interesting": "This work provides a concrete, advanced computational framework for strongly correlated electron systems, demonstrating how machine learning can be guided by deep physical knowledge (like angular momentum conservation) without becoming overly restrictive.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.28095_figures/2610.28095_fig1.jpg",
+      "caption": "FIG. 1. Schematic illustration of the correlation-zero priors and the monopole-harmonic degree allocation in the three neural wavefunction constructions. (a) In MHPO [Eq. (6)], the zeros at electron coincidences are fixed by the determi- nant structure, while the correlation zeros are left entirely for the network to learn, and the monopole harmonics in the orbitals are constructed at the physical flux 2Q. (b) In the Laughlin wavefunction [Eq. (7)] and in the Laughlin-flux MHPO (MHPO-L) ansatz it inspires [Eq. (8)], the Laugh- lin flux attachment Jastrow factor imposes additional corre- lation zeros of order 2p at every electron coincidence, and the orbitals are constructed at the reduced...",
+      "page": 3
+    },
+    {
+      "image": "2610.28095_figures/2610.28095_fig2.jpg",
+      "caption": "FIG. 2. Comparison of the MHPO (blue), MHPO-L (yellow), and MHPO-M (green) ansatzes for the ν = 1/3 (N = 9, 2Q = 24), ν = 2/5 (N = 8, 2Q = 16), and ν = 1/5 (N = 6, 2Q = 25) systems. (a) Normalized and offset variational energy (E −E3LL)/(ELLL −E3LL), where ELLL and E3LL are exact-diagonalization energies obtained in the LLL and three-LL Hilbert spaces, so that values of one and zero correspond to these two references. (b) Corresponding autocorrelation-corrected statistical error of the mean energy over 10000 evaluation steps, normalized by (ELLL−E3LL). (c) Corresponding total-angular- momentum expectation values ⟨ˆL2⟩/ℏ2, shown on a logarithmic scale. (d–f) Short-range pair correlation...",
+      "page": 4
+    },
+    {
+      "image": "2610.28095_figures/2610.28095_fig3.jpg",
+      "caption": "Figure 2(a) shows that, for LL mixing parameter κ = 1, the MHPO network achieves energies lower than LLL ED but higher than three-LL ED for all systems studied, where three-LL ED corresponds to the largest number of LLs accessible to our ED calculations. On the normalized vertical axis, energies lying between these two references therefore fall between 0 and 1. Moreover, the converged energy for the ν = 1/5 system with 6 electrons is signifi- cantly worse than that of the ν = 2/5 system with 8 elec- trons and the ν = 1/3 system with 9 electrons, despite the similar total flux (2Q = 25 for ν = 1/5 and 2Q = 24 for ν = 1/3). The phase comparison in Fig. 2(g) shows the three-LL ED phase...",
+      "page": 4
+    },
+    {
+      "image": "2610.28095_figures/2610.28095_fig4.jpg",
+      "caption": "FIG. 3. (a) Network settings used in the ablation study. Filled circles indicate enabled properties. “Pair factor” denotes the application of explicit factors J ; when this is the only enabled property, J corresponds to the fixed Laughlin factor J Laughlin. “Laughlin init” indicates that Γdiµ is initialized according to Eq. (12). “electron-dependent Γdiµ” makes Γdiµ depend on the neural network features according to Eq. (11), and hence on the electron configuration, whereas disabling this property reduces Γdiµ to a plain parameter to be optimized. “Orbital-dependent Γdiµ” and “Determinant-dependent Γdiµ” assign a distinct Γdiµ to each orbital or to each determinant, respectively. The...",
+      "page": 6
+    },
+    {
+      "image": "2610.28095_figures/2610.28095_fig5.jpg",
+      "caption": "FIG. 4. (a) Corrected converged energies Ec of MHPO* and MHPO-M* wavefunctions for ν = 1/3 systems with N = 9 to 35 electrons. The corrected energy includes the neutralizing background-charge contribution, subtracts the kinetic energy Nℏωc/2, and incorporates the density correction that suppresses the system-size dependence [16, 37, 39]. The LLL, two-LL, and three-LL ED energies are shown as violet markers, and the dashed lines are 1/N fits. The shaded bands show the change caused by omitting the smallest system. For the two-LL and three-LL results, the shading is extended to reflect the alternative trend inferred by fitting the four available energies directly. The two-LL ED energies for...",
+      "page": 7
+    }
+  ],
+  "figure": "2610.28095_figures/2610.28095_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

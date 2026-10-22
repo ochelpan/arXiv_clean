@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.27332",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.CR",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Orchestrating Key Scarcity: Global Capacity Allocation in Hybrid QKD-PQC Networks",
+  "authors": "Pablo P. Rejo, Manuel Fernández-Veiga, Ana Fernández-Vilas, Diego Cajaraville-Aboy, Javier Vecino-Peñas, Rebeca P. Díaz-Redondo",
+  "abstract": "This article presents a Distributed Key Management System (DKMS) that provisions quantum-safe symmetric encryption keys to applications across a network. To overcome the distance and rate limitations inherent to Quantum Key Distribution (QKD), the architecture adopts a hybrid design: it utilizes multi-hop trusted relays for physical key transport, while applying an end-to-end Post-Quantum Cryptography (PQC) layer to ensure the relayed key material remains strictly protected from intermediate nodes. Because QKD transforms key generation into a scarce physical resource, managing unpredictable application demands poses a critical capacity allocation problem. The core contribution of this work is an SDN-driven control plane that globally orchestrates the network. Rather than relying on vulnerable hop-by-hop capacity reservations, a central controller simultaneously computes optimal filling rates and multipath routing for all per-peer key buffers. This global orchestration ensures that no application is starved and that all key buffers synchronize their filling processes. Evaluated on a Kubernetes-based digital twin across five distinct network topologies, the controller successfully filled all key buffers to capacity in under six minutes. Furthermore, under deliberately excessive demand, the network demonstrated graceful degradation, safely rejecting excess requests through controlled rate-limiting rather than experiencing catastrophic failure.",
+  "url": "http://arxiv.org/abs/2610.27332v1",
+  "pdf": "https://arxiv.org/pdf/2610.27332v1",
+  "type": "both",
+  "summary": "This paper proposes a Distributed Key Management System (DKMS) to solve the capacity allocation problem in hybrid QKD-PQC networks. It uses an SDN controller to globally optimize key provisioning, treating key generation as a scarce resource. This approach ensures network stability and fairness by managing the mismatch between physical key generation rates and application demand.",
+  "main_problem": "The core challenge is managing the capacity allocation of scarce, rate-limited quantum-safe symmetric encryption keys in hybrid QKD-PQC networks to meet unpredictable application demands.",
+  "main_result": "The proposed SDN-driven Distributed Key Management System (DKMS) successfully orchestrates global key provisioning, demonstrating graceful degradation under excessive load.",
+  "method": "The authors employ an SDN control plane to solve a global Maximum Concurrent Multi-Commodity Flow problem, optimizing key buffer filling rates and multipath routing simultaneously.",
+  "model_or_system": "The system models a multi-hop QKD network using a DKMS architecture, which combines physical key transport via trusted relays with end-to-end protection using Post-Quantum Cryptography (PQC).",
+  "key_observables": "Key Match Rate, Back-pressure (HTTP 429), Latency (p50, p95), and the synchronization of key buffer filling trajectories.",
+  "important_parameters": "Key rate decay ($\text{R}(L)$), the capacity allocation across all source-destination pairs, and the network topology (e.g., RGG, BA2).",
+  "main_assumptions": "The work assumes that traditional key management systems fail due to the physical scarcity and rate limitations imposed by QKD key generation.",
+  "figures_summary": "Figures illustrate key buffer filling trajectories converging to a common horizon, the breakdown of successful key matches versus back-pressure under load, and comparisons of performance across various network topologies.",
+  "paper_structure": "The paper introduces the DKMS, formulates the problem as a global flow optimization, evaluates the solution on a digital twin across multiple topologies, and analyzes performance metrics like integrity and load handling.",
+  "why_interesting": "While focused on networking, the core concept of resource allocation under physical constraints (key rate) and the use of global optimization techniques (MCMCF) are relevant to modeling resource constraints in quantum information processing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.27332_figures/2610.27332_fig1.jpg",
+      "caption": "Figure 1: Architecture of a DKMS node and the end-to-end journey of a transport key into the per-peer buffers. The ORR wraps it end to end for the destination ORR (dashed logical channel, via ML-KEM), while the QKCs relay it hop by hop with a per-link OTP (physical path), so intermediate nodes never hold it. Session keys handed to SAEs do not traverse this relay: they travel over the direct KMS-to-KMS ETSI 020 channel, protected by one-time pad with a buffered transport key.",
+      "page": 5
+    },
+    {
+      "image": "2610.27332_figures/2610.27332_fig2.jpg",
+      "caption": "Figure 2: The MCMCF-λ control loop. Each DKMS reports its per-commodity buffer state (level Lk, drain δk); the SDN assembles the commodity matrix and the attenuated link capacities uij, solves the two-phase LP, and pushes the WCMP forwarding tables to the QKCs while publishing the per-commodity rates rk = δk + λ⋆Rk (base form; refined in Section V-B) that each DKMS polls. The single scalar λ⋆characterizes the whole network’s saturation state.",
+      "page": 7
+    },
+    {
+      "image": "2610.27332_figures/2610.27332_fig3.jpg",
+      "caption": "Figure 3: ENC level per commodity over time during the buffer-fill phase; the dashed line at 0.95 · Bmax marks the saturation threshold. The 380 trajectories converge toward the same horizon rather than each pair filling independently, illustrating Proposition 1 empirically; a few trajectories briefly overshoot Bmax, which the control plane treats as a fill target rather than a hard cap.",
+      "page": 13
+    },
+    {
+      "image": "2610.27332_figures/2610.27332_fig4.jpg",
+      "caption": "Figure 4: Outcome breakdown of the 2 329 499 SAE round- trips of the RGG run. Green: byte-identical match; orange: token-bucket back-pressure (HTTP 429); the residual slice aggregates 55 transient HTTP 502, 38 mismatches and 1 client error.",
+      "page": 13
+    },
+    {
+      "image": "2610.27332_figures/2610.27332_fig5.jpg",
+      "caption": "Figure 6: Byte-matched round-trips (green) versus token- bucket rejections (red) per second, ETSI 014 round-trip phase, RGG. The two series are complementary: the excess offered load is absorbed as HTTP 429 back-pressure while the served keys remain byte-correct.",
+      "page": 13
+    }
+  ],
+  "figure": "2610.27332_figures/2610.27332_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

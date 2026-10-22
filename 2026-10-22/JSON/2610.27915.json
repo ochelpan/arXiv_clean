@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.27915",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Sparse block encoding with low subnormalisation for quantum linear solvers on unstructured meshes",
+  "authors": "Leigh Lapworth, Jarrett Smalley, Christoph Sünderhauf",
+  "abstract": "Unstructured meshes are widely used in modelling and simulation in Computational Fluid Dynamics (CFD) due to their geometric flexibility. However, they require an efficient block encoding circuit describing the system. Here, we present a new block encoding methodology for unstructured mesh solvers based on decomposing the system matrix into a sum of 1-sparse matrices. This block encoding is engineered to reduce subnormalisation even in the absence of structure by hiding the contribution of large matrix elements behind others. We investigate three methods of 1-sparse decomposition. Our circuit constructions can optionally take advantage of limited matrix bandwidth and repeated values. For example we consider digitisation (reduced precision), where the number of multiplexed rotation gates is equal to the number of non-unique matrix entries. We evaluate our methodologies using 2D and 3D CFD matrices for unstructured aerofoil meshes, structured cavity, and duct meshes, with and without matrix preconditioning. Our results show that we are able to achieve a block encoding with a near constant subnormalisation factor as the number of matrix preconditioning infill levels increases. This significantly reduces the subnormalised condition number and, in one case, reduces the degree of the QSP polynomial approximation to $1/x$ by 100,000. Reduced precision digitisation is shown to become more effective as the number of preconditioning infill levels is increased and, in one case, reduces the number of multiplexed rotations from 2,785,576 to 546 whilst maintaining an infidelity of $2.6\\times10^{-5}$ relative to the classical solution. The effect of digitisation on QSVT solutions is demonstrated using 2D and 3D unstructured mesh aerofoil cases. Due to its flexibility and automatic applicability, we believe our 1-sparse decomposition block encoding can offer benefits to other quantum applications.",
+  "url": "http://arxiv.org/abs/2610.27915v1",
+  "pdf": "https://arxiv.org/pdf/2610.27915v1",
+  "type": "theory",
+  "summary": "This paper presents a novel 1-sparse decomposition block encoding for quantum linear solvers tackling unstructured mesh problems from CFD. It demonstrates that this method maintains a low subnormalisation factor even with aggressive classical preconditioning. This efficiency improvement makes the quantum simulation of complex physical systems more feasible.",
+  "main_problem": "Developing an efficient block encoding methodology for quantum linear solvers applied to unstructured meshes while minimizing the subnormalisation factor.",
+  "main_result": "The proposed 1-sparse decomposition block encoding achieves a near constant subnormalisation factor even as matrix preconditioning levels increase, significantly improving the quantum simulation of large linear systems.",
+  "method": "The authors propose decomposing the system matrix into a sum of 1-sparse matrices to construct a block encoding circuit, comparing this against existing methods like q-norm encoding.",
+  "model_or_system": "The application domain is solving linear systems $Ax=b$ derived from Computational Fluid Dynamics (CFD) simulations using unstructured meshes.",
+  "key_observables": "Subnormalisation factor ($\\alpha$), subnormalised condition number ($\\kappa_s$), Toffoli cost, and circuit depth.",
+  "important_parameters": "Number of matrix preconditioning infill levels, matrix size ($N$), and sparsity structure.",
+  "main_assumptions": "The analysis relies on decomposing the matrix into 1-sparse components and assumes the applicability of quantum linear solvers (like QSVT).",
+  "figures_summary": "Figures illustrate circuit diagrams for 1-sparse decomposition and compare cost metrics between 1-sparse and q-norm encodings.",
+  "paper_structure": "The paper introduces the problem, compares various encoding methods (Sparse Access, Frobenius, q-norm, 1-sparse), analyzes the performance of the 1-sparse method regarding subnormalisation and circuit cost, and demonstrates its effectiveness on CFD test cases.",
+  "why_interesting": "The focus on optimizing quantum circuit resources (like subnormalisation and gate count) for solving large, structured linear systems is highly relevant to quantum simulation algorithms used in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.27915_figures/2610.27915_fig1.jpg",
+      "caption": "Figure 1: Q-norm block encoding [35]. SP(|ϕj⟩) and SP(|ψi⟩) are state loaders for the columns and rows of the matrix respectively. The rotations by angles χi and χj apply row and column normalisation factors.",
+      "page": 4
+    },
+    {
+      "image": "2610.27915_figures/2610.27915_fig2.jpg",
+      "caption": "Figure 2: Circuit for loading 4x4 1-sparse matrix in Equation (9) using unstructured encoding. The function i(j, k) returns the row index for the entry in jth column of the kth 1-sparse matrix. j(i, k) is the inverse function. In this example, S = 1 and the s register is retained for completeness.",
+      "page": 8
+    },
+    {
+      "image": "2610.27915_figures/2610.27915_fig3.jpg",
+      "caption": "Figure 3: Circuit for loading 4x4 1-sparse matrix in Equation (10) using unstructured encoding with diagonal offsets. The function dj(j, k) returns the diagonal offset for the entry in jth column of the kth",
+      "page": 9
+    },
+    {
+      "image": "2610.27915_figures/2610.27915_fig4.jpg",
+      "caption": "Figure 4: Circuit for loading 4x4 1-sparse matrix in Equation (10) using a list of diagonal offsets. lj(j, k) returns the position in the list of offsets for the entry in jth column of the kth 1-sparse matrix. li(i, k) returns the position in the list of offsets for the entry in ith row of the kth 1-sparse matrix.",
+      "page": 9
+    },
+    {
+      "image": "2610.27915_figures/2610.27915_fig5.jpg",
+      "caption": "Figure 5: Circuit for loading 4x4 1-sparse matrix in Equation (11) using a list of diagonal offsets and a list of rotation angles. The li and lj operators are as above. The bit patterns in the r register gives the position in the list of rotation angles.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.27915_figures/2610.27915_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

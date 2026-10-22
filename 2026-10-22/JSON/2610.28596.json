@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.28596",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.IT",
+    "cs.NI",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Entanglement Distribution in Quantum Switch Networks: Memory Limits and Achievability",
+  "authors": "Lei Hu, Alptug Aytekin, Stavros Mitrolaris, Mohamed Nomeir, Subhankar Banerjee, Sennur Ulukus, Saikat Guha",
+  "abstract": "We study the minimum persistent memory required to distribute a graph state through a quantum switch. Specifically, consider a central switch that assists $n$ remote users in distributing a graph state, using independently generated user-switch Bell pairs. Since Bell-pair generation is probabilistic, different links generally succeed at different times. When a Bell-pair is generated, the qubits may need to be stored in memory while waiting for other links to succeed. Recently, new protocols have been proposed to reduce this storage overhead by processing and releasing some switch qubits before all Bell links are available. However, these protocols do not characterize the minimum persistent switch memory required at each stage. Moreover, the local-cover method in the state-of-the-art Piecemaker protocol is computationally expensive for general target graphs.   In this work, we characterize the minimum persistent switch memory required after any subset of users' Bell links are generated and processed. We then develop an online stabilizer-transition protocol that attains this limit, which can be implemented in polynomial time in the number of qubits $n$. Remarkably, this optimal protocol can provide substantial memory reductions over existing heuristic approaches. In particular, for the path graph $P_n$ over $n$ users, Piecemaker protocol requires at least $\\lfloor n/2\\rfloor$ qubits of peak persistent memory for \\textit{every Bell-links generation order}, whereas under the order $(1,2,\\ldots,n)$, our protocol requires only one persistent switch qubit. Finally, the same stabilizer-transition framework also provides a direct forward construction for sequential graph-state generation using the minimum number of quantum emitters, equal to the maximum of the height function.",
+  "url": "http://arxiv.org/abs/2610.28596v1",
+  "pdf": "https://arxiv.org/pdf/2610.28596v1",
+  "type": "theory",
+  "summary": "This work tackles the challenge of minimizing quantum memory usage in quantum switch networks used to distribute graph states. The authors introduce an optimal online stabilizer-transition protocol that achieves the theoretical minimum memory requirement. This protocol significantly improves upon existing methods, showing substantial memory reductions, particularly for path graphs.",
+  "main_problem": "The paper aims to characterize the minimum persistent quantum memory required at a central switch to distribute a graph state among multiple remote users.",
+  "main_result": "The authors developed an online stabilizer-transition protocol that achieves the theoretical minimum memory limit, significantly outperforming existing protocols like Piecemaker, especially for path graphs.",
+  "method": "The core method involves developing and analyzing an online stabilizer-transition protocol that processes Bell pairs as they arrive, maintaining a minimal stabilizer purification of the target state.",
+  "model_or_system": "The model is a quantum switch network where a central switch connects to $n$ remote users. Entanglement distribution relies on establishing Bell pairs over probabilistic quantum links.",
+  "key_observables": "Minimum persistent switch memory (qubits stored at the switch), maximum storage time ($\\Delta t$), and the resulting graph state $|G\\rangle$.",
+  "important_parameters": "The number of users ($n$), the specific graph structure (e.g., path graph $P_n$), and the arrival order of Bell links.",
+  "main_assumptions": "The switch can perform local quantum operations (CZ, CX, measurements) and classical feed-forward rapidly compared to the entanglement generation time. The protocol assumes the ability to maintain a minimal stabilizer purification.",
+  "figures_summary": "Figure 1 illustrates the quantum switch network model. Figures 2 and 3 compare the memory requirements of the Factory and Piecemaker protocols for $P_4$ under different link arrival orders.",
+  "paper_structure": "The paper establishes the problem by reviewing existing protocols (Factory, Piecemaker), derives a fundamental lower bound on memory, and then introduces and proves an online stabilizer-transition protocol that achieves this bound, concluding with comparisons and forward constructions.",
+  "why_interesting": "It provides a resource-efficient theoretical framework for quantum networking, directly addressing the practical limitations of quantum memory required for large-scale quantum computation and communication.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.28596_figures/2610.28596_fig1.jpg",
+      "caption": "Figure 1: System model of the quantum switch network. Each user is connected to the central switch through a quantum channel. When Bell-pair generation on a user-switch link succeeds, the two halves (ui, mi) are stored at the user and the switch, respectively. Otherwise, the corresponding memory remains empty.",
+      "page": 2
+    },
+    {
+      "image": "2610.28596_figures/2610.28596_fig2.jpg",
+      "caption": "Figure 2: Factory protocol for distributing the four-qubit path graph state. Users 3 and 4 establish Bell links at t = ∆t, while users 1 and 2 generate the links at t = 2∆t and t = 3∆t, respectively. The switch stores its halves of the successful Bell pairs until all four links are available. It then prepares the target state on four auxiliary qubits a1, . . . , a4. The switch performs a Bell-state measurement on each pair (ai, mi) to teleport the state of a1, . . . , a4 to the user qubits u1, . . . , u4. Each user applies a single-qubit Pauli correction based on the corresponding measurement outcome. The users then share the target graph state.",
+      "page": 7
+    },
+    {
+      "image": "2610.28596_figures/2610.28596_fig3.jpg",
+      "caption": "Figure 3: Piecemaker protocol for distributing the four-qubit path graph state, where users 3 and 4 establish their Bell links at t = ∆t, while users 1 and 2 succeed at t = 2∆t and t = 3∆t, respectively. (a) When users 3 and 4 generate their Bell links, the set C = {3, 4} is a vertex cover of the LC-equivalent graph G′. The switch then retains m3 and m4 as persistent qubits, and processes each later link upon arrival. It releases m1 at t = 2∆t and all remaining switch qubits at t = 3∆t. After all Bell links are generated and processed, the users’ qubits u1, . . . , u4 form the graph state G′. By performing the single-qubit LC operations τ1, τ3, τ2, the users share the target graph state P4....",
+      "page": 8
+    },
+    {
+      "image": "2610.28596_figures/2610.28596_fig4.jpg",
+      "caption": "Figure 4: The first two steps of distributing the path graph P4 under the Bell-link arrival order π = (4, 3, 1, 2). In Step 1, the switch retains m4 and applies Hm4, which gives the graph state m4 −u4. In Step 2, the switch processes the Bell pair for user 3 using gates, measurement, and feed-forward correction shown in the figure. It releases m3 and obtains the graph state m4 −u3 −u4. Note that only m4 remains at the switch after each step.",
+      "page": 32
+    },
+    {
+      "image": "2610.28596_figures/2610.28596_fig5.jpg",
+      "caption": "Figure 5: The final two steps of distributing the path graph P4 under the Bell-link arrival order π = (4, 3, 1, 2). In Step 3, the switch processes the new Bell pair for user 1, using the operations shown in the figure. It releases m1 and obtains the graph state u1 −m4 −u3 −u4, retaining only m4. In Step 4, the switch teleports the state of m4 to u2 through the fresh Bell pair |Φ+⟩m2u2. After the Pauli correction, the users share the target graph state u1 − u2 −u3 −u4. Both m4 and m2 are released, and no qubits remain stored in the switch.",
+      "page": 34
+    }
+  ],
+  "figure": "2610.28596_figures/2610.28596_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

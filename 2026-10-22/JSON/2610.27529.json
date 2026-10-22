@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.27529",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Collision-aware Bayesian mitigation of photon loss in linear optical quantum circuits",
+  "authors": "Seungwoo Kim, Seunghyun Ahn, Donguk Nam, Hyunho Cha, Jungwoo Lee",
+  "abstract": "Photon loss is the dominant noise source in linear optical quantum circuits. Each lost photon turns an ideal n-photon outcome into a pattern with fewer photons, so the detector counts no longer follow the ideal output distribution, and the lossless events that do follow it become exponentially rare as the photon number grows. Discarding the lossy events (postselection) therefore wastes most of the data at realistic loss rates, and the ideal distribution has to be inferred from the lossy counts themselves. Recycling-based mitigation (Mills & Mezher, Quantum 2026; Quandela's photon_recycling) reweights lossy samples to recover lossless probabilities, but its estimators are biased and restricted to the no-collision sector, where each output mode holds at most one photon. We instead treat the raw counts as Multinomial observations under per-photon binomial loss and infer the ideal output distribution and the loss rate jointly from a Bayesian posterior, which extends naturally to outputs with collisions. On data from the independent Perceval simulator at the scale of prior work (n=4 photons in m=20 and m=10 modes), the posterior has lower KL divergence than both recycling and postselection at every tested loss rate in the no-collision benchmark. In the collision regime it recovers the loss rate and the collision-pattern probabilities, which recycling cannot estimate, and stays below recycling at every loss rate and below postselection except at low loss, where the two are comparable. Its advantage over recycling grows with the sample count, and it supplies credible intervals that the baselines lack.",
+  "url": "http://arxiv.org/abs/2610.27529v1",
+  "pdf": "https://arxiv.org/pdf/2610.27529v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, collision-aware Bayesian method to mitigate photon loss in linear optical quantum circuits. By modeling raw counts as Multinomial observations, the authors jointly infer the ideal quantum state distribution and the loss rate. This approach surpasses existing techniques by accurately handling collision patterns and providing robust uncertainty estimates.",
+  "main_problem": "Photon loss is the dominant noise source in linear optical quantum circuits, causing detector counts to deviate from the ideal output distribution, making lossless events exponentially rare.",
+  "main_result": "The proposed collision-aware Bayesian mitigation method outperforms existing techniques (recycling and postselection) by accurately estimating the ideal distribution even in the collision regime and providing uncertainty quantification.",
+  "method": "The authors employ a Bayesian inference framework, treating raw lossy counts as Multinomial observations under a per-photon binomial loss model to jointly infer the ideal output distribution and the loss rate.",
+  "model_or_system": "The study analyzes linear optical quantum circuits, specifically simulating Boson Sampling with $n$ indistinguishable photons passing through an $m$-mode interferometer. The loss is modeled as an independent per-photon Bernoulli channel.",
+  "key_observables": "KL divergence, loss rate ($\\eta$), collision-pattern probabilities, and credible intervals.",
+  "important_parameters": "Number of photons ($n$), number of modes ($m$), loss rate ($\\eta$), and collision-pattern structure.",
+  "main_assumptions": "The primary assumption is that the raw counts can be modeled as Multinomial observations under a per-photon binomial loss, allowing for a joint Bayesian inference.",
+  "figures_summary": "Figures compare the performance (e.g., KL divergence) of the proposed method against recycling and postselection across various loss rates and test for robustness against multiphoton emission and partial distinguishability.",
+  "paper_structure": "The paper introduces the problem of photon loss in linear optics, details the limitations of existing mitigation techniques (recycling, postselection), develops the collision-aware Bayesian framework, and validates its performance against various noise models and benchmarks.",
+  "why_interesting": "This work directly addresses a critical experimental bottleneck in photonic quantum computation by providing a statistically rigorous method to extract ideal quantum process information from noisy, lossy measurements.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.27529_figures/2610.27529_fig1.jpg",
+      "caption": "Figure 1: No-collision headline (n = 4, m = 20, N = 105, R = 30): KL divergence on the NC subspace vs. loss rate η, under Perceval-generated data. Solid = V = 1.0; dashed = V = 0.8. Both slices are misspecified for the no-collision likelihood, which omits collision patterns (App. B); at V = 0.8 the lossless target also moves from p∗to pV (App. C). The Bayesian posterior (blue) is lowest at every η under both slices; postselection (red) crosses up as its effective sample count collapses (at high loss its KL mostly reflects the 1/N floor applied to its many zero estimates; Sec. 4.3), and the recycling estimator (green) exhibits an error plateau at the tested sample budget. Shaded band: 95%...",
+      "page": 8
+    },
+    {
+      "image": "2610.27529_figures/2610.27529_fig2.jpg",
+      "caption": "Figure 2: KL against the ideal p∗vs. indistinguishability V (NC n = 4, m = 20, N = 105, R = 30). Both the Bayesian posterior and postselection degrade smoothly as V decreases from 1.0 to 0.8; the Bayesian curve keeps its margin. Neither method models V , so both target the partially distinguishable distribution pV , and the rise largely reflects the distance between pV and p∗(App. C).",
+      "page": 9
+    },
+    {
+      "image": "2610.27529_figures/2610.27529_fig3.jpg",
+      "caption": "Figure 3: KL divergence vs. sample count N on the no-collision track (n = 4, m = 20, Perceval data, the same R = 30 Haar unitaries at every N; the N = 105 points are the headline runs). Points: mean; bars: 95% percentile-bootstrap CI. Dashed: uninformed uniform guess p = 1/K. Recycling plateaus from N ≈2 × 104",
+      "page": 10
+    },
+    {
+      "image": "2610.27529_figures/2610.27529_fig4.jpg",
+      "caption": "Figure 4: KL divergence vs. sample count N on the collision-aware track (n = 4, m = 10, Perceval data, the same R = 30 Haar unitaries at every N; the N = 105 points are the runs of Table 2), on the NC subspace. Points: mean; bars: 95% percentile-bootstrap CI. Dashed: uninformed uniform guess on the NC subspace. The posterior is shown only up to the largest N at which NUTS converged (2 × 105 at η = 0.3, 5 × 105 at η = 0.7); the baselines up to 106. At η = 0.7 the postselection KL at small N is set by the 1/N floor applied to its zero estimates.",
+      "page": 11
+    },
+    {
+      "image": "2610.27529_figures/2610.27529_fig5.jpg",
+      "caption": "Figure 5: Collision-aware regime (n = 4, m = 10, N = 105, R = 30): KL on the NC subspace vs. η under Perceval data. Solid V = 1.0, dashed V = 0.8. The Bayesian posterior (blue) is lowest at every η except η = 0.3, V = 0.8, where postselection is marginally lower (Sec. 4.4); postselection (red) collapses at high loss; the recycling estimator (green) stays well above the posterior and cannot represent the collision components at all.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.27529_figures/2610.27529_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 1,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

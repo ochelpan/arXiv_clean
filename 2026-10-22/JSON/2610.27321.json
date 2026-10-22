@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.27321",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "nlin.CD",
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Physics-Inspired Optimizers beyond the Edge of Stability: Period-Two Orbits and Delayed Instability",
+  "authors": "Alexander Itin",
+  "abstract": "Gradient descent with momentum can be viewed as a particle moving with friction in the loss landscape. In deep learning the learning rate is usually large, so training is a discrete dynamical system: in many full-batch experiments the sharpness grows to the optimizer's stability limit, the edge of stability (EoS), and training continues there. Physics-inspired optimizers change this motion; Velocity-Regularized Adam (VRAdam), for example, shrinks the step at high speed. We study kinetic maps, in which the step is the gradient of a kinetic energy of the momentum, and ask what they do beyond the EoS. (i) In a reduced model, a kinetic map creates a symmetric period-two orbit beyond the edge, strictly linearly stable if and only if the map's elasticity (the log-log slope of step length versus momentum) lies between 0 and 1; on it, training sits at an effective edge of stability. VRAdam's damper fails above twice the critical learning rate, where its kinetic energy is not convex; the Legendre dual of VRAdam's own Lagrangian is convex and passes at every learning rate. (ii) Because the sharpness rises gradually, the loss of stability is delayed, as in Neishtadt's theory of slowly swept bifurcations. In a network with a controlled sweep, the dynamics match this theory without fitted parameters, including the memory of where the sweep started and its erasure by noise. (iii) With momentum, reaching the oscillation also requires elasticity at large momentum: maps that bound the step have competing period-four and chaotic attractors already at beta1 = 0.9, while the cubic-Legendre map reached the oscillation from every sampled start up to beta1 = 0.99. Experiments on an exact quadratic problem, a full-batch MLP and ResNet-32 support the theory; on ResNet-18, much of the apparent benefit of the maps is reproduced by matching the effective learning rate.",
+  "url": "http://arxiv.org/abs/2610.27321v1",
+  "pdf": "https://arxiv.org/pdf/2610.27321v1",
+  "type": "both",
+  "summary": "This paper treats deep learning optimization as a dynamical system, analyzing how physics-inspired optimizers behave beyond the standard stability limits. It introduces the concept of stable period-two orbits via kinetic maps and demonstrates that the loss of stability can be significantly delayed, offering new theoretical insights into training dynamics.",
+  "main_problem": "The paper investigates the stability and dynamics of physics-inspired optimization algorithms when training deep neural networks beyond the conventional 'edge of stability' (EoS). It models optimization as a discrete dynamical system.",
+  "main_result": "The authors show that kinetic maps can create a linearly stable period-two orbit beyond the EoS, and that the loss of stability can be significantly delayed, matching predictions from slow bifurcation theory.",
+  "method": "The analysis uses concepts from dynamical systems theory, specifically analyzing kinetic maps derived from momentum gradients, and comparing these dynamics to established optimization algorithms like VRAdam.",
+  "model_or_system": "The system is gradient descent with momentum, treated as a particle moving in the loss landscape. The analysis focuses on reduced models involving kinetic maps acting on the momentum variable.",
+  "key_observables": "Period-two orbits, elasticity (log-log slope of step length vs. momentum), and the delay time of instability (Neishtadt's theory).",
+  "important_parameters": "Learning rate ($\\eta$), momentum decay ($\beta_1$), and the map's elasticity ($\\varepsilon$).",
+  "main_assumptions": "The analysis relies on reducing the complex optimization dynamics to a manageable dynamical system model, and some results are compared against effective learning rate matching.",
+  "figures_summary": "Figures illustrate radial speed profiles, kinetic energies, and late iterates for various maps (VR, quartic, etc.), showing the existence and stability of periodic orbits.",
+  "paper_structure": "The paper moves from defining the problem (optimization beyond EoS) to analyzing specific reduced models (kinetic maps), deriving stability conditions (period-two orbits), and finally confirming these theoretical predictions through controlled sweep experiments and comparisons with deep learning benchmarks.",
+  "why_interesting": "The deep connection between optimization dynamics, stability theory (bifurcations), and physical systems like Hamiltonian mechanics provides a rich analogy for understanding non-equilibrium dynamics in complex physical models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.27321_figures/2610.27321_fig1.jpg",
+      "caption": "Figure 1: (a) Radial speed profiles and (b) the kinetic energies they imply. (c,d) Late iterates of the reduced model without momentum, y′ = y −aϕ(y). The VR map has a stable two-cycle only for 2 < a < 4, followed by a symmetry-breaking pitchfork, period doubling and chaos (first positive Lyapunov exponent at a ≈5.32); the quartic map has a stable two-cycle for every a > 2.",
+      "page": 5
+    },
+    {
+      "image": "2610.27321_figures/2610.27321_fig2.jpg",
+      "caption": "Figure 2: Controlled sweeps through the edge in a network (tanh MLP, Fashion-MNIST, full-batch EMA momentum, β1 = 0.9, no map; three seeds). (a) Deviation along the top Hessian direction after a kick δ = 10−6 at Rin, while R is ramped at ρ = 0.003 per step (solid: network, seed 0; dashed: linear recurrence (10) on the measured path; dotted: exit predicted by the slow-sweep relation (8)). (b) Exit point (deviation back at δ) versus entry point: network (markers, ρ ≤0.01), model on an exact linear ramp (thin lines, ρ ≤0.003) and the ρ →0 relation (8) (thick line). (c) Kick plus gradient noise σ, ρ = 0.003: network (markers) and model median and 10–90% range (lines, bands); the thick line is...",
+      "page": 8
+    },
+    {
+      "image": "2610.27321_figures/2610.27321_fig3.jpg",
+      "caption": "Figure 3: Legendre power maps in the reduced model. (a) Share of initial conditions that reach the symmetric orbit versus the orbit elasticity, all (p, A). (b) Worst share over A ∈[3, 100] versus the asymptotic elasticity p.",
+      "page": 10
+    },
+    {
+      "image": "2610.27321_figures/2610.27321_fig4.jpg",
+      "caption": "Figure 4: Exact quadratic (7,850 parameters, real data). (a–c) Late momentum norm ∥m∥/c versus µ = ηλmax/aEoS (markers: last 200 steps of three seeds) against the closed-form orbit (solid: stable, dotted: unstable). (d) Reduced model, β1 = 0.9: share of initial conditions that reach the orbit versus the orbit elasticity, for four families of maps.",
+      "page": 10
+    },
+    {
+      "image": "2610.27321_figures/2610.27321_fig5.jpg",
+      "caption": "Figure 5: Full-batch EMA momentum (β1 = 0.9) on a tanh MLP, 1,000 CIFAR-10 images, 10 seeds per setting. Colour: map; filled circles and solid lines: absolute scale c = 0.05; open triangles and dashed lines: relative scale c = 2∥∇BL(θ0)∥. (a) One seed at µ = 0.5, absolute scale: sharpness ratio R = ηλmax/aEoS (solid) and effective ratio Reff of (12) (dotted). Plain momentum stays at the edge, R ≈1. With the quartic map the sharpness rises to 1.75 times the edge while Reff stays at one; with the VR map the sharpness rises to more than five times the edge while Reff mostly stays below one. (b) Mode-weighted multiplier ¯g of (12) against R at every diagnostic with R ≥1.1 after step 100, all...",
+      "page": 12
+    }
+  ],
+  "figure": "2610.27321_figures/2610.27321_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 1,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
