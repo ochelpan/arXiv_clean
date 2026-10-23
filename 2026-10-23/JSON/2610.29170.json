@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.29170",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "Turning Quantum Compiler Configuration Selection Upside Down: A Top-Down Paradigm",
+  "authors": "Ming Zhong, Xiangyu Ren, Kangyu Zheng, Zhi Zeng, Shenggen Zheng, Shaohua Li, Zhiding Liang",
+  "abstract": "Selecting an effective quantum compiler configuration requires coordinated decisions over both hardware targets and compiler settings, with the ultimate goal of improving circuit execution fidelity. Existing SOTA approaches typically decompose this problem into two sequential stages: a device is chosen first, after which compiler options are tuned on that device through RL-based search. This bottom-up strategy can be fundamentally limited by its initial device decision, since a poorly matched backend may constrain the best fidelity achievable regardless of how effectively later compiler options are optimized. In contrast to classical compiler tuning, where the search space is often prohibitively large, the configuration space of quantum compilers remains manageable enough to support exhaustive search. Consequently, rather than repeatedly searching from candidate configurations, one can derive reusable configuration knowledge from offline oracle results and apply it directly to new circuits.   In this paper, we introduce a top-down configuration-selection paradigm and build QuOPTBench, an exhaustively searched benchmark containing oracle configurations for 268 quantum circuits. We first study whether LLMs can directly infer suitable configurations and evaluate ten representative LLMs. The results reveal that vanilla LLMs remain far from the oracle. We then employ an LLM to extract transferable rules from sampled circuits governing configuration selection. Using these rules together with predictors trained on the enumerated configuration data of the sampled circuits, we design QuTOP, a rule-guided ML framework that performs fast configuration selection without iterative online search. Across our evaluation, the distilled rules consistently strengthen LLM-based selection, while QuTOP provides the strongest overall balance between solution quality and selection latency among the baselines.",
+  "url": "http://arxiv.org/abs/2610.29170v1",
+  "pdf": "https://arxiv.org/pdf/2610.29170v1",
+  "type": "both",
+  "summary": "This paper tackles the complex problem of optimizing quantum compiler settings by proposing a top-down configuration selection paradigm. Instead of iteratively searching, the authors build a comprehensive benchmark and use LLMs to distill reusable rules governing optimal settings. This results in a fast, high-quality framework that significantly improves the process of mapping abstract circuits to physical hardware.",
+  "main_problem": "The core problem is selecting the optimal quantum compiler configuration, which requires coordinating decisions across hardware targets and compiler settings to maximize circuit execution fidelity.",
+  "main_result": "The proposed top-down, rule-guided ML framework (QuTOP) achieves the best balance between high solution quality and fast selection latency compared to existing bottom-up or vanilla LLM approaches.",
+  "method": "The authors developed a top-down paradigm by exhaustively characterizing a benchmark (QuOptBench) and then using LLMs to extract transferable rules that guide a specialized ML predictor.",
+  "model_or_system": "The system involves quantum circuits compiled for noisy, error-prone quantum hardware, requiring configuration decisions over device backends and compiler options.",
+  "key_observables": "Execution Fidelity (e.g., Hellinger fidelity), Estimated Fidelity (F_eff), and selection latency.",
+  "important_parameters": "The configuration space, which is assumed to be manageable enough for offline exhaustive search.",
+  "main_assumptions": "The primary assumption is that the configuration space is small enough for offline oracle construction, and that the fidelity can be approximated by an estimated fidelity (F_eff).",
+  "figures_summary": "Figure 1 illustrates the comparison between the limited two-stage bottom-up approach and the proposed top-down method. Table 1 summarizes the benchmarks in QuOptBench.",
+  "paper_structure": "The paper contrasts the limitations of bottom-up (device-first) selection with the proposed top-down, rule-guided ML approach. It introduces the benchmark, evaluates LLMs, extracts rules, and finally presents the optimized QuTOP framework.",
+  "why_interesting": "This work directly addresses the practical challenges of compiling quantum algorithms for real hardware, which is crucial for any physicist working with quantum simulators or near-term quantum devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.29170_figures/2610.29170_fig1.jpg",
+      "caption": "Figure 1: Workflow and motivation for quantum compiler configuration selection.",
+      "page": 3
+    },
+    {
+      "image": "2610.29170_figures/2610.29170_fig2.jpg",
+      "caption": "Figure 2: The optimal configuration distribution.",
+      "page": 5
+    },
+    {
+      "image": "2610.29170_figures/2610.29170_fig3.jpg",
+      "caption": "Figure 3: GPT-5.5-selected configurations.",
+      "page": 5
+    },
+    {
+      "image": "2610.29170_figures/2610.29170_fig4.jpg",
+      "caption": "Figure 5: The quantum compiler configuration selection rule distillation workflow.",
+      "page": 7
+    },
+    {
+      "image": "2610.29170_figures/2610.29170_fig5.jpg",
+      "caption": "Figure 6: The workflow of QCompass.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.29170_figures/2610.29170_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

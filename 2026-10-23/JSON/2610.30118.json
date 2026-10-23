@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2610.30118",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "The role of locality and weight sharing in convolutional neural networks",
+  "authors": "Francesco Mori, Melanie Weber",
+  "abstract": "The success of convolutional neural networks is often attributed to locality and weight sharing. However, how these two properties separately shape learning, and how their effects depend on the spatial correlations of natural images, remain poorly understood. We address these questions in a teacher-student model with a convolutional teacher acting on $P$ input positions with correlation $c$ between positions. We compare convolutional and locally connected students trained by online stochastic gradient descent, and derive ordinary differential equations that describe their dynamics exactly in the limit of large feature dimension $D$. For uncorrelated positions ($c = 0$), the two students follow the same learning trajectory, with the convolutional student learning exactly $P$ times faster. We also find that locality affects the sample complexity: a student that matches the kernel size of the teacher recovers it from $\\mathcal{O}_{D}(D)$ samples, whereas $\\mathcal{O}_{D}(D\\log(D))$ samples are needed with a larger kernel. For $c > 0$, spatial correlations can reduce the advantage of weight sharing. The asymptotic error of the convolutional student grows with $c$, whereas that of the locally connected student is independent of $c$ and overall lower when evaluated at the same learning rate. When the learning rate is instead tuned to the training horizon, however, the locally connected student wins at early times and the convolutional student at late times, with a transition that we predict analytically.",
+  "url": "http://arxiv.org/abs/2610.30118v1",
+  "pdf": "https://arxiv.org/pdf/2610.30118v1",
+  "type": "theory",
+  "summary": "This theoretical paper analyzes the learning dynamics of CNNs versus LCNs in a teacher-student framework, quantifying the roles of locality and weight sharing. Using ODEs derived in the high-dimensional limit, it shows that while weight sharing provides a speedup for uncorrelated data, spatial correlations cause a complex crossover in performance, suggesting a transition point between the two network types.",
+  "main_problem": "The paper investigates how locality and weight sharing, key features of Convolutional Neural Networks (CNNs), separately influence the learning dynamics compared to locally connected networks (LCNs). It also examines how spatial correlations in the input data modify this advantage.",
+  "main_result": "For uncorrelated inputs, weight sharing grants a significant speedup in learning. However, for correlated inputs, the LCN exhibits superior performance at early times, while the CNN maintains an advantage at late times, with a predictable transition point.",
+  "method": "The analysis employs a teacher-student model trained via online Stochastic Gradient Descent (SGD) and derives the learning dynamics exactly using Ordinary Differential Equations (ODEs) in the limit of infinite feature dimension (D).",
+  "model_or_system": "The model compares CNNs and LCNs learning to approximate a convolutional teacher network acting on $P$ input positions with feature dimension $D$. The learning process is governed by the evolution of order parameters derived from the SGD dynamics.",
+  "key_observables": "Generalization error ($\\epsilon_g$), asymptotic error ($\\epsilon_\\infty$), and the learning speedup factor.",
+  "important_parameters": "Spatial correlation ($c$), training time ($\\alpha$), kernel sizes ($k_s, k_t$), and feature dimension ($D \to \\infty$).",
+  "main_assumptions": "The analysis is rigorously derived in the thermodynamic limit ($D \to \\infty$) and relies on specific ansatzes for the order parameters.",
+  "figures_summary": "Figures illustrate the generalization error ($\\epsilon_g$) comparison between CNN and LCN under varying correlations ($c$) and training times ($\\alpha$), showing the crossover behavior and the dependence of the noise floor on $c$.",
+  "paper_structure": "The paper systematically derives ODEs for the learning dynamics of both network types, compares their performance in the uncorrelated limit ($c=0$), and then analyzes the impact of positive spatial correlations ($c>0$) on the asymptotic error and transient dynamics.",
+  "why_interesting": "The rigorous mathematical framework connecting network architecture constraints (locality/weight sharing) to learning dynamics, especially through ODEs, provides a powerful theoretical tool applicable to understanding complex, high-dimensional physical systems modeled by neural networks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.30118_figures/2610.30118_fig1.jpg",
+      "caption": "Figure 1: Teacher and the two student architectures with P input positions. Colors indicate weight sharing. The teacher is a two-layer CNN with kernel size kt. The CNN student has kernel size ks and weight sharing. The LCN has the same receptive fields as the CNN but no weight sharing. Boundary conditions are cyclic. Here, P = 4, ks = 3, and kt = 2.",
+      "page": 5
+    },
+    {
+      "image": "2610.30118_figures/2610.30118_fig2.jpg",
+      "caption": "Figure 2: Generalization errors εCNN g (α) of the CNN and εLCN g (Pα) of the LCN. Lines are the order- parameter ODEs and symbols mark simulations of a single SGD trajectory. Insets show the ODE curves without the time rescaling. (a) For independent positions (c = 0) the trajectories coincide. (b) In the presence of spatial correlations (c = 0.5) the rescaling fails and the LCN converges faster (see inset). Parameters: g = erf, kt = 2, ks = 3, P = 4, η = 1, σ = 0, T = 1, SGD at D = 1000.",
+      "page": 8
+    },
+    {
+      "image": "2610.30118_figures/2610.30118_fig3.jpg",
+      "caption": "Figure 3: CNN students that match the teacher kernel size (ks = kt) learn with OD(D) samples, while students with ks > kt take OD(D log D) samples. (a) Generalization error vs. training time α for three kernel sizes, obtained by integrating the ODEs (17) from the order parameters of a random initialization at dimension D. (b) Specialization time αspec (Eq. (25), with γth = 0.99) against the feature dimension D. Markers are averages over random initializations, each obtained by integrating the ODEs (17) from the order parameters of a random initialization at dimension D. Standard errors are smaller than the marker size. Lines are fits a + b ln D. Parameters: D = 1012",
+      "page": 10
+    },
+    {
+      "image": "2610.30118_figures/2610.30118_fig4.jpg",
+      "caption": "Figure 4: Alignment γs of the CNN kernel with the solution s vs. training time α, for (a) ks = 3 and (b) ks = 4. The dotted line marks the specialization time αspec and the dashed line γs = 0. Insets: probability ps that solution s is selected, over 4096 random initial conditions (dashed line: uniform). All curves are solutions of the ODEs (17). Parameters: D = 1012, g = erf, kt = 1, P = 6, S = I, η = 0.5, T = 1, σ = 0.",
+      "page": 11
+    },
+    {
+      "image": "2610.30118_figures/2610.30118_fig5.jpg",
+      "caption": "Figure 3 shows that for ks = kt the error quickly decreases to zero and the specialization time αspec is D-independent. For ks > kt, the generalization error displays a long plateau and then drops abruptly to zero when the student specializes at αspec = OD(log D). Interestingly, this plateau phase is the result of a particular symmetry of the dynamics. Consider the transformation acting on the order parameters as",
+      "page": 11
+    }
+  ],
+  "figure": "2610.30118_figures/2610.30118_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

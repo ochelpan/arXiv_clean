@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.28852",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "The Prevalence of Straight Shots in Control Space for Reaching Optimal Quantum Performance",
+  "authors": "Yiyou Chen, Gabriele Herr, Herschel Rabitz",
+  "abstract": "Gradient-based algorithms are often applied to identify an optimal control for maximizing a quantum objective functional by following a steepest ascent path to the top of the control landscape. In contrast, this paper explores straight shots through control space where movement along such a path corresponds to a less demanding monotonic complete climb up the landscape for the optimal objective value. Existing studies of control landscapes have revealed the presence of straight shots, but identifying them required computationally intensive stochastic methods. In this paper, we introduce a non-stochastic straight-shot search algorithm (STSA) that identifies a large class of straight shots. We apply STSA to numerically generate more than 10,000 distinct straight-shot optimization paths and analyze their statistical distribution for each of the objectives of (i) state-to-state transitions, (ii) general observables, and (iii) unitary transformation generation. The results show a decrease in the nearest-neighbor distances among straight shots as the sample size increases, suggesting their prevalence in control space. We further conjecture that the starting locations of the straight-shot pathways on a landscape level set may form connected neighborhoods, motivating future investigation into their underlying topological structure. The present paper focuses on the use of STSA for locating massive numbers of straight solutions. However, the STSA is not a high-efficiency algorithm in its present form, but the discovered prevalence of control straight shots leaves open future advances to accelerate the discovery of straight shots as optimal controls.",
+  "url": "http://arxiv.org/abs/2610.28852v1",
+  "pdf": "https://arxiv.org/pdf/2610.28852v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel Straight Shot Search Algorithm (STSA) to find optimal quantum control paths that do not rely on following the steepest ascent gradient. By generating thousands of such paths, the authors demonstrate the high prevalence of these 'straight shots' in the control landscape for various quantum objectives. This suggests a new, potentially more efficient avenue for designing optimal quantum operations.",
+  "main_problem": "The paper addresses the challenge of finding optimal control sequences for quantum systems by exploring alternative paths through the control landscape, moving beyond standard gradient-based steepest ascent methods.",
+  "main_result": "The authors introduce a non-stochastic straight-shot search algorithm (STSA) and demonstrate that optimal straight shots appear to be highly prevalent in control space, suggesting a fundamental structure to the optimization landscape.",
+  "method": "The core method involves defining and searching for 'straight shots'—paths that achieve optimality monotonically without following the steepest ascent gradient. This is achieved using the novel STSA algorithm.",
+  "model_or_system": "The study models quantum systems whose dynamics are governed by the Schrödinger equation under the influence of a time-dependent control field $\\epsilon(t)$. The control objective can be maximizing state-to-state transition probability, observable expectation values, or unitary fidelity.",
+  "key_observables": "State-to-state transition probability ($J_\\psi$), expectation value of an observable ($\text{Tr}(\rho(T)O)$), and unitary fidelity ($\\|U(T, 0) - W\\|^2_{\text{fro}}$).",
+  "important_parameters": "The control field $\\epsilon(t)$ and the time evolution parameter $s$ used to parameterize the path.",
+  "main_assumptions": "The analysis assumes that straight shots are a valid and potentially dominant class of optimal paths, and the current STSA is computationally intensive, limiting its efficiency.",
+  "figures_summary": "Figures schematically compare steepest ascent paths with straight-shot monotonic climbs, and subsequent figures show dimensionality-reduced views of control trajectories and histograms of path distances.",
+  "paper_structure": "The paper first contrasts gradient-based optimization with straight shots, then details the mathematical definition and implementation of the STSA. It applies this method to generate thousands of paths for various objectives, culminating in statistical analysis of the path distribution and conjectures about the topology of these solutions.",
+  "why_interesting": "This work provides a powerful, non-gradient-based framework for quantum control, which is crucial for designing robust quantum gates and state preparation protocols, especially when the control landscape is complex or non-convex.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.28852_figures/2610.28852_fig1.jpg",
+      "caption": "FIG. 1. A schematic illustration of an optimization landscape with two cases representing a steepest ascent climb (red) and a straight-shot monotonic control climb (blue), both reach- ing the optimal value of the objective. Note that the figure suggests, as has been numerically demonstrated [28], that the gradient climb from the initial blue dots likely would produce a monotonic optimal climb. The schematic shows only two controls, but in practice there will be many.",
+      "page": 2
+    },
+    {
+      "image": "2610.28852_figures/2610.28852_fig2.jpg",
+      "caption": "FIG. 2. A dimensionality-reduced illustration of a bot- tom control trajectory on J = 0.01 produced by the ran- dom walk algorithm. The controls are projected onto a three-dimensional subspace with principal component anal- ysis (PCA) formed by the top three principal components PC1, PC2, PC3 of all controls on the trajectory explaining approximately 66%, 16%, 8% of the total variance, respec- tively. The trajectory over the bottom level set has an overall irregular shape with frequent abrupt changes in direction, due to random sampling of f(s′, t) in Eq. (18).",
+      "page": 5
+    },
+    {
+      "image": "2610.28852_figures/2610.28852_fig3.jpg",
+      "caption": "FIG. 3. A histogram of the Euclidean distances traversed by the bottom controls produced by the random walk algo- rithm before finding the initial locations S′ producing optimal straight shots. The average distance is approximately 2.93 across 1000 runs, which is considerably higher compared to that obtained using STSA discussed in Section V B.",
+      "page": 6
+    },
+    {
+      "image": "2610.28852_figures/2610.28852_fig4.jpg",
+      "caption": "FIG. 4. A flowchart showing the main components of STSA discussed in Section IV. The initial control is randomly generated from Eq. (26) and then moved down (up) to a predefined bottom level set, e.g., to reach J = 0.01, using steepest descent (ascent) discussed in Section IV A. STSA then iteratively morphs the resultant control on the bottom level set by means of the free function f(s′, t) in Eq. (25) until an initial optimal straight control shot is identified that permits monotonically climbing to the top level set, e.g., J = 0.99. At each iteration parameterized by s′, a corrective step is applied to ensure that the bottom control maintains J = 0.01 to an acceptable tolerance; the climb...",
+      "page": 8
+    },
+    {
+      "image": "2610.28852_figures/2610.28852_fig5.jpg",
+      "caption": "FIG. 5. A dimensionality-reduced illustration of a bottom control trajectory produced by STSA. The controls are pro- jected onto a three-dimensional subspace with a basis consist- ing of the top three principal components PC1, PC2, PC3 of the entire control trajectory explaining approximately the to- tal variance, respectively are 79%, 19%, and 2%. Compared to the trajectory produced by random walk in Fig. 2, the trajectory produced by STSA has an overall smoother shape and experiences no abrupt changes in direction.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.28852_figures/2610.28852_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

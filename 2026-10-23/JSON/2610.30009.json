@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.30009",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Mitigating Model Collapse through Dreaming Learning",
+  "authors": "Matteo Benati, Alessandro Londei, Denise Lanzieri, Raffaello Mastromarino, Vittorio Loreto",
+  "abstract": "Training generative models on synthetic data causes loss of diversity and a decrease in performance, a phenomenon known as model collapse. We study this degeneration spectrally in a controlled Markov setting. The eigenvalue spectrum of the learned transition operator offers a direct view of the process, since the subdominant eigenvalues set how fast the chain mixes and therefore how much of the state space it continues to explore. We find that sampling at temperature $T_s < 1$ acts on the operator like repeated sharpening, pushing it toward a deterministic system: the subdominant eigenvalues approach the unit circle and the spectral gap narrows. When $T_s < 1$, even data accumulation does not appear to arrest this drift. We then analyze Dreaming Learning, a regulariser that, in parallel with regular training, adds a loss term on the model's own samples drawn at a raised temperature $T_d > 1$. Because high-temperature samples flatten the predicted distribution, training on them keeps the entries of the learned operator from becoming vanishingly small, which in turn keeps the eigenvalues bounded away from the unit circle. Measurements of the spectra over 5000 generations are consistent with this picture, and the mitigation effect persists in more complex settings such as LSTM language models and a 124M-parameter GPT-2.",
+  "url": "http://arxiv.org/abs/2610.30009v1",
+  "pdf": "https://arxiv.org/pdf/2610.30009v1",
+  "type": "theory",
+  "summary": "This work analyzes model collapse in generative models, diagnosing the failure using the eigenvalue spectrum of the learned transition operator. The authors propose 'Dreaming Learning,' a regularization technique that stabilizes the model by incorporating high-temperature samples. This method successfully prevents the model from collapsing into a deterministic, low-diversity state, improving performance across various architectures.",
+  "main_problem": "The paper addresses model collapse, a phenomenon where generative models trained iteratively on their own synthetic data lose diversity and performance.",
+  "main_result": "The proposed 'Dreaming Learning' regularization, which incorporates samples drawn at a higher temperature, successfully mitigates model collapse by stabilizing the learned transition operator's spectrum.",
+  "method": "The analysis uses spectral diagnostics by examining the eigenvalue spectrum of the learned transition operator in a controlled Markov setting, comparing vanilla self-training against the dreaming regularization.",
+  "model_or_system": "The study applies to generative models, including Markov chains, LSTMs, and GPT-2, trained via self-retraining loops on synthetic data.",
+  "key_observables": "The subdominant eigenvalues of the transition operator, the spectral gap, and validation perplexity/KL divergence.",
+  "important_parameters": "Sampling temperatures ($T_s < 1$ for collapse, $T_d > 1$ for dreaming), and the regularization strength ($\\alpha$).",
+  "main_assumptions": "The analysis is initially framed in a controlled Markov setting, though results are extended to complex LLMs; it assumes the operator is recoverable.",
+  "figures_summary": "Figure 1 shows that vanilla training causes eigenvalues to approach 1 (collapse), while Dreaming Learning keeps the spectrum flat. Figure 2 compares perplexity, showing Dreaming Learning yields better performance than vanilla recursion.",
+  "paper_structure": "The paper first establishes the spectral signature of model collapse ($T_s < 1$) and then introduces Dreaming Learning ($T_d > 1$) as a regularization technique. It validates this mechanism using spectral analysis and empirical performance metrics across various model types.",
+  "why_interesting": "The spectral analysis provides a rigorous, structural diagnostic tool (eigenvalue spectrum) to characterize the failure modes of complex, high-dimensional generative models, linking information geometry to dynamical system stability.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.30009_figures/2610.30009_fig1.jpg",
+      "caption": "Figure 1: Eigenvalue magnitudes |λ2|, . . . , |λ5| of the reconstructed transition matrix across 5000 generations and 10 seeds, moving average (w=100), shaded region represents 25th to 75th percentile. Dashed lines mark the true spectrum of M0. Left: vanilla recursion. The subdominant eigenvalues climb toward 1 and the spectral gap narrows. Right: with Dreaming Learning (Td=1.5, α=0.8) the spectrum is flat in t. The dreaming spectrum stabilises below the true one, indicating a residual bias toward faster mixing that is controlled by Td and α.",
+      "page": 4
+    },
+    {
+      "image": "2610.30009_figures/2610.30009_fig2.jpg",
+      "caption": "Figure 2: GPT-2 (124M) under the generate-and-retrain loop, with synthetic corpora sampled at Ts = 0.8. WikiText-2 validation perplexity against generation count, vanilla and dreaming (Td = 1.1, α = 0.5), over five seeds; shaded regions represent 25th to 75th percentile.",
+      "page": 4
+    },
+    {
+      "image": "2610.30009_figures/2610.30009_fig3.jpg",
+      "caption": "Figure 3: DKL(p∥q) between the true and reconstructed stationary distributions after 5000 generations over 10 seeds. Left: varying Td at α = 0.8. Right: varying α at Td = 1.5. VANILLA denotes no dreaming term. Shaded regions represent 25th to 75th percentile.",
+      "page": 6
+    },
+    {
+      "image": "2610.30009_figures/2610.30009_fig4.jpg",
+      "caption": "Figure 4: DKL between true and reconstructed stationary distributions after 5000 generations across the (Td, α) grid.",
+      "page": 6
+    },
+    {
+      "image": "2610.30009_figures/2610.30009_fig5.jpg",
+      "caption": "Figure 5: Left, right: LSTM validation loss against generation count for vanilla and dreaming (Td=3) models at Ts=0.7 and Ts=1 over 10 seeds each. Shaded region represents 25th to 75th percentile.",
+      "page": 7
+    }
+  ],
+  "figure": "2610.30009_figures/2610.30009_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

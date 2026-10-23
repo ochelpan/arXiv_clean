@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.29058",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "q-bio.BM"
+  ],
+  "is_primary_archive": true,
+  "title": "QUBO-Based Conformer Selection with Quantum-Classical Hybrid Optimization for Multiconformer Ligand Modeling",
+  "authors": "Jiyun Lee, Haeseong Kim, Junho Lee, Joonsuk Huh",
+  "abstract": "A ligand can adopt multiple conformations within the same binding site, and these conformations can interact differently with the surrounding protein. Multiconformer modeling must therefore determine which candidate conformations to retain and what occupancies to assign to them. An established automated approach uses mixed-integer quadratic programming (MIQP) with hard occupancy and conformer-count limits for this selection. Here, we reformulated conformer selection as a quadratic unconstrained binary optimization (QUBO) problem with finite penalties and discrete occupancies. We solved the QUBO using a quantum-classical hybrid solver. We compared this workflow with the MIQP-based qFit-ligand workflow across 83 paired X-ray ligand entries using the same experimental inputs and the same qFit-ligand processing protocol. For each entry, both final models were evaluated against the same composite-omit map generated from the common input structure before the two workflows diverged. Quantum-qFit produced higher ligand-region real-space correlation coefficients (RSCC) in 62 entries 74.7% and lower occupancy-weighted torsional strain in 66 entries 79.5%. Similar directional trends remained in the 28 entries with matched final conformer counts. The molecular Electron Density for Individual Atoms score (EDIAm) decreased in most entries. This result shows that higher regional map agreement did not necessarily correspond to stronger atom-level density support. Overall, the results show that the conformer-selection formulation can change which ligand states are represented from the same experimental data and provide a QUBO framework for studying multiconformer ligand selection.",
+  "url": "http://arxiv.org/abs/2610.29058v1",
+  "pdf": "https://arxiv.org/pdf/2610.29058v1",
+  "type": "both",
+  "summary": "This work proposes using a QUBO formulation, solved via a quantum-classical hybrid solver, to select the most representative conformations of a ligand bound to a protein. By comparing this method against a standard MIQP approach using X-ray data, the authors show that the QUBO framework can yield superior structural agreement metrics. This advances the field by providing a quantum-inspired tool for complex conformational sampling in structural biology.",
+  "main_problem": "The paper addresses the challenge of multiconformer ligand modeling, which requires determining the optimal subset of candidate ligand conformations and assigning their respective occupancies.",
+  "main_result": "The proposed QUBO-based quantum-classical hybrid optimization approach achieved higher ligand-region real-space correlation coefficients (RSCC) and lower torsional strain compared to the established MIQP-based workflow.",
+  "method": "The authors reformulated the conformer selection problem into a QUBO model and solved it using a quantum-classical hybrid solver, comparing its results against a standard MIQP workflow.",
+  "model_or_system": "The system involves ligands adopting multiple conformations within a protein binding site, analyzed using experimental X-ray diffraction data and cryo-EM maps.",
+  "key_observables": "Real-space correlation coefficients (RSCC), occupancy-weighted torsional strain, and Molecular Electron Density for Individual Atoms score (EDIAm).",
+  "important_parameters": "The comparison used 83 paired X-ray ligand entries, and the QUBO formulation involved finite penalties and discrete occupancy encoding.",
+  "main_assumptions": "The comparison does not fully separate the effects of occupancy discretization, finite-penalty encoding, or the choice of solver, and the QUBO penalty construction is not an exact encoding of the MIQP feasible set.",
+  "figures_summary": "Figures compare the structural metrics (RSCC, strain) between the MIQP and QUBO workflows across multiple entries, and one figure shows the wall-clock time comparison for solving the QUBO problem size.",
+  "paper_structure": "The paper first establishes the problem (multiconformer selection), details the two competing methods (MIQP vs. QUBO), presents the comparative analysis using multiple experimental datasets, and concludes by discussing the implications of the QUBO formulation.",
+  "why_interesting": "The application of QUBO optimization to a complex, real-world problem in structural biology demonstrates a tangible use case for quantum-inspired optimization techniques beyond pure quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.29058_figures/2610.29058_fig1.jpg",
+      "caption": "FIG. 1. Overview of the two ligand-modeling workflows. Panels A–C show the matched upstream procedure. Both workflows start from the same experimental input and use the same qFit-ligand settings, but candidate generation and occupancy pre- estimation are run independently. Panel D shows the method-specific conformer-selection step. qFit-ligand uses continuous occupancies and hard MIQP constraints. Quantum-qFit uses discrete occupancy bits and finite QUBO penalties and is solved with a quantum–classical hybrid solver. Panel E shows the common downstream procedure. The selected ensembles undergo the same Phenix refinement of coordinates, ADPs, and occupancies, followed by removal of...",
+      "page": 4
+    },
+    {
+      "image": "2610.29058_figures/2610.29058_fig2.jpg",
+      "caption": "FIG. 2. Paired comparison of the 83 X-ray ligand models. (A) Percentage of entries that changed in the favorable direction with Quantum-qFit. Favorable means higher RSCC, lower occupancy-weighted torsional strain, or higher EDIAm. The three bar shades represent all 83 entries, the 70 entries in which Quantum-qFit retained at most three final conformers, and the 28 entries with matched final conformer counts. Error bars show 95% Wilson confidence intervals. The dashed line marks 50%. (B–D) Each point represents one paired entry. The horizontal axis shows qFit-ligand and the vertical axis shows Quantum-qFit. The diagonal indicates equal values. Circles mark entries with more final conformers...",
+      "page": 8
+    },
+    {
+      "image": "2610.29058_figures/2610.29058_fig3.jpg",
+      "caption": "FIG. 3. Final ligand conformer counts for the 83 paired X- ray entries. Counts were taken after refinement and low- occupancy pruning. Orange and blue bars show the mean counts for qFit-ligand and Quantum-qFit, respectively. Error bars show standard deviations. Each point represents one en- try. Points are jittered horizontally only to make overlapping values visible.",
+      "page": 9
+    },
+    {
+      "image": "2610.29058_figures/2610.29058_fig4.jpg",
+      "caption": "FIG. 4. Distribution of refined occupancy across conformer ranks in the 83 X-ray entries. Occupancies were normalized to sum to one within each final model and then ordered from highest to lowest. Rank 1 is therefore the major conformer. Missing ranks were assigned zero before averaging across en- tries. Orange shades show qFit-ligand and blue shades show Quantum-qFit.",
+      "page": 9
+    },
+    {
+      "image": "2610.29058_figures/2610.29058_fig5.jpg",
+      "caption": "FIG. 5. Structural comparison of the refined 7L0K ligand models in chain A. (A) Overlay of minor conformer B from qFit- ligand (orange), Quantum-qFit (blue), and the deposited structure (gray) after structural alignment. (B) Pairwise heavy-atom RMSDs after Kabsch alignment for conformers A and B from the three models. Smaller values indicate more similar ligand shapes after alignment. Because this fitting removes overall translation and rotation, these RMSDs do not measure how far the conformers are separated in the binding site. The corresponding A–B RMSDs calculated without alignment are discussed in the Results.",
+      "page": 11
+    }
+  ],
+  "figure": "2610.29058_figures/2610.29058_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

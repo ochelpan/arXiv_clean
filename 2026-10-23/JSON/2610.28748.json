@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.28748",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "CoDecoder: Make Quantum Decoders Up to 100x Faster and Even More Accurate",
+  "authors": "Yicheng Guang, Yuliang Xiong, Xun Gao, Yueqi Chen",
+  "abstract": "Fault-tolerant quantum computers need fast and accurate error decoding. We present CoDecoder, a small neural frontend that composes with an existing decoder to improve accuracy and reduce mean decoding time. It predicts each shot's logical outcome, retains confident predictions and routes the remaining shots to the unchanged fallback. A logical-operator-aware output head scores shifted logical operators, combining equivalent logical lines on surface codes and deciding logical qubits jointly on bivariate-bicycle (BB) codes. Fused GPU inference and efficient routing reduce the overhead paid on every shot. In registered tests under circuit-level noise, composition reduces failures by 6.4-31.4% relative to correlated matching on surface codes of distance 7-17 and by 22-50% relative to full-DEM Relay-BP on two BB codes, with 2.3-124-fold speed-ups across these comparisons. With our re-implementations of the neural decoder Cascade, composition reduces decoding time in all four settings. A joint decision of both decoders on the routed shots keeps this speed and makes the composition more accurate than Cascade in all four, with 14-18% fewer failures on the [[72,12,6]] code. On the [[72,12,6]] BB code, a conventional head with independent logical outputs fails 3.8-5.0 times as often as our joint class score under matched training conditions. Per-shot analysis shows how composition gains accuracy. On retained shots, the frontend corrects more fallback errors than it introduces, even when it is less accurate overall.",
+  "url": "http://arxiv.org/abs/2610.28748v1",
+  "pdf": "https://arxiv.org/pdf/2610.28748v1",
+  "type": "both",
+  "summary": "This paper introduces CoDecoder, a neural network frontend designed to accelerate and improve the accuracy of quantum error decoding for fault-tolerant quantum computers. By intelligently composing its predictions with a slower, more robust fallback decoder, it achieves substantial speed-ups (up to 124x) and significant reductions in failure rates across various quantum codes. This work is crucial for making large-scale, reliable quantum computation feasible.",
+  "main_problem": "Developing quantum decoders that are both fast enough for real-time operation and accurate enough to maintain fault tolerance in quantum computers.",
+  "main_result": "The proposed CoDecoder frontend significantly improves error correction by reducing failure rates by up to 50% and achieving speed-ups of up to 124-fold compared to existing methods.",
+  "method": "A novel composition technique where a small neural network frontend predicts the logical outcome for high-confidence shots, routing uncertain shots to a more robust, existing fallback decoder.",
+  "model_or_system": "The work is situated in the context of fault-tolerant quantum computation, utilizing stabilizer codes such as surface codes and bivariate-bicycle (BB) codes.",
+  "key_observables": "Failure rate (reduction percentage), mean decoding time (speed-up factor), and the performance of joint decision-making on routed shots.",
+  "important_parameters": "Code distance ($d=7-17$), noise probabilities, and the confidence threshold ($\tau$) used for routing decisions.",
+  "main_assumptions": "The composition's success relies on the frontend making fewer errors than the fallback on retained shots, and the saved fallback work exceeding the frontend overhead.",
+  "figures_summary": "Figures illustrate the composition process (CoDecoder reading bits and deciding whether to use its prediction or route to the fallback) and compare failure rates across different code types and decoders.",
+  "paper_structure": "The paper introduces the problem of fast, accurate decoding, details the CoDecoder composition logic (frontend + fallback), presents quantitative results comparing performance against benchmarks like Cascade, and analyzes the gains from joint decision-making.",
+  "why_interesting": "It directly addresses the critical engineering bottleneck of scaling quantum computation by providing a pathway to faster, more reliable error correction decoding.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.28748_figures/2610.28748_fig1.jpg",
+      "caption": "FIG. 1. CoDecoder and a strong decoder as a composition, shown for one shot. ❶CoDecoder reads the shot’s detector bits and returns its decision y∗and a confidence. ❷The confidence is compared with the threshold τ. ❸If it reaches τ, CoDecoder’s decision is the answer. ❹Otherwise, the strong decoder decodes the shot from its original detector bits, which happens for a fraction q of all shots. The strong decoder is a black box. It can be a neural decoder such as Cascade on the GPU, or correlated matching or Relay-BP on the CPU. ❺A joint decision can combine CoDecoder’s class scores with the strong decoder’s logits on the routed shots where they differ (dashed).",
+      "page": 2
+    },
+    {
+      "image": "2610.28748_figures/2610.28748_fig2.jpg",
+      "caption": "FIG. 2. Output-head geometry. (a) At d = 5, surface-code line j and the observable’s line (obs.) differ by the dark X stabilizers, whose detectors give δj. The cube shows the detector grid and stem footprint. (b) On the BB72 torus, translating a logical operator ℓa (black) by g = x2y (vermillion) wraps around the torus and changes its logical class. Arrows identify periodic edges.",
+      "page": 4
+    },
+    {
+      "image": "2610.28748_figures/2610.28748_fig3.jpg",
+      "caption": "FIG. 3. Surface-code accuracy and decoding time at p = 0.6 %. Each panel plots logical error rate against composite time per shot on the Grace basis. Dotted lines intersect at CoDecoder + correlated PM. Open diamonds show CoDecoder alone (q = 0), coinciding with the composition at d = 11 and 13. Crosses mark Decoder Switching at its frozen routed fraction, and its curves vary this fraction from 1 % to the frozen value. BP-OSD points exceeding the time range are placed at the right edge. The 95 % Wilson intervals are smaller than the markers.",
+      "page": 7
+    },
+    {
+      "image": "2610.28748_figures/2610.28748_fig4.jpg",
+      "caption": "FIG. 4. Block failure rate against composite time per shot on the BB codes, with 95 % Wilson intervals. CoDecoder and its compositions are vermillion, with hollow circles for CoDecoder alone, diamonds for CoDecoder + sector Relay-BP and squares for CoDecoder + full-DEM Relay-BP. The two Relay-BP decoders alone are blue, as every fallback is in the figures of this paper. CPU work is on the Grace basis and GPU work on the H100, timed in a registered timing session. Table IV lists every count and time.",
+      "page": 8
+    },
+    {
+      "image": "2610.28748_figures/2610.28748_fig5.jpg",
+      "caption": "FIG. 5. Error complementarity versus CoDecoder’s confi- dence percentile (exploratory test shots). The ordinate is CoDecoder’s failure share among shots on which exactly one decoder fails, with Wilson 95 % intervals. Vertical lines mark routing thresholds and the grey line marks 50 %. Fallbacks are (a) correlated PM at d = 13 (solid) and 17 (dashed), and (b) our Cascade on BB72 at p = 0.2 % (solid) and 0.3 % (dashed).",
+      "page": 11
+    }
+  ],
+  "figure": "2610.28748_figures/2610.28748_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

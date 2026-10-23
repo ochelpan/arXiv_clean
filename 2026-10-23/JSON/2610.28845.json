@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.28845",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Pushing beyond the memory barrier in propagation algorithms with randomization",
+  "authors": "Manuel S. Rudolph, Ricard Puig, Slimane Thabet, Zoë Holmes",
+  "abstract": "Performant classical tools for simulating quantum circuits are important for benchmarking and supporting upcoming quantum devices. Pauli propagation offers promising capabilities, but deep circuits usually cause a rapid growth in the number of Pauli strings and can quickly exhaust the available memory. In this work, we introduce a randomized protocol that combines a specialized resampling schedule, merging, and a controlled amount of bias to keep the propagating Pauli sum within any prescribed memory budget. Additional computational resources can then be spent on embarrassingly parallel repetitions that systematically improve the estimate. Building on the open-source library PauliPropagation.jl, we show that 1) increasing memory of each simulation reduces the error systematically more than outside averaging, 2) resampling just enough to apply the next gate delays variance accumulation and gives better error-per-time trade-offs than more aggressive resampling, and 3) a small, controlled bias is crucial in cutting down variance and pushing far beyond unbiased randomization. The resulting framework can reproduce deterministic calculations while requiring several orders of magnitude less memory.",
+  "url": "http://arxiv.org/abs/2610.28845v1",
+  "pdf": "https://arxiv.org/pdf/2610.28845v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel randomized protocol to overcome the memory limitations inherent in Pauli propagation algorithms used for simulating quantum circuits. By implementing specialized resampling, merging, and controlled biasing, the method keeps the computational state within a fixed memory budget. This allows researchers to simulate deep quantum circuits with vastly reduced memory overhead while maintaining high accuracy.",
+  "main_problem": "Pauli propagation algorithms for simulating quantum circuits encounter a memory barrier due to the exponential growth of Pauli strings in deep circuits.",
+  "main_result": "A randomized protocol combining resampling, merging, and controlled bias allows the simulation to reproduce deterministic results while requiring orders of magnitude less memory.",
+  "method": "The authors propose a randomized protocol that treats memory as a tunable hyperparameter, using specialized resampling schedules and controlled biasing to keep the Pauli sum within a fixed memory budget.",
+  "model_or_system": "The work focuses on simulating quantum circuits by tracking the Pauli basis expansion of observables, often applied to systems like the transverse-field Ising model.",
+  "key_observables": "Memory Usage (number of Pauli strings), Statistical Error/Variance, Estimator Standard Deviation.",
+  "important_parameters": "Memory Budget (M), Circuit Depth (L), Bias strength ($\\epsilon_{\text{rel}}$).",
+  "main_assumptions": "The success relies on the strong coupling between the sampling strategy, compression strength, and merging, and the ability to average results over many independent repetitions.",
+  "figures_summary": "Figures illustrate that randomized propagation can match deterministic results using significantly less memory, and compare the scaling of estimator standard deviation for different resampling strategies.",
+  "paper_structure": "The paper develops the randomized protocol, analyzes the scaling of the Mean Squared Error (MSE) using occupancy models, and compares the performance of various biasing and resampling techniques.",
+  "why_interesting": "This work provides a crucial computational tool for simulating complex quantum dynamics that would otherwise be intractable due to memory constraints, directly impacting the feasibility of benchmarking quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.28845_figures/2610.28845_fig1.jpg",
+      "caption": "FIG. 1. Randomized propagation reproduces deter- ministic calculations that use up to two orders of mag- nitude more memory. The horizontal dashed lines show deterministic calculations and report their final memory us- age relative to the memory used in our randomized simulation. A carefully chosen bias allows the randomized calculation to reach the accuracy of deterministic calculations requiring one or two orders of magnitude more memory.",
+      "page": 1
+    },
+    {
+      "image": "2610.28845_figures/2610.28845_fig2.jpg",
+      "caption": "FIG. 2. Schematic depiction of comb resampling and Monte Carlo Pauli propagation. Given a Pauli sum O = ∑ NO i=1 ciPi with arbitrary coefficients ci, their magnitudes ∣ci∣divided by the coefficient 1-norm W = ∑ NO i=1 ∣ci∣define a distribution that can be sampled to reduce the number of Pauli strings that are stored in memory from NO to approximately m. Comb resampling distributes W/∆teeth with spacing ∆over the distribution with a random offset in [0, ∆), and the number of teeth landing within each coefficient’s magnitude interval determines the number of times it is drawn with coefficient sign(ci)∆. During propagation, once we surpass M strings, we can resample to small or large sizes m,...",
+      "page": 3
+    },
+    {
+      "image": "2610.28845_figures/2610.28845_fig3.jpg",
+      "caption": "FIG. 3. Estimator standard deviation as a function of the memory budget M after L = 3, 5, and 7 circuit layers. At L = 3 and L = 5, comb resampling with merging shows an apparent O(M −1) scaling, while path sampling, one-norm resampling, and comb resampling without merging remain closer to the usual O(M −1/2) behaviour. By L = 7 the engineered method still performs best, but its scaling advantage has begun to narrow as the coefficient distribution becomes more scrambled.",
+      "page": 4
+    },
+    {
+      "image": "2610.28845_figures/2610.28845_fig4.jpg",
+      "caption": "Figure 3 and the above discussion concern the unbiased case. That is, one idea would be to continue with unbi- ased randomized propagation once conventional propa- gation hits the memory limit. However, we have found that injecting a controlled bias into the randomized prop- agation is absolutely central for achieving practical im- provements over state-of-the-art deterministic propaga- tion. In particular, if we do not truncate in-between the unbiased resampling events, the algorithm quickly accu- mulates a prohibitive variance. On the other hand, a carefully chosen threshold just below the target accuracy can delay this onset substantially. Interestingly, truncat- ing small coefficients...",
+      "page": 4
+    },
+    {
+      "image": "2610.28845_figures/2610.28845_fig5.jpg",
+      "caption": "FIG. 4. Performance of Monte Carlo Pauli propaga- tion on a CPU node. For a Pauli-Z observable evolved un- der a Trotterized 6×6 TFIM Hamiltonian, we observe that our implementation in PauliPropagation.jl can apply a Pauli rotation and resample 109 Pauli strings in approximately 1 second using 64 threads. We achieve a speedup of approxi- mately 20× from 1 to 64 threads as we approach the limit set by the memory bandwidth of the node.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.28845_figures/2610.28845_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

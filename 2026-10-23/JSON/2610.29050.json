@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.29050",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Buffer-Qubit-Based Quantum Circuit Allocation Method Against Crosstalk Attacks",
+  "authors": "Haruki Nakayama, Satoyuki Tsukano, Satoshi Kono, Keita Matsumoto, Toshio Mori, Takumi Oikawa, Ryo Uchida",
+  "abstract": "Quantum Multi-Programming (QMP) enables the simultaneous execution of quantum circuits from multiple users on a single quantum chip in cloud quantum computing services. However, QMP is vulnerable to crosstalk attacks, in which a malicious user deliberately induces crosstalk to disrupt other users' computations. As a countermeasure, prior work has proposed the use of buffer qubits, which remain idle and are allocated between quantum circuits to suppress the effect of crosstalk. Nevertheless, to the best of our knowledge, such countermeasures have not been publicly reported in production quantum cloud software. In this paper, we extend the QMP of OQTOPUS, open-source software that is already in production use for operating real quantum computers, with a buffer-qubit-based circuit allocation method. Experiments on a real device characterize the attack effect in terms of energy relaxation and dephasing, showing that observable degradation appears in dephasing characteristics of qubits adjacent to the attacker circuit. Based on this result, we release the proposed method as part of OQTOPUS and confirm that the buffer qubits are correctly reserved around the allocated circuits.",
+  "url": "http://arxiv.org/abs/2610.29050v1",
+  "pdf": "https://arxiv.org/pdf/2610.29050v1",
+  "type": "experiment",
+  "summary": "This paper introduces a buffer-qubit-based method to secure Quantum Multi-Programming (QMP) against crosstalk attacks on quantum processors. The technique dynamically reserves idle qubits around active circuits to suppress malicious interference. By implementing this in the OQTOPUS software and testing it on a real quantum device, the authors demonstrate a practical countermeasure for reliable quantum cloud services.",
+  "main_problem": "Quantum Multi-Programming (QMP) is vulnerable to crosstalk attacks, where a malicious user disrupts other users' computations on a shared quantum chip.",
+  "main_result": "The proposed buffer-qubit allocation method successfully mitigates crosstalk by reserving idle qubits around allocated circuits, which was validated on a real superconducting quantum device.",
+  "method": "The authors extended the OQTOPUS software by incorporating a buffer-qubit constraint into the circuit allocation process, formulated as a Subgraph Isomorphism Problem (SIP).",
+  "model_or_system": "The work is performed on a real superconducting quantum computer, simulating QMP for multiple users on a single chip.",
+  "key_observables": "Energy relaxation ($T_1$) and dephasing ($T_2^*$) characteristics of qubits, particularly comparing measurements near an attacker circuit versus non-adjacent qubits.",
+  "important_parameters": "Crosstalk effects are observed to be localized to qubits immediately adjacent to the attacker circuit.",
+  "main_assumptions": "The scheduler, transpiler, and allocator managed by the cloud service are assumed to be trusted, and the initial characterization of crosstalk effects determines the initial buffer set.",
+  "figures_summary": "Figures illustrate the schematic of a crosstalk attack, the proposed allocation procedure using buffer qubits, and the experimental setup for evaluating the attack effects on the device topology.",
+  "paper_structure": "The paper first identifies the QMP vulnerability to crosstalk, proposes the buffer-qubit allocation method integrated into OQTOPUS, presents experimental characterization of the attack effect on a real device, and finally validates the method's successful implementation.",
+  "why_interesting": "This work directly addresses hardware-level security and resource management in quantum cloud computing, which is crucial for scaling quantum algorithms beyond idealized models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.29050_figures/2610.29050_fig1.jpg",
+      "caption": "Fig. 1: A schematic illustration of a crosstalk attack in QMP, depicting how an attacker circuit can affect victim circuits via crosstalk on an 8-qubit device topology.",
+      "page": 2
+    },
+    {
+      "image": "2610.29050_figures/2610.29050_fig2.jpg",
+      "caption": "Figure 2 shows an overview of the proposed method. We extend the QMP method of OQTOPUS [8]. Specifically, we introduce a set Vb of physical qubits that should be reserved as buffer qubits. Multiple quantum circuits are then sequentially allocated on the same chip, subject to the constraints that physical qubits corresponding to vertices in Vb cannot be used for allocation. Since the construction of Vb depends on the range of crosstalk attack effects, it is determined from experiments on the real quantum computer presented in Section IV-A. The proposed method augments the Subgraph Isomorphism Problem (SIP) formulation used in the existing method with additional constraints, which prohibit...",
+      "page": 2
+    },
+    {
+      "image": "2610.29050_figures/2610.29050_fig3.jpg",
+      "caption": "Fig. 2: Illustration of the proposed circuit allocation procedure. For each user circuit, (A) a pattern graph Gi u is built from the transpiled circuit, and (B) Gi u is matched to a subgraph of the target graph Gi c, subject to the constraint that vertices corresponding to buffer qubits in Vb (marked with ×) are excluded from the mapping. After each allocation, unused qubits that fall within the crosstalk-affected range of the allocated circuit are added to Vb, and the procedure is repeated for the next circuit. The specific construction of Vb depends on the range of crosstalk effects; in this example, qubits adjacent to the allocated ones are added to Vb as one instance of such a...",
+      "page": 3
+    },
+    {
+      "image": "2610.29050_figures/2610.29050_fig4.jpg",
+      "caption": "Fig. 3: Overview of the experiment for evaluating the effect of crosstalk attacks. (a) Device topology and the allocation of each circuit. (b) Detailed view of the attacker circuit. (c) Illustration of the experimental procedure.",
+      "page": 3
+    },
+    {
+      "image": "2610.29050_figures/2610.29050_fig5.jpg",
+      "caption": "Fig. 5: Quantum circuit allocation for a single batch, in which 30 colored qubits were allocated to user jobs and 34 grayed qubits were reserved as buffer qubits.",
+      "page": 4
+    }
+  ],
+  "figure": "2610.29050_figures/2610.29050_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

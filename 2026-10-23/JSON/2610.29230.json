@@ -1,0 +1,75 @@
+{
+  "arxiv_id": "2610.29230",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR",
+    "cs.DC",
+    "cs.IT"
+  ],
+  "is_primary_archive": true,
+  "title": "PQ-Vault: Provably Quantum-Safe Asset Custody for Unmodified Ethereum",
+  "authors": "Hassan Khodaiemehr, Khadijeh Bagheri, Chen Feng",
+  "abstract": "A quantum computer could recover the key of any Ethereum account whose public key appears on chain. We prove that no sidechain or bridge that leaves Ethereum's rules unchanged can protect such accounts: their funds must move into a contract whose release condition relies only on quantum-safe primitives. We design \\emph{PQ-Vault}, a custody system for unmodified Ethereum combining this vault, a quantum-safe proof-of-stake sidechain whose checkpoints carry compact certificates, and an optimistic dispute protocol. We give the first security proof of compact certificates against quantum attackers and a matching attack: with classically chosen parameters, the guarantee falls from 128 to about 60 bits, and a simple rule restores it. We show that a common seed-update rule in hash-chain proof of stake lets an attacker steer chosen slots and profit from splitting its stake, and give an election whose steering gain and inclusion delay are provably bounded against quantum attackers. Since compressing certificates with a pairing-based SNARK breaks quantum security, we use fraud proofs that need a single signature check. For 65,536 validators, a certificate is 0.8 MB, 260 times smaller than all signatures, and verifies in about 20 ms; the vault accepts a checkpoint for about 420,000 gas.",
+  "url": "http://arxiv.org/abs/2610.29230v1",
+  "pdf": "https://arxiv.org/pdf/2610.29230v1",
+  "type": "theory",
+  "summary": "This paper designs PQ-Vault, a comprehensive custody system to safeguard Ethereum assets against future quantum computer attacks. It achieves this by implementing a quantum-safe sidechain that requires funds to move into a contract relying only on post-quantum cryptography. The system provides rigorous security proofs for certificate soundness and leader election fairness.",
+  "main_problem": "The core problem is protecting digital assets on the Ethereum blockchain from theft by quantum computers that can break current public-key cryptography (like ECDSA).",
+  "main_result": "The authors propose PQ-Vault, a custody system that moves funds to a quantum-safe sidechain, providing provable security against quantum adversaries for asset release.",
+  "method": "The system combines a quantum-safe proof-of-stake sidechain, compact certificate generation, and an optimistic dispute protocol, relying on post-quantum cryptography primitives.",
+  "model_or_system": "The model is the unmodified Ethereum blockchain interacting with a specialized, quantum-safe sidechain (PQ-Vault). The security proof is analyzed within the Quantum Random Oracle Model (QROM).",
+  "key_observables": "Certificate size (0.8 MB for 65,536 validators), verification time (20 ms), and the security guarantee level (restored to 128 bits).",
+  "important_parameters": "The quantum threshold ($\tau_Q$) determines when the system must switch from classical to quantum-safe primitives; validator count (65,536).",
+  "main_assumptions": "Assumptions include the integrity of the L1 consensus (A1) and the security of the chosen post-quantum primitives (ML-DSA).",
+  "figures_summary": "The notes reference a conceptual flow (Figure 1) showing the L1 to PQ sidechain withdrawal path, and tables summarizing contributions and security property comparisons.",
+  "paper_structure": "The paper builds by first establishing the necessity of quantum-safe custody (C1), then detailing the certificate soundness (C2), the leader election fairness (C3), and finally, the L1 acceptance mechanism using fraud proofs (C4).",
+  "why_interesting": "While not directly about physical quantum systems, the rigorous application of quantum security models (QROM) and the need to secure digital infrastructure against quantum attacks is highly relevant to the theoretical foundations of quantum information science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.29230_figures/2610.29230_fig1.jpg",
+      "caption": "Fig. 1. PQ-Vault architecture (QPoS-S: quantum-safe proof of stake). Badges C1–C4: contributions of Table 1; gas measured with Foundry (Section 9); grey: baseline avoided by C4.",
+      "page": 5
+    },
+    {
+      "image": "2610.29230_figures/2610.29230_fig2.jpg",
+      "caption": "Fig. 2. Certificate size vs. number of validators (round-3 Dilithium2, Wp = ⌊0.3333 W⌋, 85% signed). Colors: stake distribution; solid: QROM rule; dotted: classical rule; black: all signatures.",
+      "page": 11
+    },
+    {
+      "image": "2610.29230_figures/2610.29230_fig3.jpg",
+      "caption": "Figure 2 and Table 5 report certificates with real round- 3 Dilithium2 signatures. (1) Compactness. At fixed λ, q and Ws/Wp, krev does not depend on N, and the size O(krev(|pk| + |σ|) + hkrev log N) grows logarithmically in N while Ws/Wp stays bounded away from 1: from 0.36 MB at N = 28 to 0.80 MB at N = 216 (log-normal, QROM). Shipping all signatures costs 208 MB at N = 216, 260× more, a ratio growing as Θ(N/ log N). (2) Cost of quantum security. The QROM rule raises krev by 35% (143 to 193), but coins collide on heavy attestors, so distinct reveals grow less: the size overhead is 19–34% across all configurations (23–34% for log-normal stake), and verification time grows by 20– 58% for...",
+      "page": 11
+    },
+    {
+      "image": "2610.29230_figures/2610.29230_fig4.jpg",
+      "caption": "Fig. 3. (a) Reveals required by the classical and QROM rules. (b) Security of classically parameterized certificates under the attack of Theorem 6 (Ws/Wp = 2.55, N = 216); dotted: level λ guaranteed by Theorem 5 under the QROM rule. (c) Target-slot capture under QPoS-S, with a fixed seed and with seeds steered across epochs (dotted: bound πcap of Theorem 13 for B = 0; diamonds: the simulated adversary of Section 9.6, which maximizes c rather than capture), and under the runner-up rule (lines: theory; other markers: 4 × 105 simulated trials each).",
+      "page": 13
+    }
+  ],
+  "figure": "2610.29230_figures/2610.29230_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
