@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.31515",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Problem-aware sampling for bias and variance reduction in randomised Hamiltonian simulation",
+  "authors": "Brian Coyle, Jonathan H. Fetherolf, Antonio Márquez Romero, Stefano Scali, Giuseppe Buonaiuto, Josh Kirsopp",
+  "abstract": "Randomised quantum simulation algorithms such as qDRIFT reduce circuit depth by replacing deterministic product formulas with stochastic compilations, but achieving high accuracy can require many steps. In vanilla qDRIFT, Hamiltonian terms are sampled with probabilities proportional to their coefficient magnitudes. We propose StateDRIFT, a variant of qDRIFT which optimises its sampling distribution to estimate time-evolved quantities using knowledge of the initial state and target observable, with a provable truncation bound that keeps qDRIFT's guarantees. The distribution at each depth is chosen by solving an optimisation problem targeting bias and/or variance. StateDRIFT can significantly reduce the bias and variance of estimators, and hence circuit depth, which we test on short-time dynamics of lattice models and molecules under Jordan-Wigner up to 18 qubits. For example, with BeH2 StateDRIFT can reduce the number of two-qubit gates required to achieve a given accuracy from 11,201 to 983. StateDRIFT involves measuring observables and commutators on the initial state, so we propose two practical ways to estimate these: classical surrogates such as tensor networks, and classical shadows, which recover most or all of the saving from exact oracles in the systems tested.",
+  "url": "http://arxiv.org/abs/2610.31515v1",
+  "pdf": "https://arxiv.org/pdf/2610.31515v1",
+  "type": "theory",
+  "summary": "This paper introduces StateDRIFT, an advanced technique for randomized quantum simulation that optimizes the sampling distribution used in Hamiltonian simulation algorithms. By incorporating knowledge of the initial state and the target observable, StateDRIFT significantly reduces both the bias and variance of the estimator. This results in a dramatic reduction in the required quantum circuit depth for simulating molecular dynamics, making complex simulations more feasible on near-term quantum hardware.",
+  "main_problem": "The core problem is reducing the bias and variance in estimating time-evolved expectation values, $\\langle O(T) \rangle$, computed via randomized quantum simulation algorithms.",
+  "main_result": "The proposed StateDRIFT method significantly reduces the required circuit depth (e.g., reducing two-qubit gates for $\text{BeH}_2$ from 11,201 to 983) by optimizing the sampling distribution based on initial state and target observable knowledge.",
+  "method": "StateDRIFT optimizes the sampling distribution at each simulation step by solving an optimization problem targeting the minimization of estimator bias and variance, utilizing information from the initial state and observable.",
+  "model_or_system": "The method is applied to quantum systems undergoing time evolution governed by a Hamiltonian $H = \\sum c_j P_j$, simulating short-time dynamics of molecules like $\text{BeH}_2$ and lattice models using qubits.",
+  "key_observables": "Bias ($B_N$), Variance ($V_N$), and the required circuit depth (measured in two-qubit gates) to achieve a target accuracy $\\epsilon$.",
+  "important_parameters": "The time $T$, the number of simulation steps $N$, and the coefficients $c_j$ of the Hamiltonian terms.",
+  "main_assumptions": "The method relies on Taylor expansions for error analysis and introduces a heuristic validity metric, $R^{(4)}_{\text{val}}$, because the exact theoretical bound is intractable.",
+  "figures_summary": "Figures compare the sampling weights ($q_j$) and the required gate counts ($N^\\star$) between vanilla qDRIFT and StateDRIFT for various molecules, demonstrating substantial resource savings.",
+  "paper_structure": "The paper develops the theory by analyzing the error decomposition (Bias and Variance) of the randomized estimator, proposes the StateDRIFT optimization framework, derives necessary conditions and heuristic validity metrics, and validates the approach on several molecular systems.",
+  "why_interesting": "This work directly addresses the resource scaling bottleneck in quantum simulation algorithms, providing a concrete, state-aware optimization that translates into massive reductions in required quantum circuit depth for molecular dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.31515_figures/2610.31515_fig1.jpg",
+      "caption": "Figure 1. StateDRIFT. (a) Vanilla qDRIFT samples according to a distribution q which is proportional to the weight of the Hamiltonian terms |cj|. StateDRIFT computes state- and observable-dependent quantities, γj, βj, φH,j, φj,H and Φj, and reweights the distribution according to them to (b) reduce the bias and/or variance. The bias is given by BN between the sampled qDRIFT channel, K, and the true channel UT . As a result, the circuit depths required to achieve a certain accuracy ε can be significantly lower than vanilla qDRIFT, with up to 11.4× fewer two-qubit gates in our largest margin example. (c) StateDRIFT uses truncated formulae to 4th order in dt, e.g. B(4) N for the bias, which...",
+      "page": 2
+    },
+    {
+      "image": "2610.31515_figures/2610.31515_fig2.jpg",
+      "caption": "Figure 2. Toy example: two-site transverse-field Ising quench H = 3Z0Z1 + X0 + X1, estimating ⟨O(T)⟩with one qDRIFT step at T = 0.2. Insets: qDRIFT prob- ability allocations over the three terms (vanilla qDRIFT blue, StateDRIFT teal throughout). Main panels: each estimator as a band about its mean of width √",
+      "page": 3
+    },
+    {
+      "image": "2610.31515_figures/2610.31515_fig3.jpg",
+      "caption": "Figure 3. Joint improvement across the interpolating family. Ratios to the vanilla qDRIFT baseline for the XY chain H = P",
+      "page": 7
+    },
+    {
+      "image": "2610.31515_figures/2610.31515_fig4.jpg",
+      "caption": "Figure 4. StateDRIFT joint bias and variance re- duction for lattice quenches (βj ̸= 0) on a time- evolved observable ⟨O(T)⟩, for a single qDRIFT step (N = 1). We evolve each initial state of the form Nn i=1 \u0000 cos ai",
+      "page": 9
+    },
+    {
+      "image": "2610.31515_figures/2610.31515_fig5.jpg",
+      "caption": "Figure 5. StateDRIFT on time-evolved lattice models. Ratio of StateDRIFT to vanilla qDRIFT for (a) the mean-squared error at M = 1000, (b) the bias |BN| and (c) the variance VN (lower is better), against depth N = 8, 16 and 32 at fixed T = 0.1. We test on the transverse-field Ising, Heisenberg, XY and Kitaev chains and the 2×2 Fermi–Hubbard model at n = 8 qubits, with O = Z0, over 12 random product states for each model.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.31515_figures/2610.31515_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

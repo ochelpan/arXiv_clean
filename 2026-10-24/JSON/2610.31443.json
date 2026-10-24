@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.31443",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "ConQEC: Concolic Testing for Quantum Error-Correcting Code Implementations",
+  "authors": "Zihao Li, Ji Guan, Mingsheng Ying",
+  "abstract": "Quantum error-correcting code (QECC) implementations are hybrid software-control systems: measured syndromes drive decoder dispatch, recovery actions, and logical checks. Existing QECC verification techniques can prove formal obligations, and general quantum testing can expose final failures, but developers still lack a scalable testing workflow that generates concrete faults and explains where a QECC repair path first diverges. This paper presents ConQEC, to our knowledge the first concolic testing framework for QECC implementations. By combining concrete (Pauli) fault replay with symbolic repair-path constraints, ConQEC generates tests that expose not only final logical failures but also fault--syndrome--decoder--recovery (FSDR) diagnostics: the injected fault, observed syndrome, decoder decision, recovery action, oracle result, and earliest divergent stage. Its symbolic encoding of Pauli faults, syndrome predicates, decoder and recovery relations, and oracle checks enables this diagnostic workflow to scale beyond exponentially increasing amplitude-level quantum-state reasoning. We implemented ConQEC and evaluated it on generated source-level QECC families and public QECC artifacts with up to thousands of qubits. ConQEC detects the seeded bug in every experimental case and reports a replay-valid, fault-localizing FSDR witness for each.",
+  "url": "http://arxiv.org/abs/2610.31443v1",
+  "pdf": "https://arxiv.org/pdf/2610.31443v1",
+  "type": "both",
+  "summary": "This paper introduces ConQEC, a novel concolic testing framework designed to rigorously test Quantum Error-Correcting Code (QECC) implementations. It moves beyond simple failure detection by generating concrete faults and providing a detailed, localized diagnostic witness (FSDR) pinpointing the exact stage of failure in the error-correction pipeline. This approach scales to thousands of qubits by using symbolic constraints over the discrete repair path rather than full quantum state simulation.",
+  "main_problem": "Developing a scalable testing workflow for Quantum Error-Correcting Code (QECC) implementations that can pinpoint the exact stage where a repair path fails, rather than just detecting a final logical error.",
+  "main_result": "The ConQEC framework successfully detects seeded bugs in large-scale QECC artifacts (thousands of qubits) and provides a detailed, replay-valid Fault–Syndrome–Decoder–Recovery (FSDR) witness for localization.",
+  "method": "It employs concolic testing by combining concrete Pauli fault replay with symbolic constraint solving over the QECC repair path stages (fault, syndrome, decoder, recovery).",
+  "model_or_system": "The system under test is a QECC implementation, modeled as a hybrid software-control pipeline that processes injected Pauli faults to restore logical quantum information.",
+  "key_observables": "Fault-Syndrome-Decoder-Recovery (FSDR) diagnostics, Pair-Mask Coverage, and the earliest divergent stage ($\\delta$) in the repair path.",
+  "important_parameters": "The framework scales to thousands of qubits, overcoming the exponential state space limitations of amplitude-level quantum testing.",
+  "main_assumptions": "The method assumes the ability to define compact, symbolic constraints over the discrete stages of the QECC repair path, and requires access to a reference contract for comparison.",
+  "figures_summary": "Figures illustrate the basic QECC correction process (Encode $\rightarrow$ Fault $\rightarrow$ Syndrome $\rightarrow$ Decode $\rightarrow$ Recover $\rightarrow$ Restore), and show comparisons of coverage metrics between ConQEC and random testing across increasing qubit numbers.",
+  "paper_structure": "The paper introduces the problem of QECC testing, details the ConQEC concolic framework by defining the symbolic constraints over the FSDR path, demonstrates its application to generate fault-localizing witnesses, and validates its scalability on large-scale and public artifacts.",
+  "why_interesting": "While focused on software verification, the scalability demonstrated for large-scale quantum systems and the rigorous diagnostic output (pinpointing the exact failure stage) are highly relevant for debugging complex quantum hardware control stacks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.31443_figures/2610.31443_fig1.jpg",
+      "caption": "Fig. 2. Repair-path bug in the three-bit repetition code. For fault X@q0, both programs reach syndrome (1, 0); the first divergence is decoder, where the reference selects X@q0 and the buggy implementation selects X@q1.",
+      "page": 3
+    },
+    {
+      "image": "2610.31443_figures/2610.31443_fig2.jpg",
+      "caption": "Figure 2 shows the example as a small syndrome schematic and paired pseudocode. Reading Figure 2 from top to bottom, encodeRep3 is the encoding stage. We write P@qi for applying Pauli operator P at physical qubit qi. The Pauli- X operator is the quantum analogue of a NOT gate: the kets |0⟩and |1⟩denote the two standard basis states of a qubit, corresponding to classical 0 and 1, and X swaps them. Thus X@q0 in the fault stage denotes a bit-flip fault on q0. A syndrome is the pattern of check outcomes used to diagnose the fault. Here, each syndrome bit says whether one neighboring-qubit parity check is violated; the pair (s0, s1) is analogous to check bits in a classical error-correcting...",
+      "page": 3
+    },
+    {
+      "image": "2610.31443_figures/2610.31443_fig3.jpg",
+      "caption": "Fig. 3. ConQEC workflow: symbolic repair-path constraints propose Pauli faults, and paired replay turns them into semantic coverage and FSDR bug witnesses.",
+      "page": 4
+    },
+    {
+      "image": "2610.31443_figures/2610.31443_fig4.jpg",
+      "caption": "Fig. 4. RQ2 semantic-coverage profile on the repetition-code scale ladder. The x-axis is the test budget B on a log2 scale, including the clean seed. Columns vary n = 10, 100, 1000; rows report measurement-outcome, stabilizer-condition, pair-mask, and transition-sequence coverage. Random fault testing is averaged over 30 seeds with 95% confidence intervals. Pair-mask is shown separately as a representative hard sublayer of stabilizer-condition coverage.",
+      "page": 9
+    },
+    {
+      "image": "2610.31443_figures/2610.31443_fig5.jpg",
+      "caption": "Figure 4 compares the methods under all three criteria, with pair-mask reported separately as a representative hard sublayer. On measurement-outcome coverage, random testing remains competitive: valid weight-2 samples quickly exercise both Boolean outcomes for many exposed checks. By the ends of the plotted campaigns, ConQEC reaches full stabilizer- condition coverage at all three scales, while random testing falls behind as n grows. Transition-sequence coverage shows a similar separation at larger n. To examine the stabilizer-condition results more closely, the figure reports pair-mask separately. Each check is counted once when paired replay confirms faults on both support qubits (µc(F) =...",
+      "page": 9
+    }
+  ],
+  "figure": "2610.31443_figures/2610.31443_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

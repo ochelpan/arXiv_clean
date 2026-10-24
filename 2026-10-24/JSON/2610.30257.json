@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.30257",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Scalable Neural Wave Functions via Information Mixing and Hierarchical Network Architectures",
+  "authors": "Faith Oyedemi, Stefanie Czischek",
+  "abstract": "Numerically simulating quantum many-body systems is one of the central challenges in modern physics, as the exponential growth of the Hilbert space with system size renders large-scale exact solutions intractable. Over the past decade, generative artificial neural networks have emerged as powerful wave function ansätze that have powered advances in finding ground state representations, reconstructing quantum states from data, and modeling dynamics in quantum many-body systems. While recurrent neural networks (RNNs) are computationally efficient, the recurrent nature can limit their capacity to capture long-range correlations. Transformer models with their underlying self-attention mechanism excel at capturing these long-range correlations, but incur increased computational requirements, restricting applications to small physical systems. In this work, we address these limitations by exploring the multi-layer perceptron (MLP) mixer model as a wave function ansatz. By mixing information globally and locally through the system via a computationally lightweight mixing strategy, this architecture promises to combine the ability to capture long-range correlations with low computational costs. We benchmark the model on finding ground state representations of two-dimensional quantum many-body systems in various phases of matter and investigate the behavior of representational accuracy and computational efficiency for different physical system sizes. By comparing its performance to RNNs and transformer models with single-site and patched input definitions, we demonstrate that the MLP mixer architecture performs competitively with state-of-the-art network models. We further show that a hierarchical combination of this model with the transformer model outperforms other state-of-the-art architectures for large-scale quantum systems, opening new avenues for investigating quantum phases of matter.",
+  "url": "http://arxiv.org/abs/2610.30257v1",
+  "pdf": "https://arxiv.org/pdf/2610.30257v1",
+  "type": "theory",
+  "summary": "This paper tackles the computational intractability of simulating large quantum many-body systems by employing neural network wave function ansätze. The authors introduce an MLP mixer architecture designed to efficiently capture long-range quantum correlations. They demonstrate that this new model, especially when combined hierarchically with Transformers, achieves state-of-the-art performance on systems like Rydberg arrays and the TFIM.",
+  "main_problem": "The central challenge is numerically simulating quantum many-body systems due to the exponential growth of the Hilbert space.",
+  "main_result": "The proposed MLP mixer architecture performs competitively with state-of-the-art models and, when hierarchically combined with Transformers, outperforms them for large-scale quantum systems.",
+  "method": "The authors use parameterized wave functions derived from various Artificial Neural Network (ANN) ansätze to approximate the ground state.",
+  "model_or_system": "The work benchmarks on two-dimensional quantum many-body systems, specifically the transverse-field Ising model (TFIM) and arrays of Rydberg atoms on square lattices.",
+  "key_observables": "Representational accuracy, computational efficiency (FLOPs), and the absolute energy-density error compared to exact/QMC results.",
+  "important_parameters": "System sizes up to $24 \times 24$ lattices, and physical parameters like coupling strengths ($J, h, \\Omega, \\delta$).",
+  "main_assumptions": "The primary assumption is that the wave function can be accurately represented by a structured ANN ansatz, and the MLP mixer is proposed to balance long-range correlation capture with low computational cost.",
+  "figures_summary": "Figures categorize various ANN architectures (autoregressive, MLP mixer) and show the evolution of energy error for different models across varying lattice sizes.",
+  "paper_structure": "The paper introduces the problem, compares existing ANN architectures (RNN, Transformer), proposes the MLP mixer, benchmarks its performance against state-of-the-art models on TFIM and Rydberg systems, and concludes with a hierarchical combination strategy.",
+  "why_interesting": "It directly addresses the scalability bottleneck in simulating complex quantum matter by proposing a computationally efficient yet powerful neural network ansatz for wave function representation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.30257_figures/2610.30257_fig1.jpg",
+      "caption": "Figure 1. Categorization of ANN architectures used throughout this work. (a) All ANN architectures operate in an autoregres- sive manner. A sequence of quantum particles is defined in a two-dimensional array using row-major ordering. The state σi of a particle is used as individual input to the ANN, which outputs a probability distribution p (σi+1 |σ≤i ) from which the state σi+1 of the next particle in the sequence is sampled. The condition on previous sequence elements is naturally encoded in the ANN architectures and can capture correlations in quantum systems. (b) The MLP mixer model uses feed-forward operations to mix information across the input system. Receiving a sequence of patches...",
+      "page": 3
+    },
+    {
+      "image": "2610.30257_figures/2610.30257_fig2.jpg",
+      "caption": "Figure 2. Search for TFIM ground states in an 8 × 8-site lat- tice at h = 1.0. The nine different ANN architectures (differ- ent colors) are variationally trained to represent the ground state. The main plot shows the evolution of the absolute energy-density error |⟨E⟩−Eexact| /N for all ANN architec- tures during training for 15,000 iterations where we compare to the exact ground state energy density obtained via tensor network simulations [52]. The inset shows the corresponding energy density ⟨E⟩/N, where all data points start to overlap quickly with the exact energy indicated by a black horizon- tal line. Data points correspond to averages of the preceding 1000 training iterations....",
+      "page": 5
+    },
+    {
+      "image": "2610.30257_figures/2610.30257_fig3.jpg",
+      "caption": "Figure 3. Search for ground states of 8 × 8 Rydberg atom ar- rays in the checkerboard phase at δ = 2. The training behav- ior over 20,000 iterations is benchmarked on energy values ob- tained via quantum Monte Carlo simulations [55] for the nine considered ANN architectures (different colors). The main plot shows the absolute energy-density error |⟨E⟩−EQMC| /N as a function of the training iterations, while the inset shows the corresponding energy density values ⟨E⟩/N. Data points correspond to averages over the 1000 preceding training it- erations. Hierarchical ANN architectures use initial input patches of 4 × 4 atoms. All ANN architectures quickly con- verge to accurate ground state...",
+      "page": 5
+    },
+    {
+      "image": "2610.30257_figures/2610.30257_fig4.jpg",
+      "caption": "Figure 4. Median absolute energy-density error as a func- tion of compute resources for the two-dimensional TFIM Hamiltonian. We evaluate the absolute energy-density error |⟨E⟩−Eexact| /N at three points in the phase diagram (h = 1, h = 3.044, h = 5) after 15,000 training iterations for the different network architectures. Each data point shows the median of the energy density error evaluated over the three points in the phase diagram and five independent training runs as a function of the computational efficiency evaluated as FLOPs in a single forward pass. Panel (a) shows results for a system of 4 × 4 sites, while panel (b) considers a system of 8 × 8 sites. Solid data points denote the...",
+      "page": 6
+    },
+    {
+      "image": "2610.30257_figures/2610.30257_fig5.jpg",
+      "caption": "Figure 5. Median absolute energy-density error as a function of compute resources for Rydberg atom arrays. We compare the median of the absolute energy-density error |⟨E⟩−EQMC| /N after 20,000 training iterations for N = 4 × 4, N = 8 × 8, and N = 16 × 16 and after 25,000 training iterations for N = 24 × 24, evaluated over three points in the phase diagram (δ = 0.4, δ = 1.2, δ = 2) for the different considered ANN architectures (different colors). Each median is furthermore calculated over five independent training runs and plotted as a function of the required FLOPs per forward pass. Individual panels show results for arrays of 4 × 4 atoms [panel (a)], 8 × 8 atoms [panel (b)], 16 × 16 atoms...",
+      "page": 7
+    }
+  ],
+  "figure": "2610.30257_figures/2610.30257_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

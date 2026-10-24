@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.31330",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Fokker-Planck solvers as trainable generative models",
+  "authors": "Tariq Mahassen, Marcin Jastrzebski, Oleksandr Kyriienko",
+  "abstract": "We develop and analyze generative models based on quantum solvers of stochastic differential equations. Unlike the common approach based on layered variational quantum circuits with parameterized rotations, we parameterize the potential of a Langevin process. The associated Fokker-Planck (FP) equations are Hermitianized and solved using a linear combination of cosine operators implemented through quantum singular value transformation. By encoding the square root of the stationary density, the model enables sampling through computational-basis measurements and is efficiently controlled by coefficients of the block-encoded diagonal potential. We train the proposed model to match empirical distributions within the family described by FP equations, demonstrating parameter recovery for multivariate probability distributions. Crucially, the model remains trainable at scale. Sample-efficient and convex optimization for in-distribution targets arises from a physics-informed inductive bias and holds regardless of the dimensionality of the problem. We provide circuit constructions and efficient block encodings of the main components of the algorithm and analyze resource requirements. Our approach frames quantum generative learning as quantum model discovery and provides a foundation for extending this framework to high-dimensional, strongly correlated scientific data.",
+  "url": "http://arxiv.org/abs/2610.31330v1",
+  "pdf": "https://arxiv.org/pdf/2610.31330v1",
+  "type": "theory",
+  "summary": "This paper introduces a quantum generative model that solves the stationary state of the Fokker-Planck equation by encoding the potential's parameters into a quantum circuit. By utilizing QSVT to simulate imaginary-time evolution, it allows for the efficient training of quantum circuits to reproduce complex, high-dimensional probability distributions found in statistical physics.",
+  "main_problem": "The paper develops quantum generative models to learn probability distributions by solving the stationary state of the Fokker-Planck equation.",
+  "main_result": "The proposed framework successfully maps the stationary FP problem to a quantum state preparation problem, enabling training on complex, correlated distributions with efficient, physics-informed optimization.",
+  "method": "It uses Quantum Singular Value Transformation (QSVT) to implement the imaginary-time evolution operator, which projects the system onto the ground state corresponding to the stationary density.",
+  "model_or_system": "The model is based on an overdamped Langevin process governed by the Fokker-Planck equation. The stationary density is parameterized by a potential $V(\\mathbf{x}; \boldsymbol{\theta})$, making the model an exponential family distribution.",
+  "key_observables": "The stationary probability density $p_{ss}(\\mathbf{x})$ and the ability to recover parameters $\boldsymbol{\theta}$ for multivariate distributions.",
+  "important_parameters": "The trainable parameters are the coefficients $\boldsymbol{\theta}$ defining the potential, which are independent of the grid resolution $N$.",
+  "main_assumptions": "The approach assumes the potential can be parameterized by a fixed dictionary (e.g., monomials) and relies on the equivalence between minimizing KL divergence and matching sufficient statistics.",
+  "figures_summary": "Figures illustrate the flow from the physical model to the trainable quantum circuit, showing the comparison between classical and quantum evolution towards the stationary state, and detailing the QSVT implementation.",
+  "paper_structure": "The paper first establishes the connection between the Langevin process, the FP equation, and the ground state problem. It then details the quantum implementation using Hermitianization, QSVT, and finally shows the training procedure using MMD loss to match empirical distributions.",
+  "why_interesting": "This work provides a novel quantum machine learning tool for characterizing equilibrium states in complex physical systems, directly applicable to non-equilibrium statistical mechanics problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.31330_figures/2610.31330_fig1.jpg",
+      "caption": "FIG. 1. Overview of the proposed approach for physics-informed parameterization of quantum generative models and matching empirical distributions. A target physical model leads to stationary-state samples, which constitute a dataset. The trainable architecture uses a highly structured circuit with a small number of trainable parameters (indicated by α, β), which are naturally reuploaded multiple times throughout the QSVT sequence. The loss is evaluated to minimize the distance between generated and empirical distributions, effectively representing quantum model discovery.",
+      "page": 2
+    },
+    {
+      "image": "2610.31330_figures/2610.31330_fig2.jpg",
+      "caption": "FIG. 2. Classical Fokker–Planck evolution (solid blue curves) vs imaginary-time evolution (ITE) (dashed red curves) for the distribution generated by the double-well potential V (x) = λ \u0000 x2 −a2\u00012 (dotted gray curve). Both start from the same narrow Gaussian at t0. At the intermediate times t1 and t2 the two distributions differ, since the dynamics are not equivalent away from stationarity. At late times (t∞) both relax to the same stationary distribution pss.",
+      "page": 3
+    },
+    {
+      "image": "2610.31330_figures/2610.31330_fig3.jpg",
+      "caption": "FIG. 3. LCU block encoding UA of the discretized operator A. The ancilla register aA = (aA,1, aA,2) and |0⟩a2 prepare the LCU amplitudes through PREPA. Shift operators U+ and (eiπ)U−are implemented in the Fourier basis, giving S+−S−. Ancillary register aqsvt is used to perform QSVT to construct UV ′, a block encoding of the non-unitary potential V ′(x). The final PREP† A coherently uncomputes the LCU register, yielding A/αA in the all-zero ancilla block of UA.",
+      "page": 4
+    },
+    {
+      "image": "2610.31330_figures/2610.31330_fig4.jpg",
+      "caption": "FIG. 4. QSVT implementation of the weighted cosine trans- formation. The block encodings Uχ and UH are alternated with their adjoints between projector-controlled phase oper- ations Φk. Each Φk acts on the phase ancilla p and sign an- cilla sgn, with projector Π = |0⟩⟨0|aχ ⊗|0⟩⟨0|aqsvt ⊗|0⟩⟨0|aA ⊗ |0⟩⟨0|aG. Conjugating the sign ancilla by Hadamard gates and post-selecting on sgn = 0 coherently extracts the real part, 1 2(eiϕkΠ + e−iϕkΠ), thereby implementing the desired cosine polynomial (see Fig. 12 for further details). Post-selection on aqsvt = 0 selects the QSVT success subspace (see Fig. 10). Finally, PREP† wj and post-selection of the PREP register pro- duce the weighted sum.",
+      "page": 5
+    },
+    {
+      "image": "2610.31330_figures/2610.31330_fig5.jpg",
+      "caption": "FIG. 5. MMD2 landscape for a 9-qubit one-dimensional quar- tic model V (x) = θ1",
+      "page": 6
+    }
+  ],
+  "figure": "2610.31330_figures/2610.31330_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

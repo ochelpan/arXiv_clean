@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.30301",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Non-adiabatic Optimisation via Localisation-Delocalisation Transitions",
+  "authors": "Ryan Smith, Sabrina Yue Wang, Filippo Maria Gambetta, Raul A. Santos",
+  "abstract": "The promise of efficiently solving classical optimisation problems on quantum computers is tantalizing. As many such problems can be mapped to approximating the ground state of spin-glasses, paradigmatic models for studying many-body localisation, it is natural to ask if some of the intuition coming from quantum statistical mechanics can help guide the construction of novel quantum optimisation algorithms. In this work, we discuss how continuous reverse quantum annealing crossing a many-body localisation transition can be accelerated by considering the density of Landau-Zener crossings as the system is quenched. We provide an interpretation of this behaviour in terms of an effective Fokker-Planck equation for the success probability of the algorithm. This interpretation suggests an improvement in the required annealing time as a function of the system size $N$, which goes from $\\mathcal{O}({\\rm poly}(N))$ to $\\mathcal{O}(1)$ for reference states with non-vanishing energy density. We show that the continuous dynamics can be Trotterised with a number of steps that remains modest as system size increases, making it appealing for near-term devices. For the resulting circuit implementation, we provide a quantitative strategy for determining the parameters of the time-dependent Hamiltonian. We compare the performance of our digitised algorithm, which we call FRIO, against that of the QAOA for finding the ground state of spin-glass problems, in particular the SK model. The numerical results suggest that with suitably selected circuit parameters which can be efficiently found using thermalizing dynamics, FRIO almost always outperforms the conventional QAOA ansatz with pre-optimized angles.",
+  "url": "http://arxiv.org/abs/2610.30301v1",
+  "pdf": "https://arxiv.org/pdf/2610.30301v1",
+  "type": "theory",
+  "summary": "This work introduces FRIO, a quantum optimization algorithm designed to overcome the limitations of adiabatic quantum annealing when approaching Many-Body Localization transitions. By analyzing the system's dynamics through an effective Fokker-Planck equation, the authors show that the required annealing time can be drastically reduced to O(1). The results suggest FRIO outperforms standard QAOA for finding the ground state of spin-glass models.",
+  "main_problem": "The paper addresses the challenge of efficiently solving classical optimization problems, specifically finding the ground state of spin-glass models, using quantum computation.",
+  "main_result": "A novel algorithm, FRIO, is proposed that can traverse the localization-delocalization transition, achieving an annealing time scaling of O(1) compared to previous polynomial scaling.",
+  "method": "The authors analyze the continuous reverse quantum annealing process by interpreting its success probability via an effective Fokker-Planck equation and developing a discrete Trotterized protocol.",
+  "model_or_system": "The primary model is the disordered spin-glass system, exemplified by the Sherrington-Kirkpatrick (SK) model, which serves as a paradigm for Many-Body Localization (MBL). The evolution is governed by time-dependent Hamiltonians involving longitudinal and transverse fields.",
+  "key_observables": "Success probability of the algorithm, spectral weight $s(E, t)$, Inverse Participation Ratio (IPR), and the success ratio for finite-size scaling.",
+  "important_parameters": "System size $N$, annealing time $t_f$, initial energy density $\\epsilon$, and Trotterization steps $M$.",
+  "main_assumptions": "The analysis relies on interpreting the dynamics through an effective Fokker-Planck equation and approximating the continuous evolution using Trotter steps for near-term devices.",
+  "figures_summary": "Figures illustrate the SK model phase diagram via level statistics (Poissonian vs. GOE), show IPR dynamics in different bases, and plot the success ratio vs. system size for various Trotter orders.",
+  "paper_structure": "The paper first establishes the problem in quantum optimization on spin glasses, develops the FRIO protocol by analyzing the non-adiabatic crossing of the MBL transition, provides a theoretical framework using Fokker-Planck equations, and concludes with numerical comparisons against QAOA and finite-size scaling analyses.",
+  "why_interesting": "The focus on non-adiabatic dynamics, localization transitions, and the comparison to established quantum algorithms (QAOA) provides deep insights into the fundamental limitations and potential speedups of quantum computation for hard optimization problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.30301_figures/2610.30301_fig1.jpg",
+      "caption": "Figure 1. (a): Approximate phase diagram of the SK model of eq. (21) for small system sizes achievable using exact diago- nalization (ED) for N = 12, showing the first three steps of the quench protocol for χ = 0.25 (dotted), χ = 0.5 (dashed), and χ = 1 (solid). The blue line is the approximate critical line that separates the many-body localized phase from the thermal delocalized phase that the cyclic algorithm must traverse to be successful. (b): Pictorial demonstration of the steps of FRIO. We initialise the direction of the longitudinal fields according to the reference state, followed by a series of three quenches which traverses the triangular path of the phase diagram according to...",
+      "page": 2
+    },
+    {
+      "image": "2610.30301_figures/2610.30301_fig2.jpg",
+      "caption": "Figure 2. Evolution of the spectral weight s(E, t) = P",
+      "page": 4
+    },
+    {
+      "image": "2610.30301_figures/2610.30301_fig3.jpg",
+      "caption": "Figure 3. Marginal IPR dynamics for parameter testing experiments using SK type graphs. (a): The short-time dynamics of the rescaled IPR for a 4-qubit marginal performed at χ = 0.25 and multiple system sizes given by the colour bar. (b)-(c): The same as (a) but instead for χ = 0.5 and χ = 1, respectively. In all panels, ⟨IPR4⟩th = 1/24, the expected thermal value of the 4-qubit subsystem. Inset: Time average of the late-time IPR dynamics shifted by ⟨IPR4⟩th as a function of system size taken between t = 30 and t = 50. All simulations were performed using ED with Bz = 1 and we average over 100 reference states and 10 SK graph instances.",
+      "page": 6
+    },
+    {
+      "image": "2610.30301_figures/2610.30301_fig4.jpg",
+      "caption": "Figure 4. Fraction of the number of shots that successfully measure the ground state for an instances of SK graphs using continuous FRIO. We choose multiple values of χ that lie close to the MBL transition point and in the thermal regime. For each graph instance we randomly select 50 starting reference states and allocate 1000 shots to the FRIO protocol. All simulations have been performed for graphs with N between 6 and 15 nodes and averaged over 10 graph instances, with the semi-transparent shaded areas representing the statistical error. We also set Bz = 1.",
+      "page": 7
+    },
+    {
+      "image": "2610.30301_figures/2610.30301_fig5.jpg",
+      "caption": "Figure 5. Fraction of the number of shots that successfully solve the max-cut problem for an instance of an SK graph using digitised FRIO and a QAOA circuit of the same depth of Trotter layers. Panels (a)-(c) use a first-order Trotter decomposition with M = 1, 2, 3 Trotter steps for χ = 0.25, 0.5, 1 which is compared to a QAOA circuit of depth p = 3, 6, 9. Panels (d)-(f) use a second-order Trotter decomposition with M = 1, 2, 3 Trotter steps and are compared to a QAOA circuit of depth p = 4, 7, 10. For the cyclic optimisation algorithm we randomly select 50 starting reference states and allocate 1000 shots to the cyclic optimisation protocol. For QAOA we take 5 × 104 samples for each graph...",
+      "page": 9
+    }
+  ],
+  "figure": "2610.30301_figures/2610.30301_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
