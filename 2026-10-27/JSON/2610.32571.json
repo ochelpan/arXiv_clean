@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.32571",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Classical Pre-Training of Large Shallow Parametrized Quantum Circuits through Pauli Propagation and deployment on Quantum Hardware",
+  "authors": "Saverio Monaco, Jamal Slim, Ran Xue, Dirk Krücker, Kerstin Borras",
+  "abstract": "Scaling parametrized quantum circuits to a larger number of qubits is a central challenge in Quantum Machine Learning: gradient estimation via the parameter-shift rule quickly becomes prohibitively expensive, while gradient-free optimizers offer limited convergence guarantees. We apply the Pauli propagation framework to a broad class of Quantum Machine Learning problems in which the loss is expressed as a function of expectation values of the circuit's observables, while keeping the relevant quantity of interest, such as the quantum state or its samples, classically intractable to compute. By propagating the observables backward through the circuit, we obtain an explicit parametric expression for the loss that can be minimized entirely on classical hardware. We also present complementary strategies to make propagation tractable at large scale, including weight-based and degree-based truncations and pruning heuristics. We demonstrate the approach on two benchmarks run on 64-qubit circuits: Variational Quantum Eigensolver on a two-dimensional Ising model, and training of a discrete-type generative model for binary images. In both cases, the classically pre-trained parameters are deployed on the IBM quantum processor ibm_berlin. For generative learning, we additionally show that the circuits considered here require substantially fewer parametrized gates than IQP-style ansätze, reducing transpilation overhead and making deployment on current quantum hardware feasible.",
+  "url": "http://arxiv.org/abs/2610.32571v1",
+  "pdf": "https://arxiv.org/pdf/2610.32571v1",
+  "type": "both",
+  "summary": "This paper introduces the Pauli propagation framework to overcome the computational bottleneck of training large parametrized quantum circuits for QML. By propagating observables backward, the authors derive an explicit, classically computable loss function. This enables the successful pre-training of models on large-scale quantum simulations before deploying the resulting parameters onto actual quantum hardware.",
+  "main_problem": "Scaling Parametrized Quantum Circuits (PQCs) for Quantum Machine Learning (QML) is limited by the computational expense of gradient estimation methods like the parameter-shift rule for large qubit numbers.",
+  "main_result": "The authors developed a Pauli propagation framework that allows for the explicit, classical calculation of the loss function for PQCs, enabling training on circuits exceeding current statevector simulation limits.",
+  "method": "The Pauli propagation framework evolves circuit observables backward through the quantum circuit, yielding an explicit parametric expression for the expectation value that can be minimized entirely on classical hardware.",
+  "model_or_system": "The work applies to general QML problems where the loss is an expectation value of circuit observables, demonstrated on a 2D Ising model using VQE and training a generative model for binary images on up to 64 qubits.",
+  "key_observables": "The expectation value of the circuit's observables, $\\langle O \rangle(\theta)$, which serves as the training objective.",
+  "important_parameters": "Weight ($w(P)$) and Trigonometric Degree ($|S_x|)$ are used as parameters for truncating the Pauli propagation to maintain tractability.",
+  "main_assumptions": "The primary assumption is that the loss function can be expressed as an expectation value of observables, and the method relies on weight and degree truncations to manage the exponential complexity of the Pauli paths.",
+  "figures_summary": "Figure 1 illustrates the overall workflow: defining the ansatz/observable, propagating the observable, obtaining the function of parameters, minimizing the loss classically, and deploying the trained parameters on quantum hardware.",
+  "paper_structure": "The paper follows a structure of identifying the scaling bottleneck in QML, introducing the Pauli propagation framework with associated truncation strategies, demonstrating its application to VQE on an Ising model, and finally applying it to a generative modeling task.",
+  "why_interesting": "It provides a crucial computational bridge, allowing complex quantum algorithms to be trained using classical resources by mapping quantum expectation values to classical functions, which is vital for scaling QML beyond current hardware limitations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32571_figures/2610.32571_fig1.jpg",
+      "caption": "FIG. 1. Outline of the proposed algorithms. An ansatz and an observable are first defined. The observable is then propagated through the circuit, yielding a function of the circuit’s parameters, returning an approximation of the expectation value of the observable. A loss is constructed from this function and minimized classically via Adam, producing a set of optimized parameters. The ansatz with the trained parameters can then be deployed on actual quantum hardware.",
+      "page": 2
+    },
+    {
+      "image": "2610.32571_figures/2610.32571_fig2.jpg",
+      "caption": "FIG. 2. Hardware-efficient ansatz: an RX layer followed by a CZ entanglement layer is repeated twice: once for horizontal connections and once for vertical connections, and a final RX- RY rotation layer. The gates inside the dashed block can be repeated multiple times, representing the depth of the ansatz. The sketch shows a single row of the two-dimensional ansatz; the same pattern is repeated across all rows.",
+      "page": 4
+    },
+    {
+      "image": "2610.32571_figures/2610.32571_fig3.jpg",
+      "caption": "FIG. 3. Qubit connectivity graph of the IBM quantum pro- cessor ibm berlin used in this work (12 × 10 grid, 120 qubits). Dark (blue) nodes are the 64 qubits (rows 0-7, columns 0-7) actively used in the experiment; light nodes are unused.",
+      "page": 4
+    },
+    {
+      "image": "2610.32571_figures/2610.32571_fig4.jpg",
+      "caption": "FIG. 5. VQE energy as a function of training iteration for the depth-1 ansatz on the 2D Ising Hamiltonian at (J, h) = (1, 2). The red dashed line marks the DMRG ground-state energy, serving as the theoretical lower bound. The solid blue line shows the training loss under exact Pauli propagation, with no weight or trigonometric-degree cutoff. The green dashed line and markers show the energy evaluated on ibm berlin at the corresponding training iterations.",
+      "page": 5
+    },
+    {
+      "image": "2610.32571_figures/2610.32571_fig5.jpg",
+      "caption": "FIG. 6. VQE energy as a function of training iteration for the depth-2 ansatz on the 2D Ising Hamiltonian at (J, h) = (1, 2). The red dashed line marks the DMRG ground-state energy. The dashed blue line shows the training loss under Pauli prop- agation with a weight cutoff wcut = 12 and no trigonometric- degree cutoff, that is, an approximated expectation-value function. The green dashed line and markers show the en- ergy evaluated on ibm berlin at the corresponding training iterations.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.32571_figures/2610.32571_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

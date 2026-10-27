@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.32812",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Exploiting the Weyl-Chamber Structure for Hardware-Aware Quantum Circuit Compression",
+  "authors": "Neel Misciasci, Isabel Nha Minh Le, Christian B. Mendl",
+  "abstract": "Quantum circuit compression based on tensor networks enables long-time simulation of quantum many-body dynamics on near-term hardware. While Riemannian optimization has been successfully employed for this purpose, it typically optimizes over the manifold of generic two-qubit unitaries. Consequently, the resulting gates must still be synthesized into the hardware's native gate set via KAK decomposition, an overhead that partially negates the original compression gain. We show that Riemannian-optimized gates already exhibit a predictable Weyl structure: near-$R_{ZZ}$ for the Ising model and near-fSim for the Heisenberg XXZ model. Building on this insight, we investigate whether parameterized optimization directly over the native gate set can offer a beneficial trade-off between expressivity and circuit efficiency by reducing the circuit's dimensionality. When comparing the two approaches, we find that the small residual Weyl parameters neglected by the latter are essential for high compression of the Ising propagator, whereas for the Heisenberg propagator, the native XXZ structure can be exploited directly to build a more efficient compressed circuit.",
+  "url": "http://arxiv.org/abs/2610.32812v1",
+  "pdf": "https://arxiv.org/pdf/2610.32812v1",
+  "type": "theory",
+  "summary": "This work compares two methods for compressing quantum circuits simulating many-body physics: optimizing over all possible gates versus restricting optimization to the hardware's native gate set. By analyzing the underlying mathematical structure (Weyl coordinates) and the computational cost (tensor network contraction), the authors show that hardware-aware optimization can achieve superior efficiency by exploiting the physical symmetries of the system.",
+  "main_problem": "The paper addresses the challenge of efficiently compressing quantum circuits for long-time simulation of many-body dynamics on near-term quantum hardware.",
+  "main_result": "It demonstrates that while generic optimization (RO) is powerful, optimizing directly over native hardware gates (PO) can yield a more efficient compressed circuit, especially when the underlying physics (like the Heisenberg XXZ model) has a natural structure.",
+  "method": "The authors compare two optimization strategies—Riemannian Optimization (RO) over generic unitaries versus Hardware-aware Parameterized Optimization (PO) restricted to native gates—using tensor network techniques for gradient calculation and loss evaluation.",
+  "model_or_system": "The study focuses on simulating time evolution for quantum many-body systems, specifically the Ising and Heisenberg XXZ models, using Trotterization-type circuit ansätze.",
+  "key_observables": "Approximation loss (L) compared to the reference unitary, circuit depth, and the characterization of optimized gates using Weyl-Chamber coordinates.",
+  "important_parameters": "The bond dimension ($\\chi$) of the environment in the tensor network contraction, and the degree of freedom (DOF) budget for the ansatz.",
+  "main_assumptions": "The analysis assumes that single-qubit Z rotations required for gate equivalence are implemented at zero cost in the target hardware.",
+  "figures_summary": "Figures illustrate the geometric structure of the Weyl chamber, compare circuit depths for Ising evolution using RO vs. PO, and detail the tensor network contraction schemes for two-qubit and single-qubit gates.",
+  "paper_structure": "The paper first establishes the problem of circuit compression, then details the mathematical framework using Weyl coordinates and tensor networks. It proceeds to compare RO and PO methods on specific Hamiltonians (Ising/XXZ), culminating in a detailed cost analysis of the tensor network contractions for both approaches.",
+  "why_interesting": "It provides concrete, computationally rigorous guidelines for mapping complex quantum dynamics onto restricted, hardware-native gate sets, which is crucial for practical quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32812_figures/2610.32812_fig1.jpg",
+      "caption": "FIG. 1: Geometric representation of the Weyl chamber for two-qubit local equivalence classes. The chamber forms a tetrahedron within the reduced bounding region π/4 ≥αx ≥αy ≥αz ≥0. Distinct high-symmetry operating points correspond to core quantum gates: Identity (I), CNOT, iSWAP, and SWAP define the tetrahedral vertices, while the B gate is positioned strictly on the base edge directly between CNOT and iSWAP. The native gate families used in this work are highlighted: RZZ(θ) gates lie on the I–CNOT edge (orange), whereas fSim(θ, ϕ) gates covers the face αx = αy (I–iSWAP–SWAP) (teal).",
+      "page": 2
+    },
+    {
+      "image": "2610.32812_figures/2610.32812_fig2.jpg",
+      "caption": "FIG. 2: One repetition of second-order Trotterization under the two splittings (Ising case). Blue and pink boxes act on even and odd bonds, respectively; grey boxes are single-qubit gates. (a) With the splitting used for Riemannian optimization [Eq. (4)], each generic two-qubit gate G ∈SU(4) must be synthesized into the native gate set, here three RZZ gates interleaved with single-qubit rotations; adjacent single-qubit rotations are merged. This triples the two-qubit gate depth. (b) With the hardware-aware splitting [Eq. (5)], the Trotter step is implemented directly with native gates, yielding a shallower circuit.",
+      "page": 3
+    },
+    {
+      "image": "2610.32812_figures/2610.32812_fig3.jpg",
+      "caption": "FIG. 3: Weyl-chamber coordinates (αx, αy, αz) distribution of the RO-optimized two-qubit gates for N=50 sites, extracted via the KAK decomposition, for two Trotterized target Hamiltonians. Both circuits use the same initial ansatz: 7 repetitions of a second-order Trotter product formula. The gate content reflects the symmetry of the underlying Hamiltonian: Ising optimization converges to near-RZZ gates (a), while Heisenberg XXZ optimization converges to near-fSim gates (b).",
+      "page": 4
+    },
+    {
+      "image": "2610.32812_figures/2610.32812_fig4.jpg",
+      "caption": "FIG. 4: Estimated spectral error for different Trotter splittings as a function of the time step δ (N = 10, t = 2). Blue: splitting used for RO (Eq. (4)). Yellow and green: splittings available to PO (Eq. (6) and Eq. (5), respectively). All lines share the same slope; the offset between them grows linearly with system size and interaction strength, reflecting the number of non-commuting terms introduced by each splitting.",
+      "page": 5
+    },
+    {
+      "image": "2610.32812_figures/2610.32812_fig5.jpg",
+      "caption": "FIG. 6: Loss as a function of native entangling-gate depth for the Ising model, N = 50. RO is compared with PO. Solid lines show results after optimization; dashed lines show the corresponding initial Trotter circuits before optimization. Lower loss indicates a more accurate approximation of the reference time evolution.",
+      "page": 6
+    }
+  ],
+  "figure": "2610.32812_figures/2610.32812_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

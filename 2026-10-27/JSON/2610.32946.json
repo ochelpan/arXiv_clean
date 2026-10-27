@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.32946",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Low-frustration block encodings by patch routing",
+  "authors": "Minzhao Liu, Abeynaya Gnanasekaran, Ananth Kaushik, Siddharth Hariprakash, Alireza Marefat Khah, Martin Roetteler, Grant Salton",
+  "abstract": "Block-encoding has emerged as a core primitive in many quantum algorithms, including quantum simulation. In this work, we design efficient and extensible methods for generating low-frustration block encodings of frustrated lattice Hamiltonians built from repeated local interaction patches through a technique we call \"patch routing\". We construct block encodings for a full Hamiltonian by first block-encoding a small local patch and then using a SWAP-style routing network to coherently apply the local patch encoding across the lattice. The expensive, local block-encoding cost is paid only once per query and is independent of lattice size, whereas the comparatively inexpensive routing network grows linearly with the lattice size, dominating at large sizes. Our method allows for a hierarchical structure in which larger patches can be block-encoded with small normalization factors, albeit at a higher (local, non-extensive) block-encoding cost, thereby reducing overall query complexity in an algorithm. We exploit symmetries and algebraic structures in local interactions to construct efficient block encodings, and we apply these techniques to the Heisenberg, Fermi-Hubbard, and honeycomb spin-liquid models. For a $120\\times 120$ square-lattice $J_1$-$J_2$ Heisenberg model near maximal frustration ($J_2/J_1=0.4-0.6$), our methods result in a $15-17\\times$ reduction in the leading $T$ cost per qubitized-QPE run (ignoring initial state preparation and overlap) relative to prior state-of-the-art Pauli LCU constructions. Corresponding reductions are approximately $3\\times$ for the $120\\times120$ Fermi-Hubbard model at half-filling. For time evolution of the honeycomb spin-liquid model on $120\\times120$ unit cells, the leading cost is reduced by $5\\times$. Our framework provides a systematic way forward for larger and more accurate fault-tolerant simulations of real-world quantum systems.",
+  "url": "http://arxiv.org/abs/2610.32946v1",
+  "pdf": "https://arxiv.org/pdf/2610.32946v1",
+  "type": "theory",
+  "summary": "This paper introduces 'patch routing,' a novel technique to efficiently block-encode complex, frustrated lattice Hamiltonians for quantum simulation. By localizing the expensive block-encoding step and using a scalable routing network, it drastically reduces the computational cost for simulating models like the Heisenberg and Fermi-Hubbard models. This advancement provides a systematic path toward larger and more accurate fault-tolerant simulations of real-world quantum materials.",
+  "main_problem": "The paper addresses the challenge of designing efficient and scalable methods to block-encode complex, frustrated lattice Hamiltonians for quantum simulation.",
+  "main_result": "The proposed 'patch routing' technique significantly reduces the leading cost ($T$ cost) for simulating large lattice models like the Heisenberg and Fermi-Hubbard models, showing reductions up to $17\times$ compared to prior state-of-the-art methods.",
+  "method": "It introduces 'patch routing,' which decomposes the Hamiltonian into local patches, block-encodes these patches once, and then uses a SWAP-style routing network to coherently apply the encoding across the entire lattice.",
+  "model_or_system": "The work applies to lattice Hamiltonians derived from condensed matter physics, specifically citing the Heisenberg, Fermi-Hubbard, and honeycomb spin-liquid models on large lattices ($120 \times 120$).",
+  "key_observables": "The leading cost ($T$ cost) per qubitized-QPE run, which is reduced by factors of $15-17\times$ for the $J_1$-$J_2$ Heisenberg model.",
+  "important_parameters": "Frustration level ($J_2/J_1$), lattice size ($120 \times 120$), and the ratio of local encoding cost to routing network cost.",
+  "main_assumptions": "The method assumes that the local block-encoding cost can be paid only once per query, independent of lattice size, while the routing cost scales linearly with size.",
+  "figures_summary": "Figure 1 illustrates the block encoding process via routing local patches on the square lattice, detailing the steps of routing, local encoding, and undoing the routing.",
+  "paper_structure": "The paper develops from general block encoding techniques (LCU) to improving query cost via spectral bounding, culminating in the proposal and analysis of the 'patch-routing' method for scalable lattice Hamiltonian simulation.",
+  "why_interesting": "This work provides a systematic, resource-aware framework for implementing quantum simulation of strongly correlated materials, directly addressing the scaling bottleneck in current quantum algorithm proposals.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32946_figures/2610.32946_fig1.jpg",
+      "caption": "FIG. 1. An example of our block encoding via routing local patches on the square lattice. a The routing step. The register (𝑝𝑥, 𝑝𝑦) specifies coherently which target local patch (green) to route to the bottom left corner. b Apply the gates that implement the local interaction Hamiltonian block encoding on it. c The unrouting step, which coherently swaps the patch back controlled on (𝑝𝑥, 𝑝𝑦).",
+      "page": 4
+    },
+    {
+      "image": "2610.32946_figures/2610.32946_fig2.jpg",
+      "caption": "FIG. 3. Routing on the honeycomb lattice. Each rhombus unit cell contains two spins. The selected 2 × 2 block of cells is shown in green and the fixed destination in red, for address (𝑝𝑥, 𝑝𝑦) = (2, 2). The block contains eight spins, including the six vertices of one hexagonal face. The even and odd routing networks act on whole cells.",
+      "page": 8
+    },
+    {
+      "image": "2610.32946_figures/2610.32946_fig3.jpg",
+      "caption": "FIG. 5. The honeycomb lattice decomposition. The red rhombus is the routed 2 × 2 block of four cells and contains eight spins. a, The solid dark-blue spokes are the two nearest-neighbor stars, one bond of each color 𝑥, 𝑦, 𝑧per star. The leaves are mutually second neighbors and close into the dashed triangles. The solid and dashed bonds together make each star a complete graph on four spins. The sites drawn with a ring are the star centers; the two additional leaves lie outside the six-site face but complete the stars. b, The three green bonds are the mutually disjoint third-neighbor diagonals of the face.",
+      "page": 20
+    },
+    {
+      "image": "2610.32946_figures/2610.32946_fig4.jpg",
+      "caption": "FIG. 6. Swap operations needed to build the 3 × 3 patch block encoding from the 2 × 2 plaquette block encoding. a,b,c Swaps required to map the target green plaquette to the red plaquette where the 2 × 2 encoding circuit is applied. d For each swap, the index of the target green tile for which it is applied is labeled.",
+      "page": 42
+    },
+    {
+      "image": "2610.32946_figures/2610.32946_fig5.jpg",
+      "caption": "FIG. 7. Swap operations needed to build the bond-wise block encoding. a,b,c Swaps required to map the target bond to bond zero where the bond-wise block-encoding circuit is applied. d For each swap, the index of the bond for which it is applied is labeled.",
+      "page": 45
+    }
+  ],
+  "figure": "2610.32946_figures/2610.32946_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

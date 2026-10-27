@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2610.31814",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.CR",
+    "cs.DC",
+    "cs.IT",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "SILMARILS-MV: Information-Theoretically Secure Multi-Verifier Signatures with Dealer-Free Key Issuance and Linear Aggregation for Permissioned Blockchains",
+  "authors": "Khadijeh Bagheri, Hassan Khodaiemehr, Chen Feng",
+  "abstract": "Permissioned blockchains authenticate transactions, votes and quorum certificates with computationally secure signatures, and post-quantum replacements inflate consensus traffic by orders of magnitude. Information-theoretic alternatives have required a trusted authority, quantum channels, per-signature interaction, or single-use keys with bounded transfer. We present SILMARILS-MV, a multi-verifier unconditionally secure signature in which a signature is the vector $α= A\\,e(m)$ and each verifier holds a secret functional $c_i = Γ^T λ(x_i)$ derived from virtual anchors $Γ$ that nobody learns. Against unbounded adversaries corrupting up to $ω$ verifiers and any signers, and observing every decision, an honest verifier accepts a forged or invalid signature with probability at most $Q/q + 1/(q-1)$, a bound that is tight in its leading term. The scheme is strongly unforgeable, non-repudiable, transferable across unboundedly many hops, and linearly aggregatable. Keys are issued by the validators through perfectly secure MPC for $t < n/3$, without broadcast. To scale, we let the committee itself sign: in threshold notarization, finality certificates have constant size $32(ω+1)$ bytes and per-validator issuance cost no longer depends on $n$. Arbiter-verified keys give clients 32-byte signatures, robust redistribution supports membership changes and share refresh, and verifiers can be enrolled retroactively. A certificate verifies in 2.4 microseconds. In an analytic normal-case model at 1000 validators, threshold notarization needs 71 KiB of authentication traffic per validator per block, 22x less than ML-DSA-44 for admitted verifiers. In a Rust HotStuff prototype with 100 validators, SILMARILS-MV commits 2.8x more transactions per second than ML-DSA-44 with 67x less cryptographic CPU, and Monte-Carlo attacks match the bounds.",
+  "url": "http://arxiv.org/abs/2610.31814v1",
+  "pdf": "https://arxiv.org/pdf/2610.31814v1",
+  "type": "theory",
+  "summary": "This paper introduces SILMARILS-MV, a novel, unconditionally secure multi-verifier signature scheme designed for permissioned blockchains. It solves critical issues in current blockchain signatures by offering dealer-free key issuance and linear aggregation. The scheme demonstrates superior performance, requiring significantly less bandwidth and CPU power compared to established post-quantum alternatives.",
+  "main_problem": "The paper addresses the need for an information-theoretically secure, multi-verifier signature scheme for permissioned blockchains that overcomes limitations of existing methods regarding trust assumptions and scalability.",
+  "main_result": "SILMARILS-MV provides an unconditionally secure signature that is strongly unforgeable, linearly aggregatable, and features constant-size finality certificates, significantly outperforming existing schemes in both bandwidth and computational efficiency.",
+  "method": "The scheme constructs the signature as a vector $\\alpha = A e(m)$ and relies on secret functional keys $c_i$ derived from virtual anchors $\\Gamma$ to ensure unconditional security.",
+  "model_or_system": "The model is a permissioned blockchain environment utilizing Byzantine Fault Tolerant (BFT) protocols, involving a committee of validators and external verifiers.",
+  "key_observables": "Verification time ($2.4 \\mu s$), authentication traffic per validator per block ($71 \\text{ KiB}$ at 1000 validators), and transaction throughput (2.8x more than ML-DSA-44 in a prototype).",
+  "important_parameters": "The security relies on tolerating up to $\\omega$ corrupt verifiers and requires the committee size $n$ to support $t < n/3$ for key issuance.",
+  "main_assumptions": "The scheme assumes the existence of perfectly secure MPC for key issuance and operates within the context of BFT consensus mechanisms.",
+  "figures_summary": "The notes mention tables comparing the scheme against prior work and summarizing its contributions across various cryptographic dimensions.",
+  "paper_structure": "The paper introduces the problem, details the SILMARILS-MV scheme using algebraic tools, proves its security properties, and concludes with performance evaluations and comparisons to state-of-the-art signatures like ML-DSA-44.",
+  "why_interesting": "While purely cryptographic, the focus on achieving information-theoretic security and high efficiency for distributed ledger technology (DLT) has implications for secure quantum-resistant networking protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.31814_figures/2610.31814_fig1.jpg",
+      "caption": "Fig. 3. SILMARILS-MV in a permissioned BFT ledger. Key issuance is offline and private; signing, aggregation and verification are online, non-interactive and public; dispute resolution reuses the shared state.",
+      "page": 11
+    },
+    {
+      "image": "2610.31814_figures/2610.31814_fig2.jpg",
+      "caption": "Fig. 5. Ledger-level model of a leader-based BFT committee (n = 3t + 1, ω = t, ψ = 16): (a) quorum-certificate size; (b) online authentication bytes sent by the leader per block; (c) per-replica time to verify one QC and one proposal signature; (d) average total bytes per validator per block, including offline key issuance by the committee (ΠDKI, both cost models of (3)) or by a dealer/HSM. Aggregated SILMARILS-MV QCs contain ω + 1 field elements, an n-bit bitmap and a 4-byte index per signer; individual votes also carry their 4-byte index.",
+      "page": 19
+    },
+    {
+      "image": "2610.31814_figures/2610.31814_fig3.jpg",
+      "caption": "Fig. 6. Average authentication bytes per validator per block, including all offline key issuance, up to n = 1000. One-time MAC key material for TN consensus is not counted as traffic (see text). TN costs an amount bounded independently of n on top of MAC-authenticated consensus.",
+      "page": 19
+    },
+    {
+      "image": "2610.31814_figures/2610.31814_fig4.jpg",
+      "caption": "Fig. 7. HotStuff prototype, 10 ms one-way delay and 1 Gbit/s per node: throughput and cryptographic CPU time per replica per block versus com- mittee size (medians of 3 runs, i9-13900HX).",
+      "page": 20
+    },
+    {
+      "image": "2610.31814_figures/2610.31814_fig5.jpg",
+      "caption": "Fig. 8. Monte-Carlo success of the best attacks against the bounds of Theo- rem 1 (Q = 1). Each q has three points, for (ω, ψ) ∈{(1, 1), (2, 2), (3, 4)}.",
+      "page": 21
+    }
+  ],
+  "figure": "2610.31814_figures/2610.31814_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

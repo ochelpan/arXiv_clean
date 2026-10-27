@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.32156",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Evolution Networks Learn Long-Time Coherent Dynamics in Driven Spin Registers",
+  "authors": "Puran Li, Condon Lau, Xiu-Hao Deng",
+  "abstract": "Predicting and controlling driven quantum systems requires access to dynamics across physical parameters, initial states, and evolution times. A reusable neural model must capture this dependence while preserving unitary structure and maintaining accuracy over long-time coherent evolution. Here we introduce Quantum Evolution Networks (QENs), which map physical parameters and time to complete propagators for periodically driven three-spin registers. Shared networks learn unitary one-period propagators and compatible within-period paths, enabling predictions through known periodic composition without query-specific numerical integration. For transverse driving, the fifth-percentile fidelity, minimized over input states and sampled times, is 0.9947 over 24 periods on 256 held-out configurations. A leading-order analysis of spectrally resolved endpoint residuals predicts multicycle process error more accurately than quadratic or spectrum-averaged estimates. Interventions at matched single-period infidelity produce orders-of-magnitude differences in multicycle infidelity, demonstrating the importance of residual orientation. Compatible component replacements identify how endpoint and within-period approximations limit reconstruction accuracy. These results establish a reusable neural representation of the studied propagator families and connect its learned residual structure to its observed long-time reliability.",
+  "url": "http://arxiv.org/abs/2610.32156v1",
+  "pdf": "https://arxiv.org/pdf/2610.32156v1",
+  "type": "theory",
+  "summary": "This paper introduces Quantum Evolution Networks (QENs) to model the complex, long-time dynamics of driven spin registers. The QEN framework learns the unitary propagator by decomposing it into reusable, structured components. The results demonstrate that this neural approach maintains high fidelity over many periods, establishing a powerful, scalable tool for simulating quantum evolution.",
+  "main_problem": "The core challenge is developing a reusable neural model capable of predicting and controlling the dynamics of periodically driven quantum systems over long time scales while strictly preserving unitary structure.",
+  "main_result": "The proposed Quantum Evolution Networks (QENs) successfully learn a reusable representation of the propagator family, achieving high fidelity (e.g., 0.9947 fifth-percentile fidelity) over many periods.",
+  "method": "The authors introduce QENs, which approximate the propagator by learning a unitary one-period propagator and a compatible within-period path, enabling prediction via known periodic composition.",
+  "model_or_system": "The system studied is a periodically driven three-spin central-spin register, governed by a time-dependent Hamiltonian $H(t; \\lambda)$ involving exchange and longitudinal interactions.",
+  "key_observables": "Fifth-percentile fidelity ($p_{05}$), process fidelity, worst-input fidelity, and the residual structure of the learned propagator.",
+  "important_parameters": "Driving parameters (e.g., $g_m, \\Delta e, \\Omega_0$), evolution time (measured in periods, e.g., 24 periods), and the number of spins (three-spin register).",
+  "main_assumptions": "The method assumes that the overall propagator can be accurately reconstructed by composing learned, compatible components (one-period propagator and within-period path).",
+  "figures_summary": "Figures illustrate the architecture of the QENs for different driving types (longitudinal vs. transverse) and show empirical reliability windows mapping fidelity against evolution time.",
+  "paper_structure": "The paper introduces the QEN framework, details the structure-constrained learning process for the propagator, rigorously analyzes error accumulation by separating residual contributions, and validates the method's long-time reliability through extensive fidelity measurements.",
+  "why_interesting": "This work directly addresses the computational bottleneck in simulating open or driven quantum systems by providing a data-driven, structured neural surrogate for the time evolution operator, which is crucial for quantum control and simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32156_figures/2610.32156_fig1.jpg",
+      "caption": "FIG. 1. Structure-constrained learning of a propagator family. (a) Shared weights map physical parameters to a one-period propagator and a within-period path; periodic composition produces the queried operator. (b) Longitudinal driving uses block coordinates and a harmonic residual loop. (c) Transverse driving uses a residual MLP and three full-space Cayley factors for the endpoint, together with a parameter–time path network. Blue modules are trained; gray modules are prescribed transformations. Reference endpoint coordinates define path supervision, and predicted endpoint coordinates enter the path decoder at inference. This interface supports the component replacements in Sec. VI C.",
+      "page": 3
+    },
+    {
+      "image": "2610.32156_figures/2610.32156_fig2.jpg",
+      "caption": "FIG. 2. Empirical reliability windows under transverse driving. (a) Fifth-percentile worst-time process fidelity on 2,048 held-out parameters and worst-input fidelity on a 256-member subset. The shadow is a pointwise 95% parameter-bootstrap interval for the worst-input p05. Dotted lines mark 24TX and fidelity 0.99. (b) Fractions of the spectral subset exceeding three worst-input fidelity thresholds throughout each evaluated window. At threshold 0.99 and coverage 95%, the last passing window is 36TX = 1.50 µs. These windows use the parameter samples and time grids specified in Sec. III.",
+      "page": 5
+    },
+    {
+      "image": "2610.32156_figures/2610.32156_fig3.jpg",
+      "caption": "FIG. 3. Predicting repeated-endpoint error from the learned single-period residual. Each panel uses the original endpoint for one training seed on 256 common-test members. The vertical axis is the median absolute difference between predicted and measured log10 process infidelity, evaluated at the indicated period count. The quadratic estimate, spectrum-averaged estimate, and error-resolved prediction are P0, P1, and P2, respectively. Exact matrix powers supply the measured errors.",
+      "page": 7
+    },
+    {
+      "image": "2610.32156_figures/2610.32156_fig4.jpg",
+      "caption": "FIG. 4. Residual-orientation intervention at matched single-period process accuracy. Original learned residuals are projected into commuting and mixing components relative to the reference endpoint, then separately rescaled to match the same member’s single-period infidelity. Curves show process-fidelity p05 on 254 paired members for seed 88001 and 255 for seed 88002, drawn from the same fixed 256-member subset. Both directions within a panel use identical member indices. Matching, degeneracy, and admissibility rules are fixed before evaluation and given in Appendix L.",
+      "page": 7
+    },
+    {
+      "image": "2610.32156_figures/2610.32156_fig5.jpg",
+      "caption": "FIG. 5. Worst-time worst-input accuracy of the original and continued QENs on 256 common-test members. Each curve uses a validation-selected endpoint and the same frozen path network, with the endpoint prediction inserted into that path’s boundary condition. Fidelity is minimized across all queried times and input states within each window. C coincides with the original curve because validation selects update 0.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.32156_figures/2610.32156_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

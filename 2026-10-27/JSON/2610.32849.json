@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.32849",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural LoFi with Backward Coupling: A Spectral Theory of Cross-Layer Feature Learning",
+  "authors": "Yatin Dandi, Matteo Vilucchio, Hugo Tabanelli, Florent Krzakala",
+  "abstract": "During joint training, backpropagation allows later layers to reshape earlier representations, a feedback mechanism absent from purely layer-wise learning. We extend Neural Low-Degree Filtering (Neural LoFi), a recently proposed layer-wise spectral surrogate for feature learning, to capture this interaction. Starting from the exact backpropagation gradients, we derive a local coupling between a neuron's incoming weights and its corresponding next-layer column. In a controlled small-initialization regime with smooth activations and fixed surroundings, these dynamics amplify singular modes of a cross-layer correlation operator. Each growing mode pairs an earlier feature with an upper-layer response through shared neuron coefficients. This motivates a backward-coupling algorithm in which upper-layer sensitivities generate sample-dependent effective labels for earlier spectral steps, while corrected features refine upward transmission. A function-space variational principle characterizes the selected feature-response pairs by maximizing the label correlation of their product under kernel-norm constraints. For three-layer networks, we derive self-consistent continuous-time dynamics for the filtered hidden-layer features, the activation kernels, and the network output under the proposed backward coupling. In a hierarchical multi-index model, we establish a feature-recovery separation: backward coupling recovers lower-layer directions invisible to the original forward label-weighted statistic. The linear specialization recovers residual-dependent singular-mode dynamics, while paired modes provide a dynamical mechanism for linked low-rank covariance components consistent with the rainbow-network picture. Experiments with fully connected and convolutional networks on binary CIFAR-10 show improved accuracy over forward Neural LoFi at matched widths.",
+  "url": "http://arxiv.org/abs/2610.32849v1",
+  "pdf": "https://arxiv.org/pdf/2610.32849v1",
+  "type": "both",
+  "summary": "This paper extends feature learning in deep neural networks by introducing Backward Coupling (BackLoFi), which models the feedback effect where upper layers refine lower-layer representations. By analyzing the spectral dynamics of backpropagation gradients, the authors show that this coupling mechanism significantly boosts performance over standard layer-wise methods. The work provides a rigorous, mathematically grounded approach to understanding cross-layer feature extraction.",
+  "main_problem": "The paper addresses the limitation of purely layer-wise feature learning in deep neural networks by developing a mechanism to capture the feedback interaction between upper and lower layers during joint training.",
+  "main_result": "The proposed Backward Coupling (BackLoFi) algorithm significantly improves feature learning accuracy over standard forward methods, demonstrating that upper-layer sensitivities can generate effective labels for refining lower-layer spectral features.",
+  "method": "It derives a backward-coupling algorithm by analyzing the exact backpropagation gradients, which leads to amplifying singular modes of a cross-layer correlation operator.",
+  "model_or_system": "The model is a deep neural network trained via backpropagation, analyzed using fully connected and convolutional layers on CIFAR-10 data. The core mechanism involves coupling the incoming weights (rows) of a layer to the outgoing weights (columns) of the next layer.",
+  "key_observables": "Improved test accuracy on CIFAR-10, the singular modes of the cross-layer correlation operator, and the fraction of new read/write directions lying within the span of previously installed features.",
+  "important_parameters": "The coupling strength, the number of passes ($P$), the rank fraction ($r_\\ell/k_\\ell$), and the learning rate/damping factor ($\\alpha$).",
+  "main_assumptions": "The analysis relies on a controlled small-initialization regime, and certain updates involve approximations regarding fixed surrounding layers or linear activations.",
+  "figures_summary": "Figures compare the test error of BackLoFi against Forward LoFi and standard Gradient Descent (GD) across varying passes and network sizes, showing BackLoFi's superior performance. Other figures illustrate the selection of feature directions within the span of previous updates.",
+  "paper_structure": "The paper first introduces the problem of cross-layer interaction, derives the BackLoFi algorithm based on spectral analysis of backpropagation gradients, provides theoretical derivations for small-layer networks, and concludes with extensive experiments comparing BackLoFi, Forward LoFi, and GD on CIFAR-10.",
+  "why_interesting": "The mathematical framework of analyzing weight covariance and singular modes in deep learning mirrors techniques used in analyzing complex physical systems, such as those involving correlated states or spectral decompositions in quantum many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32849_figures/2610.32849_fig1.jpg",
+      "caption": "Figure 2: Backward coupling unlocks the deep staircase. Performance as a function of the sample exponent α = log n/ log d. Left: Test MSE. Center: Overlap with the visible first-level block U. Right: Overlap with the hidden blocks V, W. Both spectral methods recover the anchor, the backward correction also recovers the hidden blocks. The prediction panel additionally compares layer-wise and end-to-end gradient descent.",
+      "page": 11
+    },
+    {
+      "image": "2610.32849_figures/2610.32849_fig2.jpg",
+      "caption": "Figure 3: Backward coupling improves on forward Neural LoFi and approaches gradient descent. Test error vs number of training samples n on binary CIFAR-10 (animal vs. vehicle), at matched width, for a fully connected network (left) and a convnet (right). Ridge is a linear regression on the pixels, RF the random-features network of the same architecture, FwdLoFi forward Neural LoFi, BackLoFi Algorithm 2 with the first-order or the exact backward signal, and GD full-batch gradient descent on the same architecture. Curves are means over seeds and bands one std error; Spectral configurations and GD hyperparameters are selected on mean test error (see App. H).",
+      "page": 12
+    },
+    {
+      "image": "2610.32849_figures/2610.32849_fig3.jpg",
+      "caption": "Figure 4: Test error of the fully connected network against the number of passes of Algorithm 2 at fixed width, for six rank fractions rℓ/kℓand four training-set sizes n. Pass 0 is forward Neural LoFi (dotted line). Each point is the best filter width kℓfor its n, rank fraction and pass, selected by the mean over 10 seeds; bands are one standard error. Settings in Appendix H.",
+      "page": 49
+    },
+    {
+      "image": "2610.32849_figures/2610.32849_fig4.jpg",
+      "caption": "Figure 5 shows, for each pass, the fraction of its new read and write directions that lies in the span of those installed by the earlier passes. For the read directions it stays above 0.97, against at most 0.02 for a random subspace: each pass selects again the same read subspace and installs it with fresh lifts. Successive passes therefore resample random features within the same subspace. The error in Figure 4 consequently depends on the fraction of columns replaced and is insensitive to the per-pass step rℓ.",
+      "page": 49
+    },
+    {
+      "image": "2610.32849_figures/2610.32849_fig5.jpg",
+      "caption": "Figure 5: Fraction of the read (full) and write (dashed) directions selected at a pass inside the span of those installed by the earlier passes, ∥V ⊤ t Q<t∥2 F /rℓ, at the two boundaries of the fully connected network (kℓ= 512, n = 10,000, mean and standard error over 3 seeds). A random subspace gives at most 0.02.",
+      "page": 49
+    }
+  ],
+  "figure": "2610.32849_figures/2610.32849_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

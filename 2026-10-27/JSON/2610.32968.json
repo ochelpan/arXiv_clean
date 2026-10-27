@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.32968",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Distributed Quantum-Centric Supercomputing with Multi-Layered Generative Learning for Intermolecular Interactions",
+  "authors": "Chayan Patra, Prayas Ghosh, Adwait Patkhedkar, Rahul Maitra",
+  "abstract": "Quantum-centric supercomputing (QCSC) approaches, such as sample-based quantum diagonalization (SQD), combine quantum processors with high-performance computers (HPC), offering a promising route toward solving challenging electronic structure problems. However, implementation of QCSC approaches to large active space calculations is constrained by the associated number of qubits, deep quantum circuits, sampling cost, and large-scale Hamiltonian diagonalization. To overcome these limitations, we introduce a distributed QCSC framework that decomposes complex molecular problems into parallel sub-problems requiring fewer qubits, shallower circuits, and reduced shot budgets. A physically motivated, two-step aggregation scheme then reconstructs the global solution: first, a computational bit assignment strategy optimizes a cost function to appropriately map local bit indices to global ones, yielding a mapped tensor product state (MTPS); second, an inter-fragment correlation recovery module restores missing cross-fragment interactions. Herein, we employ a multi-layered generative machine learning architecture, starting with utilizing the recently proposed physics-informed generative SQD (PIGen-SQD) as a distributed QCSC solver, followed by a secondary generative module to model configuration distributions and identify dominant sectors of the global Hilbert space. For water and formamide dimers, our method achieves up to $95\\%$ reduction in the diagonalization dimension while enhancing energy accuracy by an order of magnitude over conventional SQD. Furthermore, application to the water hexamer ($\\mathrm{(H_2O)_6}$) cage successfully decomposes a 120-qubit problem into six 20-qubit monomeric subsystems, and stitches the monomers under a dimeric approximation, demonstrating excellent agreement with the reference classical methods.",
+  "url": "http://arxiv.org/abs/2610.32968v1",
+  "pdf": "https://arxiv.org/pdf/2610.32968v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, scalable Quantum-Centric Supercomputing framework to solve electronic structure problems for large molecules. It decomposes the complex problem into smaller, manageable fragments solved by a generative ML solver, which then reconstructs the global solution. This significantly reduces computational complexity and improves energy accuracy over existing quantum methods.",
+  "main_problem": "Accurately solving the electronic structure of large molecular systems with strong electronic correlation effects, which is computationally prohibitive for classical methods and limited by current quantum hardware.",
+  "main_result": "The proposed framework achieves up to a 95% reduction in the diagonalization dimension and enhances energy accuracy by an order of magnitude compared to conventional quantum diagonalization methods for molecular dimers.",
+  "method": "A distributed Quantum-Centric Supercomputing (QCSC) framework that decomposes the problem into smaller fragments, solved using a physics-informed generative machine learning solver (PIGen-SQD), followed by a two-step aggregation scheme.",
+  "model_or_system": "The study focuses on molecular systems like water and formamide dimers, and the water hexamer, modeled by fermionic Hamiltonians ($\\hat{H}$). The approach maps these fermionic problems onto qubits for quantum computation.",
+  "key_observables": "Energy eigenvalues, diagonalization dimension, and energy accuracy.",
+  "important_parameters": "Qubit count (e.g., 120-qubit problem decomposed into six 20-qubit subsystems), shot budget, and correlation strength.",
+  "main_assumptions": "The method relies on decomposing the Hamiltonian into local, solvable fragments and assumes that the resulting Mapped Tensor Product State (MTPS) provides a good approximation of the global ground state.",
+  "figures_summary": "Not specified (The notes detail the structure and results rather than describing specific figures).",
+  "paper_structure": "The paper introduces the limitations of standard QCSC, proposes the distributed framework, details the two-step aggregation (MTPS construction and correlation recovery), and validates the method on molecular dimers and the water hexamer.",
+  "why_interesting": "This work directly tackles the scaling problem in quantum chemistry by combining quantum hardware simulation with advanced ML-driven decomposition techniques, which is crucial for simulating complex molecular interactions beyond current computational limits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32968_figures/2610.32968_fig1.jpg",
+      "caption": "FIG. 1. (a) PIGen-SQD workflow: A molecular system is encoded into a PQC and measurement is done to obtain the samples. These samples are then classically post-processed with Gen-ML driven modules for fermionic configuration reconstruction. (b) Computational bit mapping and MTPS construction: The orbitals of two sub-systems, A and B are appropriately assigned to the super-system bits. The dominant configurations obtained by distributed PIGen-SQD is then translated to the global bits from local bits accordingly. PIGen-SQD(MAPS) workflow is shown in the lower panel with (c) showing the problem decomposition and distributed PIGen-SQD solver, followed by (d) aggregation with MTPS and Gen-ML...",
+      "page": 9
+    },
+    {
+      "image": "2610.32968_figures/2610.32968_fig2.jpg",
+      "caption": "FIG. 3. Contribution of CISD, CISD + perturbative triples and MTPS configurations toward recovery of correlation en- ergy for water and FMA dimer for two different separation distances each. In y-axes energy error (in mEh) with respect to HCI is shown. On top of each bar plot, the associated di- agonalization dimension is also shown. The dotted line shows 1 mEh error from HCI.",
+      "page": 11
+    },
+    {
+      "image": "2610.32968_figures/2610.32968_fig3.jpg",
+      "caption": "FIG. 2. Orbital correspondence in (H2O)2. (Center) Sub- set of dimer molecular orbitals situated near the HOMO- LUMO region. (Right, Left) Assigned monomeric orbitals for monomer 1 (M1) and monomer 2 (M2), respectively, es- tablished through computational bit assignment.",
+      "page": 11
+    },
+    {
+      "image": "2610.32968_figures/2610.32968_fig4.jpg",
+      "caption": "FIG. 4. Coupling map and qubit assignment on IBM Heron R3 processor for monomeric fragments of water and FMA dimer are shown in (a) and (c) respectively. The intermolecular Oxygen-Oxygen distance between two H2O monomers is 2.2 Å and the perpendicular distance between the parallel C–N bonds of the two FMA monomers is 3.23 Å. Here α (β) orbitals are shown in green (red) along with the auxiliary qubits (in yellow) that encode density-density interactions in the LUCJ ansatz. Energy error (in Eh) with respect to HCI and the associated diagonalization dimension are shown in (b) and (d) for SQD, S-CORE(MTPS) and PIGen-SQD(MAPS). Grey dotted line shows the 1 mEh error with respect to HCI.",
+      "page": 13
+    },
+    {
+      "image": "2610.32968_figures/2610.32968_fig5.jpg",
+      "caption": "FIG. 5. Potential energy surface (PES) for (H2O)2. Along the y-axes (a) shows the energy (in Eh) with different methods: CCSD, SCI-PySCF, SQD, S-CORE(MTPS), PIGen-SQD(MAPS) and HCI, (b) shows error with respect to HCI and (c) shows the corresponding diagonalization dimension. Different Oxygen-Oxygen distance (in Å) between two monomers are represented along x-axes.",
+      "page": 14
+    }
+  ],
+  "figure": "2610.32968_figures/2610.32968_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

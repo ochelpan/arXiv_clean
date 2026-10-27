@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2610.32841",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Hardware-Friendly Estimation of LCU-Based Expectation Values via Quantum-to-Classical Workload Shifting",
+  "authors": "Hari Hara Suthan Chittoor, Thirumalai Manimaran",
+  "abstract": "Estimating the expectation value of an observable $O$ for a quantum state evolved under a general, possibly non-unitary, operator $A$ is a fundamental task in quantum simulation, chemistry, and variational algorithms. Existing linear-combination-of-unitaries (LCU) approaches implement $A$ on hardware, requiring ancilla qubits, controlled unitaries and, in randomized variants, fresh circuit executions for every Monte Carlo sample. These costs are prohibitive on NISQ and early fault-tolerant devices. We propose HERMES (Hardware-Efficient Reusable Measurements for Estimating LCU-based expectation valueS), which moves the processing of $A$ entirely to the classical domain. Expanding $A$ and $O$ in the Pauli basis and sampling pairs of Pauli terms classically, HERMES rewrites $μ= \\mathrm{Tr}(OAρA^{\\dagger})/\\mathrm{Tr}(AρA^{\\dagger})$ as a ratio of weighted sums of Pauli expectation values on the unmodified state $ρ$, with no ancillas, controlled unitaries, or quantum implementation of $A$. A two-level measurement reduction scheme (Pauli deduplication and commuting-group partitioning) bounds the number of distinct measurement settings independently of the sample count, unlike randomized LCU methods whose circuit executions grow linearly with it. On ground-state energy estimation of $\\mathrm{H}_2$ and $\\mathrm{LiH}$ via imaginary-time evolution, HERMES matches or beats Pauli single-ancilla LCU baseline using shallow circuits with no two-qubit gates beyond state preparation under qubit-wise commuting grouping. It is also more robust to noise and completes a noisy $\\mathrm{LiH}$ simulation infeasible for the baseline, at the cost of classical overhead growing with the number of Pauli terms in $A$.",
+  "url": "http://arxiv.org/abs/2610.32841v1",
+  "pdf": "https://arxiv.org/pdf/2610.32841v1",
+  "type": "theory",
+  "summary": "The paper introduces HERMES, a novel algorithm to estimate expectation values in quantum simulation by moving the processing of the evolution operator $A$ from the quantum hardware to the classical domain. By expanding operators in the Pauli basis, HERMES rewrites the calculation as a classical sampling problem over Pauli expectation values. This significantly reduces hardware requirements, enabling accurate and robust simulations on noisy, limited-qubit devices compared to existing LCU methods.",
+  "main_problem": "The core problem is efficiently estimating the expectation value $\\mu = \text{Tr}(OA\rho A^\\dagger) / \text{Tr}(A\rho A^\\dagger)$ for quantum simulation, where $A$ is a general, potentially non-unitary operator.",
+  "main_result": "The proposed HERMES method successfully shifts the complex quantum processing of $A$ entirely to the classical domain, achieving accuracy comparable to or better than state-of-the-art quantum circuits while requiring only shallow circuits with minimal quantum gates.",
+  "method": "HERMES expands both the observable $O$ and the operator $A$ in the Pauli basis, rewriting the expectation value as a ratio of weighted sums of Pauli expectation values, which are then estimated via classical Monte Carlo sampling.",
+  "model_or_system": "The method is tested on ground-state energy estimation for molecular Hamiltonians, specifically $\text{H}_2$ and $\text{LiH}$, derived from imaginary-time evolution.",
+  "key_observables": "Expectation values of Pauli observables ($\text{Tr}(P\rho)$), ground-state energy ($\\hat{E}$), and the ratio $\\mu$.",
+  "important_parameters": "The number of Pauli terms in $A$ (which dictates classical overhead), the number of Monte Carlo samples, and the required circuit depth/gate count.",
+  "main_assumptions": "The method assumes that $A$ and $O$ can be effectively decomposed into a manageable number of Pauli strings, and it relies on classical overhead growing with the number of these Pauli terms.",
+  "figures_summary": "Figures illustrate the comparison between Standard LCU, Single-ancilla LCU, and HERMES circuits, showing HERMES requires no ancilla qubits and no quantum implementation of $A$. Tables compare circuit metrics like gate count and depth.",
+  "paper_structure": "The paper first defines the expectation value problem and critiques existing LCU methods. It then introduces HERMES, detailing the Pauli decomposition and classical sampling strategy. Finally, it validates HERMES by comparing its performance against the Pauli single-ancilla LCU baseline on molecular ground-state energy calculations ($\text{H}_2$, $\text{LiH}$) under both noiseless and noisy conditions.",
+  "why_interesting": "This work is highly relevant as it proposes a path to circumvent the most resource-intensive aspects of quantum simulation (implementing $A$ on hardware) by leveraging classical computation, making quantum chemistry simulations viable on near-term devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32841_figures/2610.32841_fig1.jpg",
+      "caption": "FIG. 1: Quantum circuits of LCU-based expectation value estimation methods. (a) Standard LCU [11] requires ⌈log2 M⌉ancilla qubits, PREP/SELECT oracles, and amplitude amplification across all qubits. (b) Single-ancilla LCU [20] reduces to a single ancilla and two controlled unitaries per Monte Carlo sample, at the cost of a fresh circuit execution per sample. (c) HERMES requires only state preparation and Clifford rotations (single-qubit Clifford gates for QWC grouping), with no ancilla qubits.",
+      "page": 4
+    },
+    {
+      "image": "2610.32841_figures/2610.32841_fig2.jpg",
+      "caption": "FIG. 2: Ground-state energy estimation for H2: (a) Eaprx, EF CI, and the ideal and noisy HERMES and PSA-LCU estimates (Hartree); (b) absolute error with respect to Eaprx; (c) absolute error with respect to EF CI.",
+      "page": 9
+    },
+    {
+      "image": "2610.32841_figures/2610.32841_fig3.jpg",
+      "caption": "FIG. 3: Ground-state energy estimation for LiH: (a) Eaprx, EF CI, the ideal and noisy HERMES estimates, and the ideal PSA-LCU estimate (Hartree); (b) absolute error with respect to Eaprx; (c) absolute error with respect to EF CI. Noisy PSA-LCU results for LiH could not be obtained with the available resources (see Sec IV C and Sec IV D).",
+      "page": 9
+    },
+    {
+      "image": "2610.32841_figures/2610.32841_fig4.jpg",
+      "caption": "Fig. 2a shows the ground-state energy of H2 for five bond lengths from 0.50 to 1.02 Å. The Eaprx values (25) follow the expected potential-energy profile, with a min- imum near the equilibrium bond length of 0.74 Å, and remain close to EF CI. In the ideal, noiseless, setting, both HERMES and PSA-LCU reproduce Eaprx closely over the entire range (Fig. 2b). HERMES thus attains the accuracy of PSA- LCU without the ancilla qubit and the controlled gates that PSA-LCU requires. Under noise, the two methods separate sharply. HER- MES retains the shape of the potential-energy curve, in- cluding a minimum (shifted from 0.74 to 0.90 Å), and its error is confined to the shortest bond lengths, decaying",
+      "page": 9
+    }
+  ],
+  "figure": "2610.32841_figures/2610.32841_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

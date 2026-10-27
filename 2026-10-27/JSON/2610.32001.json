@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.32001",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "QuantumMatterExplorer: An Autonomous Agent for the Discovery of Quantum Many-Body Phases of Matter",
+  "authors": "Jannes Nys, Andrew Jreissaty, Juan Carrasquilla",
+  "abstract": "Mapping the phase diagram of a new quantum Hamiltonian demands expert judgement at every step: which observables to measure, where in parameter space to compute, or how to separate genuine order from finite-size artefacts. We introduce QuantumMatterExplorer, an autonomous agent that takes only a Hamiltonian and its parameter ranges as input and returns a phase diagram obtained from its own numerical simulations. The agent is built on a large language model and is designed to reason over a long horizon, maintain a persistent written plan, and drive a set of computational tools, with density-matrix renormalization group (DMRG) calculations cross-checked against independent exact diagonalization. The agent combines a large language model with persistent planning, a library of expert computational-physics skills, and density-matrix renormalization group calculations validated against independent exact diagonalization. It adaptively selects quantities to evaluate, refines parameter scans, and performs finite-size analyses as evidence accumulates. After validating the approach on Hamiltonians with known transitions, we challenge it with a frustrated bilinear-biquadratic spin-1 chain with single-ion anisotropy, whose two-dimensional phase diagram was published only recently and is unlikely to appear in any training corpus. Given no hint about the expected physics, the agent proposes which observables to probe, and identifies candidate Néel, Haldane and dimerized phases, in broad agreement with the reference phase diagram. It also detects incommensurate correlations and infers the frustration-dependent geometry of the phase boundaries, all within an eight-hour compute budget. These results open a practical route to the autonomous computational discovery of new phases of quantum matter.",
+  "url": "http://arxiv.org/abs/2610.32001v1",
+  "pdf": "https://arxiv.org/pdf/2610.32001v1",
+  "type": "theory",
+  "summary": "This paper introduces QuantumMatterExplorer, an autonomous agent that uses an LLM to guide numerical simulations for discovering quantum many-body phases. By adaptively selecting observables and refining scans, it successfully mapped a complex spin-1 chain phase diagram. This work establishes a practical, automated route for computational discovery in condensed matter physics.",
+  "main_problem": "Mapping the phase diagram of a new quantum Hamiltonian requires expert judgment at every step, making autonomous exploration difficult.",
+  "main_result": "The developed agent successfully mapped candidate phases in a complex spin-1 chain Hamiltonian, achieving results in broad agreement with known physics without prior guidance.",
+  "method": "The agent uses an LLM to drive an adaptive, multi-step simulation protocol, combining DMRG calculations with cross-checks via Exact Diagonalization.",
+  "model_or_system": "The agent is tested on a frustrated bilinear-biquadratic spin-1 chain with single-ion anisotropy, a quantum many-body system defined by a general quantum Hamiltonian.",
+  "key_observables": "Néel order parameter ($m_{zz}$), string correlator, edge-sector gap, bond structure factor, and correlation-ratio crossings.",
+  "important_parameters": "Hamiltonian parameters (e.g., $J_2$, $D$), system size ($L$), and the thermodynamic limit ($L \rightarrow \\infty$).",
+  "main_assumptions": "The agent requires explicit equipping with expert domain knowledge to function effectively in open-ended discovery tasks.",
+  "figures_summary": "Figures illustrate the agent's systematic exploration protocol (Coarse $\rightarrow$ Refine $\rightarrow$ Identify $\rightarrow$ Scale) and show the resulting phase diagram mapping candidate phases across parameter space.",
+  "paper_structure": "The paper introduces the QuantumMatterExplorer architecture, details its multi-stage exploration protocol, applies it to a specific spin-1 chain, and presents the resulting candidate phase diagram map.",
+  "why_interesting": "The autonomous, LLM-driven approach represents a significant paradigm shift in computational physics, automating the tedious and expert-dependent process of phase diagram mapping.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32001_figures/2610.32001_fig1.jpg",
+      "caption": "Figure 1: Overview of the QuantumMatterExplorer architecture.",
+      "page": 5
+    },
+    {
+      "image": "2610.32001_figures/2610.32001_fig2.jpg",
+      "caption": "Figure 2: The exploration protocol. As a first step (not shown), an independent validation gate certifies the Hamiltonian and observables implementation against known limits and an exact- diagonalization cross-check before any result is trusted. A cheap coarse survey at the smallest system size then localizes candidate boundaries (Stage 1), so that the expensive large-L computation is concentrated only in windows around them (Stages 2–4) rather than spent uniformly over the parameter range. Each region is then characterized by its finite-size behavior, by searching for a possible order parameter, the excitation gap, or a topological signature that survives the L →∞ limit (Stage 3). Each...",
+      "page": 7
+    },
+    {
+      "image": "2610.32001_figures/2610.32001_fig3.jpg",
+      "caption": "Figure 3: Trajectory with tool calls of one autonomous study using GPT-5.6-Luna at high reasoning effort on the spin-1 chain of Eq. (8). (A) Composition of the 653 tool calls and 453 model calls throughout the trajectory. Colors indicate the agent type performing the tool calls. (B) Output tokens per LLM call. (C) Fraction of the context window in use per agent type. Every subagent has its own context, which can be observed in the drop in context usage. The dashed lines mark the moments a context compression is triggered, which we impose at a fixed input token budget. The total study has a maximum time limit of 8 hours, which the agent anticipates, finalizing the execution at 7.7 hours.",
+      "page": 8
+    },
+    {
+      "image": "2610.32001_figures/2610.32001_fig4.jpg",
+      "caption": "Figure 4: Accuracy of the reported transition points relative to their reference values. We show the numerically estimated transition points for the anisotropic XY and J1 −J2 models across multiple agentic runs using four LLM backends, following hyperparameter tuning (including LLM temperature). Error bars indicate the uncertainties stated by the agents in their respective research notes; no error bar is shown when no explicit uncertainty was provided. The XY critical field hc = 1 is exact (free-fermion solution), whereas the J1 −J2 dimerization point αc ≈0.2411 is determined numerically in Ref. [74].",
+      "page": 9
+    },
+    {
+      "image": "2610.32001_figures/2610.32001_fig5.jpg",
+      "caption": "Figure 5: ITensor skills ablation study. Julia error rate versus the total number of Julia calls for multiple independent runs on the XY Hamiltonian, with (blue) and without (red) the itensor-dmrg skill available. The red cross indicates an experiment that reaches the 8-hour time budget due to a large number of failed coding attempts. Dashed lines show a constant number of Julia failures (failed = total calls × failure rate). The results are shown for a local Gemma 4 model.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.32001_figures/2610.32001_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

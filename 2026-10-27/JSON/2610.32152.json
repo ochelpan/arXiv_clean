@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.32152",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Trident: Efficient Load Verification for Yoked Surface Codes using a Three-Level Memory Hierarchy",
+  "authors": "Gunagya Singh Mamak, Suhas Vittal, Kabir Dubey, Kaitlin N. Smith, Moinuddin K. Qureshi",
+  "abstract": "Fault-Tolerant Quantum Computers (FTQCs) commonly use the surface code to encode program qubits as error-corrected logical qubits. Unfortunately, the surface code has a poor encoding rate, so recent work has proposed Yoked Surface Codes (YSCs), which concatenate the surface code with a high-rate quantum code. The surface code qubits in YSCs are protected by the checks, or yokes, of the high-rate code. YSCs have 1D and 2D variants, which are $1.8\\times$ and $4.5\\times$ more efficient than the surface code, respectively.   Modern FTQC architectures use a two-level hierarchy: surface codes perform logical operations (compute) while 2D YSCs store idle program qubits (memory). To load a qubit from memory, the FTQC first performs retrieval, which logically moves a program qubit from a 2D YSC into a surface code (8 cycles). However, retrieval is not fault-tolerant, so the FTQC must verify the load by measuring all the yokes of the 2D YSC (178 cycles). As verification dominates memory access latency, eliminating it can provide a speedup of $5.7\\times$.   Our goal is to reduce the verification overhead of 2D YSCs while retaining their storage efficiency. We exploit the fact that 1D YSCs, though less storage-efficient, incur negligible verification latency. We propose Trident, which expands the two-level hierarchy into a three-level hierarchy by adding a small intermediate level containing a 1D YSC (L1). If most loads hit L1 rather than L2 (2D YSC tier), it can significantly reduce verification overhead. We present two variants: Trident-D (demand-driven) and Trident-P (prefetch-driven), which achieve speedups of $2.8\\times$ and $4.2\\times$, respectively, while increasing the physical qubit cost of memory by only 4.9%.",
+  "url": "http://arxiv.org/abs/2610.32152v1",
+  "pdf": "https://arxiv.org/pdf/2610.32152v1",
+  "type": "theory",
+  "summary": "This paper tackles the performance bottleneck in fault-tolerant quantum computing caused by slow qubit verification when loading data from 2D Yoked Surface Codes. The authors propose 'Trident,' a three-level memory hierarchy that inserts a fast, intermediate 1D YSC tier. This significantly reduces the overall load latency, leading to substantial speedups for future quantum processors.",
+  "main_problem": "The primary challenge is the high latency associated with fault-tolerantly verifying the loading of qubits from large 2D Yoked Surface Codes (YSCs) in Fault-Tolerant Quantum Computers (FTQCs).",
+  "main_result": "The proposed three-level hierarchy, Trident, significantly reduces this verification overhead, achieving speedups of up to 4.2x with only a minor increase in physical qubit cost.",
+  "method": "The authors propose expanding the two-level memory hierarchy by introducing a small intermediate 1D YSC tier (L1), leading to demand-driven (Trident-D) or prefetch-driven (Trident-P) strategies.",
+  "model_or_system": "The work models FTQCs utilizing Yoked Surface Codes (YSCs) for error correction. The system is characterized by a memory hierarchy: L0 (compute/surface code), L1 (intermediate 1D YSC), and L2 (2D YSC memory).",
+  "key_observables": "Speedup factor (e.g., 4.2x for Trident-P), load verification latency (178 cycles for 2D YSC), and physical qubit overhead (4.9% increase).",
+  "important_parameters": "The efficiency gain depends on the assumption that most program loads will target the low-latency L1 tier rather than the high-latency L2 tier.",
+  "main_assumptions": "The speedup relies on the assumption that the intermediate L1 tier will be hit frequently enough to mitigate the dominant verification bottleneck of the L2 tier.",
+  "figures_summary": "Figures illustrate the transition from a two-level to a three-level memory hierarchy (L0, L1, L2) and detail the load operation sequence, highlighting the verification bottleneck.",
+  "paper_structure": "The paper first establishes the performance bottleneck in 2D YSC loading. It then introduces Trident by adding the L1 tier, presenting two variants (D and P). Finally, it quantifies the performance gains and physical overhead associated with this new architecture.",
+  "why_interesting": "This work directly addresses the resource overheads in scaling quantum computation by optimizing the memory access patterns, which is crucial for realizing large-scale quantum processors.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32152_figures/2610.32152_fig1.jpg",
+      "caption": "Figure 1. (a) 2D yoked surface codes (YSCs) encode multiple surface code qubits and protect them via checks known as yokes. (b) Load operation from 2D YSCs. Before the retrieved qubit can be used, we must verify that the load occurred successfully by measuring the yokes, which incurs high latency (178 cycles). (c) Our proposal, Trident, is a three-level memory hierarchy which uses a single 1D YSC block (L1) to reduce mean load verification latency.",
+      "page": 2
+    },
+    {
+      "image": "2610.32152_figures/2610.32152_fig2.jpg",
+      "caption": "Figure 2. (a) Overview of 1D and 2D YSCs. 1D YSCs encode 𝑛surface code qubits into 𝑛−2 logical qubits. 2D YSCs encode 𝑛2",
+      "page": 4
+    },
+    {
+      "image": "2610.32152_figures/2610.32152_fig3.jpg",
+      "caption": "Figure 3. Load verification in 1D YSC. Yoke checks can be interleaved (steps 2 and 6) while loading from a 1D YSC.",
+      "page": 5
+    },
+    {
+      "image": "2610.32152_figures/2610.32152_fig4.jpg",
+      "caption": "Figure 4. Design and Operation of Trident. (a) Semantics of loading qubit B from the L1 and into the L0 (compute subsystem). Qubit A must be stored to make space for B. (b) Semantics of loading qubit C from the L2 and into the L0. To make space for C, A must be stored into the L1. Sub- sequently, to make space for A, B must be stored into the L2 location made vacant by C.",
+      "page": 7
+    },
+    {
+      "image": "2610.32152_figures/2610.32152_fig5.jpg",
+      "caption": "Figure 5. (Top) Speedups for Trident-D with LRU, Trident-D with OPT, and an idealized FTQC with zero verification latency. Trident-D with LRU, Trident-D with OPT, and the idealized FTQC achieve speedups of 2.3×, 2.8×, and 5.7×, respectively. (Bottom) L1 hit rates for Trident-D with LRU and Trident-D with OPT, which are, on average, 66.7% and 78.7%, respectively.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.32152_figures/2610.32152_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

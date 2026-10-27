@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2610.32788",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cs.LG",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Generalization properties of the token perceptron: the role of embedding and vocabulary",
+  "authors": "Dario Bocchi, Matteo Negri, Flavio Nicoletti, Francesco D'Amico",
+  "abstract": "Large language models are trained to predict tokens from a finite vocabulary, each represented by a vector in a $d$-dimensional embedding space. Therefore, token prediction is a classification problem whose classes have a geometry determined by the embedding. We study how this geometry affects learning in a minimal solvable model: a linear predictor that maps a sequence of $N$ embedded tokens to a $d$-dimensional output through one $d\\times d$ matrix per position, trained in the teacher--student setting. We call this the \\textit{token perceptron}. We compute its generalization error with the replica method, taking $N\\to\\infty$ at fixed number of examples per position $α=P/N$ and keeping $d$ and the vocabulary size $D$ finite. As a first reference case, we consider continuous embeddings on the sphere, which isolate the role of the embedding dimension. The natural load is then $α/d$, and for $d>1$ a normalized label fixes the direction of the teacher output, so the problem becomes a noiseless regression: the teacher is recovered exactly above $α_{\\rm rec}=d^2/(d-1)$, and spherical cross-entropy reaches this threshold at large inverse temperature. In the same setting the storage capacity of random associations scales as $d^2$ for margins $O(1/\\sqrt{d})$. We then turn to vocabulary embeddings, where a label only identifies the Voronoi cell of the teacher output, so that each example imposes inequalities rather than equations, as in the classical perceptron. We compute the Bayes-optimal error for a given embedding matrix through an approximate spectral closure and show that the optimal learner first resolves the directions in which the vocabulary has the largest variance, even when the teacher is isotropic.",
+  "url": "http://arxiv.org/abs/2610.32788v1",
+  "pdf": "https://arxiv.org/pdf/2610.32788v1",
+  "type": "theory",
+  "summary": "This paper applies statistical physics tools, like the replica method, to analyze the generalization limits of token prediction in LLMs. It contrasts continuous embedding learning with the more constrained regime imposed by discrete vocabularies. The work provides theoretical insights into how embedding geometry dictates the fundamental learning capacity of modern language models.",
+  "main_problem": "The paper investigates how the geometric structure of token embeddings and the discrete nature of vocabulary affect the generalization capabilities of large language models (LLMs) when viewed as a classification problem.",
+  "main_result": "The analysis establishes distinct theoretical thresholds and learning dynamics for continuous versus discrete (vocabulary) embeddings, showing that the optimal learner prioritizes resolving directions with high variance in the vocabulary space.",
+  "method": "The study employs advanced techniques from statistical physics, notably the replica method and saddle-point calculations, to derive the generalization error and storage capacity in the thermodynamic limit.",
+  "model_or_system": "The core model is the 'token perceptron,' a minimal solvable teacher-student learning system. It compares continuous inputs (like spherical embeddings) to discrete inputs drawn from a finite vocabulary $Z$.",
+  "key_observables": "Generalization error ($\\epsilon_g$), storage capacity ($\\alpha_c$), and the student-teacher overlap ($r$).",
+  "important_parameters": "Embedding dimension ($d$), vocabulary size ($D$), dataset load ($\\alpha = P/N$), and the replica symmetry breaking parameters.",
+  "main_assumptions": "The analysis relies heavily on the replica method, the replica symmetric (RS) ansatz, and approximations like the large-$d$ limit for tractability.",
+  "figures_summary": "Figure 1 schematically compares the learning process for continuous embeddings (on $S^{d-1}$) versus discrete vocabulary embeddings (using Voronoi cell identification).",
+  "paper_structure": "The paper first establishes the continuous embedding case, deriving the exact recovery threshold. It then transitions to the vocabulary case, analyzing the constraints imposed by the discrete embedding geometry using spectral closure techniques.",
+  "why_interesting": "While focused on ML, the use of replica methods and capacity calculations mirrors techniques used in spin-glass models and disordered systems, providing a theoretical framework for understanding pattern retrieval in complex, geometrically constrained systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.32788_figures/2610.32788_fig1.jpg",
+      "caption": "Figure 2. Using the rescaled load, the generalization error ϵg curves converges for large embeding dimension. We compare analytical predictions (solid lines) to numerical results (dots) for the generalization error ϵg of the spherical cross-entropy loss with ˜λ = λ/d = 1 versus the rescaled load ˜α for different values of the embedding dimensions d.",
+      "page": 9
+    },
+    {
+      "image": "2610.32788_figures/2610.32788_fig2.jpg",
+      "caption": "Figure 3. Spherical cross-entropy learning curves at infinite eλ. Generalization error ϵg versus eα = P/(Nd) for different embedding dimensions, obtained by minimizing cross-entropy at finite λ and then taking eλ →∞. Vertical dashed lines mark the exact-recovery thresholds eαrec = d/(d −1) for d > 1, Eq. (30). The black dashed curve shows the d →∞limit, with threshold eαrec = 1.",
+      "page": 11
+    },
+    {
+      "image": "2610.32788_figures/2610.32788_fig3.jpg",
+      "caption": "Figure 4. For d > 1, generalization error decreases as ˜λ increases and eventually reaches zero for ˜λ →∞for ˜α > d d−1 = ˜αrec(d). Generalization error ϵg versus eλ = λ/d at eα = 0.5 (left) and eα = 5 (right). At low load, all curves retain a positive error. At high load, cross-entropy recovers the teacher for every d > 1, differently from the d = 1 case where error stays finite.",
+      "page": 11
+    },
+    {
+      "image": "2610.32788_figures/2610.32788_fig4.jpg",
+      "caption": "Figure 5. Memorization capacity of random associations. (Left) Critical load per degree of freedom αc/d2 for standard alignment, Eq. (35). The curve shows the Gardner prediction in Eq. (35). Markers show simulations at d = 1, 2, 3, 4 with N = 1000. (Right) Critical load per degree of freedom for vector alignment, Eq. (38). Theoretical curves for d = 2, 3, 4, 8, 16, 64 (continuous lines) and the d →∞limit of eq. (39) (dashed curve) are shown together with numerical simulations for d = 2, 3, 4 of finite systems of size N = 1000.",
+      "page": 13
+    },
+    {
+      "image": "2610.32788_figures/2610.32788_fig5.jpg",
+      "caption": "Figure 6. Learning curves of generalization error for vocabulary classification task. We compare the approximate Bayes-optimal analytical learning curves derived with the spectral anisotropic replica computation with real students trained minimizing cross-entropy loss without constraints on weights norm. The two minimization procedures are different in principle, but the fact that they are close imply that cross-entropy is able to find a solution with ϵg close to the optimal, similarly to [23, 41]. Both results are explicitly dependent on the extracted vocabulary Z, and therefore we generate 16 different random spherical vocabularies for each d, D couple and we obtain prediction and...",
+      "page": 17
+    }
+  ],
+  "figure": "2610.32788_figures/2610.32788_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
