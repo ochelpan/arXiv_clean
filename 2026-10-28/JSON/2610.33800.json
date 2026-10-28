@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.33800",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Block Encodings of Vibrational Hamiltonians",
+  "authors": "Shashank G. Mehendale, Ignacio Loaiza, Shreyas Malpathak, Stepan Fomichev, Danial Motlagh, Artur F. Izmaylov",
+  "abstract": "Simulation of molecular vibrations is emerging as a promising application of quantum computing in quantum chemistry. In this work, we develop new strategies for block-encoding the second-quantized $n$-mode representation of the vibrational Hamiltonian, whose algebraic structure closely parallels that of the second-quantized electronic Hamiltonian. We derive linear-combination-of-unitaries (LCU) representations of this Hamiltonian based on Pauli decomposition and tensor hypercontraction (THC) and construct efficient circuits for the corresponding block encodings. We also extend the Block-Invariant Symmetry Shift (BLISS) technique to vibrational Hamiltonians, yielding a lower LCU 1-norm and, consequently, a lower overall circuit cost. For the molecules considered here, BLISS-THC reduces the Toffoli cost of quantum phase estimation by more than two orders of magnitude relative to existing block-encoding approaches. In comparison with recent Trotter-based methods, it shows up to a ninefold reduction in the T-gate count, with the relative savings tending to increase with system size. Asymptotically, and up to polylogarithmic factors, both the Pauli and THC LCUs trade additional ancillas for a quadratic improvement in scaling with the number of modes, while THC provides an additional quadratic improvement in scaling with the number of modals. These results highlight the importance of Hamiltonian factorizations and Toffoli-qubit tradeoffs for reducing the computational cost of quantum simulations of molecular vibrations.",
+  "url": "http://arxiv.org/abs/2610.33800v1",
+  "pdf": "https://arxiv.org/pdf/2610.33800v1",
+  "type": "theory",
+  "summary": "This paper introduces novel, highly efficient block-encoding strategies for simulating molecular vibrations on quantum computers. By combining Tensor Hypercontraction (THC) with the Block-Invariant Symmetry Shift (BLISS) technique, the authors drastically reduce the required quantum circuit resources. These improvements demonstrate a path toward scaling quantum simulations of complex molecular systems to larger sizes.",
+  "main_problem": "Developing highly efficient quantum circuit encoding strategies for simulating the second-quantized vibrational Hamiltonian of molecules.",
+  "main_result": "The proposed BLISS-THC method significantly reduces the circuit cost, achieving reductions of $>100$ times in Toffoli count and up to ninefold reduction in T-gate count compared to existing methods.",
+  "method": "The authors derive Linear-Combination-of-Unitaries (LCU) representations using Tensor Hypercontraction (THC) and apply the Block-Invariant Symmetry Shift (BLISS) technique to minimize the LCU 1-norm.",
+  "model_or_system": "The system is molecular vibrations, modeled by the second-quantized $n$-mode representation of the vibrational Hamiltonian, which is derived from the Potential Energy Surface (PES) expansion.",
+  "key_observables": "Circuit cost, LCU 1-norm ($\\lambda_{LCU}$), Toffoli gate count, and T-gate count for Quantum Phase Estimation (QPE).",
+  "important_parameters": "Number of modes and modals; the scaling improvement is shown to be quadratic with respect to the number of modes and an additional quadratic improvement with the number of modals.",
+  "main_assumptions": "The analysis assumes the average THC rank scales linearly with the number of modals, and the framework is applied to the single excitation per mode subspace (hard-core bosons).",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper details the theoretical background of the Hamiltonian, introduces new LCU representations and the BLISS technique, derives resource estimates, and presents numerical results comparing the new method against Trotter-based and existing block-encoding approaches.",
+  "why_interesting": "This work directly addresses the resource scaling bottleneck in quantum simulation of molecular dynamics by providing advanced Hamiltonian factorizations and encoding techniques, which is crucial for realizing quantum chemistry simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.33800_figures/2610.33800_fig1.jpg",
+      "caption": "Figure 1. Ground-state energy error versus tensor approximation error calculated using the Frobenius norm for the Triangular, Pauli, and THC LCUs, shown from left to right. The top and bottom rows correspond to CH4 (9 modes) and C2H4 (12 modes), respectively. Both Hamiltonians include terms up to two-mode coupling and use 5 modals per mode.",
+      "page": 12
+    },
+    {
+      "image": "2610.33800_figures/2610.33800_fig2.jpg",
+      "caption": "Figure 2. Comparison of LCU 1-norms across seven two-mode-coupling PAH Hamiltonians. The main panel shows the 1-norms for the Triangular, Pauli, and THC LCUs, with the BLISS technique applied to further reduce the 1-norms for the Pauli and THC methods. Linear fits versus the number of modes are overlaid as guides to the observed scaling; the fitted slopes are reported in the legend. The inset shows the ratios of the Triangular LCU 1-norm to the Pauli, BLISS-Pauli, THC, and BLISS-THC 1-norms.",
+      "page": 13
+    },
+    {
+      "image": "2610.33800_figures/2610.33800_fig3.jpg",
+      "caption": "Figure 3. Toffoli costs (left) and logical qubit costs (right) for QPE ground-state energy estimation of seven second-quantized, two-mode-coupling PAH Hamiltonians with a target QPE accuracy of 1 cm−1. Methods labeled “BLISS” use BLISS to reduce the LCU 1-norm. Because BLISS has a negligible effect on the logical qubit cost, separate BLISS qubit bars are omitted. A small x-axis offset between different methods was used for visual clarity. The vertical ranges on the left show the Toffoli–qubit tradeoffs available through QROM for the Pauli and THC methods. The upper endpoint of each range corresponds to dirty- ancilla-assisted Select-Copy QROM [52], while the lower endpoint corresponds to...",
+      "page": 14
+    },
+    {
+      "image": "2610.33800_figures/2610.33800_fig4.jpg",
+      "caption": "Figure 4. Comparison of quantum resources required to estimate vibrational energies via QPE to an accuracy of 10 cm−1",
+      "page": 16
+    },
+    {
+      "image": "2610.33800_figures/2610.33800_fig5.jpg",
+      "caption": "Figure 5. Quantum circuit detailing the PREP operation for block-encoding a second-quantized vibrational Hamiltonian expressed as a Pauli LCU. The first register from the top is used to create a master index that acts as an address to load all the necessary indices. The next four qubits are used to load mode-coupling level flags and their alternate values. The θ and alt(θ) qubits store the primary and alternate coefficient-sign bits used in alias sampling. The six registers of size Ωare used to load tensor indices and their alternate values. Ω= ⌈log2 M⌉+ 2⌈log2 N⌉+ 1 accommodates a single mode index, two modal indices, and a Boolean flag denoting modal index equality, which is needed in the...",
+      "page": 23
+    }
+  ],
+  "figure": "2610.33800_figures/2610.33800_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

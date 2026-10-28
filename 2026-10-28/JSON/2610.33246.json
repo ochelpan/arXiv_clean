@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.33246",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Trial-space co-design for quantum simulation on noisy hardware",
+  "authors": "Bo peng, Vibin Abraham, Himadri Pathak",
+  "abstract": "Quantum simulations on noisy hardware are often designed as if the machine were ideal, with device limitations considered only after the basis and measurement plan have been chosen. We instead use information about the physical problem and the device at an earlier stage, to decide which states and evolution times should form a compact simulation basis. Because the target problem remains unchanged, the method adapts only the representation used to solve it. Tests on many-body and molecular models show that this approach can reveal useful directions that ordinary time evolution misses, while also exposing an important limitation: some of these directions can become too similar to estimate reliably. Realistic device data further show that hardware response can change the preferred states and evolution times before execution. Across seven acquisition days, a four-qubit experiment shows a median 54\\% reduction in projected-energy error from problem-informed time choices relative to uniform sampling under matched hardware conditions. These results provide a proof of principle for simulation-basis design as a practical interface between quantum algorithms and the hardware that executes them.",
+  "url": "http://arxiv.org/abs/2610.33246v1",
+  "pdf": "https://arxiv.org/pdf/2610.33246v1",
+  "type": "both",
+  "summary": "This paper introduces 'trial-space co-design,' a novel methodology for quantum simulation on noisy hardware. It integrates knowledge of the target physics (e.g., Hubbard model dynamics) and the specific device limitations into the basis construction process. The technique successfully guides the simulation toward physically relevant states, achieving substantial error reductions over standard methods, thereby offering a practical interface between theory and hardware.",
+  "main_problem": "Developing a quantum simulation technique for noisy hardware that incorporates physical problem knowledge and device limitations early in the design process, termed 'trial-space co-design.'",
+  "main_result": "The co-design approach significantly reduces projected-energy error (up to 200-fold in one test) compared to standard methods by guiding the simulation basis toward physically relevant, yet hardware-implementable, directions.",
+  "method": "The method constructs a compact simulation basis by iteratively selecting states guided by a structured, state-dependent response operator derived from the physical problem, alongside constraints from the actual quantum hardware.",
+  "model_or_system": "The work is tested on general quantum simulations, including the Hubbard model (six-site periodic) and the transverse-field Ising model (TFIM). The hardware tests use a four-site TFIM on a superconducting quantum processor.",
+  "key_observables": "Projected-energy error, Missing Fraction ($\\epsilon_{span}$), and the contrast $\\Delta_d$ (ratio of task-specific to control-specific error).",
+  "important_parameters": "Hubbard coupling ratio ($U/t=16$), coherence times ($T_1, T_2$), and the structured response strength ($\\mu$).",
+  "main_assumptions": "The method assumes that the useful information can be extracted from the reproducible structure of the response or platform information, and that the gain is limited by numerical distinguishability.",
+  "figures_summary": "Figures illustrate the workflow integrating structured response and platform information to build a co-designed trial space, and compare the performance of local-response versus closed-time evolution for the Hubbard model.",
+  "paper_structure": "The paper first introduces the co-design principle, applies it theoretically to the Hubbard model showing massive error reduction, and then validates the concept through extensive, multi-day experiments on a real superconducting quantum processor using the TFIM.",
+  "why_interesting": "It provides a concrete, actionable framework for bridging the gap between complex theoretical quantum simulations (like those for strongly correlated materials) and the inherent noise and connectivity constraints of near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.33246_figures/2610.33246_fig1.jpg",
+      "caption": "FIG. 1. Trial-space co-design uses structured response and platform information for noisy projected quantum simulations. From left to right, the target Hamiltonian, initial state, and an accessible structured response define a response- shaped candidate orbit. Closed evolution changes phases while preserving component weights, whereas the response can also reweight those components and expose target-relevant directions. The jump/no-jump record illustrates one monitored-response implementation of this candidate-generation step. Candidates are then screened separately for task relevance and operational support. Here B is the current trial space and r(z | B) measures the missing target...",
+      "page": 3
+    },
+    {
+      "image": "2610.33246_figures/2610.33246_fig2.jpg",
+      "caption": "FIG. 2. Local charge response reshapes the Hubbard trial space. The six-site, half-filled model has U/t = 16. Candidates use Eq. (2) with Rloc from Eq. (4) and require no target eigensystem. a, Coefficients of the lowest-energy projected states at matched trial-space size m = 16. Horizontal position gives candidate time, vertical position gives |cj|, and teal ticks mark the available time grid. Crosses and plus signs distinguish response strengths µ = 1 and 2. The common t = 0 state is independent of µ. The projected energies are −0.9239 for closed evolution and −1.0597 for local response, compared with exact energy −1.0604. The nonorthogonal coordinates satisfy c†Sc = 1, so |cj|2 are not...",
+      "page": 5
+    },
+    {
+      "image": "2610.33246_figures/2610.33246_fig3.jpg",
+      "caption": "FIG. 3. System-dependent response designs extend the trial-space construction across physical problems. The top row shows the TFIM at h/J = 0.5, 1.0, 1.5, and the bottom row shows N2 at R = 1.2, 2.0, 3.0 Å. a,d, Magnitudes of the Ritz coefficients in the selected coordinates, with c†Sc = 1. b,e, Target weight missing from successive prefixes of the selected trial space. c,f, Corresponding projected-energy error in units of J for TFIM and Hartree for N2. The target is the lowest input-supported eigenstate; for stretched N2 at R = 3.0 Å, this is eigenstate index three rather than the absolute ground state. All calculations use m = 12. TFIM candidates use Eq. (5), whereas N2 uses the...",
+      "page": 6
+    },
+    {
+      "image": "2610.33246_figures/2610.33246_fig4.jpg",
+      "caption": "Figure 3 shows how the selected coordinates build the trial spaces. For TFIM, the preferred response strength and time window change substantially across the three field regimes, reflecting the different local excitations that control the low-energy physics. Despite these different choices, the selected m = 12 spaces reach fidelities be- tween 0.9972 and 0.99986 and small projected-energy er- rors across all three cases. Matched closed-evolution con- trols show that the response-informed construction pro-",
+      "page": 6
+    },
+    {
+      "image": "2610.33246_figures/2610.33246_fig5.jpg",
+      "caption": "FIG. 4. Platform-aware trial-space construction and measured four-qubit accuracy. a, Physical paths used during the seven analyzed acquisition days. Orange marks the path used on Day 1 and teal the path used on Days 2–7. Labels inside the circles are physical-qubit indices, numbers above the links are median (CZ)-error percentages, and numbers below the circles are median readout-error percentages. b, Modeled response support and coherence exposure across the candidate-time dictionary. c, Coefficients of the six-coordinate problem-informed trial space. d,e, Missing target weight and projected-energy error for the exact-matrix reference, uniform-time control, and problem-informed policy....",
+      "page": 8
+    }
+  ],
+  "figure": "2610.33246_figures/2610.33246_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

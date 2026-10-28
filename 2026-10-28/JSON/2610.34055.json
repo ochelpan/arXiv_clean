@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.34055",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum neuroplastic learning for time-series processing",
+  "authors": "Mostafizur Rahaman Laskar",
+  "abstract": "Quantum machine learning uses quantum states and dynamics to represent and process data. In quantum reservoir computing, the physical system is typically fixed and a classical readout is trained. Inspired by the formation, strengthening and pruning of synapses during biological learning, we propose quantum neuroplastic learning (QNL), which reorganizes the couplings among the qubits of a quantum reservoir, much as experience rewires connections among neurons. Eligibility traces guide local edits to couplings, fields, gate angles and evolution time, and an edit is retained when a statistical bound on its improvement exceeds a complexity cost. We evaluate QNL under restarting and online monitored protocols on short- and long-term memory, nonlinear autoregressive processing and forecasting, and channel equalization tasks. In simulation, QNL enhances memory capacity, develops long-term recall and sustains adaptation across multiple tasks, with the largest benefit for tasks that require extended memory. On the IBM superconducting processor \\texttt{ibm\\_fez}, with six seven-qubit reservoirs running in parallel on 42 qubits (1.28 million shots in total), configurations learned in simulation and frozen before execution reduced the channel-equalization symbol error rate from 9.7\\% to 2.2\\% and achieved a lower error rate than a matched-budget tuned baseline.",
+  "url": "http://arxiv.org/abs/2610.34055v1",
+  "pdf": "https://arxiv.org/pdf/2610.34055v1",
+  "type": "both",
+  "summary": "This paper introduces Quantum Neuroplastic Learning (QNL), a method that allows the physical structure of a quantum reservoir to adapt its couplings during training, mimicking biological synaptic plasticity. By implementing this structural learning, QNL significantly boosts the memory capacity and performance of quantum machine learning models. The results demonstrate superior error rate reductions on superconducting quantum hardware compared to fixed-parameter approaches.",
+  "main_problem": "The paper addresses the need for a learning principle in quantum reservoir computing (QRC) that allows the physical structure of the quantum reservoir to adapt dynamically, mimicking biological neuroplasticity.",
+  "main_result": "Quantum Neuroplastic Learning (QNL) significantly enhances the memory capacity and long-term recall of the reservoir, achieving substantial error rate reductions (e.g., 9.7% to 2.2% in channel equalization) on real quantum hardware compared to fixed configurations.",
+  "method": "QNL proposes reorganizing the reservoir couplings ($\theta$) using local, discrete edits guided by eligibility traces, admitting an edit only if its predicted loss reduction exceeds a complexity cost.",
+  "model_or_system": "The system is a quantum reservoir computer, modeled using superconducting qubits (e.g., on the ibm fez processor) governed by various Hamiltonians (e.g., transverse-field Ising or circuit ansatz). The process involves training the reservoir structure ($\theta$) alongside the classical readout weights ($w$).",
+  "key_observables": "Memory capacity ($C_\tau$), symbol error rate (SER) for channel equalization, and Test Root-Mean-Square Error (RMSE) for time-series forecasting.",
+  "important_parameters": "Complexity cost ($\\alpha$), measurement budget ($N_{shots}$), Signal-to-Noise Ratio (SNR), and the specific quantum hardware platform (ibm fez).",
+  "main_assumptions": "The readout weights ($w$) are refitted for every evaluated configuration, and the cost is paid in additional evaluations during the learning process.",
+  "figures_summary": "Figures illustrate the biological analogy of plasticity (synaptic tags) and its mapping to the physical configuration updates ($\theta$) in QNL. Other figures compare capacity and error rates across different learning protocols and hardware platforms.",
+  "paper_structure": "The paper introduces QNL as a structural plasticity mechanism for QRC, details the update rules using eligibility traces, and then evaluates this method across multiple tasks (memory, forecasting, equalization) using both simulation and actual superconducting quantum hardware.",
+  "why_interesting": "The integration of structural plasticity concepts, borrowed from neuroscience, into quantum machine learning models provides a powerful, biologically inspired mechanism for improving quantum computation robustness and adaptability.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.34055_figures/2610.34055_fig1.jpg",
+      "caption": "Fig. 1 Quantum neuroplastic learning. a, Experience forms, strengthens and eliminates connections in neural circuits; synaptic tags and eligibility traces mark candidate changes, and later signals decide which are consolidated. b, QNL applies this principle to the physical configuration θ of a quantum reservoir. In each block, K local edits (adding, removing or reweighting a coupler, or changing a local field, gate angle or evolution time) are nominated with probabilities set by eligibility traces, and the current and candidate configurations are evaluated on the same Nstr fresh input streams. The best edit is admitted when a nominal lower confidence bound (LCB) on its paired loss reduction...",
+      "page": 2
+    },
+    {
+      "image": "2610.34055_figures/2610.34055_fig2.jpg",
+      "caption": "Fig. 2 Plastic reorganization of monitored erase-and-write reservoirs. Five-qubit reservoirs with the restarting protocol (RSP) and online protocols with intermediate (OLP-int, θ = π/4) and weak (OLP-weak, θ = 0.9π/2) dephasing monitoring, before (purple, dashed, open symbols) and after QNL (teal, solid, filled symbols). Separate learning runs from the same base reservoir optimize short-term memory (STM; τ = 0–20), long-term memory (LTM; τ = 15–30) and NARMA processing (n = 2–10). a,b, STM capacity Cτ and summed STM capacity. c,d, Capacity profile of the reservoirs trained for LTM (grey band, objective) and LTM capacity P30 τ=15 Cτ. e,f, NARMA capacity Cn and its mean over n = 2–10....",
+      "page": 5
+    },
+    {
+      "image": "2610.34055_figures/2610.34055_fig3.jpg",
+      "caption": "Fig. 3 Adaptation continues across task switches. Sequences of 16 tasks drawn from four STM windows and three NARMA orders without immediate repetition; after each switch, QNL continues from the configuration reached on the previous task. a, Paired plasticity Πk (Supplementary Eq. (S5)); the dashed line (Πk = 0) corresponds to a fixed reservoir. Lines and bands, mean ± s.d. over n = 6 sequences. b, Capacity after the switch, 1 −L, averaged over the 16 tasks of each sequence, for fixed reservoirs (purple) and QNL (teal). Boxes, mean ± s.d.; bars, 95% Student-t confidence interval.",
+      "page": 6
+    },
+    {
+      "image": "2610.34055_figures/2610.34055_fig4.jpg",
+      "caption": "Fig. 4 QNL on top of NISQRC (Hamiltonian ansatz). Channel equalization with the (2 + 4)-qubit NISQRC of ref. [49]: random instances from the authors’ parameter distribution (NISQRC; labelled ‘Hu et al.’ in the legend), the same distribution tuned by random search with the same number of candidates (tuned), and NISQRC after QNL (+QNL). Both learning methods use S = 105-shot features at 20 dB. a, Testing error rate versus signal-to-noise ratio for exact probabilities (S →∞, solid) and S = 105 (dashed); dash-dotted, logistic regression on the received signal u(n). b,c, Error rate at 20 dB for S →∞and S = 105. Boxes, mean ± s.d. over n = 8 realizations; bars, approximate 95% confidence interval.",
+      "page": 6
+    },
+    {
+      "image": "2610.34055_figures/2610.34055_fig5.jpg",
+      "caption": "Fig. 5 Frozen configurations on an IBM superconducting processor. Channel equalization at 20 dB (100 messages of 20 symbols) on ibm fez for the circuit-ansatz NISQRC instance of ref. [49] (NISQRC), the same ansatz tuned by random search with 160 candidates (NISQRC, tuned) and the QNL configuration (NISQRC+QNL), all fixed in the same noise- aware simulator before execution. Each circuit runs six disjoint seven-qubit chains, and the method-to-chain assignment rotates between circuits so that every method uses every chain for 16–17 messages. a, Testing error rate versus shots per circuit S; error bars, s.d. over 20 random train/test partitions; dash-dotted, logistic regression on u(n). b,...",
+      "page": 7
+    }
+  ],
+  "figure": "2610.34055_figures/2610.34055_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

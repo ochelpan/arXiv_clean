@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.34003",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Resource-Optimal Screening for Two-Tier Quantum System Characterization",
+  "authors": "Yi-Ting Chen, Aniket S. Dalvi, Nils Quetschlich",
+  "abstract": "Quantum processing units (QPUs) require frequent benchmarking to track hardware drift, yet standard protocols such as randomized benchmarking are resource-intensive and compete with application workloads for scarce QPU time. We present a resource-optimal screening strategy that combines a two-tier, risk-based testing architecture with optimal experiment design: a lightweight screening probe runs regularly and triggers expensive full characterization only when statistically significant change is detected, while the probe itself is designed to maximize detection sensitivity under explicit resource constraints. For an exponential fidelity model, we derive closed-form optimal circuit sizes and introduce an effective gate count that renders the analysis hardware-independent. We instantiate the strategy for two applications. For gate-quality verification, we show that optimally designed screening probes outperform randomized benchmarking with optimal experimental design (OED) by more than 4$\\times$ in detection rate at equal resource cost. For compiler benchmarking, we formalize compiler comparison as a paired hypothesis test and derive the optimal circuit size for distinguishing compilation strategies. Despite their different observables and test statistics, both applications yield structurally the same closed-form expression for the optimal probe circuit size as a function of gate fidelity, illustrating the generality of the framework. Numerical and hardware experiments on QPUs (Rigetti Ankaa-3, IQM Garnet, IQM Emerald) confirm the theoretical predictions, with observed optimal circuit sizes matching the derived values across all devices.",
+  "url": "http://arxiv.org/abs/2610.34003v1",
+  "pdf": "https://arxiv.org/pdf/2610.34003v1",
+  "type": "theory",
+  "summary": "This paper proposes a resource-optimal, two-tier benchmarking strategy for monitoring hardware drift in QPUs. By using a lightweight screening probe that only triggers expensive full tests when necessary, it drastically reduces resource overhead compared to standard methods. The framework is theoretically general, providing concrete, hardware-independent guidelines for reliable quantum hardware characterization.",
+  "main_problem": "Developing a resource-optimal method to characterize hardware drift in Quantum Processing Units (QPUs) without consuming excessive QPU time.",
+  "main_result": "The proposed two-tier screening strategy significantly outperforms standard benchmarking protocols, achieving a detection rate improvement of over 4x for gate-quality verification at the same resource cost.",
+  "method": "The authors combine a risk-based, two-tier testing architecture with optimal experiment design (OED) principles to design lightweight screening probes.",
+  "model_or_system": "The system is a QPU undergoing hardware drift, modeled using an exponential fidelity decay assumption. The framework is generalized using an Effective Gate Count (EGC) to make the analysis hardware-independent.",
+  "key_observables": "Detection rate, fidelity, success probability ($\bar{Y}$), and the derived optimal circuit size.",
+  "important_parameters": "Drift rate ($\\sigma$), detection threshold ($\\delta$), and resource constraints (time/cost).",
+  "main_assumptions": "The analysis assumes an exponential fidelity model for deriving closed-form optimal circuit sizes.",
+  "figures_summary": "Figure 1(a) illustrates the two-tier screening architecture (lightweight probe triggering full characterization), and Figure 1(b) shows the resource saving efficiency ($\\eta$) versus the drift rate ($\\sigma$).",
+  "paper_structure": "The paper introduces the two-tier architecture, derives the optimal probe design by maximizing Fisher information under resource constraints, and applies this framework to two specific applications: gate-quality verification and compiler benchmarking.",
+  "why_interesting": "This work provides a rigorous, resource-aware framework for diagnosing hardware degradation in NISQ devices, which is crucial for any theoretical work involving open quantum systems or error characterization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.34003_figures/2610.34003_fig1.jpg",
+      "caption": "Fig. 1: Overview of the two-tier characterization strategy. (a) Two-tier screening architecture. A lightweight OED-optimized Tier-2 screening probe runs at every benchmarking interval. Only when statistically significant drift is detected does it trigger the expensive Tier-1 full characterization, with screening cost much lower than full characterization. (b) Saving η(σ) of the sense-and-characterize strategy relative to always-characterize, as a function of drift rate σ.",
+      "page": 2
+    },
+    {
+      "image": "2610.34003_figures/2610.34003_fig2.jpg",
+      "caption": "Fig. 2: Expected t-value of the screening probe (Eq. (8)) as a function of Clifford sequence length Ng, for base fidelities λ from 0.95 to 0.99. Peak positions match the closed-form optimum of Eq. (9). Parameters: Ns = 100 shots, Nc = 1 circuit, drift ∆λ = 10−3 (representative of daily drift on current hardware), SPAM fidelity a = 1 (to isolate the effect of λ), and depolarization floor c = 0.25 for the two-qubit case.",
+      "page": 5
+    },
+    {
+      "image": "2610.34003_figures/2610.34003_fig3.jpg",
+      "caption": "Fig. 3: Detection performance of the optimally designed screening probe. (a) Accuracy of the optimal parameters and random parameters in numerical simulation. The experiment assumes λQC = 0.98 and aQC = 0.99. The evaluation of the accuracy assumes the spec is a normal distribution with mean 0.98 and std 10−3. The critical value is tα = 2. The cost budget is set to both time and monetary cost. The gray area around the gray curve is the std over 40 sets of random parameters. (b) Balanced accuracy of the screening probe on QPUs as a function of effective gate count. Each data point is the average over 10 Clifford sequence experiments, each run with 2000 shots. (c) True positive detection rate...",
+      "page": 6
+    },
+    {
+      "image": "2610.34003_figures/2610.34003_fig4.jpg",
+      "caption": "Fig. 4: Absolute fidelity difference between circuits compiled by different compilers as a function of effective gate count. Each data point is the numerically simulated fidelity difference of a single circuit. The solid line is the fit of Eq. (12).",
+      "page": 9
+    },
+    {
+      "image": "2610.34003_figures/2610.34003_fig5.jpg",
+      "caption": "Fig. 5: Absolute Hellinger fidelity difference between Tket- compiled and Qiskit-compiled circuits from QPU experiments. The dashed line indicates twice the standard error estimated by noise simulation. The largest differences concentrate in the 40–160 effective gate range, validating the optimal circuit-size model.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.34003_figures/2610.34003_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

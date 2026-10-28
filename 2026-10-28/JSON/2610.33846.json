@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.33846",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "When is early stopping beneficial under label noise? A phase diagram for kernel gradient flow",
+  "authors": "Fabrizio Boncoraglio, Lenka Zdeborová",
+  "abstract": "Early stopping is commonly used to prevent fitting label noise from degrading generalization. Does this mean that, when a positive fraction of the training labels is intrinsically unpredictable, the best test error must occur before interpolation? Experiments on a CIFAR10 classification task with randomly labeled examples motivate the opposite possibility: although fixed-feature and shallow models exhibit late-time deterioration of the test error, the need for early stopping essentially disappears in larger, deeper convolutional networks even after the random labels have all been classified correctly. We determine when late-time deterioration disappears entirely in a solvable setting. For kernel gradient flow on a synthetic noisy classification task, we derive sharp high-dimensional learning curves and obtain a phase diagram controlled by the balance between the linear kernel component that learns the shared relation between inputs and labels and the higher-order components that enable fitting the label noise. In one regime, generalization is optimized at finite time and early stopping is necessary. In another, generalization improves until interpolation, but the endpoint is suboptimal across kernels. At the boundary, the interpolating endpoint attains the lowest generalization error across the considered kernel family and all training times. Thus, even with extensive irreducible label noise, interpolation can outperform early stopping. The neural-network experiments leave open how learned representations acquire an analogous favorable geometry.",
+  "url": "http://arxiv.org/abs/2610.33846v1",
+  "pdf": "https://arxiv.org/pdf/2610.33846v1",
+  "type": "both",
+  "summary": "This paper analyzes when early stopping is necessary when training on noisy data, combining theoretical derivations for kernel gradient flow with empirical CNN experiments. It finds that deep networks can maintain good generalization even after fitting noise, and theory provides a phase diagram showing conditions where full interpolation can outperform early stopping.",
+  "main_problem": "The paper investigates the conditions under which early stopping is beneficial for generalization when training models on data corrupted by intrinsic label noise.",
+  "main_result": "Theoretically, it derives a phase diagram showing that interpolation can outperform early stopping. Experimentally, it shows that for deep CNNs, test error deterioration is often absent, suggesting early stopping is unnecessary.",
+  "method": "The authors use a combination of theoretical analysis on kernel gradient flow in the high-dimensional limit and extensive empirical experiments on CIFAR10 using various CNN architectures.",
+  "model_or_system": "The theoretical model uses kernel gradient flow on a synthetic noisy classification task (RAF model). Experimentally, it uses CNNs trained on CIFAR10 data where a fraction of labels are randomly corrupted.",
+  "key_observables": "Test error (generalization error), memorization error, and the optimal training time.",
+  "important_parameters": "The fraction of random labels ($\\epsilon$), the kernel geometry parameter ($\\gamma$), and the model depth/capacity.",
+  "main_assumptions": "The theoretical analysis relies on the high-dimensional limit ($n, d \to \\infty$ with $n/d \to \\alpha$).",
+  "figures_summary": "Figures show generalization vs. memorization error curves for different architectures, and the theoretical analysis yields a phase diagram controlling the optimal stopping time.",
+  "paper_structure": "The paper first establishes the problem using empirical CNN experiments, then develops a rigorous theoretical framework using kernel gradient flow to derive a phase diagram, culminating in a discussion of the implications for deep learning generalization.",
+  "why_interesting": "The analysis of generalization dynamics in the presence of noise, using tools from statistical physics (kernel flow), provides insights into the stability and optimal training regimes of complex, overparameterized neural networks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.33846_figures/2610.33846_fig1.jpg",
+      "caption": "Figure 1: Generalization along the path to memorization. Test error on 2000 cats and dogs (x-axes) versus classification error on the randomly labelled automobiles (y-axes) taken from the CIFAR10 dataset. The fixed training set has n = 7000 images: 2800 cats, 2800 dogs with their respective labels, and 1400 automobiles with independent random labels. Panels vary the overparametrization ratio κ = P/n ≈1, 10, 100, where P counts optimized parameters. Curves average about 30 completed seeds; a centered arithmetic average of up to seven neighboring recorded times is applied to both coordinates for display, preserving the initial and final values. These parametric curves trace the two errors as...",
+      "page": 2
+    },
+    {
+      "image": "2610.33846_figures/2610.33846_fig2.jpg",
+      "caption": "Figure 2: The generalization cost of training to interpolation. For γ = π/5, δ0 = 0, and λ = 0, colors show 100∆stop from Eq. (16) in percentage points, comparing interpolation with optimal stopping for the same kernel. The gray region has exactly zero stopping benefit. The dashed line, εc ≃0.2633 (for γ = π/5), separates it from a region with a finite optimal stopping time, independently of α. Contours mark benefits of 0.1, 0.2, 0.3, and 0.4 percentage points.",
+      "page": 8
+    },
+    {
+      "image": "2610.33846_figures/2610.33846_fig3.jpg",
+      "caption": "Figure 3: Test error at interpolation and optimal stopping. We fix α = 1.5, ε = 0.1, and λ = 0 and evaluate Eqs. (9) and (10). The solid curve is Egen(∞; γ); the dashed and dash-dotted curves are Egen(τes; γ) for δ0 = 0 and 1. For γ ≤γc(ε), Eq. (15) gives tes = ∞, so all three curves coincide. The star marks the unique global optimum at γc(ε)/π ≃0.2550 from Eq. (14). For larger angles, finite optimal stopping remains strictly above this value; the gap is more visible for δ0 = 1. The inset zooms on the increasing excess Egen(τes; γ) −Egen(∞; γc(ε)) for the dashed blue curve at δ0 = 0, to highlight that the minimum is truly attained only at γ = γc(ε).",
+      "page": 9
+    },
+    {
+      "image": "2610.33846_figures/2610.33846_fig4.jpg",
+      "caption": "Figure 4: Kernel geometry controls the gradient-flow trajectory. We fix α = 1.5, ε = 0.1, δ0 = 1, and λ = 0. Arrows indicate increasing time; the cross marks test-error minima and the blue dot marks convergence. The blue trajectory benefits from early stopping. Red and green improve until interpolation, but only the critical red kernel attains the test-error bound in Eq. (18) (vertical line).",
+      "page": 10
+    },
+    {
+      "image": "2610.33846_figures/2610.33846_fig5.jpg",
+      "caption": "Figure 5: Gradient flow and ridge follow different parametric paths. We fix α = 5, ε = 0.1, and δ0 = 0, with γ/π = 0.40, γ = γc(ε) (γc(ε)/π ≃0.2550), and γ/π = 0.22. For each kernel, we plot the test-error difference between unregularized kernel gradient flow and converged kernel ridge regression at the same memorization error. Negative values favor gradient flow. Squares mark the shared t →0+ and λ →∞classification limits; the circle marks the shared interpolating endpoint. Curves are numerical evaluations of Eqs. (9)–(11); we use the ERM ridge result of Farné et al. (2026). More details in Appendix E.",
+      "page": 11
+    }
+  ],
+  "figure": "2610.33846_figures/2610.33846_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

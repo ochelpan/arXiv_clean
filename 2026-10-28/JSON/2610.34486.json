@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.34486",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QQLink: A Declarative Framework for Multi-QPU Quantum Workflow Orchestration",
+  "authors": "Vicente Leyton Ortega, Narasinga Rao Miniskar, Thomas Naughton, Travis S. Humble",
+  "abstract": "Distributed quantum protocols require measurement outcomes produced at one node to control operations at another. We present QQLink, a programming and orchestration layer that expresses these dependencies in a single program, using workflow nodes, deferred measurement references, and declared entanglement, and derives the cross-node coordination automatically. Its planner constructs a provably acyclic dependency graph in time linear in the total size of the instructions' qubit footprints. The same programs execute through simulator backends or are lowered to dynamic circuits on partitioned quantum hardware. We evaluate seven protocol workflows. Exhaustive feedforward-branch tests on the simulator runtime path, over tomographically complete input sets, yield output-state infidelities of at most $5\\times10^{-12}$ and no incorrect classical outputs, and replaying every plan in random topological orders leaves each final state unchanged. Separate executor processes run the plans with delayed messages, with the joint quantum state held by a centralized simulation service. Every run with the full plan is correct, and removing required cross-node dependencies causes protocol failures. The lowered circuits match hand-written implementations of the same construction in two-qubit gate and conditional-block counts. Runs on two IBM Heron processors, each partitioned into virtual QPUs, demonstrate same-chip execution in two sessions a week apart. The runs also show large variation between sessions and losses beyond what calibration-derived noise models predict. Coherence-sensitive checks do not establish coherent Toffoli operation or preservation of the intended repetition-code superposition. These results support QQLink's workflow semantics on the tested execution paths and identify limits of the current hardware realization; execution across physically networked QPUs remains future work.",
+  "url": "http://arxiv.org/abs/2610.34486v1",
+  "pdf": "https://arxiv.org/pdf/2610.34486v1",
+  "type": "both",
+  "summary": "This paper introduces QQLink, a declarative framework designed to orchestrate complex quantum workflows spanning multiple Quantum Processing Units (QPUs). It solves the challenge of coordinating operations dependent on measurement results across different nodes by building a dependency graph. The framework is validated through rigorous simulation and hardware testing, establishing a robust abstraction for future distributed quantum computing architectures.",
+  "main_problem": "The paper addresses the challenge of programming and orchestrating complex quantum protocols that require conditional operations based on measurement outcomes across multiple, distributed Quantum Processing Units (QPUs).",
+  "main_result": "QQLink provides a declarative, backend-agnostic framework that successfully models and plans these multi-QPU workflows, demonstrating correctness on simulators and matching gate counts on partitioned hardware.",
+  "method": "The authors developed QQLink, a programming layer using workflow nodes and deferred measurement references to automatically derive a provably acyclic dependency graph for cross-node coordination.",
+  "model_or_system": "The system involves distributed quantum computation across multiple QPUs, which can be simulated or mapped onto partitioned hardware like IBM Heron processors. The framework abstracts the workflow logic from the physical execution substrate.",
+  "key_observables": "Output-state infidelities (at most $5\times10^{-12}$ on simulation), successful execution of complex protocols (e.g., Grover, Toffoli), and matching gate/conditional-block counts against hand-written circuits.",
+  "important_parameters": "The planning time scales linearly with the total size of the instructions' qubit footprints; hardware noise and coherence limits are noted as key physical constraints.",
+  "main_assumptions": "The framework assumes the program is written deterministically in one thread, and while it models distributed protocols, the hardware demonstrations are limited to same-chip, virtual-QPU execution.",
+  "figures_summary": "Figures illustrate the physical paths for cross-node conditional operations, showing both quantum (q-channel) and classical (c-channel) communication paths between virtual QPUs.",
+  "paper_structure": "The paper introduces the need for workflow semantics in multi-QPU quantum computing, presents the QQLink framework with its core abstractions (MeasureRef, wait_for), details the planning and execution mechanisms, and validates the framework through simulation and hardware testing across various complex quantum algorithms.",
+  "why_interesting": "It provides a high-level, declarative programming model for quantum computation that explicitly handles the non-trivial classical feedforward required in distributed quantum algorithms, which is crucial for scaling beyond single-chip devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.34486_figures/2610.34486_fig1.jpg",
+      "caption": "Fig. 1. Same-chip execution of a cross-node conditional. One QPU (qubit lattice) hosts two virtual QPUs, VQPU-1 (Alice) and VQPU-2 (Bob), as disjoint sectors (dashed). Two kinds of link cross the sector boundary. The q-channel (purple) is the quantum path between 𝑞𝐴and 𝑞𝐵that realizes a Bell pair or a cross-virtual CNOT; on a partitioned chip it is a native two-qubit gate routed through intermediate qubits, which is the co-located path of the channel-selection policy. Dark qubits are allocated; the three between 𝑞𝐴and 𝑞𝐵are claimed by routing and belong to neither sector. The c-channel (orange) is classical feedforward, in which the outcome 𝑚of a measurement on Alice’s sector conditions a...",
+      "page": 3
+    },
+    {
+      "image": "2610.34486_figures/2610.34486_fig2.jpg",
+      "caption": "Fig. 2. The two-layer model on the running example (Script 1). Orange carries classical information, cyan carries quantum information, and purple marks an entanglement link. The top panel shows the application layer with the two WorkflowCircuits, Alice (𝑞0, 𝑞1) and Bob (𝑞0), drawn on the qubits they will occupy (grey qubits are unallocated) and listed as the backend-free instruction streams the developer wrote. The EntanglementLink ℓties Alice’s 𝑞1 to Bob’s 𝑞0. Alice’s measurements return MeasureRef handles 𝑚0, 𝑚1 (meters); Bob’s two if_then conditionals reference them across the circuit boundary and are drawn as the 𝑋and 𝑍corrections applied to Bob’s 𝑞0, the c-channel of Fig. 1. No backend...",
+      "page": 6
+    },
+    {
+      "image": "2610.34486_figures/2610.34486_fig3.jpg",
+      "caption": "Fig. 3. Three-qubit register teleportation (Script 2) as authored and as planned. (a) The multi-QPU circuit on the nine allocated qubits, with Alice’s data qubits 𝑎0–𝑎2 and Bell halves 𝑎3–𝑎5 (VQPU-1), Bob’s 𝑏0–𝑏2 (VQPU-2). The three Bell pairs (blue CNOTs) are the only gates that cross the sector boundary; each of Alice’s measurement outcomes drives one correction on Bob through a classical wire (orange). The corrections are drawn in the order the planner emits them. (b) The execution plan as a DAG produced by Algorithm 1. Alice’s single unit produces six labeled outcomes; each of Bob’s six units depends on it through a cross-circuit edge (orange, dashed) from pass 2. The footprint analysis...",
+      "page": 9
+    },
+    {
+      "image": "2610.34486_figures/2610.34486_fig4.jpg",
+      "caption": "Fig. 4. Software architecture of QQLink. Bands are Python packages. The application layer records backend- free instruction streams; the platform layer plans them into an ExecutionPlan; the WorkflowExecutor binds each unit to a runtime backend and drives the pre-existing message-driven runtime and its four subsystems; all execution reaches hardware or simulators through one Backend contract. Black arrows are the path a program takes from authoring to execution; grey arrows are delegation inside the runtime (the four subsystems join one bus into the Backend contract). Dashed arrows mark the compatibility bridge between the legacy API and the workflow path; dashed leaders on the right mark...",
+      "page": 15
+    },
+    {
+      "image": "2610.34486_figures/2610.34486_fig5.jpg",
+      "caption": "Fig. 5. Planning resources for 𝑛-qubit teleportation. Execution units grow as 2𝑛+1 and cross-circuit edges as 2𝑛; both are exact over the sweep, so plan size is linear in the number of teleported qubits, while the critical path is three units throughout.",
+      "page": 20
+    }
+  ],
+  "figure": "2610.34486_figures/2610.34486_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

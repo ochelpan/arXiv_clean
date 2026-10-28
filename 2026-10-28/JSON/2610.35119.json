@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.35119",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Multinomial shot sampling for quantum circuits",
+  "authors": "Ijaz Ahamed Mohammad, Daniel Nagaj, Martin Plesch",
+  "abstract": "In classical simulations of quantum circuits, sampling shots (measurement outcomes) from the final state is a routine but costly step. In widely used software, including Qiskit and PennyLane, its cost grows linearly with the number of shots $S$, even when the simulation has already produced the full state vector, because every shot is generated and processed individually. If only the measurement counts are needed, this is unnecessary. The counts can be drawn directly from a multinomial distribution, decomposed into a sequence of conditional binomial draws, each performed in expected constant time by the BTPE algorithm. The sampling cost is then independent of $S$. We describe an implementation of this approach, which also shortens the computation for states whose probability is concentrated on a few outcomes, and compare it with Qiskit's sampling primitives for up to 20 qubits and $10^6$ shots. Our implementation is faster in every configuration tested, by a factor that grows with the number of shots and exceeds $10^3$ in most configurations at $S = 10^6$, and its samples are statistically indistinguishable from those of the reference implementations.",
+  "url": "http://arxiv.org/abs/2610.35119v1",
+  "pdf": "https://arxiv.org/pdf/2610.35119v1",
+  "type": "theory",
+  "summary": "This paper addresses the computational bottleneck in simulating quantum circuits by proposing a count-level multinomial sampling method. Instead of simulating each shot individually, it directly samples the final count vector from the multinomial distribution. This approach drastically reduces computational cost, making large-scale classical simulations feasible by decoupling the runtime from the total number of shots.",
+  "main_problem": "Classical simulation of quantum circuits requires sampling measurement outcomes (shots) from the final state's probability distribution, a process that is computationally expensive.",
+  "main_result": "A novel count-level multinomial sampling technique, independent of the number of shots ($S$), is significantly faster than standard shot-by-shot sampling methods, achieving speedups exceeding $10^3$ for large $S$.",
+  "method": "The authors propose drawing the measurement count vector directly from a multinomial distribution using a sequence of conditional binomial draws, optimized by grouping rare outcomes.",
+  "model_or_system": "The work focuses on simulating quantum circuits classically, where the final state defines a probability distribution over $D=2^n$ possible measurement outcomes.",
+  "key_observables": "Measurement counts ($\\mathbf{k}$), L1 distance, Pearson $\\chi^2$ test statistics.",
+  "important_parameters": "Number of shots ($S$), number of qubits ($n$), number of outcomes ($D=2^n$).",
+  "main_assumptions": "The comparison assumes that the primary bottleneck in existing software is the per-shot processing of bitstrings, not the underlying sampling math.",
+  "figures_summary": "Figures illustrate the BTPE algorithm for binomial sampling and compare the runtimes of full quantum circuit samplers versus direct multinomial draws.",
+  "paper_structure": "The paper first identifies the scaling bottleneck of shot-by-shot sampling, then introduces the count-level multinomial approach via conditional binomial draws, details optimizations like rare-outcome bunching, and concludes with extensive benchmarking against state-of-the-art quantum software libraries.",
+  "why_interesting": "While focused on quantum computation, the core contribution is a highly efficient, mathematically rigorous numerical technique for sampling from high-dimensional probability distributions, which has broad applicability in simulating complex physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.35119_figures/2610.35119_fig1.jpg",
+      "caption": "Figure 1. Schematic illustration of the BTPE algorithm. The grey bars represent the exact binomial probabilities, while the blue line represents the proposal envelope. In panel (a), the envelope is divided into one central triangular region, one parallelogram on each side, and two outer exponential tails; the colours and labels distinguish these five regions. In panel (b), a candidate point (k, y) is sampled under the envelope. At the selected value of k, the candidate is accepted if y ≤P(X = k) and rejected otherwise.",
+      "page": 6
+    },
+    {
+      "image": "2610.35119_figures/2610.35119_fig2.jpg",
+      "caption": "Figure 2. Wall-clock runtime as a function of the shot budget S at n = 10 qubits, with one panel per state type (Random depth-10, Uniform, GHZ, W). Each marker is the mean over 50 independent repeats for the count-level methods (NumPy multinomial and the three SeqBin backends) and 10 repeats for the Qiskit primitives; error bars show one standard deviation and are visible mainly for the fastest methods on the sparse states. SeqBin–Numba was run once on a small input before timing began, and each Qiskit sampler was instantiated and run twice before the first timed call, so the reported numbers exclude one-time compilation and transpilation costs.",
+      "page": 11
+    },
+    {
+      "image": "2610.35119_figures/2610.35119_fig3.jpg",
+      "caption": "Figure 3. Wall-clock runtime as a function of the number of qubits n at fixed shot budget S = 106. The count-level methods (NumPy multinomial and the three SeqBin backends) are timed over 50 repeats and the Qiskit primitives over 10, with two warmup calls each. Qiskit StatevectorSampler is omitted for n ≥16 at this shot budget, due to memory issues.",
+      "page": 12
+    },
+    {
+      "image": "2610.35119_figures/2610.35119_fig4.jpg",
+      "caption": "Figure 4. Runtime at n = 10, S = 105, separated by state type (Random depth-10, Uniform, GHZ, W). Bars are the mean over 50 repeats for NumPy multinomial and the three SeqBin backends, and 10 repeats for the Qiskit primitives; whiskers show one standard deviation.",
+      "page": 13
+    },
+    {
+      "image": "2610.35119_figures/2610.35119_fig5.jpg",
+      "caption": "Figure 5. How far each sampler lands from the exact distribution, measured by L1 of Eq. (11), against the number of qubits n, for the random depth-10 state. The three bands are three shot budgets: S = 104 (top), 105, and 106 (bottom). Lower is closer to exact. All six methods coincide in every band, so no method is closer to or further from the exact distribution than any other; the bands are separated by the shot budget rather than by the method. Markers follow the convention of the earlier figures: open circles (NumPy multinomial and SeqBin–SciPy), triangles (SeqBin–Python and SeqBin–Numba), squares (Qiskit). Each value is averaged over 50 independent draws, 10 for the Qiskit primitives.",
+      "page": 15
+    }
+  ],
+  "figure": "2610.35119_figures/2610.35119_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

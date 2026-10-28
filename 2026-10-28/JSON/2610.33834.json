@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.33834",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Initial-State Preparation for Strongly Correlated Molecules from Matrix Product States: Benchmarking and Environment-Aware Divide-and-Conquer Compilation",
+  "authors": "Haiqi Liu, Longfei Chang, Zhendong Li, Wei-Hai Fang",
+  "abstract": "Compiling classically optimized matrix product states (MPSs) into quantum circuits is a promising route to initial-state preparation for strongly correlated molecules, but the accuracy, gate cost, and classical scalability of existing MPS compilation methods have not been systematically assessed. Here, we benchmark representative analytical, variational, and hybrid MPS compilation methods for strongly correlated systems including hydrogen chains and iron-sulfur clusters. We compare state infidelity, CNOT gate count, classical runtime, and parallel scalability across different system sizes and bond dimensions. We also introduce a divide-and-conquer environment-aware compilation algorithm (DCE), which optimizes each local isometry approximation according to its contribution to the prepared-state fidelity. The results reveal complementary operating regimes: direct variational compilation methods are gate-efficient for some smaller molecular systems with $O(10)$ qubits and $O(10)$ bond dimensions or moderate accuracy targets with infidelity of order $10^{-1}$, whereas divide-and-conquer methods scale more favorably for larger systems and relatively higher bond dimensions of $O(10\\text{-}10^2)$, particularly when target infidelities below $10^{-1}$ are required. Within the latter family, environment-aware optimization improves accuracy over unitary-distance-based compilation while retaining task-level parallelism. For the FeMo-cofactor (FeMoco), we find the DCE algorithm together with the MPS obtained in the entanglement-minimized orbitals (EMOs) provides a resource-efficient route to initial-state preparation. Our results provide practical guidance for selecting and developing MPS compilation methods for strongly correlated molecular simulations.",
+  "url": "http://arxiv.org/abs/2610.33834v1",
+  "pdf": "https://arxiv.org/pdf/2610.33834v1",
+  "type": "theory",
+  "summary": "This paper develops and benchmarks advanced methods for compiling Matrix Product States (MPS) into quantum circuits to prepare initial states for strongly correlated molecules. The authors introduce a novel Divide-and-Conquer environment-aware algorithm (DCE) that offers superior scalability and accuracy compared to existing methods. This provides practical guidelines for using quantum computation to simulate complex chemical systems like iron-sulfur clusters.",
+  "main_problem": "The paper addresses the challenge of preparing the initial quantum state for simulating strongly correlated molecules using quantum circuits.",
+  "main_result": "The authors introduce a Divide-and-Conquer environment-aware compilation algorithm (DCE) that provides a resource-efficient and accurate route for state preparation, particularly for large systems.",
+  "method": "The core method involves benchmarking and developing advanced MPS compilation techniques, including variational and hybrid divide-and-conquer approaches, to map classical MPS representations onto quantum circuits.",
+  "model_or_system": "The focus is on strongly correlated molecules, exemplified by hydrogen chains and iron-sulfur clusters (FeMo-cofactor). The state is represented using Matrix Product States (MPS).",
+  "key_observables": "State infidelity, CNOT gate count, classical runtime, and parallel scalability.",
+  "important_parameters": "System sizes up to $O(10^2)$ qubits, bond dimensions ($\\chi$) up to $O(10^2)$, and target infidelities below $10^{-1}$ or $10^{-2}$.",
+  "main_assumptions": "The primary approximation is the use of MPS to represent the quantum state, and the compilation methods involve approximating exact unitary mappings with two-qubit gate circuits.",
+  "figures_summary": "Figure 1 illustrates MPS decomposition methods: exact decomposition into sequential multi-qubit gates, approximate decomposition into staircase layers of two-qubit gates, and the decomposition of multi-qubit gates into two-qubit gates.",
+  "paper_structure": "The paper systematically benchmarks existing MPS compilation methods (analytical, variational, hybrid) and introduces the novel Divide-and-Conquer environment-aware compilation (DCE) algorithm, demonstrating its superior scaling for complex molecular systems.",
+  "why_interesting": "This work directly bridges the gap between advanced tensor network methods (MPS) used in condensed matter theory and the practical requirements of near-term quantum hardware for simulating complex quantum materials.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.33834_figures/2610.33834_fig1.jpg",
+      "caption": "Figure 1: MPS decomposition methods. (a) Exact decomposition of a right-canonical MPS into sequential multi-qubit gates. (b) Approximate decomposition of an MPS into staircase layers of two-qubit gates. (c) Approximate decomposition of each multi-qubit gate obtained in (a) into multiple two-qubit gates.",
+      "page": 4
+    },
+    {
+      "image": "2610.33834_figures/2610.33834_fig2.jpg",
+      "caption": "Figure 2: Schematic illustrations of approximate MPS decomposition methods based on multilayer staircase circuits. (a) MPD algorithm. At each layer, the residual MPS is truncated to bond dimension χ = 2 and exactly decomposed into a staircase layer of nearest-neighbor two-qubit gates. (b) Layerwise construction in the MPD+EV and MPD+Full algorithms. After a new MPD layer is appended, the accumulated circuit is optimized according to the corresponding algorithm. (c) Gatewise optimization in MPD+EV. The environment tensor ˆFm of gate ˆUm is contracted, and its singular value decomposition determines the updated unitary ˆU ′ m. (d) Full-circuit optimization in MPD+Full, where all variational...",
+      "page": 5
+    },
+    {
+      "image": "2610.33834_figures/2610.33834_fig3.jpg",
+      "caption": "Figure 3: Schematic illustrations of two divide-and-conquer methods for approximate MPS decom- position based on multi-qubit gate decomposition. The multi-qubit gates obtained from the exact MPS decomposition in Figure 1(a) are independently decomposed into two-qubit circuits as shown in Figure 1(c), allowing the decompositions to be performed in parallel. (a) In the DCD algorithm, each multi-qubit gate is approximated by minimizing the squared Frobenius distance between the target gate and the corresponding two-qubit circuit. (b) In the DCE algorithm, each multi-qubit gate is approximated by minimizing the state infidelity after replacing only the target gate with its two-qubit circuit...",
+      "page": 7
+    },
+    {
+      "image": "2610.33834_figures/2610.33834_fig4.jpg",
+      "caption": "Figure 4: Benchmark comparison of representative MPS decomposition methods for the H10, H20, and H50 chains, corresponding to N = 20, 40, and 100 qubits, respectively, at an interatomic distance of 1.0 ˚A and a fixed bond dimension of χmax = 32. The upper panels show the infidelity as a function of the number of layers L, while the lower panels show the same results as a function of the average number of CNOT gates per qubit, ¯NCNOT = NCNOT/N.",
+      "page": 10
+    },
+    {
+      "image": "2610.33834_figures/2610.33834_fig5.jpg",
+      "caption": "Figure 5: Benchmark comparison of representative MPS decomposition methods for the H50 chain at an interatomic distance of 1.0 ˚A with bond dimensions χmax = 8, 16, and 32. The upper panels show the infidelity as a function of the number of layers L, while the lower panels show the same results as a function of the average number of CNOT gates per qubit, ¯NCNOT = NCNOT/N.",
+      "page": 11
+    }
+  ],
+  "figure": "2610.33834_figures/2610.33834_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

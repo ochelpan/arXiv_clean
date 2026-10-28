@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.35126",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Comparing classical and quantum QUBO solvers: optimality, trajectory diagnostics, and limits of solver selection",
+  "authors": "Gerhard Hellstern, Cedric Schacht, Martin Zaefferer",
+  "abstract": "Comparing solvers for quadratic unconstrained binary optimization (QUBO) requires distinguishing solution quality from optimality certification. We compare classical, tensor-network, and fixed-schedule quantum approaches on 180 benchmark instances from ten families with 14-48 variables, supplemented by harder synthetic instances with known optimal solutions, extending to 128 variables. On the main benchmark, a general-purpose branch-and-cut solver matches all reference energies and certifies 176 instances within a 600,s cap. When the known optima are moved to randomly chosen bitstrings, the search comparison changes: at n = 48 the branch-and-cut solver finds only four of ten optima and certifies none, whereas parallel tempering reaches every optimum in every tested run at a 60,s budget. Structural and trajectory diagnostics explain aspects of tensor-network performance. A treewidth bound ranks trajectory bond-dimension demand at Spearman $ρ= 0.78$ in sample and $0.73$ out of sample, but provides only a coarse runtime estimate. Controlled experiments identify excited-state trapping during warm-started density-matrix renormalization group (DMRG) sweeps and demonstrate mitigation by restarting the variational search. These diagnostics do not yield a validated solver-selection rule. The tested linear-ramp quantum approximate optimization algorithm (LR-QAOA) runs offer no solution-quality improvement over the classical comparators. In the separate Wishart scaling study, on the harder setting, none of the classical methods tested reaches the optimum at the sampled sizes from n = 72 onward within the tested budgets. While this does not provide evidence for quantum advantage, it identifies a domain for further investigation.",
+  "url": "http://arxiv.org/abs/2610.35126v1",
+  "pdf": "https://arxiv.org/pdf/2610.35126v1",
+  "type": "theory",
+  "summary": "This paper rigorously compares classical, tensor-network, and quantum solvers for solving QUBO optimization problems. By testing on numerous benchmark instances, the authors assess solution quality and the predictive power of various structural and quantum diagnostics. The key takeaway is that while the comparison is extensive, it highlights that current diagnostics do not provide a definitive rule for guaranteeing quantum advantage over classical methods.",
+  "main_problem": "The paper compares various classical, tensor-network, and quantum solvers for solving Quadratic Unconstrained Binary Optimization (QUBO) problems.",
+  "main_result": "The study establishes a strong classical baseline, showing that while advanced diagnostics exist, they do not yield a validated, universal rule for selecting the best solver, and tested quantum algorithms showed no improvement over classical methods.",
+  "method": "The authors benchmarked solvers (Branch-and-cut, PT, DMRG, LR-QAOA) on 180 QUBO instances, analyzing solution quality, optimality certification, and computational cost.",
+  "model_or_system": "The system is defined by QUBO instances, which can be mapped to an Ising Hamiltonian ($H_Z$). Benchmarks cover various families like ferro chains, grids, and Wishart ensembles, ranging up to 128 variables.",
+  "key_observables": "Solution quality vs. optimality certification, runtime, bond-dimension demand (for TN), and entanglement measures.",
+  "important_parameters": "System size ($n=14$ to $128$), computational budget, and the interpolation parameter $s$ for quantum annealing.",
+  "main_assumptions": "The comparison relies on fitting runtime models from a calibration set to predict out-of-sample performance, and the diagnostics (like treewidth) are shown to be insufficient on their own.",
+  "figures_summary": "Figures likely compare predicted vs. measured computational costs for different solvers (SA, BF, TN) and show the performance of diagnostic indicators.",
+  "paper_structure": "The paper first defines the QUBO problem and compares solvers on a main benchmark set, then analyzes structural diagnostics (like treewidth) and quantum diagnostics (like entanglement), concluding with a discussion on the limits of solver selection.",
+  "why_interesting": "It provides a rigorous, comparative study of modern optimization techniques, directly relevant to understanding the practical feasibility and scaling limits of quantum computation for hard combinatorial problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.35126_figures/2610.35126_fig1.jpg",
+      "caption": "Fig. 1 Trajectory diagnostics on an example instance (Erd˝os–R´enyi Max-Cut, n = 16, m = 63): entanglement barrier Smax vN (s) (left axis) and magic barrier M2(s) (right axis) along H(s), Eq. (2), computed with the Tier-1 protocol (χ = 16 entanglement sweep, χ = 4 magic sweep, nine-point grid). Both vanish at the endpoints of this example. The two barriers peak at different points: Smax vN = 1.69 bits at s = 0.875, Mmax 2 = 5.63 bits at s = 0.5 (χmax 99 = 8).",
+      "page": 14
+    },
+    {
+      "image": "2610.35126_figures/2610.35126_fig2.jpg",
+      "caption": "Fig. 2 Exact branch-and-cut wall-clock vs. instance size, all 180 benchmark instances. Horizontal positions use actual variable counts with fixed family offsets between −0.54 and 0.54 for visibility. Filled points have solver optimal status. Open red circles (all at n = 48, Wishart and one SK) matched the reference energy but hit the 600 s cap before certifying. The Wishart references are planted optima while the SK reference is best-known. Almost everything is solved in under 0.1 s, only the dense frustrated families climb, and the Wishart instances at n = 48 strain certification. Campaigns B and E separately test search on gauged Wishart instances. Timings reflect the solver...",
+      "page": 17
+    },
+    {
+      "image": "2610.35126_figures/2610.35126_fig3.jpg",
+      "caption": "Fig. 3 Structure predicts tensor-network cost: Tier-0 treewidth bound vs. realised bond-dimension demand χmax 99 along H(s) (calibration set, 78 distinct matrices with verified optima; Spearman ρ = 0.78, and ρ = 0.73 on the out-of-sample set at n = 32–48). This regression is the TN leg of the cost model, Eq. (D5).",
+      "page": 21
+    },
+    {
+      "image": "2610.35126_figures/2610.35126_fig4.jpg",
+      "caption": "Fig. 4 The two trajectory resources are only moderately correlated: magic barrier M max 2 vs. entan- glement barrier Smax vN over the 78 distinct calibration matrices (Spearman ρ = 0.29 here, 0.45 out of sample). This supports treating them as complementary, rather than interchangeable, diagnostics of the computed states.",
+      "page": 22
+    },
+    {
+      "image": "2610.35126_figures/2610.35126_fig5.jpg",
+      "caption": "Fig. 5 The TN failure mode is dynamical, not capacity-theoretic. Left: DMRG energy traces of six anneals on the worst 3-regular instance against the exact levels Ek(s). Trapped runs follow an excited branch to s = 1. Right: distance to the nearest certified optimum by outcome. Trapped runs end extensively far (median dmin H /n = 0.40), successful runs at dH = 0.",
+      "page": 23
+    }
+  ],
+  "figure": "2610.35126_figures/2610.35126_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2610.35300",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-Classical Framework for the Joint Optimization of Bidirectional EV Charging and Trip Assignment",
+  "authors": "Mustafa Musab, Sebastian Schmitt, Markus Wappler, Jörg Lässig, Daniel Müssig",
+  "abstract": "The integration of bidirectional (V2G) charging allows electric vehicle (EV) fleets to operate as distributed energy assets. However, the joint optimization of charging schedules and trip assignments is NP-hard. Moreover, bidirectional power flows create non-monotonic state-of-charge (SoC) dynamics that weaken standard dual-based Benders cuts. We propose a hybrid quantum-classical Benders decomposition framework. To overcome the qubit overhead associated with encoding feasibility cuts, we introduce logic-based conflict cuts, which require near-zero auxiliary qubits. Furthermore, we develop a sparse recursive SoC formulation that reduces the constraint-matrix density by a factor of T/3 in the horizon length T. We demonstrate that our framework recovers MILP-optimal solutions on benchmark instances with a low auxiliary-qubit budget, and, as a minimal proof of concept, we execute a small instance end-to-end on IBM quantum hardware.",
+  "url": "http://arxiv.org/abs/2610.35300v1",
+  "pdf": "https://arxiv.org/pdf/2610.35300v1",
+  "type": "both",
+  "summary": "This paper tackles the complex, NP-hard problem of optimizing EV charging and trip assignments using a novel hybrid quantum-classical approach. It introduces a Benders decomposition framework that uses logic-based cuts to minimize quantum overhead, alongside a recursive formulation to drastically reduce model size. The method is validated by achieving near-optimal solutions on benchmarks and running a small test case on actual quantum hardware.",
+  "main_problem": "The paper addresses the NP-hard joint optimization problem of scheduling electric vehicle (EV) trips and managing bidirectional charging (V2G).",
+  "main_result": "A hybrid quantum-classical Benders decomposition framework is proposed that successfully recovers MILP-optimal solutions on benchmarks using a low auxiliary-qubit budget.",
+  "method": "It combines Benders decomposition, using logic-based conflict cuts to reduce qubit overhead, with a sparse recursive SoC formulation for model size reduction.",
+  "model_or_system": "The system models EV fleets with bidirectional charging capabilities, formulated as a Mixed-Integer Linear Program (MILP) solved via a Master Problem (MP) on a quantum computer (QAOA) and a classical Subproblem (SP).",
+  "key_observables": "Benders convergence gap, relative gap compared to direct MILP, and the number of non-zero elements (nnz) in the constraint matrix.",
+  "important_parameters": "Time horizon (T), number of EVs (N_EV), maximum charging power (l_max), and the required final State-of-Charge (E_min^n).",
+  "main_assumptions": "The logic-based cut method assumes the grid power capacity is sufficient, and the quantum encoding relies on mapping constraints to penalty terms in the Hamiltonian.",
+  "figures_summary": "Figures illustrate the process of extracting Irreducible Inconsistent Subsystems (IIS) to generate combinatorial conflict cuts, and tables compare the performance of the hybrid Benders approach against direct MILP solvers.",
+  "paper_structure": "The paper introduces the NP-hard problem, details the hybrid Benders decomposition, presents the novel sparse recursive SoC formulation, and validates the framework by showing convergence on benchmark instances and executing a proof-of-concept on IBM quantum hardware.",
+  "why_interesting": "While the application is in optimization/power systems, the core methodology involves mapping complex combinatorial constraints into quantum circuits (QAOA) and developing quantum-aware decomposition techniques, which is relevant to quantum algorithm development for constrained optimization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.35300_figures/2610.35300_fig1.jpg",
+      "caption": "Fig. 1: IIS extraction illustrated on a toy instance with three trips 𝐴, 𝐵, and 𝐶assigned to a single EV. Panel (a) shows the candidate assignment ¯𝐴𝑛= {𝐴, 𝐵, 𝐶} exhausting the battery during trip 𝐶. Panel (b) demonstrates that removing 𝐴leaves the subset {𝐵, 𝐶} infeasible, identifying 𝐴as non-essential to the conflict. Panels (c) and (d) verify that the remaining set {𝐵, 𝐶} is irreducible, as removing either element restores feasibility. The resulting minimal conflict 𝐶𝑛= {𝐵, 𝐶} generates the combinatorial cut 𝑟𝑛,𝐵+ 𝑟𝑛,𝐶≤1, strictly excluding any master assignment that allocates vehicle 𝑛a superset of {𝐵, 𝐶}. If ¯𝐴𝑛contains multiple independent conflicts, the deletion filter extracts one...",
+      "page": 9
+    },
+    {
+      "image": "2610.35300_figures/2610.35300_fig2.jpg",
+      "caption": "Fig. 2: Distribution of logic-based conflict cut sizes (left) and their associated QUBO encoding costs (right) across 50 medium instances.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.35300_figures/2610.35300_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
