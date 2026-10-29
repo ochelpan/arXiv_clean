@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.36597",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Effective Noise Thresholds for Reliable Quantum Approximation Optimisation Algorithm under Noisy Environment",
+  "authors": "Yozef Tjandra, Hendrik Santoso Sugiarto, Celine Vania Setiadi, Joanna Gracia Tan, Andriyan Bayu Suksmono",
+  "abstract": "Variational quantum algorithms are leading candidates for practical utilisation on noisy intermediate-scale quantum (NISQ) processors, but accumulating noise bounds the usefulness of circuit depths. For the quantum approximate optimisation algorithm (QAOA), this trade-off has mostly been addressed by searching for the best depth for a given device. In this work, we consider the inverse question: how much noise each depth can tolerate. Using GPU-accelerated noisy QAOA simulations for MaxCut on three graph families with 6 to 18 vertices, depths up to 10 and three noise channels, we fit the approximation ratios with a generalised logistic surface. We propose the effective noise threshold as the inflection boundary of the logistic surfaces, a noise boundary separating reliable and unreliable QAOA approximation regimes. In general, the threshold decreases as depth rises, indicating that deeper circuits demand for stricter noise requirement for reliable approximation. Its best and worst values over depth divide the noise axis into three regions: every depth remains effective, depth must be chosen with care, or no depth induces effective optimisation. Assessing on the ibm_marrakesh processor, although modelled gate errors understate factual noise, the threshold modeling remains beneficial in informing qualitative depth-dependence structure and identifying dominating noise channel in noisy QAOA.",
+  "url": "http://arxiv.org/abs/2610.36597v1",
+  "pdf": "https://arxiv.org/pdf/2610.36597v1",
+  "type": "both",
+  "summary": "This work analyzes the noise resilience of the QAOA algorithm by calculating an 'effective noise threshold' for various circuit depths. By inverting the typical analysis, the authors show that deeper circuits require significantly lower noise levels to maintain reliable performance. This provides a critical diagnostic tool for benchmarking NISQ hardware for optimization problems.",
+  "main_problem": "The paper addresses the inverse problem for QAOA: determining the maximum noise level a given circuit depth can tolerate, rather than finding the optimal depth for a fixed noise.",
+  "main_result": "The effective noise threshold, $r_\\star(p)$, generally decreases as the QAOA depth ($p$) increases, defining critical regimes for reliable quantum computation.",
+  "method": "The authors simulate noisy QAOA circuits using GPU acceleration and fit the resulting approximation ratios to a generalized logistic surface to extract the inflection point, which defines the threshold.",
+  "model_or_system": "The model uses the QAOA algorithm applied to the MaxCut problem on various graph families. Noise is incorporated via multiple channels (depolarizing, bit-flip, amplitude damping) acting on the quantum state evolution.",
+  "key_observables": "Approximation Ratio (AR), Effective Noise Threshold ($r_\\star(p)$), and the noise rate ($r$).",
+  "important_parameters": "QAOA Depth ($p \\in [1, 10]$), Noise Rate ($r$), and specific graph structures (ER, Path, Bipartite).",
+  "main_assumptions": "The model assumes the noise can be characterized by fitting the AR to a generalized logistic function; hardware results are noted to understate the true noise due to modeling limitations.",
+  "figures_summary": "Figure 1 illustrates the noisy QAOA workflow and the 3D fitting of the noise threshold using a generalized logistic surface. Other figures show representative graph instances.",
+  "paper_structure": "The paper first establishes the noisy QAOA framework, then develops the methodology by fitting the AR vs. noise rate/depth to a logistic function to extract the noise threshold. Finally, it analyzes the implications of this threshold across different depth regimes and tests the model on hardware.",
+  "why_interesting": "It provides a quantitative, depth-dependent metric ($r_\\star(p)$) for assessing the practical limits of variational quantum algorithms on noisy hardware, which is crucial for designing fault-tolerant quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.36597_figures/2610.36597_fig1.jpg",
+      "caption": "Figure 1. Overview of the noisy QAOA workflow and analysis pipeline used in this study. (a) Implementation overview of simulated QAOA under controlled noise. (a1) The generic scheme of the hybrid quantum-classical noisy QAOA: noisy state preparation is followed by p repetitions of the noisy cost and mixer layers, with the noise channel Eρ applied after each gate; measurement outcomes are used to evaluate the objective function ⟨˜HC⟩ρ which is minimised over the variational parameters (⃗γ,⃗β) using the COBYLA classical optimiser. (a2) Example decomposition of the noisy cost layer ˜UC(γk) into its constituent two-qubit entangling gates and associated noise channels, illustrated for a...",
+      "page": 2
+    },
+    {
+      "image": "2610.36597_figures/2610.36597_fig2.jpg",
+      "caption": "Figure 2. Representative graph instances used for QAOA benchmarking. Node colours indicate a sample of optimal MaxCut bipartition solution. Bold edges denote cut edges in the optimal solution, whilst grey edges are intra-partition edges. Instances of Erd˝os–Rényi random graphs with (a) 6 nodes, (b) 9 nodes, (c) 12 nodes, and (d) 18 nodes. (e) a representative of the path graph family with 6 nodes. (f) a representative of the complete balanced bipartite graph family K4,5 with 9 nodes.",
+      "page": 5
+    },
+    {
+      "image": "2610.36597_figures/2610.36597_fig3.jpg",
+      "caption": "Figure 3. QAOA approximation ratio (AR) under controlled noise for the 18-vertex complete bipartite graph K9,9, across various QAOA depths, noise rates and noise channel types. (a–c) AR as a function of noise intensity (log scale) for the amplitude damping, bit-flip and depolarising channels respectively; shown for various QAOA depths. (d–f) The corresponding AR as a function of QAOA depth, coloured by noise rate, for the same three channels. (g–i) 3D surfaces visualising the AR as a function of QAOA depth and −log(noise rate), exposing the joint dependence appearing in (a–f).",
+      "page": 6
+    },
+    {
+      "image": "2610.36597_figures/2610.36597_fig4.jpg",
+      "caption": "Figure 4. The evolution of QAOA approximation ratio (AR) with respect to circuit depth under the amplitude damping noise channel, compared across graph structure and graph order. Rows correspond to graph order (n = 6,12,18 vertices) and columns correspond to noise intensity (r = 0.01,0.05,0.1,0.5). Coloured curves show path graphs (blue), complete balanced bipartite graphs (orange) and Erd˝os–Rényi random graphs (green); error bars denote the standard deviation across independent runs.",
+      "page": 7
+    },
+    {
+      "image": "2610.36597_figures/2610.36597_fig5.jpg",
+      "caption": "Figure 5. Accuracy of the fitted generalised logistic surface measured using the mean absolute error (MAE) across graph structures, graph orders and noise channels.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.36597_figures/2610.36597_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

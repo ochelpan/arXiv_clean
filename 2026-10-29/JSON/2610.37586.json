@@ -1,0 +1,74 @@
+{
+  "arxiv_id": "2610.37586",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.soft",
+    "cond-mat.stat-mech",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "On-the-fly Estimation of Quantum-Corrected Thermodynamics in LAMMPS",
+  "authors": "Robert Ramji, Ilya Mazalov, Ricardo Buarque, Alexandria Do, Xiaoxu Ruan, Tod A. Pascal",
+  "abstract": "We present a native implementation of the Two/Three-Phase Thermodynamics (xPT, $x \\in \\{2,3\\}$) method within the LAMMPS molecular dynamics framework, termed FixXPT. xPT is an approach for obtaining absolute, quantum-corrected thermodynamics (entropy, enthalpy, free energy, heat capacity, diffusivity) from the density of states function, obtained from the velocity autocorrelation function of an equilibrium trajectory. FixXPT addresses non-trivial integration challenges, including atom reordering, compute scheduling, FFT backends, unit systems, and partitioning of atomic velocities into molecular modes. Two autocorrelators are provided: a Wiener-Khinchin FFT correlator with one cumulative window-end operation, and an in-line multi-tau correlator whose memory footprint grows only logarithmically with the window length, removing the principal scaling bottleneck for long analysis windows. The velocity history of each window is distributed across the MPI ranks, so the memory the fix adds to a node stays nearly constant as ranks are added and its cost falls with the number of GPUs. Replaying identical velocity frames through FixXPT and the stand-alone pyxPT post-processor reproduces every thermodynamic observable of well-sampled groups to within 0.1 to 0.5% across the full analysis-mode matrix; sparsely populated ionic species agree within their statistical uncertainty, and the multi-tau VACF converges monotonically to the FFT result as its buffer grows, from 0.8% to 0.1% drift across a 16-fold buffer sweep. The code is distributed as a drop-in LAMMPS package.",
+  "url": "http://arxiv.org/abs/2610.37586v1",
+  "pdf": "https://arxiv.org/pdf/2610.37586v1",
+  "type": "theory",
+  "summary": "This paper introduces FixXPT, a novel, efficient LAMMPS package for calculating quantum-corrected thermodynamic properties directly during molecular dynamics simulations. It uses the Two/Three-Phase Thermodynamics method to derive observables like entropy and free energy from the velocity autocorrelation function. The work is significant for its computational scalability and its ability to provide rigorous thermodynamic data for complex liquid systems.",
+  "main_problem": "The paper addresses the challenge of obtaining absolute, quantum-corrected thermodynamic quantities (like entropy and free energy) from molecular dynamics simulations, as these are not simple ensemble averages.",
+  "main_result": "The authors introduce FixXPT, a native LAMMPS fix, which successfully calculates these observables by analyzing the density of states derived from the velocity autocorrelation function.",
+  "method": "The core method utilizes the Two/Three-Phase Thermodynamics (xPT) approach, decomposing the density of states into gas-like, solid-like, and optionally cage components, and implementing efficient correlators (FFT and multi-tau) for on-the-fly calculation.",
+  "model_or_system": "The method is applied to condensed phases, such as supercooled water (TIP4P/2005) and Lennard-Jones systems, allowing for the study of complex liquid states and phase behavior.",
+  "key_observables": "Entropy, free energy, enthalpy, heat capacity, diffusivity, and fluidicity.",
+  "important_parameters": "The partitioning modes (1PT, 2PT, 3PT), the Gaussian bandwidth parameter ($B_g$), and the simulation temperature/density.",
+  "main_assumptions": "The method relies on decomposing the total density of states and assumes the validity of the xPT framework; specific approximations are made for the gas component (e.g., Gaussian kernel model).",
+  "figures_summary": "Figures illustrate the two-phase decomposition of the density of states for supercooled water, window-resolved self-diffusivity and fluidicity, and computational scaling tests showing the efficiency of the FixXPT implementation on both CPU and GPU architectures.",
+  "paper_structure": "The paper details the theoretical basis of xPT, presents the implementation as a LAMMPS fix (FixXPT), provides two efficient correlator implementations, and validates the method through extensive computational scaling tests on complex liquid models.",
+  "why_interesting": "While focused on classical MD, the rigorous treatment of quantum corrections to thermodynamics and the development of highly scalable, on-the-fly computational tools for calculating fundamental thermodynamic potentials is highly relevant to understanding quantum many-body dynamics in condensed matter.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.37586_figures/2610.37586_fig1.jpg",
+      "caption": "Figure 1: Two-phase decomposition of the density of states of supercooled TIP4P/2005 water at 220 K (averaged over 100 ps analysis windows of the Table 10 dataset). Left: translational channel, showing the ∼50 cm−1 O⋯O⋯O bending and ∼250 cm−1 O⋯O stretching bands; right: rotational (librational) channel. The hard-sphere gas component (dashed) is barely visible on this scale: at 220 K the fluidicity is only 𝑓≈0.035, i.e. the supercooled liquid is almost entirely solid-like in the 2PT partition.",
+      "page": 30
+    },
+    {
+      "image": "2610.37586_figures/2610.37586_fig2.jpg",
+      "caption": "Figure 2: Window-resolved (a) translational self-diffusivity and (b) fluidicity of supercooled TIP4P/2005 water at 220 K. Thin traces: one hundred consecutive 100 ps analysis windows for each of three independently seeded 10 ns trajectories; circles: 1 ns binned means; dotted line: the original-2PT reference. The window values are stationary and bracket the reference from the first window onward.",
+      "page": 30
+    },
+    {
+      "image": "2610.37586_figures/2610.37586_fig3.jpg",
+      "caption": "Figure 3: Single-node scaling of FixXPT on a 128-core Perlmutter CPU node (5184-atom SPC/E water, molecular mode, one analysis window of 𝑁𝑠= 5000; mean of two replicates, with bars spanning them). (a) Loop time versus MPI rank count for the MD alone and with the FFT or multi-tau correlator in the distributed (filled) or replicated (open) layout; the dotted line is ideal scaling of the MD from one rank. (b) Node memory, the sum over ranks of each rank’s peak resident set. The distributed layout stores one copy of the window’s history across the node and the replicated layout one copy per rank. Crosses mark 41 472 atoms on 128 ranks, a single run, where the replicated FFT run exceeds the...",
+      "page": 31
+    },
+    {
+      "image": "2610.37586_figures/2610.37586_fig4.jpg",
+      "caption": "Figure 4: GPU strong scaling of FixXPT on Perlmutter A100 nodes (one MPI rank per GPU, four GPUs per node, GPU- aware MPI, MD under -sf kk; 𝑁𝑠= 1000; mean of two replicates, with bars spanning them). (a) 256 000 Lennard-Jones argon atoms, monatomic mode. (b) 101 306 atoms of Lennard-Jones dimers, molecular mode. Loop time for the MD alone and with the CPU class (fix xpt) or xpt/kk in the distributed (filled) or replicated (open) layout.",
+      "page": 31
+    }
+  ],
+  "figure": "2610.37586_figures/2610.37586_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.36498",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "Learning Multiscale Dynamics of Nanoparticle Self-Assembly",
+  "authors": "Shuaifeng Li, Puquan Pan, Jonas Hallstrom, Nicholas Kotov, Paul Bogdan, Qian Chen, Xiaoming Mao",
+  "abstract": "Nanoparticle self-assembly offers a powerful route to programmable functional materials, but its dynamics remain difficult to understand because they arise from multiscale, many-body, and environment-dependent interactions. Liquid-phase transmission electron microscopy (LPTEM) enables real-time observation of these dynamics, yet extracting the underlying physical laws from highly stochastic trajectories remains a significant challenge. Here we develop a physics-informed, time-varying autoregressive framework that learns multiscale self-assembly dynamics directly from LPTEM videos. Continuous Eulerian fields with local density and orientational order are coarse-grained from individual video frames and evolved by a sparse, nearest-neighbor operator optimized over a constrained matrix manifold. This interpretable approach captures long-time large scale phase transitions by tracking operator volatility over time, and short-timescale local evolution and transport rules. Crucially, we extract the underlying partial differential equations, where expected symmetries naturally emerge, enabling the direct inference of fundamental coefficients. Our framework provides a robust, computationally efficient tool for discovering hidden physical mechanisms from observational data, opening a path toward the predictive design of self-assembled nanostructures.",
+  "url": "http://arxiv.org/abs/2610.36498v1",
+  "pdf": "https://arxiv.org/pdf/2610.36498v1",
+  "type": "both",
+  "summary": "This work introduces a novel physics-informed machine learning framework to decipher the complex dynamics of nanoparticle self-assembly directly from LPTEM videos. By modeling the evolution of coarse-grained fields using a time-varying autoregressive operator, the authors achieve high interpretability. This allows for the extraction of underlying partial differential equations, providing a predictive tool for designing functional nanostructures.",
+  "main_problem": "Understanding the complex, multiscale, and environment-dependent dynamics of nanoparticle self-assembly from stochastic, real-time experimental observations.",
+  "main_result": "The framework successfully learns dynamics capturing both long-time phase transitions and short-timescale local evolution, extracting underlying Partial Differential Equations (PDEs) consistent with physical symmetries.",
+  "method": "A physics-informed, time-varying autoregressive framework is developed to model the evolution of coarse-grained Eulerian fields ($\rho, Q$) using a sparse, nearest-neighbor operator optimized on a matrix manifold.",
+  "model_or_system": "The system is nanoparticle self-assembly, observed via Liquid-phase transmission electron microscopy (LPTEM). The state is modeled by coupled continuous fields: local density ($\rho$) and orientational order parameters ($Q_1, Q_2$).",
+  "key_observables": "Operator volatility (for phase transitions), cumulative propagator spectral decomposition, and extracted PDE coefficients.",
+  "important_parameters": "Time-varying operator $A_t$, regularization parameters ($\\lambda_1, \\lambda_2, \\lambda_3$), and the nearest-neighbor interaction range.",
+  "main_assumptions": "The dynamics can be linearly advanced by a time-varying operator $A_t$, and the dominant interactions are short-ranged (nearest-neighbor).",
+  "figures_summary": "Figures show raw particle positions alongside coarse-grained Eulerian fields ($\rho, Q_1, Q_2$) at various times, illustrating the structure of the learned nearest-neighbor operator $A_t$.",
+  "paper_structure": "The paper introduces the challenge of multiscale dynamics, details the TVAR framework with manifold optimization, analyzes dynamics using operator volatility and propagator decomposition, and concludes by extracting interpretable PDEs.",
+  "why_interesting": "The method provides a powerful, data-driven bridge between noisy, high-dimensional experimental trajectories and continuum field theories, which is highly relevant for modeling complex many-body dynamics in non-equilibrium systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.36498_figures/2610.36498_fig1.jpg",
+      "caption": "FIG. 1. Time-varying autoregressive modeling of nanoparticle self-assembly from LPTEM data. a From top row to bottom row, representative snapshots of the raw particle positions colored by orientation angle θ and the corresponding coarse-grained continuous Eulerian fields, ρ, Q1 and Q2, at five time points (t = 0, 56, 112, 168, and 224 s) are shown in patches. b Schematic of the nearest-neighbor interaction constraint, resulting in a block-banded operator At. c Reconstruction error as a function of time for ρ, Q1 and Q2.",
+      "page": 3
+    },
+    {
+      "image": "2610.36498_figures/2610.36498_fig2.jpg",
+      "caption": "FIG. 2. Long-timescale collective dynamics revealed by spectral analysis of the cumulative propagator. a Operator volatility ∥At+1 −At∥F as a function of time, with a peak indicated by a red arrow at around 110 seconds signifying a switch in dynamics. b Normalized singular value spectrum of the cumulative propagator Φ = QT t At, demonstrating that the long-timescale collective dynamics are dominated by only three modes. c, d Input and output spatial modes 1 through 3, displayed from top to bottom, in terms of density ρ, orientational order strength S, and phase angle ϕ.",
+      "page": 5
+    },
+    {
+      "image": "2610.36498_figures/2610.36498_fig3.jpg",
+      "caption": "FIG. 3. Spatiotemporal impulse response of the nanoparticle self-assembly system. a Spatial maps of the impulse response to a localized density perturbation at the center of the field, shown for all three fields at t = 4.0, 8.0, and 12.0 s. b Influence radius as a function of time for each field, alongside the theoretical R ∼ √",
+      "page": 6
+    },
+    {
+      "image": "2610.36498_figures/2610.36498_fig4.jpg",
+      "caption": "FIG. 4. Top three interaction patterns extracted from CP decomposition. Each row presents one rank-one com- ponent extracted by CP decomposition of the interaction ten- sor I ∈R45×N×T . a The 3 × 3 interaction stencils for all nine input-output field pairings (ρ, Q1, Q2), showing the normal- ized spatial coupling pattern for each component. b The spa- tial mode, indicating the macroscopic regions of the assembly where each interaction mechanism is most strongly active. c The temporal amplitude, showing when each mechanism is engaged during the self-assembly.",
+      "page": 7
+    },
+    {
+      "image": "2610.36498_figures/2610.36498_fig5.jpg",
+      "caption": "FIG. 5. Extraction of continuum PDE coefficients from spatial moments of the learned operators. Time- resolved PDE coefficients recovered from the spatial moments of the learned 3 × 3 evolution stencils and averaged over spa- tial patches, organized by output field (columns: ∂tρ, ∂tQ1, ∂tQ2) and coefficient type (rows: diffusion D, advection v, reaction R). Line color denotes the input field (ρ: gray, Q1: blue, Q2: red); solid and dashed lines distinguish the x and y spatial directions for D and v. a The density self-diffusion is positive and grows steadily before declining as clusters con- solidate. In the orientational order equations (∂tQ1, ∂tQ2), the self-diffusion coefficients are...",
+      "page": 9
+    }
+  ],
+  "figure": "2610.36498_figures/2610.36498_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 1,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.37552",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "hep-th"
+  ],
+  "is_primary_archive": true,
+  "title": "Meet-in-the-Middle Compilation of the $[\\mathrm{CNOT}]$ Class with Fibonacci Anyons",
+  "authors": "Matvei Fedin, Andrey Morozov",
+  "abstract": "Compilation of two-qubit Fibonacci anyon gates is complicated by leakage ($\\ell$) from the four-dimensional computational sector to the fifth state of the fusion space. We construct a GPU pipeline to find low-leakage representatives of the $[\\text{CNOT}]$ class on different subsets of the braid group.   We exhaustively explore the full positive five-generator alphabet up to $L=21$ with minimal leakage $\\ell\\sim10^{-3}$ and error $d_{[\\text{CNOT}]}\\sim 10^{-8}$ on it. To reach larger lengths, the search space is successively narrowed to three-generator, boundary-$σ_3$, and palindromic braids, and by considering only the Garside left normal form. These optimizations allow us to reach $L=72$. For $L=69$, a braid with $\\ell\\sim10^{-10}$ and $d_{[\\text{CNOT}]}\\sim 10^{-10}$ is found.   In addition to directly enumerating optimal braids, we proved that $\\ell\\in\\mathbb Z[\\varphi]$, and any nonzero leakage obeys an exponential lower bound in the braid length, and obtained the limit laws $F_{3,\\infty}(\\ell)=\\ell^2$ and $F_{5,\\infty}(\\ell)=\\ell^4$ for our sets. Using asymptotics for the distribution function $F$, we showed that for sufficiently long braids, the asymptotics of exhaustive search are better than the asymptotics of random sampling for finding low-leakage braids.",
+  "url": "http://arxiv.org/abs/2610.37552v1",
+  "pdf": "https://arxiv.org/pdf/2610.37552v1",
+  "type": "theory",
+  "summary": "This work develops advanced computational and mathematical techniques to find high-fidelity implementations of the CNOT gate using Fibonacci anyons. By employing a Meet-in-the-Middle search pipeline, the authors push the achievable braid length significantly while proving that exhaustive search methods provide superior asymptotic guarantees compared to random sampling for minimizing leakage.",
+  "main_problem": "The paper addresses the challenge of finding low-leakage representatives for the $[\\mathrm{CNOT}]$ class of two-qubit gates using Fibonacci anyons in topological quantum computation.",
+  "main_result": "They successfully extended the exhaustive search for optimal braids to length $L=72$ and proved that exhaustive search asymptotics outperform random sampling for finding low-leakage gates.",
+  "method": "The authors combine a Meet-In-The-Middle (MITM) GPU pipeline with exhaustive search techniques, alongside rigorous mathematical analysis of leakage distributions via limit laws.",
+  "model_or_system": "The model is topological quantum computation utilizing Fibonacci anyons, whose dynamics are governed by the braid group. The quality of the gate is assessed by minimizing leakage ($\\ell$) from the computational sector to higher fusion space states.",
+  "key_observables": "Leakage ($\\ell$), error distance ($d_{[\\mathrm{CNOT}]}$), and the dimension of fusion spaces ($\text{dim } V_{\tau \times n}$).",
+  "important_parameters": "Braid length ($L$), the golden ratio ($\\varphi$), and the specific dimensions $d=3$ and $d=5$ related to the fusion space.",
+  "main_assumptions": "The analysis relies on the assumption that the support of the generators generates a dense subgroup of the projective unitary group $PU(d)$ to apply Haar measure convergence theorems.",
+  "figures_summary": "Not specified, but the notes reference limit laws $F_{3,\\infty}(\\ell)=\\ell^2$ and $F_{5,\\infty}(\\ell)=\\ell^4$ derived from distribution function analysis.",
+  "paper_structure": "The paper progresses from defining the physical problem (leakage in $[\\mathrm{CNOT}]$) to developing advanced search algorithms (MITM, exhaustive search), followed by rigorous mathematical proofs regarding leakage bounds and asymptotic distribution laws.",
+  "why_interesting": "The rigorous mathematical analysis of leakage and the comparison of search algorithms provide deep theoretical tools for assessing the feasibility and error scaling of topological quantum computation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.37552_figures/2610.37552_fig1.jpg",
+      "caption": "Figure 1: Two fusion channels of a Fibonacci anyon pair, τ × τ = 1 + τ: vacuum (left) and τ (right). The state vector in outcome space is the carrier of quantum information.",
+      "page": 7
+    },
+    {
+      "image": "2610.37552_figures/2610.37552_fig2.jpg",
+      "caption": "Figure 2: A two-qubit register of 6 τ anyons (produced by three pairs from the vacuum; time flows upwards) and the action of the generator σ3 — the exchange of anyons 3 and 4. σ3 is the only generator crossing the boundary of qubits: only it entangles them and only it hooks the non-computational state |NC⟩, Eq. (2.13).",
+      "page": 9
+    },
+    {
+      "image": "2610.37552_figures/2610.37552_fig3.jpg",
+      "caption": "Figure 3: Exhaustive leakage CDFs for selected lengths in the positive restricted alphabet {σ1, σ2, σ3} (left) and the positive full alphabet {σ1, . . . , σ5} (right). Every word of each displayed length is counted with multiplicity. As the length increases, the finite discrete distributions approach the respective Haar limits F∞(ℓ) = ℓ2 and F∞(ℓ) = ℓ4 proved in Appendix B. The black dotted lines mark ℓ= φ−1. The finite-length curves were obtained by exhaustive enumeration in production machine arithmetic; they illustrate convergence but are not used to prove Haar mixing.",
+      "page": 13
+    },
+    {
+      "image": "2610.37552_figures/2610.37552_fig4.jpg",
+      "caption": "Figure 4: A MITM-GEMM pipeline. The semibraids are enumerated independently, after which the values of U00(ab) = ra · cb are batch-computed using GEMM. For candidates that pass the ℓ< 4bL−1 filter, the Makhlin invariants are calculated and one of two optimization criteria is applied: min S = d + 4ℓor min ℓfor d[CNOT] < 10−4. The finalists undergo a rigorous check.",
+      "page": 14
+    },
+    {
+      "image": "2610.37552_figures/2610.37552_fig5.jpg",
+      "caption": "Figure 5: Leakage of the best [CNOT] class gate as a function of braid length. The straight-line fit is chosen as the simplest combination of rational numbers and the golden ratio φ. The fraction of variance explained by the ℓfit function is R2 = 0.9851.",
+      "page": 18
+    }
+  ],
+  "figure": "2610.37552_figures/2610.37552_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

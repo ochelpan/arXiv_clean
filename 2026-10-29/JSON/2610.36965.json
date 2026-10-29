@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.36965",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "From QCCD Trapped-Ion Hardware to Quantum Compilers: Capabilities, Architectures, and Compilation",
+  "authors": "Ludwig Schmid, Jurek Eisinger, Daniel Schoenberger, Christian D. Marciniak, Janine Hilder, Ulrich Poschinger, Robert Wille, Ferdinand Schmidt-Kaler",
+  "abstract": "Shuttling-based trapped-ion quantum computers (QCCD) rank among the most mature hardware platforms. Existing and envisaged devices exhibit architectural differences in terms of register layout and connectivity. Platform-specific compilers are required to translate quantum circuits into resource-optimized hardware-level command chains. Hardware platforms and compiler software stacks are mostly developed independently of one another by different research communities. This work aims to bridge these communities by abstracting QCCD architectures and native operations, enabling computer scientists to address compilation problems using generic methods without requiring a deep background in the physical operating principles of the platform. The resulting design space is organized into a small set of architectural archetypes, each posing its own compilation problem. We then select and apply compilation methods to one- and two-dimensional QCCD architectures, finding that the routing overhead scales approximately cubically with the number of qubits for the one-dimensional architecture and approximately quadratically for the two-dimensional one. Extending this to compilation with a quantum error-correction layer reveals additional differences and similarities between the physical and logical levels. We conclude that co-design is a requirement rather than an option, and this work provides the vocabulary, archetypes, and compilation abstraction it needs.",
+  "url": "http://arxiv.org/abs/2610.36965v1",
+  "pdf": "https://arxiv.org/pdf/2610.36965v1",
+  "type": "theory",
+  "summary": "This paper develops a crucial software abstraction layer to connect quantum compilers with the physical realities of trapped-ion quantum hardware (QCCD). By defining architectural archetypes and analyzing scaling laws, it quantifies the compilation overhead for 1D and 2D systems. The core message is that successful quantum computation requires a mandatory co-design approach between the hardware engineers and the compiler developers.",
+  "main_problem": "The paper addresses the critical need to bridge the gap between the highly specific, hardware-dependent architectures of trapped-ion quantum computers (QCCD) and the abstract requirements of quantum compilers.",
+  "main_result": "The authors found that the routing overhead for quantum circuit compilation scales cubically ($\\mathcal{O}(N^3)$) for 1D QCCD and quadratically ($\\mathcal{O}(N^2)$) for 2D QCCD, emphasizing that co-design is mandatory.",
+  "method": "The work proposes abstracting QCCD architectures and native operations into generic archetypes, allowing computer scientists to apply standardized compilation methods to solve hardware-specific resource optimization problems.",
+  "model_or_system": "The system analyzed is the shuttling-based trapped-ion quantum computer (QCCD), which utilizes segmented traps to physically move and arrange qubits encoded in trapped ions (e.g., Be+, Ca+). The architecture can be modeled as 1D or 2D layouts.",
+  "key_observables": "Routing overhead scaling ($\\mathcal{O}(N^3)$ vs $\\mathcal{O}(N^2)$), gate fidelity, and resource requirements for quantum error correction.",
+  "important_parameters": "Number of qubits ($N$), dimensionality of the trap (1D vs 2D), and the specific native operations (SPAM, SQ, TQ, shuttling).",
+  "main_assumptions": "The primary assumption is that abstracting the architecture into archetypes is sufficient to enable generic compilation methods, though hardware design choices remain open questions.",
+  "figures_summary": "Figures illustrate the complex flow from physical hardware properties (electrode layout) through architectural abstraction, compilation stack layers (synthesis, placement/routing, scheduling), down to final hardware instructions.",
+  "paper_structure": "The paper follows a structured approach: first, abstracting the physical operations; second, organizing the hardware into architectural archetypes; third, detailing the compilation steps; and finally, applying these concepts to 1D and 2D case studies, including error correction.",
+  "why_interesting": "This work is highly relevant as it directly tackles the software stack necessary for scaling trapped-ion quantum computation, providing a formal framework for integrating quantum algorithm design with physical hardware constraints.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.36965_figures/2610.36965_fig1.jpg",
+      "caption": "FIG. 1. From hardware to architecture: The defining properties of a hardware platform (left), qubit encoding in an ion and delivery of the radiation driving the gates (Sections II B and II C), and the protocols for SPAM and auxiliary operations (Section II C), are abstracted into the data sets that define an architecture (center): the connectivity (cf. the architecture archetypes in Figure 3), the native gate set, and the operation timings and error budgets. The first two follow from one hardware property each, whereas the timings and error budgets are collected from all three, since the gate times are set by the radiation delivery and the shuttling times by the trap geometry. Each data set...",
+      "page": 3
+    },
+    {
+      "image": "2610.36965_figures/2610.36965_fig2.jpg",
+      "caption": "FIG. 2. Trapped-ion operations: The qubit operations (left) are grouped by the subsections that describe them. The upper row collects the operations of Section II C 1, where the register is initialized by cooling combined with optical pumping, and read out by fluorescence detection. The lower row shows the single-qubit (SQ, Section II C 2) and two-qubit (TQ, Section II C 3) gates in their global and addressed variants. Purple beams indicate radiation driving the qubit transition, blue beams auxiliary light for pumping, cooling, and detection, with a snowflake singling out the cooling light; strips mark the ions an operation acts on. The shuttling operations (right, Section II D) move ions...",
+      "page": 4
+    },
+    {
+      "image": "2610.36965_figures/2610.36965_fig3.jpg",
+      "caption": "FIG. 3. Trapped-ion architecture archetypes, grouped by how far each has been realized and named as in Table II. Yellow boxes indicate trap electrodes; multiple of them, together with the rf, generate a confining micro-potential in which trapped-ion qubits (red dots) are stored. Processing zones, laser beams, ion transport, and photonic links are marked according to the legend. See Table II for representative realizations and the compilers written for each archetype.",
+      "page": 8
+    },
+    {
+      "image": "2610.36965_figures/2610.36965_fig4.jpg",
+      "caption": "FIG. 4. Compilation pipeline for trapped ions: A platform-shared synthesis stage decomposes the circuit into the native gate set (Section II C), before the architecture-specific mapping and scheduling stages diverge between the two regimes of Section IV B, summarized in Table III. In a 1D architecture (top), connectivity is established, for example, by reordering the ions along the trap axis, and the schedule is dominated by physical SWAPs. In a 2D architecture (bottom), ions are routed through junctions, and the schedule is dominated by junction transports. Every SWAP takes the same time, so a reordering appears as a run of equally long bars, whereas a transport takes longer the further...",
+      "page": 10
+    },
+    {
+      "image": "2610.36965_figures/2610.36965_fig5.jpg",
+      "caption": "FIG. 5. One round of syndrome extraction on a trapped-ion register, drawn in the operation vocabulary of Figure 2. The ancilla ion (blue) is merged with the data ions (red) into a processing zone and entangled with them through the native gate set. It is then separated from them again by shuttling, because fluorescence readout is destructive and global on a crystal (Section II C 1), and measured mid-circuit. The out- come is decoded classically and fed forward in real time. This is the inner arc, which runs from the measurement to the step it conditions: an addressed gate applies the correction to the data ions, while the ancilla is reset and recooled where it was measured.",
+      "page": 12
+    }
+  ],
+  "figure": "2610.36965_figures/2610.36965_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

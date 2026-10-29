@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.36167",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Analog Quantum Experiments Meet Automatic Differentiation - from Programs to Atoms",
+  "authors": "Yue Shi, Pengyu Liu, Yuxiang Peng",
+  "abstract": "Gradient-based optimization of analog quantum hardware poses a concrete programming problem: given an executable experiment P(θ) that returns only measurement samples, what executable experiment should the system run to obtain (d/dθ_ell)P(θ)? Conventional automatic differentiation cannot propagate through the inaccessible quantum state, while finite differences require a noise-sensitive step size and analytic gradient identities cover only parts of an experiment. We present DiffSimuQ, which shows that a broad class of open-loop analog quantum experiments is closed under automatic differentiation. A compositional transformation maps P(θ) to a derivative program D_ell[P(θ)] in the same language whose expected outcome is exactly the derivative. Only continuous evolution requires a strategy-specific rule, and we give two realizations. Our Nyquist shift rule (NSR) applies to general time-dependent evolution: we prove that the observable response to shifting the Hamiltonian along its tangent is band-limited even for non-commuting controls, enabling exact reconstruction from shifted executions. For involutory generators, a parameter-shift realization (PSR) inserts a parameter-independent operation at a sampled time. Because derivative programs remain ordinary programs, source and derivative experiments share one compiler, which reuses the source realization, lowers branches to device-ready neutral-atom controls, and selects between NSR and PSR based on estimated cost. Under device noise, the exact derivative programs differentiate the objective realized by the device, with hardware realization errors treated separately. In machine-level noisy emulation, NSR and PSR avoid the finite-difference error floor and improve closed-loop optimization; they win in complementary cost regimes, while each derivative branch at 1000 qubits add at most 0.3% to source compilation time.",
+  "url": "http://arxiv.org/abs/2610.36167v1",
+  "pdf": "https://arxiv.org/pdf/2610.36167v1",
+  "type": "both",
+  "summary": "This paper presents DiffSimuQ, a novel framework that enables automatic differentiation for analog quantum experiments by transforming the source program into an equivalent derivative program. It achieves this using specific rules, like the Nyquist Shift Rule, which allow the derivative to be computed entirely through measurable, executable quantum operations. This breakthrough allows for robust, gradient-based optimization of quantum hardware by integrating differentiation into the quantum compilation stack.",
+  "main_problem": "The core problem is developing a method to calculate the gradient of an expectation value derived from an analog quantum experiment, where the quantum state itself is inaccessible.",
+  "main_result": "The authors introduce DiffSimuQ, a compositional framework that transforms an executable quantum program $P(\theta)$ into a derivative program $D_\\ell[P(\theta)]$ whose expected outcome is the exact derivative.",
+  "method": "The method relies on two specific rules—the Nyquist Shift Rule (NSR) for general evolution and the Parameter-Shift Rule (PSR) for involutory generators—to embed differentiation directly into the quantum circuit compilation process.",
+  "model_or_system": "The system involves open-loop analog quantum experiments on $n$ qubits, governed by time-dependent Hamiltonians $H(\theta, t)$. The output is a measurement sample used to estimate an expectation value, $\\langle\\psi|M|\\psi\rangle$.",
+  "key_observables": "The objective function $C(\theta)$ estimated from measurement samples, and its derivative $\frac{\\partial C}{\\partial \theta_\\ell}$.",
+  "important_parameters": "The number of qubits ($n$), the step size ($\\epsilon$) in finite differences, and the relative costs of NSR vs. PSR implementations.",
+  "main_assumptions": "The framework is currently limited to open-loop experiments, excluding real-time feedback or mid-circuit measurements; hardware realization errors are treated separately from the derivative semantics.",
+  "figures_summary": "Figures illustrate the transformation from $P(\theta)$ to $D_\\ell[P(\theta)]$ via a shared compiler, and compare the performance and error characteristics of NSR, PSR, and FD.",
+  "paper_structure": "The paper first establishes the difficulty of gradient estimation in quantum hardware, then introduces DiffSimuQ as a compositional AD framework, details the NSR and PSR realizations for continuous evolution, and concludes with compiler integration and performance analysis.",
+  "why_interesting": "This work provides a crucial software/algorithmic tool for quantum hardware optimization, allowing researchers to treat gradient calculation as a first-class, differentiable programming construct, which is vital for variational quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.36167_figures/2610.36167_fig1.jpg",
+      "caption": "Figure 1. Overview of DiffSimuQ. A source experiment is transformed compositionally into a derivative program in the same language, realized either by NSR or by PSR, and sent through the same compilation stack.",
+      "page": 1
+    },
+    {
+      "image": "2610.36167_figures/2610.36167_fig2.jpg",
+      "caption": "Figure 2. The finite-difference trap on a landscape narrower than the hardware’s step resolution: the illustrated secants have the wrong sign, while the shaded band shows the noise cone near the step-resolution limit.",
+      "page": 3
+    },
+    {
+      "image": "2610.36167_figures/2610.36167_fig3.jpg",
+      "caption": "Figure 6. The lowering stack, with an NSR branch along the bottom (the PSR branch in Figure 7). Programs normalize to straight-line branches; extended SimuQ realizes the source Hamiltonian as machine-native segments. DiffSimuQ reuses the source to lower derivative branches as structured edits, then schedules them to controls and logs the result in the PulseLedger.",
+      "page": 9
+    },
+    {
+      "image": "2610.36167_figures/2610.36167_fig4.jpg",
+      "caption": "Figure 7. One device-ready compiled PSR branch 𝐵𝑗,𝑠(𝜏) of the running instance, 𝐴𝑗= 𝑍𝑎𝑍𝑏. Space: the pair is carried to the gate zone and back. Time: active channels per stage (axis not to scale). Ledger: the PulseLedger rows for the same branch, each group labelled with the program constructor it realizes. The inserted segment ev(0, 𝜋/4,𝑠· 𝑍𝑎𝑍𝑏) is one CZ plus virtual 𝑅𝑧rotations (Appendix E).",
+      "page": 9
+    },
+    {
+      "image": "2610.36167_figures/2610.36167_fig5.jpg",
+      "caption": "Figure 8. Gradient error against execution budget. NSR and PSR converge at 𝑁−1/2. FD with 𝜖∗re-tuned per 𝑁follows 𝑁−1/3 on the noiseless landscape (left) and reaches a bias floor under the device model (right, dashed); a too-small 𝜖 amplifies shot noise and setpoint error, while a too-large 𝜖is truncation-limited. Inset: error against step size at the budget marked by the vertical line.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.36167_figures/2610.36167_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
