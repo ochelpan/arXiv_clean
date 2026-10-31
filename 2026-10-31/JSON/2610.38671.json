@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.38671",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Homodyne versus heterodyne detection for classifying families of optical quantum states from finite records of detection events",
+  "authors": "Franciszek Grzywa, Sebastian Dolata, Karol Bartkiewicz",
+  "abstract": "Neural networks can identify an optical quantum state from an image of its phase-space function, but a real measurement gives a finite record of $N$ detection events. Heterodyne detection samples the Husimi $Q$ function directly, whereas homodyne detection gives the Wigner function only after a reconstruction from several phases. We ask which scheme better identifies one of seven families of states, including Gottesman-Kitaev-Preskill (GKP) states, under loss, dephasing and Gaussian noise. We simulate finite records on identical states for two sets of families, one with equal mean photon number and one built from the code of Ahmed et al. For convolutional networks, heterodyne detection outperforms homodyne detection with filtered back-projection by 14.1 percentage points at $N=100$ events and 20% dephasing in the first set (adjusted $p=0.003$ over $24$ cells across training runs), and it depends on the number of phases and on the reconstruction. At $N=10^3$ and $10^4$ no difference is significant, but the intervals are wide. At $N=100$, a homodyne network without reconstruction does not differ significantly from heterodyne detection in the first set and is nominally worse in the second. Near thermal states we show to leading order that heterodyne detection damps phase-space structure of order $n$ exponentially, whereas homodyne detection shares unit weight among $n+1$ angular components, a local result that does not explain the finite-record differences. Experimental records of a GKP state, photon-subtracted squeezed states and one mode of an Einstein-Podolsky-Rosen source are classified like simulated ones, but these low-power tests probe our counting-noise model, not the seven-class accuracy. A likelihood-ratio observer shows no such gap at $N=100$, so our evidence concerns a reconstruction-based pipeline, not homodyne detection in general.",
+  "url": "http://arxiv.org/abs/2610.38671v1",
+  "pdf": "https://arxiv.org/pdf/2610.38671v1",
+  "type": "both",
+  "summary": "This paper rigorously compares homodyne and heterodyne detection for quantum state classification using finite measurement records. It finds that while heterodyne detection shows an initial advantage in neural network classification accuracy, this advantage fades at higher event counts. The study highlights that the performance gap is largely due to the reconstruction pipeline used for homodyne data, not the detection method itself.",
+  "main_problem": "The paper compares the performance of homodyne versus heterodyne detection schemes for accurately classifying families of optical quantum states using finite records of measurement events.",
+  "main_result": "Heterodyne detection outperforms homodyne detection in classification accuracy at low event numbers ($N=100$), but this advantage diminishes significantly as the number of events increases ($N\\ge 10^3$).",
+  "method": "The authors use neural networks (CNNs) trained on simulated finite records of detection events, comparing the reconstruction quality derived from both detection types.",
+  "model_or_system": "The system involves single-mode optical quantum states, including GKP states and squeezed states, subjected to realistic noise channels like loss, dephasing, and Gaussian noise.",
+  "key_observables": "Classification accuracy, reconstruction error ($\text{E}_Q$ vs $\text{E}_W$), and the state's phase-space representation (Husimi Q function and Wigner function).",
+  "important_parameters": "Number of events ($N$), noise strengths (e.g., 20% dephasing), and the specific state family being tested.",
+  "main_assumptions": "The observed advantage of heterodyne detection is attributed to the reconstruction-based pipeline for homodyne data, not the detection scheme in general. The comparison is based on finite records, not ideal measurements.",
+  "figures_summary": "Figure 1 illustrates various state families (Fock, cat, GKP, etc.) at $\bar{n}=3$ showing their Wigner, Husimi Q, and photon number distributions. Figure 2 compares state estimation using heterodyne vs. homodyne methods for large $N$.",
+  "paper_structure": "The paper introduces the problem of state classification from finite records, details the physics of homodyne vs. heterodyne measurements, presents simulations comparing the two methods across various noise levels and event numbers, and concludes by analyzing the source of the observed performance differences.",
+  "why_interesting": "This work is highly relevant to quantum optics and open quantum systems, as it provides quantitative benchmarks for the practical limitations of quantum state measurement techniques when dealing with realistic, noisy experimental data.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.38671_figures/2610.38671_fig1.jpg",
+      "caption": "FIG. 1. State families of the base set at ¯n = 3 [1, 40–45]: exact W (dashed contour: W = 0), exact Q (both on (x, p) ∈[−7, 7]2, x horizontal, common color scales, square root for Q) and P(n), whose mean (dashed line) is the same in every column while its shape differs. Under each column: definition and parameter condition. Shown: even cat (odd: |α|2 coth |α|2 = ¯n), binomial (s, J, µ) = (1, 2, 0), GKP µ = 0. In the data the phases and squeezing axes are random, the GKP and binomial code words keep their orientation, and the cat parity and code words are drawn at random.",
+      "page": 3
+    },
+    {
+      "image": "2610.38671_figures/2610.38671_fig2.jpg",
+      "caption": "FIG. 2. The same even cat state (|α| = 2) estimated from N events. Top: heterodyne, a histogram of N outcomes (Q). Bottom: homodyne, filtered back-projection of K = 36 histograms (W). Columns: N = 103, 105 and N →∞(exact projections for W), on [−4, 4]2. The fringes at the origin are present in W and absent in Q (equation (4)); hatching marks W < −0.1 max |W|. At N = 103 the Q estimate is a scatter of counts and the W estimate is dominated by the amplified noise. One realization per panel, each panel with its own vertical scale.",
+      "page": 5
+    },
+    {
+      "image": "2610.38671_figures/2610.38671_fig3.jpg",
+      "caption": "FIG. 3. Design of the study. (a) Every family is trained on the same sequence of 114 files with one noise condition each (bar height: strength; channel coded by shade and pattern), and within every file ⟨ˆn⟩cycles through 2, 3, 4, 5, so neither the noise nor the energy identifies a family. (b) The 135 networks, one marker per independent training run, in groups that test the representation (W, Q, and S, the homodyne classifier without reconstruction), the data split, phase drift, the number of homodyne phases K, generalization to held-out states (primes: an independently generated replica of the held-out training set of the set of Ref. [30]), a narrow noise range and squeezed GKP states.",
+      "page": 6
+    },
+    {
+      "image": "2610.38671_figures/2610.38671_fig4.jpg",
+      "caption": "FIG. 4. Error rate of the exact-image classifiers versus photon loss (mean and range over three runs). Lowest tick: zero errors. Triangles: cells of figure 6. Under dephasing (γ = 3p/100 ≤3) and Gaussian noise (σ2 ≤1) neither classifier makes an error at any strength.",
+      "page": 9
+    },
+    {
+      "image": "2610.38671_figures/2610.38671_fig5.jpg",
+      "caption": "Figure 5 shows the accuracy versus N for networks trained on finite records. We define N95 as the smallest N at which a network reaches 95% of its own accuracy at N →∞(section IV C), by linear interpolation of the accuracy against log10 N between the grid points N = 102, . . . , 106. The entry “< 102” means that the shortest records already reach it. On noiseless states N95 is < 102",
+      "page": 9
+    }
+  ],
+  "figure": "2610.38671_figures/2610.38671_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 4,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

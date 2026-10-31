@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.39074",
+  "category": "other",
+  "arxiv_categories": [
+    "cond-mat.mes-hall",
+    "cs.AI"
+  ],
+  "is_primary_archive": false,
+  "title": "HERA: Assessing an Autonomous Agent for Quantum Device Measurement",
+  "authors": "Zachary W. Gomez, Nathan Bittner, Jordan T. McCourt, Qingrui Cao, Sandesh S. Kalantre, Benjamin H. Alexander, Zhiren Zheng, Kenji Watanabe, Takashi Taniguchi, Aaron Sharpe",
+  "abstract": "Large language model agents have begun to carry out laboratory measurements, but their scientific conclusions are useful only if they hold up under scrutiny. Demonstrating this requires controlled studies because models are stochastic and the context a model is given steers its conclusions. Here we introduce HERA, an autonomous agent designed to carry out cryogenic transport measurements of quantum devices. HERA draws on a knowledge base curated by lab members that holds measurement protocols, software tools, and literature references. We assessed HERA with a blinded trial against an expert on the stacking order of two multilayer graphene devices, an ablation of its knowledge base, and hundreds of offline replays in which models designed the trial's central measurement without running it. HERA's conclusions matched the expert's sealed conclusions on both tested devices. The ablation and the replay studies measured the impact of the knowledge base across different models, showing that with it every model designed better measurements and reasoned more soundly. To test how readily HERA extends to a new problem, we tasked it with finding and characterizing superconductivity in a different material system. This required a few hours of expert time to develop a new experimental protocol, after which HERA did both autonomously. These results show that, with a knowledge base designed for the task, language model agents are capable of sound experimental science.",
+  "url": "http://arxiv.org/abs/2610.39074v1",
+  "pdf": "https://arxiv.org/pdf/2610.39074v1",
+  "type": "both",
+  "summary": "This paper introduces HERA, an autonomous AI agent designed to conduct complex, multi-step quantum device measurements in a cryogenic lab setting. By integrating a curated knowledge base, HERA was tested on determining graphene stacking order and finding superconductivity in new materials. The results show that LLM agents can perform sound, expert-level experimental science when properly scaffolded with domain knowledge.",
+  "main_problem": "The paper addresses the challenge of automating complex, multi-step experimental science, specifically cryogenic transport measurements on quantum devices, using autonomous AI agents.",
+  "main_result": "The developed agent, HERA, successfully replicated expert conclusions in blinded trials for determining graphene stacking order and characterizing superconductivity in novel materials, demonstrating sound experimental capability when provided with a curated knowledge base.",
+  "method": "The authors designed and tested HERA, an autonomous agent that uses a structured knowledge base (corpus) to write and execute code in live Jupyter notebooks for measurement and analysis, mimicking the scientific workflow.",
+  "model_or_system": "The experiments are performed on atomically thin quantum devices, such as multilayer graphene and WSe2-proximitized bilayer graphene, measured under cryogenic conditions. The core 'model' is the HERA LLM agent, which interacts with the physical measurement setup and the curated scientific knowledge base.",
+  "key_observables": "Shubnikov–de Haas (SdH) oscillation frequencies, carrier mass, critical current ($I_c$), superconducting transition temperature ($T_c$), and coherence length ($\\xi_{GL}$).",
+  "important_parameters": "Carrier density ($n$), magnetic field ($B$), temperature ($T$), and displacement field ($D/\\epsilon_0$).",
+  "main_assumptions": "The agent's performance is highly dependent on the quality, completeness, and structure of the human-curated knowledge base (corpus).",
+  "figures_summary": "Figures illustrate HERA's architecture, measurement sequences for stacking order (showing $R$ vs $1/B$), and superconducting characterization plots ($R_{xx}$ vs $n$, $dV/dI$ vs $B$). Tables quantify agreement between HERA's conclusions and expert judgments.",
+  "paper_structure": "The paper introduces HERA, details its components (knowledge base, notebooks), presents results from blinded prospective trials (stacking order), and then extends the assessment to a new physical problem (superconductivity) using multiple measurement sessions.",
+  "why_interesting": "While the physics is condensed matter, the core contribution is the methodology—using LLMs to perform structured, verifiable scientific reasoning in a physical measurement context—which is highly relevant for future automated quantum characterization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.39074_figures/2610.39074_fig1.jpg",
+      "caption": "FIG. 1. HERA. (a) HERA is an LLM agent designed to conduct autonomous cryogenic transport measurements on quantum devices. The agent prompt holds the standing instructions HERA follows in every measurement session. A session starts from its inputs: a campaign brief, a device card, and a rig card. The brief states the campaign’s goals. The cards are machine- readable datasheets for the device being measured and the rig measuring it. HERA draws on a corpus of recipes, software tools, and literature references. A recipe outlines an experimental protocol and points to the examples, tools, and related recipes. The corpus was seeded from the lab’s historical data. HERA writes code into two...",
+      "page": 3
+    },
+    {
+      "image": "2610.39074_figures/2610.39074_fig2.jpg",
+      "caption": "FIG. 2. HERA’s measurement sequence for stacking order (a) Timeline of HERA’s session on the trilayer device, from the brief to the spot check in (b), in active hours. The first break in the axis excludes an 11.4 h wait for the operator’s ruling on a safety concern HERA raised. The second break excludes the 6.4 h between HERA’s conclusion and the operator’s request for the fan in (c). (b) Background-subtracted three-terminal resistance ∆R3T as a function of inverse magnetic field 1/B at carrier density n = −1.74 × 1012 cm−2 and displacement field D = 0. In this spot check, ∆R3T exhibits Shubnikov–de Haas (SdH) oscillations, which are used to discriminate between stacking orders (Sec. S3)....",
+      "page": 4
+    },
+    {
+      "image": "2610.39074_figures/2610.39074_fig3.jpg",
+      "caption": "FIG. 3. Live sessions with the full and ablated corpus. (a) The six live sessions asked to determine the stacking order of a multilayer graphene device. The two shaded sessions are the blinded prospective trial (Sec. III). The four unshaded sessions are the ablation study (Sec. IV). The ablated corpus kept only the software tools of the full corpus. Columns show agreement with the expert’s sealed conclusion, operator interventions before the conclusion, active and wall-clock time, and cost at API list prices (Methods). Bold indicates the best value in each column. The interventions for all sessions are listed in Sec. S5. (b) Expert grades of the five tetralayer sessions. Top, the mean grade...",
+      "page": 5
+    },
+    {
+      "image": "2610.39074_figures/2610.39074_fig4.jpg",
+      "caption": "FIG. 4. Offline replay of Landau fan design. (a) P(call) for six models, each designing up to twenty fans with the full corpus and up to twenty with the ablated corpus (Methods). P(call) estimates whether a fan would discriminate between multilayer graphene stacking orders. A fan planned to run longer than an eight-hour cutoff counts as zero. Bars show each model’s mean with a 95% bootstrap interval. (b) P(call) of all fans as a function of their planned acquisition time. Lines mark the Pareto frontiers of the fans with the full and the ablated corpus. A fan is on the frontier when no other fan in its group scores higher in less time. The dashed line indicates the eight-hour cutoff applied...",
+      "page": 7
+    },
+    {
+      "image": "2610.39074_figures/2610.39074_fig5.jpg",
+      "caption": "FIG. 5. HERA’s search for superconductivity. (a) Timeline of session 6 on the WSe2-proximitized bilayer graphene device, from the grant of autonomy to HERA’s conclusion, in active hours. (b) Differential resistance dVxx/dI as a function of dc current Idc at four temperatures, acquired autonomously by HERA in the session in (a). (c) Longitudinal resistance Rxx as a function of n and D/ϵ0, measured in the additional session that HERA ran with the operator in the loop (Sec. S7). The diagonal black line denotes the boundary of the accessible gate range. Grey regions denote accessible regions of gate space outside the measured map. Dashed lines denote the cuts along which session 2 (orange) and...",
+      "page": 8
+    }
+  ],
+  "figure": "2610.39074_figures/2610.39074_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

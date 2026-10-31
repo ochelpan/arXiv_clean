@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2610.40320",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "nucl-th"
+  ],
+  "is_primary_archive": true,
+  "title": "QDMin: Coherent Quantum Minimum Finding for Nuclear Deformation Landscapes",
+  "authors": "Abhishek, P. Arumugam",
+  "abstract": "Locating the minimum of a nuclear collective landscape can require many interacting many-body calculations. QDMin (Quantum Deformation Minimum Finding) searches a parameterized Hamiltonian family with a coherent collective-coordinate register and an on-demand ground-energy threshold oracle. The oracle supplies the predicate required for quantum minimum-finding without first constructing the energy landscape point by point. We implement it for a schematic pairing-plus-multipole model using circuit-generated energy estimates during the search. In a four-point calculation, one Grover round raises the probability of the true minimum from 0.25 to 0.921. A $4\\times4$ quadrupole--octupole-field calculation extends the complete circuit to two coordinates, although its minimum is first sampled in a round with zero Grover iterations. Its worst-case branch-preparation fidelity of 0.744 falls below the declared target, identifying coherent ground-state access as the current bottleneck. QDMin inherits expected $O(\\sqrt{N_q})$ candidate-query scaling in the unstructured model; total advantage depends on the many-body oracle cost and remains unestablished.",
+  "url": "http://arxiv.org/abs/2610.40320v1",
+  "pdf": "https://arxiv.org/pdf/2610.40320v1",
+  "type": "theory",
+  "summary": "This paper proposes QDMin, a quantum algorithm designed to find the minimum energy of complex nuclear shape landscapes by treating the coordinate dependence coherently. It leverages amplitude amplification to search the parameter space efficiently, showing promising scaling advantages over classical methods. The main limitation identified is the current fidelity of accessing the true ground state within the quantum circuit.",
+  "main_problem": "The core problem is efficiently locating the minimum energy of a complex, coordinate-dependent nuclear collective Hamiltonian, $\\min_{q} E_0(q)$.",
+  "main_result": "The QDMin algorithm demonstrates a significant potential quantum speedup, showing that one Grover round can raise the probability of finding the true minimum from 0.25 to 0.921 in a 1D case.",
+  "method": "It employs a coherent quantum search strategy using a collective-coordinate register and an on-demand ground-energy threshold oracle, avoiding explicit point-by-point energy landscape construction.",
+  "model_or_system": "The model is a schematic pairing-plus-multipole Hamiltonian used to simulate nuclear shape coexistence, parameterized by collective coordinates $q$. The Hamiltonian is encoded coherently using an operator expansion $\\hat{q}$ rather than explicit projectors.",
+  "key_observables": "The minimum ground-state energy ($E_{\\min}$), the success probability of finding the minimum, and the required quantum circuit resources.",
+  "important_parameters": "The scaling is expected to be $O(\\sqrt{N_q})$ in the unstructured model; the fidelity of ground-state access (e.g., 0.744) is a critical parameter.",
+  "main_assumptions": "The primary bottleneck identified is the fidelity of coherent ground-state access, which falls below the target. The total advantage is conditional on the cost of the many-body oracle.",
+  "figures_summary": "Figure 1 illustrates the QDMin architecture, showing the coherent path and oracle usage. Figure 2 compares the resource cost of the coherent operator representation versus explicit grid-point projectors.",
+  "paper_structure": "The paper introduces the problem, details the QDMin coherent encoding and its resource advantages over classical/direct quantum methods, presents results on 1D and 2D calculations, and concludes by analyzing the overall quantum advantage.",
+  "why_interesting": "The methodology of using coherent registers to encode continuous parameters (like nuclear deformation coordinates) and applying quantum search algorithms to find the minimum energy state is highly relevant to quantum simulation of many-body systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.40320_figures/2610.40320_fig1.jpg",
+      "caption": "FIG. 1. QDMin architecture. The main path keeps the collective coordinates coherent while compact H(ˆq), ground-state access, quantum phase estimation (QPE), reversible comparison, and uncomputation generate a below-incumbent phase predicate. BBHT/Dürr–Høyer minimum finding [10, 30] then updates the incumbent and returns (q⋆, Emin). The many-body, phase, and comparator register costs are accounted for separately from candidate-query counts.",
+      "page": 3
+    },
+    {
+      "image": "2610.40320_figures/2610.40320_fig2.jpg",
+      "caption": "FIG. 2. Coordinate-register representation cost for a cen- tered quadratic Hamiltonian family compared with explicit grid-point control. The polynomial construction requires 2 + nq + nq(nq −1)/2 constant, linear, and quadratic coordinate- monomial contributions, whereas Hproj = P",
+      "page": 4
+    },
+    {
+      "image": "2610.40320_figures/2610.40320_fig3.jpg",
+      "caption": "FIG. 3. Dynamic four-point QDMin with circuit-generated energies. (a) Exact candidate energies are added only after the returned result has been frozen. (b) The coordinate distribution begins uniformly at probability 0.25 per candidate and is concentrated on index 1 by the single nonzero-Grover round. (c) The incumbent is updated only when an independently measured QPE bin is lower. Search rounds count algorithmic iterations.",
+      "page": 9
+    },
+    {
+      "image": "2610.40320_figures/2610.40320_fig4.jpg",
+      "caption": "FIG. 4. Validation of structured many-body energy access. (a) The second-order Suzuki error decreases systematically with repetition count. (b) A separate five-bit structured-QPE test resolves the validation energy within the expected phase-bin precision. The vertical lines mark the exact energy and the most-probable decoded QPE bin.",
+      "page": 10
+    },
+    {
+      "image": "2610.40320_figures/2610.40320_fig5.jpg",
+      "caption": "FIG. 5. Two-coordinate execution on a 4×4 grid with circuit-generated energy estimates. (a) Exact energies are introduced only after the structured return has been fixed. (b) Before amplification, each of the 16 coordinate candidates has uniform probability 1/16 = 0.0625. (c) A representative two-iteration Grover round executes the complete structured threshold, uncomputation, and diffusion sequence after the final incumbent has already been sampled. The work registers return cleanly with probability 0.893. (d) Post-search exact diagonalization confirms the unique grid minimum. The coordinate axes represent the schematic quadrupole- and octupole-field coordinates.",
+      "page": 11
+    }
+  ],
+  "figure": "2610.40320_figures/2610.40320_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

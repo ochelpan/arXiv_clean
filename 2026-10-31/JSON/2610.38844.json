@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.38844",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Inferring the Number of Quantum State Transfers with Neural Networks",
+  "authors": "Hayden Zammit, Tony J. G. Apollaro, Gianluca Valentino, Johann A. Briffa",
+  "abstract": "Repeated-use quantum state transfer (QST) goes beyond the single-use paradigm by accounting for the memory that accumulates inside the transmission channel when it is not reset between uses. Consequently, the map governing the $n^{\\mathrm{th}}$ use of the channel differs from use to use and carries a signature of each previous use. We ask whether this use number can be recovered from transmission data alone, and show that it can: a simple feed-forward neural network, given as input the Bloch vectors sent and received over a single use of an XX spin-chain channel, is able to identify the use number with an accuracy exceeding 90%. Exploiting the U(1) symmetry of the channel, we find that a reduced two-component representation of the transmitted states improves the accuracy further, to about 95%. We characterise the dependence of the classifier on the size and composition of the training data, finding that the number of sampled states and of sampled timings are equally important. We also identify the data set sizes required to reach a given accuracy. Finally, we quantify the severity of the residual misclassifications with an earth-mover distance on the confusion matrix.",
+  "url": "http://arxiv.org/abs/2610.38844v1",
+  "pdf": "https://arxiv.org/pdf/2610.38844v1",
+  "type": "theory",
+  "summary": "This work demonstrates that the history of repeated quantum state transfers, which imparts memory to the transmission channel, can be read out using a neural network classifier. By training on input and output Bloch vectors, the network accurately infers the number of uses, showing that exploiting the system's underlying symmetries significantly boosts performance.",
+  "main_problem": "The paper addresses whether the number of times ($n$) a quantum state transfer (QST) channel has been used, accumulating memory effects, can be inferred solely from the input and output quantum state data.",
+  "main_result": "A feed-forward neural network can successfully classify the use number with high accuracy, especially when using a reduced two-component representation exploiting the channel's U(1) symmetry.",
+  "method": "The authors frame the problem as a supervised machine learning task, training a neural network on simulated Bloch vector data from repeated QST operations.",
+  "model_or_system": "The system is a one-dimensional spin-1/2 chain used for QST. The memory effect causes the channel map to depend on the history of uses, which is modeled by tracking the evolution of the state through the chain.",
+  "key_observables": "Classification accuracy (e.g., >95% with reduced coordinates), Earth-Mover Distance on the confusion matrix, and the dependence of accuracy on the product of sampled states and timings.",
+  "important_parameters": "The number of uses ($n$), the transfer time ($t$), the size of the training data ($N_s N_t$), and the systematic timing offset ($\\epsilon$).",
+  "main_assumptions": "The channel dynamics are restricted to U(1)-symmetric Hamiltonians, and the memory effect is modeled by the accumulated map $\\Phi_n$.",
+  "figures_summary": "Figures illustrate confusion matrices comparing raw vs. reduced parameterizations, and show the dependence of test accuracy on the product of sampled states and timings.",
+  "paper_structure": "The paper first reviews the QST protocol and derives the memory-dependent channel map, then details the classification setup using Bloch vectors, and finally presents the results demonstrating the recoverability of the use number.",
+  "why_interesting": "It provides a novel, data-driven method to characterize the history and degradation of an open quantum system (the quantum bus) without needing external measurement or resetting, which is crucial for quantum network resource accounting.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.38844_figures/2610.38844_fig1.jpg",
+      "caption": "FIG. 1. The repeated-use QST protocol. Quantum informa- tion held in an n-qubit sender register (red) is transferred, one qubit per use, to an n-qubit receiver register (blue) through a shared spin-chain channel (green) that evolves for a time ti at the ith use and is not reset between uses.",
+      "page": 4
+    },
+    {
+      "image": "2610.38844_figures/2610.38844_fig2.jpg",
+      "caption": "FIG. 2. Action of the map Φn,ε on the Bloch ball for the first five uses of the chain. (a) Image of the Bloch ball under the map of each use at ε = 0.18. Each image is a spheroid about the z axis. The transverse semi-axis |f N 1 (t)|An−1 shrinks from use to use, the semi-axis |f N 1 (t)|2 along z is the same for every use, and the centre z0 shifts downward. (b) Sections of the images in the reduced output coordinates (r′ ⊥, r′ z) for ε = 0.05, 0.1, 0.15 and 0.2. The grey semicircle is the boundary of the Bloch ball.",
+      "page": 5
+    },
+    {
+      "image": "2610.38844_figures/2610.38844_fig3.jpg",
+      "caption": "FIG. 3. The training grid. Each cell corresponds to a data set with Nt equally spaced timings and Ns states per use and timing, and gives its size Ntot = 5NsNt in thousands. Cells mirrored across the diagonal Ns = Nt contain the same num- ber of examples. For each point in the grid 100 independent realisations of the data set are generated.",
+      "page": 6
+    },
+    {
+      "image": "2610.38844_figures/2610.38844_fig4.jpg",
+      "caption": "FIG. 4. Row-normalised confusion matrices of the representative models for the raw (left) and reduced (right) parameterisations, evaluated on the master test set. Entry (i, j) is the fraction of examples of true class i assigned to class j, and class c corresponds to the (c + 1)th use of the chain. The test set contains 105 examples per class, each with a fresh Haar-random input state and a timing offset drawn uniformly from ε ∈[0, 0.2]. Both models are the most typical of the 100 trained at Ns = Nt = 100.",
+      "page": 8
+    },
+    {
+      "image": "2610.38844_figures/2610.38844_fig5.jpg",
+      "caption": "FIG. 5. Row-normalised confusion matrices of the same representative models as in Fig. 4, for the raw (left) and reduced (right) parameterisations, averaged over 100 repeated test sets. Each set contains 100 freshly sampled states per use at each of the 99 midpoints of the Nt = 100 training grid, i.e., 9,900 examples per class. The upper number in each cell is the mean over the test sets and the lower number is the standard deviation across them.",
+      "page": 8
+    }
+  ],
+  "figure": "2610.38844_figures/2610.38844_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2610.38974",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fully Quantum Latent Diffusion for Synthetic Malware Records: Effective Denoising, Limited Class Information, and Costly Post-Selection",
+  "authors": "Ban Q. Tran, Quang Duy Tran, Anh H. Nguyen, Ziwen Pan, Tommy Dang, Susan Mengel",
+  "abstract": "Malware benchmarks are difficult to share, because the samples are harmful and a corpus can reveal the incidents of its holder, while synthetic substitutes can leak training records. Quantum diffusion models, however, have been evaluated only on images or quantum states, leaving the utility, privacy, and sampling cost of their samples unknown. In this research, we introduce a fully quantum latent diffusion model for malware records, in which a parameterized circuit with one mid-circuit measurement denoises amplitude-encoded latent vectors of opcode sequences without classical neural layers. On 17 malware families with ten seeds, we compared it with random states, a perfect generator, a parameter-matched classical control, and a classical latent diffusion model. The circuit lowers its denoising infidelity by 63\\%, yet classifiers trained on its records reach a macro-F1 score of 0.11 on real records, against 0.08 for random states, 0.61 for a perfect generator, and 0.44 for a classical diffusion model of comparable size, and adding its records to real training data lowers the score from 0.635 to 0.593. Post-selected sampling accepts $3.0\\times10^{-7}$ of runs, and a training penalty that raises the acceptance to 0.14 removes most of the denoising. No synthetic record copies a training record, and smoothing the decoded lengths lowers the area under the curve of a length-based membership test from 0.80 to 0.51, which a differentially private length histogram matches with a formal guarantee. These results indicate that quantum generators of shareable security data require a joint evaluation of utility, privacy, and sampling cost.",
+  "url": "http://arxiv.org/abs/2610.38974v1",
+  "pdf": "https://arxiv.org/pdf/2610.38974v1",
+  "type": "theory",
+  "summary": "This paper proposes a fully quantum latent diffusion model to generate synthetic malware records for security research. It uses a quantum circuit to denoise latent representations of opcode sequences, achieving measurable utility while guaranteeing privacy against data leakage. The work highlights the critical need to jointly evaluate utility, privacy, and computational cost in quantum data generation.",
+  "main_problem": "Developing a method to generate synthetic, shareable malware records that maintain high utility for detection while ensuring strong privacy guarantees.",
+  "main_result": "The fully quantum latent diffusion model achieves a macro-F1 score of 0.11 on real records, demonstrating utility improvement over random states and classical models, while ensuring no synthetic record copies a training record.",
+  "method": "The model uses a parameterized quantum circuit to perform denoising on amplitude-encoded latent vectors of opcode sequences, operating entirely quantumly.",
+  "model_or_system": "The system is a fully quantum latent diffusion model applied to malware records. It uses a parameterized quantum circuit with one mid-circuit measurement to denoise latent vectors derived from opcode sequences.",
+  "key_observables": "Macro-F1 score (utility), denoising infidelity, membership test AUC (privacy), and post-selection acceptance probability (cost).",
+  "important_parameters": "The comparison involves various controls: random states, perfect generator, classical latent diffusion model, and the quantum circuit's parameters.",
+  "main_assumptions": "The study assumes that joint evaluation of utility, privacy, and sampling cost is necessary for quantum generators of security data.",
+  "figures_summary": "Not specified.",
+  "paper_structure": "The paper introduces the fully quantum latent diffusion model, details the comparison against various baselines, presents results on utility and privacy metrics, and concludes by emphasizing the joint evaluation requirement.",
+  "why_interesting": "It applies quantum generative modeling techniques (diffusion) to a complex, non-standard data type (malware opcodes), requiring quantum circuit design for data transformation and analysis.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.38974_figures/2610.38974_fig1.jpg",
+      "caption": "Figure 1. Training and sampling pipeline of the quantum latent diffusion model. Training (top): the encoder 𝐸of the convolutional autoencoder maps a record 𝑟onto a latent vector 𝑧∈ℝ32, the amplitude encoding Enc maps 𝑧onto the state |𝑥0⟩of 𝑛= 5 qubits (Eq. (3)), and the classical forward process 𝑞(𝑥𝑡∣𝑥0) produces the noisy state |𝑥𝑡⟩for every step 𝑡= 1, … , 𝑇(Eq. (9)). The quantum denoiser Φ𝜃( ⋅; 𝑡, 𝑘) of Fig. 2 maps |𝑥𝑡⟩onto |𝜓out⟩, and the infidelity loss compares this output with the normalized posterior mean | ̃𝜇𝑡⟩(Eqs. (12) and (24)). Sampling (bottom): the trained denoiser is applied for 𝑡= 𝑇, … , 1 to a Haar-random initial state |𝑧𝑇⟩, and the decoder Dec reads out the magnitudes of...",
+      "page": 5
+    },
+    {
+      "image": "2610.38974_figures/2610.38974_fig2.jpg",
+      "caption": "Figure 2. Quantum denoiser of one reverse step, after the reverse-bottleneck architecture of Cacioppo et al. [14]. (a) For step 𝑡and class 𝑘, the block 𝑈(𝑘,𝑡) 1 acts on the 𝑛= 5 data qubits that hold |𝑥𝑡⟩, the block 𝑈(𝑡) 2 acts on the data qubits and an ancilla prepared in |0⟩𝑎, the ancilla is measured with outcome 𝑏∈{0, 1}, and the block 𝑈(𝑡) 3 produces the output |𝜓(𝑏) out⟩(Eqs. (16) and (17)). With post-selection, the denoiser keeps 𝑏= 0 (Eq. (18)); without branch selection, it outputs the mixture of Eq. (19). The angles 𝜃1[𝑘, 𝑡] of the teal block are specific to the class, whereas the angles 𝜃2[𝑡] and 𝜃3[𝑡] of the blue blocks are shared by all classes; with 𝐿1 = 𝐿2 = 𝐿3 = 4 layers, the...",
+      "page": 8
+    },
+    {
+      "image": "2610.38974_figures/2610.38974_fig3.jpg",
+      "caption": "Figure 3. Validation infidelity during training for the min–max codec (a) and the sign-split codec (b), with one line for each of the ten seeds. Blue solid lines: circuit with post-selection; orange dashed lines: circuit without branch selection; green dotted lines: parameter-matched classical control; gray dash-dotted line: identity map, which returns the noisy input state unchanged. Markers indicate the best epoch of each run. The models are evaluated every five epochs on fixed validation pairs of all steps 𝑡= 1, … , 10, with 𝑇= 10, the linear schedule from 0.02 to 0.10, Adam with a learning rate of 0.01, and early stopping after eight evaluations without improvement. The vertical axis is...",
+      "page": 16
+    }
+  ],
+  "figure": "2610.38974_figures/2610.38974_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

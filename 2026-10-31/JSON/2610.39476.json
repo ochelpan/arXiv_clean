@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2610.39476",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.NI",
+    "cs.DC",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "SeQUeNCe.DQC: Full-stack Simulation of Distributed Quantum Computing",
+  "authors": "Sanjay Suresh, Caitao Zhan, Joaquin Chung, Rajkumar Kettimuthu",
+  "abstract": "Distributed quantum computing (DQC) connects multiple quantum processing units to overcome the scale limits of monolithic hardware. We introduce SeQUeNCe.DQC, a new top-level module within the SeQUeNCe package that compiles monolithic circuits into topology-aware execution plans and coordinates their execution using SeQUeNCe's existing quantum-network modules and protocols. We validate SeQUeNCe.DQC by reproducing a two-node trapped-ion Grover experiment in simulation and comparing success probabilities with the reported 71% benchmark. We then evaluate how compiler strategy, topology, and memory capacity jointly govern distributed circuit execution time and success rate. In these experiments, our hybrid compilers successfully identified mixed TeleGate/TeleData execution plans that outperformed pure gate-teleportation strategies. By capturing the physical overhead of distributed quantum primitives, SeQUeNCe.DQC provides a rigorous platform for co-designing DQC software and hardware architectures.",
+  "url": "http://arxiv.org/abs/2610.39476v1",
+  "pdf": "https://arxiv.org/pdf/2610.39476v1",
+  "type": "both",
+  "summary": "This paper introduces SeQUeNCe.DQC, a comprehensive simulator for Distributed Quantum Computing, designed to overcome hardware scale limits. It rigorously tests how compiler choices and network constraints impact performance by simulating complex algorithms like Grover's search. The key finding is that hybrid compilation strategies balancing gate teleportation and data movement yield superior performance compared to single-strategy approaches.",
+  "main_problem": "The paper addresses the challenge of scaling quantum computation by simulating Distributed Quantum Computing (DQC) across multiple interconnected Quantum Processing Units (QPUs). It aims to determine how compilation strategies, network topology, and memory capacity jointly affect execution time and success probability.",
+  "main_result": "Hybrid compiler strategies that intelligently trade between remote two-qubit gates (TELEGATE) and physical qubit relocation (TELEDATA) significantly outperform pure gate-teleportation methods, achieving substantial runtime reductions.",
+  "method": "The authors developed and utilized SeQUeNCe.DQC, a full-stack simulator that compiles monolithic circuits into topology-aware execution plans using both density-matrix and ket-vector backends.",
+  "model_or_system": "The model simulates DQC across multiple DQCNodes, which are connected via quantum links. The framework explicitly models classical control channels and uses primitives like TELEGATE (remote gate) and TELEDATA (qubit movement).",
+  "key_observables": "Execution time, success probability (especially for Grover's algorithm), and resource consumption (e.g., Bell-pair usage).",
+  "important_parameters": "Compiler strategy (qap, FGP, etc.), network topology (star, grid, caveman), and memory capacity distribution (balanced vs. skewed).",
+  "main_assumptions": "The framework assumes fully connected qubits within each QPU and models classical transmission latencies, though it notes limitations regarding internal topology and fault tolerance.",
+  "figures_summary": "Figures illustrate the modular architecture and execution workflow. Specific figures compare performance metrics (time/success) across different compiler strategies, network topologies, and memory allocation schemes for Grover's algorithm.",
+  "paper_structure": "The paper introduces the SeQUeNCe.DQC framework, validates it by reproducing a known trapped-ion Grover experiment, and then systematically evaluates the performance impact of compiler choices, network topology, and memory distribution on DQC execution.",
+  "why_interesting": "The rigorous, full-stack simulation approach provides crucial insights into the overheads of physical communication primitives (TELEGATE vs. TELEDATA), which is vital for designing practical, large-scale quantum hardware architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.39476_figures/2610.39476_fig1.jpg",
+      "caption": "Fig. 2. SeQUeNCe.DQC execution workflow. The compiler produces a CompiledProgram; the controller tracks qubit locations and dispatches operations to per-node WorkerPrograms.",
+      "page": 2
+    },
+    {
+      "image": "2610.39476_figures/2610.39476_fig2.jpg",
+      "caption": "Fig. 1. Modular architecture of SeQUeNCe.DQC. Light-gray boxes represent existing SeQUeNCe modules; blue boxes highlight new modules added to enable full-stack DQC simulation.",
+      "page": 2
+    },
+    {
+      "image": "2610.39476_figures/2610.39476_fig3.jpg",
+      "caption": "Fig. 3. Two-node distributed Grover validation. Per-marked-state success probability for the noiseless baseline (100%) and the full detailed error model (73.8% avg). The dashed line represents the measured 71% average from Main et al. [6].",
+      "page": 4
+    },
+    {
+      "image": "2610.39476_figures/2610.39476_fig4.jpg",
+      "caption": "Fig. 4. Distributed Grover (n=6) success probability versus hardware quality z (Table IV), linking physical device noise directly to algorithmic outcome.",
+      "page": 5
+    },
+    {
+      "image": "2610.39476_figures/2610.39476_fig5.jpg",
+      "caption": "Fig. 5. Execution time and Grover’s success probability of eight compilations of the same 2-node Grover (n=4). Bars annotate success at z=0.95.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.39476_figures/2610.39476_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

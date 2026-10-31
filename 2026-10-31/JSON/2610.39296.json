@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.39296",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "NAKO: A Benchmarking Framework for Evaluating and Diagnosing Neutral-Atom Quantum Compilers",
+  "authors": "Wenjie Sun, Zhigang Wang, Xiaoyu Li, Desheng Zheng, Lianhui Yu, Geng Chen, Guowu Yang",
+  "abstract": "Reconfigurable neutral-atom processors couple gate scheduling, atom placement, and parallel atom transport, so compiler decisions jointly determine physical execution costs. Evaluating these compilers requires attainable resource references and a way to trace excess costs to their causes. We present NAKO, a benchmarking framework that parameterizes circuits by qubit count, logical depth, and requested one- and two-qubit gate densities, and assigns attainable targets for Rydberg stages, routing intervals, and movement layers. Each benchmark is paired with an executable reference schedule; under the stated execution model, construction guarantees minimum Rydberg-stage and routing-interval counts, and minimum movement among schedules with the minimum Rydberg-stage count. Comparing compiler outputs with these references quantifies resource gaps, while reference mappings and intermediate physical states enable controlled interventions that trace excess costs to specific compiler decisions. In a 648-run evaluation of Enola and OLSQ-DPQA, NAKO identifies distinct bottlenecks. For Enola, placement scoring and cross-stage layout management contribute to excess movement; diagnosis-guided interventions reduce mean movement by 78.9% across five matched circuits. For OLSQ-DPQA, premature candidate selection and limited exploration of preparatory states produce avoidable entangling stages and routing intervals; four fixed-checkpoint continuations each eliminate one Rydberg stage and one routing interval without increasing movement. NAKO thus links resource targets backed by constructive optimality guarantees to controlled diagnosis and validation of compiler-specific resource savings.",
+  "url": "http://arxiv.org/abs/2610.39296v1",
+  "pdf": "https://arxiv.org/pdf/2610.39296v1",
+  "type": "theory",
+  "summary": "This paper introduces NAKO, a comprehensive benchmarking framework designed to evaluate quantum compilers for neutral-atom processors. It quantifies physical resource overheads—such as movement and Rydberg stages—beyond simple logical depth. By comparing compiler outputs against achievable physical reference schedules, NAKO precisely diagnoses where and why compilers waste resources, guiding future compiler development.",
+  "main_problem": "The paper addresses the challenge of accurately evaluating and diagnosing the physical execution costs associated with quantum compilers designed for neutral-atom processors.",
+  "main_result": "The proposed NAKO framework successfully quantifies resource gaps by comparing compiler outputs against attainable physical reference schedules, allowing diagnosis of specific compiler bottlenecks.",
+  "method": "The authors introduce NAKO, a benchmarking framework that parameterizes circuits and assigns attainable resource targets (Rydberg stages, routing intervals, movement layers) based on an executable reference schedule.",
+  "model_or_system": "The system is a reconfigurable neutral-atom processor utilizing movable traps (AODs) and Rydberg interactions for quantum gates. The model tracks resource costs across physical execution steps, including gate scheduling, atom placement, and parallel atom transport.",
+  "key_observables": "Resource metrics include Rydberg stages (R), routing intervals (T), and movement layers (M). Diagnostics include resource gaps and quantified excess costs.",
+  "important_parameters": "Qubit count, logical depth, and requested one- and two-qubit gate densities are used to parameterize the circuits.",
+  "main_assumptions": "The framework assumes a dependency-preserving execution model and relies on constructing an 'executable physical reference schedule' to establish minimum resource bounds.",
+  "figures_summary": "Figure 1 outlines the NAKO workflow from workload parameters to resource comparison and diagnosis. Figure 2 illustrates the physical constraints and resource accounting for neutral-atom execution.",
+  "paper_structure": "The paper introduces the physical complexity of neutral-atom compilation, details the NAKO framework for setting resource targets, and then presents case studies (Enola and OLSQ-DPQA) demonstrating how the framework diagnoses specific, avoidable resource overheads.",
+  "why_interesting": "This work provides a rigorous, quantitative tool for benchmarking quantum compilers on a leading physical platform (neutral atoms), directly linking abstract compilation decisions to measurable physical overheads like movement and stage count.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.39296_figures/2610.39296_fig1.jpg",
+      "caption": "Fig. 1. Overview of NAKO. Given workload and resource parameters, NAKO constructs a benchmark circuit C, a certified resource target (R, T, M), and an executable physical witness Sref. The compiler under test compiles C; NAKO compares the resulting schedule with the certified target to quantify resource gaps, and uses Sref to diagnose the compiler decisions responsible for those gaps.",
+      "page": 2
+    },
+    {
+      "image": "2610.39296_figures/2610.39296_fig2.jpg",
+      "caption": "Fig. 2. Physical constraints and resource accounting for reconfigurable neutral-atom execution. Left: atoms sharing an AOD column move together; dashed circles mark their previous positions. Center: the illustrated movements reverse column order and conflict within one AOD array. Right: a global pulse executes CZ gates on the isolated pairs (a, b) and (c, d). Bottom: two routing intervals contain two and one movement layers, respectively, giving (R, T, M) = (3, 2, 3). Geometry and event spacing are schematic. The constraints follow [23]–[26].",
+      "page": 3
+    },
+    {
+      "image": "2610.39296_figures/2610.39296_fig3.jpg",
+      "caption": "Fig. 3. Construction with target (R, T, M) = (5, 3, 4). Initial matching, 111, 223, and 100 produce five pulses with movement counts 1, 1, 2, 0 between them. Workload parameters determine the requested gate counts. In this example, subtracting the backbone’s 20 CZ gates from the request of 25 leaves five CZ gates to add; one static pair supplies these across the five pulses. The single-qubit request is completed with two Hadamard (H) gates. The resulting circuit contains 25 CZ gates and two H gates, and its reference retains (R, T, M) = (5, 3, 4). Numbered pairs show backbone states; event widths indicate order.",
+      "page": 5
+    },
+    {
+      "image": "2610.39296_figures/2610.39296_fig4.jpg",
+      "caption": "Fig. 4. Primitive execution witnesses with time advancing downward. Numbered circles identify backbone qubits, and connecting trajectories show coordinate changes. Input denotes the inherited configuration. Shaded rows labeled Rydberg mark newly executed entangling stages; green pair marks indicate their CZ gates. Gray pair marks show co-location in the input and intermediate configurations. The 223 primitive executes Rydberg stages after m1 and m3; its intermediate configuration after m2 has no pulse. The 100 and 111 primitives each add one Rydberg stage.",
+      "page": 5
+    },
+    {
+      "image": "2610.39296_figures/2610.39296_fig5.jpg",
+      "caption": "Fig. 5. Experiment A: depth scaling. From left to right, Rydberg, routing-interval, and movement ratios use the constructed reference as denominator. Points show individual runs, connected markers show means, and error bars show sample standard deviations. The dashed line marks reference attainment.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.39296_figures/2610.39296_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

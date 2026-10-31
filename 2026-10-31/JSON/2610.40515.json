@@ -1,0 +1,74 @@
+{
+  "arxiv_id": "2610.40515",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "math.OC",
+    "cond-mat.dis-nn",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Single-Temperature Ranked Greedy Cluster Exchange for Max-Cut on Two-Dimensional Tori",
+  "authors": "Hao Geng, Nan Su, Gabriele Cavallaro",
+  "abstract": "Ground-state search in two-dimensional Ising spin glasses on large toroidal lattices remains challenging for local-update heuristics because rugged energy barriers impede relaxation across metastable states. Equivalent to zero-field toroidal Max-Cut problems, these spin-glass instances also serve as standard benchmarks for optimization heuristics. Many Monte Carlo approaches combine single-spin flips or cluster moves with temperature ladders or annealing schedules, yet even with tuned parameters, rarely achieve rapid, reliable ground-state convergence at scale. Here, we address the need for faster ground-state search through cooperation between replicas. We introduce ranked greedy cluster exchange (RGCX) and combine it with fixed-temperature Metropolis sweeps to form single-temperature RGCX. Replicas are ranked by cut to determine the pair-processing order. Each pair deterministically exchanges every disagreement cluster that raises the better replica's cut, retaining the complement and conserving the pair's summed cut. On the 20,000-spin Gset instance G81, the estimated runtime to reach the certified optimum with 99% success probability (TTS99) was 12.1 s on an 8-core desktop computer. With the same population size, exchange interval and temperature, the method reached the best known cuts on all 17 toroidal Gset graphs, including 9 certified optima. These findings advance ground-state search on large two-dimensional tori by establishing single-temperature RGCX as an efficient population-based method that combines ranked greedy cluster exchange with fixed-temperature Metropolis dynamics.",
+  "url": "http://arxiv.org/abs/2610.40515v1",
+  "pdf": "https://arxiv.org/pdf/2610.40515v1",
+  "type": "both",
+  "summary": "This paper introduces a novel optimization heuristic called single-temperature Ranked Greedy Cluster Exchange (RGCX) for solving the Max-Cut problem on 2D toroidal lattices. By combining deterministic cluster exchanges with fixed-temperature Monte Carlo dynamics, the method significantly accelerates the search for ground states in Ising spin glasses. The results demonstrate RGCX's efficiency, establishing it as a powerful population-based tool for complex optimization problems in condensed matter physics.",
+  "main_problem": "The paper addresses the challenging ground-state search problem for the Max-Cut problem, which is equivalent to finding the ground state of the zero-field Ising spin glass on 2D toroidal lattices.",
+  "main_result": "The proposed single-temperature Ranked Greedy Cluster Exchange (RGCX) method achieved fast convergence, reaching the best known cuts and certified optima on large toroidal graphs with significantly faster estimated runtimes compared to existing state-of-the-art methods.",
+  "method": "The core method is single-temperature RGCX, which combines deterministic cluster exchanges between ranked replicas with fixed-temperature Metropolis Monte Carlo sweeps.",
+  "model_or_system": "The system is a two-dimensional lattice arranged on a torus, modeled by the Max-Cut problem or the zero-field Edwards–Anderson Ising model with $\\pm 1$ edge weights. The state is defined by a binary configuration vector $x \\in \\{0, 1\\}^N$.",
+  "key_observables": "The primary observable is the 'Cut' value (the total weight of edges crossing the partition). Performance is measured by Time-to-Solution ($\text{TTS}99$) to reach the certified optimum.",
+  "important_parameters": "Key parameters include the number of replicas ($R=96$), the fixed temperature ($T=0.23$), and the exchange interval ($k=8$ sweeps). The lattice size $N$ reaches 20,000 spins.",
+  "main_assumptions": "The RGCX operation assumes the pair exchange conserves the sum of the two replicas' cuts, $\text{cut}(t') + \text{cut}(u') = \text{cut}(t) + \text{cut}(u)$.",
+  "figures_summary": "Figures illustrate the single-temperature RGCX process on a torus, detailing cluster exchanges based on positive gain ($\\Delta_\\ell > 0$). Tables compare the $\text{TTS}99$ of RGCX against other solvers (e.g., Cosm v2) across various toroidal graphs.",
+  "paper_structure": "The paper introduces the problem (Max-Cut/Ising spin glass), details the RGCX operator and its theoretical properties (cut conservation), presents the combined simulation algorithm (Metropolis sweeps interspersed with RGCX calls), and concludes with extensive benchmarking against state-of-the-art methods on various graph sizes.",
+  "why_interesting": "While the focus is classical optimization, the underlying physics—ground-state search in spin glasses—is central to understanding complex energy landscapes relevant to quantum many-body physics and optimization problems in quantum computing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.40515_figures/2610.40515_fig1.jpg",
+      "caption": "Figure 1: Single-temperature RGCX. (a) One run: Metropolis sweeps at one temperature and, every k sweeps, an exchange call that ranks the replicas by cut and processes all pairs. (b) One pair on a 14 × 14 torus with ±1 weights, as an illustration. The disagreement set D splits into five clusters, each marked with the change of the better replica’s cut if it takes that cluster from the worse replica. The better replica takes every cluster with a positive change, the worse replica receives the complement, and the summed cut stays 198.",
+      "page": 4
+    },
+    {
+      "image": "2610.40515_figures/2610.40515_fig2.jpg",
+      "caption": "Figure 2: First hits on the four tori of Table 1, 2,048 runs each. (a) Fraction of runs that have not reached the optimum, against sweeps. (b) The same against wall time on the 8-core desktop computer. The dotted line in (a) and (b) marks 1 % of runs without a hit.",
+      "page": 7
+    },
+    {
+      "image": "2610.40515_figures/2610.40515_fig3.jpg",
+      "caption": "Figure 3: Ablations on G81 (a) and G72 (b), 256 paired runs per arm. Each row specifies a modification of single-temperature RGCX. Dots: ratio of the renewal TTS99 in wall seconds, arm over our paper’s setting, with 95 % interval. Vertical ticks: the same ratio in replica-sweeps. Marker colors indicate the decision in the corresponding unit: circles for wall time and vertical ticks for replica-sweeps. The shaded band is the equivalence margin [2/3, 1.5]. The number of the arm’s runs that reached the optimum is given on the right, and arms in which none did within 10,000 sweeps are marked “no hit”. Equivalence is declared when the 90 % interval of the ratio lies entirely within [2/3, 1.5]...",
+      "page": 9
+    },
+    {
+      "image": "2610.40515_figures/2610.40515_fig4.jpg",
+      "caption": "Figure 4: G72 on the nRF52840 board at 64 MHz. (a) Fraction of runs without a hit versus board time, using modeled times from 512 host runs (line) and measurements from 8 board runs (dots), with the median, the 90th percentile and the fixed-length TTS99. The model curve is truncated at the time corresponding to the 1,000-sweep run limit. (b) Measured board time against the model’s prediction for the 8 board runs. The dashed line is equality.",
+      "page": 9
+    }
+  ],
+  "figure": "2610.40515_figures/2610.40515_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

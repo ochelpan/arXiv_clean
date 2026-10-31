@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.39670",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Error-Corrected Quantum Optimization via Rydberg Atom Array Embeddings",
+  "authors": "Andrew Byun, Berend Klaver, Arinjoy De, Pedro Ildefonso, Davit Khachatryan, Alexei Bylinskii, Michael Schuler, Wolfgang Lechner",
+  "abstract": "Rydberg atom quantum optimizers naturally encode the maximum independent set problem on geometric graphs. However, to solve general combinatorial optimization problems on more complex topologies, an embedding is required to overcome the limited-range native interactions. Such embeddings use gadgets, specific arrangements of atoms, which inevitably introduce ancillary atoms. Here, we show that this apparent overhead instead provides an intrinsic resource for error correction. Specifically, we demonstrate that the Parity Architecture-based Rydberg embedding naturally forms a classical error-correcting code, a principle that extends to other Rydberg blockade-based embeddings. Within superatom substructures, exact Rydberg-excitation-number constraints provide local error syndromes at no additional hardware cost and give rise to a strictly nonlinear code. To correct bit-flip errors, we introduce the precisely tailored Cluster decoder, which exploits these local constraints and the underlying gadget structure. Numerically, this approach achieves an error threshold of $p_{\\text{th}}\\gtrsim26 \\%$ across different layout geometries. Experimentally, on the QuEra Aquila QPU, the Cluster decoder recovers exact optimization solutions with an average success rate of $\\gtrsim8\\%$ for systems of up to 107 atoms, even when bare hardware and standard greedy post-processing find none. A Rydberg atom array embedding is therefore not merely a hardware mapping of an optimization problem, but a co-designed architecture for quantum optimization in which embedding, computation, and error correction emerge from the same physical structure.",
+  "url": "http://arxiv.org/abs/2610.39670v1",
+  "pdf": "https://arxiv.org/pdf/2610.39670v1",
+  "type": "both",
+  "summary": "This work demonstrates that embedding general optimization problems onto Rydberg atom arrays not only maps the problem but also inherently builds in a classical error-correcting code. By utilizing this structure and a specialized Cluster decoder, the authors achieve high fidelity in recovering optimal solutions despite hardware noise.",
+  "main_problem": "The paper addresses the challenge of solving general combinatorial optimization problems (OPs) on complex topologies using Rydberg atom arrays, which requires embedding techniques beyond the native maximum independent set problem.",
+  "main_result": "The embedding structure itself is shown to naturally form a classical error-correcting code, allowing the use of a tailored Cluster decoder to achieve an error threshold of $p_{\text{th}}\\gtrsim26\\%$ and recover solutions experimentally.",
+  "method": "The approach combines gadget-based embedding (e.g., Parity Architecture) to map OPs to the hardware, followed by Adiabatic Quantum Computation (AQC) and error correction using a specialized Cluster decoder.",
+  "model_or_system": "The physical system is a Rydberg atom array utilizing the Rydberg blockade mechanism. The Hamiltonian involves mixing ($\\hat{H}_{mix}$) and cost ($\\hat{H}_{cost}$) terms, and the computation relies on mapping the problem onto a Unit-Distance-Weighted Maximum Independent Set (UD-MWIS) problem on an expanded graph.",
+  "key_observables": "Error threshold ($p_{\text{th}} \\gtrsim 26\\%$), average success rate ($\\gtrsim 8\\%$) for recovering exact solutions on the QuEra Aquila QPU.",
+  "important_parameters": "Error threshold, Rabi frequency ($\\Omega$), detuning ($\\Delta$), and the specific structure of the gadgets (LINK, 3BODY).",
+  "main_assumptions": "The primary assumption is that the redundancy introduced by the embedding gadgets provides sufficient structure to act as a classical error-correcting code, which is strictly nonlinear.",
+  "figures_summary": "Figure 1 illustrates the full workflow: OP $\to$ Parity Encoding $\to$ Rydberg-Parity Embedding $\to$ Error Syndrome Extraction $\to$ OP Solution Recovery. Other figures detail the state preparation pulse and gadget performance.",
+  "paper_structure": "The paper first establishes the need for embedding beyond native graph constraints. It then details the construction of the Rydberg-Parity embedding, which simultaneously encodes the problem and provides error correction. The methodology involves AQC, error syndrome extraction via local constraints, and decoding using the Cluster decoder.",
+  "why_interesting": "It provides a concrete, physical realization of error correction being an intrinsic byproduct of the computational embedding structure, which is a major goal in scalable quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.39670_figures/2610.39670_fig1.jpg",
+      "caption": "FIG. 1. Overview of error-corrected quantum optimization via Rydberg atom array embeddings. (a) An optimization problem (OP) on a logical graph G (here, a QUBO instance) is first mapped to the parity encoding GParity. Squares denote data qubits and diamonds denote parity qubits, with empty (filled) markers indicating the qubit state |↓⟩(|↑⟩). Gray triangles and squares represent three- and four-body parity constraints, respectively. (b) The parity-encoded problem is embedded into a Rydberg-blockade-based atomic layout GRydberg Parity , yielding the Rydberg-Parity embedding. Adiabatic quantum computing (AQC) is then performed on this layout. Empty (filled) circles correspond to physical...",
+      "page": 2
+    },
+    {
+      "image": "2610.39670_figures/2610.39670_fig2.jpg",
+      "caption": "Figure 1 summarizes our full workflow for error- corrected quantum optimization with Rydberg gadget embeddings. An optimization problem is first mapped to the physical Rydberg-Parity embedding on an array of atoms via an intermediate parity mapping [Fig. 1(a, b)]. Then, noisy AQC is performed on this Rydberg- Parity layout [Fig. 1(b)], typically yielding a noisy bit- string. Interpreting the atomic layout as a Rydberg- Parity code, we extract the error syndrome, apply the Cluster decoder to correct errors, and recover a valid bitstring [Fig. 1(c)]. Finally, the solution of the origi- nal OP is directly obtained from the corrected bitstring [Fig. 1(d)].",
+      "page": 2
+    },
+    {
+      "image": "2610.39670_figures/2610.39670_fig3.jpg",
+      "caption": "FIG. 2. Gadget-based Rydberg-Parity embedding. (a) The physical layout GRydberg Parity is constructed through the amalga- mation of two fundamental gadgets [26]: (b) The LINK gad- get, which copies the bit from one end to the other, nA = nA′; (c) The 3BODY gadget, which satisfies the parity constraint: nA ⊕nB ⊕nAB = 1. Amalgamation glues gadgets together at shared atoms (e.g., atom A), thereby summing their local detunings ∆i (indicated by the circle colors). The smaller con- figurations shown in (b) and (c) enumerate all valid MWIS bitstrings of the corresponding gadgets. (d, e) LINK and 3BODY gadgets can themselves be interpreted as an amalga- mation of dimer and trimer superatoms. The...",
+      "page": 4
+    },
+    {
+      "image": "2610.39670_figures/2610.39670_fig4.jpg",
+      "caption": "FIG. 3. Cluster decoder. (a) The iterative decoding algorithm consists of four stages: (0) Initialize: Initial clusters Γi (the active regions of interest) are defined by grouping adjacent superatom sets (sets of atoms belonging to the same superatom) that are flagged by the syndrome (highlighted in orange). (1) Resolve: The decoder attempts to locally correct the errors in each cluster by finding a unique bitstring configuration using the lookup-table search detailed in (b). All atoms outside the cluster are frozen, whereas the atoms inside the cluster remain unfrozen and are outlined in orange. If the Resolve step fails (e.g., Γ2 and Γ3), i.e., no unique valid configuration is found, the...",
+      "page": 7
+    },
+    {
+      "image": "2610.39670_figures/2610.39670_fig5.jpg",
+      "caption": "FIG. 4. Logical error rate (LER) under i.i.d. bit-flip noise for OPs on (a) complete graphs G = KN and (b) bipartite graphs G = KN,N for varying problem sizes N (indicated by color). The crossing of the curves reveals an error thresh- old pth, below which the LER decreases monotonically as the system size N increases. From the crossing of the curves cor- responding to the two largest considered graph sizes, we es- timate pth ≈0.275 for complete graphs (a), and pth ≈0.263 for bipartite graphs (b). The left side of each panel illustrates the mapping from the OP, through the parity-encoded prob- lem, to the Rydberg-Parity embedding. Increasing problem sizes N are represented by progressively...",
+      "page": 9
+    }
+  ],
+  "figure": "2610.39670_figures/2610.39670_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 4,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

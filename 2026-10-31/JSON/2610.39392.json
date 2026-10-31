@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.39392",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Conditional Information Flow and Neural Representability of One-Dimensional Rotated Cluster States",
+  "authors": "Ziqi Xu",
+  "abstract": "I study how measurement outcomes can remain conditionally dependent over long distances while the underlying state carries only a small internal memory, using one-dimensional rotated cluster states, whose exact matrix product state (MPS) bond dimension is $D=2$ at every rotation angle. Using exact MPS contraction, I compute the conditional mutual information (CMI) of two readout protocols: the entanglement-swapping endpoint CMI decreases from one bit at $θ=0$ to zero at $θ=π/2$, whereas a stationary bulk readout of the locally equivalent conventional cluster state vanishes at both limits. As an exact control, the spin-1 AKLT chain obeys $I_m=(4/9)\\,3^{-m}$, so its CMI length equals its two-point correlation length, for an identifiable but non-generic reason. I then compare learners on the same $N=64$, $θ=0.35$ target. A positive autoregressive GRU learns the computational-basis Born distribution from a few thousand samples, but an exactly computable Bell-basis readout shows that this distribution does not fix the phases. A complex RBM reaches the $N=8$ ground state under an exact objective, while a short generic recurrent variational Monte Carlo pilot is still improving when its runs end. As a positive control, an MPS-induced recurrent model whose hidden state is the bond vector reaches the ground state to near machine precision at $χ=2$, whereas a $χ=1$ control fails. These results show that long CMI does not require a large bond dimension, and that building the small virtual memory into the architecture greatly eases optimization.",
+  "url": "http://arxiv.org/abs/2610.39392v1",
+  "pdf": "https://arxiv.org/pdf/2610.39392v1",
+  "type": "both",
+  "summary": "This paper explores the relationship between long-range quantum information flow, measured by Conditional Mutual Information (CMI), and the capacity of machine learning models to represent quantum states. Using rotated cluster states, the authors show that small virtual memory structures are sufficient to maintain long-range correlations, and that explicitly incorporating this structure into recurrent neural networks significantly improves the model's ability to accurately learn the underlying quantum physics.",
+  "main_problem": "The paper investigates how quantum information flow, quantified by Conditional Mutual Information (CMI), can persist over long distances even when the underlying quantum state has a very small internal memory.",
+  "main_result": "It demonstrates that long-range CMI does not necessitate a large bond dimension, and that incorporating a small, structured virtual memory into machine learning architectures significantly aids optimization for learning quantum states.",
+  "method": "The authors use exact Matrix Product State (MPS) contractions to calculate CMI for rotated cluster states and compare these results against the performance of various neural network models (GRU, RBM) trained to represent the state's probability distribution.",
+  "model_or_system": "The primary system is the one-dimensional rotated cluster state, which is analyzed using its exact MPS representation with a fixed bond dimension of D=2. The study also compares this to the AKLT chain and uses general variational quantum circuit/neural network ansatzes.",
+  "key_observables": "Conditional Mutual Information (CMI) decay length ($\\xi_{CMI}$), two-point correlation length ($\\xi_{2pt}$), and the energy/error minimization achieved by various neural network architectures.",
+  "important_parameters": "Rotation angle $\theta$, bond dimension $D=2$, and the virtual memory capacity ($\\chi$) used in the recurrent models.",
+  "main_assumptions": "The CMI decay analysis assumes an exponential decay form, and the ML comparisons rely on specific training protocols (e.g., using only computational-basis data for GRU).",
+  "figures_summary": "The notes indicate comparisons of CMI decay curves for different measurement protocols (endpoint vs. bulk) and performance metrics (e.g., stabilization of stabilizer expectations) across various ML models.",
+  "paper_structure": "The paper is structured around three main comparisons: 1) Comparing CMI decay ($\\xi_{CMI}$) to correlation lengths ($\\xi_{2pt}$); 2) Comparing CMI to other quantum information measures (like $I(A:C)$); and 3) Benchmarking the ability of different ML architectures (GRU, RBM, MPS-induced) to learn the state's distribution, with the MPS-induced model showing superior performance.",
+  "why_interesting": "This work bridges quantum information theory (CMI) with modern computational techniques (ML), showing that structural knowledge (like the MPS bond structure) can provide a powerful inductive bias that makes complex quantum phenomena learnable by neural networks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.39392_figures/2610.39392_fig1.jpg",
+      "caption": "Figure 1: CMI from exact MPS probabilities. The upper panel shows finite-window length estimates for the stationary HC bulk protocol and the finite-endpoint HES protocol. Open conventional-cluster markers indicate fits that are sensitive to the fitting window or have very small CMI. The dashed curve shows the length scale obtained from the upper bound in Equation (76). The lower panel shows a representative CMI amplitude, which helps indicate where the fitted length is reliable.",
+      "page": 17
+    },
+    {
+      "image": "2610.39392_figures/2610.39392_fig2.jpg",
+      "caption": "Figure 2: Optimization at N = 64 and θ = 0.35. The solid curve is one χ = 2 MPS-induced recurrent run, and the star is the final L-BFGS value. Dashed curves are the incomplete generic recurrent VMC runs from Section 4.3. The update counts do not represent matched computational cost.",
+      "page": 21
+    },
+    {
+      "image": "2610.39392_figures/2610.39392_fig3.jpg",
+      "caption": "Figure 3: Independent checks at θ = 0. Panel (a) compares final energy-density errors. Exact zeros are shown at a 10−16 display floor. Panel (b) shows one deterministic optimization trajectory for the full-basis RBM and one for the MPS-induced recurrent model; the star marks the L-BFGS-refined result.",
+      "page": 22
+    },
+    {
+      "image": "2610.39392_figures/2610.39392_fig4.jpg",
+      "caption": "Figure 4: Learning the N = 64, θ = 0.35 computational-basis distribution. Panel (a) shows one validation- KL curve for M = 8192. Panel (b) shows the test forward KL as the training set grows. Panel (c) shows classical infidelity 1 −Fcl and conditional-probability error. Lines are medians over three seeds and shaded regions show the full seed range.",
+      "page": 24
+    },
+    {
+      "image": "2610.39392_figures/2610.39392_fig5.jpg",
+      "caption": "Figure 5: Singular values and determinant magnitude for one HES outcome map. Equal singular values at θ = 0 mean that both virtual directions survive equally. At θ = π/2, one singular value becomes zero and the map has rank one.",
+      "page": 27
+    }
+  ],
+  "figure": "2610.39392_figures/2610.39392_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

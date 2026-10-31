@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.39847",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Digital-Analog Quantum Neural Network with Long-Range Interactions",
+  "authors": "Zongyuan Ge, Daili Li, Zewen Zhang",
+  "abstract": "Protocols combining single-qubit digital operations with analog quantum evolutions bypass large numbers of two-qubit entangling gates, offering a promising approach to variational algorithms and hybrid quantum simulation. Focusing on the digital-analog quantum neural network (DA-QNN) as a representative framework, this work demonstrates that incorporating long-range interactions enhances the efficiency of such hybrid algorithms. Within the analog blocks, an Ising model with power-law interactions is employed to generate entanglement, and this protocol is benchmarked across supervised and unsupervised learning tasks. Beyond discussing the effects of the transverse field and evolution time, the primary analysis focuses on how the interaction range governs the expressibility and trainability of the ansatz. For supervised image classification and many-body phase detection, long-range ansatzes match the performance of their short-range counterparts with fewer DA-QNN layers or shorter evolution times, owing to the rapid information propagation across the system enabled by nonlocal couplings. This resource reduction alleviates the classical optimization overhead and eases experimental implementation. In unsupervised phase detection, although the long-range ansatz does not outperform its short-range counterpart in every regime, the two ansatzes provide complementary signatures that jointly reconstruct the complete phase diagram. These findings establish long-range interacting platforms as a compelling resource for advancing practical, large-scale digital-analog quantum computing.",
+  "url": "http://arxiv.org/abs/2610.39847v1",
+  "pdf": "https://arxiv.org/pdf/2610.39847v1",
+  "type": "theory",
+  "summary": "This paper investigates Digital-Analog Quantum Neural Networks (DA-QNNs) by analyzing the impact of long-range interactions within the underlying Ising model. The authors demonstrate that incorporating long-range couplings significantly boosts the efficiency of these hybrid quantum algorithms for tasks like image classification. This suggests that designing quantum hardware with tunable, long-range connectivity is a key resource for advancing practical, large-scale quantum computation.",
+  "main_problem": "Developing efficient quantum neural network (QNN) protocols by combining single-qubit digital operations with analog quantum evolutions (DA-QNN).",
+  "main_result": "Incorporating long-range interactions significantly enhances the efficiency of DA-QNNs, requiring fewer computational resources (layers or time) for tasks like image classification.",
+  "method": "The authors train the DA-QNN by minimizing binary cross-entropy loss using AdaGrad, obtaining gradients via reverse-mode automatic differentiation.",
+  "model_or_system": "The core model is the Digital-Analog Quantum Neural Network (DA-QNN), which uses an analog block governed by the Long-Range Transverse-Field Ising Model (LR-TFIM) Hamiltonian.",
+  "key_observables": "Test accuracy (for classification), minimum required circuit depth ($\\ell_{\\min}$), and minimum evolution time ($\tau_{\\min}$).",
+  "important_parameters": "Interaction range exponent ($\\alpha$), transverse field ($h$), circuit depth ($\\ell$), and evolution time ($\tau$).",
+  "main_assumptions": "The primary focus is on quantifying the advantage conferred by tuning the interaction range $\\alpha$ across a wide spectrum.",
+  "figures_summary": "Figures illustrate the DA-QNN pipeline, comparing resource requirements ($\tau_{\\min}$ vs $\\alpha$) for classification, and showing how long-range interactions reduce resource needs compared to short-range ones.",
+  "paper_structure": "The paper systematically analyzes the DA-QNN framework, first demonstrating resource reduction using long-range interactions for supervised tasks, then exploring complementary signatures for unsupervised phase detection, and finally confirming the general advantage of long-range couplings.",
+  "why_interesting": "The work directly addresses resource scaling in hybrid quantum algorithms, showing how engineered long-range connectivity can mimic the efficiency gains of deeper circuits or longer evolution times, which is crucial for hardware implementation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.39847_figures/2610.39847_fig1.jpg",
+      "caption": "Figure 1. DA-QNN pipeline. An MNIST image is decomposed via PCA into 2N components {(θq, ϕq)} and encoded on qubits through Bloch-sphere rotations U(θq, ϕq). The encoded state is then processed by alternating digital and analog operations. Blue boxes denote the encoding rotations U(θq, ϕq) and the digital single-qubit rotations R(θq,j) of Eq. (2); the red box denotes an analog evolution under the LR-TFIM parameterized by time τ, in which the arcs indicate the power-law couplings and the horizontal arrow indicates the transverse field h. One of the qubits is measured at the end for classification.",
+      "page": 3
+    },
+    {
+      "image": "2610.39847_figures/2610.39847_fig2.jpg",
+      "caption": "Figure 2. Binary classification accuracy of the digit pair 3v8 across (τ, ℓ) values for (a) h=1.0 and (b) h=3.0 at N =8 and α=1.0. Results are averaged over random seeds. The best and worst cells of each panel are annotated.",
+      "page": 4
+    },
+    {
+      "image": "2610.39847_figures/2610.39847_fig3.jpg",
+      "caption": "Figure 3. Minimum resources to reach acc⋆=0.70 versus α on the pair 3v8 with N =8. Blue: the shortest layerwise evolution time τmin. Orange: the lowest depth ℓmin. Solid circles: h=1.0, dashed squares: h=3.0. Error bars are 95% bootstrap confidence intervals over random seeds. Markers have been shifted slightly along the horizontal axis for better visibility.",
+      "page": 5
+    },
+    {
+      "image": "2610.39847_figures/2610.39847_fig4.jpg",
+      "caption": "Figure 4. Binary classification accuracy with various system sizes N at h=1.0 for (a) ℓ=1 and (b) ℓ=2, averaged over six digit pairs. The curves for α=6.0 and α→∞nearly coincide. Error bars are one standard deviation across the six pairs and random seeds and shown only for α=0.2 and α→∞for clarity.",
+      "page": 6
+    },
+    {
+      "image": "2610.39847_figures/2610.39847_fig5.jpg",
+      "caption": "Figure 5. Effect of the encoding strategy on binary classification accuracy across α for the pair 3v8 at N =8, h=1.0, and ℓ=1. Each strategy encodes PCA components in order of importance and assigns a readout qubit: E1 [starting from the central qubit q5 and outward (q5 →q6 →q4 . . . q1) with readout qubit q1, the scheme used throughout this work], E2 [starting from q5 and outward (q5 →q4 →q6 . . . q1), q1], E3 [sequential (q1 →q8), q1], E4 [(q5 →q6 →q4 . . . q1), q5], E5 [(q5 →q4 →q6 . . . q1), q5], E6 [sequential, q5]. Error bars are 95% confidence intervals of the mean over random seeds and shown only for E1 and E6 for clarity.",
+      "page": 7
+    }
+  ],
+  "figure": "2610.39847_figures/2610.39847_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

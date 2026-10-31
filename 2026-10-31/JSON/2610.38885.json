@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2610.38885",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Execution bias, repeatability and mitigation cost in parameter-frozen molecular VQE energy evaluation",
+  "authors": "Julen Larrucea",
+  "abstract": "A smaller statistical error bar need not mean a more accurate molecular energy. We evaluate noiselessly optimized molecular variational quantum eigensolver states on IBM Aachen and Pittsburgh, two 156-qubit Heron processors (provider-reported revision 3). Only energy evaluation runs on hardware, with parameters, layouts and compiled circuits frozen and dynamical decoupling disabled. A five-molecule pilot, three-molecule isolated cohort in three windows and known-state controls comprise 110 jobs and 28.2 billed quantum processing unit (QPU) minutes; the isolated cohort spans 30.2 h within a 31.7 h campaign. Raw 1024 O2 and BeH2 mean residuals exceed returned uncertainty by factors 12-32. Pittsburgh BeH2 cross-job standard deviation is 5.6 times mean returned uncertainty. The zero-noise extrapolation (ZNE) package reduces O2 absolute residuals by 49.7% on Aachen and 83.5% on Pittsburgh at about fourfold charge. On Pittsburgh, twirled readout error extinction (TREX) removes 80 millihartree (mHa) per Raw 1024 job charge versus 50 mHa for ZNE. Controls reveal qubit-124 preparation or readout errors 5.4-5.6 times calibration; 13 mitigated energy point estimates fall outside the mapped spectrum, with no Raw counterpart. These results support workload checks and repeated measurements before additional sampling.",
+  "url": "http://arxiv.org/abs/2610.38885v1",
+  "pdf": "https://arxiv.org/pdf/2610.38885v1",
+  "type": "experiment",
+  "summary": "This work rigorously tests the accuracy of molecular energy calculations using VQE on real quantum hardware, comparing raw measurements against advanced error mitigation techniques. The findings demonstrate that while mitigation methods significantly reduce noise, the results highlight that hardware noise and execution bias remain dominant error sources that require careful workload checking before drawing strong physical conclusions.",
+  "main_problem": "The paper addresses the ambiguity in interpreting quantum energy measurements, specifically determining if a small statistical error bar implies true accuracy when evaluating molecular energies using VQE on noisy quantum hardware.",
+  "main_result": "Raw measurements show significant execution error, but error mitigation techniques like Zero-Noise Extrapolation (ZNE) and Twirled Readout Error Extinction (TREX) provide measurable improvements in reducing absolute energy residuals.",
+  "method": "The study evaluates energy evaluation runs on two 156-qubit quantum processors, comparing raw measurements against those processed using ZNE and TREX techniques.",
+  "model_or_system": "The calculations focus on several small molecular systems ($\text{H}_2, \text{LiH}, \text{O}_2, \text{BeH}_2, \text{H}_2\text{O}$) using STO-3G model definitions, with the full-space FCI energy serving as the reference.",
+  "key_observables": "Energy residuals (in mHa), standard deviations ($\\sigma$), and the relative performance of mitigation techniques (ZNE vs. TREX) across different molecular charges.",
+  "important_parameters": "The study utilized 156-qubit Heron processors (Aachen and Pittsburgh) and tested various job sizes (1024, 4096 shots).",
+  "main_assumptions": "The analysis separates the energy evaluation step from the full VQE optimization process, and the interpretation of residuals does not guarantee chemical accuracy.",
+  "figures_summary": "Figures compare energy ladders and residual changes across different error mitigation arms (Raw, TREX, ZNE) for various molecules and charges.",
+  "paper_structure": "The paper systematically evaluates energy estimates across multiple molecular systems and hardware backends, comparing raw measurements against those corrected by ZNE and TREX, concluding with diagnostics on repeatability and error sources.",
+  "why_interesting": "It provides a crucial, practical assessment of the noise floor and the efficacy of current error mitigation protocols (ZNE, TREX) when applying quantum computation to fundamental molecular physics problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.38885_figures/2610.38885_fig1.jpg",
+      "caption": "Figure 1: (a) Aachen pilot O2 energy ladder relative to full-space F: A is the exact active reference, V the frozen ideal energy, black links the active-space and ansatz contributions, and colored arrows the execution residual Y −V . Raw is a three-job mean and each mitigation estimate is one PUB; cancellation reduces |Y −F| from 256 to 236 mHa under TREX even as |Y −V | grows. (b) Start times show the O2 subset of each isolated window on Aachen and Pittsburgh; each complete device window has 14 jobs over 6.5–9.8 min. Window gaps are omitted, order was fixed, and BeH2 had no ZNE arm.",
+      "page": 5
+    },
+    {
+      "image": "2610.38885_figures/2610.38885_fig2.jpg",
+      "caption": "Figure 2: Individual isolated residuals Y −V on (a) Aachen and (b) Pittsburgh, with returned Estimator standard errors s. Markers identify Raw 1024, Raw 4096, TREX and the ZNE package; black crosses show the calibration prediction Pprod from Eq. (2) averaged over matching windows. The signed logarithmic scale is linear within ±0.3 mHa. Raw 1024 has six jobs per system and device; other supported cells have three, with BeH2 ZNE unmeasured.",
+      "page": 8
+    },
+    {
+      "image": "2610.38885_figures/2610.38885_fig3.jpg",
+      "caption": "Figure 3: Within-window and between-window moment SD components for six Raw 1024 jobs in three windows, compared with mean returned uncertainty ¯s. Negative between-window moment variance estimates are displayed at zero with hatching and an open downward marker. The between-window component has two degrees of freedom; the within-window component has three.",
+      "page": 9
+    },
+    {
+      "image": "2610.38885_figures/2610.38885_fig4.jpg",
+      "caption": "Figure 4: Signed residual changes from V relative to each window’s mean Raw 1024 bracket versus charge relative to one Raw 1024 job of the same system and backend. Colors identify systems, filled markers Aachen and open markers Pittsburgh; diamonds, squares and triangles identify Raw 4096, TREX and the ZNE package. Positive changes raise the signed residual; a negative change can still increase absolute error if the estimate crosses V . Each cell contributes three window points; per-cell and absolute-reduction views appear in Figs. S11 and S8.",
+      "page": 10
+    }
+  ],
+  "figure": "2610.38885_figures/2610.38885_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

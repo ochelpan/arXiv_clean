@@ -1,0 +1,75 @@
+{
+  "arxiv_id": "2610.40490",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.IT",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Fast and accurate neural triage decoding of ultra-high-rate quantum LDPC codes",
+  "authors": "Hong-Ye Hu, Zhenlai Wang, Binzhao Luo, Tao Xiang, Chen Zhao",
+  "abstract": "Quantum error correction is essential for fault-tolerant quantum computing. High-rate quantum low-density parity-check (qLDPC) codes have emerged as a promising approach to reducing the substantial physical qubit overhead of quantum error correction, enabling encoding rates exceeding $1/2$ in blocks of approximately one thousand physical data qubits. However, their practical implementation requires decoders that combine high accuracy with low latency to keep pace with quantum hardware. Existing decoders of high-rate qLDPC codes can achieve high accuracy but often incur substantial computational latency, whereas neural network decoders have yet to be demonstrated for high-rate qLDPC codes. Here, we introduce \\emph{neural triage decoding}, a framework that uses syndrome consistency to adaptively allocate neural computation. A local neural message-passing network rapidly predicts error corrections, additional iterations reduce residual syndrome violations, and a rarely invoked diversification stage searches for consistent corrections to the remaining shots. We demonstrate that the \\texttt{Triage} decoder can decode ultra-high-rate qLDPC codes encoding a few hundred logical qubits, including lifted-product and Kasai codes, achieving state-of-the-art accuracy comparable to the near optimal algorithmic decoders while reducing decoding latency by approximately one to two orders of magnitude. Our framework is inspired by a rigorous analysis of the exact bitwise marginal decoder, revealing a distance-independent syndrome-inconsistent error floor. In addition, we show the robustness of neural network decoders to mismatched error priors. Our results establish adaptive neural decoding as a promising route towards fast, accurate, and scalable quantum error correction in the near term.",
+  "url": "http://arxiv.org/abs/2610.40490v1",
+  "pdf": "https://arxiv.org/pdf/2610.40490v1",
+  "type": "theory",
+  "summary": "This paper introduces 'neural triage decoding,' a novel framework designed to decode ultra-high-rate quantum LDPC codes efficiently. By adaptively combining a local neural message-passing network with iterative refinement and diversification, the method achieves state-of-the-art accuracy while dramatically reducing decoding latency. This establishes a promising, scalable path for implementing quantum error correction in near-term quantum hardware.",
+  "main_problem": "The core problem is developing decoding algorithms for high-rate quantum low-density parity-check (qLDPC) codes that are both highly accurate and computationally fast enough for near-term fault-tolerant quantum computing.",
+  "main_result": "The proposed 'neural triage decoding' framework achieves state-of-the-art accuracy comparable to near-optimal algorithmic decoders while drastically reducing decoding latency by one to two orders of magnitude.",
+  "method": "The method combines a local neural message-passing network (NeuralMP) for rapid initial predictions, followed by iterative refinement using the residual syndrome, and a rare diversification stage to ensure full syndrome consistency.",
+  "model_or_system": "The system involves quantum error correction using high-rate qLDPC codes, which are modeled on a sparse bipartite graph (Tanner graph) derived from the parity check matrix H.",
+  "key_observables": "Logical Error Rate (LER) per-qubit-per-round, decoding latency, and syndrome consistency.",
+  "important_parameters": "High encoding rates (exceeding 1/2), physical error rate (p), and the number of logical qubits encoded.",
+  "main_assumptions": "The success relies on the adaptive allocation of neural computation resources to balance speed and accuracy, and the framework is inspired by analyzing the exact bitwise marginal decoder.",
+  "figures_summary": "Figure 1 illustrates the Triage decoder structure combining NeuralMP, iteration, and diversification, alongside a comparison of latency and error rates. Figure 2 details the NeuralMP architecture and residual syndrome scaling. Figure 3 compares LER and amortized latency against other decoders.",
+  "paper_structure": "The paper introduces the Triage decoder, details its three components (NeuralMP, iteration, diversification), provides theoretical grounding via analysis of the marginal decoder, and concludes with performance comparisons against state-of-the-art algorithmic decoders.",
+  "why_interesting": "This work directly addresses the computational bottleneck in scaling quantum computation by providing a fast, ML-enhanced decoding scheme for complex quantum codes, which is crucial for any physicist working on fault-tolerant quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.40490_figures/2610.40490_fig1.jpg",
+      "caption": "Figure 1. Neural triage decoding for high-rate quantum LDPC codes. (a) The Triage decoder combines a fast NeuralMP local decoder with iterative decoding strategy. For rare cases when proposed errors cannot resolve all syndrome, it enters diversification stage. The Triage decoder allocate computation resources adaptively to achieve high accuracy, high speed and being versatile simultaneously. (b) NeuralMP performs R internal MP-rounds per evaluation. Then iterative decoding repeatedly applies the network to the residual syndrome for up to K outer iterations. Remaining shots enter diversification stage, which uses prior perturbations, symmetric permutations and syndrome flips to explore...",
+      "page": 2
+    },
+    {
+      "image": "2610.40490_figures/2610.40490_fig2.jpg",
+      "caption": "Figure 2. NeuralMP architecture, failure-aware training and residual-syndrome scaling. (a) The Tanner graph of the DEM connects fault mechanisms (red circles) to detectors (blue squares) through Hvf = 1. Red colored bars represent node states encoding mechanism priors together with positions embedding and blue colored bars represent detector outcomes embedding. (b) Each MP-round first updates fault states using neighbouring detector states, then updates detector states using the updated fault states. Aggregated messages enter residual multilayer perceptrons (MLPs) with layer normalization. After R MP-rounds, a linear readout followed by a sigmoid produces one marginal estimate per...",
+      "page": 3
+    },
+    {
+      "image": "2610.40490_figures/2610.40490_fig3.jpg",
+      "caption": "Figure 3. Decoding accuracy and amortized latency on LP20 and Kasai codes. (a) Logical error rate (LER) per-qubit-per-round ver- sus physical error rate p, using approximately 0.04–40.96 million shots per point for LP20 code and 0.24–20.48 million for Kasai code. Error bars quantify finite-sampling uncertainty using 95% Clopper– Pearson intervals. (b) Amortized decoding latency. We benchmark the latency using NVIDIA H200 GPU. NeuralMP (Triage’s fron- tend) reports the asymptotic frontend cost, whereas Triage shows the composed full-decoder cost at batch size 64, including handoff and diversification. CPU baseline timing uses 1,000–5,000 shots per point. Timing error bars, where shown, are...",
+      "page": 4
+    },
+    {
+      "image": "2610.40490_figures/2610.40490_fig4.jpg",
+      "caption": "Figure 4. Robustness to mismatched error priors. Block-LER ratio relative to correctly specified priors versus nominal mismatch strength σr for (a) LP20 code at p = 0.024, and (b) Kasai code at p = 0.0175. NeuralMP uses four decoding iterations. Each prior realization is evaluated on 9 × 105 shots for LP20 code and 6 × 105 shots for Kasai code, sharing the same noise samples with the matched-prior baseline. Two prior realizations are used per σr, except LP20 at σr = 0.1 and 0.3, which use four. Markers show ge- ometric means of the per-realization LER ratios. Error bars span the per-realization ratio intervals obtained by transforming conditional 95% Clopper–Pearson intervals.",
+      "page": 5
+    }
+  ],
+  "figure": "2610.40490_figures/2610.40490_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

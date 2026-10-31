@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.39600",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Probabilistic imaginary-time evolution via compiled diagonal representations",
+  "authors": "Hengyue Li, Huazhe Lou, Yang Li, Mingyu Huang, Yusheng Yang, Jianyong Sheng, Jian Sun, Shenggang Ying",
+  "abstract": "We introduce a probabilistic imaginary-time evolution scheme based on a compiled approximate diagonal representation of the Hamiltonian. A basis transformation is optimized offline. For a fixed compiled representation, the online circuit structure and gate count per attempt are independent of the imaginary time, and the same representation can be reused across different input states and evolution times. We derive a condition for enhanced success probability. Numerical tests show reduced online cost relative to termwise Pauli-based methods at a common accuracy threshold. We also examine how approximation errors and offline preparation costs affect the overall benefit.",
+  "url": "http://arxiv.org/abs/2610.39600v1",
+  "pdf": "https://arxiv.org/pdf/2610.39600v1",
+  "type": "theory",
+  "summary": "This work presents a novel, resource-efficient probabilistic method for simulating imaginary-time evolution in quantum many-body systems. By compiling an approximate diagonal representation of the Hamiltonian offline, the online circuit depth becomes independent of the evolution time $\beta$. This significantly reduces the computational cost compared to standard Pauli-based simulation techniques.",
+  "main_problem": "The paper addresses the challenge of efficiently implementing imaginary-time evolution (ITE) for state preparation and equilibrium calculations in quantum many-body systems.",
+  "main_result": "A probabilistic imaginary-time evolution scheme (FITE) based on compiled diagonal representations significantly reduces the online computational cost compared to termwise Pauli-based methods while maintaining high accuracy.",
+  "method": "The method involves an offline optimization of a basis transformation to approximate the Hamiltonian's diagonal form, followed by an online probabilistic filtering process for the evolution.",
+  "model_or_system": "The techniques are tested on various quantum many-body models, including the two-site Hubbard model, open XY, and XYZ chains, governed by Pauli-string Hamiltonians.",
+  "key_observables": "Mean infidelity, success probability, online gate count per attempt (G(β)), and cost per accepted output (Cabort).",
+  "important_parameters": "Imaginary time ($\beta$), approximation error, and the structure of the Hamiltonian $H = \\sum c_j P_j$.",
+  "main_assumptions": "The core assumption is that the Hamiltonian can be effectively approximated by a diagonal representation via an optimized basis transformation $W$.",
+  "figures_summary": "Figures compare infidelity and success probability versus $\beta$ against baseline methods, and compare resource costs (CX gates) per attempt versus $\beta$.",
+  "paper_structure": "The paper introduces FITE, details the offline compilation and online filtering process, compares its resource costs and accuracy against established Pauli-based methods (PITE), and validates the approach on Hubbard, XY, and XYZ models.",
+  "why_interesting": "The focus on efficient quantum simulation techniques for strongly correlated models, particularly by optimizing resource scaling with imaginary time, is highly relevant for simulating ground states and thermalization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.39600_figures/2610.39600_fig1.jpg",
+      "caption": "Figure 1. Overview of FITE. (a) Offline compilation starts from θ0, φ0 and minimizes CLHST(UT, V ) for V = WDW †. The decision tests the optimizer stopping criterion; W(θ⋆) is the retained basis circuit. (b) Each filter block Fk comprises a joint unitary Uk and ancilla postselection, with a⟨0|Uk|0⟩a = Kk. All K outcomes must be zero; otherwise the attempt is aborted and the same input is prepared again. The ancilla is reused; reset operations are omitted from the drawing, since a successful readout leaves it in |0⟩. (c) For Zk = Qwk j=1 Zqj, CX gates encode parity onto qwk. Here wk is the number of nonidentity factors; unaffected qubits are omitted. For nonzero ξk, bk = [1 + sgn(ξk)]/2, and...",
+      "page": 3
+    },
+    {
+      "image": "2610.39600_figures/2610.39600_fig2.jpg",
+      "caption": "Figure 2. The circuit estimates the normalized trace of Ukj = ZkW †PjW using 2n + 1 qubits. Registers A and B are prepared in n Bell pairs, and the ancilla readout satisfies Eq. (13). The controlled Ukj can be implemented with un- conditional W and W † together with controlled Pauli gates.",
+      "page": 4
+    },
+    {
+      "image": "2610.39600_figures/2610.39600_fig3.jpg",
+      "caption": "Figure 3. Panels (a,c,e) show mean infidelity with 95% point- wise bands, and panels (b,d,f) show exact Haar-mean success. The rows correspond to Hubbard, XY and XYZ. All base- lines use τ = 0.05, and FITE uses phase-derived coefficients. Success axes have different ranges. Hubbard G2 errors be- low 10−14 are omitted in (a), and overlapping curves indicate equal results. Coefficient sampling noise is excluded.",
+      "page": 5
+    },
+    {
+      "image": "2610.39600_figures/2610.39600_fig4.jpg",
+      "caption": "Figure 4. Online logical CX costs at a common 1% mean-infidelity threshold. Panels (a–c) show CX gates per full attempt, G(β); panels (d–f) show the input-averaged cost per accepted output, Cabort, including early abort and retries of the same input. At each sampled β, each baseline uses the smallest M ∈{1, . . . , 400} satisfying (1 −F) + 1.96 SE ≤0.01; FITE uses one fixed compiled representation. All circuits use one reused ancilla. Counts exclude input preparation, offline compilation and coefficient estimation, and hardware routing. The upper panels share a vertical scale; the lower-panel ranges differ. Lines guide the eye. See Appendix F for accounting details.",
+      "page": 6
+    },
+    {
+      "image": "2610.39600_figures/2610.39600_fig5.jpg",
+      "caption": "Figure 4(a–c) shows the cost per full attempt. FITE uses 12, 58 and 50 CX for Hubbard, XY and XYZ, re- spectively, independent of β: changing the evolution time changes only the filter angles. The P1 and P2 counts in- crease as more steps are needed to meet the accuracy threshold. For both chains, FITE uses fewer CX than all three baselines at β = 1.1 and 5. Hubbard G2 remains at 10 CX, since a single block implements exact ITE.",
+      "page": 6
+    }
+  ],
+  "figure": "2610.39600_figures/2610.39600_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}

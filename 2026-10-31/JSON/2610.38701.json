@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2610.38701",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Sample-Based Quantum Diagonalization for Variable Molecular Geometries",
+  "authors": "Matthieu Fortin-Deschenes, Ibrahim Shehzad",
+  "abstract": "Quantum and hybrid quantum-classical algorithms have the potential to improve the accuracy and scale of quantum chemistry and impact a broad range of applications such as drug discovery and catalysis. In particular, subspace methods such as sample-based quantum diagonalization (SQD) can already tackle classically challenging systems. However, practical algorithms that go beyond the computation of electronic ground and excited states are still scarce. Here, we introduce the variable-geometry sample-based quantum diagonalization (VGSQD) algorithm, which extends SQD to variable molecular geometries by reusing quantum samples from a reference geometry at displaced ones, thus significantly reducing quantum computational cost. Using circuits of up to 124 qubits on ibm-quebec, an IBM Heron r2 quantum processor, we determine the equilibrium geometry and energy of the weakly bound, strongly correlated beryllium dimer, as well as the water molecule. Finally, we extend VGSQD to chemical reactions and compute the minimum energy path and energy barrier of a hydrogen exchange reaction. The results are comparable with state-of-the-art classical methods such as CCSD(T) and DMRG. This work broadens the scope of quantum algorithms for chemistry, from energies to geometry optimization and reaction pathways, both essential for practical applications.",
+  "url": "http://arxiv.org/abs/2610.38701v1",
+  "pdf": "https://arxiv.org/pdf/2610.38701v1",
+  "type": "both",
+  "summary": "This paper presents VGSQD, a novel quantum algorithm that efficiently calculates molecular properties at varying geometries by reusing quantum samples from a known reference structure. By applying this to $\text{Be}_2$, $\text{H}_2\text{O}$, and chemical reactions, the authors demonstrate that quantum computation can achieve accuracy comparable to leading classical methods for geometry optimization and reaction path mapping.",
+  "main_problem": "The primary challenge is extending quantum computational methods to accurately calculate molecular properties across variable geometries, which is crucial for studying chemical reactions and structural relaxation.",
+  "main_result": "The Variable Geometry Sample-Based Quantum Diagonalization (VGSQD) algorithm successfully determined the equilibrium geometry and energy for molecules like $\text{Be}_2$ and $\text{H}_2\text{O}$, and computed reaction barriers comparable to state-of-the-art classical methods.",
+  "method": "The authors introduce VGSQD, an extension of Sample-Based Quantum Diagonalization (SQD) that reuses quantum samples from a reference geometry to drastically reduce the quantum computational cost when calculating properties at slightly displaced molecular geometries.",
+  "model_or_system": "The work focuses on quantum chemistry calculations for molecular systems, specifically testing on the beryllium dimer ($\text{Be}_2$) and water ($\text{H}_2\text{O}$), and extending to reaction pathways like $\text{H}_2 + \text{H}$. The electronic Hamiltonian is treated using the Born-Oppenheimer approximation.",
+  "key_observables": "Equilibrium geometry and energy, Minimum Energy Path (MEP), energy barrier of chemical reactions, and MO overlap matrices.",
+  "important_parameters": "Basis sets include $\text{cc-pVDZ}$ and $\text{cc-pVTZ}$; the method is tested on qubits up to 124 on an IBM Heron r2 processor.",
+  "main_assumptions": "The Born-Oppenheimer approximation is used, and the core assumption for VGSQD is that reusing quantum samples from a reference geometry is justified when the target geometry is close to the reference.",
+  "figures_summary": "Figures illustrate the VGSQD workflow, convergence of energy/forces during geometry optimization (e.g., for $\text{H}_2\text{O}$), and the convergence of the CI-NEB calculation for a hydrogen exchange reaction.",
+  "paper_structure": "The paper introduces VGSQD to address the high cost of quantum calculations at varying geometries. It details the application to molecular structure optimization ($\text{Be}_2$, $\text{H}_2\text{O}$), followed by extending the methodology to map out chemical reaction pathways and energy barriers.",
+  "why_interesting": "This work bridges the gap between quantum simulation algorithms and practical chemical physics problems, showing how quantum resources can be efficiently scaled to map out complex potential energy surfaces essential for understanding chemical dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2610.38701_figures/2610.38701_fig1.jpg",
+      "caption": "Figure 1 Schematic of the VGSQD algorithm. (a) VGSQD workflow: LUCJ circuit sampling on the QPU for the reference molecule, subspace diagonalization on HPC and geometry update. (b) Alignment of the MOs of the distorted molecule to those of the reference (MO overlap matrix before and after alignment). If the alignment and displacement criteria are satisfied, SQD is carried out with the reference bitstrings (red path); otherwise a new reference is defined and re-sampled on the QPU (blue path).",
+      "page": 6
+    },
+    {
+      "image": "2610.38701_figures/2610.38701_fig2.jpg",
+      "caption": "Figure 2 (a, b) Qubit layouts of LUCJ circuits of Be2 with the cc-pVDZ (a) and cc-pVTZ (b) basis sets. Qubits used to encode the occupation numbers of α (β) spin orbitals are shown in red (blue). Ancilla qubits mediating the density–density interactions between opposite spin are shown in green. (c, d) SQD energy convergence vs. iteration of the configuration recovery procedure for Be2 with the cc-pVDZ basis set at bond length of 2.564 Å (c) and cc-pVTZ basis set at bond length of 2.385 Å (d), with comparison to classical methods.",
+      "page": 8
+    },
+    {
+      "image": "2610.38701_figures/2610.38701_fig3.jpg",
+      "caption": "Figure 3 VGSQD geometry optimization of Be2 with the cc-pVDZ basis set. (a, b) SQD energy (a) and gradient norm (b) vs. iteration, with the bond length shown on the right axis. (c) MO misalignment δalign and CI infidelity δCI vs. iteration; the horizontal dashed line indicates ϵalign. The vertical dashed lines in (a–c) mark the re-sampling on the QPU. (d–f) Cross-geometry MO overlap matrix between the reference (2.460 Å) and iteration 4 (2.544 Å) geometries before alignment (d), after alignment (e) and after re-sampling on the QPU (f). (g) Optimized bond length with comparison to classical methods and experiment.",
+      "page": 10
+    },
+    {
+      "image": "2610.38701_figures/2610.38701_fig4.jpg",
+      "caption": "Figure 4 Minimum energy path of the H2 + H →H + H2 reaction obtained with VGSQD and CI-NEB (cc-pVTZ). (a) Energy of the NEB images relative to the reactants vs. normalized path length, with the transition state circled. (b) Projection of the path onto the r(Ha–Hb) and r(Hb–Hc) coordinates.",
+      "page": 11
+    },
+    {
+      "image": "2610.38701_figures/2610.38701_fig5.jpg",
+      "caption": "Figure 5 Gradient convergence for the VGSQD geometry optimization of H2O with (a) the cc-pVDZ basis set and (b) cc-pVTZ basis set.",
+      "page": 18
+    }
+  ],
+  "figure": "2610.38701_figures/2610.38701_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {},
+  "is_weizmann": 0
+}
